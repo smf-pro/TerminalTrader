@@ -205,17 +205,24 @@ def decouper_texte(texte, limite=4500):
     return morceaux
 
 
+SIGNATURE_ERREUR_GOOGLE = "that's an error"
+
+
 def traduire_texte(texte, langue_dest="fr"):
     if not texte:
         return texte
     try:
         traducteur = GoogleTranslator(source="auto", target=langue_dest)
         morceaux_traduits = [traducteur.translate(m) for m in decouper_texte(texte)]
+        resultat = " ".join(morceaux_traduits)
+        if SIGNATURE_ERREUR_GOOGLE in resultat.lower():
+            print(" -> Page d'erreur Google Translate detectee, version originale affichee en attendant")
+            return None
         time.sleep(0.3)
-        return " ".join(morceaux_traduits)
+        return resultat
     except Exception as e:
-        print(f" -> Erreur de traduction, texte original conserve : {e}")
-        return texte
+        print(f" -> Erreur de traduction, version originale affichee en attendant : {e}")
+        return None
 
 
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
