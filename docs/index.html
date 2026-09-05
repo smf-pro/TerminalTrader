@@ -1,1 +1,1669 @@
-FDP
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERIDIAN — Terminal de Trading</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg-0:#0a0d12;
+    --bg-1:#10141b;
+    --bg-2:#161b24;
+    --line:#232a36;
+    --text-hi:#e7ecf3;
+    --text-mid:#8b96a8;
+    --text-low:#525c6d;
+    --green:#26c281;
+    --red:#e5484d;
+    --amber:#e0a542;
+    --blue:#4f8cff;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    background:var(--bg-0);
+    color:var(--text-hi);
+    font-family:var(--sans);
+    height:100%;
+    overflow:hidden;
+  }
+  ::-webkit-scrollbar{width:8px; height:8px;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+
+  .app{
+    display:grid;
+    grid-template-rows:auto auto 1fr;
+    height:100vh;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding:10px 18px;
+    border-bottom:1px solid var(--line);
+    background:var(--bg-1);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand .mark{
+    width:26px; height:26px;
+    background:linear-gradient(135deg, var(--green), var(--blue));
+    border-radius:5px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:700; font-size:13px; color:#04110b;
+  }
+  .brand .name{
+    font-family:var(--mono);
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.5px;
+  }
+  .brand .name span{ color:var(--text-low); font-weight:400; }
+  .status-cluster{ display:flex; align-items:center; gap:22px; font-family:var(--mono); font-size:12px; color:var(--text-mid); }
+  .status-dot{ width:7px; height:7px; border-radius:50%; background:var(--green); display:inline-block; margin-right:6px; box-shadow:0 0 6px var(--green); animation:pulse 2s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  .clock{ color:var(--text-hi); }
+  .search{
+    display:flex; align-items:center; gap:8px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:6px 12px;
+    width:230px;
+    margin-left:auto;
+  }
+  .search input{
+    background:none; border:none; outline:none;
+    color:var(--text-hi); font-family:var(--mono); font-size:12px; width:100%;
+  }
+  .search input::placeholder{ color:var(--text-low); }
+
+  /* ---------- TICKER TAPE ---------- */
+  .tape-wrap{
+    border-bottom:1px solid var(--line);
+    background:var(--bg-1);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:8px 0;
+  }
+  .tape{
+    display:inline-flex;
+    gap:36px;
+    animation:scroll 38s linear infinite;
+    padding-left:100%;
+  }
+  @keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-100%);} }
+  .tape-item{ display:inline-flex; align-items:baseline; gap:8px; font-family:var(--mono); font-size:12.5px; }
+  .tape-item .sym{ color:var(--text-mid); font-weight:600; }
+  .tape-item .px{ color:var(--text-hi); }
+  .tape-item .chg.up{ color:var(--green); }
+  .tape-item .chg.down{ color:var(--red); }
+
+  /* ---------- MAIN GRID ---------- */
+  .main{
+    display:grid;
+    grid-template-columns:260px 1fr 300px;
+    gap:1px;
+    background:var(--line);
+    overflow:hidden;
+  }
+  .panel{
+    background:var(--bg-0);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .panel-head{
+    padding:10px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:11px; letter-spacing:0.4px; color:var(--text-mid); font-weight:600;
+    background:var(--bg-1);
+  }
+  .panel-body{ overflow-y:auto; flex:1; }
+
+  /* ---------- WATCHLIST ---------- */
+  .wl-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    padding:9px 14px;
+    border-bottom:1px solid var(--line);
+    cursor:pointer;
+    transition:background 0.12s;
+  }
+  .wl-row:hover{ background:var(--bg-2); }
+  .wl-row.active{ background:var(--bg-2); border-left:2px solid var(--blue); padding-left:12px; }
+  .wl-sym{ font-family:var(--mono); font-weight:600; font-size:13px; }
+  .wl-name{ font-size:10.5px; color:var(--text-low); margin-top:2px; }
+  .wl-px{ font-family:var(--mono); font-size:13px; text-align:right; }
+  .wl-chg{ font-family:var(--mono); font-size:11px; text-align:right; margin-top:2px; }
+  .up{ color:var(--green); } .down{ color:var(--red); }
+
+  /* ---------- CENTER / CHART ---------- */
+  .chart-toolbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 16px; border-bottom:1px solid var(--line); background:var(--bg-1);
+  }
+  .chart-title{ display:flex; align-items:baseline; gap:12px; }
+  .chart-title .sym{ font-family:var(--mono); font-weight:700; font-size:19px; }
+  .chart-title .px{ font-family:var(--mono); font-size:19px; }
+  .chart-title .chg{ font-family:var(--mono); font-size:13px; }
+  .tf-group{ display:flex; gap:4px; }
+  .tf-btn{
+    background:none; border:1px solid var(--line); color:var(--text-mid);
+    font-family:var(--mono); font-size:11px; padding:5px 10px; border-radius:4px; cursor:pointer;
+  }
+  .tf-btn.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); }
+
+  .chart-area{ flex:1; position:relative; padding:12px; }
+  canvas{ display:block; width:100%; height:100%; }
+
+  .lower-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line);
+    height:230px; border-top:1px solid var(--line);
+  }
+  .book-col{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .book-head{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:6px 12px; font-size:10px; color:var(--text-low); border-bottom:1px solid var(--line); font-family:var(--mono); }
+  .book-body{ overflow-y:auto; flex:1; font-family:var(--mono); font-size:11.5px; }
+  .book-row{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:2.5px 12px; position:relative; }
+  .book-row .bar{ position:absolute; top:0; bottom:0; right:0; opacity:0.14; z-index:0; }
+  .book-row.bid .bar{ background:var(--green); }
+  .book-row.ask .bar{ background:var(--red); }
+  .book-row > span{ position:relative; z-index:1; }
+  .book-row .p.bid{ color:var(--green); }
+  .book-row .p.ask{ color:var(--red); }
+  .book-row .q, .book-row .t{ text-align:right; color:var(--text-mid); }
+
+  .trades-body{ overflow-y:auto; flex:1; font-family:var(--mono); font-size:11.5px; }
+  .trade-row{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:3px 12px; }
+  .trade-row .p.up{ color:var(--green); } .trade-row .p.down{ color:var(--red); }
+  .trade-row .q,.trade-row .tm{ text-align:right; color:var(--text-mid); }
+
+  /* ---------- RIGHT PANEL ---------- */
+  .pl-summary{ padding:14px; border-bottom:1px solid var(--line); }
+  .pl-summary .label{ font-size:10.5px; color:var(--text-low); margin-bottom:4px; }
+  .pl-summary .value{ font-family:var(--mono); font-size:22px; font-weight:600; }
+  .pl-sub{ font-family:var(--mono); font-size:12px; margin-top:4px; }
+
+  .pos-row{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .pos-top{ display:flex; justify-content:space-between; align-items:baseline; }
+  .pos-sym{ font-family:var(--mono); font-weight:600; font-size:12.5px; }
+  .pos-pl{ font-family:var(--mono); font-size:12.5px; }
+  .pos-sub{ display:flex; justify-content:space-between; font-size:10.5px; color:var(--text-low); margin-top:3px; font-family:var(--mono); }
+
+  .news-row{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .news-time{ font-family:var(--mono); font-size:10px; color:var(--text-low); }
+  .news-text{ font-size:12px; margin-top:3px; line-height:1.4; color:var(--text-mid); }
+  .news-tag{ display:inline-block; font-family:var(--mono); font-size:9px; padding:1px 6px; border-radius:3px; margin-right:6px; }
+  .news-tag.high{ background:rgba(229,72,77,0.15); color:var(--red); }
+  .news-tag.med{ background:rgba(224,165,66,0.15); color:var(--amber); }
+  .news-tag.low{ background:rgba(38,194,129,0.15); color:var(--green); }
+
+  .footer-note{
+    font-family:var(--mono); font-size:10px; color:var(--text-low);
+    padding:6px 16px; border-top:1px solid var(--line); background:var(--bg-1);
+    display:flex; justify-content:space-between;
+  }
+
+  /* ---------- NAVIGATION PRINCIPALE ---------- */
+  nav.main-nav{
+    display:flex; align-items:center; gap:2px;
+  }
+  nav.main-nav .nav-btn{
+    background:none; border:none; color:var(--text-mid);
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.5px;
+    padding:7px 13px; cursor:pointer; border-radius:5px;
+  }
+  nav.main-nav .nav-btn:hover{ color:var(--text-hi); background:var(--bg-2); }
+  nav.main-nav .nav-btn.active{ color:var(--text-hi); background:var(--bg-2); }
+  nav.main-nav .nav-btn .dot{ display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--red); margin-left:6px; vertical-align:middle; }
+
+  .page{ display:none; height:100%; overflow:hidden; }
+  .page.active{ display:flex; flex-direction:column; height:100%; }
+
+  /* ---------- PAGE NEWS ---------- */
+  .news-page-wrap{ display:grid; grid-template-columns:200px 1fr 260px; gap:1px; background:var(--line); flex:1; overflow:hidden; }
+  .news-4col{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:var(--line); flex:1; overflow:hidden; }
+  .news-src-col{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .news-filters{ background:var(--bg-0); overflow-y:auto; }
+  .filter-item{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 14px; font-family:var(--mono); font-size:12px; color:var(--text-mid);
+    cursor:pointer; border-bottom:1px solid var(--line);
+  }
+  .filter-item:hover{ color:var(--text-hi); }
+  .filter-item.active{ color:var(--text-hi); background:var(--bg-2); border-left:2px solid var(--blue); padding-left:12px; }
+  .filter-item .count{ font-size:10px; color:var(--text-low); }
+
+  .news-feed{ background:var(--bg-0); overflow-y:auto; }
+  .news-card{
+    padding:14px 18px; border-bottom:1px solid var(--line);
+  }
+  .news-card:hover{ background:var(--bg-1); }
+  .news-card .meta{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .news-card .headline{ font-size:14px; font-weight:600; line-height:1.4; margin-bottom:5px; cursor:pointer; }
+  .news-card .headline:hover{ color:var(--blue); }
+  .news-card.is-open .headline{ color:var(--blue); }
+  .news-card .snippet{
+    font-size:12px; color:var(--text-mid); line-height:1.5; max-width:70ch;
+    max-height:0; opacity:0; overflow:hidden; margin-top:0;
+    transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+  }
+  .news-card .snippet.is-visible{ max-height:400px; opacity:1; margin-top:2px; }
+  .news-card .sym-chip{
+    font-family:var(--mono); font-size:10px; color:var(--blue); background:rgba(79,140,255,0.12);
+    padding:2px 7px; border-radius:3px;
+  }
+
+  .news-side{ background:var(--bg-0); overflow-y:auto; }
+  .trending-row{ display:flex; justify-content:space-between; padding:9px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:12px; }
+  .trending-row .rank{ color:var(--text-low); margin-right:8px; }
+
+  /* ---------- PAGES GÉNÉRIQUES (calendrier / data éco / taux / technique) ---------- */
+  .page-inner{ flex:1; overflow-y:auto; padding:18px 22px; }
+  .page-heading{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; }
+  .page-heading h1{ font-size:16px; font-weight:600; }
+  .page-heading .sub{ font-size:11.5px; color:var(--text-low); font-family:var(--mono); }
+
+  /* --- calendrier --- */
+  .cal-table{ width:100%; border-collapse:collapse; }
+  .cal-table thead th{
+    text-align:left; font-size:10px; letter-spacing:0.4px; color:var(--text-low);
+    font-weight:600; padding:8px 12px; border-bottom:1px solid var(--line); font-family:var(--mono);
+  }
+  .cal-table tbody td{ padding:10px 12px; border-bottom:1px solid var(--line); font-size:12.5px; vertical-align:middle; }
+  .cal-table tbody tr:hover{ background:var(--bg-1); }
+  .cal-time{ font-family:var(--mono); color:var(--text-mid); white-space:nowrap; }
+  .cal-country{ font-family:var(--mono); font-size:11px; color:var(--text-mid); background:var(--bg-2); padding:2px 7px; border-radius:3px; }
+  .impact-dots{ display:inline-flex; gap:3px; }
+  .impact-dots span{ width:6px; height:6px; border-radius:50%; background:var(--line); }
+  .impact-dots.low span:nth-child(1){ background:var(--amber); }
+  .impact-dots.med span:nth-child(1), .impact-dots.med span:nth-child(2){ background:var(--amber); }
+  .impact-dots.high span{ background:var(--red); }
+  .cal-num{ font-family:var(--mono); text-align:right; color:var(--text-mid); }
+  .cal-num.actual-beat{ color:var(--green); }
+  .cal-num.actual-miss{ color:var(--red); }
+
+  /* --- data économique --- */
+  .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .eco-card{ background:var(--bg-0); padding:14px; }
+  .eco-card .top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+  .eco-card .name{ font-size:11.5px; color:var(--text-mid); }
+  .eco-card .country{ font-family:var(--mono); font-size:9.5px; color:var(--text-low); margin-top:2px; }
+  .eco-card .value{ font-family:var(--mono); font-size:22px; font-weight:600; }
+  .eco-card .delta{ font-family:var(--mono); font-size:11px; margin-top:2px; }
+  .eco-card canvas{ width:100%; height:36px; margin-top:8px; display:block; }
+
+  /* --- taux implicite --- */
+  .taux-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:1px; background:var(--line); }
+  .taux-col{ background:var(--bg-0); overflow:hidden; }
+  .curve-area{ padding:14px; height:280px; }
+  .prob-table{ width:100%; border-collapse:collapse; }
+  .prob-table thead th{ text-align:left; font-size:10px; color:var(--text-low); padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); }
+  .prob-table tbody td{ padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
+  .prob-bar-wrap{ display:flex; align-items:center; gap:8px; }
+  .prob-bar{ flex:1; height:6px; background:var(--bg-2); border-radius:3px; overflow:hidden; display:flex; }
+  .prob-bar .seg-cut{ background:var(--green); height:100%; }
+  .prob-bar .seg-hold{ background:var(--text-low); height:100%; }
+  .prob-bar .seg-hike{ background:var(--red); height:100%; }
+
+  /* --- analyse technique --- */
+  .ta-grid{ display:grid; grid-template-columns:280px 1fr 260px; gap:1px; background:var(--line); flex:1; overflow:hidden; }
+  .ta-col{ background:var(--bg-0); overflow-y:auto; }
+  .gauge-wrap{ padding:20px 16px; text-align:center; border-bottom:1px solid var(--line); }
+  .gauge-label{ font-family:var(--mono); font-size:13px; font-weight:600; margin-top:8px; letter-spacing:0.4px; }
+  .ind-row{ display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
+  .ind-row .iname{ color:var(--text-mid); }
+  .ind-row .ival{ font-family:var(--mono); }
+  .ind-signal{ font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:3px; font-weight:600; }
+  .ind-signal.buy{ background:rgba(38,194,129,0.15); color:var(--green); }
+  .ind-signal.sell{ background:rgba(229,72,77,0.15); color:var(--red); }
+  .ind-signal.neutral{ background:rgba(139,150,168,0.15); color:var(--text-mid); }
+  .ta-chart-area{ padding:14px; height:100%; }
+  .sr-row{ display:flex; justify-content:space-between; padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:12px; }
+
+  /* --- calendrier compact (colonne Accueil) --- */
+  .cal-row-compact{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .cal-row-compact .top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+  .cal-row-compact .name{ font-size:12px; color:var(--text-hi); line-height:1.3; }
+  .cal-row-compact .nums{ display:flex; gap:12px; font-family:var(--mono); font-size:10.5px; color:var(--text-mid); margin-top:4px; }
+  .cal-row-compact .nums b{ color:var(--text-hi); font-weight:500; }
+  .cal-row-compact.done{ opacity:0.55; }
+
+  /* --- calendrier : 2/3 calendrier + 1/3 CESI --- */
+  .cal-layout{ display:grid; grid-template-columns:2fr 1fr; gap:1px; background:var(--line); flex:1; overflow:hidden; }
+  .cal-layout > .page-inner{ background:var(--bg-0); overflow-y:auto; }
+  .cesi-col{ display:flex; flex-direction:column; gap:1px; background:var(--line); overflow:hidden; }
+  .cesi-panel{ background:var(--bg-0); flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+  .cesi-val{ font-family:var(--mono); font-weight:600; font-size:12px; }
+  .cesi-val.up{ color:var(--green); } .cesi-val.down{ color:var(--red); }
+  .cesi-chart-area{ flex:1; padding:10px 14px; min-height:0; }
+  .btn-archive{
+    display:block;
+    margin:16px auto;
+    padding:10px 22px;
+    background:var(--bg-1);
+    color:var(--text-hi);
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .btn-archive:hover{ background:var(--bg-2); border-color:var(--blue); }
+  .btn-archive:disabled{ opacity:.5; cursor:default; }
+  .lang-switch{
+    display:flex; border:1px solid var(--line); border-radius:5px; overflow:hidden;
+  }
+  .lang-btn{
+    font-family:var(--mono); font-size:11px; letter-spacing:.04em; padding:5px 10px;
+    background:var(--bg-1); color:var(--text-mid); border:none; cursor:pointer;
+  }
+  .lang-btn + .lang-btn{ border-left:1px solid var(--line); }
+  .lang-btn:hover{ color:var(--text-hi); }
+  .lang-btn.active{ background:var(--blue); color:#fff; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <div class="mark">M</div>
+      <div class="name">MERIDIAN <span>/ terminal</span></div>
+    </div>
+    <nav class="main-nav" id="mainNav">
+      <button class="nav-btn active" data-page="accueil">ACCUEIL</button>
+      <button class="nav-btn" data-page="news">NEWS<span class="dot" id="newsDot"></span></button>
+      <button class="nav-btn" data-page="calendrier">CALENDRIER</button>
+      <button class="nav-btn" data-page="dataeco">DATA ÉCO</button>
+      <button class="nav-btn" data-page="taux">TAUX IMPLICITE</button>
+      <button class="nav-btn" data-page="technique">ANALYSE TECH.</button>
+    </nav>
+    <div class="search">
+      <span style="color:var(--text-low); font-family:var(--mono); font-size:12px;">⌕</span>
+      <input type="text" placeholder="Rechercher un symbole…" id="searchInput">
+    </div>
+    <div class="status-cluster">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="langBtnFr" onclick="basculerLangueAffichage('fr')">FR</button>
+        <button class="lang-btn" id="langBtnEn" onclick="basculerLangueAffichage('en')">EN</button>
+      </div>
+      <div><span class="status-dot"></span></div>
+      <div class="clock" id="clock">--:--:--</div>
+    </div>
+  </header>
+
+  <div class="tape-wrap">
+    <div class="tape" id="tape"></div>
+  </div>
+
+  <div class="page active" id="page-accueil">
+  <div class="main">
+
+    <!-- COLONNE 1 : CALENDRIER ÉCONOMIQUE -->
+    <div class="panel">
+      <div class="panel-head"><span>CALENDRIER ÉCONOMIQUE</span><span id="calDateHome" style="font-weight:400;"></span></div>
+      <div class="panel-body" id="calListHome"></div>
+    </div>
+
+    <!-- COLONNE 2 : TOUTES LES NEWS -->
+    <div class="panel">
+      <div class="panel-head"><span>TOUTES LES ACTUALITÉS</span><span id="newsAllCount">0</span></div>
+      <div class="panel-body" id="newsAllHome"></div>
+    </div>
+
+    <!-- COLONNE 3 : NEWS IMPACT FORT -->
+    <div class="panel">
+      <div class="panel-head"><span>IMPACT FORT</span><span id="newsHighCount">0</span></div>
+      <div class="panel-body" id="newsHighHome"></div>
+    </div>
+
+  </div>
+  </div><!-- /page-accueil -->
+
+  <div class="page" id="page-news">
+    <div class="news-4col" id="news4col">
+      <div class="news-src-col">
+        <div class="panel-head"><span>INVESTINGLIVE</span><span id="cnt-il">0</span></div>
+        <div class="panel-body" id="colInvestingLive"></div>
+      </div>
+      <div class="news-src-col">
+        <div class="panel-head"><span>BANQUES CENTRALES</span><span id="cnt-cb">0</span></div>
+        <div class="panel-body" id="colCentralBanks"></div>
+      </div>
+      <div class="news-src-col">
+        <div class="panel-head"><span>FOREXFACTORY</span><span id="cnt-ff">0</span></div>
+        <div class="panel-body" id="colForexFactory"></div>
+      </div>
+      <div class="news-src-col">
+        <div class="panel-head"><span>FOREXFACTORY — IMPACT FORT</span><span id="cnt-ffh">0</span></div>
+        <div class="panel-body" id="colForexFactoryHigh"></div>
+      </div>
+    </div>
+    <button class="btn-archive" id="btnChargerPlusAnciens" onclick="chargerJourArchivePlusAncien()">
+      Charger les articles plus anciens
+    </button>
+  </div><!-- /page-news -->
+
+  <!-- ===================== CALENDRIER ÉCONOMIQUE ===================== -->
+  <div class="page" id="page-calendrier">
+    <div class="cal-layout">
+      <div class="page-inner">
+        <div class="page-heading">
+          <h1>Calendrier économique</h1>
+          <span class="sub" id="calDate"></span>
+        </div>
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th>Heure</th><th>Pays</th><th>Événement</th><th>Impact</th>
+              <th style="text-align:right">Précédent</th><th style="text-align:right">Prévision</th><th style="text-align:right">Réel</th>
+            </tr>
+          </thead>
+          <tbody id="calBody"></tbody>
+        </table>
+      </div>
+      <div class="cesi-col">
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — USD</span><span class="cesi-val" id="cesiVal-USD"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-USD"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — EUR</span><span class="cesi-val" id="cesiVal-EUR"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-EUR"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — GBP</span><span class="cesi-val" id="cesiVal-GBP"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-GBP"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== DATA ÉCONOMIQUE ===================== -->
+  <div class="page" id="page-dataeco">
+    <div class="page-inner">
+      <div class="page-heading">
+        <h1>Données économiques</h1>
+        <span class="sub">Indicateurs macroéconomiques clés</span>
+      </div>
+      <div class="eco-grid" id="ecoGrid"></div>
+    </div>
+  </div>
+
+  <!-- ===================== TAUX IMPLICITE ===================== -->
+  <div class="page" id="page-taux">
+    <div class="taux-grid" style="flex:1;">
+      <div class="taux-col">
+        <div class="panel-head"><span>COURBE DES TAUX</span></div>
+        <div class="curve-area"><canvas id="curveCanvas"></canvas></div>
+        <div class="panel-head"><span>PROBABILITÉS IMPLICITES — PROCHAINES RÉUNIONS</span></div>
+        <table class="prob-table">
+          <thead><tr><th>Banque centrale</th><th>Réunion</th><th style="width:40%">Probabilités (baisse / statu quo / hausse)</th></tr></thead>
+          <tbody id="probBody"></tbody>
+        </table>
+      </div>
+      <div class="taux-col">
+        <div class="panel-head"><span>TAUX PAR ÉCHÉANCE</span></div>
+        <div id="rateTable"></div>
+        <div class="panel-head" style="margin-top:1px;"><span>SPREADS CLÉS</span></div>
+        <div id="spreadTable"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ANALYSE TECHNIQUE ===================== -->
+  <div class="page" id="page-technique">
+    <div class="ta-grid">
+      <div class="ta-col">
+        <div class="gauge-wrap">
+          <svg width="160" height="90" viewBox="0 0 160 90" id="gaugeSvg"></svg>
+          <div class="gauge-label" id="gaugeLabel">—</div>
+        </div>
+        <div class="panel-head"><span>OSCILLATEURS</span></div>
+        <div id="oscList"></div>
+        <div class="panel-head"><span>MOYENNES MOBILES</span></div>
+        <div id="maList"></div>
+      </div>
+      <div class="ta-col" style="overflow:hidden;">
+        <div class="panel-head">
+          <span id="taSymTitle">ANALYSE — NVA</span>
+        </div>
+        <div class="ta-chart-area"><canvas id="taCanvas"></canvas></div>
+      </div>
+      <div class="ta-col">
+        <div class="panel-head"><span>SUPPORTS &amp; RÉSISTANCES</span></div>
+        <div id="srList"></div>
+        <div class="panel-head"><span>RÉSUMÉ DES SIGNAUX</span></div>
+        <div style="padding:12px 14px; font-size:12px; color:var(--text-mid); line-height:1.6;" id="taSummary"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>Données simulées à des fins de démonstration — non des cotations réelles</span>
+    <span id="latency">latence: 12ms</span>
+  </div>
+
+</div>
+
+<script>
+/* ===================== DONNÉES SIMULÉES ===================== */
+const SYMBOLS = [
+  {sym:'NVA', name:'Novara Semiconductors', price:412.30, vol:0.018},
+  {sym:'HLX', name:'Helix Biotech',        price:88.15,  vol:0.024},
+  {sym:'ORN', name:'Orion Énergie',        price:56.42,  vol:0.014},
+  {sym:'QTM', name:'Quantum Dynamics',     price:1284.60,vol:0.03},
+  {sym:'FLR', name:'Fleuron Capital',      price:23.75,  vol:0.02},
+  {sym:'VRT', name:'Vertex Logistics',     price:145.90, vol:0.012},
+  {sym:'AZR', name:'Azurite Mining',       price:9.84,   vol:0.035},
+  {sym:'PLM', name:'Palmier Retail',       price:67.20,  vol:0.016},
+];
+let active = SYMBOLS[0];
+let candles = [];
+let lastClose = active.price;
+
+function seedCandles(){
+  candles = [];
+  let p = active.price * 0.97;
+  const now = Date.now();
+  for(let i=60;i>=0;i--){
+    const o = p;
+    const drift = (Math.random()-0.5) * active.price * active.vol;
+    const c = Math.max(0.5, o + drift);
+    const h = Math.max(o,c) + Math.random()*active.price*active.vol*0.5;
+    const l = Math.min(o,c) - Math.random()*active.price*active.vol*0.5;
+    candles.push({t: now - i*5*60000, o, h, l, c, v: Math.round(Math.random()*50000+5000)});
+    p = c;
+  }
+  lastClose = candles[candles.length-1].c;
+  active.price = lastClose;
+}
+seedCandles();
+
+/* ===================== HORODATAGE DE LA DERNIÈRE INFO ===================== */
+/* Affiche la date/heure du dernier article réellement paru sur le site
+   (newsLog[0], puisque newsLog est toujours trié du plus récent au plus
+   ancien), plutôt qu'une horloge en temps réel qui n'a pas de sens tant
+   qu'aucune nouvelle actualité n'est arrivée. */
+function mettreAJourHorlogeInfo(){
+  const clockEl = document.getElementById('clock');
+  if(!clockEl) return;
+  if(!newsLog.length){
+    clockEl.textContent = '--:--:--';
+    return;
+  }
+  const derniere = newsLog[0];
+  clockEl.textContent = formaterDateCarte(derniere.time) + ' · ' + derniere.time.toLocaleTimeString('fr-FR', {hour12:false});
+}
+
+/* ===================== TAPE DÉFILANTE ===================== */
+function renderTape(){
+  const el = document.getElementById('tape');
+  const build = () => SYMBOLS.map(s=>{
+    const chg = ((s.price - (s._prev||s.price))/(s._prev||s.price))*100;
+    const dir = chg>=0 ? 'up':'down';
+    return `<span class="tape-item"><span class="sym">${s.sym}</span><span class="px">$${s.price.toFixed(2)}</span><span class="chg ${dir}">${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(2)}%</span></span>`;
+  }).join('');
+  el.innerHTML = build() + build();
+}
+
+/* ===================== WATCHLIST ===================== */
+function renderWatchlist(){
+  const el = document.getElementById('watchlist');
+  if(!el) return;
+  document.getElementById('wlCount').textContent = SYMBOLS.length;
+  el.innerHTML = SYMBOLS.map(s=>{
+    const chg = ((s.price - (s._prev||s.price))/(s._prev||s.price))*100;
+    const dir = chg>=0?'up':'down';
+    return `<div class="wl-row ${s.sym===active.sym?'active':''}" data-sym="${s.sym}">
+      <div>
+        <div class="wl-sym">${s.sym}</div>
+        <div class="wl-name">${s.name}</div>
+      </div>
+      <div>
+        <div class="wl-px">$${s.price.toFixed(2)}</div>
+        <div class="wl-chg ${dir}">${chg>=0?'+':''}${chg.toFixed(2)}%</div>
+      </div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.wl-row').forEach(row=>{
+    row.addEventListener('click', ()=>{
+      active = SYMBOLS.find(s=>s.sym===row.dataset.sym);
+      seedCandles();
+      renderAll();
+    });
+  });
+}
+
+function renderChartHeader(){
+  const symEl = document.getElementById('chartSym');
+  if(!symEl) return;
+  symEl.textContent = active.sym + '  ·  ' + active.name;
+  document.getElementById('chartPx').textContent = '$' + active.price.toFixed(2);
+  const first = candles[0].o;
+  const chg = ((active.price-first)/first)*100;
+  const chgEl = document.getElementById('chartChg');
+  chgEl.textContent = (chg>=0?'+':'') + chg.toFixed(2) + '%  (24h)';
+  chgEl.className = 'chg ' + (chg>=0?'up':'down');
+}
+
+/* ===================== CANVAS CHANDELIER ===================== */
+function resizeCanvas(){
+  const canvas = document.getElementById('chartCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * devicePixelRatio;
+  canvas.height = rect.height * devicePixelRatio;
+  canvas.style.width = rect.width+'px';
+  canvas.style.height = rect.height+'px';
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  drawChart();
+}
+window.addEventListener('resize', resizeCanvas);
+
+function drawChart(){
+  const canvas = document.getElementById('chartCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width / devicePixelRatio;
+  const h = canvas.height / devicePixelRatio;
+  ctx.clearRect(0,0,w,h);
+
+  const highs = candles.map(c=>c.h);
+  const lows = candles.map(c=>c.l);
+  const max = Math.max(...highs), min = Math.min(...lows);
+  const pad = (max-min)*0.08 || 1;
+  const yMax = max+pad, yMin = min-pad;
+
+  const gridColor = '#1a2029';
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 1;
+  ctx.font = '10px IBM Plex Mono';
+  ctx.fillStyle = '#525c6d';
+  for(let i=0;i<=4;i++){
+    const y = (h*0.82) * (i/4) + 6;
+    ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+    const val = yMax - (yMax-yMin)*(i/4);
+    ctx.fillText('$'+val.toFixed(2), 4, y-3);
+  }
+
+  const n = candles.length;
+  const cw = w / n;
+  const bodyW = Math.max(2, cw*0.55);
+  const chartH = h*0.82;
+
+  const yFor = v => 6 + chartH * (1 - (v-yMin)/(yMax-yMin));
+
+  candles.forEach((c,i)=>{
+    const x = i*cw + cw/2;
+    const up = c.c >= c.o;
+    ctx.strokeStyle = up ? '#26c281' : '#e5484d';
+    ctx.fillStyle = up ? '#26c281' : '#e5484d';
+    ctx.beginPath();
+    ctx.moveTo(x, yFor(c.h));
+    ctx.lineTo(x, yFor(c.l));
+    ctx.stroke();
+    const yO = yFor(c.o), yC = yFor(c.c);
+    const top = Math.min(yO,yC), hgt = Math.max(1, Math.abs(yC-yO));
+    ctx.fillRect(x-bodyW/2, top, bodyW, hgt);
+  });
+
+  // volume
+  const maxV = Math.max(...candles.map(c=>c.v));
+  const volTop = h*0.86, volH = h*0.14;
+  candles.forEach((c,i)=>{
+    const x = i*cw + cw/2;
+    const up = c.c >= c.o;
+    ctx.fillStyle = up ? 'rgba(38,194,129,0.35)' : 'rgba(229,72,77,0.35)';
+    const bh = (c.v/maxV) * volH;
+    ctx.fillRect(x-bodyW/2, volTop+volH-bh, bodyW, bh);
+  });
+}
+
+/* ===================== CARNET D'ORDRES ===================== */
+function renderBook(){
+  const bookBody = document.getElementById('bookBody');
+  if(!bookBody) return;
+  const p = active.price;
+  let rows = '';
+  let asks = [];
+  let cum = 0;
+  for(let i=8;i>=1;i--){
+    const price = p + i*p*0.0006;
+    const qty = Math.round(Math.random()*400+20);
+    cum += qty;
+    asks.push({price, qty, cum});
+  }
+  const maxCum = Math.max(...asks.map(a=>a.cum), 1);
+  asks.forEach(a=>{
+    const pct = (a.cum/maxCum)*100;
+    rows += `<div class="book-row ask"><span class="bar" style="width:${pct}%"></span><span class="p ask">${a.price.toFixed(2)}</span><span class="q">${a.qty}</span><span class="t">${a.cum}</span></div>`;
+  });
+  rows += `<div style="text-align:center; padding:6px; font-family:var(--mono); font-size:12px; color:var(--text-hi); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">$${p.toFixed(2)}</div>`;
+  let bids = []; cum = 0;
+  for(let i=1;i<=8;i++){
+    const price = p - i*p*0.0006;
+    const qty = Math.round(Math.random()*400+20);
+    cum += qty;
+    bids.push({price, qty, cum});
+  }
+  const maxCumB = Math.max(...bids.map(a=>a.cum), 1);
+  bids.forEach(b=>{
+    const pct = (b.cum/maxCumB)*100;
+    rows += `<div class="book-row bid"><span class="bar" style="width:${pct}%"></span><span class="p bid">${b.price.toFixed(2)}</span><span class="q">${b.qty}</span><span class="t">${b.cum}</span></div>`;
+  });
+  bookBody.innerHTML = rows;
+}
+
+/* ===================== TRANSACTIONS ===================== */
+let tradeLog = [];
+function pushTrade(){
+  const p = active.price + (Math.random()-0.5)*active.price*0.001;
+  const up = Math.random()>0.5;
+  tradeLog.unshift({p, q: Math.round(Math.random()*200+5), up, t: new Date()});
+  if(tradeLog.length>40) tradeLog.pop();
+  renderTrades();
+}
+function renderTrades(){
+  const el = document.getElementById('tradesBody');
+  if(!el) return;
+  el.innerHTML = tradeLog.map(tr=>`<div class="trade-row">
+    <span class="p ${tr.up?'up':'down'}">${tr.p.toFixed(2)}</span>
+    <span class="q">${tr.q}</span>
+    <span class="tm">${tr.t.toLocaleTimeString('fr-FR',{hour12:false})}</span>
+  </div>`).join('');
+}
+
+/* ===================== PORTEFEUILLE ===================== */
+const holdings = [
+  {sym:'NVA', qty:40, avg:398.10},
+  {sym:'HLX', qty:120, avg:81.40},
+  {sym:'QTM', qty:6, avg:1190.00},
+  {sym:'AZR', qty:900, avg:10.55},
+];
+function renderPortfolio(){
+  const posEl = document.getElementById('positions');
+  if(!posEl) return;
+  let total=0, cost=0;
+  const rows = holdings.map(h=>{
+    const s = SYMBOLS.find(x=>x.sym===h.sym);
+    const val = s.price*h.qty;
+    const c = h.avg*h.qty;
+    total+=val; cost+=c;
+    const pl = val-c;
+    const plPct = (pl/c)*100;
+    return `<div class="pos-row">
+      <div class="pos-top">
+        <span class="pos-sym">${h.sym}</span>
+        <span class="pos-pl ${pl>=0?'up':'down'}">${pl>=0?'+':''}$${pl.toFixed(2)}</span>
+      </div>
+      <div class="pos-sub">
+        <span>${h.qty} @ $${h.avg.toFixed(2)}</span>
+        <span class="${plPct>=0?'up':'down'}">${plPct>=0?'+':''}${plPct.toFixed(2)}%</span>
+      </div>
+    </div>`;
+  }).join('');
+  posEl.innerHTML = rows;
+  document.getElementById('portfolioValue').textContent = '$'+total.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const pl = total-cost;
+  const plPct = (pl/cost)*100;
+  const chgEl = document.getElementById('portfolioChg');
+  chgEl.textContent = `${pl>=0?'+':''}$${pl.toFixed(2)} (${plPct>=0?'+':''}${plPct.toFixed(2)}%) aujourd'hui`;
+  chgEl.className = 'pl-sub ' + (pl>=0?'up':'down');
+}
+
+/* ===================== ACTUALITÉS ===================== */
+const investingLiveTemplates = [
+  {tag:'high', text:s=>`${s.name} annonce des résultats trimestriels supérieurs aux attentes.`},
+  {tag:'med',  text:s=>`Les analystes révisent leur objectif de cours sur ${s.sym}.`},
+  {tag:'low',  text:s=>`Volume d'échanges inhabituel détecté sur ${s.sym}.`},
+  {tag:'high', text:s=>`Rumeur de fusion-acquisition autour de ${s.name}.`},
+  {tag:'med',  text:s=>`${s.sym} franchit un seuil technique clé sur le graphique journalier.`},
+  {tag:'low',  text:s=>`Mise à jour réglementaire pouvant affecter ${s.name}.`},
+];
+const centralBankTemplates = [
+  {tag:'high', text:()=>"La Fed maintient ses taux inchangés, ton jugé accommodant sur la suite."},
+  {tag:'high', text:()=>"La BCE laisse entrevoir une possible baisse de taux à la prochaine réunion."},
+  {tag:'med',  text:()=>"La Banque d'Angleterre révise ses prévisions d'inflation à la hausse."},
+  {tag:'med',  text:()=>"La Banque du Japon maintient sa politique monétaire ultra-accommodante."},
+  {tag:'low',  text:()=>"Un membre du comité de la Fed appelle à la prudence sur le rythme des baisses."},
+  {tag:'high', text:()=>"La Banque nationale suisse intervient pour freiner l'appréciation du franc."},
+  {tag:'med',  text:()=>"La Banque populaire de Chine injecte des liquidités dans le système bancaire."},
+  {tag:'high', text:()=>"La Fed publie le compte-rendu de sa dernière réunion de politique monétaire."},
+  {tag:'low',  text:()=>"La Banque du Canada juge l'économie 'résiliente' face aux taux actuels."},
+];
+const forexFactoryTemplates = [
+  {tag:'high', text:()=>"EUR/USD chute après la publication de l'IPC américain."},
+  {tag:'med',  text:()=>"GBP/JPY teste un niveau de résistance technique clé."},
+  {tag:'high', text:()=>"USD/JPY franchit un seuil psychologique suite aux commentaires de la BoJ."},
+  {tag:'low',  text:()=>"AUD/USD stable en l'absence de catalyseur macro majeur."},
+  {tag:'med',  text:()=>"Le dollar canadien réagit à la variation des prix du pétrole."},
+  {tag:'high', text:()=>"L'or atteint un nouveau plus haut face à l'incertitude macroéconomique."},
+  {tag:'med',  text:()=>"NZD/USD sous pression après des données d'emploi décevantes."},
+  {tag:'high', text:()=>"Le dollar index bondit après un discours inattendu de la Fed."},
+  {tag:'low',  text:()=>"EUR/GBP évolue dans un range étroit avant les données de la semaine."},
+];
+const newsSnippets = [
+  "Les intervenants du marché ajustent leurs positions à l'approche de la clôture.",
+  "Le volume d'échanges reste supérieur à la moyenne des dix dernières séances.",
+  "Des mouvements de couverture ont été observés sur les positions à court terme.",
+  "Le consensus des analystes reste partagé sur la trajectoire à venir.",
+  "Un rebond technique a été noté après plusieurs séances de baisse.",
+  "La volatilité implicite grimpe alors que l'échéance approche.",
+];
+let newsLog = [];
+
+function genNewsItem(source){
+  const snippet = newsSnippets[Math.floor(Math.random()*newsSnippets.length)];
+  if(source==='investinglive'){
+    const s = SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)];
+    const tpl = investingLiveTemplates[Math.floor(Math.random()*investingLiveTemplates.length)];
+    return {time:new Date(), tag:tpl.tag, sym:s.sym, source, text:tpl.text(s), snippet};
+  }
+  if(source==='centralbanks'){
+    const tpl = centralBankTemplates[Math.floor(Math.random()*centralBankTemplates.length)];
+    return {time:new Date(), tag:tpl.tag, sym:null, source, text:tpl.text(), snippet};
+  }
+  const tpl = forexFactoryTemplates[Math.floor(Math.random()*forexFactoryTemplates.length)];
+  return {time:new Date(), tag:tpl.tag, sym:null, source, text:tpl.text(), snippet};
+}
+
+function pushNews(){
+  const sources = ['investinglive','centralbanks','forexfactory'];
+  const source = sources[Math.floor(Math.random()*sources.length)];
+  newsLog.unshift(genNewsItem(source));
+  if(newsLog.length>120) newsLog.pop();
+  renderNewsHomeColumns();
+  renderNewsColumns();
+}
+
+const MOIS_ABREGES_FR = ['Janv','Févr','Mars','Avr','Mai','Juin','Juil','Août','Sept','Oct','Nov','Déc'];
+
+function formaterDateCarte(date){
+  const jour = String(date.getDate()).padStart(2, '0');
+  return jour + ' ' + MOIS_ABREGES_FR[date.getMonth()];
+}
+
+let langueAffichage = localStorage.getItem('meridian_langue') || 'fr';
+
+function texteAffiche(n){
+  if(n.textFr === undefined) return n.text || ''; // fallback pour les news simulees
+  return langueAffichage === 'en' ? (n.textEn || n.textFr || '') : (n.textFr || n.textEn || '');
+}
+
+function snippetAffiche(n){
+  if(n.snippetFr === undefined) return n.snippet || ''; // fallback pour les news simulees
+  return langueAffichage === 'en' ? (n.snippetEn || n.snippetFr || '') : (n.snippetFr || n.snippetEn || '');
+}
+
+function basculerLangueAffichage(langue){
+  langueAffichage = langue;
+  localStorage.setItem('meridian_langue', langue);
+  document.getElementById('langBtnFr').classList.toggle('active', langue === 'fr');
+  document.getElementById('langBtnEn').classList.toggle('active', langue === 'en');
+  renderNewsHomeColumns();
+  renderNewsColumns();
+}
+
+function newsCardHtml(n){
+  const idCarte = 'nc-' + (compteurCarteNews++);
+  const dateStr = formaterDateCarte(n.time);
+  const heureStr = n.time.toLocaleTimeString('fr-FR', {hour12:false});
+  return `<div class="news-card" id="${idCarte}">
+    <div class="meta">
+      <span class="news-tag ${n.tag}">${n.tag==='high'?'FORT':n.tag==='med'?'MOYEN':'FAIBLE'}</span>
+      ${n.sym ? `<span class="sym-chip">${n.sym}</span>` : ''}
+      <span class="news-time">${dateStr} · ${heureStr}</span>
+    </div>
+    <div class="headline" onclick="basculerNewsCard('${idCarte}')">${texteAffiche(n)}</div>
+    <div class="snippet">${snippetAffiche(n)}</div>
+  </div>`;
+}
+
+let compteurCarteNews = 0;
+let minuteriesNewsCard = {};
+
+function fermerNewsCard(idCarte){
+  const el = document.getElementById(idCarte);
+  if(!el) return;
+  const snippet = el.querySelector('.snippet');
+  if(snippet) snippet.classList.remove('is-visible');
+  el.classList.remove('is-open');
+  el.onmouseleave = null;
+  clearTimeout(minuteriesNewsCard[idCarte]);
+  delete minuteriesNewsCard[idCarte];
+}
+
+function basculerNewsCard(idCarte){
+  const el = document.getElementById(idCarte);
+  if(!el) return;
+  const snippet = el.querySelector('.snippet');
+  if(!snippet) return;
+
+  const estOuvert = snippet.classList.contains('is-visible');
+  if(estOuvert){
+    fermerNewsCard(idCarte);
+    return;
+  }
+
+  snippet.classList.add('is-visible');
+  el.classList.add('is-open');
+  clearTimeout(minuteriesNewsCard[idCarte]);
+  minuteriesNewsCard[idCarte] = setTimeout(() => fermerNewsCard(idCarte), 15000);
+  el.onmouseleave = () => fermerNewsCard(idCarte);
+}
+
+/* ===================== DONNÉES RÉELLES (data.json généré par les scripts Python) =====================
+   ff_news       -> source "forexfactory" (impact high/medium/low fourni par le scraper)
+   cb_articles   -> source "centralbanks" (pas de niveau d'impact calculé pour l'instant, "med" par défaut)
+   La colonne "INVESTINGLIVE" reste vide pour le moment : aucun script ne collecte encore
+   ce contenu-là (uniquement les banques centrales via investinglive.com/CentralBanks/). */
+async function chargerDonneesReelles(){
+  try {
+    const reponse = await fetch('data.json');
+    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
+    const donnees = await reponse.json();
+
+    const mapImpact = {high:'high', medium:'med', low:'low'};
+
+    const ffItems = (donnees.ff_news || []).map(n => ({
+      time: new Date(n.date_publication),
+      tag: mapImpact[n.impact] || 'med',
+      sym: null,
+      source: 'forexfactory',
+      textFr: n.titre_fr || n.titre || '',
+      textEn: n.titre || n.titre_fr || '',
+      snippetFr: n.extrait_fr || n.extrait || '',
+      snippetEn: n.extrait || n.extrait_fr || '',
+      url: n.url,
+    }));
+
+    const cbItems = (donnees.cb_articles || []).map(a => ({
+      time: new Date(a.date_publication),
+      tag: 'med',
+      sym: null,
+      source: 'centralbanks',
+      textFr: a.titre_fr || a.titre || '',
+      textEn: a.titre || a.titre_fr || '',
+      snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
+      snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
+      url: a.url,
+    }));
+
+    newsLog = [...ffItems, ...cbItems].sort((a, b) => b.time - a.time);
+
+    renderNewsHomeColumns();
+    renderNewsColumns();
+    mettreAJourHorlogeInfo();
+  } catch (e) {
+    console.error('Erreur de chargement de data.json :', e);
+  }
+}
+
+/* ===================== ARCHIVE — CHARGEMENT DES ARTICLES PLUS ANCIENS =====================
+   docs/archive/index.json liste les dates disponibles (AAAA-MM-JJ), du plus
+   recent au plus ancien. Chaque clic sur le bouton charge UN jour de plus,
+   fusionne ses articles dans newsLog (sans doublons, via l'URL), et
+   re-rend les colonnes. Le bouton se desactive quand il n'y a plus rien
+   de plus ancien a charger. */
+let datesArchiveDisponibles = null; // null = pas encore recuperees
+let indexProchaineDateArchive = 0;  // curseur dans datesArchiveDisponibles
+
+async function recupererIndexArchive(){
+  if(datesArchiveDisponibles !== null) return datesArchiveDisponibles;
+  try {
+    const reponse = await fetch('archive/index.json');
+    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
+    datesArchiveDisponibles = await reponse.json();
+  } catch (e) {
+    console.error('Erreur de chargement de archive/index.json :', e);
+    datesArchiveDisponibles = [];
+  }
+  return datesArchiveDisponibles;
+}
+
+function fusionnerArticlesSansDoublon(nouveauxItems){
+  const urlsExistantes = new Set(newsLog.filter(n => n.url).map(n => n.url));
+  const itemsAAjouter = nouveauxItems.filter(n => !n.url || !urlsExistantes.has(n.url));
+  newsLog = [...newsLog, ...itemsAAjouter].sort((a, b) => b.time - a.time);
+}
+
+function itemsDepuisJourArchive(donneesJour){
+  const mapImpact = {high:'high', medium:'med', low:'low'};
+
+  const ffItems = (donneesJour.ff_news || []).map(n => ({
+    time: new Date(n.date_publication),
+    tag: mapImpact[n.impact] || 'med',
+    sym: null,
+    source: 'forexfactory',
+    textFr: n.titre_fr || n.titre || '',
+    textEn: n.titre || n.titre_fr || '',
+    snippetFr: n.extrait_fr || n.extrait || '',
+    snippetEn: n.extrait || n.extrait_fr || '',
+    url: n.url,
+  }));
+
+  const cbItems = (donneesJour.cb_articles || []).map(a => ({
+    time: new Date(a.date_publication),
+    tag: 'med',
+    sym: null,
+    source: 'centralbanks',
+    textFr: a.titre_fr || a.titre || '',
+    textEn: a.titre || a.titre_fr || '',
+    snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
+    snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
+    url: a.url,
+  }));
+
+  return [...ffItems, ...cbItems];
+}
+
+async function chargerJourArchivePlusAncien(){
+  const bouton = document.getElementById('btnChargerPlusAnciens');
+  const dates = await recupererIndexArchive();
+
+  if(indexProchaineDateArchive >= dates.length){
+    if(bouton){
+      bouton.textContent = 'Tout l\u2019historique est charg\u00e9';
+      bouton.disabled = true;
+    }
+    return;
+  }
+
+  const dateStr = dates[indexProchaineDateArchive];
+  indexProchaineDateArchive++;
+
+  if(bouton){
+    bouton.disabled = true;
+    bouton.textContent = 'Chargement de ' + dateStr + '…';
+  }
+
+  try {
+    const reponse = await fetch('archive/' + dateStr + '.json');
+    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
+    const donneesJour = await reponse.json();
+    fusionnerArticlesSansDoublon(itemsDepuisJourArchive(donneesJour));
+    renderNewsHomeColumns();
+    renderNewsColumns();
+    mettreAJourHorlogeInfo();
+  } catch (e) {
+    console.error('Erreur de chargement de archive/' + dateStr + '.json :', e);
+  }
+
+  if(bouton){
+    bouton.disabled = false;
+    bouton.textContent = 'Charger les articles plus anciens';
+    if(indexProchaineDateArchive >= dates.length){
+      bouton.textContent = 'Tout l\u2019historique est charg\u00e9';
+      bouton.disabled = true;
+    }
+  }
+}
+
+function renderNewsHomeColumns(){
+  const allEl = document.getElementById('newsAllHome');
+  const highEl = document.getElementById('newsHighHome');
+  if(!allEl || !highEl) return;
+  const highNews = newsLog.filter(n=>n.tag==='high');
+  document.getElementById('newsAllCount').textContent = newsLog.length;
+  document.getElementById('newsHighCount').textContent = highNews.length;
+  allEl.innerHTML = newsLog.length
+    ? newsLog.map(newsCardHtml).join('')
+    : `<div style="padding:20px; color:var(--text-low); font-size:12px;">En attente des premières actualités…</div>`;
+  highEl.innerHTML = highNews.length
+    ? highNews.map(newsCardHtml).join('')
+    : `<div style="padding:20px; color:var(--text-low); font-size:12px;">Aucune actualité à fort impact pour le moment.</div>`;
+}
+
+/* ===================== PAGE NEWS — 4 COLONNES PAR SOURCE ===================== */
+function renderNewsColumns(){
+  const ilEl = document.getElementById('colInvestingLive');
+  if(!ilEl) return;
+  const il = newsLog.filter(n=>n.source==='investinglive');
+  const cb = newsLog.filter(n=>n.source==='centralbanks');
+  const ff = newsLog.filter(n=>n.source==='forexfactory');
+  const ffHigh = ff.filter(n=>n.tag==='high');
+
+  document.getElementById('cnt-il').textContent = il.length;
+  document.getElementById('cnt-cb').textContent = cb.length;
+  document.getElementById('cnt-ff').textContent = ff.length;
+  document.getElementById('cnt-ffh').textContent = ffHigh.length;
+
+  const empty = msg => `<div style="padding:20px; color:var(--text-low); font-size:12px;">${msg}</div>`;
+
+  ilEl.innerHTML = il.length ? il.map(newsCardHtml).join('') : empty('En attente des actualités InvestingLive…');
+  document.getElementById('colCentralBanks').innerHTML = cb.length ? cb.map(newsCardHtml).join('') : empty('Aucune actualité de banque centrale pour le moment.');
+  document.getElementById('colForexFactory').innerHTML = ff.length ? ff.map(newsCardHtml).join('') : empty('En attente des actualités ForexFactory…');
+  document.getElementById('colForexFactoryHigh').innerHTML = ffHigh.length ? ffHigh.map(newsCardHtml).join('') : empty('Aucune actualité ForexFactory à fort impact pour le moment.');
+}
+
+/* ===================== BOUCLE TEMPS RÉEL ===================== */
+function tickPrices(){
+  SYMBOLS.forEach(s=>{
+    s._prev = s.price;
+    const drift = (Math.random()-0.5) * s.price * s.vol * 0.15;
+    s.price = Math.max(0.5, s.price + drift);
+  });
+  // met à jour la dernière bougie du symbole actif
+  const last = candles[candles.length-1];
+  last.c = active.price;
+  last.h = Math.max(last.h, active.price);
+  last.l = Math.min(last.l, active.price);
+}
+
+function renderAll(){
+  renderTape();
+  renderWatchlist();
+  renderChartHeader();
+  drawChart();
+  renderBook();
+  renderPortfolio();
+  renderCalendarHome();
+  renderNewsHomeColumns();
+}
+
+const tfGroupEl = document.getElementById('tfGroup');
+if(tfGroupEl) tfGroupEl.addEventListener('click', e=>{
+  if(e.target.classList.contains('tf-btn')){
+    document.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    seedCandles();
+    renderAll();
+  }
+});
+
+document.getElementById('searchInput').addEventListener('input', e=>{
+  const q = e.target.value.trim().toUpperCase();
+  if(!q) return;
+  const found = SYMBOLS.find(s=>s.sym.startsWith(q));
+  if(found){ active = found; seedCandles(); renderAll(); }
+});
+
+// ===================== CALENDRIER ÉCONOMIQUE =====================
+const calTemplate = [
+  [8,0,  'DE','Balance commerciale (Md€)','med', 18.2, 17.5, 'val'],
+  [8,30, 'FR','Indice des prix à la production m/m (%)','low', 0.3, 0.2, 'pct'],
+  [9,0,  'EU','Ventes au détail m/m (%)','med', -0.1, 0.2, 'pct'],
+  [10,0, 'GB','Taux de chômage (%)','med', 4.2, 4.2, 'pct'],
+  [12,30,'US','Indice des prix à la consommation (IPC) m/m (%)','high', 0.2, 0.3, 'pct'],
+  [12,30,'US',"Demandes initiales d'allocations chômage (k)",'med', 224, 220, 'val'],
+  [14,0, 'US','Discours du gouverneur de la Fed','high', null, null, 'none'],
+  [14,30,'US','Variation des stocks de pétrole brut (M barils)','low', -1.2, -0.8, 'val'],
+  [15,0, 'US','Indice ISM services','med', 52.1, 52.5, 'val'],
+  [16,0, 'EU','Confiance des consommateurs','low', -14.0, -13.5, 'val'],
+  [18,0, 'US','Décision de taux directeur — Fed (%)','high', 5.50, 5.50, 'pct'],
+  [20,0, 'JP','PIB t/t (%)','med', 0.5, 0.4, 'pct'],
+];
+const flagFor = c => ({US:'🇺🇸',EU:'🇪🇺',GB:'🇬🇧',JP:'🇯🇵',CN:'🇨🇳',DE:'🇩🇪',FR:'🇫🇷'})[c] || c;
+
+function buildCalEvents(){
+  const now = new Date();
+  const nowMinutes = now.getHours()*60 + now.getMinutes();
+  return calTemplate.map(([h,m,country,name,impact,prev,fcst,type])=>{
+    const evMinutes = h*60+m;
+    const passed = evMinutes < nowMinutes;
+    let actualDisp = '—', actualClass = '';
+    let prevDisp = prev===null ? '—' : (type==='pct' ? prev.toFixed(1)+'%' : prev);
+    let fcstDisp = fcst===null ? '—' : (type==='pct' ? fcst.toFixed(1)+'%' : fcst);
+    if(passed && type!=='none'){
+      const actual = fcst + (Math.random()-0.5) * Math.abs(fcst||1) * 0.3;
+      actualDisp = type==='pct' ? actual.toFixed(1)+'%' : Math.round(actual*10)/10;
+      actualClass = actual >= fcst ? 'actual-beat' : 'actual-miss';
+    } else if(passed){
+      actualDisp = 'Terminé';
+    }
+    return {h,m,country,name,impact,prevDisp,fcstDisp,actualDisp,actualClass,passed,
+      timeStr: String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')};
+  });
+}
+
+function renderCalendar(){
+  const dateEl = document.getElementById('calDate');
+  const bodyEl = document.getElementById('calBody');
+  if(!bodyEl) return;
+  dateEl.textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  const events = buildCalEvents();
+  bodyEl.innerHTML = events.map(ev=>{
+    const dots = '<span></span><span></span><span></span>';
+    return `<tr>
+      <td class="cal-time">${ev.timeStr}</td>
+      <td><span class="cal-country">${flagFor(ev.country)} ${ev.country}</span></td>
+      <td>${ev.name}</td>
+      <td><span class="impact-dots ${ev.impact}">${dots}</span></td>
+      <td class="cal-num">${ev.prevDisp}</td>
+      <td class="cal-num">${ev.fcstDisp}</td>
+      <td class="cal-num ${ev.actualClass}">${ev.actualDisp}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderCalendarHome(){
+  const el = document.getElementById('calListHome');
+  if(!el) return;
+  document.getElementById('calDateHome').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'short', day:'numeric', month:'short'});
+  const events = buildCalEvents();
+  el.innerHTML = events.map(ev=>`
+    <div class="cal-row-compact ${ev.passed?'done':''}">
+      <div class="top">
+        <span class="cal-time">${ev.timeStr}</span>
+        <span class="cal-country">${flagFor(ev.country)} ${ev.country}</span>
+        <span class="impact-dots ${ev.impact}"><span></span><span></span><span></span></span>
+      </div>
+      <div class="name">${ev.name}</div>
+      <div class="nums">
+        <span>Préc. <b>${ev.prevDisp}</b></span>
+        <span>Prév. <b>${ev.fcstDisp}</b></span>
+        <span class="${ev.actualClass}">Réel <b>${ev.actualDisp}</b></span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ===================== CESI — Citi Economic Surprise Index ===================== */
+const cesiSeed = {USD: 32, EUR: -18, GBP: 6};
+const cesiSeries = {};
+function genCesiSeries(base){
+  let v = base;
+  const arr = [];
+  for(let i=0;i<50;i++){
+    v += (Math.random()-0.5)*9;
+    v = Math.max(-100, Math.min(100, v));
+    arr.push(v);
+  }
+  return arr;
+}
+Object.keys(cesiSeed).forEach(ccy=>{ cesiSeries[ccy] = genCesiSeries(cesiSeed[ccy]); });
+
+function drawCesiChart(canvas, data){
+  if(!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const w = rect.width, h = rect.height;
+  if(w<=0||h<=0) return;
+  canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
+  canvas.style.width = w+'px'; canvas.style.height = h+'px';
+  const c = canvas.getContext('2d');
+  c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  c.clearRect(0,0,w,h);
+
+  const min = -100, max = 100;
+  const yFor = v => h - ((v-min)/(max-min))*h;
+  const xFor = i => (i/(data.length-1))*w;
+
+  // ligne zéro
+  c.strokeStyle = '#232a36'; c.setLineDash([3,3]); c.lineWidth=1;
+  c.beginPath(); c.moveTo(0, yFor(0)); c.lineTo(w, yFor(0)); c.stroke();
+  c.setLineDash([]);
+  c.fillStyle = '#525c6d'; c.font = '9px IBM Plex Mono';
+  c.fillText('0', 2, yFor(0)-2);
+
+  // zone colorée par segment (vert au-dessus de 0, rouge en-dessous)
+  for(let i=0;i<data.length-1;i++){
+    const v1=data[i], v2=data[i+1];
+    const avg = (v1+v2)/2;
+    c.strokeStyle = avg>=0 ? '#26c281' : '#e5484d';
+    c.lineWidth = 1.8;
+    c.beginPath();
+    c.moveTo(xFor(i), yFor(v1));
+    c.lineTo(xFor(i+1), yFor(v2));
+    c.stroke();
+  }
+}
+
+function renderCesi(){
+  const anyEl = document.getElementById('cesiCanvas-USD');
+  if(!anyEl) return;
+  Object.keys(cesiSeries).forEach(ccy=>{
+    // dérive légère de la série pour simuler une mise à jour en direct
+    const arr = cesiSeries[ccy];
+    arr.shift();
+    let last = arr[arr.length-1] + (Math.random()-0.5)*9;
+    last = Math.max(-100, Math.min(100, last));
+    arr.push(last);
+
+    const valEl = document.getElementById('cesiVal-'+ccy);
+    valEl.textContent = (last>=0?'+':'') + last.toFixed(1);
+    valEl.className = 'cesi-val ' + (last>=0?'up':'down');
+
+    drawCesiChart(document.getElementById('cesiCanvas-'+ccy), arr);
+  });
+}
+
+// ===================== DATA ÉCONOMIQUE =====================
+const ecoIndicators = [
+  {name:'PIB — croissance annuelle', country:'US', value:2.8, unit:'%'},
+  {name:'Inflation (IPC annuel)', country:'US', value:3.1, unit:'%'},
+  {name:'Taux de chômage', country:'US', value:4.1, unit:'%'},
+  {name:'Taux directeur', country:'US', value:5.50, unit:'%'},
+  {name:'PMI manufacturier', country:'EU', value:48.9, unit:''},
+  {name:'Inflation (IPC annuel)', country:'EU', value:2.4, unit:'%'},
+  {name:'Taux de chômage', country:'EU', value:6.5, unit:'%'},
+  {name:'Taux directeur', country:'EU', value:3.75, unit:'%'},
+  {name:'PIB — croissance annuelle', country:'GB', value:1.1, unit:'%'},
+  {name:'Inflation (IPC annuel)', country:'JP', value:2.8, unit:'%'},
+  {name:'PMI services', country:'CN', value:50.7, unit:''},
+  {name:'Production industrielle', country:'DE', value:-1.8, unit:'%'},
+];
+function genTrend(base){
+  let v = base;
+  const arr = [];
+  for(let i=0;i<16;i++){ v += (Math.random()-0.5)*Math.abs(base||1)*0.06; arr.push(v); }
+  return arr;
+}
+function renderEcoData(){
+  const grid = document.getElementById('ecoGrid');
+  grid.innerHTML = ecoIndicators.map((e,i)=>{
+    const trend = genTrend(e.value);
+    const delta = trend[trend.length-1]-trend[0];
+    const up = delta>=0;
+    return `<div class="eco-card">
+      <div class="top">
+        <div><div class="name">${e.name}</div><div class="country">${flagFor(e.country)} ${e.country}</div></div>
+      </div>
+      <div class="value">${e.value.toFixed(e.unit==='%'?1:1)}${e.unit}</div>
+      <div class="delta ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(delta).toFixed(2)} sur la période</div>
+      <canvas id="eco-spark-${i}"></canvas>
+    </div>`;
+  }).join('');
+  ecoIndicators.forEach((e,i)=>{
+    const trend = genTrend(e.value);
+    drawSparkline(document.getElementById('eco-spark-'+i), trend);
+  });
+}
+function drawSparkline(canvas, data){
+  if(!canvas) return;
+  const rect = canvas.getBoundingClientRect();
+  const w = rect.width || 190, h = 36;
+  canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
+  canvas.style.width=w+'px'; canvas.style.height=h+'px';
+  const c = canvas.getContext('2d');
+  c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const min = Math.min(...data), max = Math.max(...data);
+  const up = data[data.length-1] >= data[0];
+  c.strokeStyle = up ? '#26c281' : '#e5484d';
+  c.lineWidth = 1.5;
+  c.beginPath();
+  data.forEach((v,i)=>{
+    const x = (i/(data.length-1))*w;
+    const y = h - ((v-min)/((max-min)||1))*h;
+    i===0 ? c.moveTo(x,y) : c.lineTo(x,y);
+  });
+  c.stroke();
+}
+
+// ===================== TAUX IMPLICITE =====================
+const maturities = ['1M','3M','6M','1Y','2Y','5Y','10Y','30Y'];
+const usYields = [5.45,5.40,5.20,4.85,4.30,4.10,4.25,4.40];
+const euYields = [3.70,3.65,3.55,3.30,2.95,2.70,2.65,2.80];
+const meetings = [
+  {bank:'Réserve fédérale (Fed)', meeting:'18 sept. 2026', cut:62, hold:33, hike:5},
+  {bank:'Réserve fédérale (Fed)', meeting:'30 oct. 2026', cut:48, hold:40, hike:12},
+  {bank:'BCE', meeting:'11 sept. 2026', cut:55, hold:40, hike:5},
+  {bank:'BCE', meeting:'23 oct. 2026', cut:35, hold:55, hike:10},
+  {bank:"Banque d'Angleterre", meeting:'19 sept. 2026', cut:40, hold:50, hike:10},
+  {bank:'Banque du Japon', meeting:'25 sept. 2026', cut:5, hold:60, hike:35},
+];
+function drawYieldCurve(){
+  const canvas = document.getElementById('curveCanvas');
+  if(!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
+  canvas.style.width=rect.width+'px'; canvas.style.height=rect.height+'px';
+  const ctx2 = canvas.getContext('2d');
+  ctx2.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const w = rect.width, h = rect.height;
+  ctx2.clearRect(0,0,w,h);
+  const all = usYields.concat(euYields);
+  const min = Math.min(...all)-0.3, max = Math.max(...all)+0.3;
+  const padL = 38, padB = 22, padT = 10;
+  const plotW = w-padL-10, plotH = h-padB-padT;
+  const xFor = i => padL + (i/(maturities.length-1))*plotW;
+  const yFor = v => padT + plotH*(1-(v-min)/(max-min));
+  ctx2.strokeStyle = '#1a2029'; ctx2.fillStyle = '#525c6d'; ctx2.font = '10px IBM Plex Mono'; ctx2.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const val = min + (max-min)*(i/4);
+    const y = yFor(val);
+    ctx2.beginPath(); ctx2.moveTo(padL,y); ctx2.lineTo(w,y); ctx2.stroke();
+    ctx2.fillText(val.toFixed(1)+'%', 2, y+3);
+  }
+  maturities.forEach((m,i)=> ctx2.fillText(m, xFor(i)-8, h-6));
+  function drawLine(arr, color){
+    ctx2.strokeStyle = color; ctx2.lineWidth = 2; ctx2.beginPath();
+    arr.forEach((v,i)=>{ const x=xFor(i), y=yFor(v); i===0?ctx2.moveTo(x,y):ctx2.lineTo(x,y); });
+    ctx2.stroke();
+    arr.forEach((v,i)=>{ ctx2.beginPath(); ctx2.arc(xFor(i),yFor(v),2.5,0,7); ctx2.fillStyle=color; ctx2.fill(); });
+  }
+  drawLine(usYields, '#4f8cff');
+  drawLine(euYields, '#e0a542');
+  ctx2.fillStyle='#4f8cff'; ctx2.fillRect(padL, 4, 8, 3); ctx2.fillStyle='#8b96a8'; ctx2.fillText('US', padL+12, 10);
+  ctx2.fillStyle='#e0a542'; ctx2.fillRect(padL+45, 4, 8, 3); ctx2.fillStyle='#8b96a8'; ctx2.fillText('EU', padL+57, 10);
+}
+function renderTaux(){
+  document.getElementById('probBody').innerHTML = meetings.map(m=>`
+    <tr>
+      <td>${m.bank}</td>
+      <td class="cal-time">${m.meeting}</td>
+      <td>
+        <div class="prob-bar-wrap">
+          <div class="prob-bar">
+            <div class="seg-cut" style="width:${m.cut}%"></div>
+            <div class="seg-hold" style="width:${m.hold}%"></div>
+            <div class="seg-hike" style="width:${m.hike}%"></div>
+          </div>
+          <span style="font-family:var(--mono); font-size:10.5px; color:var(--text-mid); white-space:nowrap;">
+            ${m.cut}% / ${m.hold}% / ${m.hike}%
+          </span>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+
+  document.getElementById('rateTable').innerHTML = `
+    <div class="book-head" style="grid-template-columns:1fr 1fr 1fr;"><span>ÉCHÉANCE</span><span style="text-align:right">US</span><span style="text-align:right">EU</span></div>
+    ${maturities.map((m,i)=>`
+      <div class="ind-row" style="grid-template-columns:1fr 1fr 1fr; display:grid;">
+        <span class="iname">${m}</span>
+        <span class="ival" style="text-align:right">${usYields[i].toFixed(2)}%</span>
+        <span class="ival" style="text-align:right">${euYields[i].toFixed(2)}%</span>
+      </div>
+    `).join('')}
+  `;
+
+  const spread10y2yUS = (usYields[6]-usYields[3])*100;
+  const spread10y2yEU = (euYields[6]-euYields[3])*100;
+  const spreadUSEU10y = (usYields[6]-euYields[6])*100;
+  const spreads = [
+    {label:'10 ans – 2 ans (US)', val: spread10y2yUS},
+    {label:'10 ans – 2 ans (EU)', val: spread10y2yEU},
+    {label:'US – EU (10 ans)', val: spreadUSEU10y},
+  ];
+  document.getElementById('spreadTable').innerHTML = spreads.map(s=>`
+    <div class="ind-row"><span class="iname">${s.label}</span><span class="ival ${s.val>=0?'up':'down'}">${s.val>=0?'+':''}${s.val.toFixed(0)} pb</span></div>
+  `).join('');
+}
+
+// ===================== ANALYSE TECHNIQUE =====================
+function computeTA(){
+  const closes = candles.map(c=>c.c);
+  const price = closes[closes.length-1];
+  const ma = n => {
+    const slice = closes.slice(-n);
+    return slice.reduce((a,b)=>a+b,0)/slice.length;
+  };
+  const ma20 = ma(20), ma50 = ma(Math.min(50,closes.length)), ma100 = ma(Math.min(closes.length,closes.length)), ma200 = ma(closes.length);
+  const rsi = 30 + Math.random()*40 + (price>ma20 ? 10:-10);
+  const rsiClamped = Math.max(5, Math.min(95, rsi));
+  const macdVal = (ma20-ma50);
+  const stoch = Math.max(5, Math.min(95, 50 + (price-ma20)/ (ma20*0.01)));
+  const willR = -Math.max(5, Math.min(95, 100-stoch));
+  const cci = (price-ma20)/(ma20*0.004);
+
+  const oscillators = [
+    {name:'RSI (14)', val: rsiClamped.toFixed(1), signal: rsiClamped>65?'sell':rsiClamped<35?'buy':'neutral'},
+    {name:'Stochastique %K', val: stoch.toFixed(1), signal: stoch>75?'sell':stoch<25?'buy':'neutral'},
+    {name:'MACD (12,26)', val: macdVal.toFixed(2), signal: macdVal>0?'buy':'sell'},
+    {name:'Williams %R', val: willR.toFixed(1), signal: willR<-80?'buy':willR>-20?'sell':'neutral'},
+    {name:'CCI (20)', val: cci.toFixed(1), signal: cci>100?'sell':cci<-100?'buy':'neutral'},
+  ];
+  const mas = [
+    {name:'MM 20', val: ma20.toFixed(2), signal: price>ma20?'buy':'sell'},
+    {name:'MM 50', val: ma50.toFixed(2), signal: price>ma50?'buy':'sell'},
+    {name:'MM 100', val: ma100.toFixed(2), signal: price>ma100?'buy':'sell'},
+    {name:'MM 200', val: ma200.toFixed(2), signal: price>ma200?'buy':'sell'},
+  ];
+  const all = oscillators.concat(mas);
+  const buyCt = all.filter(a=>a.signal==='buy').length;
+  const sellCt = all.filter(a=>a.signal==='sell').length;
+  const score = buyCt - sellCt; // -9..9
+  return {price, oscillators, mas, buyCt, sellCt, neutralCt: all.length-buyCt-sellCt, score, ma20};
+}
+
+function drawGauge(score){
+  const svg = document.getElementById('gaugeSvg');
+  const norm = Math.max(-9, Math.min(9, score));
+  const angle = 180 - ((norm+9)/18)*180; // 180deg(gauche/vente) -> 0deg(droite/achat)
+  const rad = angle*Math.PI/180;
+  const cx=80, cy=80, r=62;
+  const nx = cx + r*Math.cos(rad);
+  const ny = cy - r*Math.sin(rad);
+  let color = '#8b96a8';
+  if(norm>=4) color='#26c281'; else if(norm<=-4) color='#e5484d'; else if(norm>0) color='#7fd3a8'; else if(norm<0) color='#e59a9c';
+  svg.innerHTML = `
+    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="#232a36" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="round"
+      stroke-dasharray="195" stroke-dashoffset="${195 - 195*((norm+9)/18)}"/>
+    <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="#e7ecf3" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="4" fill="#e7ecf3"/>
+  `;
+}
+
+function drawTAChart(ta){
+  const canvas = document.getElementById('taCanvas');
+  if(!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
+  canvas.style.width=rect.width+'px'; canvas.style.height=rect.height+'px';
+  const c = canvas.getContext('2d');
+  c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const w = rect.width, h = rect.height;
+  c.clearRect(0,0,w,h);
+  const highs = candles.map(k=>k.h), lows = candles.map(k=>k.l);
+  const max = Math.max(...highs), min = Math.min(...lows);
+  const pad = (max-min)*0.08 || 1;
+  const yMax = max+pad, yMin = min-pad;
+  const n = candles.length, cw = w/n, bodyW = Math.max(2,cw*0.55);
+  const yFor = v => 6 + (h-16) * (1 - (v-yMin)/(yMax-yMin));
+
+  c.strokeStyle = '#1a2029'; c.lineWidth=1; c.font='10px IBM Plex Mono'; c.fillStyle='#525c6d';
+  for(let i=0;i<=4;i++){ const y=(h-16)*(i/4)+6; c.beginPath(); c.moveTo(0,y); c.lineTo(w,y); c.stroke(); }
+
+  candles.forEach((k,i)=>{
+    const x = i*cw+cw/2;
+    const up = k.c>=k.o;
+    c.strokeStyle = up?'#26c281':'#e5484d'; c.fillStyle = up?'#26c281':'#e5484d';
+    c.beginPath(); c.moveTo(x,yFor(k.h)); c.lineTo(x,yFor(k.l)); c.stroke();
+    const yO=yFor(k.o), yC=yFor(k.c);
+    c.fillRect(x-bodyW/2, Math.min(yO,yC), bodyW, Math.max(1,Math.abs(yC-yO)));
+  });
+
+  // overlay MM20
+  c.strokeStyle = '#4f8cff'; c.lineWidth=1.6; c.beginPath();
+  candles.forEach((k,i)=>{
+    if(i<19) return;
+    const slice = candles.slice(i-19,i+1).map(k=>k.c);
+    const avg = slice.reduce((a,b)=>a+b,0)/slice.length;
+    const x=i*cw+cw/2, y=yFor(avg);
+    (i===19) ? c.moveTo(x,y) : c.lineTo(x,y);
+  });
+  c.stroke();
+}
+
+function renderTechnique(){
+  const ta = computeTA();
+  document.getElementById('taSymTitle').textContent = 'ANALYSE — ' + active.sym;
+  drawGauge(ta.score);
+  let label = 'NEUTRE';
+  if(ta.score>=4) label='ACHAT FORT'; else if(ta.score>0) label='ACHAT'; else if(ta.score<=-4) label='VENTE FORTE'; else if(ta.score<0) label='VENTE';
+  document.getElementById('gaugeLabel').textContent = label;
+
+  document.getElementById('oscList').innerHTML = ta.oscillators.map(o=>`
+    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':o.signal==='sell'?'VENTE':'NEUTRE'}</span></span></div>
+  `).join('');
+  document.getElementById('maList').innerHTML = ta.mas.map(o=>`
+    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">$${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':'VENTE'}</span></span></div>
+  `).join('');
+
+  const p = ta.price;
+  const sr = [
+    {label:'Résistance 2', val: p*1.045},
+    {label:'Résistance 1', val: p*1.018},
+    {label:'Prix actuel', val: p, current:true},
+    {label:'Support 1', val: p*0.982},
+    {label:'Support 2', val: p*0.955},
+  ];
+  document.getElementById('srList').innerHTML = sr.map(s=>`
+    <div class="sr-row" style="${s.current?'color:var(--text-hi); background:var(--bg-2);':'color:var(--text-mid);'}">
+      <span>${s.label}</span><span>$${s.val.toFixed(2)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('taSummary').innerHTML =
+    `Sur ${ta.oscillators.length+ta.mas.length} indicateurs suivis : <span class="up">${ta.buyCt} à l'achat</span>, ` +
+    `<span class="down">${ta.sellCt} à la vente</span>, ${ta.neutralCt} neutres. ` +
+    `Le signal global ressort <strong>${label.toLowerCase()}</strong> pour ${active.sym}.`;
+
+  drawTAChart(ta);
+}
+
+
+document.getElementById('mainNav').addEventListener('click', e=>{
+  const btn = e.target.closest('.nav-btn');
+  if(!btn) return;
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+btn.dataset.page).classList.add('active');
+  switch(btn.dataset.page){
+    case 'news': document.getElementById('newsDot').style.display='none'; renderNewsColumns(); break;
+    case 'accueil': resizeCanvas(); break;
+    case 'calendrier': renderCalendar(); renderCesi(); break;
+    case 'dataeco': renderEcoData(); break;
+    case 'taux': renderTaux(); drawYieldCurve(); break;
+    case 'technique': renderTechnique(); break;
+  }
+});
+
+// init
+renderAll();
+renderTrades();
+resizeCanvas();
+// Charge les vraies actualités (ForexFactory + Banques Centrales) depuis data.json
+document.getElementById('langBtnFr').classList.toggle('active', langueAffichage === 'fr');
+document.getElementById('langBtnEn').classList.toggle('active', langueAffichage === 'en');
+chargerDonneesReelles();
+
+setInterval(()=>{ tickPrices(); renderTape(); renderWatchlist(); renderChartHeader(); drawChart(); document.getElementById('portfolioValue') && renderPortfolio(); }, 1500);
+setInterval(renderBook, 2500);
+setInterval(pushTrade, 1100);
+// Recharge les vraies actualités toutes les 2 minutes (remplace l'ancien pushNews simulé)
+setInterval(chargerDonneesReelles, 120000);
+setInterval(()=>{ document.getElementById('latency').textContent = 'latence: '+(8+Math.round(Math.random()*20))+'ms'; }, 2000);
+setInterval(renderCalendarHome, 30000);
+setInterval(renderCesi, 20000);
+</script>
+</body>
+</html>
