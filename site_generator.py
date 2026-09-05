@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Exporte les données de Firestore (collections "ff_news" et "cb_articles")
-vers des fichiers JSON statiques, lus ensuite en JavaScript par le site
-(HTML/CSS/JS) via fetch(). Aucune base de données côté site : juste des
-fichiers texte, servis par GitHub Pages comme n'importe quel fichier statique.
+Exporte les données de Firestore (collections "ff_news", "cb_articles" et
+"il_articles") vers des fichiers JSON statiques, lus ensuite en JavaScript
+par le site (HTML/CSS/JS) via fetch(). Aucune base de données côté site :
+juste des fichiers texte, servis par GitHub Pages comme n'importe quel
+fichier statique.
 
 Deux niveaux d'export, pour concilier "site rapide au chargement" et
 "aucune donnee jamais perdue" :
@@ -13,8 +14,8 @@ Deux niveaux d'export, pour concilier "site rapide au chargement" et
    C'est ce que le site charge en premier, au demarrage.
 
 2. docs/archive/AAAA-MM-JJ.json
-   Un fichier par jour, contenant TOUS les articles (ff_news + cb_articles)
-   publies ce jour-la (hors documents ignore=True). Aucune limite de duree :
+   Un fichier par jour, contenant TOUS les articles (ff_news + cb_articles +
+   il_articles) publies ce jour-la (hors documents ignore=True). Aucune limite de duree :
    l'historique complet reste disponible, juste charge a la demande cote
    site (bouton "Charger les articles plus anciens").
    docs/archive/index.json liste les dates disponibles, du plus recent au
@@ -35,7 +36,15 @@ La sauvegarde dans Firebase/Firestore continue de fonctionner exactement
 comme avant — ce module ne fait que RELIRE les données déjà écrites pour
 en produire des copies exportables.
 
-Appelé à la fin du cycle() de ff_cloud.py ET de centralbanks_cloud.py.
+Appelé à la fin du cycle() de ff_cloud.py, centralbanks_cloud.py ET
+investinglive_cloud.py.
+
+NOTE INDEX COMPOSITE : comme pour ff_news et cb_articles, la requête
+combinant ignore == False + tri/filtre sur date_publication nécessite un
+index composite Firestore sur il_articles. Il n'existe pas encore lors du
+premier déploiement de investinglive_cloud.py : la première exécution
+plantera avec une erreur Firestore donnant un lien direct pour le créer
+en un clic — c'est normal, il suffit de suivre ce lien une fois.
 """
 
 import os
@@ -117,14 +126,16 @@ def _generer_archive_jour(db, debut_jour, fin_jour, date_str):
     jamais tout l'historique)."""
     news_ff = [_serialiser(d) for d in _recuperer_documents_periode(db, "ff_news", debut_jour, fin_jour)]
     articles_cb = [_serialiser(d) for d in _recuperer_documents_periode(db, "cb_articles", debut_jour, fin_jour)]
+    articles_il = [_serialiser(d) for d in _recuperer_documents_periode(db, "il_articles", debut_jour, fin_jour)]
 
-    if not news_ff and not articles_cb:
+    if not news_ff and not articles_cb and not articles_il:
         return
 
     contenu = {
         "date": date_str,
         "ff_news": news_ff,
         "cb_articles": articles_cb,
+        "il_articles": articles_il,
     }
     chemin = os.path.join(DOSSIER_ARCHIVE, f"{date_str}.json")
     _ecrire_json(chemin, contenu)
@@ -142,11 +153,13 @@ def generer_json(db):
     debut_fenetre = maintenant - timedelta(hours=FENETRE_HEURES_SITE)
     news_ff = [_serialiser(d) for d in _recuperer_documents_periode(db, "ff_news", debut_fenetre)]
     articles_cb = [_serialiser(d) for d in _recuperer_documents_periode(db, "cb_articles", debut_fenetre)]
+    articles_il = [_serialiser(d) for d in _recuperer_documents_periode(db, "il_articles", debut_fenetre)]
 
     contenu = {
         "generated_at": maintenant.isoformat(),
         "ff_news": news_ff,
         "cb_articles": articles_cb,
+        "il_articles": articles_il,
     }
     _ecrire_json(FICHIER_JSON, contenu)
 
@@ -165,4 +178,4 @@ def generer_json(db):
         with open(marqueur_hier, "w", encoding="utf-8") as f:
             f.write("ok")
 
-    print(f"JSON genere : {FICHIER_JSON} ({len(news_ff)} news, {len(articles_cb)} articles)")
+    print(f"JSON genere : {FICHIER_JSON} ({len(news_ff)} news, {len(articles_cb)} articles cb, {len(articles_il)} articles il)")
