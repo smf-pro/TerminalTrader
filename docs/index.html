@@ -71,7 +71,8 @@
   .status-cluster{ display:flex; align-items:center; gap:22px; font-family:var(--mono); font-size:12px; color:var(--text-mid); }
   .status-dot{ width:7px; height:7px; border-radius:50%; background:var(--green); display:inline-block; margin-right:6px; box-shadow:0 0 6px var(--green); animation:pulse 2s infinite; }
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-  .clock{ color:var(--text-hi); }
+  .clock{ color:var(--text-hi); cursor:help; }
+  .clock.clock-alerte{ color:var(--red, #e05252); }
   .search{
     display:flex; align-items:center; gap:8px;
     background:var(--bg-2);
@@ -560,6 +561,145 @@
 
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ===================== FIRESTORE — LECTURE TEMPS RÉEL =====================
+   Remplace le fetch('data.json') pour la fenêtre récente : le site écoute
+   directement Firestore (ff_news, cb_articles, il_articles) et se met à
+   jour en quelques secondes, sans attendre le commit/push/déploiement
+   GitHub Pages. L'archive (docs/archive/AAAA-MM-JJ.json) continue de
+   fonctionner comme avant, chargée à la demande au clic.
+   IMPORTANT : ce script doit être chargé AVANT le script principal
+   ci-dessous, car celui-ci appelle demarrerEcouteTempsReel() au démarrage. */
+const firebaseConfig = {
+  apiKey: "AIzaSyCYB-ooEdyk3eXJkxgVph9bL992LR83MHQ",
+  authDomain: "terminal-data-base.firebaseapp.com",
+  projectId: "terminal-data-base",
+  storageBucket: "terminal-data-base.firebasestorage.app",
+  messagingSenderId: "912690761326",
+  appId: "1:912690761326:web:d305fb66124c8fbbc3e07f",
+  measurementId: "G-J9FY2T651T"
+};
+firebase.initializeApp(firebaseConfig);
+const dbFirestore = firebase.firestore();
+
+const mapImpactFirestore = {high:'high', medium:'med', low:'low'};
+
+// Firestore renvoie les dates comme un objet Timestamp (pas du texte) :
+// il faut appeler .toDate() dessus, new Date() seul ne sait pas le lire.
+function versDate(valeur){
+  if(valeur && typeof valeur.toDate === 'function') return valeur.toDate();
+  return new Date(valeur);
+}
+
+function itemDepuisDocFF(d){
+  return {
+    time: versDate(d.date_publication),
+    tag: mapImpactFirestore[d.impact] || 'med',
+    sym: null,
+    source: 'forexfactory',
+    textFr: d.titre_fr || d.titre || '',
+    textEn: d.titre || d.titre_fr || '',
+    snippetFr: d.extrait_fr || d.extrait || '',
+    snippetEn: d.extrait || d.extrait_fr || '',
+    url: d.url,
+  };
+}
+function itemDepuisDocCB(d){
+  return {
+    time: versDate(d.date_publication),
+    tag: 'med',
+    sym: null,
+    source: 'centralbanks',
+    textFr: d.titre_fr || d.titre || '',
+    textEn: d.titre || d.titre_fr || '',
+    snippetFr: (d.contenu_fr || d.contenu || '').slice(0, 180),
+    snippetEn: (d.contenu || d.contenu_fr || '').slice(0, 180),
+    url: d.url,
+  };
+}
+function itemDepuisDocIL(d){
+  return {
+    time: versDate(d.date_publication),
+    tag: 'med',
+    sym: null,
+    source: 'investinglive',
+    textFr: d.titre_fr || d.titre || '',
+    textEn: d.titre || d.titre_fr || '',
+    snippetFr: (d.contenu_fr || d.contenu || '').slice(0, 180),
+    snippetEn: (d.contenu || d.contenu_fr || '').slice(0, 180),
+    url: d.url,
+  };
+}
+
+// Trois flux "temps réel" séparés (un par collection) + un flux "archive"
+// (articles plus anciens chargés au clic). On les recombine dans newsLog
+// à chaque mise à jour de l'un ou l'autre, en dédupliquant par URL.
+let liveFF = [];
+let liveCB = [];
+let liveIL = [];
+let archiveItemsTempsReel = [];
+
+function recalculerNewsLogTempsReel(){
+  const urlsVues = new Set();
+  newsLog = [...liveFF, ...liveCB, ...liveIL, ...archiveItemsTempsReel]
+    .sort((a, b) => b.time - a.time)
+    .filter(n => {
+      if(!n.url) return true;
+      if(urlsVues.has(n.url)) return false;
+      urlsVues.add(n.url);
+      return true;
+    });
+  renderNewsHomeColumns();
+  renderNewsColumns();
+}
+
+function ecouterCollectionTempsReel(nomCollection, mapper, assigner){
+  dbFirestore.collection(nomCollection)
+    .where('ignore', '==', false)
+    .orderBy('date_publication', 'desc')
+    .limit(50)
+    .onSnapshot(snapshot => {
+      assigner(snapshot.docs.map(doc => mapper(doc.data())));
+      recalculerNewsLogTempsReel();
+    }, erreur => {
+      console.error('Erreur écoute temps réel ' + nomCollection + ' :', erreur);
+    });
+}
+
+// ===== BATTEMENT DE COEUR DES SCRIPTS (collection pipeline_status) =====
+// Chaque script (ff_cloud.py, centralbanks_cloud.py, investinglive_cloud.py)
+// ecrit un document ici a CHAQUE cycle, meme sans nouvel article. Ca sert
+// UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
+// separement de la date/heure des articles eux-memes (deja correcte).
+const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive'];
+let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
+
+function ecouterStatutPipeline(nomSource){
+  dbFirestore.collection('pipeline_status').doc(nomSource)
+    .onSnapshot(doc => {
+      const d = doc.data();
+      statutPipeline[nomSource] = d ? {
+        derniereExecution: versDate(d.derniere_execution),
+        statut: d.statut || 'inconnu',
+        liensVus: d.liens_vus || 0,
+        articlesNouveaux: d.articles_nouveaux || 0,
+        erreur: d.derniere_erreur || null,
+      } : null;
+      mettreAJourHorlogeInfo();
+    }, erreur => {
+      console.error('Erreur écoute pipeline_status/' + nomSource + ' :', erreur);
+    });
+}
+
+function demarrerEcouteTempsReel(){
+  ecouterCollectionTempsReel('ff_news', itemDepuisDocFF, items => { liveFF = items; });
+  ecouterCollectionTempsReel('cb_articles', itemDepuisDocCB, items => { liveCB = items; });
+  ecouterCollectionTempsReel('il_articles', itemDepuisDocIL, items => { liveIL = items; });
+  SOURCES_PIPELINE.forEach(ecouterStatutPipeline);
+}
+</script>
 <script>
 /* ===================== DONNÉES SIMULÉES ===================== */
 const SYMBOLS = [
@@ -594,24 +734,60 @@ function seedCandles(){
 }
 seedCandles();
 
-/* ===================== HORODATAGE DE LA DERNIÈRE GÉNÉRATION ===================== */
-/* Affiche la date/heure du dernier run reussi d'un script (champ
-   generated_at de data.json), PAS la date du dernier article publie.
-   Utile pour surveiller que le pipeline tourne bien : si cette valeur
-   ne bouge plus alors que le temps passe, un des deux workflows GitHub
-   Actions est probablement en panne — meme s'il n'y a simplement aucune
-   actualite fraiche a publier, generated_at, lui, avance a chaque run. */
-let derniereGenerationTimestamp = null;
+/* ===================== HORODATAGE DE LA DERNIÈRE EXÉCUTION DES SCRIPTS ===================== */
+/* Affiche la date/heure ou un script (ff_cloud.py / centralbanks_cloud.py /
+   investinglive_cloud.py) a REELLEMENT termine un cycle pour la derniere
+   fois — que ce cycle ait ecrit un nouvel article ou non (voir
+   pipeline_status, ecrit par enregistrer_statut_pipeline() cote Python).
+   PAS la date du dernier article publie (ca, c'est deja affiche sur
+   chaque carte de news separement).
+   On affiche la PLUS ANCIENNE des 3 dates : si un seul des trois scripts
+   est en panne ou en retard, on veut que ca se voie tout de suite plutot
+   que d'etre masque par les 2 autres qui tournent bien. */
+const SEUIL_ALERTE_MINUTES = 15; // au-dela, un script silencieux est suspect
 
 function mettreAJourHorlogeInfo(){
   const clockEl = document.getElementById('clock');
   if(!clockEl) return;
-  if(!derniereGenerationTimestamp){
+
+  const entrees = SOURCES_PIPELINE
+    .map(nom => ({nom, info: statutPipeline[nom]}))
+    .filter(e => e.info && e.info.derniereExecution);
+
+  if(entrees.length === 0){
     clockEl.textContent = '--:--:--';
+    clockEl.title = 'En attente des premières données de pipeline_status…';
+    clockEl.classList.remove('clock-alerte');
     return;
   }
-  clockEl.textContent = formaterDateCarte(derniereGenerationTimestamp) + ' · ' + derniereGenerationTimestamp.toLocaleTimeString('fr-FR', {hour12:false});
+
+  entrees.sort((a, b) => a.info.derniereExecution - b.info.derniereExecution);
+  const plusAncienne = entrees[0];
+  const date = plusAncienne.info.derniereExecution;
+
+  clockEl.textContent = formaterDateCarte(date) + ' · ' + date.toLocaleTimeString('fr-FR', {hour12:false});
+
+  const minutesEcoulees = (Date.now() - date.getTime()) / 60000;
+  const yAUneErreur = entrees.some(e => e.info.statut === 'erreur');
+  clockEl.classList.toggle('clock-alerte', yAUneErreur || minutesEcoulees > SEUIL_ALERTE_MINUTES);
+
+  // Détail par script au survol (title = tooltip natif du navigateur)
+  clockEl.title = SOURCES_PIPELINE.map(nom => {
+    const info = statutPipeline[nom];
+    if(!info || !info.derniereExecution) return nom + ' : aucune donnée reçue';
+    const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+    const jour = formaterDateCarte(info.derniereExecution);
+    let ligne = nom + ' : ' + jour + ' ' + heure + ' (' + info.statut + ', '
+      + info.articlesNouveaux + ' nouveau(x) / ' + info.liensVus + ' vu(s))';
+    if(info.erreur) ligne += ' — ' + info.erreur;
+    return ligne;
+  }).join('\n');
 }
+
+// Reevalue l'alerte toutes les minutes meme sans nouvelle donnee Firestore,
+// pour que le seuil SEUIL_ALERTE_MINUTES se declenche a l'heure meme si
+// aucun script n'a ecrit entre-temps.
+setInterval(mettreAJourHorlogeInfo, 60000);
 
 /* ===================== TAPE DÉFILANTE ===================== */
 function renderTape(){
@@ -971,57 +1147,6 @@ function basculerNewsCard(idCarte){
   el.onmouseleave = () => fermerNewsCard(idCarte);
 }
 
-/* ===================== DONNÉES RÉELLES (data.json généré par les scripts Python) =====================
-   ff_news       -> source "forexfactory" (impact high/medium/low fourni par le scraper)
-   cb_articles   -> source "centralbanks" (pas de niveau d'impact calculé pour l'instant, "med" par défaut)
-   La colonne "INVESTINGLIVE" reste vide pour le moment : aucun script ne collecte encore
-   ce contenu-là (uniquement les banques centrales via investinglive.com/CentralBanks/). */
-async function chargerDonneesReelles(){
-  try {
-    const reponse = await fetch('data.json');
-    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
-    const donnees = await reponse.json();
-
-    if(donnees.generated_at){
-      derniereGenerationTimestamp = new Date(donnees.generated_at);
-    }
-
-    const mapImpact = {high:'high', medium:'med', low:'low'};
-
-    const ffItems = (donnees.ff_news || []).map(n => ({
-      time: new Date(n.date_publication),
-      tag: mapImpact[n.impact] || 'med',
-      sym: null,
-      source: 'forexfactory',
-      textFr: n.titre_fr || n.titre || '',
-      textEn: n.titre || n.titre_fr || '',
-      snippetFr: n.extrait_fr || n.extrait || '',
-      snippetEn: n.extrait || n.extrait_fr || '',
-      url: n.url,
-    }));
-
-    const cbItems = (donnees.cb_articles || []).map(a => ({
-      time: new Date(a.date_publication),
-      tag: 'med',
-      sym: null,
-      source: 'centralbanks',
-      textFr: a.titre_fr || a.titre || '',
-      textEn: a.titre || a.titre_fr || '',
-      snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
-      snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
-      url: a.url,
-    }));
-
-    newsLog = [...ffItems, ...cbItems].sort((a, b) => b.time - a.time);
-
-    renderNewsHomeColumns();
-    renderNewsColumns();
-    mettreAJourHorlogeInfo();
-  } catch (e) {
-    console.error('Erreur de chargement de data.json :', e);
-  }
-}
-
 /* ===================== ARCHIVE — CHARGEMENT DES ARTICLES PLUS ANCIENS =====================
    docs/archive/index.json liste les dates disponibles (AAAA-MM-JJ), du plus
    recent au plus ancien. Chaque clic sur le bouton charge UN jour de plus,
@@ -1042,12 +1167,6 @@ async function recupererIndexArchive(){
     datesArchiveDisponibles = [];
   }
   return datesArchiveDisponibles;
-}
-
-function fusionnerArticlesSansDoublon(nouveauxItems){
-  const urlsExistantes = new Set(newsLog.filter(n => n.url).map(n => n.url));
-  const itemsAAjouter = nouveauxItems.filter(n => !n.url || !urlsExistantes.has(n.url));
-  newsLog = [...newsLog, ...itemsAAjouter].sort((a, b) => b.time - a.time);
 }
 
 function itemsDepuisJourArchive(donneesJour){
@@ -1077,7 +1196,19 @@ function itemsDepuisJourArchive(donneesJour){
     url: a.url,
   }));
 
-  return [...ffItems, ...cbItems];
+  const ilItems = (donneesJour.il_articles || []).map(a => ({
+    time: new Date(a.date_publication),
+    tag: 'med',
+    sym: null,
+    source: 'investinglive',
+    textFr: a.titre_fr || a.titre || '',
+    textEn: a.titre || a.titre_fr || '',
+    snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
+    snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
+    url: a.url,
+  }));
+
+  return [...ffItems, ...cbItems, ...ilItems];
 }
 
 async function chargerJourArchivePlusAncien(){
@@ -1104,10 +1235,8 @@ async function chargerJourArchivePlusAncien(){
     const reponse = await fetch('archive/' + dateStr + '.json');
     if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
     const donneesJour = await reponse.json();
-    fusionnerArticlesSansDoublon(itemsDepuisJourArchive(donneesJour));
-    renderNewsHomeColumns();
-    renderNewsColumns();
-    mettreAJourHorlogeInfo();
+    archiveItemsTempsReel = [...archiveItemsTempsReel, ...itemsDepuisJourArchive(donneesJour)];
+    recalculerNewsLogTempsReel();
   } catch (e) {
     console.error('Erreur de chargement de archive/' + dateStr + '.json :', e);
   }
@@ -1658,16 +1787,16 @@ document.getElementById('mainNav').addEventListener('click', e=>{
 renderAll();
 renderTrades();
 resizeCanvas();
-// Charge les vraies actualités (ForexFactory + Banques Centrales) depuis data.json
+// Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
 document.getElementById('langBtnFr').classList.toggle('active', langueAffichage === 'fr');
 document.getElementById('langBtnEn').classList.toggle('active', langueAffichage === 'en');
-chargerDonneesReelles();
+demarrerEcouteTempsReel();
 
 setInterval(()=>{ tickPrices(); renderTape(); renderWatchlist(); renderChartHeader(); drawChart(); document.getElementById('portfolioValue') && renderPortfolio(); }, 1500);
 setInterval(renderBook, 2500);
 setInterval(pushTrade, 1100);
-// Recharge les vraies actualités toutes les 2 minutes (remplace l'ancien pushNews simulé)
-setInterval(chargerDonneesReelles, 120000);
+// Plus besoin de recharger périodiquement : Firestore pousse les mises à
+// jour en temps réel via onSnapshot (voir demarrerEcouteTempsReel()).
 setInterval(()=>{ document.getElementById('latency').textContent = 'latence: '+(8+Math.round(Math.random()*20))+'ms'; }, 2000);
 setInterval(renderCalendarHome, 30000);
 setInterval(renderCesi, 20000);
