@@ -594,20 +594,23 @@ function seedCandles(){
 }
 seedCandles();
 
-/* ===================== HORODATAGE DE LA DERNIÈRE INFO ===================== */
-/* Affiche la date/heure du dernier article réellement paru sur le site
-   (newsLog[0], puisque newsLog est toujours trié du plus récent au plus
-   ancien), plutôt qu'une horloge en temps réel qui n'a pas de sens tant
-   qu'aucune nouvelle actualité n'est arrivée. */
+/* ===================== HORODATAGE DE LA DERNIÈRE GÉNÉRATION ===================== */
+/* Affiche la date/heure du dernier run reussi d'un script (champ
+   generated_at de data.json), PAS la date du dernier article publie.
+   Utile pour surveiller que le pipeline tourne bien : si cette valeur
+   ne bouge plus alors que le temps passe, un des deux workflows GitHub
+   Actions est probablement en panne — meme s'il n'y a simplement aucune
+   actualite fraiche a publier, generated_at, lui, avance a chaque run. */
+let derniereGenerationTimestamp = null;
+
 function mettreAJourHorlogeInfo(){
   const clockEl = document.getElementById('clock');
   if(!clockEl) return;
-  if(!newsLog.length){
+  if(!derniereGenerationTimestamp){
     clockEl.textContent = '--:--:--';
     return;
   }
-  const derniere = newsLog[0];
-  clockEl.textContent = formaterDateCarte(derniere.time) + ' · ' + derniere.time.toLocaleTimeString('fr-FR', {hour12:false});
+  clockEl.textContent = formaterDateCarte(derniereGenerationTimestamp) + ' · ' + derniereGenerationTimestamp.toLocaleTimeString('fr-FR', {hour12:false});
 }
 
 /* ===================== TAPE DÉFILANTE ===================== */
@@ -978,6 +981,10 @@ async function chargerDonneesReelles(){
     const reponse = await fetch('data.json');
     if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
     const donnees = await reponse.json();
+
+    if(donnees.generated_at){
+      derniereGenerationTimestamp = new Date(donnees.generated_at);
+    }
 
     const mapImpact = {high:'high', medium:'med', low:'low'};
 
