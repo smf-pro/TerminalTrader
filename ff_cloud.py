@@ -43,6 +43,7 @@ from firebase_admin import credentials, firestore
 from google.api_core.exceptions import ResourceExhausted
 
 from site_generator import generer_json
+from cache_dedup import charger_cache, sauvegarder_cache, marquer_traite
 
 # ---------- CONFIGURATION ----------
 URL_LISTE = "https://www.forexfactory.com/news"
@@ -299,65 +300,77 @@ def cycle():
         enregistrer_statut_pipeline(db, statut="ok", liens_vus=total_brut, articles_nouveaux=0)
         return
 
+    # Cache local de deduplication (remplace les lectures Firestore
+    # doc_ref.get() qui epuisaient le quota gratuit - voir cache_dedup.py).
+    cache = charger_cache(NOM_SOURCE)
+
     news_ecrites = 0
-    quota_depasse = False
     for news in toutes_les_news:
         doc_id = hash_url(news["url"])
-        doc_ref = db.collection(COLLECTION).document(doc_id)
+
+        # Dédup : verification LOCALE (fichier cache/forexfactory.json),
+        # aucune lecture Firestore. Remplace l'ancien doc_ref.get().
+        if doc_id in cache:
+            continue
 
         try:
-            if doc_ref.get().exists:
+            if page_erreur(news["titre"], news["extrait"]):
+                print(f"Page d'erreur detectee, ignore : {news['url']}")
+                marquer_traite(cache, doc_id)
                 continue
+
+            if news["date_pub"] is None:
+                print(f"Date introuvable, ignoree : {news['titre']}")
+                marquer_traite(cache, doc_id)
+                continue
+
+            if news["date_pub"] < debut_fenetre:
+                marquer_traite(cache, doc_id)
+                continue
+
+            titre_fr = None
+            extrait_fr = None
+            if GENERER_VERSION_FR:
+                titre_fr = traduire_texte(news["titre"])
+                extrait_fr = traduire_texte(news["extrait"]) if news["extrait"] else "(Pas d'extrait disponible)"
+
+            doc_ref = db.collection(COLLECTION).document(doc_id)
+            doc_ref.set({
+                "url": news["url"],
+                "titre": news["titre"],
+                "titre_fr": titre_fr,
+                "source": news["source"],
+                "impact": news["impact"],
+                "extrait": news["extrait"] if news["extrait"] else "(Pas d'extrait disponible)",
+                "extrait_fr": extrait_fr,
+                "date_publication": news["date_pub"],
+                "date_recuperation": maintenant,
+                "ignore": False,
+            })
+            marquer_traite(cache, doc_id)
+            news_ecrites += 1
+            print(f"Ecrit dans Firestore : {news['titre']}")
+
         except ResourceExhausted as e:
+            # Quota d'ECRITURE Firestore depasse (rare). On arrete la
+            # boucle : les tentatives suivantes echoueraient pareil.
             print(f"Quota Firestore depasse, arret du cycle en cours (traite {news_ecrites} news avant l'arret) : {e}")
-            quota_depasse = True
-            break
+            sauvegarder_cache(NOM_SOURCE, cache)
+            enregistrer_statut_pipeline(
+                db, statut="erreur",
+                liens_vus=len(toutes_les_news),
+                articles_nouveaux=news_ecrites,
+                erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
+            )
+            return
+        except Exception as e:
+            print(f"Erreur sur {news['url']} : {e}")
 
-        if page_erreur(news["titre"], news["extrait"]):
-            print(f"Page d'erreur detectee, ignore : {news['url']}")
-            doc_ref.set({"url": news["url"], "ignore": True, "raison": "page_erreur"})
-            continue
-
-        if news["date_pub"] is None:
-            print(f"Date introuvable, ignoree : {news['titre']}")
-            doc_ref.set({"url": news["url"], "ignore": True, "raison": "date_introuvable"})
-            continue
-
-        if news["date_pub"] < debut_fenetre:
-            doc_ref.set({"url": news["url"], "ignore": True, "raison": "hors_fenetre"})
-            continue
-
-        titre_fr = None
-        extrait_fr = None
-        if GENERER_VERSION_FR:
-            titre_fr = traduire_texte(news["titre"])
-            extrait_fr = traduire_texte(news["extrait"]) if news["extrait"] else "(Pas d'extrait disponible)"
-
-        doc_ref.set({
-            "url": news["url"],
-            "titre": news["titre"],
-            "titre_fr": titre_fr,
-            "source": news["source"],
-            "impact": news["impact"],
-            "extrait": news["extrait"] if news["extrait"] else "(Pas d'extrait disponible)",
-            "extrait_fr": extrait_fr,
-            "date_publication": news["date_pub"],
-            "date_recuperation": maintenant,
-            "ignore": False,
-        })
-        news_ecrites += 1
-        print(f"Ecrit dans Firestore : {news['titre']}")
+    # On sauvegarde le cache local a jour (nouveaux hash vus ce cycle),
+    # pour que le prochain run n'ait pas besoin de retraiter ces liens.
+    sauvegarder_cache(NOM_SOURCE, cache)
 
     print(f"\nTermine. {news_ecrites} nouvelle(s) news ecrite(s) dans Firestore.")
-
-    if quota_depasse:
-        enregistrer_statut_pipeline(
-            db, statut="erreur",
-            liens_vus=len(toutes_les_news),
-            articles_nouveaux=news_ecrites,
-            erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
-        )
-        return
 
     # On régénère docs/data.json avec les données à jour des collections,
     # lu ensuite par votre site.

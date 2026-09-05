@@ -34,6 +34,7 @@ from firebase_admin import credentials, firestore
 from google.api_core.exceptions import ResourceExhausted
 
 from site_generator import generer_json
+from cache_dedup import charger_cache, sauvegarder_cache, marquer_traite
 
 # ---------- CONFIGURATION ----------
 URL_LISTE = "https://investinglive.com/CentralBanks/"
@@ -216,37 +217,35 @@ def cycle():
 
     print(f"{len(liens)} lien(s) trouve(s) sur la page liste.")
 
+    # Cache local de deduplication (remplace les lectures Firestore
+    # doc_ref.get() qui epuisaient le quota gratuit - voir cache_dedup.py).
+    cache = charger_cache(NOM_SOURCE)
+
     articles_ecrits = 0
-    quota_depasse = False
     for url in liens:
         doc_id = hash_url(url)
-        doc_ref = db.collection(COLLECTION).document(doc_id)
 
-        try:
-            # Dédup : si le document existe déjà, on saute cet article
-            if doc_ref.get().exists:
-                continue
-        except ResourceExhausted as e:
-            print(f"Quota Firestore depasse, arret du cycle en cours (traite {articles_ecrits} article(s) avant l'arret) : {e}")
-            quota_depasse = True
-            break
+        # Dédup : verification LOCALE (fichier cache/centralbanks.json),
+        # aucune lecture Firestore. Remplace l'ancien doc_ref.get().
+        if doc_id in cache:
+            continue
 
         try:
             titre, date_pub, contenu = extraire_article(url)
 
             if page_erreur(titre, contenu):
                 print(f"Page d'erreur detectee, ignore : {url}")
-                doc_ref.set({"url": url, "ignore": True, "raison": "page_erreur"})
+                marquer_traite(cache, doc_id)
                 continue
 
             if date_pub is None:
                 print(f"Date introuvable, ignore : {titre}")
                 # On marque quand meme comme traite pour ne pas re-tenter en boucle
-                doc_ref.set({"url": url, "ignore": True, "raison": "date_introuvable"})
+                marquer_traite(cache, doc_id)
                 continue
 
             if date_pub < debut_fenetre:
-                doc_ref.set({"url": url, "ignore": True, "raison": "hors_fenetre"})
+                marquer_traite(cache, doc_id)
                 continue
 
             titre_fr = None
@@ -255,6 +254,7 @@ def cycle():
                 titre_fr = traduire_texte(titre)
                 contenu_fr = traduire_texte(contenu) if contenu else "(Contenu non trouve)"
 
+            doc_ref = db.collection(COLLECTION).document(doc_id)
             doc_ref.set({
                 "url": url,
                 "titre": titre,
@@ -265,24 +265,32 @@ def cycle():
                 "date_recuperation": maintenant,
                 "ignore": False,
             })
+            marquer_traite(cache, doc_id)
             articles_ecrits += 1
             print(f"Ecrit dans Firestore : {titre}")
 
+        except ResourceExhausted as e:
+            # Quota d'ECRITURE Firestore depasse (rare). On arrete la
+            # boucle : les tentatives suivantes echoueraient pareil.
+            print(f"Quota Firestore depasse, arret du cycle en cours (traite {articles_ecrits} article(s) avant l'arret) : {e}")
+            sauvegarder_cache(NOM_SOURCE, cache)
+            enregistrer_statut_pipeline(
+                db, statut="erreur",
+                liens_vus=len(liens),
+                articles_nouveaux=articles_ecrits,
+                erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
+            )
+            return
         except Exception as e:
             print(f"Erreur sur {url} : {e}")
 
         time.sleep(1)
 
-    print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
+    # On sauvegarde le cache local a jour (nouveaux hash vus ce cycle),
+    # pour que le prochain run n'ait pas besoin de retraiter ces liens.
+    sauvegarder_cache(NOM_SOURCE, cache)
 
-    if quota_depasse:
-        enregistrer_statut_pipeline(
-            db, statut="erreur",
-            liens_vus=len(liens),
-            articles_nouveaux=articles_ecrits,
-            erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
-        )
-        return
+    print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
 
     # On régénère docs/data.json avec les données à jour des collections,
     # lu ensuite par votre site.
