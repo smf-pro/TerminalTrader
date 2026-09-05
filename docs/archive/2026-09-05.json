@@ -2,16 +2,16 @@
   "date": "2026-09-05",
   "ff_news": [
     {
-      "impact": "low",
       "date_publication": "2026-09-05T17:20:16.581167+00:00",
-      "url": "https://www.forexfactory.com/news/1416593-us-attacks-3-iranian-oil-tankers-after-missiles",
       "extrait_fr": "Les forces américaines ont frappé trois transporteurs de pétrole brut iraniens samedi après que le commandement central américain a déclaré que le Corps des Gardiens de la révolution islamique avait lancé des missiles balistiques vers deux navires de guerre de la Marine dans la région. Le CENTCOM a déclaré avoir définitivement désactivé un transporteur de pétrole brut au large des côtes de l'île de Kharg et un autre près de Jask. Un autre pétrolier a été attaqué dans le golfe d'Oman. ...",
-      "titre": "U.S. attacks 3 Iranian oil tankers after missiles target Navy warships",
-      "date_recuperation": "2026-09-05T17:21:16.581167+00:00",
-      "extrait": "U.S. forces struck three Iranian crude oil carriers Saturday after U.S. Central Command said the Islamic Revolutionary Guard Corps launched ballistic missiles toward two Navy warships in the region. CENTCOM said it permanently disabled one crude oil carrier off the coast of Kharg Island and one near Jask. Another oil tanker was attacked in the Gulf of Oman. ...",
-      "ignore": false,
       "source": "cnbc.com",
-      "titre_fr": "Les États-Unis attaquent trois pétroliers iraniens après que des missiles ont visé des navires de guerre de la Marine"
+      "titre_fr": "Les États-Unis attaquent trois pétroliers iraniens après que des missiles ont visé des navires de guerre de la Marine",
+      "titre": "U.S. attacks 3 Iranian oil tankers after missiles target Navy warships",
+      "extrait": "U.S. forces struck three Iranian crude oil carriers Saturday after U.S. Central Command said the Islamic Revolutionary Guard Corps launched ballistic missiles toward two Navy warships in the region. CENTCOM said it permanently disabled one crude oil carrier off the coast of Kharg Island and one near Jask. Another oil tanker was attacked in the Gulf of Oman. ...",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1416593-us-attacks-3-iranian-oil-tankers-after-missiles",
+      "ignore": false,
+      "date_recuperation": "2026-09-05T17:21:16.581167+00:00"
     }
   ],
   "cb_articles": [],
