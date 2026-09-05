@@ -31,6 +31,7 @@ from deep_translator import GoogleTranslator
 
 import firebase_admin
 from firebase_admin import credentials, firestore
+from google.api_core.exceptions import ResourceExhausted
 
 from site_generator import generer_json
 
@@ -216,13 +217,19 @@ def cycle():
     print(f"{len(liens)} lien(s) trouve(s) sur la page liste.")
 
     articles_ecrits = 0
+    quota_depasse = False
     for url in liens:
         doc_id = hash_url(url)
         doc_ref = db.collection(COLLECTION).document(doc_id)
 
-        # Dédup : si le document existe déjà, on saute cet article
-        if doc_ref.get().exists:
-            continue
+        try:
+            # Dédup : si le document existe déjà, on saute cet article
+            if doc_ref.get().exists:
+                continue
+        except ResourceExhausted as e:
+            print(f"Quota Firestore depasse, arret du cycle en cours (traite {articles_ecrits} article(s) avant l'arret) : {e}")
+            quota_depasse = True
+            break
 
         try:
             titre, date_pub, contenu = extraire_article(url)
@@ -268,9 +275,28 @@ def cycle():
 
     print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
 
+    if quota_depasse:
+        enregistrer_statut_pipeline(
+            db, statut="erreur",
+            liens_vus=len(liens),
+            articles_nouveaux=articles_ecrits,
+            erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
+        )
+        return
+
     # On régénère docs/data.json avec les données à jour des collections,
     # lu ensuite par votre site.
-    generer_json(db)
+    try:
+        generer_json(db)
+    except ResourceExhausted as e:
+        print(f"Quota Firestore depasse pendant generer_json() : {e}")
+        enregistrer_statut_pipeline(
+            db, statut="erreur",
+            liens_vus=len(liens),
+            articles_nouveaux=articles_ecrits,
+            erreur="Quota Firestore depasse pendant la generation du JSON",
+        )
+        return
 
     # Battement de coeur : ce cycle s'est termine normalement, meme si
     # articles_ecrits vaut 0 (rien de neuf a publier).
