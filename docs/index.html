@@ -253,7 +253,12 @@
   .news-card .headline{ font-size:14px; font-weight:600; line-height:1.4; margin-bottom:5px; cursor:pointer; }
   .news-card .headline:hover{ color:var(--blue); }
   .news-card.is-open .headline{ color:var(--blue); }
-  .news-card .snippet{ font-size:12px; color:var(--text-mid); line-height:1.5; max-width:70ch; }
+  .news-card .snippet{
+    font-size:12px; color:var(--text-mid); line-height:1.5; max-width:70ch;
+    max-height:0; opacity:0; overflow:hidden; margin-top:0;
+    transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+  }
+  .news-card .snippet.is-visible{ max-height:400px; opacity:1; margin-top:2px; }
   .news-card .sym-chip{
     font-family:var(--mono); font-size:10px; color:var(--blue); background:rgba(79,140,255,0.12);
     padding:2px 7px; border-radius:3px;
@@ -881,7 +886,7 @@ function newsCardHtml(n){
       <span class="news-time">${dateStr} · ${heureStr}</span>
     </div>
     <div class="headline" onclick="basculerNewsCard('${idCarte}')">${n.text}</div>
-    <div class="snippet" style="display:none;">${n.snippet}</div>
+    <div class="snippet">${n.snippet}</div>
   </div>`;
 }
 
@@ -892,7 +897,7 @@ function fermerNewsCard(idCarte){
   const el = document.getElementById(idCarte);
   if(!el) return;
   const snippet = el.querySelector('.snippet');
-  if(snippet) snippet.style.display = 'none';
+  if(snippet) snippet.classList.remove('is-visible');
   el.classList.remove('is-open');
   el.onmouseleave = null;
   clearTimeout(minuteriesNewsCard[idCarte]);
@@ -905,16 +910,16 @@ function basculerNewsCard(idCarte){
   const snippet = el.querySelector('.snippet');
   if(!snippet) return;
 
-  const estOuvert = snippet.style.display !== 'none';
+  const estOuvert = snippet.classList.contains('is-visible');
   if(estOuvert){
     fermerNewsCard(idCarte);
     return;
   }
 
-  snippet.style.display = 'block';
+  snippet.classList.add('is-visible');
   el.classList.add('is-open');
   clearTimeout(minuteriesNewsCard[idCarte]);
-  minuteriesNewsCard[idCarte] = setTimeout(() => fermerNewsCard(idCarte), 30000);
+  minuteriesNewsCard[idCarte] = setTimeout(() => fermerNewsCard(idCarte), 15000);
   el.onmouseleave = () => fermerNewsCard(idCarte);
 }
 
