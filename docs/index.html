@@ -340,6 +340,23 @@
   .cesi-val{ font-family:var(--mono); font-weight:600; font-size:12px; }
   .cesi-val.up{ color:var(--green); } .cesi-val.down{ color:var(--red); }
   .cesi-chart-area{ flex:1; padding:10px 14px; min-height:0; }
+  .btn-archive{
+    display:block;
+    margin:16px auto;
+    padding:10px 22px;
+    background:var(--bg-1);
+    color:var(--text-hi);
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .btn-archive:hover{ background:var(--bg-2); border-color:var(--blue); }
+  .btn-archive:disabled{ opacity:.5; cursor:default; }
 </style>
 </head>
 <body>
@@ -415,6 +432,9 @@
         <div class="panel-body" id="colForexFactoryHigh"></div>
       </div>
     </div>
+    <button class="btn-archive" id="btnChargerPlusAnciens" onclick="chargerJourArchivePlusAncien()">
+      Charger les articles plus anciens
+    </button>
   </div><!-- /page-news -->
 
   <!-- ===================== CALENDRIER ÉCONOMIQUE ===================== -->
@@ -898,7 +918,101 @@ async function chargerDonneesReelles(){
   }
 }
 
-/* ===================== COLONNES NEWS — ACCUEIL ===================== */
+/* ===================== ARCHIVE — CHARGEMENT DES ARTICLES PLUS ANCIENS =====================
+   docs/archive/index.json liste les dates disponibles (AAAA-MM-JJ), du plus
+   recent au plus ancien. Chaque clic sur le bouton charge UN jour de plus,
+   fusionne ses articles dans newsLog (sans doublons, via l'URL), et
+   re-rend les colonnes. Le bouton se desactive quand il n'y a plus rien
+   de plus ancien a charger. */
+let datesArchiveDisponibles = null; // null = pas encore recuperees
+let indexProchaineDateArchive = 0;  // curseur dans datesArchiveDisponibles
+
+async function recupererIndexArchive(){
+  if(datesArchiveDisponibles !== null) return datesArchiveDisponibles;
+  try {
+    const reponse = await fetch('archive/index.json');
+    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
+    datesArchiveDisponibles = await reponse.json();
+  } catch (e) {
+    console.error('Erreur de chargement de archive/index.json :', e);
+    datesArchiveDisponibles = [];
+  }
+  return datesArchiveDisponibles;
+}
+
+function fusionnerArticlesSansDoublon(nouveauxItems){
+  const urlsExistantes = new Set(newsLog.filter(n => n.url).map(n => n.url));
+  const itemsAAjouter = nouveauxItems.filter(n => !n.url || !urlsExistantes.has(n.url));
+  newsLog = [...newsLog, ...itemsAAjouter].sort((a, b) => b.time - a.time);
+}
+
+function itemsDepuisJourArchive(donneesJour){
+  const mapImpact = {high:'high', medium:'med', low:'low'};
+
+  const ffItems = (donneesJour.ff_news || []).map(n => ({
+    time: new Date(n.date_publication),
+    tag: mapImpact[n.impact] || 'med',
+    sym: null,
+    source: 'forexfactory',
+    text: n.titre_fr || n.titre || '',
+    snippet: n.extrait_fr || n.extrait || '',
+    url: n.url,
+  }));
+
+  const cbItems = (donneesJour.cb_articles || []).map(a => ({
+    time: new Date(a.date_publication),
+    tag: 'med',
+    sym: null,
+    source: 'centralbanks',
+    text: a.titre_fr || a.titre || '',
+    snippet: (a.contenu_fr || a.contenu || '').slice(0, 180),
+    url: a.url,
+  }));
+
+  return [...ffItems, ...cbItems];
+}
+
+async function chargerJourArchivePlusAncien(){
+  const bouton = document.getElementById('btnChargerPlusAnciens');
+  const dates = await recupererIndexArchive();
+
+  if(indexProchaineDateArchive >= dates.length){
+    if(bouton){
+      bouton.textContent = 'Tout l\u2019historique est charg\u00e9';
+      bouton.disabled = true;
+    }
+    return;
+  }
+
+  const dateStr = dates[indexProchaineDateArchive];
+  indexProchaineDateArchive++;
+
+  if(bouton){
+    bouton.disabled = true;
+    bouton.textContent = 'Chargement de ' + dateStr + '…';
+  }
+
+  try {
+    const reponse = await fetch('archive/' + dateStr + '.json');
+    if(!reponse.ok) throw new Error('HTTP ' + reponse.status);
+    const donneesJour = await reponse.json();
+    fusionnerArticlesSansDoublon(itemsDepuisJourArchive(donneesJour));
+    renderNewsHomeColumns();
+    renderNewsColumns();
+  } catch (e) {
+    console.error('Erreur de chargement de archive/' + dateStr + '.json :', e);
+  }
+
+  if(bouton){
+    bouton.disabled = false;
+    bouton.textContent = 'Charger les articles plus anciens';
+    if(indexProchaineDateArchive >= dates.length){
+      bouton.textContent = 'Tout l\u2019historique est charg\u00e9';
+      bouton.disabled = true;
+    }
+  }
+}
+
 function renderNewsHomeColumns(){
   const allEl = document.getElementById('newsAllHome');
   const highEl = document.getElementById('newsHighHome');
