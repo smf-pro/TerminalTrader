@@ -88,6 +88,10 @@
     {
       "titre": "Canadian Labour Force Survey, August 2026",
       "titre_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "extrait": "Employment declined by 42,000 (-0.2%) in August and the employment rate fell 0.1 percentage points to 60.8%. The unemployment rate was unchanged at 6.4%. Employment fell among youth aged 15 to 24 (-19,000; -0.7%) and edged down (-16,000; -0.1%) among people in the core-age (25 to 54 years old). While the overall unemployment rate was unchanged in August, it ...",
+      "source": "statcan.gc.ca",
+      "titre": "Canadian Labour Force Survey, August 2026",
+      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
       "ignore": false,
       "source": "statcan.gc.ca",
       "date_publication": "2026-09-04T13:02:18.147412+00:00",
