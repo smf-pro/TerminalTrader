@@ -4,6 +4,9 @@
     {
       "impact": "low",
       "extrait_fr": "Trump : nous devrions maintenir un taux d'intérêt de 1 % ou 0,5 %Trump : pour moi, des hausses de taux ne garantiraient pas le marché obligataire",
+      "url": "https://www.forexfactory.com/news/1416555-trump-we-should-be-at-one-percent-or",
+      "ignore": false,
+      "impact": "low",
       "date_recuperation": "2026-09-05T03:02:18.181884+00:00",
       "date_publication": "2026-09-04T19:02:18.181884+00:00",
       "source": "@FirstSquawk",
@@ -28,6 +31,9 @@
     {
       "impact": "low",
       "extrait_fr": "L'administrateur de Trump rédige un plan d'après-guerre pour le Moyen-Orient - Axios https://t.co/PBVy3MScE2",
+      "url": "https://www.forexfactory.com/news/1416529-trump-admin-drafting-post-war-middle-east-plan",
+      "ignore": false,
+      "impact": "low",
       "date_recuperation": "2026-09-05T03:02:18.181884+00:00",
       "date_publication": "2026-09-04T18:02:18.181884+00:00",
       "source": "@financialjuice",
@@ -136,6 +142,9 @@
     {
       "impact": "low",
       "extrait_fr": "En juillet 2026, par rapport à juin 2026, le volume désaisonnalisé du commerce de détail a diminué de 0,6% dans la zone euro et de 0,4% dans l'UE, selon les premières estimations d'Eurostat, l'office statistique de l'Union européenne. En juin 2026, le volume du commerce de détail a augmenté de 0,2 % tant dans la zone euro que dans l’UE. En juillet 2026, par rapport à juillet 2025, le...",
+      "url": "https://www.forexfactory.com/news/1416440-volume-of-retail-trade-down-by-06-in",
+      "ignore": false,
+      "impact": "low",
       "date_recuperation": "2026-09-05T03:02:18.181884+00:00",
       "date_publication": "2026-09-04T09:02:18.181884+00:00",
       "source": "ec.europa.eu",
@@ -148,6 +157,9 @@
     {
       "impact": "low",
       "extrait_fr": "L'enquête DMP d'août 2026 a été menée entre le 7 et le 21 août 2026 et a reçu 2 012 réponses. Les entreprises ont déclaré que la croissance annuelle de leurs propres prix réalisée était de 3,7 % au cours des trois mois se terminant en août, soit 0,1 point de pourcentage de moins que celle déclarée par les entreprises au cours des trois mois se terminant en juillet. Notez que le DMP couvre les prix propres des entreprises de l’ensemble de l’économie, et pas seulement…",
+      "url": "https://www.forexfactory.com/news/1416433-boe-monthly-decision-maker-panel-data-august",
+      "ignore": false,
+      "impact": "low",
       "date_recuperation": "2026-09-05T03:02:18.181884+00:00",
       "date_publication": "2026-09-04T09:02:18.181884+00:00",
       "source": "bankofengland.co.uk",
