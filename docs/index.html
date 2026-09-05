@@ -863,9 +863,16 @@ function pushNews(){
   renderNewsColumns();
 }
 
+const MOIS_ABREGES_FR = ['Janv','Févr','Mars','Avr','Mai','Juin','Juil','Août','Sept','Oct','Nov','Déc'];
+
+function formaterDateCarte(date){
+  const jour = String(date.getDate()).padStart(2, '0');
+  return jour + ' ' + MOIS_ABREGES_FR[date.getMonth()];
+}
+
 function newsCardHtml(n){
   const idCarte = 'nc-' + (compteurCarteNews++);
-  const dateStr = n.time.toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit'});
+  const dateStr = formaterDateCarte(n.time);
   const heureStr = n.time.toLocaleTimeString('fr-FR', {hour12:false});
   return `<div class="news-card" id="${idCarte}">
     <div class="meta">
