@@ -32,13 +32,29 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: service_account.json
         run: python centralbanks_cloud.py
 
-      - name: Commit et push docs/data.json
+      - name: Commit et push docs/ (avec retry en cas de conflit)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/
           git diff --staged --quiet && exit 0
           git commit -m "Update data.json [skip ci]"
-          git fetch origin main
-          git merge -X ours origin/main --no-edit
-          git push
+
+          # Avec plusieurs scrapers qui tournent en parallele (FF, CB, IL),
+          # un autre workflow peut pousser entre notre "merge" et notre
+          # "push" : GitHub refuse alors le push (ref-lock). On reessaie
+          # avec un nouveau fetch/merge a chaque tentative, au lieu
+          # d'abandonner directement.
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
+            if git push; then
+              echo "Push reussi (tentative $i)."
+              exit 0
+            fi
+            echo "Push refuse (tentative $i), nouvel essai dans $((i*3))s..."
+            sleep $((i*3))
+          done
+
+          echo "Echec du push apres plusieurs tentatives."
+          exit 1
