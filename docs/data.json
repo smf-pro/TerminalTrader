@@ -10,6 +10,8 @@
       "ignore": false,
       "date_publication": "2026-09-05T17:20:16.581167+00:00",
       "url": "https://www.forexfactory.com/news/1416593-us-attacks-3-iranian-oil-tankers-after-missiles",
+      "titre": "U.S. attacks 3 Iranian oil tankers after missiles target Navy warships",
+      "impact": "low",
       "source": "cnbc.com",
       "impact": "low"
     },
@@ -46,6 +48,11 @@
       "ignore": false,
       "date_publication": "2026-09-04T18:34:44.502412+00:00",
       "url": "https://www.forexfactory.com/news/1416529-trump-admin-drafting-post-war-middle-east-plan",
+      "date_publication": "2026-09-04T18:34:44.502412+00:00",
+      "date_recuperation": "2026-09-05T14:34:44.502412+00:00",
+      "ignore": false,
+      "titre": "Trump admin drafting post-war Middle East plan - Axios",
+      "impact": "low",
       "source": "@financialjuice",
       "impact": "low"
     },
@@ -82,6 +89,11 @@
       "ignore": false,
       "date_publication": "2026-09-04T14:34:44.502412+00:00",
       "url": "https://www.forexfactory.com/news/1416495-trump-great-jobs-number-just-announced-breaking-all",
+      "date_publication": "2026-09-04T14:34:44.502412+00:00",
+      "date_recuperation": "2026-09-05T14:34:44.502412+00:00",
+      "ignore": false,
+      "titre": "Trump: Great jobs number just announced breaking all estimates; Lower the rate or I’ll stop trading with countries with which we have a deficit",
+      "impact": "medium",
       "source": "@realDonaldTrump",
       "impact": "medium"
     }
