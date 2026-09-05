@@ -15,7 +15,8 @@
     },
     {
       "extrait": "Trump: Iran Issue Is A Military Conflict, 'small Potatoes'Trump: We Do Intermittent Strikes In IranTrump: We Took Out A Lot Of Ships Through Hormuz Last NightTrump: If anything goes badly with Iran, we hit them hard.Trump: We Have Right To Put Tariffs On Nations Like Switzerland",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "Trump: Iran issue is a military conflict, 'small potatoes'",
       "date_publication": "2026-09-04T19:02:18.147412+00:00",
       "impact": "low",
       "source": "@FirstSquawk",
@@ -51,7 +52,8 @@
     },
     {
       "extrait": "Fed's Hammack: local contacts indicate time to raise rates to curb inflation",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "Fed's Hammack: local contacts indicate time to raise rates to curb inflation",
       "date_publication": "2026-09-04T17:02:18.147412+00:00",
       "impact": "low",
       "source": "@financialjuice",
@@ -63,7 +65,8 @@
     },
     {
       "extrait": "Great jobs number just announced, breaking all estimates (except mine!) by double and triple - And you haven’t seen anything yet! EMPLOYERS ADDED 162,000 JOB IN AUGUST. Lower the interest rates because the U.S.A. is a much stronger credit than it was just a short time ago! A STRONG COUNTRY MEANS A LOWER INTEREST RATE - IT’S A BETTER CREDIT…Very simple! We should have the LOWEST RATE of any country in the World, like “the old days.” Without the United States agreeing to allow them their big surpluses, and we could stop that immediately, they would no longer be considered financially ELITE! LOWER THE RATE OR I’LL STOP TRADING WITH COUNTRIES WITH WHICH WE HAVE A DEFICIT, which the U.S. Supreme Court, in its ridiculous and very costly Tariff decision, strongly acknowledged “the President” has an absolute right to do. ITS BETTER THAN TARIFFS! The Fed Board, with its great new leader, must get smart - BE PATRIOTS for a change. High interest rates put the U.S.A. at a very unfair disadvantage, and I won’t allow that to happen! President DONALD J. TRUMP",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "Trump: Great jobs number just announced breaking all estimates; Lower the rate or I’ll stop trading with countries with which we have a deficit",
       "date_publication": "2026-09-04T14:02:18.147412+00:00",
       "impact": "medium",
       "source": "@realDonaldTrump",
@@ -87,7 +90,8 @@
     },
     {
       "extrait": "Employment declined by 42,000 (-0.2%) in August and the employment rate fell 0.1 percentage points to 60.8%. The unemployment rate was unchanged at 6.4%. Employment fell among youth aged 15 to 24 (-19,000; -0.7%) and edged down (-16,000; -0.1%) among people in the core-age (25 to 54 years old). While the overall unemployment rate was unchanged in August, it ...",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "Canadian Labour Force Survey, August 2026",
       "date_publication": "2026-09-04T13:02:18.147412+00:00",
       "impact": "high",
       "source": "statcan.gc.ca",
@@ -99,7 +103,8 @@
     },
     {
       "extrait": "Iran's Military Claims That Hitting Israel Is Now 'much Easier' Than In The Past, According To Television Reports.",
-      "extrait_fr": "L'armée iranienne affirme que frapper Israël est désormais « beaucoup plus facile » que par le passé, selon des reportages télévisés.",
+      "ignore": false,
+      "titre": "Iran Military Says Targeting Israel 'Much Easier' Than Before: TV",
       "date_publication": "2026-09-04T11:02:18.147412+00:00",
       "impact": "low",
       "source": "@FirstSquawk",
@@ -111,7 +116,8 @@
     },
     {
       "extrait": "I would like to reflect on independent central banks as institutions, and how their authority is grounded and is challenged. On 3rd September 1780 (246 years ago yesterday) a 23 year old aide to George Washington wrote that: “the Bank of England unites public authority and faith with private credit and hence we see what a vast fabric of paper credit is ...",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "Bailey: The institutional form of independent central banks: from history to contemporary challenges",
       "date_publication": "2026-09-04T10:02:18.147412+00:00",
       "impact": "low",
       "source": "bankofengland.co.uk",
@@ -123,7 +129,8 @@
     },
     {
       "extrait": "Boes Gov Bailey: High Debt Levels Reflect Very Substantial Challenges To Governments, Add To Bond Market Pressure",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "BOE's Bailey: High Debt Levels Reflect Very Substantial Challenges To Governments, Add To Bond Market Pressure",
       "date_publication": "2026-09-04T10:02:18.147412+00:00",
       "impact": "low",
       "source": "@FirstSquawk",
@@ -159,7 +166,8 @@
     },
     {
       "extrait": "August data indicated a sustained downturn in business activity across the UK construction sector, led by weakness in the residential building segment. The seasonally adjusted S&P Global UK Construction Purchasing Managers’ Index™ (PMI®) – an index tracking changes in total industry activity – registered 44.3 in August, down from 44.7 in July and below the ...",
-      "extrait_fr": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+      "ignore": false,
+      "titre": "UK construction output falls at faster pace amid sharp drop in housing activity",
       "date_publication": "2026-09-04T09:02:18.147412+00:00",
       "impact": "medium",
       "source": "pmi.spglobal.com",
