@@ -12,8 +12,12 @@ Différences par rapport à la version locale :
   entre deux exécutions et soit consultable par la page web en temps réel.
 - Dédup : l'ID du document Firestore = hash SHA256 de l'URL. Avant de
   traiter un article, on vérifie s'il existe déjà -> s'il existe, on saute.
-- NOUVEAU : après l'écriture dans Firestore, régénère aussi docs/index.html
-  (site statique publié sur GitHub Pages) via site_generator.generer_site().
+- Après l'écriture dans Firestore, régénère aussi docs/data.json (et
+  docs/archive/) via site_generator.generer_json().
+- NOUVEAU : à CHAQUE cycle, même sans nouvel article, écrit un document
+  dans la collection "pipeline_status" (un battement de coeur). Ça permet
+  au site de distinguer "rien de neuf à publier" de "le script est en
+  panne", en affichant la dernière fois que le script a réellement tourné.
 """
 
 import os
@@ -41,6 +45,7 @@ HEADERS = {
 GENERER_VERSION_FR = True
 LIMITE_CARACTERES_TRADUCTION = 4500
 COLLECTION = "cb_articles"
+NOM_SOURCE = "centralbanks"  # identifiant unique de ce script dans pipeline_status
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -57,6 +62,22 @@ def init_firestore():
 
 def hash_url(url):
     return hashlib.sha256(url.encode("utf-8")).hexdigest()
+
+
+def enregistrer_statut_pipeline(db, statut, liens_vus=0, articles_nouveaux=0, erreur=None):
+    """Ecrit un battement de coeur dans 'pipeline_status', a CHAQUE cycle,
+    meme quand aucun nouvel article n'est trouve. C'est ce qui permet au
+    site de savoir quand ce script a tourne pour la derniere fois, sans
+    confondre 'rien de neuf a publier' et 'le script est en panne'."""
+    doc = {
+        "derniere_execution": firestore.SERVER_TIMESTAMP,
+        "liens_vus": liens_vus,
+        "articles_nouveaux": articles_nouveaux,
+        "statut": statut,
+    }
+    if erreur:
+        doc["derniere_erreur"] = str(erreur)[:300]
+    db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
 # ---------- SCRAPING (identique à la version locale) ----------
@@ -185,7 +206,13 @@ def cycle():
     maintenant = datetime.now(timezone.utc)
     debut_fenetre = maintenant - timedelta(hours=FENETRE_HEURES)
 
-    liens = recuperer_liens_articles()
+    try:
+        liens = recuperer_liens_articles()
+    except Exception as e:
+        print(f"Erreur recuperation des liens : {e}")
+        enregistrer_statut_pipeline(db, statut="erreur", erreur=e)
+        return
+
     print(f"{len(liens)} lien(s) trouve(s) sur la page liste.")
 
     articles_ecrits = 0
@@ -241,9 +268,13 @@ def cycle():
 
     print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
 
-    # NOUVEAU : on régénère docs/data.json avec les données à jour des
-    # deux collections (ff_news + cb_articles), lu ensuite par votre site.
+    # On régénère docs/data.json avec les données à jour des collections,
+    # lu ensuite par votre site.
     generer_json(db)
+
+    # Battement de coeur : ce cycle s'est termine normalement, meme si
+    # articles_ecrits vaut 0 (rien de neuf a publier).
+    enregistrer_statut_pipeline(db, statut="ok", liens_vus=len(liens), articles_nouveaux=articles_ecrits)
 
 
 if __name__ == "__main__":

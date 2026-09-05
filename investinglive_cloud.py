@@ -25,6 +25,10 @@ Calquée sur centralbanks_cloud.py, avec une différence majeure :
   l'URL. Avant de traiter un article, on vérifie s'il existe déjà.
 - Après l'écriture dans Firestore, régénère docs/data.json (et
   docs/archive/) via site_generator.generer_json().
+- NOUVEAU : à CHAQUE cycle, même sans nouvel article, écrit un document
+  dans la collection "pipeline_status" (un battement de coeur). Ça permet
+  au site de distinguer "rien de neuf à publier" de "le script est en
+  panne", en affichant la dernière fois que le script a réellement tourné.
 """
 
 import os
@@ -85,6 +89,7 @@ HEADERS = {
 GENERER_VERSION_FR = True
 LIMITE_CARACTERES_TRADUCTION = 4500
 COLLECTION = "il_articles"
+NOM_SOURCE = "investinglive"  # identifiant unique de ce script dans pipeline_status
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -101,6 +106,22 @@ def init_firestore():
 
 def hash_url(url):
     return hashlib.sha256(url.encode("utf-8")).hexdigest()
+
+
+def enregistrer_statut_pipeline(db, statut, liens_vus=0, articles_nouveaux=0, erreur=None):
+    """Ecrit un battement de coeur dans 'pipeline_status', a CHAQUE cycle,
+    meme quand aucun nouvel article n'est trouve. C'est ce qui permet au
+    site de savoir quand ce script a tourne pour la derniere fois, sans
+    confondre 'rien de neuf a publier' et 'le script est en panne'."""
+    doc = {
+        "derniere_execution": firestore.SERVER_TIMESTAMP,
+        "liens_vus": liens_vus,
+        "articles_nouveaux": articles_nouveaux,
+        "statut": statut,
+    }
+    if erreur:
+        doc["derniere_erreur"] = str(erreur)[:300]
+    db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
 # ---------- SCRAPING ----------
@@ -256,7 +277,11 @@ def cycle():
     # On collecte les liens de TOUTES les sources dans un seul set avant
     # de traiter quoi que ce soit, pour ne jamais traiter deux fois le
     # même article s'il apparaît sur plusieurs pages /Tag/xxx/.
+    # Chaque source a son propre try/except : si une source echoue (site
+    # bloque, timeout...), on continue avec les autres au lieu de tout
+    # annuler. On garde le compte des sources en erreur pour le statut.
     tous_les_liens = set()
+    sources_en_erreur = 0
     for source in SOURCES:
         try:
             liens_source = recuperer_liens_articles(source["url"])
@@ -264,9 +289,20 @@ def cycle():
             tous_les_liens |= liens_source
         except Exception as e:
             print(f"Erreur en listant la source {source['nom']} ({source['url']}) : {e}")
+            sources_en_erreur += 1
         time.sleep(1)
 
     print(f"\n{len(tous_les_liens)} lien(s) unique(s) au total sur {len(SOURCES)} source(s).")
+
+    # Si TOUTES les sources ont echoue, c'est un vrai probleme (site
+    # source injoignable, changement de structure...) : on le signale
+    # comme une erreur plutot que comme un cycle "ok" avec 0 lien.
+    if sources_en_erreur == len(SOURCES):
+        enregistrer_statut_pipeline(
+            db, statut="erreur",
+            erreur=f"Les {len(SOURCES)} sources ont echoue"
+        )
+        return
 
     articles_ecrits = 0
     for url in sorted(tous_les_liens):
@@ -330,6 +366,18 @@ def cycle():
     # On régénère docs/data.json avec les données à jour de toutes les
     # collections (ff_news + cb_articles + il_articles), lu ensuite par le site.
     generer_json(db)
+
+    # Battement de coeur : ce cycle s'est termine normalement, meme si
+    # articles_ecrits vaut 0 (rien de neuf a publier). Si certaines
+    # sources (mais pas toutes) ont echoue, on le note quand meme "ok"
+    # mais avec un statut partiel dans le message d'erreur, a titre indicatif.
+    statut = "ok" if sources_en_erreur == 0 else "ok_partiel"
+    enregistrer_statut_pipeline(
+        db, statut=statut,
+        liens_vus=len(tous_les_liens),
+        articles_nouveaux=articles_ecrits,
+        erreur=f"{sources_en_erreur} source(s) en erreur ce cycle" if sources_en_erreur else None,
+    )
 
 
 if __name__ == "__main__":
