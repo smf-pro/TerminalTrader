@@ -3,6 +3,10 @@
   "ff_news": [
     {
       "url": "https://www.forexfactory.com/news/1416555-trump-we-should-be-at-one-percent-or",
+      "ignore": false,
+      "source": "@FirstSquawk",
+      "impact": "low",
+      "date_recuperation": "2026-09-05T03:02:18.181884+00:00",
       "date_publication": "2026-09-04T19:02:18.181884+00:00",
       "titre_fr": "Trump : nous devrions être à un taux de 1% ou 0,5%",
       "extrait_fr": "Trump : nous devrions maintenir un taux d'intérêt de 1 % ou 0,5 %Trump : pour moi, des hausses de taux ne garantiraient pas le marché obligataire",
