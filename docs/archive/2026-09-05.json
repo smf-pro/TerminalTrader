@@ -2,6 +2,9 @@
   "date": "2026-09-05",
   "ff_news": [
     {
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1416593-us-attacks-3-iranian-oil-tankers-after-missiles",
+      "extrait_fr": "Les forces américaines ont frappé trois transporteurs de pétrole brut iraniens samedi après que le commandement central américain a déclaré que le Corps des Gardiens de la révolution islamique avait lancé des missiles balistiques vers deux navires de guerre de la Marine dans la région. Le CENTCOM a déclaré avoir définitivement désactivé un transporteur de pétrole brut au large des côtes de l'île de Kharg et un autre près de Jask. Un autre pétrolier a été attaqué dans le golfe d'Oman. ...",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416593-us-attacks-3-iranian-oil-tankers-after-missiles",
       "ignore": false,
