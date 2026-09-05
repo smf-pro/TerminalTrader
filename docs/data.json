@@ -14,6 +14,7 @@
       "titre_fr": "Les États-Unis attaquent trois pétroliers iraniens après que des missiles ont visé des navires de guerre de la Marine"
     },
     {
+      "date_recuperation": "2026-09-05T14:34:44.502412+00:00",
       "titre": "Trump: Iran issue is a military conflict, 'small potatoes'",
       "date_publication": "2026-09-04T19:34:44.502412+00:00",
       "ignore": false,
@@ -32,12 +33,19 @@
       "url": "https://www.forexfactory.com/news/1416555-trump-we-should-be-at-one-percent-or",
       "extrait_fr": "Trump : nous devrions maintenir un taux d'intérêt de 1 % ou 0,5 %Trump : pour moi, des hausses de taux ne garantiraient pas le marché obligataire",
       "source": "@FirstSquawk",
+      "extrait": "Trump: Iran Issue Is A Military Conflict, 'small Potatoes'Trump: We Do Intermittent Strikes In IranTrump: We Took Out A Lot Of Ships Through Hormuz Last NightTrump: If anything goes badly with Iran, we hit them hard.Trump: We Have Right To Put Tariffs On Nations Like Switzerland",
+      "url": "https://www.forexfactory.com/news/1416554-trump-iran-issue-is-a-military-conflict-small",
+      "ignore": false,
+      "date_publication": "2026-09-04T19:34:44.502412+00:00"
+    },
+    {
       "date_recuperation": "2026-09-05T14:34:44.502412+00:00",
       "extrait": "Trump: We Should Be At One Percent Or Half Percent RateTrump: To Me, Rate Hikes Wouldn't Assure Bond Market",
       "impact": "low",
       "titre_fr": "Trump : nous devrions être à un taux de 1% ou 0,5%"
     },
     {
+      "date_recuperation": "2026-09-05T14:34:44.502412+00:00",
       "titre": "Trump admin drafting post-war Middle East plan - Axios",
       "date_publication": "2026-09-04T18:34:44.502412+00:00",
       "ignore": false,
