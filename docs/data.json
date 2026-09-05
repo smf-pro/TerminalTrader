@@ -2,6 +2,8 @@
   "generated_at": "2026-09-05T16:20:16.381736+00:00",
   "ff_news": [
     {
+      "date_publication": "2026-09-04T19:34:44.502412+00:00",
+      "source": "@FirstSquawk",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416554-trump-iran-issue-is-a-military-conflict-small",
       "source": "@FirstSquawk",
@@ -38,6 +40,8 @@
       "ignore": false
     },
     {
+      "date_publication": "2026-09-04T16:34:44.502412+00:00",
+      "source": "@realDonaldTrump",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416519-trump-we-should-pay-the-lowest-interest-rates",
       "source": "@realDonaldTrump",
