@@ -43,6 +43,7 @@ from deep_translator import GoogleTranslator
 
 import firebase_admin
 from firebase_admin import credentials, firestore
+from google.api_core.exceptions import ResourceExhausted
 
 from site_generator import generer_json
 
@@ -305,13 +306,24 @@ def cycle():
         return
 
     articles_ecrits = 0
+    quota_depasse = False
     for url in sorted(tous_les_liens):
         doc_id = hash_url(url)
         doc_ref = db.collection(COLLECTION).document(doc_id)
 
-        # Dédup : si le document existe déjà, on saute cet article
-        if doc_ref.get().exists:
-            continue
+        try:
+            # Dédup : si le document existe déjà, on saute cet article
+            if doc_ref.get().exists:
+                continue
+        except ResourceExhausted as e:
+            # Quota Firestore journalier depasse : ca ne sert a rien de
+            # continuer a boucler sur les liens restants, chaque appel
+            # echouera pareil. On arrete proprement ici plutot que de
+            # laisser l'exception remonter et faire planter tout le
+            # script (ce qui empechait meme l'ecriture du statut final).
+            print(f"Quota Firestore depasse, arret du cycle en cours (traite {articles_ecrits} article(s) avant l'arret) : {e}")
+            quota_depasse = True
+            break
 
         try:
             titre, date_pub, contenu = extraire_article(url)
@@ -363,9 +375,32 @@ def cycle():
 
     print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
 
+    if quota_depasse:
+        # On ne tente pas generer_json() : il relit Firestore et
+        # echouerait pour la meme raison. On le fera au prochain cycle,
+        # une fois le quota reinitialise (Firestore Spark se reinitialise
+        # a minuit heure du Pacifique).
+        enregistrer_statut_pipeline(
+            db, statut="erreur",
+            liens_vus=len(tous_les_liens),
+            articles_nouveaux=articles_ecrits,
+            erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
+        )
+        return
+
     # On régénère docs/data.json avec les données à jour de toutes les
     # collections (ff_news + cb_articles + il_articles), lu ensuite par le site.
-    generer_json(db)
+    try:
+        generer_json(db)
+    except ResourceExhausted as e:
+        print(f"Quota Firestore depasse pendant generer_json() : {e}")
+        enregistrer_statut_pipeline(
+            db, statut="erreur",
+            liens_vus=len(tous_les_liens),
+            articles_nouveaux=articles_ecrits,
+            erreur="Quota Firestore depasse pendant la generation du JSON",
+        )
+        return
 
     # Battement de coeur : ce cycle s'est termine normalement, meme si
     # articles_ecrits vaut 0 (rien de neuf a publier). Si certaines
