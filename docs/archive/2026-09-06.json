@@ -3,6 +3,7 @@
   "ff_news": [
     {
       "extrait_fr": null,
+      "date_recuperation": "2026-09-06T14:58:22.443864+00:00",
       "url": "https://www.forexfactory.com/news/1416616-trump-canadas-currency-dollar-imbalance-with-the-us",
       "impact": "medium",
       "titre_fr": null,
@@ -15,6 +16,7 @@
     },
     {
       "extrait_fr": "Sept pays de l'OPEP+ qui avaient précédemment accepté des ajustements volontaires supplémentaires de la production ont déclaré dimanche qu'ils avaient décidé de ne pas modifier leurs quotas de production et de maintenir pour octobre la production requise de septembre 2026. L'Arabie saoudite, la Russie, l'Irak, le Koweït, le Kazakhstan, l'Algérie et Oman ont tenu dimanche une réunion virtuelle au cours de laquelle ils...",
+      "date_recuperation": "2026-09-06T12:48:14.915836+00:00",
       "url": "https://www.forexfactory.com/news/1416612-opec-makes-no-changes-to-output-quotas",
       "impact": "low",
       "titre_fr": "L'OPEP+ n'apporte aucune modification aux quotas de production",
