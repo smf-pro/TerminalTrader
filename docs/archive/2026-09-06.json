@@ -15,6 +15,8 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1416612-opec-makes-no-changes-to-output-quotas",
+      "extrait": "Seven OPEC+ countries that previously agreed to additional voluntary production adjustments said on Sunday that they decided not to make any changes to their output quotas and maintain the September 2026 required production for October. Saudi Arabia, Russia, Iraq, Kuwait, Kazakhstan, Algeria, and Oman held a virtual meeting on Sunday during which they ...",
+      "date_recuperation": "2026-09-06T12:48:14.915836+00:00",
       "titre_fr": "L'OPEP+ n'apporte aucune modification aux quotas de production",
       "date_publication": "2026-09-06T12:47:14.915836+00:00",
       "extrait_fr": "Sept pays de l'OPEP+ qui avaient précédemment accepté des ajustements volontaires supplémentaires de la production ont déclaré dimanche qu'ils avaient décidé de ne pas modifier leurs quotas de production et de maintenir pour octobre la production requise de septembre 2026. L'Arabie saoudite, la Russie, l'Irak, le Koweït, le Kazakhstan, l'Algérie et Oman ont tenu dimanche une réunion virtuelle au cours de laquelle ils...",
@@ -30,6 +32,8 @@
   "il_articles": [
     {
       "url": "https://investinglive.com/news/iran-warns-of-tougher-response-oil-gold-and-stocks-to-watch-over-the-holiday-weekend/",
+      "date_recuperation": "2026-09-06T12:50:16.422670+00:00",
+      "categorie": "news",
       "titre_fr": null,
       "date_publication": "2026-09-06T12:49:21.148897+00:00",
       "ignore": false,
