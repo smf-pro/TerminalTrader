@@ -73,6 +73,19 @@
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
   .clock{ color:var(--text-hi); cursor:help; }
   .clock.clock-alerte{ color:var(--red, #e05252); }
+  .clock.clock-alerte-partielle{ color:var(--amber, #e0a542); }
+  .src-status-dot{
+    display:inline-block; width:8px; height:8px; border-radius:50%;
+    margin-left:8px; vertical-align:middle; cursor:help;
+    background:var(--text-low);
+  }
+  .src-status-dot.ok{ background:var(--green); }
+  .src-status-dot.ok_partiel{ background:var(--amber); }
+  .src-status-dot.erreur{ background:var(--red); }
+  .src-status-time{
+    font-family:var(--mono); font-size:9.5px; font-weight:400;
+    color:var(--text-low); margin-left:6px; letter-spacing:0;
+  }
   .search{
     display:flex; align-items:center; gap:8px;
     background:var(--bg-2);
@@ -438,19 +451,19 @@
   <div class="page" id="page-news">
     <div class="news-4col" id="news4col">
       <div class="news-src-col">
-        <div class="panel-head"><span>INVESTINGLIVE</span><span id="cnt-il">0</span></div>
+        <div class="panel-head"><span>INVESTINGLIVE<span class="src-status-dot" id="dot-investinglive" title=""></span><span class="src-status-time" id="time-investinglive"></span></span><span id="cnt-il">0</span></div>
         <div class="panel-body" id="colInvestingLive"></div>
       </div>
       <div class="news-src-col">
-        <div class="panel-head"><span>BANQUES CENTRALES</span><span id="cnt-cb">0</span></div>
+        <div class="panel-head"><span>BANQUES CENTRALES<span class="src-status-dot" id="dot-centralbanks" title=""></span><span class="src-status-time" id="time-centralbanks"></span></span><span id="cnt-cb">0</span></div>
         <div class="panel-body" id="colCentralBanks"></div>
       </div>
       <div class="news-src-col">
-        <div class="panel-head"><span>FOREXFACTORY</span><span id="cnt-ff">0</span></div>
+        <div class="panel-head"><span>FOREXFACTORY<span class="src-status-dot" id="dot-forexfactory" title=""></span><span class="src-status-time" id="time-forexfactory"></span></span><span id="cnt-ff">0</span></div>
         <div class="panel-body" id="colForexFactory"></div>
       </div>
       <div class="news-src-col">
-        <div class="panel-head"><span>FOREXFACTORY — IMPACT FORT</span><span id="cnt-ffh">0</span></div>
+        <div class="panel-head"><span>FOREXFACTORY — IMPACT FORT<span class="src-status-dot" id="dot-forexfactory-high" title=""></span><span class="src-status-time" id="time-forexfactory-high"></span></span><span id="cnt-ffh">0</span></div>
         <div class="panel-body" id="colForexFactoryHigh"></div>
       </div>
     </div>
@@ -758,6 +771,8 @@ function mettreAJourHorlogeInfo(){
     clockEl.textContent = '--:--:--';
     clockEl.title = 'En attente des premières données de pipeline_status…';
     clockEl.classList.remove('clock-alerte');
+    clockEl.classList.remove('clock-alerte-partielle');
+    mettreAJourPastillesSources();
     return;
   }
 
@@ -768,8 +783,18 @@ function mettreAJourHorlogeInfo(){
   clockEl.textContent = formaterDateCarte(date) + ' · ' + date.toLocaleTimeString('fr-FR', {hour12:false});
 
   const minutesEcoulees = (Date.now() - date.getTime()) / 60000;
-  const yAUneErreur = entrees.some(e => e.info.statut === 'erreur');
-  clockEl.classList.toggle('clock-alerte', yAUneErreur || minutesEcoulees > SEUIL_ALERTE_MINUTES);
+  // Rouge : panne franche (erreur totale) ou script silencieux depuis
+  // trop longtemps (plus rien ne remonte du tout, cas le plus grave).
+  const yAUneErreurTotale = entrees.some(e => e.info.statut === 'erreur');
+  const yAUnSilenceProlonge = minutesEcoulees > SEUIL_ALERTE_MINUTES;
+  // Orange : le script tourne toujours et n'est pas silencieux, mais
+  // une partie de son travail echoue a chaque cycle (ex: certaines pages
+  // /Tag/xxx/ d'investinglive injoignables). Moins grave qu'une panne
+  // totale, mais merite d'etre visible sans avoir a survoler l'horloge.
+  const yAUneErreurPartielle = entrees.some(e => e.info.statut === 'ok_partiel');
+
+  clockEl.classList.toggle('clock-alerte', yAUneErreurTotale || yAUnSilenceProlonge);
+  clockEl.classList.toggle('clock-alerte-partielle', !(yAUneErreurTotale || yAUnSilenceProlonge) && yAUneErreurPartielle);
 
   // Détail par script au survol (title = tooltip natif du navigateur)
   clockEl.title = SOURCES_PIPELINE.map(nom => {
@@ -782,7 +807,70 @@ function mettreAJourHorlogeInfo(){
     if(info.erreur) ligne += ' — ' + info.erreur;
     return ligne;
   }).join('\n');
+
+  mettreAJourPastillesSources();
 }
+
+// ===== PASTILLES DE STATUT PAR COLONNE (page News) =====
+// Meme donnee que l'horloge globale (pipeline_status), mais affichee
+// directement a cote du titre de chaque colonne source, pour voir d'un
+// coup d'oeil QUEL script pose probleme sans avoir a survoler l'horloge.
+// FOREXFACTORY et FOREXFACTORY — IMPACT FORT partagent la meme pastille
+// (meme source ff_news, la 2e colonne est juste un sous-filtre impact=high).
+const DOTS_PAR_SOURCE = {
+  investinglive: ['dot-investinglive'],
+  centralbanks: ['dot-centralbanks'],
+  forexfactory: ['dot-forexfactory', 'dot-forexfactory-high'],
+};
+
+function mettreAJourPastillesSources(){
+  Object.keys(DOTS_PAR_SOURCE).forEach(nomSource => {
+    const info = statutPipeline[nomSource];
+    const idsDots = DOTS_PAR_SOURCE[nomSource];
+
+    let classeCouleur = ''; // pas de classe = gris neutre (aucune donnee encore)
+    let texteTitre = nomSource + ' : aucune donnée reçue pour le moment';
+    let texteVisible = '';
+
+    if(info && info.derniereExecution){
+      const minutesEcoulees = (Date.now() - info.derniereExecution.getTime()) / 60000;
+      const silencieux = minutesEcoulees > SEUIL_ALERTE_MINUTES;
+      if(info.statut === 'erreur' || silencieux){
+        classeCouleur = 'erreur';
+      } else if(info.statut === 'ok_partiel'){
+        classeCouleur = 'ok_partiel';
+      } else {
+        classeCouleur = 'ok';
+      }
+
+      const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+      const jour = formaterDateCarte(info.derniereExecution);
+      // Texte court visible en permanence a cote de la pastille (pas
+      // besoin de survoler), meme format que l'horloge principale.
+      texteVisible = jour + ' · ' + heure;
+
+      texteTitre = nomSource + ' : ' + jour + ' ' + heure + ' (' + info.statut + ', '
+        + info.articlesNouveaux + ' nouveau(x) / ' + info.liensVus + ' vu(s))';
+      if(info.erreur) texteTitre += ' — ' + info.erreur;
+      if(silencieux) texteTitre += ' — silencieux depuis ' + Math.round(minutesEcoulees) + ' min';
+    }
+
+    idsDots.forEach(id => {
+      const dotEl = document.getElementById(id);
+      if(dotEl){
+        dotEl.className = 'src-status-dot' + (classeCouleur ? ' ' + classeCouleur : '');
+        dotEl.title = texteTitre;
+      }
+      const timeEl = document.getElementById(id.replace('dot-', 'time-'));
+      if(timeEl){
+        timeEl.textContent = texteVisible;
+        timeEl.title = texteTitre;
+      }
+    });
+  });
+}
+
+
 
 // Reevalue l'alerte toutes les minutes meme sans nouvelle donnee Firestore,
 // pour que le seuil SEUIL_ALERTE_MINUTES se declenche a l'heure meme si
