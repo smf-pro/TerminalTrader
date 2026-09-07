@@ -19,11 +19,13 @@
       "titre_fr": "L'Iran met en garde ses navires contre un risque de frappe près de Khasab à Oman - Fars",
       "titre": "Iran warns ships face strike risk near Oman's Khasab - Fars",
       "extrait": "Iran warns ships face strike risk near Oman's Khasab - Fars",
+      "impact": "low",
+      "titre": "Iran warns ships face strike risk near Oman's Khasab - Fars",
       "date_recuperation": "2026-09-07T14:58:14.044877+00:00",
       "source": "@financialjuice",
       "url": "https://www.forexfactory.com/news/1416760-iran-warns-ships-face-strike-risk-near-omans",
       "extrait_fr": "L'Iran met en garde ses navires contre un risque de frappe près de Khasab à Oman - Fars",
-      "impact": "low"
+      "ignore": false
     },
     {
       "extrait_fr": "Kremlin sur les négociations trilatérales en Ukraine : Nous n'avons pas encore reçu d'informations sur les contacts à Kiev.",
@@ -47,7 +49,12 @@
       "source": "ec.europa.eu",
       "url": "https://www.forexfactory.com/news/1416696-eu-gdp-up-by-06-and-employment-up",
       "extrait_fr": "Au deuxième trimestre 2026, le PIB désaisonnalisé a augmenté de 0,6% dans la zone euro et de 0,7% dans l'UE, par rapport au trimestre précédent, selon une estimation publiée par Eurostat, l'office statistique de l'Union européenne. Au premier trimestre 2026, le PIB est resté stable dans la zone euro et a augmenté de 0,1 % dans l’UE. Comparé...",
-      "impact": "low"
+      "extrait": "In the second quarter of 2026, seasonally adjusted GDP increased by 0.6% in the euro area and by 0.7% in the EU, compared with the previous quarter, according to an estimate published by Eurostat, the statistical office of the European Union. In the first quarter of 2026, GDP had remained stable in the euro area and had increased by 0.1% in the EU. Compared ...",
+      "impact": "low",
+      "titre": "EU GDP up by 0.6% and employment up by 0.1% in the euro area",
+      "date_recuperation": "2026-09-07T09:53:16.636815+00:00",
+      "titre_fr": "Le PIB de l'UE en hausse de 0,6% et l'emploi en hausse de 0,1% dans la zone euro",
+      "ignore": false
     },
     {
       "date_publication": "2026-09-07T09:01:13.775466+00:00",
@@ -59,7 +66,7 @@
       "source": "ec.europa.eu",
       "url": "https://www.forexfactory.com/news/1416696-gdp-main-components-and-employment-estimates-for-the",
       "extrait_fr": "Au deuxième trimestre 2026, le PIB désaisonnalisé a augmenté de 0,6% dans la zone euro et de 0,7% dans l'UE, par rapport au trimestre précédent, selon une estimation publiée par Eurostat, l'office statistique de l'Union européenne. Au premier trimestre 2026, le PIB est resté stable dans la zone euro et a augmenté de 0,1 % dans l’UE. Comparé...",
-      "impact": "low"
+      "ignore": false
     },
     {
       "extrait_fr": "Selon les indices économiques sentix, l'économie allemande se porte étonnamment bien au début du mois de septembre. L’indice du climat des affaires a augmenté de 11,5 points pour atteindre son plus haut niveau depuis mai 2023. La zone euro profite également de la reprise de la plus grande économie de la zone euro. L'indice économique global sentix s'élève à +5,1...",
@@ -79,6 +86,8 @@
       "titre_fr": "Gargash, conseiller présidentiel des Émirats arabes unis : le détroit d'Ormuz doit être traité comme une voie navigable internationale",
       "titre": "Uae Presidential Adviser Gargash: Strait Of Hormuz Must Be Treated As An International Waterway",
       "extrait": "Uae Presidential Adviser Gargash: Strait Of Hormuz Must Be Treated As An International Waterway",
+      "impact": "low",
+      "titre": "Uae Presidential Adviser Gargash: Strait Of Hormuz Must Be Treated As An International Waterway",
       "date_recuperation": "2026-09-07T07:34:15.100195+00:00",
       "source": "@FirstSquawk",
       "url": "https://www.forexfactory.com/news/1416685-uae-presidential-adviser-gargash-strait-of-hormuz-must",
