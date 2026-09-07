@@ -16,12 +16,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-2-fed-rate-cuts-happen-in-2026": {
-    "hash": "66e37b9d9f707543b1a18541b3315a1631c84471afaf1748a93b90167994b2c3",
+    "hash": "8d783b2aa0e2a34c311ba36ff0ecd422404242f5866c3265d13e59b7566d9a7d",
     "valeurs": {
-      "probabilite": 1.6
+      "probabilite": 1.65
     },
     "date_cloture": "2026-12-31T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "will-3-fed-rate-cuts-happen-in-2026": {
     "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
@@ -152,12 +152,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "bank-of-england-rate-hike-in-2026": {
-    "hash": "3d7c762205927962c83490e598804bb108db892e2123c111485b80569e5641ab",
+    "hash": "d9e8761e2dc86d322c02322c7c275f953499e209078f216ee379c6e908299f77",
     "valeurs": {
-      "probabilite": 56.5
+      "probabilite": 55.5
     },
     "date_cloture": "2027-01-01T04:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "bank-of-canada-rate-hike-in-2026": {
     "hash": "31fae10400df936cdea00828f7dbc4ac36204025c54d43a8525d603704ea8f99",
@@ -408,20 +408,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "bank-of-england-decreases-interest-rates-by-50-bps-after-september-2026-meeting-20260623013424709": {
-    "hash": "79cf6db5811f6c1470871e10115876d2e03fc5b2e0c269eff4af1db151d31ce2",
+    "hash": "9d46ba9b86fe1ea0457f7037a972e7e90802937ad191c5c3a3d65b2ea30914ec",
     "valeurs": {
-      "probabilite": 0.95
+      "probabilite": 0.9
     },
     "date_cloture": "2026-09-17T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "bank-of-england-decreases-interest-rates-by-25-bps-after-september-2026-meeting-20260623013424710": {
-    "hash": "e73441d26eafe858d86558f927703c22e25368fc44c6335d9c62b82115101b19",
+    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
     "valeurs": {
-      "probabilite": 0.65
+      "probabilite": 0.45
     },
     "date_cloture": "2026-09-17T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "no-change-in-bank-of-englands-interest-rates-after-september-2026-meeting-20260623013424711": {
     "hash": "a1580f391808f897f05fd27c2c489bd2a59f31944383e70fceeb52f609a1b8b9",
@@ -456,12 +456,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-bank-of-canada-increase-the-target-for-the-overnight-rate-by-25-bps-at-the-october-interest-rate-announcement-20260715203359316": {
-    "hash": "ca77174e2188a7e7ac78e659a8a6719e32522ddf2385e227e0af04ef7ff24091",
+    "hash": "9230b4dca73bfc58fbf0cef4b5d861ee707d8783e6438a130c88601f7c1d9f06",
     "valeurs": {
-      "probabilite": 10.55
+      "probabilite": 10.6
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "will-the-bank-of-canada-make-no-change-to-the-target-for-the-overnight-rate-at-the-october-interest-rate-announcement-20260715203359317": {
     "hash": "8c1f2b207b50baea8e964e33363ba78705525f0b964a55691baed6f0bf0c53b9",
@@ -472,12 +472,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-bank-of-canada-decrease-the-target-for-the-overnight-rate-by-25-bps-at-the-october-interest-rate-announcement-20260715203359318": {
-    "hash": "e72073dcec43d3c821bf701733e6da04bb6c6fbac29d3beb2bd4d8c942605b14",
+    "hash": "3e7589fd1696cd74ab3f1663d48b4872fca0f0d9fb8bec42dcd95323015e157c",
     "valeurs": {
-      "probabilite": 1.7
+      "probabilite": 1.55
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "will-the-bank-of-canada-decrease-the-target-for-the-overnight-rate-by-50-bps-at-the-october-interest-rate-announcement-20260715203359319": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -504,12 +504,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-ecb-announce-no-change-at-the-october-2026-meeting-20260723225848781": {
-    "hash": "33f4db753def96ec3b56518e502d7633ac653c3b2f872291cddec7e4a83b2f8b",
+    "hash": "102c5f36a1085701610406b3d2fc3b3f8ebe5114988c41743e1b34888217f856",
     "valeurs": {
-      "probabilite": 89.5
+      "probabilite": 90.0
     },
     "date_cloture": "2026-10-29T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "will-the-ecb-announce-a-25-bps-increase-at-the-october-2026-meeting-20260723225848782": {
     "hash": "a6e46bb85d556048eb262cbdb526b8d12d13ee1b51fc7c9245f18ac54fdf72da",
@@ -544,12 +544,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "no-change-in-reserve-bank-of-australias-interest-rates-at-the-september-2026-meeting-20260729163823947": {
-    "hash": "f1901b114fb00b9eb8b8b297da5b066a56a065deaad2d7c84b67ec4b1b8fdab4",
+    "hash": "3f6a1833491f94bf7faec1741fcdc43c6b29e6f21853b0ce6862bb3a5fd569dc",
     "valeurs": {
-      "probabilite": 42.05
+      "probabilite": 41.55
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-25-bps-at-the-september-2026-meeting-20260729163823948": {
     "hash": "25bdda68a8f31e9b45dd54a7bae399531806d55661a09e008a08dab57db0b48c",
@@ -792,12 +792,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-25-bps-at-the-november-2026-meeting-1786388202572": {
-    "hash": "5eac705181cab69fddd6589e5e89c5fd5652efb61ab55eb5b9b62dc74d1be4d7",
+    "hash": "bd3c3c517c2ceb8548cba813eab1af3d5bd33215210698bdfc7e1830a2848b1c",
     "valeurs": {
-      "probabilite": 35.65
+      "probabilite": 35.55
     },
     "date_cloture": "2026-11-03T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-50-bps-at-the-november-2026-meeting-1786388202573": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -856,12 +856,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-fed-pausehikehike-in-the-next-three-decisions-sepoctdec": {
-    "hash": "1cfd947b3f8a1c1308128e7e497b8c63e8912dcc62d5c48bd4bf8e6660f69fed",
+    "hash": "c627ce8fd70f2c342785377218ad1d2d3114a681572180ebffd642b05d0ab705",
     "valeurs": {
-      "probabilite": 5.5
+      "probabilite": 5.0
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-07T17:54:58.983275+00:00"
   },
   "will-the-fed-pausehikepause-in-the-next-three-decisions-sepoctdec": {
     "hash": "2e4f38dddbb32623563516b784fe263edffbaa2084d7cb7c160227a94308758f",
