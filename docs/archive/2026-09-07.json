@@ -85,6 +85,7 @@
       "categorie": "news"
     },
     {
+      "ignore": false,
       "url": "https://investinglive.com/news/germany-july-industrial-production-1-1-vs-0-1-m-m-expected/",
       "date_publication": "2026-09-07T06:02:17.907469+00:00",
       "titre": "Germany July industrial production -1.1% vs +0.1% m/m expected",
