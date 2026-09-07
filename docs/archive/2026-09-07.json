@@ -3,6 +3,7 @@
   "ff_news": [
     {
       "url": "https://www.forexfactory.com/news/1416705-kremlin-on-ukraine-trilateral-talks-we-have-not",
+      "titre_fr": "Le Kremlin sur les négociations trilatérales en Ukraine : nous n'avons pas encore reçu d'informations sur les contacts à Kiev",
       "extrait": "Kremlin on Ukraine trilateral talks: We have not yet received information about contacts in Kyiv.",
       "date_publication": "2026-09-07T10:32:14.801628+00:00",
       "titre": "Kremlin on Ukraine trilateral talks: We have not yet received information about contacts in Kyiv",
@@ -15,6 +16,7 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1416696-eu-gdp-up-by-06-and-employment-up",
+      "date_publication": "2026-09-07T09:01:16.636815+00:00",
       "extrait": "In the second quarter of 2026, seasonally adjusted GDP increased by 0.6% in the euro area and by 0.7% in the EU, compared with the previous quarter, according to an estimate published by Eurostat, the statistical office of the European Union. In the first quarter of 2026, GDP had remained stable in the euro area and had increased by 0.1% in the EU. Compared ...",
       "titre_fr": "Le PIB de l'UE en hausse de 0,6% et l'emploi en hausse de 0,1% dans la zone euro",
       "date_publication": "2026-09-07T09:01:16.636815+00:00",
@@ -27,6 +29,7 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1416696-gdp-main-components-and-employment-estimates-for-the",
+      "source": "ec.europa.eu",
       "extrait": "In the second quarter of 2026, seasonally adjusted GDP increased by 0.6% in the euro area and by 0.7% in the EU, compared with the previous quarter, according to an estimate published by Eurostat, the statistical office of the European Union. In the first quarter of 2026, GDP had remained stable in the euro area and had increased by 0.1% in the EU. Compared ...",
       "date_publication": "2026-09-07T09:01:13.775466+00:00",
       "titre_fr": "Principales composantes du PIB et estimations de l'emploi pour le deuxième trimestre 2026 PIB en hausse de 0,6% et emploi en hausse de 0,1% dans la zone euro",
@@ -75,6 +78,7 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1416677-average-house-price-edged-down-in-august-as",
+      "titre_fr": null,
       "extrait": "UK house prices fell slightly in August, down -0.2% over the month following a similar decline in July. The average property now costs £298,468, marking the first annual fall in house prices since November 2023 . Despite that, prices are still marginally up (+0.2%) since the start of the year. “The housing market has faced a more difficult backdrop in ...",
       "titre": "Average house price edged down in August as market remains subdued",
       "date_publication": "2026-09-07T06:04:35.220950+00:00",
