@@ -41,6 +41,7 @@
     {
       "titre": "Reminder: US markets are closed for Labor Day - what traders need to know",
       "titre_fr": "Rappel : les marchés américains sont fermés pour la Fête du Travail – ce que les traders doivent savoir",
+      "categorie": "news",
       "date_publication": "2026-09-07T04:23:00.990748+00:00",
       "date_recuperation": "2026-09-07T04:25:16.927830+00:00",
       "url": "https://investinglive.com/news/reminder-us-markets-are-closed-for-labor-day-what-traders-need-to-know/",
@@ -52,6 +53,7 @@
     {
       "titre": "Stocks - Chip rally lifts Nikkei and Kospi, but Japan's rally story looks shaky",
       "titre_fr": "Actions - Le rallye des puces soulève le Nikkei et le Kospi, mais l'histoire du rallye du Japon semble fragile",
+      "categorie": "stock-market-update",
       "date_publication": "2026-09-07T02:46:34.125141+00:00",
       "date_recuperation": "2026-09-07T02:50:16.324500+00:00",
       "categorie": "stock-market-update",
@@ -107,6 +109,7 @@
     {
       "titre": "Yen's sharp weekly rally tied to BOJ rate hike repricing",
       "titre_fr": null,
+      "categorie": "forex",
       "date_publication": "2026-09-07T00:07:55.248753+00:00",
       "date_recuperation": "2026-09-07T00:10:13.466289+00:00",
       "url": "https://investinglive.com/forex/yen-s-sharp-weekly-rally-tied-to-boj-rate-hike-repricing/",
