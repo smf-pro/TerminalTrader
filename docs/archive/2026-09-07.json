@@ -16,6 +16,7 @@
     {
       "impact": "low",
       "source": "@financialjuice",
+      "extrait": "Kremlin on Ukraine trilateral talks: We have not yet received information about contacts in Kyiv.",
       "titre": "Kremlin on Ukraine trilateral talks: We have not yet received information about contacts in Kyiv",
       "url": "https://www.forexfactory.com/news/1416705-kremlin-on-ukraine-trilateral-talks-we-have-not",
       "extrait_fr": "Kremlin sur les négociations trilatérales en Ukraine : Nous n'avons pas encore reçu d'informations sur les contacts à Kiev.",
@@ -39,6 +40,10 @@
     },
     {
       "impact": "low",
+      "ignore": false,
+      "date_publication": "2026-09-07T09:01:16.636815+00:00"
+    },
+    {
       "titre": "GDP main components and employment estimates for the second quarter of 2026 GDP up by 0.6% and employment up by 0.1% in the euro area",
       "source": "ec.europa.eu",
       "url": "https://www.forexfactory.com/news/1416696-gdp-main-components-and-employment-estimates-for-the",
