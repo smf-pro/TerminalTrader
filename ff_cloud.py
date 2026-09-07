@@ -21,11 +21,14 @@ Différences par rapport à la version locale :
   (page injoignable, selecteurs casses, aucune news high/medium) : chacun
   ecrit maintenant son propre statut, avec un message different selon le cas.
 
-⚠️ Les sélecteurs CSS (.news-block__item, etc.) n'ont pas pu être testés
-contre le vrai HTML en direct. Si les logs affichent "Aucune news trouvée"
-lors du premier run, ouvrez https://www.forexfactory.com/news, faites
-clic droit > Inspecter sur un titre, et ajustez les sélecteurs dans
-recuperer_liens_articles().
+CORRECTIF (vérifié via inspection DOM réelle) : les sélecteurs utilisaient
+la convention BEM classique (.news-block__item, double underscore), mais
+le vrai site ForexFactory utilise un simple tiret (.news-block-item).
+Aucun élément ne correspondait donc jamais aux sélecteurs, et le script
+retournait "Aucun bloc de news trouve du tout" à chaque run (statut
+"erreur" écrit dans pipeline_status, mais sans faire planter le workflow
+GitHub Actions, qui restait donc vert). Sélecteurs corrigés ci-dessous
+d'après une inspection DOM réelle du 07/09/2026.
 """
 
 import os
@@ -132,7 +135,7 @@ def parser_date_relative(texte, maintenant):
 
 
 def extraire_date_publication(element, maintenant):
-    details = element.select_one(".news-block__details")
+    details = element.select_one(".news-block-details")
     if not details:
         return None
     date_span = details.select_one("span.nowrap")
@@ -144,12 +147,12 @@ def extraire_date_publication(element, maintenant):
 def extraire_impact(element):
     """
     Determine le niveau d'impact d'une news a partir de l'icone presente
-    dans le bloc .news-block__details, ex :
+    dans le bloc .news-block-details, ex :
     <img src="https://www.forexfactory.com/resources/svg/images/impact/ff/high.svg">
     Retourne "high", "medium", "low", ou None si aucune icone d'impact
     n'est presente (certaines news n'en ont pas).
     """
-    details = element.select_one(".news-block__details")
+    details = element.select_one(".news-block-details")
     if not details:
         return None
     icone = details.select_one("img[src*='/impact/ff/']")
@@ -167,15 +170,15 @@ def recuperer_liens_articles(maintenant):
     reponse.raise_for_status()
     soup = BeautifulSoup(reponse.text, "html.parser")
 
-    candidats = soup.select(".news-block__item")
+    candidats = soup.select(".news-block-item")
     total_brut = len(candidats)
     resultats = []
 
     for element in candidats:
-        if "news-block__item--comment" in element.get("class", []):
+        if "news-block-item--comment" in element.get("class", []):
             continue
 
-        titre_tag = element.select_one(".news-block__title a")
+        titre_tag = element.select_one(".news-block-title a")
         if not titre_tag:
             continue
         titre = titre_tag.get_text(strip=True)
@@ -188,12 +191,12 @@ def recuperer_liens_articles(maintenant):
         if href.startswith("/"):
             href = "https://www.forexfactory.com" + href
 
-        details = element.select_one(".news-block__details")
+        details = element.select_one(".news-block-details")
         source_tag = details.select_one("a") if details else None
         source = source_tag.get_text(strip=True) if source_tag else "Inconnue"
         source = re.sub(r"^from\s+", "", source, flags=re.IGNORECASE)
 
-        preview_tag = element.select_one(".news-block__preview")
+        preview_tag = element.select_one(".news-block-preview")
         extrait = preview_tag.get_text(strip=True) if preview_tag else ""
 
         date_pub = extraire_date_publication(element, maintenant)
