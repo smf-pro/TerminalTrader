@@ -78,6 +78,7 @@
       "date_publication": "2026-09-07T06:34:25.595267+00:00",
       "categorie": "news",
       "titre": "What are the main events for today?",
+      "ignore": false,
       "url": "https://investinglive.com/news/what-are-the-main-events-for-today-36/",
       "titre_fr": "Quels sont les principaux événements du jour ?",
       "ignore": false,
