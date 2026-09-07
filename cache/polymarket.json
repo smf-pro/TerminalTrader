@@ -248,12 +248,12 @@
     "maj": "2026-09-07T16:45:35.727833+00:00"
   },
   "will-the-fed-pausepausecut-in-the-next-three-decisions-junjulsep": {
-    "hash": "ac8c762928d0cb04c00774df81a20b84514c231e17e20ab09f3629d5288fc4db",
+    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
     "valeurs": {
-      "probabilite": 0.5
+      "probabilite": 0.45
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-07T12:45:45.562185+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "will-the-fed-pausecutpause-in-the-next-three-decisions-junjulsep": {
     "hash": "05e7433e1ecd4146b3d49e515ca062cf871bd2a402cb158720e587d70e143087",
@@ -488,12 +488,12 @@
     "maj": "2026-09-07T12:45:45.562185+00:00"
   },
   "will-the-bank-of-japan-announce-no-change-at-the-september-2026-meeting-20260616223724869": {
-    "hash": "8821cb6ea6f923bdea5248f63c2a48276af095517dde2d50226716cc830c4b6d",
+    "hash": "738f1c91f893244f479fa39c3b5de3087e9f0e44d43a16d753c56ed51edb7ce2",
     "valeurs": {
-      "probabilite": 1.2
+      "probabilite": 1.15
     },
     "date_cloture": "2026-09-18T15:59:00Z",
-    "maj": "2026-09-07T16:45:35.727833+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "will-the-bank-of-japan-announce-a-25-bps-increase-at-the-september-2026-meeting-20260616223724870": {
     "hash": "62a5c0b2daf53cdb42926dd65d40744f26a8319a5f9ba743e89459a6e8b10018",
@@ -576,12 +576,12 @@
     "maj": "2026-09-07T12:45:45.562185+00:00"
   },
   "will-the-bank-of-canada-decrease-the-target-for-the-overnight-rate-by-25-bps-at-the-october-interest-rate-announcement-20260715203359318": {
-    "hash": "7ac4ef8c60c9bfe8b915177d7386a1750604b07f86f1ffbf3153c9e8ae95993d",
+    "hash": "e72073dcec43d3c821bf701733e6da04bb6c6fbac29d3beb2bd4d8c942605b14",
     "valeurs": {
-      "probabilite": 1.75
+      "probabilite": 1.7
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-07T12:45:45.562185+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "will-the-bank-of-canada-decrease-the-target-for-the-overnight-rate-by-50-bps-at-the-october-interest-rate-announcement-20260715203359319": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -648,12 +648,12 @@
     "maj": "2026-09-07T12:45:45.562185+00:00"
   },
   "no-change-in-reserve-bank-of-australias-interest-rates-at-the-september-2026-meeting-20260729163823947": {
-    "hash": "ed0b01d5e9872a083b18c719b416b1f0485d9a9c6aabf31b298844f18e3e1585",
+    "hash": "f1901b114fb00b9eb8b8b297da5b066a56a065deaad2d7c84b67ec4b1b8fdab4",
     "valeurs": {
-      "probabilite": 42.0
+      "probabilite": 42.05
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-07T16:45:35.727833+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-25-bps-at-the-september-2026-meeting-20260729163823948": {
     "hash": "25bdda68a8f31e9b45dd54a7bae399531806d55661a09e008a08dab57db0b48c",
@@ -816,12 +816,12 @@
     "maj": "2026-09-07T12:45:45.562185+00:00"
   },
   "bank-of-england-increases-interest-rates-by-25-bps-after-november-2026-meeting-20260730150602310": {
-    "hash": "c98b53857b96e4b57da25e41e26f37d4b170042032484a08bce82e2099682827",
+    "hash": "d2aeba84d7ba758d29af5994fe23fb655e08d379d1278a757eff15717ad15830",
     "valeurs": {
-      "probabilite": 26.5
+      "probabilite": 27.0
     },
     "date_cloture": "2026-11-05T23:59:00Z",
-    "maj": "2026-09-07T12:45:45.562185+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "bank-of-england-increases-interest-rates-by-50-bps-after-november-2026-meeting-20260730150602311": {
     "hash": "fed2089af7dc06eeed1166af351c2dd85b240ff6bf7e9a5cb530a7796b046eb2",
@@ -848,12 +848,12 @@
     "maj": "2026-09-07T12:45:45.562185+00:00"
   },
   "no-change-in-bank-of-japans-interest-rates-after-the-october-2026-meeting-20260731151539217": {
-    "hash": "24e6d7e4d3701a5257798a6d4a7bdd908384347ee719b200a4c140fde314fef0",
+    "hash": "1d41c6366ba4d5d87b56b5ec0e3fc766da4aca74542fa0abb2d3663664a40f7e",
     "valeurs": {
-      "probabilite": 84.0
+      "probabilite": 83.5
     },
     "date_cloture": "2026-10-30T00:00:00Z",
-    "maj": "2026-09-07T16:45:35.727833+00:00"
+    "maj": "2026-09-07T16:51:44.813079+00:00"
   },
   "bank-of-japan-increases-interest-rates-by-25-bps-after-the-october-2026-meeting-20260731151539218": {
     "hash": "4954ae84bc1ef72b4c50e56cb86849c41478095e662423826c4b0174fadd3655",
