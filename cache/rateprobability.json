@@ -1,0 +1,112 @@
+{
+  "fed_2026-09-16": {
+    "hash": "b1c74d9aa5534c5e093b20b9be2e3ec31f2776f0c9f2d091021a1d10568ed6ee",
+    "valeurs": {
+      "taux_implicite": 3.13,
+      "probabilite": 34.4,
+      "nb_mouvements": 2.02,
+      "delta_bps": -50.6
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "fed_2026-10-28": {
+    "hash": "b23c3df67fabdb9702371894eba38276c2a9ba496710c7106e92473cb72158e1",
+    "valeurs": {
+      "taux_implicite": 3.1,
+      "probabilite": 15.6,
+      "nb_mouvements": 2.18,
+      "delta_bps": -54.5
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "fed_2026-12-09": {
+    "hash": "5eb20a1e17609180dc15695ac3f2f5005f23f657da31664ca234dbfe55b3a328",
+    "valeurs": {
+      "taux_implicite": 3.06,
+      "probabilite": 14.0,
+      "nb_mouvements": 2.32,
+      "delta_bps": -58.0
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "ecb_2026-09-10": {
+    "hash": "c5b2cdf7e2f942bc9a3268314481e25722be533a236a996326af4255e730ff4e",
+    "valeurs": {
+      "taux_implicite": 2.01,
+      "probabilite": 2.4,
+      "nb_mouvements": 0.03,
+      "delta_bps": 0.8
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "ecb_2026-10-29": {
+    "hash": "f66b277aef96ddf01f1ec7cb53ba729b7aafe608d7a718b11bb936bd278cc127",
+    "valeurs": {
+      "taux_implicite": 2.02,
+      "probabilite": 3.6,
+      "nb_mouvements": 0.07,
+      "delta_bps": 1.7
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boj_2026-09-18": {
+    "hash": "4c08c45c7ddecff43d30a63cbe8606691a4cb6b41fbba39e55d1f69d2490c704",
+    "valeurs": {
+      "taux_implicite": 1.04,
+      "probabilite": 25.2,
+      "nb_mouvements": 1.18,
+      "delta_bps": 29.4
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boj_2026-10-30": {
+    "hash": "49e8757ff4a42e882476376f9020b8212d3a0c6e0035678652d6a961161c692b",
+    "valeurs": {
+      "taux_implicite": 1.11,
+      "probabilite": 25.6,
+      "nb_mouvements": 1.43,
+      "delta_bps": 35.8
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boj_2026-12-18": {
+    "hash": "77daa62da68fe408d32bc3323734689cde57cf7a267da8dad9214072c8e619b0",
+    "valeurs": {
+      "taux_implicite": 1.21,
+      "probabilite": 39.2,
+      "nb_mouvements": 1.82,
+      "delta_bps": 45.6
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boc_2026-09-02": {
+    "hash": "b5ba41065a12e57400607b9eaac1f6a46164732f2866507d5f4498ce90bfbf60",
+    "valeurs": {
+      "taux_implicite": 2.38,
+      "probabilite": 22.8,
+      "nb_mouvements": 0.53,
+      "delta_bps": 13.3
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boc_2026-10-28": {
+    "hash": "faab7851938fb8f30585a35fcd3e7303c6c6bdde133402c7fab933e3a86a8ecc",
+    "valeurs": {
+      "taux_implicite": 2.49,
+      "probabilite": 40.8,
+      "nb_mouvements": 0.94,
+      "delta_bps": 23.5
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  },
+  "boc_2026-12-09": {
+    "hash": "2196b779655e7784daea6292ea25e1f4db65b6ca64e30f801235947345a099f0",
+    "valeurs": {
+      "taux_implicite": 2.61,
+      "probabilite": 48.8,
+      "nb_mouvements": 1.43,
+      "delta_bps": 35.7
+    },
+    "maj": "2026-09-07T03:27:27.932578+00:00"
+  }
+}
