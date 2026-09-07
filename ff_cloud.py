@@ -50,7 +50,7 @@ from cache_dedup import charger_cache, sauvegarder_cache, marquer_traite
 
 # ---------- CONFIGURATION ----------
 URL_LISTE = "https://www.forexfactory.com/news"
-FENETRE_HEURES = 24
+FENETRE_HEURES = 96  # RATTRAPAGE TEMPORAIRE (week-end + bug des sélecteurs) - remettre à 24 après le premier run réussi
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
