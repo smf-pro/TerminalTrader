@@ -29,6 +29,10 @@
       "titre_fr": "Le Kremlin sur les négociations trilatérales en Ukraine : nous n'avons pas encore reçu d'informations sur les contacts à Kiev",
       "extrait": "Kremlin on Ukraine trilateral talks: We have not yet received information about contacts in Kyiv.",
       "source": "@financialjuice",
+      "date_recuperation": "2026-09-07T14:58:14.044877+00:00",
+      "titre": "Iran warns ships face strike risk near Oman's Khasab - Fars"
+    },
+    {
       "date_publication": "2026-09-07T10:32:14.801628+00:00",
       "impact": "low",
       "ignore": false,
@@ -104,6 +108,8 @@
       "date_publication": "2026-09-07T06:04:35.220950+00:00",
       "impact": "low",
       "ignore": false,
+      "extrait_fr": null,
+      "extrait": "UK house prices fell slightly in August, down -0.2% over the month following a similar decline in July. The average property now costs £298,468, marking the first annual fall in house prices since November 2023 . Despite that, prices are still marginally up (+0.2%) since the start of the year. “The housing market has faced a more difficult backdrop in ...",
       "url": "https://www.forexfactory.com/news/1416677-average-house-price-edged-down-in-august-as",
       "titre": "Average house price edged down in August as market remains subdued",
       "extrait_fr": null,
