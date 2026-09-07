@@ -53,8 +53,17 @@ URL_LISTE = "https://www.forexfactory.com/news"
 FENETRE_HEURES = 96  # RATTRAPAGE TEMPORAIRE (week-end + bug des sélecteurs) - remettre à 24 après le premier run réussi
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Referer": "https://www.forexfactory.com/",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-User": "?1",
 }
 
 GENERER_VERSION_FR = True
@@ -166,7 +175,20 @@ def extraire_impact(element):
 
 
 def recuperer_liens_articles(maintenant):
-    reponse = requests.get(URL_LISTE, headers=HEADERS, timeout=15)
+    session = requests.Session()
+    session.headers.update(HEADERS)
+
+    # On passe d'abord par la page d'accueil pour recuperer les cookies
+    # initiaux (comme le ferait un vrai visiteur qui arrive sur le site),
+    # avant d'aller sur /news. Certains systemes anti-bot servent une
+    # version allegee de la page si ce cookie de session n'est pas deja
+    # present.
+    try:
+        session.get("https://www.forexfactory.com/", timeout=15)
+    except requests.exceptions.RequestException as e:
+        print(f"DIAGNOSTIC - Avertissement : echec du passage par la page d'accueil ({e}), on continue quand meme.")
+
+    reponse = session.get(URL_LISTE, timeout=15)
     reponse.raise_for_status()
 
     # --- DIAGNOSTIC TEMPORAIRE ---
