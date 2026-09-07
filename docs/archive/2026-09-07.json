@@ -26,6 +26,9 @@
       "extrait_fr": "Kremlin sur les négociations trilatérales en Ukraine : Nous n'avons pas encore reçu d'informations sur les contacts à Kiev."
     },
     {
+      "impact": "low",
+      "ignore": false,
+      "titre_fr": "Principales composantes du PIB et estimations de l'emploi pour le deuxième trimestre 2026 PIB en hausse de 0,6% et emploi en hausse de 0,1% dans la zone euro",
       "extrait": "In the second quarter of 2026, seasonally adjusted GDP increased by 0.6% in the euro area and by 0.7% in the EU, compared with the previous quarter, according to an estimate published by Eurostat, the statistical office of the European Union. In the first quarter of 2026, GDP had remained stable in the euro area and had increased by 0.1% in the EU. Compared ...",
       "impact": "low",
       "date_recuperation": "2026-09-07T09:53:16.636815+00:00",
