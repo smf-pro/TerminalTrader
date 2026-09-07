@@ -168,6 +168,25 @@ def extraire_impact(element):
 def recuperer_liens_articles(maintenant):
     reponse = requests.get(URL_LISTE, headers=HEADERS, timeout=15)
     reponse.raise_for_status()
+
+    # --- DIAGNOSTIC TEMPORAIRE ---
+    # A retirer une fois le probleme identifie. Objectif : savoir si la
+    # page recue par GitHub Actions correspond a la vraie page (le
+    # navigateur la voit) ou si c'est une page de blocage/verification
+    # (Cloudflare, anti-bot) ou une coquille vide necessitant du JS.
+    texte_brut = reponse.text
+    print(f"DIAGNOSTIC - Code HTTP : {reponse.status_code}")
+    print(f"DIAGNOSTIC - Taille de la reponse : {len(texte_brut)} caracteres")
+    print(f"DIAGNOSTIC - 'news-block-item' present dans le HTML brut : {'news-block-item' in texte_brut}")
+    print(f"DIAGNOSTIC - 'cloudflare' present : {'cloudflare' in texte_brut.lower()}")
+    print(f"DIAGNOSTIC - 'just a moment' present (challenge Cloudflare) : {'just a moment' in texte_brut.lower()}")
+    print(f"DIAGNOSTIC - 'enable javascript' present : {'enable javascript' in texte_brut.lower()}")
+    print(f"DIAGNOSTIC - 'captcha' present : {'captcha' in texte_brut.lower()}")
+    print("DIAGNOSTIC - 500 premiers caracteres du HTML recu :")
+    print(texte_brut[:500])
+    print("DIAGNOSTIC - FIN")
+    # --- FIN DIAGNOSTIC TEMPORAIRE ---
+
     soup = BeautifulSoup(reponse.text, "html.parser")
 
     candidats = soup.select(".news-block-item")
