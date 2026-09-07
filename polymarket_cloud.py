@@ -200,6 +200,19 @@ def extraire_marches_banques_centrales(evenements):
             slug_marche = marche.get("slug")
             if not slug_marche:
                 continue
+
+            # Garde-fou CRITIQUE : un evenement peut rester actif globalement
+            # (ex: "Fed rate cut by...?" qui regroupe janvier a decembre)
+            # meme quand certaines de ses ECHEANCES INDIVIDUELLES sont deja
+            # passees et REGLEES (ex: "April Meeting" une fois la reunion
+            # d'avril passee). Sans ce filtre, on ecrirait le prix FINAL
+            # d'un marche resolu en le faisant passer pour une cote en
+            # direct (bug reel rencontre le 07/09/2026 sur "April Meeting"
+            # de l'evenement fed-rate-cut-by-629, deja regle a l'epoque du
+            # scrape alors que l'evenement parent restait actif).
+            if marche.get("closed") or marche.get("active") is False:
+                continue
+
             try:
                 outcomes = json.loads(marche.get("outcomes", "[]"))
                 prix = json.loads(marche.get("outcomePrices", "[]"))
@@ -208,10 +221,16 @@ def extraire_marches_banques_centrales(evenements):
             if not outcomes or not prix or len(outcomes) != len(prix):
                 continue
 
-            # On garde la probabilite de l'issue "Oui" (1er outcome),
-            # coherent avec la convention Polymarket (voir doc officielle).
+            # On cherche l'index de l'issue "Yes" explicitement plutot que
+            # de supposer qu'elle est toujours en position 0 (l'ordre n'est
+            # pas garanti identique sur tous les marches).
             try:
-                probabilite = round(float(prix[0]) * 100, 2)
+                index_oui = next(i for i, o in enumerate(outcomes) if str(o).strip().lower() == "yes")
+            except StopIteration:
+                continue  # marche non binaire Oui/Non, hors perimetre ici
+
+            try:
+                probabilite = round(float(prix[index_oui]) * 100, 2)
             except (ValueError, IndexError):
                 continue
 
