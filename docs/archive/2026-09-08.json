@@ -283,7 +283,17 @@
       "titre": "Japan FinMin Katayama: Will Maintain Close Communication With US To Achieve Orderly FX Markets",
       "extrait": "Japan Finance Minister Katayama: Will Maintain Close Communication With U.s. To Achieve Orderly Fx Markets ...",
       "extrait_fr": null,
-      "titre_fr": "Japon FinMin Katayama : maintiendra une communication étroite avec les États-Unis pour parvenir à des marchés des changes ordonnés",
+      "ignore": false,
+      "source": "cnbc.com",
+      "impact": "low",
+      "date_publication": "2026-09-08T02:54:16.026477+00:00",
+      "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
+      "titre_fr": null,
+      "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade"
+    },
+    {
+      "extrait": "Japan Finance Minister Katayama: Will Maintain Close Communication With U.s. To Achieve Orderly Fx Markets ...",
+      "url": "https://www.forexfactory.com/news/1416841-japan-finmin-katayama-will-maintain-close-communication-with",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416841-japan-finmin-katayama-will-maintain-close-communication-with",
       "date_publication": "2026-09-08T01:43:14.557868+00:00",
