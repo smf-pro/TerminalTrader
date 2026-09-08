@@ -22,6 +22,7 @@
       "ignore": false,
       "titre_fr": null,
       "date_recuperation": "2026-09-08T10:05:15.488908+00:00",
+      "titre_fr": null,
       "extrait": "The Small Business Optimism Index for August was 98.7, down 1.1 points from July’s highest level since August 2025. The Index remains above its 52-year average of 98.0. Of the 10 Optimism Index components, two increased, six decreased, and two were unchanged. A worsening of expected business conditions contributed the most to the decline in the Index. Both ...",
       "date_publication": "2026-09-08T10:04:15.488908+00:00"
     },
@@ -58,6 +59,7 @@
       "source": "@financialjuice",
       "extrait_fr": "Le président iranien Pezeshkian : l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent - X",
       "date_recuperation": "2026-09-08T09:19:15.875230+00:00",
+      "titre_fr": "Le président iranien Pezeshkian: l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent",
       "extrait": "Iran's President Pezeshkian: Iran will continue its resistance with full strength until aggressors' are regretful - X",
       "date_publication": "2026-09-08T09:18:15.875230+00:00"
     },
@@ -70,6 +72,7 @@
       "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire.",
       "ignore": false,
       "date_recuperation": "2026-09-08T09:10:17.341212+00:00",
+      "titre_fr": "Hauser de la RBA : la RBA est prête à augmenter à nouveau ses taux si nécessaire",
       "extrait": "RBA's Hauser: Question is whether the RBA has done enough on rates.RBA's Hauser: RBA stands ready to raise rates again if needed.",
       "date_publication": "2026-09-08T09:09:17.341212+00:00"
     },
@@ -82,6 +85,7 @@
       "source": "@RedboxWire",
       "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "date_recuperation": "2026-09-08T08:08:13.579929+00:00",
+      "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "extrait": "Houthis Claim Targeting Aramco In Jazan",
       "date_publication": "2026-09-08T08:07:13.579929+00:00"
     },
