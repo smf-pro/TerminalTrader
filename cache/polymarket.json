@@ -16,12 +16,12 @@
     "maj": "2026-09-07T20:58:59.966913+00:00"
   },
   "will-2-fed-rate-cuts-happen-in-2026": {
-    "hash": "ae1a709ab6170aba2d470c45f18727be978842833b39db0b901e9da5ddd12230",
+    "hash": "f7dc80e4fd95a17196663bee3cc717cd2f7c2dd5897faaf964b8959bea20562c",
     "valeurs": {
-      "probabilite": 2.1
+      "probabilite": 2.05
     },
     "date_cloture": "2026-12-31T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-3-fed-rate-cuts-happen-in-2026": {
     "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
@@ -104,12 +104,12 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "fed-emergency-rate-cut-before-2027": {
-    "hash": "5b1b3f0cbc61ecda273f1e03e07f68ad21238584eb018a6e9b9dc3ff020b52e4",
+    "hash": "f195ca9eddd155dce1ab7c3d3c0af2ede4ed36b97db71b842499fb84f0488966",
     "valeurs": {
-      "probabilite": 6.2
+      "probabilite": 4.75
     },
     "date_cloture": "2027-01-01T04:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "fed-rate-hike-in-2026": {
     "hash": "4999fa5423eb94e867939ed7a2afe661b1e2325622f8d75422d45782066a8bd6",
@@ -128,12 +128,12 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "fed-rate-cut-by-october-2026-meeting-199-747": {
-    "hash": "bd1190a3eca21e236be2b2ef25274d0be5fa3bbf0a7f8f5df550c85b777356f7",
+    "hash": "fefad97aa79bc77a6e007f0c48d91d147b4200bdf9323d51d2d467d8ecbb1f94",
     "valeurs": {
-      "probabilite": 3.9
+      "probabilite": 3.85
     },
     "date_cloture": "2026-11-08T04:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "fed-rate-cut-by-december-2026-meeting": {
     "hash": "585d70163eb05721cdee3c04b11d9b6976a853c5aeda098d81b1b0afbcfa8741",
@@ -152,20 +152,20 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "bank-of-england-rate-hike-in-2026": {
-    "hash": "3d7c762205927962c83490e598804bb108db892e2123c111485b80569e5641ab",
+    "hash": "d9e8761e2dc86d322c02322c7c275f953499e209078f216ee379c6e908299f77",
     "valeurs": {
-      "probabilite": 56.5
+      "probabilite": 55.5
     },
     "date_cloture": "2027-01-01T04:59:00Z",
-    "maj": "2026-09-08T01:16:41.603277+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-canada-rate-hike-in-2026": {
-    "hash": "be75ef189c1322dd2854b7e866150cc63b3dabda709b1161a414cd1aafa2e56a",
+    "hash": "daa5a004e9831a646d905af9ddbbadf7d69a20080e0c04209221348bf2eee796",
     "valeurs": {
-      "probabilite": 37.0
+      "probabilite": 38.5
     },
     "date_cloture": "2027-01-01T04:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "fed-rate-hike-by-september-2026-meeting": {
     "hash": "ffdedd609baea40896a165c7c62f622dd0c196fcecea835d0ee16d5a6bfc19a0",
@@ -184,12 +184,12 @@
     "maj": "2026-09-08T06:10:17.733934+00:00"
   },
   "will-the-fed-pausepausepause-in-the-next-three-decisions-junjulsep": {
-    "hash": "f7d761d569dae13025b7314f99d6c6e16f9bd99cce33385c2b76f1341d83a6db",
+    "hash": "64df01c68e6c3c1f598ba9be3e384f014cc27e34ed22531e814eaab3a0d3c0fc",
     "valeurs": {
-      "probabilite": 48.0
+      "probabilite": 47.5
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-pausepausecut-in-the-next-three-decisions-junjulsep": {
     "hash": "9f032a55b3bcfdba07c51c3ae4fdf9753b1c397d35ac89a7cda344d762d27d6b",
@@ -200,12 +200,12 @@
     "maj": "2026-09-08T01:16:41.603277+00:00"
   },
   "will-the-fed-decide-differently-in-the-next-three-decisions-junjulsep": {
-    "hash": "a351693d550b6ad3040093ce9ebd857657834c80e243b4c0fb0cf4e09894f08b",
+    "hash": "84422705df39e7a8741d26268a58033f3d9b2ded640ab2b35425022696ee64fa",
     "valeurs": {
-      "probabilite": 52.0
+      "probabilite": 53.0
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-08T01:16:41.603277+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-50-bps-after-the-september-2026-meeting-863": {
     "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
@@ -216,36 +216,36 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-25-bps-after-the-september-2026-meeting-586": {
-    "hash": "20a7d37fdaea1ebd95b22d5e7f2536302a4c6ac1c294da2c6d06d771039d59dc",
+    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
     "valeurs": {
-      "probabilite": 0.55
+      "probabilite": 0.45
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-there-be-no-change-in-fed-interest-rates-after-the-september-2026-meeting-615": {
-    "hash": "64df01c68e6c3c1f598ba9be3e384f014cc27e34ed22531e814eaab3a0d3c0fc",
+    "hash": "e1a2fd038b71ae73b4f1dd5e8db0c3b4b661806d2f63cb72253963273d18698a",
     "valeurs": {
-      "probabilite": 47.5
+      "probabilite": 46.5
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-07T20:58:59.966913+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-increase-interest-rates-by-25-bps-after-the-september-2026-meeting-649": {
-    "hash": "c588d68e996d0a3386f2ca95db62365ee08d81c4a6b83f8d7e759329a7dc37cc",
+    "hash": "ffdedd609baea40896a165c7c62f622dd0c196fcecea835d0ee16d5a6bfc19a0",
     "valeurs": {
-      "probabilite": 51.5
+      "probabilite": 52.5
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-07T20:58:59.966913+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-increase-interest-rates-by-50-bps-after-the-september-2026-meeting-664": {
-    "hash": "20a7d37fdaea1ebd95b22d5e7f2536302a4c6ac1c294da2c6d06d771039d59dc",
+    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
     "valeurs": {
-      "probabilite": 0.55
+      "probabilite": 0.45
     },
     "date_cloture": "2026-09-16T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-ecb-announce-a-50-bps-decrease-at-the-september-2026-meeting-20260616222656563": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -272,20 +272,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-ecb-announce-a-25-bps-increase-at-the-september-2026-meeting-20260616222656566": {
-    "hash": "5f825b6ea8673ce403bdbe6f01308b2ea55b76db230e1627e60b5d3976b2c187",
+    "hash": "72f4191abfc9b16e1dc832871bd179005d745db241bc06ffa84dd89179f79e4e",
     "valeurs": {
-      "probabilite": 99.65
+      "probabilite": 99.55
     },
     "date_cloture": "2026-09-10T11:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-ecb-announce-a-50-bps-increase-at-the-september-2026-meeting-20260616222656567": {
-    "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
+    "hash": "7cd9905f073e2368a7e43175f9dc177bde24b0fa6e6117dafb8c48a857b48812",
     "valeurs": {
-      "probabilite": 0.15
+      "probabilite": 0.25
     },
     "date_cloture": "2026-09-10T11:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324029": {
     "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
@@ -296,12 +296,12 @@
     "maj": "2026-09-08T06:10:17.733934+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324030": {
-    "hash": "46786e1821a091884518037f0f8f7dba1d92405b1d21c5d9ad34084e0b779b8e",
+    "hash": "e9f5221966e419bba0f597c2b27d493058703c7e479aae064dc260296ccf1e68",
     "valeurs": {
-      "probabilite": 3.35
+      "probabilite": 2.8
     },
     "date_cloture": "2026-10-28T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031": {
     "hash": "aabdba7daf2279b110229ee5b9384ae8ac17fe9489386a8babf52eda8f1d808c",
@@ -328,20 +328,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-fed-pausepausepause-in-the-next-three-decisions-julsepoct-20260617191211941": {
-    "hash": "9639a97d44f4d4aba34a6f70e2143f93fd7929d089afb87f1edb98a123b0f941",
+    "hash": "852e0f2260794fe01e4424f62e57191341c4250954e0084beb91f295f5a57492",
     "valeurs": {
-      "probabilite": 33.5
+      "probabilite": 33.0
     },
     "date_cloture": "2026-10-28T23:59:00Z",
-    "maj": "2026-09-08T06:10:17.733934+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-pausepausecut-in-the-next-three-decisions-julsepoct-20260617191211942": {
-    "hash": "8821cb6ea6f923bdea5248f63c2a48276af095517dde2d50226716cc830c4b6d",
+    "hash": "cd9390e88cf9ca7daee4d36991c7264fb0f81817b11fb6138bb45c21674752a3",
     "valeurs": {
-      "probabilite": 1.2
+      "probabilite": 1.3
     },
     "date_cloture": "2026-10-28T23:59:00Z",
-    "maj": "2026-09-07T23:20:57.910173+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-pausecutpause-in-the-next-three-decisions-julsepoct-20260617191211943": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -384,20 +384,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-bank-of-japan-announce-no-change-at-the-september-2026-meeting-20260616223724869": {
-    "hash": "8a6f853232af97513c7fe0c30b62249055a4cb11727f8974f218ec2d972b9f27",
+    "hash": "e72073dcec43d3c821bf701733e6da04bb6c6fbac29d3beb2bd4d8c942605b14",
     "valeurs": {
-      "probabilite": 1.35
+      "probabilite": 1.7
     },
     "date_cloture": "2026-09-18T15:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-bank-of-japan-announce-a-25-bps-increase-at-the-september-2026-meeting-20260616223724870": {
-    "hash": "d9563a03a8fe6efd30f8e57b5fcc5749db6621dcb57a80047f2dee076a21fecf",
+    "hash": "c3b982dcce2eec6ba3e572a1f9de29c1165040e98d8c9edd115283345ee55c0a",
     "valeurs": {
-      "probabilite": 97.95
+      "probabilite": 97.7
     },
     "date_cloture": "2026-09-18T15:59:00Z",
-    "maj": "2026-09-08T06:10:17.733934+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-bank-of-japan-announce-a-50-bps-increase-at-the-september-2026-meeting-20260616223724871": {
     "hash": "9d46ba9b86fe1ea0457f7037a972e7e90802937ad191c5c3a3d65b2ea30914ec",
@@ -416,12 +416,12 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "bank-of-england-decreases-interest-rates-by-25-bps-after-september-2026-meeting-20260623013424710": {
-    "hash": "f01b537f6062e9cd2671423c332a280f11d96928b0f2e417a5d2835e035c1054",
+    "hash": "20a7d37fdaea1ebd95b22d5e7f2536302a4c6ac1c294da2c6d06d771039d59dc",
     "valeurs": {
-      "probabilite": 0.2
+      "probabilite": 0.55
     },
     "date_cloture": "2026-09-17T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "no-change-in-bank-of-englands-interest-rates-after-september-2026-meeting-20260623013424711": {
     "hash": "c118169e85af752499d549619b5b476c65f794d36f749f7e55b72eb1548e61ac",
@@ -456,20 +456,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-bank-of-canada-increase-the-target-for-the-overnight-rate-by-25-bps-at-the-october-interest-rate-announcement-20260715203359316": {
-    "hash": "ded349af107d749974ae041812777a3ce5649c1ce52615d458c8486b587f06ec",
+    "hash": "feebea7008c86cb9d4cf4245f442bdb347b9261603e99815d28c7eb92d857a72",
     "valeurs": {
-      "probabilite": 11.25
+      "probabilite": 10.15
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-bank-of-canada-make-no-change-to-the-target-for-the-overnight-rate-at-the-october-interest-rate-announcement-20260715203359317": {
-    "hash": "bee7232ecc7d63bdba4baca09e69b4571f0e45da92c4805d1c97f6749ee52441",
+    "hash": "4533ef4ed03a77171b65c39154a14c5fd0afc587c19fc3699210fb57b3758a3a",
     "valeurs": {
-      "probabilite": 88.65
+      "probabilite": 88.7
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-bank-of-canada-decrease-the-target-for-the-overnight-rate-by-25-bps-at-the-october-interest-rate-announcement-20260715203359318": {
     "hash": "94a3e520dfa0428d73a0846267ce8774b612613a225239f0c1485c507787011f",
@@ -504,20 +504,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-ecb-announce-no-change-at-the-october-2026-meeting-20260723225848781": {
-    "hash": "33f4db753def96ec3b56518e502d7633ac653c3b2f872291cddec7e4a83b2f8b",
+    "hash": "d66289892b2ca8ba72a64d161c55ede5276631f855c65a291cc24f9cd862fc5f",
     "valeurs": {
-      "probabilite": 89.5
+      "probabilite": 90.5
     },
     "date_cloture": "2026-10-29T23:59:00Z",
-    "maj": "2026-09-07T20:58:59.966913+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-ecb-announce-a-25-bps-increase-at-the-october-2026-meeting-20260723225848782": {
-    "hash": "c58f02375f3bca73ffecbbfe53536d291cf740eeb5b0762ca585b1d2653a8d86",
+    "hash": "f22e3a88e34d4d2e7de0e89af9d84a14416db374ae22d5fb5c843d68918cf8e3",
     "valeurs": {
-      "probabilite": 10.0
+      "probabilite": 9.5
     },
     "date_cloture": "2026-10-29T23:59:00Z",
-    "maj": "2026-09-07T20:58:59.966913+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-ecb-announce-a-50-bps-increase-at-the-october-2026-meeting-20260723225848783": {
     "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
@@ -528,44 +528,44 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "reserve-bank-of-australia-decreases-interest-rates-by-50-bps-at-the-september-2026-meeting-20260729163823945": {
-    "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
+    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
     "valeurs": {
-      "probabilite": 0.05
+      "probabilite": 0.45
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-07T20:58:59.966913+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-australia-decreases-interest-rates-by-25-bps-at-the-september-2026-meeting-20260729163823946": {
-    "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
+    "hash": "9f032a55b3bcfdba07c51c3ae4fdf9753b1c397d35ac89a7cda344d762d27d6b",
     "valeurs": {
-      "probabilite": 0.05
+      "probabilite": 0.6
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "no-change-in-reserve-bank-of-australias-interest-rates-at-the-september-2026-meeting-20260729163823947": {
-    "hash": "f7e905f88ffdcf8e20f83ae0eab986f5fb5a8162200e2c4e8569b4250a911ae9",
+    "hash": "fd601af0e0d840a04773c1a9e5998c4c763d14d9433fddba92cbcaa6824fd194",
     "valeurs": {
-      "probabilite": 37.55
+      "probabilite": 35.75
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-25-bps-at-the-september-2026-meeting-20260729163823948": {
-    "hash": "89898db105208dc431d1ab165e11b52ccd2160321c1481fd9ce5ecda8f53dbab",
+    "hash": "603d31fe26a8f6e0f131b7cca52a504561d11a10d41bcf922e63bf2a3658a40f",
     "valeurs": {
-      "probabilite": 61.45
+      "probabilite": 62.95
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-50-bps-at-the-september-2026-meeting-20260729163823949": {
-    "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
+    "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
     "valeurs": {
-      "probabilite": 0.05
+      "probabilite": 0.15
     },
     "date_cloture": "2026-09-29T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-new-zealand-decreases-interest-rates-by-50-bps-at-the-october-2026-meeting-20260729164521632": {
     "hash": "f01b537f6062e9cd2671423c332a280f11d96928b0f2e417a5d2835e035c1054",
@@ -592,12 +592,12 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "reserve-bank-of-new-zealand-increases-interest-rates-by-25-bps-at-the-october-2026-meeting-20260729164521635": {
-    "hash": "a6e46bb85d556048eb262cbdb526b8d12d13ee1b51fc7c9245f18ac54fdf72da",
+    "hash": "c58f02375f3bca73ffecbbfe53536d291cf740eeb5b0762ca585b1d2653a8d86",
     "valeurs": {
-      "probabilite": 10.5
+      "probabilite": 10.0
     },
     "date_cloture": "2026-10-28T00:00:00Z",
-    "maj": "2026-09-08T01:16:41.603277+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-new-zealand-increases-interest-rates-by-50-bps-at-the-october-2026-meeting-20260729164521636": {
     "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
@@ -616,12 +616,12 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634": {
-    "hash": "534b9f9c898d1334ab498c0b3aa83fd8fab4731060e41cd5e798217fb8af9b80",
+    "hash": "2b0616116afadb097e66e4d45daae76b6bf32edee7725a82cadb2a8ff46dc19a",
     "valeurs": {
-      "probabilite": 6.75
+      "probabilite": 6.7
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T06:10:17.733934+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635": {
     "hash": "0bf673f79635cf01c4d2bc53a8bee45da6a343d04135e1cafd71727af4c76cbf",
@@ -648,20 +648,20 @@
     "maj": "2026-09-07T20:58:59.966913+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-50-bps-after-the-january-2027-meeting-20260729233815503": {
-    "hash": "f58ea26eefbcb3a5afb174d35f57cd142f9b62fac59306829fabd4f04bcf2284",
+    "hash": "4964e0e994f2d9a9b90efc60b8b042ee8e0c962c400a73b17d604204eab7b5eb",
     "valeurs": {
-      "probabilite": 3.4
+      "probabilite": 3.45
     },
     "date_cloture": "2027-01-27T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-decrease-interest-rates-by-25-bps-after-the-january-2027-meeting-20260729233815504": {
-    "hash": "66619438c85e4b2e2c07957ef9a32ac47cecb852b0eadd5f5a95ab836fb0b76b",
+    "hash": "f5536ea9091cb44d33bc6438c4df5bc0a94087df90c1909fb11e396852f4526d",
     "valeurs": {
-      "probabilite": 13.5
+      "probabilite": 12.5
     },
     "date_cloture": "2027-01-27T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-there-be-no-change-in-fed-interest-rates-after-the-january-2027-meeting-20260729233815505": {
     "hash": "b6384980c106b654a358236cbc75a43ff44fb1270780c404a98cd67d54a3ce18",
@@ -680,28 +680,28 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "will-the-fed-increase-interest-rates-by-50-bps-after-the-january-2027-meeting-20260729233815507": {
-    "hash": "e4e8006d99956e11e6a12aa49a1c1a5b8320c57fdd6bdcb0369b5bce72aec91a",
+    "hash": "2d7e7af439e39d817305b98a4cd4af47656663da527f89fccb2de283e86091fc",
     "valeurs": {
-      "probabilite": 2.35
+      "probabilite": 2.45
     },
     "date_cloture": "2027-01-27T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-england-decreases-interest-rates-by-50-bps-after-november-2026-meeting-20260730150602307": {
-    "hash": "b512877ee10d6b72d4d74c66d8255f1204bff8ab704338767f161b7499ac63f7",
+    "hash": "94a3e520dfa0428d73a0846267ce8774b612613a225239f0c1485c507787011f",
     "valeurs": {
-      "probabilite": 0.3
+      "probabilite": 0.35
     },
     "date_cloture": "2026-11-05T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-england-decreases-interest-rates-by-25-bps-after-november-2026-meeting-20260730150602308": {
-    "hash": "b512877ee10d6b72d4d74c66d8255f1204bff8ab704338767f161b7499ac63f7",
+    "hash": "8d6be057798bab3d0f8b54f915433b2a274a9a1bf46d9e030201c4833bc43098",
     "valeurs": {
-      "probabilite": 0.3
+      "probabilite": 0.4
     },
     "date_cloture": "2026-11-05T23:59:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "no-change-in-bank-of-englands-interest-rates-after-november-2026-meeting-20260730150602309": {
     "hash": "55aa0a5677764f906aa7959f80a131403d241bf373155fde56ff3d695267238c",
@@ -712,20 +712,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "bank-of-england-increases-interest-rates-by-25-bps-after-november-2026-meeting-20260730150602310": {
-    "hash": "d2aeba84d7ba758d29af5994fe23fb655e08d379d1278a757eff15717ad15830",
+    "hash": "c98b53857b96e4b57da25e41e26f37d4b170042032484a08bce82e2099682827",
     "valeurs": {
-      "probabilite": 27.0
+      "probabilite": 26.5
     },
     "date_cloture": "2026-11-05T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-england-increases-interest-rates-by-50-bps-after-november-2026-meeting-20260730150602311": {
-    "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
+    "hash": "9f032a55b3bcfdba07c51c3ae4fdf9753b1c397d35ac89a7cda344d762d27d6b",
     "valeurs": {
-      "probabilite": 0.45
+      "probabilite": 0.6
     },
     "date_cloture": "2026-11-05T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-japan-decreases-interest-rates-by-50-bps-after-the-october-2026-meeting-20260731151539215": {
     "hash": "7db6ca0c5c1ce19c809ee0bdfc6c53838e5d71770a07ef63e2fdc8e5b44fcdbf",
@@ -736,28 +736,28 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "bank-of-japan-decreases-interest-rates-by-25-bps-after-the-october-2026-meeting-20260731151539216": {
-    "hash": "7cd9905f073e2368a7e43175f9dc177bde24b0fa6e6117dafb8c48a857b48812",
+    "hash": "300d4d9023d15154b20f431c0806fe06f23cd49258af649cc4b938f2548fdc5d",
     "valeurs": {
-      "probabilite": 0.25
+      "probabilite": 0.15
     },
     "date_cloture": "2026-10-30T00:00:00Z",
-    "maj": "2026-09-07T16:58:52.013686+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "no-change-in-bank-of-japans-interest-rates-after-the-october-2026-meeting-20260731151539217": {
-    "hash": "3cbaa0d2bb344e7ae49f2a640cf35c111dfe1ac974f12c4a38e10d901d1d0eac",
+    "hash": "bac5fba7e10c05bdc44ea404d24f7058b89f5d4483a603a83ba96fdfab42b7ba",
     "valeurs": {
-      "probabilite": 82.0
+      "probabilite": 82.5
     },
     "date_cloture": "2026-10-30T00:00:00Z",
-    "maj": "2026-09-08T01:16:41.603277+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-japan-increases-interest-rates-by-25-bps-after-the-october-2026-meeting-20260731151539218": {
-    "hash": "16f9219e213a590bc674088a247430bb95b4e3fa078f853d92474c5eeb815de4",
+    "hash": "58d99fbda8b17605a23dd9ac87ef53828ea63a3ead7160005200833100eddc78",
     "valeurs": {
-      "probabilite": 18.5
+      "probabilite": 18.0
     },
     "date_cloture": "2026-10-30T00:00:00Z",
-    "maj": "2026-09-08T06:10:17.733934+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "bank-of-japan-increases-interest-rates-by-50-bps-after-the-october-2026-meeting-20260731151539219": {
     "hash": "9738d6945a3605585fc7b6a89b0b34776ffba490f7193607c3215f06ef1f1a3b",
@@ -792,20 +792,20 @@
     "maj": "2026-09-07T16:58:52.013686+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-25-bps-at-the-november-2026-meeting-1786388202572": {
-    "hash": "a51be6ded352c8ae47b14699cc0b27069c6458f670212e02d0e33864e8b234d3",
+    "hash": "dc11043a8b7d4bac7b388cae02ae76d54d1dfb2093edd126fc8a7473b0696537",
     "valeurs": {
-      "probabilite": 24.35
+      "probabilite": 27.7
     },
     "date_cloture": "2026-11-03T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "reserve-bank-of-australia-increases-interest-rates-by-50-bps-at-the-november-2026-meeting-1786388202573": {
-    "hash": "20a7d37fdaea1ebd95b22d5e7f2536302a4c6ac1c294da2c6d06d771039d59dc",
+    "hash": "9f032a55b3bcfdba07c51c3ae4fdf9753b1c397d35ac89a7cda344d762d27d6b",
     "valeurs": {
-      "probabilite": 0.55
+      "probabilite": 0.6
     },
     "date_cloture": "2026-11-03T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-hikepausehike-in-the-next-three-decisions-sepoctdec": {
     "hash": "f22e3a88e34d4d2e7de0e89af9d84a14416db374ae22d5fb5c843d68918cf8e3",
@@ -816,20 +816,20 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "will-the-fed-hikepausepause-in-the-next-three-decisions-sepoctdec": {
-    "hash": "fadfd498e6a25c14840cb55de793de2b8612a97f905169a37ce5b544a1d1a23e",
+    "hash": "505a180cf877785e18b965e581585754c361fa1f679587311a3035607bccb4fb",
     "valeurs": {
-      "probabilite": 22.0
+      "probabilite": 19.0
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-hikehikehike-in-the-next-three-decisions-sepoctdec": {
-    "hash": "1cfd947b3f8a1c1308128e7e497b8c63e8912dcc62d5c48bd4bf8e6660f69fed",
+    "hash": "853d8fbfce65506a2aaa0b63f8e7fb4e094355d1bf926e0d9a0a6f524858d74a",
     "valeurs": {
-      "probabilite": 5.5
+      "probabilite": 6.0
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-hikehikepause-in-the-next-three-decisions-sepoctdec": {
     "hash": "1c957ed926426ba1381197836dce5559c9d1f0ae5f96d80c58e2bfd9655f805f",
@@ -840,12 +840,12 @@
     "maj": "2026-09-08T11:15:07.497230+00:00"
   },
   "will-the-fed-pausepausehike-in-the-next-three-decisions-sepoctdec": {
-    "hash": "1cfd947b3f8a1c1308128e7e497b8c63e8912dcc62d5c48bd4bf8e6660f69fed",
+    "hash": "853d8fbfce65506a2aaa0b63f8e7fb4e094355d1bf926e0d9a0a6f524858d74a",
     "valeurs": {
-      "probabilite": 5.5
+      "probabilite": 6.0
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-pausepausepause-in-the-next-three-decisions-sepoctdec": {
     "hash": "9224f9eb7a5400c344a84c93dd3f256ba3461bbb3ff00a09f86217ff2a1db1e1",
@@ -856,20 +856,20 @@
     "maj": "2026-09-08T06:10:17.733934+00:00"
   },
   "will-the-fed-pausehikehike-in-the-next-three-decisions-sepoctdec": {
-    "hash": "bd1190a3eca21e236be2b2ef25274d0be5fa3bbf0a7f8f5df550c85b777356f7",
+    "hash": "6b374822f66e4b27e85f9d3ecae0884d226ec86faa3eb7d41d76940ad5ee301a",
     "valeurs": {
-      "probabilite": 3.9
+      "probabilite": 3.95
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-pausehikepause-in-the-next-three-decisions-sepoctdec": {
-    "hash": "a426ca0ea54acc1e3ed0d288cfaf08ea169eb9c27da35728b5a9cff00e359e11",
+    "hash": "2b0616116afadb097e66e4d45daae76b6bf32edee7725a82cadb2a8ff46dc19a",
     "valeurs": {
-      "probabilite": 7.2
+      "probabilite": 6.7
     },
     "date_cloture": "2026-12-09T23:59:00Z",
-    "maj": "2026-09-08T11:15:07.497230+00:00"
+    "maj": "2026-09-08T15:09:11.731902+00:00"
   },
   "will-the-fed-decide-differently-in-the-next-three-decisions-sepoctdec": {
     "hash": "e1c2bcd95bd19b5d82a7168f82995cc85e6fb95cbbae8dd9a849cab903fe769c",
