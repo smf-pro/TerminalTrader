@@ -3,6 +3,9 @@
   "ff_news": [
     {
       "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
+      "ignore": false,
+      "source": "@MarketsCapApp",
+      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "impact": "medium",
       "source": "@MarketsCapApp",
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
