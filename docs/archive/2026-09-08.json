@@ -66,6 +66,9 @@
       "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire.",
       "date_publication": "2026-09-08T09:09:17.341212+00:00",
       "url": "https://www.forexfactory.com/news/1416899-rbas-hauser-rba-stands-ready-to-raise-rates",
+      "ignore": false,
+      "date_publication": "2026-09-08T09:09:17.341212+00:00",
+      "impact": "low",
       "titre_fr": "Hauser de la RBA : la RBA est prête à augmenter à nouveau ses taux si nécessaire",
       "impact": "low",
       "ignore": false,
@@ -150,6 +153,7 @@
       "extrait_fr": null,
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416841-japan-finmin-katayama-will-maintain-close-communication-with",
+      "ignore": false,
       "date_publication": "2026-09-08T01:43:14.557868+00:00",
       "titre_fr": "Japon FinMin Katayama : maintiendra une communication étroite avec les États-Unis pour parvenir à des marchés des changes ordonnés",
       "source": "@NodeWire",
@@ -282,6 +286,7 @@
     },
     {
       "ignore": false,
+      "categorie": "news",
       "titre_fr": "Les prix du pétrole prolongent leurs gains alors que les Houthis du Yémen menacent l'ensemble des opérations saoudiennes après les attaques contre les sites énergétiques",
       "url": "https://investinglive.com/news/oil-prices-extend-gains-as-yemen-s-houthis-threaten-broader-saudi-operation-after-attacks-hit-energy-sites/",
       "date_publication": "2026-09-08T07:55:57.448245+00:00",
@@ -289,7 +294,9 @@
       "categorie": "news",
       "date_recuperation": "2026-09-08T08:00:56.539523+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
-      "contenu_fr": null
+      "date_publication": "2026-09-08T07:55:57.448245+00:00",
+      "titre": "Oil prices extend gains as Yemen's Houthis threaten broader Saudi operation after attacks hit energy sites",
+      "date_recuperation": "2026-09-08T08:00:56.539523+00:00"
     },
     {
       "ignore": false,
@@ -304,6 +311,7 @@
     },
     {
       "ignore": false,
+      "categorie": "news",
       "titre_fr": "Le déficit commercial français se creuse en juillet en raison de la hausse des importations",
       "url": "https://investinglive.com/news/french-trade-deficit-grows-larger-in-july-on-higher-imports-again/",
       "date_publication": "2026-09-08T06:55:21.292764+00:00",
@@ -476,7 +484,9 @@
       "categorie": "commodities",
       "date_recuperation": "2026-09-08T00:10:17.965333+00:00",
       "contenu": "Goldman's framing gives traders a clear range to work with: $120 a barrel if shipping attacks broaden and intensify, $80 if Gulf exports normalize, with Brent trading near $97 as the note went out. That $23 spread either side of spot underscores how binary the near-term outlook remains, and Goldman's own house call, a $5 lift to both Brent and WTI forecasts for December 2026 and 2027, signals the bank sees the balance of risk skewed toward the upside scenario rather than normalization.\n\nThe bank's preference for expressing that risk through natural gas and diesel rather than crude itself is worth flagging separately, since it implies Goldman sees the biggest supply shock currently priced into product and gas markets rather than crude, a distinction that matters for how the risk shows up across the energy complex rather than just at the crude headline level.\n\n---\n\nEarlier ... escalation again:\n\n---\n\nGoldman just put a number on how bad Hormuz could get for oil, and it's already raising its base case to get closer to it.\n\nSummary:\n\nGoldman Sachs has laid out a wide range for where oil could head depending on how the standoff over the Strait of Hormuz plays out, flagging a potential rally to $120 a barrel if attacks on Middle East shipping intensify, against a lower target of $80 should exports from the region normalize. Brent was last trading near $97 when the bank's commodities team made the call. The bank has since lifted its own forecasts, raising both Brent and WTI by $5 to $85 and $80 respectively for December 2026, and to $80 and $75 for 2027, while flagging that Brent could climb past $120 if average Gulf output through 2027 stays roughly 4 million barrels a day below pre-war levels.\n\nDaan Struyven, Goldman's co-head of global commodities research, said the risk of shipping disruptions broadening and intensifying has become more significant given recent developments. Crude has climbed to its highest level since July as the US and Iran remain locked in a standoff over the strait, with Washington striking Iranian tankers, Tehran declaring a new restricted zone outside the waterway, and American naval forces continuing to blockade Iranian ports while escorting other producers' vessels through the region.\n\nRather than expressing that risk through crude itself, Goldman is recommending investors hedge via long positions in natural gas and diesel, arguing the supply shocks in those markets are larger than in crude. Diesel has more than doubled in price this year, with gains across natural gas and refined products broadly outpacing crude since the conflict escalated more than six months ago.\n\nGoldman also expects China to continue acting as a stabilizing force in the crude market specifically, reining in imports in response to elevated prices, a role Struyven said Beijing has not taken on in natural gas or refined products. That distinction leaves the product and gas markets more exposed to the upside scenario Goldman is flagging, even as crude itself benefits from at least some demand-side cushioning from China's buying behaviour.",
-      "contenu_fr": null
+      "url": "https://investinglive.com/commodities/icymi-goldman-flags-120-oil-risk-lifts-brent-and-wti-forecasts/",
+      "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts",
+      "date_recuperation": "2026-09-08T00:10:17.965333+00:00"
     }
   ]
 }
