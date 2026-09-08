@@ -21,14 +21,11 @@ Différences par rapport à la version locale :
   (page injoignable, selecteurs casses, aucune news high/medium) : chacun
   ecrit maintenant son propre statut, avec un message different selon le cas.
 
-CORRECTIF (vérifié via inspection DOM réelle) : les sélecteurs utilisaient
-la convention BEM classique (.news-block__item, double underscore), mais
-le vrai site ForexFactory utilise un simple tiret (.news-block-item).
-Aucun élément ne correspondait donc jamais aux sélecteurs, et le script
-retournait "Aucun bloc de news trouve du tout" à chaque run (statut
-"erreur" écrit dans pipeline_status, mais sans faire planter le workflow
-GitHub Actions, qui restait donc vert). Sélecteurs corrigés ci-dessous
-d'après une inspection DOM réelle du 07/09/2026.
+⚠️ Les sélecteurs CSS (.news-block__item, etc.) n'ont pas pu être testés
+contre le vrai HTML en direct. Si les logs affichent "Aucune news trouvée"
+lors du premier run, ouvrez https://www.forexfactory.com/news, faites
+clic droit > Inspecter sur un titre, et ajustez les sélecteurs dans
+recuperer_liens_articles().
 """
 
 import os
@@ -50,20 +47,11 @@ from cache_dedup import charger_cache, sauvegarder_cache, marquer_traite
 
 # ---------- CONFIGURATION ----------
 URL_LISTE = "https://www.forexfactory.com/news"
-FENETRE_HEURES = 96  # RATTRAPAGE TEMPORAIRE (week-end + bug des sélecteurs) - remettre à 24 après le premier run réussi
+FENETRE_HEURES = 24
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-    "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Referer": "https://www.forexfactory.com/",
-    "Connection": "keep-alive",
-    "Upgrade-Insecure-Requests": "1",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "same-origin",
-    "Sec-Fetch-User": "?1",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
 }
 
 GENERER_VERSION_FR = True
@@ -144,7 +132,7 @@ def parser_date_relative(texte, maintenant):
 
 
 def extraire_date_publication(element, maintenant):
-    details = element.select_one(".news-block-details")
+    details = element.select_one(".news-block__details")
     if not details:
         return None
     date_span = details.select_one("span.nowrap")
@@ -156,12 +144,12 @@ def extraire_date_publication(element, maintenant):
 def extraire_impact(element):
     """
     Determine le niveau d'impact d'une news a partir de l'icone presente
-    dans le bloc .news-block-details, ex :
+    dans le bloc .news-block__details, ex :
     <img src="https://www.forexfactory.com/resources/svg/images/impact/ff/high.svg">
     Retourne "high", "medium", "low", ou None si aucune icone d'impact
     n'est presente (certaines news n'en ont pas).
     """
-    details = element.select_one(".news-block-details")
+    details = element.select_one(".news-block__details")
     if not details:
         return None
     icone = details.select_one("img[src*='/impact/ff/']")
@@ -175,51 +163,19 @@ def extraire_impact(element):
 
 
 def recuperer_liens_articles(maintenant):
-    session = requests.Session()
-    session.headers.update(HEADERS)
-
-    # On passe d'abord par la page d'accueil pour recuperer les cookies
-    # initiaux (comme le ferait un vrai visiteur qui arrive sur le site),
-    # avant d'aller sur /news. Certains systemes anti-bot servent une
-    # version allegee de la page si ce cookie de session n'est pas deja
-    # present.
-    try:
-        session.get("https://www.forexfactory.com/", timeout=15)
-    except requests.exceptions.RequestException as e:
-        print(f"DIAGNOSTIC - Avertissement : echec du passage par la page d'accueil ({e}), on continue quand meme.")
-
-    reponse = session.get(URL_LISTE, timeout=15)
+    reponse = requests.get(URL_LISTE, headers=HEADERS, timeout=15)
     reponse.raise_for_status()
-
-    # --- DIAGNOSTIC TEMPORAIRE ---
-    # A retirer une fois le probleme identifie. Objectif : savoir si la
-    # page recue par GitHub Actions correspond a la vraie page (le
-    # navigateur la voit) ou si c'est une page de blocage/verification
-    # (Cloudflare, anti-bot) ou une coquille vide necessitant du JS.
-    texte_brut = reponse.text
-    print(f"DIAGNOSTIC - Code HTTP : {reponse.status_code}")
-    print(f"DIAGNOSTIC - Taille de la reponse : {len(texte_brut)} caracteres")
-    print(f"DIAGNOSTIC - 'news-block-item' present dans le HTML brut : {'news-block-item' in texte_brut}")
-    print(f"DIAGNOSTIC - 'cloudflare' present : {'cloudflare' in texte_brut.lower()}")
-    print(f"DIAGNOSTIC - 'just a moment' present (challenge Cloudflare) : {'just a moment' in texte_brut.lower()}")
-    print(f"DIAGNOSTIC - 'enable javascript' present : {'enable javascript' in texte_brut.lower()}")
-    print(f"DIAGNOSTIC - 'captcha' present : {'captcha' in texte_brut.lower()}")
-    print("DIAGNOSTIC - 500 premiers caracteres du HTML recu :")
-    print(texte_brut[:500])
-    print("DIAGNOSTIC - FIN")
-    # --- FIN DIAGNOSTIC TEMPORAIRE ---
-
     soup = BeautifulSoup(reponse.text, "html.parser")
 
-    candidats = soup.select(".news-block-item")
+    candidats = soup.select(".news-block__item")
     total_brut = len(candidats)
     resultats = []
 
     for element in candidats:
-        if "news-block-item--comment" in element.get("class", []):
+        if "news-block__item--comment" in element.get("class", []):
             continue
 
-        titre_tag = element.select_one(".news-block-title a")
+        titre_tag = element.select_one(".news-block__title a")
         if not titre_tag:
             continue
         titre = titre_tag.get_text(strip=True)
@@ -232,12 +188,12 @@ def recuperer_liens_articles(maintenant):
         if href.startswith("/"):
             href = "https://www.forexfactory.com" + href
 
-        details = element.select_one(".news-block-details")
+        details = element.select_one(".news-block__details")
         source_tag = details.select_one("a") if details else None
         source = source_tag.get_text(strip=True) if source_tag else "Inconnue"
         source = re.sub(r"^from\s+", "", source, flags=re.IGNORECASE)
 
-        preview_tag = element.select_one(".news-block-preview")
+        preview_tag = element.select_one(".news-block__preview")
         extrait = preview_tag.get_text(strip=True) if preview_tag else ""
 
         date_pub = extraire_date_publication(element, maintenant)
