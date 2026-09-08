@@ -35,7 +35,12 @@
       "extrait_fr": null,
       "titre_fr": null,
       "extrait": "RBA Assistant Governor Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy",
-      "date_publication": "2026-09-08T03:26:13.619306+00:00"
+      "titre_fr": null,
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism",
+      "date_publication": "2026-09-08T03:26:13.619306+00:00",
+      "ignore": false,
+      "date_recuperation": "2026-09-08T03:27:13.619306+00:00"
     },
     {
       "url": "https://www.forexfactory.com/news/1416852-chinas-imports-in-august-miss-estimates-as-exports",
