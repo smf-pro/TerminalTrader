@@ -100,6 +100,7 @@
     {
       "date_publication": "2026-09-08T03:36:51.564343+00:00",
       "ignore": false,
+      "contenu": "The \"cool things off\" language is the most direct signal in this batch of comments, effectively confirming that below-trend growth is the RBA's intended outcome rather than an unwelcome side effect of its tightening path, which supports the case for further hikes without triggering the kind of market unease that comes with recession-risk language. Hunter's point that house price changes have only a small effect on consumer spending is worth flagging on its own, since it pushes back against the more standard wealth-effect narrative and suggests the RBA sees less risk of policy transmission stalling out through the housing channel than markets might otherwise assume. Combined with her explicit rejection of recession risk, the overall tone reads as a central bank comfortable continuing to lean on housing as its main transmission mechanism without needing to soften its stance, modestly supportive for AUD on the margin given it reinforces rather than undermines the case for further tightening already being priced.\n\n---\n\nEarlier weight on AUD:\n\n---\n\nThe RBA isn't apologising for slowing the economy down, it says that's exactly the point.\n\nSummary:\n\nReserve Bank of Australia Assistant Governor Hunter said the central bank is deliberately looking to cool things off in both the housing market and the broader economy, framing below-trend growth as an intended outcome of current policy settings rather than an unwanted consequence. Speaking Tuesday, Hunter described the housing market as an important transition mechanism for monetary policy, the channel through which higher rates are meant to flow through to broader economic activity.\n\nAt the same time, Hunter pushed back on the idea that house price movements carry outsized influence over household spending, saying the impact of changes in house prices on consumer spending is actually quite small. That comment sits somewhat apart from the more conventional wealth-effect framework, where falling house prices are typically expected to weigh directly on consumption through reduced household confidence and borrowing capacity. Hunter's framing suggests the RBA sees the housing channel working more through activity and construction than through a direct hit to consumer spending.\n\nDespite the explicit goal of cooling the economy, Hunter was clear that a recession is not the expected outcome, saying she would not expect to see one develop. Instead, she said the RBA wants to see a softer economy relative to trend, language that positions the current tightening cycle as calibrated toward a controlled slowdown rather than either a hard landing or a premature end to policy tightening. Taken together, the comments paint a picture of a central bank comfortable with its current course, viewing housing-driven cooling as functioning largely as intended without the broader economic damage that would typically accompany a more aggressive slowdown.",
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
       "titre": "RBA's Hunter flags deliberate cooling in housing and broader growth",
       "titre_fr": "Hunter de la RBA signale un refroidissement délibéré du secteur immobilier et une croissance plus large",
@@ -188,7 +189,6 @@
     {
       "date_publication": "2026-09-08T03:09:55.632342+00:00",
       "ignore": false,
-      "url": "https://investinglive.com/stock-market-update/kospi-surges-past-7-130-on-chips-nikkei-ekes-out-modest-gain/",
       "categorie": "stock-market-update",
       "titre_fr": null,
       "date_recuperation": "2026-09-08T03:10:16.253971+00:00",
@@ -222,6 +222,9 @@
       "date_publication": "2026-09-08T02:12:13.757945+00:00",
       "ignore": false,
       "url": "https://investinglive.com/commodities/vitol-ceo-sees-china-oil-demand-picking-up-flags-unsustainable-gap/",
+      "contenu": "Hardy's comments carry weight given Vitol's position as one of the world's largest independent oil traders with a direct line into physical flows, and the China demand call is arguably the most market-relevant point: framing the current 5-6 million barrel a day gap between 2025 and 2026 Chinese crude imports as unsustainable implies Vitol expects Chinese buying to accelerate from here, a bullish signal for crude demand even as Hardy simultaneously flags a 1.5 million barrel a day contraction in global demand for the year. The Bab el-Mandeb and Hormuz figures matter for the supply side of the ledger, quantifying just how much Middle East flow remains exposed to the ongoing conflict, roughly 10 million barrels a day of oil and products still transiting Hormuz and 2-3 million barrels a day of Saudi exports affected via the Mandeb strait. Taken together, the comments reinforce a market narrative of squeezed supply chains running up against demand that could reaccelerate out of China even as broader global consumption softens.\n\n--Vitol's CEO is describing a market where Middle East barrels are getting harder to move and China's buying has further to run.\n\nSummary:\n\nVitol CEO Russell Hardy said China's oil-import demand is set to pick up, speaking at the APPEC energy conference in Singapore, and described the current 5-6 million barrel a day gap between China's 2025 and 2026 crude imports as unsustainable, implying he expects Chinese buying to reaccelerate from current levels. The comment stands out against a broader demand picture Hardy characterised as softer, with global oil demand expected to fall by 1.5 million barrels a day in 2026 compared with 2025.\n\nOn the supply side, Hardy quantified the scale of disruption still running through Middle East shipping lanes. He said Bab el-Mandeb strait disruptions have affected 2-3 million barrels a day of Saudi oil exports, while around 10 million barrels a day of crude and products are still being exported from the Middle East overall, with a comparable volume of oil and products continuing to exit the Strait of Hormuz despite the ongoing conflict. Hardy also noted that global product stockpiles are still drawing, a sign that consumption of refined products continues to outpace supply even as crude flows remain disrupted. On Russia, he said the country imported between 500,000 and 600,000 tons of gasoline per month over the summer.\n\nVitol is the world's largest independent energy trading company, buying, selling and transporting crude oil, refined products, natural gas and other commodities across global markets rather than producing or refining them itself. Privately held and headquartered in Geneva and Rotterdam, the firm trades several million barrels of oil equivalent a day, giving its executives, including Hardy, an unusually direct vantage point on physical trade flows, freight patterns and regional demand shifts that often surfaces in market-moving commentary at conferences such as APPEC.",
+      "date_publication": "2026-09-08T02:12:13.757945+00:00",
+      "ignore": false,
       "categorie": "commodities",
       "titre": "Vitol CEO sees China oil demand picking up, flags unsustainable gap",
       "date_recuperation": "2026-09-08T02:15:13.445472+00:00",
@@ -276,6 +279,14 @@
     {
       "date_publication": "2026-09-08T00:05:53.952686+00:00",
       "ignore": false,
+      "date_publication": "2026-09-08T00:22:04.037619+00:00",
+      "categorie": "forex",
+      "titre_fr": "La Banque populaire de Chine devrait fixer le taux de référence USD/CNY à 6,7104 – estimation Reuters"
+    },
+    {
+      "date_recuperation": "2026-09-08T00:10:17.965333+00:00",
+      "contenu_fr": null,
+      "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts",
       "url": "https://investinglive.com/commodities/icymi-goldman-flags-120-oil-risk-lifts-brent-and-wti-forecasts/",
       "titre_fr": null,
       "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts",
