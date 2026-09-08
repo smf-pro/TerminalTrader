@@ -15,6 +15,7 @@
     },
     {
       "extrait_fr": null,
+      "source": "newyorkfed.org",
       "impact": "low",
       "ignore": false,
       "extrait": "The Federal Reserve Bank of New York’s Center for Microeconomic Data today released the August 2026 Survey of Consumer Expectations, which shows that households’ inflation expectations decreased slightly at the medium-term horizon and remained unchanged at the short- and longer-term horizons. Gas price growth expectations increased again in August. Labor market expectations were mixed with unemployment and job finding expectations deteriorating while job loss and quit expectations improved somewhat. Expectations of an increase in unemployment reached the highest level since April 2020. The survey was fielded from August 3 through August 31, 2026. The main findings from the August 2026 Survey are:US NEW YORK FED: CONSUMER 1-YEAR INFLATION EXPECTATION 3.58% IN AUGUST, 3.63% IN JULY, 3.67% IN JUNE, 3.46% IN MAY #consumer #inflation @NYFedNY Fed: 3-year-ahead expected inflation at 3.2% in august versus July's 3.3%.NY Fed: US 5-year inflation expectations unchanged in august at 3%.New York Fed Reports August Labor Market Expectations Were 'mixed.'",
@@ -159,6 +160,7 @@
     },
     {
       "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
+      "source": "@financialjuice",
       "impact": "low",
       "ignore": false,
       "titre": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply",
@@ -269,6 +271,10 @@
       "extrait_fr": null,
       "ignore": false,
       "impact": "low",
+      "date_recuperation": "2026-09-08T03:27:13.619306+00:00",
+      "ignore": false
+    },
+    {
       "extrait": "China’s trade gained pace in August, though imports missed expectations, a sign that domestic demand remains tepid as the world’s second-largest economy faces mounting pressure to rebalance trade. Exports grew 25% in U.S. dollar terms in August from a year earlier, official customs data showed Tuesday, in line with Reuters-polled analysts’ forecast, ...",
       "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade",
       "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
@@ -279,6 +285,7 @@
     },
     {
       "extrait_fr": null,
+      "source": "cnbc.com",
       "impact": "low",
       "ignore": false,
       "extrait": "Japan Finance Minister Katayama: Will Maintain Close Communication With U.s. To Achieve Orderly Fx Markets ...",
@@ -291,6 +298,7 @@
     },
     {
       "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
+      "source": "library.westpaciq.com.au",
       "impact": "low",
       "ignore": false,
       "titre": "AU: Consumer sentiment  sinks back to lows",
@@ -359,6 +367,8 @@
     {
       "ignore": false,
       "categorie": "news",
+      "contenu_fr": "Selon certaines informations, les vols auraient été suspendus à l'aéroport de Djeddah en Arabie Saoudite. Il existe d'autres rapports faisant état d'explosions dans la région de Jazan en Arabie Saoudite, avec des explosions entendues dans les champs pétrolifères saoudiens.   Des alertes ont également été activées en Arabie saoudite et dans la région de Jazan, mais les informations indiquent que le danger est passé.\n\nLes tensions autour de l’Arabie saoudite se sont fortement accrues au cours du week-end alors que les combats s’intensifiaient entre les rebelles Houthis du Yémen soutenus par l’Iran et les forces alignées sur le gouvernement yéménite soutenu par l’Arabie saoudite.\n\nLes forces soutenues par l'Arabie saoudite ont étendu leurs opérations terrestres contre les Houthis sur plusieurs fronts, notamment Hodeida, Taiz, Jawf, Marib et Bayda. Les Houthis ont accusé l'Arabie saoudite de soutenir les frappes aériennes à l'intérieur du Yémen, notamment une attaque contre une prison dans la province de Jawf qui aurait tué sept personnes.\n\nLa situation s'est encore aggravée mardi lorsque les Houthis ont lancé des dizaines de missiles balistiques et de drones vers le sud de l'Arabie saoudite. Les attaques ont visé les installations de Saudi Aramco à Abha, Najran et Jazan, ainsi que la base aérienne King Khalid à Khamis Mushait. Les autorités saoudiennes ont déclaré que 73 personnes avaient été blessées, dont des femmes et des enfants, tandis que des incendies ont contraint certaines installations énergétiques et services publics à suspendre temporairement leurs opérations.\n\nLa reprise des combats met effectivement fin au calme relatif établi par la trêve de 2022. Depuis le 23 août, l'escalade au Yémen aurait tué au moins 194 personnes, blessé plus de 880 personnes et déplacé plus de 21 000 personnes.\n\nCes attaques soulèvent le risque d’un conflit régional plus large impliquant l’Arabie saoudite, les Houthis et, indirectement, l’Iran. Ils créent également une nouvelle menace pour les approvisionnements énergétiques mondiaux.\n\nL’Arabie Saoudite achemine davantage de pétrole vers la mer Rouge car le transport par le détroit d’Ormuz reste gravement perturbé. Les attaques contre les installations du sud de l’Arabie saoudite et le transport maritime sur la mer Rouge menacent donc la route alternative utilisée pour maintenir l’acheminement du brut.\n\nLes prix du pétrole ont atteint aujourd'hui un sommet de 94,73 dollars. Le prix est actuellement hors de ce prix élevé, proche de 92 $. La moyenne mobile sur 100 heures s'élève à 91,71 $. Ce sera un baromètre clé à court terme pour les traders.\n\nLa question clé est désormais de savoir dans quelle mesure l’Arabie saoudite réagira de manière agressive. Une réponse limitée pourrait contenir le conflit, mais des frappes aériennes saoudiennes soutenues, suivies d’attaques supplémentaires des Houthis contre les installations d’Aramco ou les transports maritimes sur la mer Rouge, augmenteraient le risque d’une perturbation plus grave des approvisionnements mondiaux en pétrole.",
+      "titre_fr": "Les vols auraient été suspendus à l'aéroport de Djeddah en Arabie Saoudite",
       "titre": "Flights reportedly suspended at Jeddah airport in Saudi Arabia",
       "date_recuperation": "2026-09-08T17:10:15.562131+00:00",
       "titre_fr": "Les vols auraient été suspendus à l'aéroport de Djeddah en Arabie Saoudite",
@@ -513,6 +523,8 @@
     {
       "ignore": false,
       "categorie": "forex",
+      "contenu_fr": null,
+      "titre_fr": null,
       "titre": "USD/JPY selloff extends further as Yen hits seven-month high; US CPI and BoJ in focus next",
       "date_recuperation": "2026-09-08T07:40:14.919996+00:00",
       "titre_fr": null,
@@ -524,6 +536,8 @@
     {
       "ignore": false,
       "categorie": "news",
+      "titre_fr": "Le déficit commercial français se creuse en juillet en raison de la hausse des importations",
+      "contenu_fr": "Avertissement sur les risques élevés : les opérations de change comportent un niveau de risque élevé qui peut ne pas convenir à tous les investisseurs. L’effet de levier crée une exposition supplémentaire aux risques et aux pertes. Avant de décider de négocier des devises, examinez attentivement vos objectifs d'investissement, votre niveau d'expérience et votre tolérance au risque. Vous pourriez perdre une partie ou la totalité de votre investissement initial ; n’investissez pas d’argent que vous ne pouvez pas vous permettre de perdre. Renseignez-vous sur les risques liés aux opérations de change et demandez conseil à un conseiller financier ou fiscal indépendant si vous avez des questions.\n\nAvertissement consultatif : investirLive n'est pas un conseiller en investissement, investirLive fournit des références et des liens vers des actualités sélectionnées, des blogs et d'autres sources d'informations économiques et de marché à des fins d'information et en tant que service éducatif à ses clients et prospects et n'approuve pas les opinions ou recommandations des blogs ou d'autres sources d'information. Il est conseillé aux clients et prospects d'examiner attentivement les opinions et analyses proposées dans les blogs ou autres sources d'informations dans le contexte de l'analyse et de la prise de décision individuelles du client ou du prospect. Aucun des blogs ou autres sources d'information ne peut être considéré comme constituant un historique. Les performances passées ne constituent aucune garantie des résultats futurs et InvestingLive recommande spécifiquement par la présente aux clients et prospects d'examiner attentivement toutes les réclamations et représentations faites par les conseillers, blogueurs, gestionnaires de fonds et fournisseurs de systèmes avant d'investir des fonds ou d'ouvrir un compte auprès d'un courtier Forex. Toutes les nouvelles, opinions, recherches, données ou autres informations contenues dans ce site Web sont fournies « telles quelles » en tant que commentaire général du marché et ne constituent pas des conseils d'investissement ou de trading, et nous ne prétendons pas présenter l'intégralité des informations publiques pertinentes ou disponibles concernant un marché ou un titre spécifique. investLive décline expressément toute responsabilité pour toute perte de capital ou de bénéfices pouvant découler directement ou indirectement de l'utilisation ou de la confiance accordée à ces informations, ou en ce qui concerne le contenu présenté sur son site Web, ni ses choix éditoriaux.\n\nAvertissement : InvestingLive peut être rémunéré par les annonceurs qui apparaissent sur le site Web, en fonction de votre interaction avec les publicités ou les annonceurs.",
       "titre": "French trade deficit grows larger in July on higher imports again",
       "date_recuperation": "2026-09-08T06:55:14.844963+00:00",
       "titre_fr": "Le déficit commercial français se creuse en juillet en raison de la hausse des importations",
