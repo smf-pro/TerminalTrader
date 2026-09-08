@@ -1,0 +1,42 @@
+name: Recuperation manuelle FF News
+
+on:
+  push:
+    paths:
+      - "a_recuperer.txt"
+  workflow_dispatch:  # permet aussi un declenchement manuel depuis l'onglet Actions
+
+jobs:
+  recuperation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dependances
+        run: pip install requests beautifulsoup4 deep-translator firebase-admin
+
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Lancer le script de recuperation
+        run: python ff_recuperation_manuelle.py
+
+      - name: Commit et push a_recuperer.txt (avec retry en cas de conflit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add a_recuperer.txt
+          git diff --staged --quiet && exit 0
+          git commit -m "Recuperation manuelle FF News [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase && git push && break
+            sleep 5
+          done
