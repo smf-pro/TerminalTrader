@@ -2,6 +2,7 @@
   "date": "2026-09-08",
   "ff_news": [
     {
+      "source": "@finsquawk_",
       "titre": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says",
       "ignore": false,
       "date_recuperation": "2026-09-08T10:24:15.219959+00:00",
@@ -38,6 +39,7 @@
       "titre_fr": "Hauser de la RBA : nous n'en sommes pas encore au point où nous devons fortement augmenter les taux"
     },
     {
+      "source": "@NourHammoury",
       "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
       "ignore": false,
       "date_recuperation": "2026-09-08T09:34:18.452297+00:00",
@@ -50,6 +52,7 @@
       "titre_fr": "La BoJ prévoit de relever ses taux à 1,25 % lors de sa réunion des 17 et 18 septembre, selon Kyodo"
     },
     {
+      "source": "@financialjuice",
       "titre": "Iran's President Pezeshkian: Iran will continue its resistance with full strength until aggressors' are regretful",
       "ignore": false,
       "date_recuperation": "2026-09-08T09:19:15.875230+00:00",
@@ -98,6 +101,7 @@
       "titre_fr": "La balance commerciale française se détériore en raison d'une augmentation des importations"
     },
     {
+      "source": "destatis.de",
       "titre": "German exports in July 2026: -0.8% on June 2026",
       "ignore": false,
       "date_recuperation": "2026-09-08T06:09:19.816307+00:00",
@@ -110,6 +114,7 @@
       "titre_fr": null
     },
     {
+      "source": "@MarketsCapApp",
       "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "ignore": false,
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
