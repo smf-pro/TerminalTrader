@@ -32,6 +32,8 @@
       "titre_fr": "Un haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine",
       "extrait": "Senior Pentagon official: the world should prepare for a prolonged Russia-Ukraine conflict. - Reuters",
       "titre": "Senior Pentagon official: World should prepare for prolonged Russia-Ukraine conflict",
+      "date_publication": "2026-09-08T13:56:16.600239+00:00",
+      "extrait": "Senior Pentagon official: the world should prepare for a prolonged Russia-Ukraine conflict. - Reuters",
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1416965-senior-pentagon-official-world-should-prepare-for-prolonged",
       "impact": "low",
@@ -538,6 +540,10 @@
       "contenu_fr": null,
       "categorie": "news",
       "titre_fr": null,
+      "contenu_fr": null,
+      "categorie": "stock-market-update"
+    },
+    {
       "titre": "China August trade balance shows exports and imports below expectations",
       "ignore": false,
       "url": "https://investinglive.com/news/china-august-trade-balance-shows-exports-and-imports-below-expectations/"
