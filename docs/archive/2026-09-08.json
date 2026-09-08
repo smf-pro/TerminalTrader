@@ -22,6 +22,16 @@
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416962-boes-bailey-i-want-to-dispel-idea-that",
       "ignore": false,
+      "impact": "low",
+      "date_publication": "2026-09-08T13:56:16.600239+00:00",
+      "extrait": "Senior Pentagon official: the world should prepare for a prolonged Russia-Ukraine conflict. - Reuters",
+      "extrait_fr": "Haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine. -Reuters",
+      "source": "@Osint613",
+      "url": "https://www.forexfactory.com/news/1416965-senior-pentagon-official-world-should-prepare-for-prolonged",
+      "titre": "Senior Pentagon official: World should prepare for prolonged Russia-Ukraine conflict"
+    },
+    {
+      "titre_fr": "Boe's Bailey : Je veux dissiper l'idée selon laquelle nous avons un plan secret pour augmenter les taux, sans condition",
       "date_recuperation": "2026-09-08T13:49:17.962446+00:00",
       "source": "@FirstSquawk"
     },
@@ -219,6 +229,7 @@
     },
     {
       "extrait": "RBA Assistant Governor Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy",
+      "source": "@FirstSquawk",
       "date_publication": "2026-09-08T03:26:13.619306+00:00",
       "extrait_fr": null,
       "titre_fr": null,
