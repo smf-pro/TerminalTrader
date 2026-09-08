@@ -11,7 +11,11 @@
       "titre_fr": null,
       "date_publication": "2026-09-08T20:32:17.445481+00:00",
       "url": "https://www.forexfactory.com/news/1417025-trump-i-am-hereby-authorizing-gsa-to-remove",
-      "impact": "high"
+      "ignore": false,
+      "impact": "high",
+      "extrait_fr": null,
+      "titre": "Trump: I am hereby authorizing GSA to remove Canadian-orgin products unless Canada restores full reciprocity for American farmers and companies",
+      "extrait": "Everyone knows that Canada doesnâ€t let our Great Dairy Farmers sell into the Canadian Market, and that the only reason Canada makes Autos is because of previous disastrous Trade Agreements while other Presidents were in Office. Canada has been ripping us off for years, but what many do not realize is that the Canadian Government, including Canadian Provinces, have banned American Small Businesses and Companies from selling into their Government Procurement Markets.Â This is the case even though Canada gets broad access into the massive American Government Procurement Market, including those of our States.Â That is not reciprocity, it is a Canadian Trade Scam. From now on, NO RECIPROCITY â€“ NO ACCESS! I am hereby directing the GSA, working with the USTR, to take all necessary steps to REMOVE Canadian-origin products from GSAâ€s Multiple Award Schedules unless Canada restores full and fair reciprocity for American Farmers and Companies. Those schedules account for more than 50 BILLION DOLLARS a year. This should have been cut off years ago, by other Administrations, like it was by mine, only to reinstituted by Sleepy Joe Biden. Thank you for your attention to this matter! President DONALD J. TRUMP"
     },
     {
       "extrait_fr": "L'Iran a lancé une deuxième vague d'attaques non divulguées contre des navires de la marine américaine, selon des sources - WSJ Pics pétroliers",
@@ -23,7 +27,11 @@
       "titre_fr": "L'Iran a lancé une deuxième vague d'attaques non divulguées contre des navires de la marine américaine, selon des sources - WSJ",
       "date_publication": "2026-09-08T19:52:15.763622+00:00",
       "url": "https://www.forexfactory.com/news/1417011-iran-launched-undisclosed-second-wave-of-attacks-on",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": "L'Iran a lancé une deuxième vague d'attaques non divulguées contre des navires de la marine américaine, selon des sources - WSJ Pics pétroliers",
+      "titre": "Iran Launched Undisclosed Second Wave of Attacks on U.S. Navy Ships, Sources Say - WSJ",
+      "extrait": "Iran Launched Undisclosed Second Wave of Attacks on U.S. Navy Ships, Sources Say -- WSJ Oil spikes"
     },
     {
       "extrait_fr": "Un pétrolier iranien a été visé par une attaque de missile américain à quatre milles de l'île de Kharg - Tasnim",
@@ -35,7 +43,11 @@
       "titre_fr": "Un pétrolier iranien a été visé par une attaque de missile américain à quatre milles de l'île de Kharg - Tasnim",
       "date_publication": "2026-09-08T19:33:13.943433+00:00",
       "url": "https://www.forexfactory.com/news/1417008-iranian-tanker-was-targeted-by-a-us-missile",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": "Un pétrolier iranien a été visé par une attaque de missile américain à quatre milles de l'île de Kharg - Tasnim",
+      "titre": "Iranian tanker was targeted by a US missile attack four miles from Kharg Island - Tasnim",
+      "extrait": "Iranian tanker was targeted by a US missile attack four miles from Kharg Island - Tasnim"
     },
     {
       "extrait_fr": "Plusieurs explosions ont été entendues sur l'île de Kharg. Plus https://t.co/qEVVYVasHK",
@@ -47,7 +59,11 @@
       "titre_fr": "Plusieurs explosions ont été entendues sur l'île de Kharg Mehr",
       "date_publication": "2026-09-08T18:49:18.861155+00:00",
       "url": "https://www.forexfactory.com/news/1417000-several-explosions-were-heard-on-kharg-island",
-      "impact": "medium"
+      "ignore": false,
+      "impact": "medium",
+      "titre": "Several Explosions Were Heard On Kharg Island  Mehr",
+      "extrait_fr": "Plusieurs explosions ont été entendues sur l'île de Kharg. Plus https://t.co/qEVVYVasHK",
+      "extrait": "Several Explosions Were Heard On Kharg Island Mehr https://t.co/qEVVYVasHK"
     },
     {
       "extrait_fr": "Médias iraniens : Téhéran exige de nouvelles conditions de la part de Washington pour reprendre les négociations. ...",
@@ -59,7 +75,11 @@
       "titre_fr": "Médias iraniens : Téhéran exige de nouvelles conditions de la part de Washington pour reprendre les négociations",
       "date_publication": "2026-09-08T16:57:15.417468+00:00",
       "url": "https://www.forexfactory.com/news/1416985-iranian-media-tehran-demands-new-conditions-from-washington",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "Iranian Media: Tehran Demands New Conditions From Washington To Resume Negotiations",
+      "extrait_fr": "Médias iraniens : Téhéran exige de nouvelles conditions de la part de Washington pour reprendre les négociations. ...",
+      "extrait": "Iranian Media: Tehran Demands New Conditions From Washington To Resume Negotiations. ..."
     },
     {
       "extrait_fr": null,
@@ -71,7 +91,11 @@
       "titre_fr": null,
       "date_publication": "2026-09-08T15:02:16.335724+00:00",
       "url": "https://www.forexfactory.com/news/1416974-us-medium-term-inflation-expectations-tick-down-unemployment-expectations",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": null,
+      "titre": "US Medium-Term Inflation Expectations Tick Down; Unemployment Expectations Deteriorate",
+      "extrait": "The Federal Reserve Bank of New York’s Center for Microeconomic Data today released the August 2026 Survey of Consumer Expectations, which shows that households’ inflation expectations decreased slightly at the medium-term horizon and remained unchanged at the short- and longer-term horizons. Gas price growth expectations increased again in August. Labor market expectations were mixed with unemployment and job finding expectations deteriorating while job loss and quit expectations improved somewhat. Expectations of an increase in unemployment reached the highest level since April 2020. The survey was fielded from August 3 through August 31, 2026. The main findings from the August 2026 Survey are:US NEW YORK FED: CONSUMER 1-YEAR INFLATION EXPECTATION 3.58% IN AUGUST, 3.63% IN JULY, 3.67% IN JUNE, 3.46% IN MAY #consumer #inflation @NYFedNY Fed: 3-year-ahead expected inflation at 3.2% in august versus July's 3.3%.NY Fed: US 5-year inflation expectations unchanged in august at 3%.New York Fed Reports August Labor Market Expectations Were 'mixed.'"
     },
     {
       "extrait_fr": "Le secrétaire au Trésor américain Bessent : Je pense que nous surmonterons la crise commerciale avec le Canada. Le secrétaire au Trésor américain Bessent sur les mesures prises par le Canada : le Premier ministre canadien Carney doit arrêter de faire campagne. Le secrétaire au Trésor américain Bessent : Une guerre commerciale au Canada ajouterait 0,02 % à l'inflation américaine.",
@@ -83,7 +107,11 @@
       "titre_fr": "Le secrétaire américain au Trésor Bessent : je pense que nous surmonterons le conflit commercial avec le Canada",
       "date_publication": "2026-09-08T14:54:28.713011+00:00",
       "url": "https://www.forexfactory.com/news/1416973-us-treasury-secretary-bessent-i-think-we-will",
-      "impact": "medium"
+      "ignore": false,
+      "impact": "medium",
+      "titre": "US Treasury Secretary Bessent: I think we will get through the Canada trade spat",
+      "extrait_fr": "Le secrétaire au Trésor américain Bessent : Je pense que nous surmonterons la crise commerciale avec le Canada. Le secrétaire au Trésor américain Bessent sur les mesures prises par le Canada : le Premier ministre canadien Carney doit arrêter de faire campagne. Le secrétaire au Trésor américain Bessent : Une guerre commerciale au Canada ajouterait 0,02 % à l'inflation américaine.",
+      "extrait": "US Treasury Secretary Bessent: I think we will get through the Canada trade spat.US Treasury Secretary Bessent on Canada moves: Canada's PM Carney needs to stop campaigning.US Treasury Secretary Bessent: A Canada trade war would add 0.02% to US inflation."
     },
     {
       "extrait_fr": "Haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine. -Reuters",
@@ -95,7 +123,11 @@
       "titre_fr": "Un haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine",
       "date_publication": "2026-09-08T13:56:16.600239+00:00",
       "url": "https://www.forexfactory.com/news/1416965-senior-pentagon-official-world-should-prepare-for-prolonged",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": "Haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine. -Reuters",
+      "titre": "Senior Pentagon official: World should prepare for prolonged Russia-Ukraine conflict",
+      "extrait": "Senior Pentagon official: the world should prepare for a prolonged Russia-Ukraine conflict. - Reuters"
     },
     {
       "extrait_fr": "Boe's Bailey : Je veux dissiper l'idée selon laquelle nous avons un plan secret pour augmenter les taux, sans condition. Le gouverneur de la BoE Bailey : La courbe des taux de la BoE du marché reflète l'inquiétude des investisseurs concernant de nouvelles hausses des prix de l'énergie.",
@@ -155,7 +187,11 @@
       "titre_fr": null,
       "date_publication": "2026-09-08T13:31:16.850577+00:00",
       "url": "https://www.forexfactory.com/news/1416959-boes-greene-the-length-of-time-that-oil",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": null,
+      "titre": "BoEs Greene: The length of time that oil prices have been high worries me about 2nd round effects down the line",
+      "extrait": "BoEs Greene: The length of time that oil prices have been high worries me about 2nd round effects down the line."
     },
     {
       "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l'Iran a conduit à des prix de l'énergie élevés, ils pourraient être encore plus élevés. Le gouverneur de la BoE Bailey : Les attaques ukrainiennes contre les raffineries russes font grimper le coût des produits pétroliers raffinés. Le gouverneur de la BoE Bailey : la hausse des taux hypothécaires britanniques est plus importante que presque partout ailleurs dans le G7. #ukeconomy #energypriceshock #inflation #andrewbaileyBoE Gov. Bailey : Les risques pour l’inflation sont à la hausse.",
@@ -167,7 +203,11 @@
       "titre_fr": "Bailey (BoE) : la guerre entre les États-Unis et l'Iran a entraîné une hausse des prix de l'énergie, qui pourraient être encore plus élevés",
       "date_publication": "2026-09-08T13:24:17.413051+00:00",
       "url": "https://www.forexfactory.com/news/1416957-boes-bailey-us-iran-war-has-led-to-high",
-      "impact": "medium"
+      "ignore": false,
+      "impact": "medium",
+      "titre": "BoE's Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l'Iran a conduit à des prix de l'énergie élevés, ils pourraient être encore plus élevés. Le gouverneur de la BoE Bailey : Les attaques ukrainiennes contre les raffineries russes font grimper le coût des produits pétroliers raffinés. Le gouverneur de la BoE Bailey : la hausse des taux hypothécaires britanniques est plus importante que presque partout ailleurs dans le G7. #ukeconomy #energypriceshock #inflation #andrewbaileyBoE Gov. Bailey : Les risques pour l’inflation sont à la hausse.",
+      "extrait": "BoE Gov. Bailey: The US-Iran war has led to high energy prices, they could be higher still.BoE Gov. Bailey: The Ukrainian attacks on Russian refineries are pushing up cost of refined oil products.BoE Gov. Bailey: The rise in UK mortgage rates is larger than almost anywhere in the G7.MORE BOE'S BAILEY: FINANCIAL CONDITIONS HAVE TIGHTENED DESPITE STEADY BANK RATE #bankofengland #boe #monetarypolicy #ukeconomy #energypriceshock #inflation #andrewbaileyBoE Gov. Bailey: Risks to inflation are to the upside."
     },
     {
       "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
@@ -179,7 +219,11 @@
       "titre_fr": "Bailey, le gouverneur de la BoE : la guerre entre les États-Unis et l'Iran a entraîné une hausse des prix de l'énergie, qui pourraient être encore plus élevés",
       "date_publication": "2026-09-08T13:24:13.577781+00:00",
       "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "BoE Gov. Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
+      "extrait": "BoE Gov. Bailey: The US-Iran war has led to high energy prices, they could be higher still."
     },
     {
       "extrait_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
@@ -191,7 +235,11 @@
       "titre_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
       "date_publication": "2026-09-08T10:23:15.219959+00:00",
       "url": "https://www.forexfactory.com/news/1416908-qatar-is-working-with-its-regional-partners-and",
-      "impact": "medium"
+      "ignore": false,
+      "impact": "medium",
+      "extrait_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
+      "titre": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says",
+      "extrait": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says"
     },
     {
       "extrait_fr": null,
@@ -203,7 +251,11 @@
       "titre_fr": null,
       "date_publication": "2026-09-08T10:04:15.488908+00:00",
       "url": "https://www.forexfactory.com/news/1416907-us-nfib-main-street-optimism-cools-in-august",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": null,
+      "titre": "US NFIB: Main Street Optimism Cools in August but Holds Above Long-Term Average",
+      "extrait": "The Small Business Optimism Index for August was 98.7, down 1.1 points from July’s highest level since August 2025. The Index remains above its 52-year average of 98.0. Of the 10 Optimism Index components, two increased, six decreased, and two were unchanged. A worsening of expected business conditions contributed the most to the decline in the Index. Both ..."
     },
     {
       "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
@@ -215,7 +267,11 @@
       "titre_fr": "Hauser de la RBA : nous n'en sommes pas encore au point où nous devons fortement augmenter les taux",
       "date_publication": "2026-09-08T09:54:15.208640+00:00",
       "url": "https://www.forexfactory.com/news/1416902-rbas-hauser-we-have-not-arrived-at-point",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply",
+      "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
+      "extrait": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply."
     },
     {
       "extrait_fr": "*boj prévoit d'augmenter son taux à 1,25 % lors de sa réunion des 17 et 18 septembre : Kyodo",
@@ -227,7 +283,11 @@
       "titre_fr": "La BoJ prévoit de relever ses taux à 1,25 % lors de sa réunion des 17 et 18 septembre, selon Kyodo",
       "date_publication": "2026-09-08T09:33:18.452297+00:00",
       "url": "https://www.forexfactory.com/news/1416901-boj-plans-to-raise-rate-to-125-at",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": "*boj prévoit d'augmenter son taux à 1,25 % lors de sa réunion des 17 et 18 septembre : Kyodo",
+      "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
+      "extrait": "*boj Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo"
     },
     {
       "extrait_fr": "Le président iranien Pezeshkian : l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent - X",
@@ -275,7 +335,11 @@
       "titre_fr": "La balance commerciale française se détériore en raison d'une augmentation des importations",
       "date_publication": "2026-09-08T06:58:16.545017+00:00",
       "url": "https://www.forexfactory.com/news/1416877-french-trade-balance-is-deteriorating-due-to-an",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "French trade balance is deteriorating due to an increase in imports",
+      "extrait_fr": "En juillet 2026, la balance commerciale se dégrade de 0,9 milliard d'euros à -6,7 milliards d'euros, suite à l'amélioration observée en juin (+1,9 milliard d'euros). Cette évolution s'explique par une hausse des importations (+1,1 milliard d'euros), légèrement compensée par une croissance modérée des exportations (+0,2 milliard d'euros). La hausse des importations en juillet 2026 était liée à l’augmentation des approvisionnements en matériels de transport…",
+      "extrait": "In July 2026, the trade balance deteriorated by €0.9 billion to -€6.7 billion, following the improvement observed in June (+€1.9 billion). This change was driven by an increase in imports (+€1.1 billion), slightly offset by moderate growth in exports (+€0.2 billion). The rise in imports in July 2026 was linked to increased supplies of transport equipment ..."
     },
     {
       "extrait_fr": null,
@@ -299,7 +363,11 @@
       "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
       "date_publication": "2026-09-08T03:49:12.390403+00:00",
       "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
-      "impact": "medium"
+      "ignore": false,
+      "impact": "medium",
+      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
+      "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify"
     },
     {
       "extrait_fr": null,
@@ -311,7 +379,11 @@
       "titre_fr": null,
       "date_publication": "2026-09-08T03:26:13.619306+00:00",
       "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "RBA Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy",
+      "extrait_fr": null,
+      "extrait": "RBA Assistant Governor Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy"
     },
     {
       "extrait_fr": null,
@@ -347,19 +419,24 @@
       "titre_fr": "AU : La confiance des consommateurs retombe au plus bas",
       "date_publication": "2026-09-08T00:58:12.566923+00:00",
       "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
-      "impact": "low"
+      "ignore": false,
+      "impact": "low",
+      "titre": "AU: Consumer sentiment  sinks back to lows",
+      "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
+      "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ..."
     }
   ],
   "cb_articles": [
     {
-      "ignore": false,
+      "titre_fr": "Les commentaires de la Banque d’Angleterre mettent en lumière les inquiétudes concernant l’inflation énergétique",
+      "date_publication": "2026-09-08T13:35:37.628849+00:00",
       "date_recuperation": "2026-09-08T13:36:15.562391+00:00",
       "contenu_fr": "Avertissement sur les risques élevés : les opérations de change comportent un niveau de risque élevé qui peut ne pas convenir à tous les investisseurs. L’effet de levier crée une exposition supplémentaire aux risques et aux pertes. Avant de décider de négocier des devises, examinez attentivement vos objectifs d'investissement, votre niveau d'expérience et votre tolérance au risque. Vous pourriez perdre une partie ou la totalité de votre investissement initial ; n’investissez pas d’argent que vous ne pouvez pas vous permettre de perdre. Renseignez-vous sur les risques liés aux opérations de change et demandez conseil à un conseiller financier ou fiscal indépendant si vous avez des questions.\n\nAvertissement consultatif : investirLive n'est pas un conseiller en investissement, investirLive fournit des références et des liens vers des actualités sélectionnées, des blogs et d'autres sources d'informations économiques et de marché à des fins d'information et en tant que service éducatif à ses clients et prospects et n'approuve pas les opinions ou recommandations des blogs ou d'autres sources d'information. Il est conseillé aux clients et prospects d'examiner attentivement les opinions et analyses proposées dans les blogs ou autres sources d'informations dans le contexte de l'analyse et de la prise de décision individuelles du client ou du prospect. Aucun des blogs ou autres sources d'information ne peut être considéré comme constituant un historique. Les performances passées ne constituent aucune garantie des résultats futurs et InvestingLive recommande spécifiquement par la présente aux clients et prospects d'examiner attentivement toutes les réclamations et représentations faites par les conseillers, blogueurs, gestionnaires de fonds et fournisseurs de systèmes avant d'investir des fonds ou d'ouvrir un compte auprès d'un courtier Forex. Toutes les nouvelles, opinions, recherches, données ou autres informations contenues dans ce site Web sont fournies « telles quelles » en tant que commentaire général du marché et ne constituent pas des conseils d'investissement ou de trading, et nous ne prétendons pas présenter l'intégralité des informations publiques pertinentes ou disponibles concernant un marché ou un titre spécifique. investLive décline expressément toute responsabilité pour toute perte de capital ou de bénéfices pouvant découler directement ou indirectement de l'utilisation ou de la confiance accordée à ces informations, ou en ce qui concerne le contenu présenté sur son site Web, ni ses choix éditoriaux.\n\nAvertissement : InvestingLive peut être rémunéré par les annonceurs qui apparaissent sur le site Web, en fonction de votre interaction avec les publicités ou les annonceurs.",
       "titre": "Bank of England comments highlight worries about energy inflation",
       "titre_fr": "Les commentaires de la Banque d’Angleterre mettent en lumière les inquiétudes concernant l’inflation énergétique",
       "date_publication": "2026-09-08T13:35:37.628849+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
-      "url": "https://investinglive.com/central-banks/bank-of-england-comments-highlight-worries-about-energy-inflation/"
+      "titre": "Bank of England comments highlight worries about energy inflation"
     },
     {
       "ignore": false,
@@ -382,7 +459,8 @@
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/"
     },
     {
-      "ignore": false,
+      "titre_fr": null,
+      "date_publication": "2026-09-08T01:15:23.016519+00:00",
       "date_recuperation": "2026-09-08T01:16:14.352227+00:00",
       "contenu_fr": "Avertissement sur les risques élevés : les opérations de change comportent un niveau de risque élevé qui peut ne pas convenir à tous les investisseurs. L’effet de levier crée une exposition supplémentaire aux risques et aux pertes. Avant de décider de négocier des devises, examinez attentivement vos objectifs d'investissement, votre niveau d'expérience et votre tolérance au risque. Vous pourriez perdre une partie ou la totalité de votre investissement initial ; n’investissez pas d’argent que vous ne pouvez pas vous permettre de perdre. Renseignez-vous sur les risques liés aux opérations de change et demandez conseil à un conseiller financier ou fiscal indépendant si vous avez des questions.\n\nAvertissement consultatif : investirLive n'est pas un conseiller en investissement, investirLive fournit des références et des liens vers des actualités sélectionnées, des blogs et d'autres sources d'informations économiques et de marché à des fins d'information et en tant que service éducatif à ses clients et prospects et n'approuve pas les opinions ou recommandations des blogs ou d'autres sources d'information. Il est conseillé aux clients et prospects d'examiner attentivement les opinions et analyses proposées dans les blogs ou autres sources d'informations dans le contexte de l'analyse et de la prise de décision individuelles du client ou du prospect. Aucun des blogs ou autres sources d'information ne peut être considéré comme constituant un historique. Les performances passées ne constituent aucune garantie des résultats futurs et InvestingLive recommande spécifiquement par la présente aux clients et prospects d'examiner attentivement toutes les réclamations et représentations faites par les conseillers, blogueurs, gestionnaires de fonds et fournisseurs de systèmes avant d'investir des fonds ou d'ouvrir un compte auprès d'un courtier Forex. Toutes les nouvelles, opinions, recherches, données ou autres informations contenues dans ce site Web sont fournies « telles quelles » en tant que commentaire général du marché et ne constituent pas des conseils d'investissement ou de trading, et nous ne prétendons pas présenter l'intégralité des informations publiques pertinentes ou disponibles concernant un marché ou un titre spécifique. investLive décline expressément toute responsabilité pour toute perte de capital ou de bénéfices pouvant découler directement ou indirectement de l'utilisation ou de la confiance accordée à ces informations, ou en ce qui concerne le contenu présenté sur son site Web, ni ses choix éditoriaux.\n\nAvertissement : InvestingLive peut être rémunéré par les annonceurs qui apparaissent sur le site Web, en fonction de votre interaction avec les publicités ou les annonceurs.",
       "titre": "PBOC sets USD/ CNY central rate at 6.7804 (vs. estimate at 6.7104)",
@@ -402,7 +480,7 @@
       "categorie": "news",
       "date_publication": "2026-09-08T20:55:33.377584+00:00",
       "contenu": "A rebound in headline CPI toward consensus would ease immediate deflation concerns without altering the broader policy picture, given the move is expected to be driven by a food price base effect rather than a genuine demand recovery. A miss, echoing July's shortfall against forecasts, would revive questions about the durability of domestic consumption and keep pressure on Beijing to lean further into stimulus. PPI is the more closely watched leg for traders positioning around industrial demand, with a firmer print supporting the narrative that factory-gate deflation is easing even as second-round pass-through to consumer prices remains weak. The yuan is the most directly exposed currency to the print, while the Australian dollar carries some indirect sensitivity as a China growth proxy (check this out for China impact!), though the reaction in both is likely modest given the numbers are largely priced.\n\n---\n\nEconomists expect China's inflation gauges to firm in August, but the rebound looks more like a food-price base effect than a genuine turn in demand.\n\nSummary:\n\nChina's National Bureau of Statistics is due to release August inflation data, with economists expecting a rebound in the headline consumer price index to around 0.9% year on year, up from July's five-month low of 0.5%, which itself had undershot forecasts. The anticipated pickup is being attributed largely to a recovery in food prices, particularly pork and vegetables, alongside firmer domestic refined oil prices, rather than any broad-based strengthening in consumer demand.\n\nProducer prices are forecast to firm to around 3.2% year on year, extending a gradual easing in factory-gate deflation. Forward guidance from economists points to headline inflation settling near 1% in September before easing again to around 0.8% in October, suggesting today's expected rebound is being read as a near-term bounce rather than a durable shift in the inflation trend.\n\nThe inflation print lands a day after customs data showed China's trade performance splitting sharply along familiar lines. Exports rose 25% year on year in August, in line with forecasts and a step up from July's 23.9% pace, driven by strong overseas demand for autos and high-tech goods including semiconductors. Imports climbed 28.2% year on year, an acceleration from July but short of the 30% consensus, a shortfall economists have flagged as evidence that domestic demand remains comparatively tepid even as the headline growth rate continues to look strong. The gap between the two pushed China's trade surplus to $119.1 billion, up from $112.5 billion in July.\n\nThat export strength versus softer import momentum has been a persistent theme through the PMI data as well. The official NBS manufacturing PMI rose to 49.8 in August from 49.2 in July, still in contraction territory for a second straight month but with underlying detail improving: output and new orders both returned to expansion, and new export orders followed suit, while employment remained the weak spot. The private RatingDog manufacturing gauge, which skews toward smaller, export-oriented firms, told a stronger story again, climbing to 51.5 from 50.9 and extending a new-orders growth streak now running 15 months. By contrast, the NBS non-manufacturing PMI, covering services and construction, held flat and soft at 49.0, with Beijing attributing part of the construction slowdown to extreme weather.\n\nTaken together, the trade and PMI data reinforce the picture that today's inflation numbers are likely to confirm, an economy where external demand continues to outperform, while the domestic consumption and services side of the ledger stays comparatively fragile. That divergence keeps pressure on policymakers to lean further into measures aimed at boosting household spending, even as the export engine continues to do the heavier lifting for headline growth.\n\n---",
-      "url": "https://investinglive.com/news/china-august-inflation-seen-rebounding-as-trade-data-flags-demand-gap/"
+      "titre": "China August inflation seen rebounding as trade data flags demand gap"
     },
     {
       "ignore": false,
@@ -501,7 +579,7 @@
       "categorie": "news",
       "date_publication": "2026-09-08T14:04:53.064054+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
-      "url": "https://investinglive.com/news/us-conference-board-august-employment-trends-108-53-vs-107-71-prior/"
+      "titre": "US Conference Board August employment trends  108.53  vs 107.71 prior"
     },
     {
       "ignore": false,
@@ -589,7 +667,7 @@
       "categorie": "news",
       "date_publication": "2026-09-08T07:55:57.448245+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
-      "url": "https://investinglive.com/news/oil-prices-extend-gains-as-yemen-s-houthis-threaten-broader-saudi-operation-after-attacks-hit-energy-sites/"
+      "titre": "Oil prices extend gains as Yemen's Houthis threaten broader Saudi operation after attacks hit energy sites"
     },
     {
       "ignore": false,
@@ -768,6 +846,12 @@
       "url": "https://investinglive.com/forex/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-reuters-estimate-0/"
     },
     {
+      "categorie": "news",
+      "titre_fr": "L'excédent commercial de l'Allemagne se creuse fortement en juillet alors que les importations s'effondrent",
+      "date_publication": "2026-09-08T06:10:09.561645+00:00",
+      "date_recuperation": "2026-09-08T06:10:20.560683+00:00",
+      "contenu_fr": null,
+      "url": "https://investinglive.com/news/germany-s-trade-surplus-widens-sharply-in-july-as-imports-slump/",
       "ignore": false,
       "date_recuperation": "2026-09-08T00:10:17.965333+00:00",
       "contenu_fr": null,
@@ -776,7 +860,7 @@
       "categorie": "commodities",
       "date_publication": "2026-09-08T00:05:53.952686+00:00",
       "contenu": "Goldman's framing gives traders a clear range to work with: $120 a barrel if shipping attacks broaden and intensify, $80 if Gulf exports normalize, with Brent trading near $97 as the note went out. That $23 spread either side of spot underscores how binary the near-term outlook remains, and Goldman's own house call, a $5 lift to both Brent and WTI forecasts for December 2026 and 2027, signals the bank sees the balance of risk skewed toward the upside scenario rather than normalization.\n\nThe bank's preference for expressing that risk through natural gas and diesel rather than crude itself is worth flagging separately, since it implies Goldman sees the biggest supply shock currently priced into product and gas markets rather than crude, a distinction that matters for how the risk shows up across the energy complex rather than just at the crude headline level.\n\n---\n\nEarlier ... escalation again:\n\n---\n\nGoldman just put a number on how bad Hormuz could get for oil, and it's already raising its base case to get closer to it.\n\nSummary:\n\nGoldman Sachs has laid out a wide range for where oil could head depending on how the standoff over the Strait of Hormuz plays out, flagging a potential rally to $120 a barrel if attacks on Middle East shipping intensify, against a lower target of $80 should exports from the region normalize. Brent was last trading near $97 when the bank's commodities team made the call. The bank has since lifted its own forecasts, raising both Brent and WTI by $5 to $85 and $80 respectively for December 2026, and to $80 and $75 for 2027, while flagging that Brent could climb past $120 if average Gulf output through 2027 stays roughly 4 million barrels a day below pre-war levels.\n\nDaan Struyven, Goldman's co-head of global commodities research, said the risk of shipping disruptions broadening and intensifying has become more significant given recent developments. Crude has climbed to its highest level since July as the US and Iran remain locked in a standoff over the strait, with Washington striking Iranian tankers, Tehran declaring a new restricted zone outside the waterway, and American naval forces continuing to blockade Iranian ports while escorting other producers' vessels through the region.\n\nRather than expressing that risk through crude itself, Goldman is recommending investors hedge via long positions in natural gas and diesel, arguing the supply shocks in those markets are larger than in crude. Diesel has more than doubled in price this year, with gains across natural gas and refined products broadly outpacing crude since the conflict escalated more than six months ago.\n\nGoldman also expects China to continue acting as a stabilizing force in the crude market specifically, reining in imports in response to elevated prices, a role Struyven said Beijing has not taken on in natural gas or refined products. That distinction leaves the product and gas markets more exposed to the upside scenario Goldman is flagging, even as crude itself benefits from at least some demand-side cushioning from China's buying behaviour.",
-      "url": "https://investinglive.com/commodities/icymi-goldman-flags-120-oil-risk-lifts-brent-and-wti-forecasts/"
+      "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts"
     }
   ]
 }
