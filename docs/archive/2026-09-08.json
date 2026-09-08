@@ -131,7 +131,7 @@
       "date_recuperation": "2026-09-08T03:27:13.619306+00:00",
       "date_publication": "2026-09-08T03:26:13.619306+00:00",
       "extrait": "RBA Assistant Governor Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy",
-      "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism"
+      "titre_fr": null
     },
     {
       "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade",
@@ -167,7 +167,9 @@
       "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
       "source": "library.westpaciq.com.au",
       "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
-      "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows"
+      "date_publication": "2026-09-08T00:58:12.566923+00:00",
+      "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
+      "titre_fr": "AU : La confiance des consommateurs retombe au plus bas"
     }
   ],
   "cb_articles": [
