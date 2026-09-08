@@ -320,8 +320,19 @@ def cycle():
                 continue
 
             if news["date_pub"] is None:
-                print(f"Date introuvable, ignoree : {news['titre']}")
-                marquer_traite(cache, doc_id)
+                # ATTENTION : ne PAS marquer_traite ici. Une meme news (meme
+                # URL) peut apparaitre plusieurs fois sur la page ForexFactory
+                # avec des structures HTML differentes (ex : les "Hot Stories"
+                # tres commentees sont dupliquees : un rendu "en vedette" en
+                # plus du rendu liste normal). Si le rendu rencontre en premier
+                # n'a pas de date exploitable, marquer_traite bloquerait
+                # definitivement l'URL et une occurrence valide plus loin dans
+                # la meme liste (ou lors d'un prochain cycle) serait ignoree a
+                # cause du "if doc_id in cache: continue" plus haut. On se
+                # contente donc d'ignorer CETTE occurrence sans blacklister
+                # l'URL, quitte a reessayer au cycle suivant si aucune
+                # occurrence n'a jamais de date correcte.
+                print(f"Date introuvable sur cette occurrence, ignoree (non bloquee) : {news['titre']}")
                 continue
 
             if news["date_pub"] < debut_fenetre:
