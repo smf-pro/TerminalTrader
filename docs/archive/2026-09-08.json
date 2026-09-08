@@ -122,6 +122,20 @@
       "source": "@MarketsCapApp"
     },
     {
+      "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
+      "ignore": false,
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
+      "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
+      "source": "@MarketsCapApp",
+      "impact": "medium",
+      "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
+      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
+      "date_publication": "2026-09-08T03:49:12.390403+00:00",
+      "date_recuperation": "2026-09-08T03:50:12.390403+00:00"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism",
+      "ignore": false,
       "extrait_fr": null,
       "date_recuperation": "2026-09-08T03:27:13.619306+00:00",
       "titre_fr": null,
