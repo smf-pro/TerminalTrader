@@ -16,6 +16,7 @@
     {
       "impact": "low",
       "extrait": "The Small Business Optimism Index for August was 98.7, down 1.1 points from July’s highest level since August 2025. The Index remains above its 52-year average of 98.0. Of the 10 Optimism Index components, two increased, six decreased, and two were unchanged. A worsening of expected business conditions contributed the most to the decline in the Index. Both ...",
+      "date_recuperation": "2026-09-08T10:05:15.488908+00:00",
       "date_publication": "2026-09-08T10:04:15.488908+00:00",
       "date_recuperation": "2026-09-08T10:05:15.488908+00:00",
       "url": "https://www.forexfactory.com/news/1416907-us-nfib-main-street-optimism-cools-in-august",
@@ -76,6 +77,7 @@
     {
       "impact": "high",
       "extrait": "Houthis Claim Targeting Aramco In Jazan",
+      "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "date_publication": "2026-09-08T08:07:13.579929+00:00",
       "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
@@ -95,11 +97,12 @@
       "titre": "French trade balance is deteriorating due to an increase in imports",
       "ignore": false,
       "extrait_fr": "En juillet 2026, la balance commerciale se dégrade de 0,9 milliard d'euros à -6,7 milliards d'euros, suite à l'amélioration observée en juin (+1,9 milliard d'euros). Cette évolution s'explique par une hausse des importations (+1,1 milliard d'euros), légèrement compensée par une croissance modérée des exportations (+0,2 milliard d'euros). La hausse des importations en juillet 2026 était liée à l’augmentation des approvisionnements en matériels de transport…",
-      "source": "finances.gouv.fr"
+      "titre": "French trade balance is deteriorating due to an increase in imports"
     },
     {
       "impact": "low",
       "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
+      "titre_fr": null,
       "date_publication": "2026-09-08T06:08:19.816307+00:00",
       "titre_fr": null,
       "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
@@ -143,7 +146,7 @@
       "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade",
       "ignore": false,
       "extrait_fr": null,
-      "source": "cnbc.com"
+      "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade"
     },
     {
       "impact": "low",
@@ -227,6 +230,9 @@
     },
     {
       "date_publication": "2026-09-08T09:25:09.935464+00:00",
+      "url": "https://investinglive.com/education/how-oil-prices-influence-inflation-inflation-expectations-and-monetary-policy/",
+      "date_recuperation": "2026-09-08T09:25:16.363010+00:00",
+      "contenu_fr": "Les prix du pétrole comptent parmi les variables les plus importantes de l’inflation. Une hausse soutenue des prix du brut peut directement faire augmenter l’inflation globale, mais son impact peut s’étendre au-delà des prix de l’énergie en influençant les anticipations d’inflation. Une mesure utile de ces attentes, basée sur le marché, est le point mort d’inflation.\n\nUn point mort d’inflation est la différence entre le rendement d’un bon du Trésor conventionnel et le rendement d’un bon du Trésor protégé contre l’inflation et de même échéance.\n\nPar exemple, en prenant le point mort à 10 ans, qui sert généralement de référence :\n\nPoint mort à 10 ans = rendement du Trésor à 10 ans − rendement TIPS à 10 ans\n\nLe résultat représente le taux d’inflation annuel moyen qui rendrait un investisseur indifférent à la détention des deux titres jusqu’à leur échéance, même s’il est important de rappeler que les points morts contiennent également des primes de risque d’inflation et de liquidité et ne constituent donc pas une pure mesure de l’inflation attendue.\n\nNéanmoins, les points morts sont particulièrement utiles pour suivre la manière dont les marchés financiers évaluent les perspectives d’inflation. Historiquement, il existe une relation positive significative entre les prix du pétrole et les points morts d’inflation.\n\nGraphique : pétrole brut WTI (bleu) par rapport au point mort à 10 ans (rouge)\n\nLe canal le plus évident est l’inflation énergétique directe. Lorsque le pétrole brut augmente, les autres produits énergétiques deviennent généralement plus chers. Étant donné que l’énergie fait partie des indices des prix à la consommation, la hausse des prix du pétrole peut directement faire augmenter l’IPC global.\n\nLe pétrole est également un intrant important dans les transports, l’industrie manufacturière, les produits chimiques et d’autres secteurs de l’économie. Des coûts énergétiques plus élevés peuvent donc augmenter les coûts des entreprises, ce qui pourrait éventuellement être répercuté sur les consommateurs via des prix plus élevés et avoir un impact sur l'IPC de base.\n\nIl existe également un canal d’attentes. Si les consommateurs et les entreprises estiment que la hausse des prix du pétrole va persister, ils pourraient commencer à s’attendre à une inflation globale plus élevée. Les travailleurs pourraient exiger des salaires plus élevés, tandis que les entreprises pourraient être plus disposées à augmenter les prix. Ces effets de second tour peuvent rendre plus persistant un choc inflationniste initialement induit par l’énergie.\n\nGraphique : pétrole brut WTI (bleu) par rapport à l’IPC global américain (rouge)\n\nLa relation entre les prix du pétrole et l’inflation est particulièrement importante pour les banques centrales, car elles ont pour mandat de maintenir l’inflation stable à moyen terme, généralement autour d’un objectif de 2 % par an. Les banques centrales ignorent généralement les chocs liés à l’offre car ils sont la plupart du temps temporaires. Ils font grimper l’inflation globale, mais n’ont pas beaucoup d’impact sur l’inflation sous-jacente. Ce qui importe le plus aux banques centrales, c’est de savoir si les anticipations d’inflation restent ancrées.\n\nUne hausse soutenue des prix du pétrole qui fait monter les anticipations d’inflation est bien plus significative pour une banque centrale car elle augmente le risque d’effets inflationnistes de second tour. Cela peut compliquer la tâche de la banque centrale consistant à maintenir l’inflation stable et nécessiter une action de politique monétaire. Les décideurs politiques doivent se demander si un choc énergétique est temporaire ou s’il risque de s’inscrire dans une inflation plus large.\n\nLorsqu'une banque centrale adopte un parti-pris belliciste pour lutter contre l'inflation induite par l'énergie, les anticipations d'inflation sont généralement maîtrisées et n'augmentent pas trop, car les marchés s'attendent à ce que les hausses de taux finissent par faire baisser l'inflation. À l’inverse, si une banque centrale conserve un biais neutre, voire conciliant, malgré la hausse persistante des prix de l’énergie, les anticipations d’inflation augmentent généralement plus rapidement et le risque d’effets de second tour augmente considérablement.\n\nLes banques centrales ne peuvent pas contrôler directement les prix du pétrole, mais elles peuvent influencer la manière dont un choc pétrolier affecte l’économie dans son ensemble. La hausse des prix de l’énergie pousse initialement l’inflation à la hausse du côté de l’offre, mais la politique monétaire peut réagir en affaiblissant la demande par le biais d’un resserrement des conditions financières, aidant ainsi à éviter que le choc ne s’ancre dans l’inflation sous-jacente et les anticipations d’inflation.\n\nCela crée une interaction importante entre la politique pétrolière et la politique monétaire. Les prix du pétrole peuvent pousser l’inflation à la hausse, tandis que la banque centrale peut contrecarrer les pressions inflationnistes qui en résultent en freinant la demande. Plus le choc pétrolier est persistant et plus son impact sur les anticipations d’inflation est fort, plus la pression sur la banque centrale pour qu’elle maintienne une politique restrictive est forte.",
       "categorie": "education",
       "titre_fr": "Comment les prix du pétrole influencent l’inflation, les anticipations d’inflation et la politique monétaire",
       "date_recuperation": "2026-09-08T09:25:16.363010+00:00",
@@ -348,6 +354,9 @@
     },
     {
       "date_publication": "2026-09-08T03:09:55.632342+00:00",
+      "url": "https://investinglive.com/stock-market-update/kospi-surges-past-7-130-on-chips-nikkei-ekes-out-modest-gain/",
+      "contenu_fr": null,
+      "date_recuperation": "2026-09-08T03:10:16.253971+00:00",
       "categorie": "stock-market-update",
       "url": "https://investinglive.com/stock-market-update/kospi-surges-past-7-130-on-chips-nikkei-ekes-out-modest-gain/",
       "titre_fr": null,
@@ -370,6 +379,9 @@
     },
     {
       "date_publication": "2026-09-08T02:34:22.797917+00:00",
+      "url": "https://investinglive.com/news/china-s-rio-tinto-ore-purchasing-halt-appears-set-to-take-effect-aud-down/",
+      "date_recuperation": "2026-09-08T02:35:12.939588+00:00",
+      "contenu_fr": null,
       "categorie": "news",
       "titre_fr": "L'arrêt des achats de minerai de Rio Tinto par la Chine semble sur le point de prendre effet. L'AUD en baisse.",
       "url": "https://investinglive.com/news/china-s-rio-tinto-ore-purchasing-halt-appears-set-to-take-effect-aud-down/",
