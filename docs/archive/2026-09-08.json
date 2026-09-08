@@ -222,6 +222,37 @@
       "date_recuperation": "2026-09-08T09:55:15.208640+00:00",
       "impact": "low",
       "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
+      "titre": "BoE Gov. Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "extrait": "BoE Gov. Bailey: The US-Iran war has led to high energy prices, they could be higher still."
+    },
+    {
+      "extrait_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
+      "titre_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
+      "date_publication": "2026-09-08T10:23:15.219959+00:00",
+      "url": "https://www.forexfactory.com/news/1416908-qatar-is-working-with-its-regional-partners-and",
+      "ignore": false,
+      "source": "@finsquawk_",
+      "date_recuperation": "2026-09-08T10:24:15.219959+00:00",
+      "impact": "medium",
+      "titre": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says",
+      "extrait": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says"
+    },
+    {
+      "impact": "low",
+      "extrait_fr": null,
+      "date_publication": "2026-09-08T10:04:15.488908+00:00",
+      "url": "https://www.forexfactory.com/news/1416907-us-nfib-main-street-optimism-cools-in-august",
+      "ignore": false,
+      "source": "nfib.com",
+      "date_recuperation": "2026-09-08T10:05:15.488908+00:00",
+      "titre_fr": null,
+      "titre": "US NFIB: Main Street Optimism Cools in August but Holds Above Long-Term Average",
+      "extrait": "The Small Business Optimism Index for August was 98.7, down 1.1 points from July’s highest level since August 2025. The Index remains above its 52-year average of 98.0. Of the 10 Optimism Index components, two increased, six decreased, and two were unchanged. A worsening of expected business conditions contributed the most to the decline in the Index. Both ..."
+    },
+    {
+      "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
       "date_publication": "2026-09-08T09:54:15.208640+00:00",
       "titre": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply",
       "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
@@ -254,6 +285,10 @@
       "titre_fr": "Le président iranien Pezeshkian: l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent"
     },
     {
+      "impact": "low",
+      "date_publication": "2026-09-08T09:18:15.875230+00:00",
+      "titre_fr": "Le président iranien Pezeshkian: l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent",
+      "url": "https://www.forexfactory.com/news/1416900-irans-president-pezeshkian-iran-will-continue-its-resistance",
       "ignore": false,
       "date_recuperation": "2026-09-08T09:10:17.341212+00:00",
       "source": "@financialjuice",
@@ -269,7 +304,6 @@
       "ignore": false,
       "date_recuperation": "2026-09-08T08:08:13.579929+00:00",
       "impact": "high",
-      "source": "@RedboxWire",
       "date_publication": "2026-09-08T08:07:13.579929+00:00",
       "titre": "Houthis Claim Targeting Aramco In Jazan",
       "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
@@ -302,6 +336,10 @@
       "titre_fr": null
     },
     {
+      "titre_fr": null,
+      "date_publication": "2026-09-08T06:08:19.816307+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
       "ignore": false,
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
       "source": "@MarketsCapApp",
