@@ -3,8 +3,12 @@
   "ff_news": [
     {
       "date_publication": "2026-09-08T03:49:12.390403+00:00",
+      "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
+      "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
+      "ignore": false,
+      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "source": "@MarketsCapApp",
-      "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
       "impact": "medium",
       "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
