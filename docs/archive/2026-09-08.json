@@ -292,6 +292,7 @@
     {
       "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "ignore": false,
+      "source": "@MarketsCapApp",
       "impact": "medium",
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
       "source": "@MarketsCapApp",
@@ -670,7 +671,8 @@
     },
     {
       "titre": "Kospi surges past 7,130 on chips, Nikkei ekes out modest gain",
-      "ignore": false,
+      "titre_fr": null,
+      "date_publication": "2026-09-08T03:09:55.632342+00:00",
       "categorie": "stock-market-update",
       "date_recuperation": "2026-09-08T03:10:16.253971+00:00",
       "contenu_fr": null,
