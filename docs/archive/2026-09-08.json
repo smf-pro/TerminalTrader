@@ -2,8 +2,6 @@
   "date": "2026-09-08",
   "ff_news": [
     {
-      "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
-      "source": "@MarketsCapApp",
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
       "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
       "impact": "medium",
@@ -11,7 +9,10 @@
       "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
       "date_publication": "2026-09-08T03:49:12.390403+00:00",
       "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
-      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify"
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
+      "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
+      "date_publication": "2026-09-08T03:49:12.390403+00:00",
+      "impact": "medium"
     },
     {
       "date_recuperation": "2026-09-08T03:27:13.619306+00:00",
@@ -26,8 +27,6 @@
       "titre": "RBA Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy"
     },
     {
-      "titre_fr": null,
-      "source": "cnbc.com",
       "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
       "url": "https://www.forexfactory.com/news/1416852-chinas-imports-in-august-miss-estimates-as-exports",
       "impact": "low",
@@ -38,8 +37,6 @@
       "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade"
     },
     {
-      "titre_fr": "Japon FinMin Katayama : maintiendra une communication étroite avec les États-Unis pour parvenir à des marchés des changes ordonnés",
-      "source": "@NodeWire",
       "date_recuperation": "2026-09-08T01:44:14.557868+00:00",
       "url": "https://www.forexfactory.com/news/1416841-japan-finmin-katayama-will-maintain-close-communication-with",
       "impact": "low",
