@@ -70,6 +70,8 @@
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
       "ignore": false,
       "titre_fr": "Hunter de la RBA signale un refroidissement délibéré du secteur immobilier et une croissance plus large",
+      "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
+      "ignore": false,
       "date_publication": "2026-09-08T03:36:51.564343+00:00",
       "titre": "RBA's Hunter flags deliberate cooling in housing and broader growth"
     },
@@ -147,7 +149,8 @@
       "url": "https://investinglive.com/commodities/vitol-ceo-sees-china-oil-demand-picking-up-flags-unsustainable-gap/",
       "ignore": false,
       "titre_fr": "Le PDG de Vitol voit la demande de pétrole de la Chine augmenter et signale un écart insoutenable",
-      "categorie": "commodities",
+      "url": "https://investinglive.com/commodities/vitol-ceo-sees-china-oil-demand-picking-up-flags-unsustainable-gap/",
+      "ignore": false,
       "date_publication": "2026-09-08T02:12:13.757945+00:00",
       "titre": "Vitol CEO sees China oil demand picking up, flags unsustainable gap"
     },
@@ -169,7 +172,8 @@
       "url": "https://investinglive.com/stock-market-update/japan-gdp-revision-cements-boj-hike-bets-yen-and-nikkei-in-focus/",
       "ignore": false,
       "titre_fr": "La révision du PIB japonais renforce les paris sur une hausse de la BoJ, le yen et le Nikkei étant au centre des préoccupations",
-      "categorie": "stock-market-update",
+      "url": "https://investinglive.com/stock-market-update/japan-gdp-revision-cements-boj-hike-bets-yen-and-nikkei-in-focus/",
+      "ignore": false,
       "date_publication": "2026-09-08T00:32:07.709112+00:00",
       "titre": "Japan GDP revision cements BOJ hike bets, yen and Nikkei in focus"
     },
