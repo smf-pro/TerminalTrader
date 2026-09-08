@@ -88,6 +88,7 @@
     {
       "date_publication": "2026-09-08T09:33:18.452297+00:00",
       "extrait": "*boj Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
+      "titre_fr": "La BoJ prévoit de relever ses taux à 1,25 % lors de sa réunion des 17 et 18 septembre, selon Kyodo",
       "extrait_fr": "*boj prévoit d'augmenter son taux à 1,25 % lors de sa réunion des 17 et 18 septembre : Kyodo",
       "titre_fr": "La BoJ prévoit de relever ses taux à 1,25 % lors de sa réunion des 17 et 18 septembre, selon Kyodo",
       "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
@@ -529,6 +530,10 @@
       "date_publication": "2026-09-08T00:05:53.952686+00:00",
       "contenu_fr": null,
       "titre_fr": null,
+      "date_publication": "2026-09-08T01:38:37.955789+00:00"
+    },
+    {
+      "url": "https://investinglive.com/stock-market-update/goldman-sachs-turns-more-constructive-on-indian-equities-valuations-rupee-resilience-more/",
       "ignore": false,
       "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts",
       "categorie": "commodities",
