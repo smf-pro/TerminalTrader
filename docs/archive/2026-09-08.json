@@ -234,6 +234,7 @@
       "url": "https://www.forexfactory.com/news/1416877-french-trade-balance-is-deteriorating-due-to-an",
       "date_publication": "2026-09-08T06:58:16.545017+00:00",
       "ignore": false,
+      "source": "destatis.de",
       "impact": "low",
       "date_recuperation": "2026-09-08T06:59:16.545017+00:00",
       "titre": "French trade balance is deteriorating due to an increase in imports",
