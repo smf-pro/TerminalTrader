@@ -227,6 +227,12 @@
       "extrait": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply.",
       "date_publication": "2026-09-08T09:54:15.208640+00:00",
       "source": "@financialjuice",
+      "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
+      "titre_fr": "Hauser de la RBA : nous n'en sommes pas encore au point où nous devons fortement augmenter les taux",
+      "impact": "low",
+      "date_recuperation": "2026-09-08T09:55:15.208640+00:00",
+      "extrait": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply.",
+      "ignore": false,
       "titre": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply"
     },
     {
@@ -275,6 +281,12 @@
       "extrait": "Houthis Claim Targeting Aramco In Jazan",
       "date_publication": "2026-09-08T08:07:13.579929+00:00",
       "source": "@RedboxWire",
+      "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
+      "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
+      "impact": "high",
+      "date_recuperation": "2026-09-08T08:08:13.579929+00:00",
+      "extrait": "Houthis Claim Targeting Aramco In Jazan",
+      "ignore": false,
       "titre": "Houthis Claim Targeting Aramco In Jazan"
     },
     {
