@@ -254,6 +254,7 @@
       "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire."
     },
     {
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
       "ignore": false,
       "extrait": "Houthis Claim Targeting Aramco In Jazan",
       "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
@@ -625,6 +626,12 @@
       "titre": "What are the main events for today?"
     },
     {
+      "categorie": "news",
+      "titre_fr": "L'excédent commercial de l'Allemagne se creuse fortement en juillet alors que les importations s'effondrent",
+      "date_publication": "2026-09-08T06:10:09.561645+00:00",
+      "date_recuperation": "2026-09-08T06:10:20.560683+00:00",
+      "contenu_fr": null,
+      "url": "https://investinglive.com/news/germany-s-trade-surplus-widens-sharply-in-july-as-imports-slump/",
       "ignore": false,
       "titre_fr": "L'excédent commercial de l'Allemagne se creuse fortement en juillet alors que les importations s'effondrent",
       "date_recuperation": "2026-09-08T06:10:20.560683+00:00",
