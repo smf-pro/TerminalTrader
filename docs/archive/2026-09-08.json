@@ -24,6 +24,18 @@
       "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
       "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
       "ignore": false
+    },
+    {
+      "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
+      "source": "library.westpaciq.com.au",
+      "titre": "AU: Consumer sentiment  sinks back to lows",
+      "ignore": false,
+      "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
+      "titre_fr": "AU : La confiance des consommateurs retombe au plus bas",
+      "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
+      "date_publication": "2026-09-08T00:58:12.566923+00:00"
     }
   ],
   "cb_articles": [
