@@ -39,6 +39,7 @@
     },
     {
       "source": "@zerohedge",
+      "date_publication": "2026-09-08T19:52:15.763622+00:00",
       "titre_fr": "L'Iran a lancé une deuxième vague d'attaques non divulguées contre des navires de la marine américaine, selon des sources - WSJ",
       "extrait": "Iran Launched Undisclosed Second Wave of Attacks on U.S. Navy Ships, Sources Say -- WSJ Oil spikes",
       "url": "https://www.forexfactory.com/news/1417011-iran-launched-undisclosed-second-wave-of-attacks-on",
@@ -63,6 +64,8 @@
     },
     {
       "source": "@LiveSquawk",
+      "impact": "medium",
+      "date_recuperation": "2026-09-08T18:50:18.861155+00:00",
       "titre_fr": "Plusieurs explosions ont été entendues sur l'île de Kharg Mehr",
       "extrait": "Several Explosions Were Heard On Kharg Island Mehr https://t.co/qEVVYVasHK",
       "url": "https://www.forexfactory.com/news/1417000-several-explosions-were-heard-on-kharg-island",
@@ -123,6 +126,7 @@
     },
     {
       "source": "@FirstSquawk",
+      "impact": "medium",
       "titre_fr": "Boe's Bailey : Je veux dissiper l'idée selon laquelle nous avons un plan secret pour augmenter les taux, sans condition",
       "extrait": "Boe's Bailey: I Want To Dispel Idea That We Have Secret Plan To Raise Rates, UnconditionallyBoE Gov. Bailey: The market's BoE rate curve reflects investors' concern about further energy price rises.",
       "url": "https://www.forexfactory.com/news/1416962-boes-bailey-i-want-to-dispel-idea-that",
@@ -135,6 +139,7 @@
     },
     {
       "source": "bankofengland.co.uk",
+      "ignore": false,
       "titre_fr": "Taylor : Rapport au Comité spécial du Trésor",
       "extrait": "Macroeconomically, the UK year in retrospect played out in two distinct halves. In the first half, September 2025 to February 2026 the underlying disinflationary process continued, activity was increasingly subdued, and slack accumulated in the labour market. The temporary hump in headline inflation from the Q1 2025 one-off tax and administered price ...",
       "url": "https://www.forexfactory.com/news/1416961-taylor-report-to-the-treasury-select-committee",
@@ -279,6 +284,7 @@
     },
     {
       "source": "@RedboxWire",
+      "impact": "high",
       "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "extrait": "Houthis Claim Targeting Aramco In Jazan",
       "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
@@ -303,6 +309,7 @@
     },
     {
       "source": "destatis.de",
+      "date_publication": "2026-09-08T06:08:19.816307+00:00",
       "titre_fr": null,
       "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
       "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
@@ -317,6 +324,7 @@
       "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
       "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
+      "titre": "Hunter: RBA board may need to raise rates if inflation appears set to intensify",
       "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
       "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
       "date_publication": "2026-09-08T03:49:12.390403+00:00",
@@ -363,6 +371,8 @@
     },
     {
       "source": "library.westpaciq.com.au",
+      "impact": "low",
+      "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
       "titre_fr": "AU : La confiance des consommateurs retombe au plus bas",
       "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
       "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
