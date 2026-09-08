@@ -30,6 +30,7 @@
       "extrait_fr": null,
       "impact": "low",
       "ignore": false,
+      "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
       "date_recuperation": "2026-09-08T06:09:19.816307+00:00",
       "date_publication": "2026-09-08T06:08:19.816307+00:00",
       "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
@@ -66,6 +67,7 @@
       "extrait_fr": null,
       "impact": "low",
       "ignore": false,
+      "extrait": "China’s trade gained pace in August, though imports missed expectations, a sign that domestic demand remains tepid as the world’s second-largest economy faces mounting pressure to rebalance trade. Exports grew 25% in U.S. dollar terms in August from a year earlier, official customs data showed Tuesday, in line with Reuters-polled analysts’ forecast, ...",
       "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
       "date_publication": "2026-09-08T02:54:16.026477+00:00",
       "extrait": "China’s trade gained pace in August, though imports missed expectations, a sign that domestic demand remains tepid as the world’s second-largest economy faces mounting pressure to rebalance trade. Exports grew 25% in U.S. dollar terms in August from a year earlier, official customs data showed Tuesday, in line with Reuters-polled analysts’ forecast, ...",
@@ -149,7 +151,12 @@
       "date_recuperation": "2026-09-08T08:00:56.539523+00:00",
       "date_publication": "2026-09-08T07:55:57.448245+00:00",
       "categorie": "news",
-      "url": "https://investinglive.com/news/oil-prices-extend-gains-as-yemen-s-houthis-threaten-broader-saudi-operation-after-attacks-hit-energy-sites/",
+      "date_recuperation": "2026-09-08T08:35:16.373836+00:00",
+      "url": "https://investinglive.com/news/the-bond-market-continues-to-tighten-the-screws-and-everything-else-is-feeling-it/",
+      "titre": "The bond market continues to tighten the screws, and everything else is feeling it"
+    },
+    {
+      "contenu_fr": null,
       "titre_fr": "Les prix du pétrole prolongent leurs gains alors que les Houthis du Yémen menacent l'ensemble des opérations saoudiennes après les attaques contre les sites énergétiques",
       "titre": "Oil prices extend gains as Yemen's Houthis threaten broader Saudi operation after attacks hit energy sites"
     },
@@ -325,7 +332,11 @@
       "ignore": false,
       "date_publication": "2026-09-08T00:05:53.952686+00:00",
       "categorie": "commodities",
-      "url": "https://investinglive.com/commodities/icymi-goldman-flags-120-oil-risk-lifts-brent-and-wti-forecasts/",
+      "date_recuperation": "2026-09-08T02:15:13.445472+00:00",
+      "url": "https://investinglive.com/commodities/vitol-ceo-sees-china-oil-demand-picking-up-flags-unsustainable-gap/",
+      "titre": "Vitol CEO sees China oil demand picking up, flags unsustainable gap"
+    },
+    {
       "titre_fr": null,
       "titre": "ICYMI: Goldman flags $120 oil risk, lifts Brent and WTI forecasts"
     }
