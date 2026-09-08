@@ -95,6 +95,12 @@
       "extrait_fr": null,
       "titre": "BoEs Greene: The length of time that oil prices have been high worries me about 2nd round effects down the line",
       "date_recuperation": "2026-09-08T13:32:16.850577+00:00",
+      "titre": "BoEs Greene: The length of time that oil prices have been high worries me about 2nd round effects down the line",
+      "extrait": "BoEs Greene: The length of time that oil prices have been high worries me about 2nd round effects down the line.",
+      "source": "@financialjuice",
+      "date_publication": "2026-09-08T13:31:16.850577+00:00",
+      "impact": "low",
+      "extrait_fr": null,
       "ignore": false
     },
     {
@@ -119,7 +125,13 @@
       "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
       "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
       "date_recuperation": "2026-09-08T13:25:13.577781+00:00",
-      "ignore": false
+      "titre": "BoE Gov. Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "extrait": "BoE Gov. Bailey: The US-Iran war has led to high energy prices, they could be higher still.",
+      "source": "@financialjuice",
+      "date_publication": "2026-09-08T13:24:13.577781+00:00",
+      "impact": "low",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
+      "titre_fr": "Bailey, le gouverneur de la BoE : la guerre entre les États-Unis et l'Iran a entraîné une hausse des prix de l'énergie, qui pourraient être encore plus élevés"
     },
     {
       "date_publication": "2026-09-08T10:23:15.219959+00:00",
@@ -239,6 +251,11 @@
       "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
       "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
       "date_recuperation": "2026-09-08T03:50:12.390403+00:00",
+      "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
+      "source": "@MarketsCapApp",
+      "date_publication": "2026-09-08T03:49:12.390403+00:00",
+      "impact": "medium",
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
       "ignore": false
     },
     {
@@ -286,6 +303,8 @@
       "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
+      "ignore": false,
+      "titre": "AU: Consumer sentiment  sinks back to lows",
       "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
       "ignore": false
     }
