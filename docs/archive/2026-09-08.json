@@ -3,6 +3,7 @@
   "ff_news": [
     {
       "titre": "Iranian Media: Tehran Demands New Conditions From Washington To Resume Negotiations",
+      "extrait_fr": "Médias iraniens : Téhéran exige de nouvelles conditions de la part de Washington pour reprendre les négociations. ...",
       "date_recuperation": "2026-09-08T16:58:15.417468+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416985-iranian-media-tehran-demands-new-conditions-from-washington",
@@ -15,6 +16,8 @@
     },
     {
       "titre": "US Medium-Term Inflation Expectations Tick Down; Unemployment Expectations Deteriorate",
+      "url": "https://www.forexfactory.com/news/1416974-us-medium-term-inflation-expectations-tick-down-unemployment-expectations",
+      "extrait_fr": null,
       "date_recuperation": "2026-09-08T15:03:16.335724+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416974-us-medium-term-inflation-expectations-tick-down-unemployment-expectations",
@@ -27,6 +30,8 @@
     },
     {
       "titre": "US Treasury Secretary Bessent: I think we will get through the Canada trade spat",
+      "url": "https://www.forexfactory.com/news/1416973-us-treasury-secretary-bessent-i-think-we-will",
+      "extrait_fr": "Le secrétaire au Trésor américain Bessent : Je pense que nous surmonterons la crise commerciale avec le Canada. Le secrétaire au Trésor américain Bessent sur les mesures prises par le Canada : le Premier ministre canadien Carney doit arrêter de faire campagne. Le secrétaire au Trésor américain Bessent : Une guerre commerciale au Canada ajouterait 0,02 % à l'inflation américaine.",
       "date_recuperation": "2026-09-08T14:55:28.713011+00:00",
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416973-us-treasury-secretary-bessent-i-think-we-will",
@@ -39,6 +44,7 @@
     },
     {
       "titre": "Senior Pentagon official: World should prepare for prolonged Russia-Ukraine conflict",
+      "extrait_fr": "Haut responsable du Pentagone : le monde devrait se préparer à un conflit prolongé entre la Russie et l’Ukraine. -Reuters",
       "date_recuperation": "2026-09-08T13:57:16.600239+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416965-senior-pentagon-official-world-should-prepare-for-prolonged",
@@ -51,6 +57,8 @@
     },
     {
       "titre": "Boe's Bailey: I Want To Dispel Idea That We Have Secret Plan To Raise Rates, Unconditionally",
+      "url": "https://www.forexfactory.com/news/1416962-boes-bailey-i-want-to-dispel-idea-that",
+      "extrait_fr": "Boe's Bailey : Je veux dissiper l'idée selon laquelle nous avons un plan secret pour augmenter les taux, sans condition. Le gouverneur de la BoE Bailey : La courbe des taux de la BoE du marché reflète l'inquiétude des investisseurs concernant de nouvelles hausses des prix de l'énergie.",
       "date_recuperation": "2026-09-08T13:49:17.962446+00:00",
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416962-boes-bailey-i-want-to-dispel-idea-that",
@@ -63,6 +71,8 @@
     },
     {
       "titre": "Taylor: Report to the Treasury Select Committee",
+      "url": "https://www.forexfactory.com/news/1416961-taylor-report-to-the-treasury-select-committee",
+      "extrait_fr": "Rétrospectivement, sur le plan macroéconomique, l’année britannique s’est déroulée en deux moitiés distinctes. Au cours du premier semestre, de septembre 2025 à février 2026, le processus désinflationniste sous-jacent s’est poursuivi, l’activité a été de plus en plus modérée et le sous-emploi s’est accumulé sur le marché du travail. La hausse temporaire de l’inflation globale due à la taxe unique et aux prix administrés du premier trimestre 2025…",
       "date_recuperation": "2026-09-08T13:40:17.009856+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416961-taylor-report-to-the-treasury-select-committee",
@@ -75,6 +85,8 @@
     },
     {
       "titre": "BoE Ramsden: The domestic inflation position is relatively benign",
+      "url": "https://www.forexfactory.com/news/1416960-boe-ramsden-the-domestic-inflation-position-is-relatively",
+      "extrait_fr": "Ramsden de la BoE : la position de l'inflation intérieure est relativement bénigne. Ramsden de la BoE : le marché du travail me rassure sur l'inflation. Ramsden de la BoE : les salaires au Royaume-Uni sont tombés en dessous de ce que nous attendions avant le conflit. Ramsden de la BoE : le tableau de l'inflation mondiale est bien davantage un risque d'inflation à la hausse. Ramsden de la BoE : Je suis à l'aise avec la politique, mais je suis très conscient du risque à la hausse.",
       "date_recuperation": "2026-09-08T14:02:17.413051+00:00",
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416960-boe-ramsden-the-domestic-inflation-position-is-relatively",
@@ -87,6 +99,8 @@
     },
     {
       "titre": "BoE's Ramsden: The domestic inflation position is relatively benign",
+      "url": "https://www.forexfactory.com/news/1416960-boes-ramsden-the-domestic-inflation-position-is-relatively",
+      "extrait_fr": "Ramsden de la BoE : La position de l'inflation intérieure est relativement bénigne. Ramsden de la BoE : Le marché du travail me rassure sur l'inflation. Ramsden de la BoE : les salaires au Royaume-Uni sont tombés en dessous de ce que nous attendions avant le conflit. Taylor : Rapport au Comité spécial du Trésor Sur le plan macroéconomique, rétrospectivement, l'année britannique s'est déroulée en deux moitiés distinctes. Au cours du premier semestre, de septembre 2025 à février 2026, le processus désinflationniste sous-jacent s’est poursuivi, l’activité a été de plus en plus modérée et le sous-emploi s’est accumulé sur le marché du travail. La hausse temporaire de l’inflation globale résultant des modifications ponctuelles des impôts et des prix administrés au premier trimestre 2025, ainsi que des perturbations modérées dans le secteur de l’énergie, ont commencé à s’atténuer, tandis que la croissance des salaires et l’inflation des prix des services se rapprochaient des taux cohérents visés et que les prévisions successives s’orientaient vers une inflation plus faible et une hausse du chômage. Ces évolutions me paraissaient quelque peu prévisibles et confirmaient de plus en plus mon sentiment des conditions sous-jacentes et mon opinion selon laquelle la politique monétaire restait trop restrictive et que, avec mon estimation du taux neutre à environ 3 %, nous aurions dû y aller le plus tôt possible. Au cours du second semestre, depuis mars 2026, le conflit dans le Golfe et la perturbation des approvisionnements énergétiques mondiaux ont considérablement modifié les perspectives à court terme. La hausse des prix du pétrole et du gaz a fait augmenter l’inflation globale par le biais d’effets directs et indirects (plus légers), mais la politique monétaire n’a pas pu faire grand-chose pour prévenir ces effets initiaux et a plutôt dû se concentrer sur le risque potentiel de changements de second tour plus persistants dans la fixation des salaires et des prix. Ce choc est également survenu dans une économie très différente de celle de 2022 : la demande était plus faible, le marché du travail était plus souple, les accords salariaux étaient déjà tombés vers des taux conformes aux objectifs, un",
       "date_recuperation": "2026-09-08T13:35:15.462585+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416960-boes-ramsden-the-domestic-inflation-position-is-relatively",
@@ -111,6 +125,8 @@
     },
     {
       "titre": "BoE's Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "url": "https://www.forexfactory.com/news/1416957-boes-bailey-us-iran-war-has-led-to-high",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l'Iran a conduit à des prix de l'énergie élevés, ils pourraient être encore plus élevés. Le gouverneur de la BoE Bailey : Les attaques ukrainiennes contre les raffineries russes font grimper le coût des produits pétroliers raffinés. Le gouverneur de la BoE Bailey : la hausse des taux hypothécaires britanniques est plus importante que presque partout ailleurs dans le G7. #ukeconomy #energypriceshock #inflation #andrewbaileyBoE Gov. Bailey : Les risques pour l’inflation sont à la hausse.",
       "date_recuperation": "2026-09-08T14:02:17.413051+00:00",
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416957-boes-bailey-us-iran-war-has-led-to-high",
@@ -123,6 +139,8 @@
     },
     {
       "titre": "BoE Gov. Bailey: US-Iran war has led to high energy prices, they could be higher still",
+      "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
       "date_recuperation": "2026-09-08T13:25:13.577781+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
@@ -135,6 +153,8 @@
     },
     {
       "titre": "Qatar Is Working With Its Regional Partners And China To Resume Talks Between Us And Iran - Foreign Ministry Says",
+      "url": "https://www.forexfactory.com/news/1416908-qatar-is-working-with-its-regional-partners-and",
+      "extrait_fr": "Le Qatar travaille avec ses partenaires régionaux et la Chine pour reprendre les négociations entre nous et l'Iran, selon le ministère des Affaires étrangères",
       "date_recuperation": "2026-09-08T10:24:15.219959+00:00",
       "impact": "medium",
       "url": "https://www.forexfactory.com/news/1416908-qatar-is-working-with-its-regional-partners-and",
@@ -147,6 +167,7 @@
     },
     {
       "titre": "US NFIB: Main Street Optimism Cools in August but Holds Above Long-Term Average",
+      "extrait_fr": null,
       "date_recuperation": "2026-09-08T10:05:15.488908+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416907-us-nfib-main-street-optimism-cools-in-august",
@@ -159,6 +180,8 @@
     },
     {
       "titre": "RBA's Hauser: We have not arrived at point where we have to raise rates sharply",
+      "url": "https://www.forexfactory.com/news/1416902-rbas-hauser-we-have-not-arrived-at-point",
+      "extrait_fr": "Hauser, de la RBA : Nous n'en sommes pas encore au point où nous devons augmenter fortement les taux.",
       "date_recuperation": "2026-09-08T09:55:15.208640+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416902-rbas-hauser-we-have-not-arrived-at-point",
@@ -171,6 +194,8 @@
     },
     {
       "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
+      "url": "https://www.forexfactory.com/news/1416901-boj-plans-to-raise-rate-to-125-at",
+      "extrait_fr": "*boj prévoit d'augmenter son taux à 1,25 % lors de sa réunion des 17 et 18 septembre : Kyodo",
       "date_recuperation": "2026-09-08T09:34:18.452297+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416901-boj-plans-to-raise-rate-to-125-at",
@@ -183,6 +208,8 @@
     },
     {
       "titre": "Iran's President Pezeshkian: Iran will continue its resistance with full strength until aggressors' are regretful",
+      "url": "https://www.forexfactory.com/news/1416900-irans-president-pezeshkian-iran-will-continue-its-resistance",
+      "extrait_fr": "Le président iranien Pezeshkian : l'Iran poursuivra sa résistance de toutes ses forces jusqu'à ce que les agresseurs regrettent - X",
       "date_recuperation": "2026-09-08T09:19:15.875230+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416900-irans-president-pezeshkian-iran-will-continue-its-resistance",
@@ -195,6 +222,7 @@
     },
     {
       "titre": "RBA's Hauser: RBA stands ready to raise rates again if needed",
+      "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire.",
       "date_recuperation": "2026-09-08T09:10:17.341212+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416899-rbas-hauser-rba-stands-ready-to-raise-rates",
@@ -207,6 +235,8 @@
     },
     {
       "titre": "Houthis Claim Targeting Aramco In Jazan",
+      "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
+      "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "date_recuperation": "2026-09-08T08:08:13.579929+00:00",
       "impact": "high",
       "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
@@ -219,6 +249,7 @@
     },
     {
       "titre": "French trade balance is deteriorating due to an increase in imports",
+      "extrait_fr": "En juillet 2026, la balance commerciale se dégrade de 0,9 milliard d'euros à -6,7 milliards d'euros, suite à l'amélioration observée en juin (+1,9 milliard d'euros). Cette évolution s'explique par une hausse des importations (+1,1 milliard d'euros), légèrement compensée par une croissance modérée des exportations (+0,2 milliard d'euros). La hausse des importations en juillet 2026 était liée à l’augmentation des approvisionnements en matériels de transport…",
       "date_recuperation": "2026-09-08T06:59:16.545017+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416877-french-trade-balance-is-deteriorating-due-to-an",
@@ -231,6 +262,8 @@
     },
     {
       "titre": "German exports in July 2026: -0.8% on June 2026",
+      "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
+      "extrait_fr": null,
       "date_recuperation": "2026-09-08T06:09:19.816307+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
@@ -255,6 +288,8 @@
     },
     {
       "titre": "RBA Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy",
+      "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism",
+      "extrait_fr": null,
       "date_recuperation": "2026-09-08T03:27:13.619306+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416859-rba-hunter-housing-market-is-a-crucial-mechanism",
@@ -267,6 +302,7 @@
     },
     {
       "titre": "China’s imports in August miss estimates as exports pick up pace amid calls for rebalancing trade",
+      "extrait_fr": null,
       "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416852-chinas-imports-in-august-miss-estimates-as-exports",
@@ -291,6 +327,8 @@
     },
     {
       "titre": "AU: Consumer sentiment  sinks back to lows",
+      "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
+      "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
       "date_recuperation": "2026-09-08T01:27:12.566923+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
@@ -307,6 +345,8 @@
       "titre": "Bank of England comments highlight worries about energy inflation",
       "date_recuperation": "2026-09-08T13:36:15.562391+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
+      "ignore": false,
+      "titre": "Bank of England comments highlight worries about energy inflation",
       "url": "https://investinglive.com/central-banks/bank-of-england-comments-highlight-worries-about-energy-inflation/",
       "ignore": false,
       "date_publication": "2026-09-08T13:35:37.628849+00:00",
@@ -327,6 +367,7 @@
       "titre": "RBA's Hunter flags deliberate cooling in housing and broader growth",
       "date_recuperation": "2026-09-08T03:37:20.082767+00:00",
       "contenu": "The \"cool things off\" language is the most direct signal in this batch of comments, effectively confirming that below-trend growth is the RBA's intended outcome rather than an unwelcome side effect of its tightening path, which supports the case for further hikes without triggering the kind of market unease that comes with recession-risk language. Hunter's point that house price changes have only a small effect on consumer spending is worth flagging on its own, since it pushes back against the more standard wealth-effect narrative and suggests the RBA sees less risk of policy transmission stalling out through the housing channel than markets might otherwise assume. Combined with her explicit rejection of recession risk, the overall tone reads as a central bank comfortable continuing to lean on housing as its main transmission mechanism without needing to soften its stance, modestly supportive for AUD on the margin given it reinforces rather than undermines the case for further tightening already being priced.\n\n---\n\nEarlier weight on AUD:\n\n---\n\nThe RBA isn't apologising for slowing the economy down, it says that's exactly the point.\n\nSummary:\n\nReserve Bank of Australia Assistant Governor Hunter said the central bank is deliberately looking to cool things off in both the housing market and the broader economy, framing below-trend growth as an intended outcome of current policy settings rather than an unwanted consequence. Speaking Tuesday, Hunter described the housing market as an important transition mechanism for monetary policy, the channel through which higher rates are meant to flow through to broader economic activity.\n\nAt the same time, Hunter pushed back on the idea that house price movements carry outsized influence over household spending, saying the impact of changes in house prices on consumer spending is actually quite small. That comment sits somewhat apart from the more conventional wealth-effect framework, where falling house prices are typically expected to weigh directly on consumption through reduced household confidence and borrowing capacity. Hunter's framing suggests the RBA sees the housing channel working more through activity and construction than through a direct hit to consumer spending.\n\nDespite the explicit goal of cooling the economy, Hunter was clear that a recession is not the expected outcome, saying she would not expect to see one develop. Instead, she said the RBA wants to see a softer economy relative to trend, language that positions the current tightening cycle as calibrated toward a controlled slowdown rather than either a hard landing or a premature end to policy tightening. Taken together, the comments paint a picture of a central bank comfortable with its current course, viewing housing-driven cooling as functioning largely as intended without the broader economic damage that would typically accompany a more aggressive slowdown.",
+      "ignore": false,
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
       "ignore": false,
       "date_publication": "2026-09-08T03:36:51.564343+00:00",
@@ -391,6 +432,7 @@
     },
     {
       "titre": "Morning Kickstart Video North American traders return as oil surges on Middle East tensions",
+      "url": "https://investinglive.com/technical-analysis/morning-kickstart-video-north-american-traders-return-as-oil-surges-on-middle-east-tensions/",
       "date_recuperation": "2026-09-08T12:20:15.882858+00:00",
       "contenu": "The USD is trading mixed and little changed against most of the major currencies as North American traders return following the Labor Day holiday.\n\nThe forex market was open yesterday, but the U.S. and Canadian stock and bond markets were closed. As a result, liquidity and trading activity were lighter than normal. That changes today as U.S. and Canadian traders return to their desks.\n\nThe largest move in the forex market is in the NZDUSD, which is down around 0.60%. The other major currency pairs are all within 0.30% of yesterday’s closing levels.\n\nThe USDJPY is trading modestly lower after yesterday’s sharp decline. That move was triggered by a technical break below last week’s lows and the early August low near 155.20–155.29. Once that support gave way, the buyers gave up control and the sellers pushed the pair sharply lower.\n\nThe selling continued in today’s trading, taking the USDJPY to a low of 152.90 before rebounding toward 154.28. The rebound has taken the price well off the low, but it has not erased the technical damage from the break below 155.20–155.29.\n\nIn the morning Kickstart video, I take a technical look at the three major currency pairs—the EURUSD, USDJPY and GBPUSD—and outline the levels that will define the bias and risk for traders today.\n\nThe snapshot of the major currencies shows:\n\nU.S. Treasury yields are higher as bond traders return from the Labor Day holiday:\n\nThe larger increases are toward the longer end of the curve. Higher yields can provide support for the USD, but traders still need the price action to confirm the fundamental bias.\n\nU.S. stock futures are pointing toward a lower opening as traders return from the long holiday weekend:\n\nThe declines come as traders respond to higher yields and the latest escalation in the Middle East.\n\nCrude oil is the clear mover in the markets today. WTI crude futures are up $2.28, or 2.49%, at $93.76.\n\nOil prices are being supported by another escalation in the Middle East. Iran-backed Houthi forces launched missile and drone attacks against several cities in southern Saudi Arabia, targeting energy-related facilities and other infrastructure.\n\nThe attacks started fires and temporarily halted operations at some energy sites. Saudi authorities said 73 people were injured. The Saudi-led coalition has promised a response, raising the risk that the conflict could broaden further.\n\nThe attacks add another layer of uncertainty to a market already concerned about reduced tanker traffic through the Strait of Hormuz. Iran has tightened restrictions on shipping through the Strait and warned that U.S. energy interests in the Gulf remain vulnerable.\n\nFor oil traders, the risk is not only the production that may have already been disrupted. The market also has to price in the possibility of retaliation, further attacks against energy facilities and additional disruptions to shipping.\n\nThat geopolitical risk premium is helping to push crude oil higher.\n\nElsewhere in the markets:\n\nGold and Bitcoin are both trading lower despite the renewed geopolitical tension. That tells us that the most direct reaction to the Middle East news is currently in the energy market rather than a broad flight into all perceived safe-haven assets.\n\nJapan’s final second-quarter GDP increased 0.4%, matching expectations and coming in slightly above the initial estimate of 0.3%. The final GDP price index was unchanged at 2.6%.\n\nThe larger surprise came from Japanese wages. Average cash earnings increased 4.7% year over year, well above the 3.8% estimate and up from 4.0% previously.\n\nStronger wage growth is important for the Bank of Japan. Higher wages can support consumer spending and help keep inflation pressures elevated, giving the BOJ more confidence that inflation is becoming sustainable.\n\nJapan’s Economy Watchers Sentiment index edged higher to 46.4 from 45.7, marginally above the 46.3 estimate. However, the index remains below 50, indicating that respondents continue to view economic conditions as more negative than positive.\n\nIn Australia, Westpac Consumer Sentiment fell 5.2% after rising 6.0% previously. NAB Business Confidence also weakened to -8 from -7.\n\nChina’s trade surplus widened to CNY809 billion from CNY767 billion, slightly above the CNY805 billion estimate. In U.S. dollar terms, the surplus increased to $119.1 billion from $112.5 billion, also slightly above expectations. Trump will not like that.  China Xi wlll be visiting later in the month.\n\nIn Europe, Germany’s trade surplus widened to €21.3 billion, well above the €16.0 billion estimate and up from €15.4 billion previously.\n\nFrance’s trade deficit widened to €6.7 billion compared with the €6.0 billion estimate and the previous deficit of €5.8 billion.\n\nIn the United States, the NFIB Small Business Index fell to 98.7 from 99.8 and came in below the 99.4 estimate.\n\nThe U.S. economic calendar is relatively light for the remainder of the day. That will leave traders focused on the return of North American liquidity, the move higher in Treasury yields, the weakness in U.S. stock futures and the continued influence of Middle East developments on oil pric",
       "url": "https://investinglive.com/technical-analysis/morning-kickstart-video-north-american-traders-return-as-oil-surges-on-middle-east-tensions/",
@@ -523,6 +565,7 @@
     },
     {
       "titre": "RBA's Hunter flags deliberate cooling in housing and broader growth",
+      "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
       "date_recuperation": "2026-09-08T03:40:22.441570+00:00",
       "contenu": "The \"cool things off\" language is the most direct signal in this batch of comments, effectively confirming that below-trend growth is the RBA's intended outcome rather than an unwelcome side effect of its tightening path, which supports the case for further hikes without triggering the kind of market unease that comes with recession-risk language. Hunter's point that house price changes have only a small effect on consumer spending is worth flagging on its own, since it pushes back against the more standard wealth-effect narrative and suggests the RBA sees less risk of policy transmission stalling out through the housing channel than markets might otherwise assume. Combined with her explicit rejection of recession risk, the overall tone reads as a central bank comfortable continuing to lean on housing as its main transmission mechanism without needing to soften its stance, modestly supportive for AUD on the margin given it reinforces rather than undermines the case for further tightening already being priced.\n\n---\n\nEarlier weight on AUD:\n\n---\n\nThe RBA isn't apologising for slowing the economy down, it says that's exactly the point.\n\nSummary:\n\nReserve Bank of Australia Assistant Governor Hunter said the central bank is deliberately looking to cool things off in both the housing market and the broader economy, framing below-trend growth as an intended outcome of current policy settings rather than an unwanted consequence. Speaking Tuesday, Hunter described the housing market as an important transition mechanism for monetary policy, the channel through which higher rates are meant to flow through to broader economic activity.\n\nAt the same time, Hunter pushed back on the idea that house price movements carry outsized influence over household spending, saying the impact of changes in house prices on consumer spending is actually quite small. That comment sits somewhat apart from the more conventional wealth-effect framework, where falling house prices are typically expected to weigh directly on consumption through reduced household confidence and borrowing capacity. Hunter's framing suggests the RBA sees the housing channel working more through activity and construction than through a direct hit to consumer spending.\n\nDespite the explicit goal of cooling the economy, Hunter was clear that a recession is not the expected outcome, saying she would not expect to see one develop. Instead, she said the RBA wants to see a softer economy relative to trend, language that positions the current tightening cycle as calibrated toward a controlled slowdown rather than either a hard landing or a premature end to policy tightening. Taken together, the comments paint a picture of a central bank comfortable with its current course, viewing housing-driven cooling as functioning largely as intended without the broader economic damage that would typically accompany a more aggressive slowdown.",
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
@@ -534,6 +577,7 @@
     },
     {
       "titre": "China exports match forecast in August, imports fall short as domestic demand stays soft",
+      "url": "https://investinglive.com/news/china-exports-match-forecast-in-august-imports-fall-short-as-domestic-demand-stays-soft/",
       "date_recuperation": "2026-09-08T03:20:18.364905+00:00",
       "contenu": "The headline numbers land close to consensus but the details matter more than the surface read. Exports hitting the forecast exactly, while accelerating from July, confirms the export-led growth pattern that has defined China's year so far, with high-tech goods, cars and semiconductors doing the heavy lifting. The import miss, 28.2% against a 30% forecast, is the more interesting number: it suggests the pickup in domestic demand markets had been hoping for isn't quite materialising at the pace expected, even as it still represents a clear acceleration from July.\n\nFor AUD specifically, that's a mixed read, a miss on the import side is a softer signal for the commodity-demand channel than the strong headline trade surplus might suggest at first glance, tempering some of the more optimistic read-through from the pre-release forecasts. The exploration of reciprocal tariff cuts between Beijing and Washington ahead of this month's summit is worth watching separately, as any concrete movement there would matter more for trade-sensitive sentiment than today's data itself.\n\nAUD had fallen earlier on:\n\n---\n\nExports delivered exactly what was expected, but the import miss is a reminder that China's domestic demand recovery still isn't quite showing up in the numbers.\n\nSummary:\n\nChina's export growth picked up further in August, reinforcing the trade sector's role as the main pillar supporting an economy still grappling with tepid domestic demand. Exports rose 25% year-on-year in US dollar terms, matching the Reuters poll forecast and accelerating from 23.9% growth in July, customs data showed Tuesday. Imports rose 28.2%, undershooting the 30% forecast but still a clear acceleration from July's 27.5% pace, while the trade surplus widened to $119.09 billion from $112.5 billion the previous month, landing close to the $119.05 billion consensus estimate.\n\nThe export strength continues to be underpinned by global demand for Chinese-made cars, semiconductors and other high-tech goods, a dynamic that stands in sharp contrast to ongoing weakness in domestic consumption, investment and the property market. That dichotomy underscores Beijing's growing reliance on external demand to hit its annual growth target of 4.5-5%, particularly after growth cooled to 4.3% in the second quarter. Industrial output and retail sales both slowed at the start of the third quarter, fixed-asset investment posted a sharper decline over the first seven months of the year, and the property sector remains mired in a multi-year downturn. While the broader AI boom has lifted profits at advanced manufacturers, industries more exposed to the domestic market continue to contend with producer price deflation and soft demand.\n\nPremier Li Qiang acknowledged those strains in August, calling for efforts to stabilise external demand and expand international trade cooperation while flagging insufficient domestic demand and rising uncertainty in the international environment. Beijing has stepped up fiscal support, including an 800 billion yuan financing tool aimed at shoring up infrastructure investment, but the continued strength in exports reduces the immediate pressure on policymakers to pursue larger-scale measures to lift household income, improve job security or revive the property market. That reliance on outbound shipments to absorb industrial capacity carries its own risk, exposing China to further trade curbs given both the United States and the European Union have pushed Beijing to narrow its trade surpluses.\n\nOn that front, a trade truce between Beijing and Washington reached late last year has held despite periodic friction, and the two governments are now exploring reciprocal tariff cuts on $30 billion worth of goods from each side as they prepare for another bilateral summit later this month.",
       "url": "https://investinglive.com/news/china-exports-match-forecast-in-august-imports-fall-short-as-domestic-demand-stays-soft/",
