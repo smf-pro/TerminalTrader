@@ -194,6 +194,23 @@
       "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire."
     },
     {
+      "extrait_fr": "Hauser de la RBA : La question est de savoir si la RBA en a fait assez en matière de taux. Hauser de la RBA : La RBA est prête à augmenter à nouveau les taux si nécessaire.",
+      "extrait": "RBA's Hauser: Question is whether the RBA has done enough on rates.RBA's Hauser: RBA stands ready to raise rates again if needed.",
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1416899-rbas-hauser-rba-stands-ready-to-raise-rates",
+      "titre_fr": "Hauser de la RBA : la RBA est prête à augmenter à nouveau ses taux si nécessaire",
+      "ignore": false,
+      "date_recuperation": "2026-09-08T09:10:17.341212+00:00",
+      "impact": "low",
+      "titre": "RBA's Hauser: RBA stands ready to raise rates again if needed",
+      "date_publication": "2026-09-08T09:09:17.341212+00:00"
+    },
+    {
+      "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
+      "extrait": "Houthis Claim Targeting Aramco In Jazan",
+      "source": "@RedboxWire",
+      "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
+      "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
       "ignore": false,
       "titre": "Houthis Claim Targeting Aramco In Jazan",
       "date_publication": "2026-09-08T08:07:13.579929+00:00",
@@ -218,6 +235,23 @@
       "extrait_fr": "En juillet 2026, la balance commerciale se dégrade de 0,9 milliard d'euros à -6,7 milliards d'euros, suite à l'amélioration observée en juin (+1,9 milliard d'euros). Cette évolution s'explique par une hausse des importations (+1,1 milliard d'euros), légèrement compensée par une croissance modérée des exportations (+0,2 milliard d'euros). La hausse des importations en juillet 2026 était liée à l’augmentation des approvisionnements en matériels de transport…"
     },
     {
+      "titre": "German exports in July 2026: -0.8% on June 2026",
+      "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
+      "source": "destatis.de",
+      "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
+      "titre_fr": null,
+      "ignore": false,
+      "impact": "low",
+      "date_recuperation": "2026-09-08T06:09:19.816307+00:00",
+      "extrait_fr": null,
+      "date_publication": "2026-09-08T06:08:19.816307+00:00"
+    },
+    {
+      "extrait_fr": "Hunter dit que le conseil d’administration de la RBA pourrait devoir augmenter les taux si l’inflation semble s’intensifier",
+      "extrait": "Hunter says RBA board may need to raise rates if inflation appears set to intensify",
+      "source": "@MarketsCapApp",
+      "url": "https://www.forexfactory.com/news/1416863-hunter-rba-board-may-need-to-raise-rates",
+      "titre_fr": "Hunter : le conseil d’administration de la RBA devra peut-être augmenter les taux si l’inflation semble devoir s’intensifier",
       "ignore": false,
       "titre": "German exports in July 2026: -0.8% on June 2026",
       "date_publication": "2026-09-08T06:08:19.816307+00:00",
