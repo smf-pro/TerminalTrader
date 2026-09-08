@@ -2,6 +2,13 @@
   "date": "2026-09-08",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1416901-boj-plans-to-raise-rate-to-125-at",
+      "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
+      "titre_fr": "La BoJ prévoit de relever ses taux à 1,25 % lors de sa réunion des 17 et 18 septembre, selon Kyodo",
+      "ignore": false,
+      "date_publication": "2026-09-08T09:33:18.452297+00:00",
+      "impact": "low",
+      "extrait": "*boj Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
       "source": "@NourHammoury",
       "titre": "BOJ Plans To Raise Rate To 1.25% At Sept. 17-18 Meeting: Kyodo",
       "ignore": false,
@@ -38,6 +45,13 @@
       "impact": "low"
     },
     {
+      "extrait_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
+      "url": "https://www.forexfactory.com/news/1416892-houthis-claim-targeting-aramco-in-jazan",
+      "titre_fr": "Les Houthis affirment avoir ciblé Aramco à Jazan",
+      "ignore": false,
+      "date_publication": "2026-09-08T08:07:13.579929+00:00",
+      "impact": "high",
+      "extrait": "Houthis Claim Targeting Aramco In Jazan",
       "source": "@RedboxWire",
       "ignore": false,
       "titre": "Houthis Claim Targeting Aramco In Jazan",
@@ -62,6 +76,13 @@
       "impact": "low"
     },
     {
+      "titre": "German exports in July 2026: -0.8% on June 2026",
+      "url": "https://www.forexfactory.com/news/1416875-german-exports-in-july-2026-08-on-june",
+      "titre_fr": null,
+      "ignore": false,
+      "date_publication": "2026-09-08T06:08:19.816307+00:00",
+      "impact": "low",
+      "extrait": "In July 2026, German exports were down 0.8% and imports dropped 5.7% on a calendar and seasonally adjusted basis compared with June 2026. Compared with July 2025, the Federal Statistical Office (Destatis) further reports that exports increased by 6.1% and imports rose by 3.0%, based on provisional data.After calendar and seasonal adjustment, Germany ...",
       "source": "destatis.de",
       "ignore": false,
       "titre": "German exports in July 2026: -0.8% on June 2026",
@@ -122,6 +143,13 @@
       "date_recuperation": "2026-09-08T01:44:14.557868+00:00"
     },
     {
+      "extrait_fr": "L'indice de confiance des consommateurs du Westpac-Melbourne Institute a diminué de 5,2 % à 84,4 en septembre, contre 88,9 en août. Cette chute ramène le sentiment vers les niveaux profondément pessimistes observés plus tôt dans l’année. Les prix du carburant et les taux d’intérêt semblent encore une fois être le moteur de cette évolution. Les prix locaux à la pompe sont remontés au-dessus de 2 $/litre pour la première fois depuis avril, ...",
+      "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
+      "titre_fr": "AU : La confiance des consommateurs retombe au plus bas",
+      "ignore": false,
+      "date_publication": "2026-09-08T00:58:12.566923+00:00",
+      "impact": "low",
+      "extrait": "The Westpac–Melbourne Institute Consumer Sentiment Index declined 5.2% to 84.4 in September from 88.9 in August. The fall takes sentiment back towards the deeply pessimistic levels seen earlier in the year. Both fuel prices and interest rates again look to be driving the move. Local pump prices have lifted back above $2/litre for the first time since April, ...",
       "source": "library.westpaciq.com.au",
       "titre": "AU: Consumer sentiment  sinks back to lows",
       "url": "https://www.forexfactory.com/news/1416815-au-consumer-sentiment-sinks-back-to-lows",
