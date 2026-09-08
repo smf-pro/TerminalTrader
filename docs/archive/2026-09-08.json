@@ -41,6 +41,7 @@
       "date_publication": "2026-09-08T20:32:17.445481+00:00",
       "ignore": false,
       "date_recuperation": "2026-09-08T20:33:17.445481+00:00",
+      "titre_fr": null,
       "url": "https://www.forexfactory.com/news/1417025-trump-i-am-hereby-authorizing-gsa-to-remove",
       "source": "@realDonaldTrump",
       "extrait_fr": null,
@@ -89,6 +90,8 @@
       "ignore": false,
       "date_publication": "2026-09-08T16:57:15.417468+00:00",
       "date_recuperation": "2026-09-08T16:58:15.417468+00:00",
+      "titre_fr": "Médias iraniens : Téhéran exige de nouvelles conditions de la part de Washington pour reprendre les négociations",
+      "date_publication": "2026-09-08T16:57:15.417468+00:00",
       "url": "https://www.forexfactory.com/news/1416985-iranian-media-tehran-demands-new-conditions-from-washington",
       "source": "@NodeWire",
       "titre": "Iranian Media: Tehran Demands New Conditions From Washington To Resume Negotiations",
@@ -149,6 +152,8 @@
       "date_publication": "2026-09-08T13:39:17.009856+00:00",
       "ignore": false,
       "date_recuperation": "2026-09-08T13:40:17.009856+00:00",
+      "date_publication": "2026-09-08T13:39:17.009856+00:00",
+      "extrait_fr": "Rétrospectivement, sur le plan macroéconomique, l’année britannique s’est déroulée en deux moitiés distinctes. Au cours du premier semestre, de septembre 2025 à février 2026, le processus désinflationniste sous-jacent s’est poursuivi, l’activité a été de plus en plus modérée et le sous-emploi s’est accumulé sur le marché du travail. La hausse temporaire de l’inflation globale due à la taxe unique et aux prix administrés du premier trimestre 2025…",
       "url": "https://www.forexfactory.com/news/1416961-taylor-report-to-the-treasury-select-committee",
       "source": "bankofengland.co.uk",
       "extrait_fr": "Rétrospectivement, sur le plan macroéconomique, l’année britannique s’est déroulée en deux moitiés distinctes. Au cours du premier semestre, de septembre 2025 à février 2026, le processus désinflationniste sous-jacent s’est poursuivi, l’activité a été de plus en plus modérée et le sous-emploi s’est accumulé sur le marché du travail. La hausse temporaire de l’inflation globale due à la taxe unique et aux prix administrés du premier trimestre 2025…",
@@ -182,6 +187,7 @@
       "extrait_fr": "Ramsden de la BoE : La position de l'inflation intérieure est relativement bénigne. Ramsden de la BoE : Le marché du travail me rassure sur l'inflation. Ramsden de la BoE : les salaires au Royaume-Uni sont tombés en dessous de ce que nous attendions avant le conflit. Taylor : Rapport au Comité spécial du Trésor Sur le plan macroéconomique, rétrospectivement, l'année britannique s'est déroulée en deux moitiés distinctes. Au cours du premier semestre, de septembre 2025 à février 2026, le processus désinflationniste sous-jacent s’est poursuivi, l’activité a été de plus en plus modérée et le sous-emploi s’est accumulé sur le marché du travail. La hausse temporaire de l’inflation globale résultant des modifications ponctuelles des impôts et des prix administrés au premier trimestre 2025, ainsi que des perturbations modérées dans le secteur de l’énergie, ont commencé à s’atténuer, tandis que la croissance des salaires et l’inflation des prix des services se rapprochaient des taux cohérents visés et que les prévisions successives s’orientaient vers une inflation plus faible et une hausse du chômage. Ces évolutions me paraissaient quelque peu prévisibles et confirmaient de plus en plus mon sentiment des conditions sous-jacentes et mon opinion selon laquelle la politique monétaire restait trop restrictive et que, avec mon estimation du taux neutre à environ 3 %, nous aurions dû y aller le plus tôt possible. Au cours du second semestre, depuis mars 2026, le conflit dans le Golfe et la perturbation des approvisionnements énergétiques mondiaux ont considérablement modifié les perspectives à court terme. La hausse des prix du pétrole et du gaz a fait augmenter l’inflation globale par le biais d’effets directs et indirects (plus légers), mais la politique monétaire n’a pas pu faire grand-chose pour prévenir ces effets initiaux et a plutôt dû se concentrer sur le risque potentiel de changements de second tour plus persistants dans la fixation des salaires et des prix. Ce choc est également survenu dans une économie très différente de celle de 2022 : la demande était plus faible, le marché du travail était plus souple, les accords salariaux étaient déjà tombés vers des taux conformes aux objectifs, un"
     },
     {
+      "impact": "medium",
       "ignore": false,
       "date_publication": "2026-09-08T13:31:16.850577+00:00",
       "date_recuperation": "2026-09-08T13:32:16.850577+00:00",
@@ -209,6 +215,7 @@
       "date_publication": "2026-09-08T13:24:13.577781+00:00",
       "ignore": false,
       "date_recuperation": "2026-09-08T13:25:13.577781+00:00",
+      "extrait_fr": "Le gouverneur de la BoE Bailey : La guerre entre les États-Unis et l’Iran a entraîné une hausse des prix de l’énergie, qui pourraient être encore plus élevés.",
       "url": "https://www.forexfactory.com/news/1416957-boe-gov-bailey-us-iran-war-has-led-to",
       "source": "@financialjuice",
       "titre": "BoE Gov. Bailey: US-Iran war has led to high energy prices, they could be higher still",
@@ -350,6 +357,7 @@
       "titre": "RBA Hunter: Housing market is a crucial mechanism through which monetary policy affects the economy"
     },
     {
+      "impact": "medium",
       "ignore": false,
       "date_publication": "2026-09-08T02:54:16.026477+00:00",
       "date_recuperation": "2026-09-08T02:56:16.026477+00:00",
@@ -412,6 +420,7 @@
       "ignore": false,
       "date_publication": "2026-09-08T03:36:51.564343+00:00",
       "date_recuperation": "2026-09-08T03:37:20.082767+00:00",
+      "date_publication": "2026-09-08T03:36:51.564343+00:00",
       "url": "https://investinglive.com/central-banks/rba-s-hunter-flags-deliberate-cooling-in-housing-and-broader-growth/",
       "titre": "RBA's Hunter flags deliberate cooling in housing and broader growth",
       "contenu": "The \"cool things off\" language is the most direct signal in this batch of comments, effectively confirming that below-trend growth is the RBA's intended outcome rather than an unwelcome side effect of its tightening path, which supports the case for further hikes without triggering the kind of market unease that comes with recession-risk language. Hunter's point that house price changes have only a small effect on consumer spending is worth flagging on its own, since it pushes back against the more standard wealth-effect narrative and suggests the RBA sees less risk of policy transmission stalling out through the housing channel than markets might otherwise assume. Combined with her explicit rejection of recession risk, the overall tone reads as a central bank comfortable continuing to lean on housing as its main transmission mechanism without needing to soften its stance, modestly supportive for AUD on the margin given it reinforces rather than undermines the case for further tightening already being priced.\n\n---\n\nEarlier weight on AUD:\n\n---\n\nThe RBA isn't apologising for slowing the economy down, it says that's exactly the point.\n\nSummary:\n\nReserve Bank of Australia Assistant Governor Hunter said the central bank is deliberately looking to cool things off in both the housing market and the broader economy, framing below-trend growth as an intended outcome of current policy settings rather than an unwanted consequence. Speaking Tuesday, Hunter described the housing market as an important transition mechanism for monetary policy, the channel through which higher rates are meant to flow through to broader economic activity.\n\nAt the same time, Hunter pushed back on the idea that house price movements carry outsized influence over household spending, saying the impact of changes in house prices on consumer spending is actually quite small. That comment sits somewhat apart from the more conventional wealth-effect framework, where falling house prices are typically expected to weigh directly on consumption through reduced household confidence and borrowing capacity. Hunter's framing suggests the RBA sees the housing channel working more through activity and construction than through a direct hit to consumer spending.\n\nDespite the explicit goal of cooling the economy, Hunter was clear that a recession is not the expected outcome, saying she would not expect to see one develop. Instead, she said the RBA wants to see a softer economy relative to trend, language that positions the current tightening cycle as calibrated toward a controlled slowdown rather than either a hard landing or a premature end to policy tightening. Taken together, the comments paint a picture of a central bank comfortable with its current course, viewing housing-driven cooling as functioning largely as intended without the broader economic damage that would typically accompany a more aggressive slowdown.",
