@@ -1,0 +1,488 @@
+{
+  "49a1e2548f948b4366cb70930d21b5a21f0a05319af814842e2b0f91cfd9b57e": {
+    "date_evenement": "2026-09-06T21:30:00-04:00",
+    "forecast": null,
+    "previous": "0.8%",
+    "actual": null
+  },
+  "522988f0b303bd23218e6f52f6929e4374e2a0edb79da9f75e77e615bd39eddb": {
+    "date_evenement": "2026-09-07T01:00:00-04:00",
+    "forecast": "117.9%",
+    "previous": "116.4%",
+    "actual": null
+  },
+  "6dbecf77df8c31435f61c8038e561d695dae3064e24ff9bb8dcfcee127e4b432": {
+    "date_evenement": "2026-09-07T02:00:00-04:00",
+    "forecast": "0.1%",
+    "previous": "0.2%",
+    "actual": null
+  },
+  "7061ccb8f63af124dbe4d32cf5acd9cfc5ae3c798258b36d9f2f4abc19181b59": {
+    "date_evenement": "2026-09-07T02:00:00-04:00",
+    "forecast": "0.2%",
+    "previous": "0.0%",
+    "actual": null
+  },
+  "7551e9b936ef22b246f7ec2d6820eb5efc5301dbf1f23916123533baa5fd8bc7": {
+    "date_evenement": "2026-09-07T03:00:00-04:00",
+    "forecast": null,
+    "previous": "768B",
+    "actual": null
+  },
+  "ded2040dad59daa80a594835cfd6517e3a7b4466305551b8bfc251c52fac5898": {
+    "date_evenement": "2026-09-07T03:00:00-04:00",
+    "forecast": "3.1%",
+    "previous": "3.1%",
+    "actual": null
+  },
+  "8ba178c80b1895c44bb8ef7b2b5903aa4f3cc42dad82b72756deb4041c7fea21": {
+    "date_evenement": "2026-09-07T04:30:00-04:00",
+    "forecast": "2.1",
+    "previous": "0.9",
+    "actual": null
+  },
+  "fba7e2e9acab916aceb1a6604b6fef92a11cc54c35204049b4ed412bbd2cc7bd": {
+    "date_evenement": "2026-09-07T05:00:00-04:00",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "actual": null
+  },
+  "b9bde662e8fd0dd03c6ff091ed43ad88b4016b146f6edf1e8dd90e3b0096e40c": {
+    "date_evenement": "2026-09-07T05:00:00-04:00",
+    "forecast": "0.4%",
+    "previous": "0.4%",
+    "actual": null
+  },
+  "b905010a5c324f873cccee4160461190a25c967f7ff564e2269da1234afa72e3": {
+    "date_evenement": "2026-09-07T08:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "8aa8fab299cb1dbfe0b37ce503d98c29510c694227733d63ff4d650350063913": {
+    "date_evenement": "2026-09-07T08:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "986ac6cc8898840f8b1c9da85aafeb9beb17f619e422a4f8a2e32a43e3348628": {
+    "date_evenement": "2026-09-07T18:45:00-04:00",
+    "forecast": null,
+    "previous": "2.8%",
+    "actual": null
+  },
+  "f083b5fbbb69eb02f08b4e672fb34ab049326aaabec67e6941789792f95095b5": {
+    "date_evenement": "2026-09-07T19:01:00-04:00",
+    "forecast": "1.2%",
+    "previous": "1.0%",
+    "actual": null
+  },
+  "d9abac67be9ead95e7c58223902bf21b3b99bd524aa0831171191e01b580a0a6": {
+    "date_evenement": "2026-09-07T19:30:00-04:00",
+    "forecast": "3.8%",
+    "previous": "3.4%",
+    "actual": null
+  },
+  "3639e28f3e3e853d4ad09bc42c4bf7a8c60de03f37fecb2f68ee145ca03cee69": {
+    "date_evenement": "2026-09-07T19:50:00-04:00",
+    "forecast": "5.5%",
+    "previous": "5.4%",
+    "actual": null
+  },
+  "f34ba4a45983dd4f6e42571376e6aab7899b70f5c9dc3f1cf34cbf8123289b51": {
+    "date_evenement": "2026-09-07T19:50:00-04:00",
+    "forecast": "2.48T",
+    "previous": "1.40T",
+    "actual": null
+  },
+  "5a9af2721eec89e5249564df8eaa5785fbb229c6bc804fa1f2ccca45d5f80eeb": {
+    "date_evenement": "2026-09-07T19:50:00-04:00",
+    "forecast": "2.6%",
+    "previous": "2.6%",
+    "actual": null
+  },
+  "4637230b2ed15fdf7f012f80c2fdfceec18c11b1a970ba7b656e1ad68ec50b1c": {
+    "date_evenement": "2026-09-07T19:50:00-04:00",
+    "forecast": "0.4%",
+    "previous": "0.3%",
+    "actual": null
+  },
+  "ce75557ab310c8a1e981425e877565fd8b6c083a7bf3548e16182491e5c3ec7d": {
+    "date_evenement": "2026-09-07T20:30:00-04:00",
+    "forecast": null,
+    "previous": "6.0%",
+    "actual": null
+  },
+  "26ba182f79516046d772136b6379ba888a470092ed3533175d7ebdd0f42e3565": {
+    "date_evenement": "2026-09-07T21:30:00-04:00",
+    "forecast": null,
+    "previous": "-6",
+    "actual": null
+  },
+  "276be82e0aa4f1f3d24a37e5ab4153255be1b062a47dc3100d8135c7b9d8b3fb": {
+    "date_evenement": "2026-09-07T22:35:00-04:00",
+    "forecast": "805B",
+    "previous": "767B",
+    "actual": null
+  },
+  "95eae594912f3babd8f34745bfc9bbdc03d7a17aa875d89d5c3609cab1614081": {
+    "date_evenement": "2026-09-07T22:35:00-04:00",
+    "forecast": "118.6B",
+    "previous": "112.5B",
+    "actual": null
+  },
+  "0b3f052916764f11c9e6c68c5e401620a84e65b7cd9fd5a05555eca1eff802ae": {
+    "date_evenement": "2026-09-07T23:20:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "4ab725f13a7f2c8329e11169b7f0606af85ea9623125413ff13fed120346bfa4": {
+    "date_evenement": "2026-09-08T01:00:00-04:00",
+    "forecast": "46.3",
+    "previous": "45.7",
+    "actual": null
+  },
+  "c020fc10a21f9151ec28ee8791d237b55c9ba27f5d2fd6fcb9ac0a177a7b125b": {
+    "date_evenement": "2026-09-08T02:00:00-04:00",
+    "forecast": "16.0B",
+    "previous": "15.4B",
+    "actual": null
+  },
+  "9270bd4b4531460fa469c213a89e26134189296da3172a66688b4ada7ab151aa": {
+    "date_evenement": "2026-09-08T02:45:00-04:00",
+    "forecast": "-6.0B",
+    "previous": "-5.8B",
+    "actual": null
+  },
+  "04fc20dd88dfde4f7793cd221d61be9aaf4d4922b20dfa61e51e53c06fc84b5b": {
+    "date_evenement": "2026-09-08T05:30:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "fd8c1b00d713aeb4aae69fc1f002ec2794c4122e15b6f1d0eb33cee1586efc66": {
+    "date_evenement": "2026-09-08T06:00:00-04:00",
+    "forecast": "99.4",
+    "previous": "99.8",
+    "actual": null
+  },
+  "bbfc38e0f5c03ee11c027618dff94140ebc079a3b2bda66a657b56694f35fdd9": {
+    "date_evenement": "2026-09-08T09:15:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "61606271c686436c79c0a0548d11b25c1c87ea7754576125c988c34434686efb": {
+    "date_evenement": "2026-09-08T15:00:00-04:00",
+    "forecast": "11.9B",
+    "previous": "14.2B",
+    "actual": null
+  },
+  "3f22c05d42246f311c89549f0a4f09b1c870945da060fe830a9ece63d78e75d3": {
+    "date_evenement": "2026-09-08T19:50:00-04:00",
+    "forecast": "2.2%",
+    "previous": "2.2%",
+    "actual": null
+  },
+  "16363dfd0d73f8b9205b9f0c8a153405c2d6d4898d73cd588afd5c1bf09e3749": {
+    "date_evenement": "2026-09-08T21:30:00-04:00",
+    "forecast": "0.8%",
+    "previous": "0.5%",
+    "actual": null
+  },
+  "3972f743507f69e8fd720d980e8ac85772c75ff7c9fe080cf53e5b126e10b1e2": {
+    "date_evenement": "2026-09-08T21:30:00-04:00",
+    "forecast": "3.6%",
+    "previous": "3.5%",
+    "actual": null
+  },
+  "ea003b7ea23321df016e439c7624e0558f087bc85b178be93e5271d91e955d73": {
+    "date_evenement": "2026-09-09T02:00:00-04:00",
+    "forecast": null,
+    "previous": "50.4%",
+    "actual": null
+  },
+  "11abc2b6805b35a45f25453d5a61f7c011a768b6636ee2ef9ead25887ab1bc69": {
+    "date_evenement": "2026-09-09T02:45:00-04:00",
+    "forecast": "0.2%",
+    "previous": "0.1%",
+    "actual": null
+  },
+  "8caf8639fa2f691e7f24c54fc20a5326c14b515f945afc9297d9d85b0c35d35c": {
+    "date_evenement": "2026-09-09T05:33:00-04:00",
+    "forecast": null,
+    "previous": "3.26|1.1",
+    "actual": null
+  },
+  "2d020d03aa3e66bbd4ea3c4d29a5334a4eec5be0b7f91927769f949135bfe407": {
+    "date_evenement": "2026-09-09T08:14:00-04:00",
+    "forecast": null,
+    "previous": "11.8K",
+    "actual": null
+  },
+  "f762a22cc90999dabfcaaed5bf07dd0b55677d59e109feeee5af694c9239ed88": {
+    "date_evenement": "2026-09-09T08:15:00-04:00",
+    "forecast": null,
+    "previous": "10.0K",
+    "actual": null
+  },
+  "e6fe2e01af63bf5b014698f33f91524213cf10fb2554fcf89d536eafbcc5aa52": {
+    "date_evenement": "2026-09-09T13:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "c6a5b91838dd285bb1d31f8c37863b745463b1554023ec3aca11389ef3916666": {
+    "date_evenement": "2026-09-09T13:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "bacc4575e310f621ee90ca7f88b5bb1c6cef2e810d13b7afe1abbc6a514e9a00": {
+    "date_evenement": "2026-09-09T13:01:00-04:00",
+    "forecast": null,
+    "previous": "4.68|2.5",
+    "actual": null
+  },
+  "3746b09056cbd2e7ca9c9d7c928a603c8692774de64012ff568586b0d7d17308": {
+    "date_evenement": "2026-09-09T16:30:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "1c0f4bb8e26cba5b1d86561f95147274e5bcc64a90e82ee222c1a46d096a702c": {
+    "date_evenement": "2026-09-09T19:01:00-04:00",
+    "forecast": "-30%",
+    "previous": "-30%",
+    "actual": null
+  },
+  "c5909509dbebe00b319e3b863eb5d60763aef28348c1dcabf34cdfaf69b0d88c": {
+    "date_evenement": "2026-09-09T21:00:00-04:00",
+    "forecast": null,
+    "previous": "4.9%",
+    "actual": null
+  },
+  "c90e85c556cc5b950f45c91c136dddc2fe36465071d42cdc46aa5baca8c914d9": {
+    "date_evenement": "2026-09-09T21:15:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "cce13e9d267d2d841b91d03718acd785215cc0d830fd435b7963a403f2830a81": {
+    "date_evenement": "2026-09-10T02:00:00-04:00",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "actual": null
+  },
+  "28ccbfff56204227c61527fb19eb6e54a6763d72fc08c2699d16310bc247577c": {
+    "date_evenement": "2026-09-10T04:00:00-04:00",
+    "forecast": "0.3%",
+    "previous": "-1.0%",
+    "actual": null
+  },
+  "aa0224110cec5818f71a60c904e57cf50caf69b4ddd7bf3527458a2084797fe2": {
+    "date_evenement": "2026-09-10T08:15:00-04:00",
+    "forecast": "2.65%",
+    "previous": "2.40%",
+    "actual": null
+  },
+  "534985ad2ba7d6815d7b52123afc33333307e19e72dc137e1d0a289becb79db0": {
+    "date_evenement": "2026-09-10T08:15:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "97e29cf31a370d7054cef88dcb547e1e499b2de88b27ec10d1efb370c33a39e6": {
+    "date_evenement": "2026-09-10T08:30:00-04:00",
+    "forecast": "0.3%",
+    "previous": "0.2%",
+    "actual": null
+  },
+  "436fa034e4a99455e55f88a7ae56b4248899d27d1f205ede1952080b7613c05e": {
+    "date_evenement": "2026-09-10T08:30:00-04:00",
+    "forecast": "0.4%",
+    "previous": "0.0%",
+    "actual": null
+  },
+  "52ffbec45c45c21323a8b9deb6ed61db78f557b7d2bbfec74eb9515bca646655": {
+    "date_evenement": "2026-09-10T08:30:00-04:00",
+    "forecast": "205K",
+    "previous": "206K",
+    "actual": null
+  },
+  "e78b6ae12e83e9478ff48708308b4cbb94356c874e14a2a10b234224596d0775": {
+    "date_evenement": "2026-09-10T08:45:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "6fb5f63d17506108a8943bfda0ebe7d1e3bcc7ce214f9830a9d31e85af7feead": {
+    "date_evenement": "2026-09-10T10:00:00-04:00",
+    "forecast": "3.98M",
+    "previous": "4.06M",
+    "actual": null
+  },
+  "54096ab5595dc8183d8ba25c5d951238fd4ca80891db9090c2821a032dbe861d": {
+    "date_evenement": "2026-09-10T10:00:00-04:00",
+    "forecast": "1.2%",
+    "previous": "1.3%",
+    "actual": null
+  },
+  "b4fe046bff13c9d9f546f9bba3c1ae5b1e11350e92ca0bd31b9f80d42f0362df": {
+    "date_evenement": "2026-09-10T10:30:00-04:00",
+    "forecast": null,
+    "previous": "30B",
+    "actual": null
+  },
+  "a12674ecf6b9aec53a77afa44a55c042128ba3dde52550546b53f3d43bc79f48": {
+    "date_evenement": "2026-09-10T12:00:00-04:00",
+    "forecast": null,
+    "previous": "-4.5M",
+    "actual": null
+  },
+  "4de09da8fea5b4792154fb6a7583186d54f8f7b0c1359b294f1b0121ab1d336a": {
+    "date_evenement": "2026-09-10T13:01:00-04:00",
+    "forecast": null,
+    "previous": "5.22|2.4",
+    "actual": null
+  },
+  "0fd2eaf00b4f8246ad8cc2d8cfd16b66ac45e69fce2300cf714bcf39d6c85a7e": {
+    "date_evenement": "2026-09-10T18:30:00-04:00",
+    "forecast": null,
+    "previous": "54.3",
+    "actual": null
+  },
+  "f1eb3f6a246cd349bc100a5a41fb838e967bfac22865097834bc1964ae4e7959": {
+    "date_evenement": "2026-09-10T19:50:00-04:00",
+    "forecast": "2.5",
+    "previous": "-1.8",
+    "actual": null
+  },
+  "8a13641bdb019bbf467622058316e01aeb60867643d6eabd96e3cf1ff82b260e": {
+    "date_evenement": "2026-09-10T19:50:00-04:00",
+    "forecast": "7.4%",
+    "previous": "7.2%",
+    "actual": null
+  },
+  "04426216ca12e4bbd1adf9ac4f1a09e002aa72ac3c9475063b76ef151e63804b": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "0.0%",
+    "previous": "0.3%",
+    "actual": null
+  },
+  "c469a9ea965c11bfcc3c11ed31d7365746524ee53aef0221d4e0e6d57ce5eff0": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "0.1%",
+    "previous": "-0.1%",
+    "actual": null
+  },
+  "fb08ce4f1d63793492d6ece7ef051c5f120b598688e7899dd751268070687ba5": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "-22.6B",
+    "previous": "-23.0B",
+    "actual": null
+  },
+  "4c79c8bd0addf00c61056b8d92a31a13eab617d68dac125d911e260ded2497d1": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "0.5%",
+    "previous": "0.5%",
+    "actual": null
+  },
+  "4e2637bb75d01e05e09f8840e191187f5617b0479761de7fdcf3b72856f32ec5": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "-0.2%",
+    "previous": "-0.2%",
+    "actual": null
+  },
+  "3cbf0d093505e5189a846ec1b6f126003e1d40673315c48b19f9781b73602af8": {
+    "date_evenement": "2026-09-11T02:00:00-04:00",
+    "forecast": "0.2%",
+    "previous": "-0.5%",
+    "actual": null
+  },
+  "e7e852aa3d2d68b70fd221ac20f1001ab780b3878567720e6aafe427583af97c": {
+    "date_evenement": "2026-09-11T03:00:00-04:00",
+    "forecast": "-33",
+    "previous": "-35",
+    "actual": null
+  },
+  "60d6401b79e443100c2af7124ec9fc87e9fa7fef10b9d76fee05e1a179c586fa": {
+    "date_evenement": "2026-09-11T04:00:00-04:00",
+    "forecast": "5.4%",
+    "previous": "5.3%",
+    "actual": null
+  },
+  "8bf7c07f70ae36a0a65b5ded69c869722c990ea061f54b0f26e4b01a40f5599a": {
+    "date_evenement": "2026-09-11T04:30:00-04:00",
+    "forecast": null,
+    "previous": "4.0%",
+    "actual": null
+  },
+  "8c69c4284e1e46963c81622955cafb2d560886f61413e55d7cf208227cc6a70d": {
+    "date_evenement": "2026-09-11T05:15:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "bc7122544b27d80313dfcd4c55fa8ff12eeb9274e77d3489c046bef7d1edf788": {
+    "date_evenement": "2026-09-11T08:30:00-04:00",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "actual": null
+  },
+  "6b44d61d49587b2ab559f55bd4a86afb4ae7bef864cce3334b7ba5ab176b52af": {
+    "date_evenement": "2026-09-11T08:30:00-04:00",
+    "forecast": "2.4%",
+    "previous": "2.5%",
+    "actual": null
+  },
+  "f7345b0f07c6daea648613bd628c3688e2ea8d27820f613ef328e11d809de538": {
+    "date_evenement": "2026-09-11T08:30:00-04:00",
+    "forecast": "0.4%",
+    "previous": "0.1%",
+    "actual": null
+  },
+  "cc98e4d4029a85e62632a8cd122db73dab0f0e88d71bec5a810a1fa9b325e520": {
+    "date_evenement": "2026-09-11T08:30:00-04:00",
+    "forecast": "3.4%",
+    "previous": "3.4%",
+    "actual": null
+  },
+  "71fead190d5b45cd76ea05e302dc268112bab70a2821b985ec48475c7b238b35": {
+    "date_evenement": "2026-09-11T10:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "2a25b316fe9baf186f296f8709e90e0ef01ca68f736158f223cb620e46fae2f5": {
+    "date_evenement": "2026-09-11T10:00:00-04:00",
+    "forecast": "51.0",
+    "previous": "51.0",
+    "actual": null
+  },
+  "df5c7b96651a9e99c52466cb710f4a5a3d8b77470c4b693175c1cf6998f13eb1": {
+    "date_evenement": "2026-09-11T10:00:00-04:00",
+    "forecast": null,
+    "previous": "4.3%",
+    "actual": null
+  },
+  "b6d3f234ca27777efbf4cec574bc2c479ee8a3d245feae7e42f2d5d7642e52a6": {
+    "date_evenement": "2026-09-11T14:00:00-04:00",
+    "forecast": "-221.1B",
+    "previous": "-432.3B",
+    "actual": null
+  },
+  "96aedddfceaf4273885493ff88b321c9ad1fe54b0fb73561bb3ee2ad16ac4710": {
+    "date_evenement": "2026-09-12T04:00:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  },
+  "47317450a3321c2543cc057b1568a08f67e1ade5d71aa20ec4591bfe97c79884": {
+    "date_evenement": "2026-09-12T04:15:00-04:00",
+    "forecast": null,
+    "previous": null,
+    "actual": null
+  }
+}
