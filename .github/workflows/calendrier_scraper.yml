@@ -1,0 +1,34 @@
+name: Calendrier Economique Scraper
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env: { FIREBASE_SERVICE_ACCOUNT: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" }
+      - name: Lancer le script d'extraction
+        env: { GOOGLE_APPLICATION_CREDENTIALS: service_account.json }
+        run: python calendrier_cloud.py
+      - name: Commit et push cache/ (avec retry en cas de conflit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cache/
+          git diff --staged --quiet && exit 0
+          git commit -m "Update calendar cache [skip ci]"
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
+            if git push; then exit 0; fi
+            sleep $((i*3))
+          done
+          exit 1
