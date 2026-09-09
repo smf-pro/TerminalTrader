@@ -14,6 +14,10 @@
       "titre": "Multiple Explosions Heard In Iran's Qeshm And Sirik - Iran's Fars"
     },
     {
+      "source": "@financialjuice",
+      "date_publication": "2026-09-09T20:49:21.543591+00:00",
+      "url": "https://www.forexfactory.com/news/1417239-api-crude-03m-cushing-03m-distillate-2m-gasoline",
+      "titre_fr": "API : brut -0,3 m, Cushing -0,3 m, distillat +2 m, essence - 1,9 m",
       "titre": "API: Crude -0.3m, Cushing -0.3m, Distillate +2m, Gasoline - 1.9m",
       "ignore": false,
       "titre_fr": "API : brut -0,3 m, Cushing -0,3 m, distillat +2 m, essence - 1,9 m",
@@ -26,6 +30,10 @@
       "date_recuperation": "2026-09-09T20:51:21.543591+00:00"
     },
     {
+      "source": "@financialjuice",
+      "date_publication": "2026-09-09T20:49:17.325861+00:00",
+      "url": "https://www.forexfactory.com/news/1417239-api-crude-03m-cushing-03m-distillate-2m",
+      "titre_fr": "API : brut -0,3 m, Cushing -0,3 m, distillat + 2 m, essence - 1,9 m",
       "titre": "API: Crude -0.3m, Cushing -0.3m, Distillate + 2m, Gasoline - 1.9m",
       "ignore": false,
       "titre_fr": "API : brut -0,3 m, Cushing -0,3 m, distillat + 2 m, essence - 1,9 m",
@@ -98,6 +106,22 @@
       "date_recuperation": "2026-09-09T17:04:15.558615+00:00"
     },
     {
+      "source": "treasurydirect.gov",
+      "date_publication": "2026-09-09T17:03:15.558615+00:00",
+      "url": "https://www.forexfactory.com/news/1417206-us-treasury-auction-results",
+      "titre_fr": null,
+      "titre": "US Treasury Auction Results",
+      "extrait": "table",
+      "date_recuperation": "2026-09-09T17:04:15.558615+00:00",
+      "extrait_fr": null,
+      "impact": "low",
+      "ignore": false
+    },
+    {
+      "source": "@LiveSquawk",
+      "date_publication": "2026-09-09T15:41:14.825862+00:00",
+      "url": "https://www.forexfactory.com/news/1417201-trump-admin-official-buyback-announcement-builds-on-prior",
+      "titre_fr": "Administrateur Trump. Officiel : l'annonce de rachat s'appuie sur des améliorations antérieures ; L'augmentation des rachats d'obligations du Trésor fait partie d'une approche continue",
       "titre": "Trump Admin. Official: Buyback Announcement Builds On Prior Enhancements; Treasury Buyback Increase Is Part Of Ongoing Approach",
       "ignore": false,
       "titre_fr": "Administrateur Trump. Officiel : l'annonce de rachat s'appuie sur des améliorations antérieures ; L'augmentation des rachats d'obligations du Trésor fait partie d'une approche continue",
@@ -158,6 +182,10 @@
       "titre": "IRGC Spokesman: Iran To Hit 20 Targets For Every 2-3 Enemy Strikes - Fars"
     },
     {
+      "source": "@FirstSquawk",
+      "date_publication": "2026-09-09T09:04:30.134346+00:00",
+      "url": "https://www.forexfactory.com/news/1417115-japan-is-planning-a-special-diet-session-on",
+      "titre_fr": "Le Japon prévoit une séance de diète spéciale le 5 octobre, selon Kyodo",
       "titre": "Japan Is Planning A Special Diet Session On October 5, According To Kyodo",
       "ignore": false,
       "titre_fr": "Le Japon prévoit une séance de diète spéciale le 5 octobre, selon Kyodo",
@@ -170,6 +198,10 @@
       "date_recuperation": "2026-09-09T09:05:30.134346+00:00"
     },
     {
+      "source": "insee.fr",
+      "date_publication": "2026-09-09T06:48:17.769021+00:00",
+      "url": "https://www.forexfactory.com/news/1417094-in-july-2026-french-manufacturing-output-falls-sharply",
+      "titre_fr": "En juillet 2026, la production manufacturière française recule de nouveau fortement (-0,8 % après -1,0 %)",
       "titre": "In July 2026, French manufacturing output falls sharply again (-0.8% after -1.0%)",
       "ignore": false,
       "titre_fr": "En juillet 2026, la production manufacturière française recule de nouveau fortement (-0,8 % après -1,0 %)",
