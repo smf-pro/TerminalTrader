@@ -19,6 +19,7 @@
       "ignore": false,
       "titre_fr": null,
       "url": "https://www.forexfactory.com/news/1417215-trump-oil-prices-will-tumble-after-election",
+      "date_recuperation": "2026-09-09T18:32:20.065445+00:00",
       "date_publication": "2026-09-09T18:31:20.065445+00:00",
       "date_recuperation": "2026-09-09T18:32:20.065445+00:00",
       "titre": "Trump: Oil Prices Will Tumble After Election",
@@ -67,6 +68,7 @@
       "ignore": false,
       "titre_fr": "Administrateur Trump. Officiel : l'annonce de rachat s'appuie sur des améliorations antérieures ; L'augmentation des rachats d'obligations du Trésor fait partie d'une approche continue",
       "url": "https://www.forexfactory.com/news/1417201-trump-admin-official-buyback-announcement-builds-on-prior",
+      "date_recuperation": "2026-09-09T15:42:14.825862+00:00",
       "date_publication": "2026-09-09T15:41:14.825862+00:00",
       "extrait_fr": null,
       "date_recuperation": "2026-09-09T15:42:14.825862+00:00",
@@ -332,6 +334,10 @@
       "date_recuperation": "2026-09-09T10:00:15.910669+00:00",
       "date_publication": "2026-09-09T09:31:33.504744+00:00",
       "categorie": "commodities",
+      "titre": "Gold trade idea: If price sweeps below 4,431, this buy zone gets interesting"
+    },
+    {
+      "date_recuperation": "2026-09-09T10:00:15.910669+00:00",
       "url": "https://investinglive.com/commodities/gold-remains-under-pressure-amid-escalating-us-iran-attacks-and-us-cpi-risks-what-to-watch-next/",
       "titre": "Gold remains under pressure amid escalating US-Iran attacks and US CPI risks. What to watch next?"
     },
