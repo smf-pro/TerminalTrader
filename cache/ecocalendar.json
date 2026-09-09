@@ -331,13 +331,13 @@
   },
   "b4fe046bff13c9d9f546f9bba3c1ae5b1e11350e92ca0bd31b9f80d42f0362df": {
     "date_evenement": "2026-09-10T10:30:00-04:00",
-    "forecast": null,
+    "forecast": "35B",
     "previous": "30B",
     "actual": null
   },
   "a12674ecf6b9aec53a77afa44a55c042128ba3dde52550546b53f3d43bc79f48": {
     "date_evenement": "2026-09-10T12:00:00-04:00",
-    "forecast": null,
+    "forecast": "-1.4M",
     "previous": "-4.5M",
     "actual": null
   },
