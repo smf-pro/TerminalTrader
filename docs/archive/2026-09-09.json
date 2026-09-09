@@ -45,6 +45,8 @@
       "url": "https://www.forexfactory.com/news/1417208-lagarde-the-choice-facing-europeans",
       "ignore": false,
       "date_publication": "2026-09-09T17:09:14.171529+00:00",
+      "extrait": "It is a pleasure to be here at the Bode Museum in Berlin. More than two centuries ago, the poet Johann Paul Friedrich Richter described Berlin as “more a part of the world than a city”. History would prove him right. This city came to embody the upheavals that shaped Germany, Europe and the world, from the destruction of war to its decades-long division at ...",
+      "date_recuperation": "2026-09-09T17:10:14.171529+00:00",
       "source": "ecb.europa.eu",
       "extrait": "It is a pleasure to be here at the Bode Museum in Berlin. More than two centuries ago, the poet Johann Paul Friedrich Richter described Berlin as “more a part of the world than a city”. History would prove him right. This city came to embody the upheavals that shaped Germany, Europe and the world, from the destruction of war to its decades-long division at ...",
       "extrait_fr": null
@@ -57,6 +59,8 @@
       "url": "https://www.forexfactory.com/news/1417206-us-treasury-auction-results",
       "ignore": false,
       "date_publication": "2026-09-09T17:03:15.558615+00:00",
+      "extrait": "table",
+      "date_recuperation": "2026-09-09T17:04:15.558615+00:00",
       "source": "treasurydirect.gov",
       "extrait": "table",
       "extrait_fr": null
@@ -129,6 +133,8 @@
       "url": "https://www.forexfactory.com/news/1417115-japan-is-planning-a-special-diet-session-on",
       "ignore": false,
       "date_publication": "2026-09-09T09:04:30.134346+00:00",
+      "extrait": "Japan Is Planning A Special Diet Session On October 5, According To Kyodo.",
+      "date_recuperation": "2026-09-09T09:05:30.134346+00:00",
       "source": "@FirstSquawk",
       "extrait": "Japan Is Planning A Special Diet Session On October 5, According To Kyodo.",
       "extrait_fr": "Le Japon prévoit une séance de diète spéciale le 5 octobre, selon Kyodo."
@@ -141,6 +147,8 @@
       "url": "https://www.forexfactory.com/news/1417094-in-july-2026-french-manufacturing-output-falls-sharply",
       "ignore": false,
       "date_publication": "2026-09-09T06:48:17.769021+00:00",
+      "extrait": "In July 2026, production falls again in the manufacturing industry (-0.8% after -1.0% in June 2026). In industry as a whole, it also falls (-0.4% after -0.1%). In July 2026*, manufacturing output declined in all major sectors except for coking and refining (+8.3% after -12.4%). Specifically, it fell again in the manufacture of transport equipment (-2.8% ...",
+      "date_recuperation": "2026-09-09T06:49:17.769021+00:00",
       "source": "insee.fr",
       "extrait": "In July 2026, production falls again in the manufacturing industry (-0.8% after -1.0% in June 2026). In industry as a whole, it also falls (-0.4% after -0.1%). In July 2026*, manufacturing output declined in all major sectors except for coking and refining (+8.3% after -12.4%). Specifically, it fell again in the manufacture of transport equipment (-2.8% ...",
       "extrait_fr": "En juillet 2026, la production recule de nouveau dans l'industrie manufacturière (-0,8 % après -1,0 % en juin 2026). Dans l'ensemble de l'industrie, il baisse également (-0,4 % après -0,1 %). En juillet 2026*, la production manufacturière recule dans tous les grands secteurs à l'exception de la cokéfaction et du raffinage (+8,3 % après -12,4 %). Concrètement, il recule de nouveau dans la fabrication de matériels de transport (-2,8%..."
