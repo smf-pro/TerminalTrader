@@ -124,12 +124,11 @@ def enregistrer_statut_pipeline(db, statut, liens_vus=0, articles_nouveaux=0, er
     db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
-def hash_ligne(indicateur_slug, date_texte):
-    """ID de document Firestore = hash de (indicateur + date de la ligne),
-    deterministe. Une meme ligne d'historique produit toujours le meme ID,
-    qu'elle soit inchangee ou revisee -> on ecrit un .set(merge=True) sur
-    ce meme document plutot que de creer un doublon."""
-    brut = f"{indicateur_slug}|{date_texte}"
+def hash_ligne(indicateur_slug, cle_ligne):
+    """ID de document Firestore = hash de (indicateur + cle unique de la
+    ligne). cle_ligne est l'identifiant "detail=" extrait du lien quand il
+    existe (toujours le cas normalement), la date texte en repli sinon."""
+    brut = f"{indicateur_slug}|{cle_ligne}"
     return hashlib.sha256(brut.encode("utf-8")).hexdigest()
 
 
@@ -181,9 +180,24 @@ def nettoyer_cellule(cellule):
 
 
 def extraire_historique(url):
-    """Renvoie une liste de dicts {"date_texte", "actual", "forecast",
-    "previous", "url_detail"}, dans l'ordre d'apparition du tableau
-    (position 0 = premiere ligne)."""
+    """Renvoie une liste de dicts {"date_texte", "cle_ligne", "actual",
+    "forecast", "previous", "previous_revise", "url_detail"}, dans l'ordre
+    d'apparition du tableau (position 0 = premiere ligne).
+
+    "cle_ligne" = identifiant unique de la publication (extrait du lien,
+    ex: "153362" pour ".../calendar?day=aug11.2026#detail=153362"). C'est
+    CE champ qui sert de cle d'unicite, PAS "date_texte" seul : ForexFactory
+    peut afficher deux publications differentes sous la meme date texte
+    (ex: rattrapage d'une publication sautee la semaine precedente, deux
+    lignes "Aug 11, 2026" avec un detail= different chacune). Utiliser la
+    date seule comme cle fait collisionner ces deux lignes distinctes et
+    declenche une fausse "revision".
+
+    "previous_revise" = True si ForexFactory affiche l'icone officielle de
+    revision a cote de la valeur "Previous" (une <img> dans la cellule).
+    C'est plus fiable que de deduire une revision en comparant deux
+    scrapes successifs : ForexFactory marque lui-meme la revision, meme
+    des le tout premier scrape d'une ligne."""
     reponse = requests.get(url, headers=HEADERS, timeout=15)
     reponse.raise_for_status()
     soup = BeautifulSoup(reponse.text, "html.parser")
@@ -206,18 +220,25 @@ def extraire_historique(url):
         if url_detail and url_detail.startswith("/"):
             url_detail = "https://www.forexfactory.com" + url_detail
 
+        m_detail = re.search(r"detail=(\d+)", url_detail)
+        cle_ligne = m_detail.group(1) if m_detail else date_texte
+
         actual = nettoyer_cellule(cellules[1])
         forecast = nettoyer_cellule(cellules[2])
-        previous = nettoyer_cellule(cellules[3])
+        cellule_previous = cellules[3]
+        previous = nettoyer_cellule(cellule_previous)
+        previous_revise = cellule_previous.find("img") is not None
 
         if not date_texte:
             continue
 
         resultats.append({
             "date_texte": date_texte,
+            "cle_ligne": cle_ligne,
             "actual": actual,
             "forecast": forecast,
             "previous": previous,
+            "previous_revise": previous_revise,
             "url_detail": url_detail,
         })
 
@@ -261,11 +282,12 @@ def cycle():
             continue
 
         for position, ligne in enumerate(historique):
-            doc_id = hash_ligne(slug, ligne["date_texte"])
+            doc_id = hash_ligne(slug, ligne["cle_ligne"])
             snapshot_actuel = {
                 "actual": ligne["actual"],
                 "forecast": ligne["forecast"],
                 "previous": ligne["previous"],
+                "previous_revise": ligne["previous_revise"],
                 "position": position,
             }
             snapshot_cache = cache.get(doc_id)
@@ -281,14 +303,17 @@ def cycle():
                         "actual": ligne["actual"],
                         "forecast": ligne["forecast"],
                         "previous": ligne["previous"],
+                        "previous_revise": ligne["previous_revise"],
                         "url_detail": ligne["url_detail"],
                         "position": position,
-                        "revise": False,
                         "date_ajout": maintenant,
                         "date_recuperation": maintenant,
+                        "derniere_revision": maintenant if ligne["previous_revise"] else None,
                     })
                     cache[doc_id] = snapshot_actuel
                     lignes_ecrites += 1
+                    if ligne["previous_revise"]:
+                        print(f"Revision (marqueur ForexFactory) : {nom} ({ligne['date_texte']})")
                 except ResourceExhausted as e:
                     print(f"Quota Firestore depasse (ecriture), arret du cycle : {e}")
                     sauvegarder_cache_historique(cache)
@@ -300,27 +325,25 @@ def cycle():
                     return
 
             elif snapshot_cache != snapshot_actuel:
-                valeur_a_change = (
-                    snapshot_cache.get("actual") != ligne["actual"]
-                    or snapshot_cache.get("forecast") != ligne["forecast"]
-                    or snapshot_cache.get("previous") != ligne["previous"]
-                )
+                # La revision "vient d'apparaitre" si le marqueur officiel
+                # n'etait pas present au cycle precedent et l'est maintenant.
+                nouvelle_revision = ligne["previous_revise"] and not snapshot_cache.get("previous_revise")
                 maj = {
                     "actual": ligne["actual"],
                     "forecast": ligne["forecast"],
                     "previous": ligne["previous"],
+                    "previous_revise": ligne["previous_revise"],
                     "position": position,
                     "date_recuperation": maintenant,
                 }
-                if valeur_a_change:
-                    maj["revise"] = True
+                if nouvelle_revision:
                     maj["derniere_revision"] = maintenant
                     maj["valeur_avant_revision"] = {
                         "actual": snapshot_cache.get("actual"),
                         "forecast": snapshot_cache.get("forecast"),
                         "previous": snapshot_cache.get("previous"),
                     }
-                    print(f"Revision detectee : {nom} ({ligne['date_texte']})")
+                    print(f"Revision (marqueur ForexFactory) : {nom} ({ligne['date_texte']})")
 
                 try:
                     db.collection(COLLECTION).document(doc_id).set(maj, merge=True)
