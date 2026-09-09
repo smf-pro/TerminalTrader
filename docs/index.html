@@ -429,7 +429,7 @@
 
     <!-- COLONNE 1 : CALENDRIER ÉCONOMIQUE -->
     <div class="panel">
-      <div class="panel-head"><span>CALENDRIER ÉCONOMIQUE</span><span id="calDateHome" style="font-weight:400;"></span></div>
+      <div class="panel-head"><span>CALENDRIER ÉCONOMIQUE<span class="src-status-dot" id="dot-ecocalendar" title=""></span><span class="src-status-time" id="time-ecocalendar"></span></span><span id="calDateHome" style="font-weight:400;"></span></div>
       <div class="panel-body" id="calListHome"></div>
     </div>
 
@@ -477,7 +477,7 @@
     <div class="cal-layout">
       <div class="page-inner">
         <div class="page-heading">
-          <h1>Calendrier économique</h1>
+          <h1>Calendrier économique<span class="src-status-dot" id="dot-ecocalendar-page" title=""></span><span class="src-status-time" id="time-ecocalendar-page"></span></h1>
           <span class="sub" id="calDate"></span>
         </div>
         <table class="cal-table">
@@ -646,6 +646,20 @@ function itemDepuisDocIL(d){
   };
 }
 
+// Le calendrier n'a ni URL, ni champ "ignore", ni traduction FR/EN — un
+// mapper dédié plutôt que de forcer itemDepuisDocXxx à couvrir ce cas.
+function itemDepuisDocCal(d){
+  return {
+    date: d.date ? versDate(d.date) : null,
+    pays: d.pays || '',
+    titre: d.titre || '',
+    impact: d.impact || 'low', // 'high' | 'medium' | 'low' | 'holiday'
+    precedent: d.precedent,    // deja formate en texte cote script Python (ex: "0.3%", "150K")
+    prevision: d.prevision,
+    reel: d.reel,               // null tant que l'evenement n'a pas ete publie
+  };
+}
+
 // Trois flux "temps réel" séparés (un par collection) + un flux "archive"
 // (articles plus anciens chargés au clic). On les recombine dans newsLog
 // à chaque mise à jour de l'un ou l'autre, en dédupliquant par URL.
@@ -653,6 +667,7 @@ let liveFF = [];
 let liveCB = [];
 let liveIL = [];
 let archiveItemsTempsReel = [];
+let liveCalendar = [];
 
 function recalculerNewsLogTempsReel(){
   const urlsVues = new Set();
@@ -681,12 +696,39 @@ function ecouterCollectionTempsReel(nomCollection, mapper, assigner){
     });
 }
 
+// Listener dédié au calendrier : contrairement aux 3 collections de news
+// (ecouterCollectionTempsReel, tri décroissant + where('ignore')), le
+// calendrier trie en chronologique CROISSANT et n'a pas de champ
+// "ignore". Surtout : eco_calendar n'est JAMAIS purgé côté script Python
+// (choix assumé, voir calendrier_cloud.py) donc la collection grossit
+// indéfiniment semaine après semaine. Le where('date','>=', hier minuit)
+// est ce qui évite de charger des années d'historique à chaque ouverture
+// du site : Firestore n'a pas besoin d'index composite ici car le filtre
+// d'inégalité et le tri portent sur le MÊME champ ('date').
+function ecouterCalendrierTempsReel(){
+  const debutFenetre = new Date();
+  debutFenetre.setHours(0, 0, 0, 0);
+  debutFenetre.setDate(debutFenetre.getDate() - 1); // hier minuit, marge de securite
+
+  dbFirestore.collection('eco_calendar')
+    .where('date', '>=', debutFenetre)
+    .orderBy('date', 'asc')
+    .limit(200)
+    .onSnapshot(snapshot => {
+      liveCalendar = snapshot.docs.map(doc => itemDepuisDocCal(doc.data()));
+      renderCalendar();
+      renderCalendarHome();
+    }, erreur => {
+      console.error('Erreur écoute temps réel eco_calendar :', erreur);
+    });
+}
+
 // ===== BATTEMENT DE COEUR DES SCRIPTS (collection pipeline_status) =====
 // Chaque script (ff_cloud.py, centralbanks_cloud.py, investinglive_cloud.py)
 // ecrit un document ici a CHAQUE cycle, meme sans nouvel article. Ca sert
 // UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
 // separement de la date/heure des articles eux-memes (deja correcte).
-const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive'];
+const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar'];
 let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
 
 function ecouterStatutPipeline(nomSource){
@@ -710,6 +752,7 @@ function demarrerEcouteTempsReel(){
   ecouterCollectionTempsReel('ff_news', itemDepuisDocFF, items => { liveFF = items; });
   ecouterCollectionTempsReel('cb_articles', itemDepuisDocCB, items => { liveCB = items; });
   ecouterCollectionTempsReel('il_articles', itemDepuisDocIL, items => { liveIL = items; });
+  ecouterCalendrierTempsReel();
   SOURCES_PIPELINE.forEach(ecouterStatutPipeline);
 }
 </script>
@@ -821,6 +864,7 @@ const DOTS_PAR_SOURCE = {
   investinglive: ['dot-investinglive'],
   centralbanks: ['dot-centralbanks'],
   forexfactory: ['dot-forexfactory', 'dot-forexfactory-high'],
+  ecocalendar: ['dot-ecocalendar', 'dot-ecocalendar-page'],
 };
 
 function mettreAJourPastillesSources(){
@@ -1419,41 +1463,57 @@ document.getElementById('searchInput').addEventListener('input', e=>{
 });
 
 // ===================== CALENDRIER ÉCONOMIQUE =====================
-const calTemplate = [
-  [8,0,  'DE','Balance commerciale (Md€)','med', 18.2, 17.5, 'val'],
-  [8,30, 'FR','Indice des prix à la production m/m (%)','low', 0.3, 0.2, 'pct'],
-  [9,0,  'EU','Ventes au détail m/m (%)','med', -0.1, 0.2, 'pct'],
-  [10,0, 'GB','Taux de chômage (%)','med', 4.2, 4.2, 'pct'],
-  [12,30,'US','Indice des prix à la consommation (IPC) m/m (%)','high', 0.2, 0.3, 'pct'],
-  [12,30,'US',"Demandes initiales d'allocations chômage (k)",'med', 224, 220, 'val'],
-  [14,0, 'US','Discours du gouverneur de la Fed','high', null, null, 'none'],
-  [14,30,'US','Variation des stocks de pétrole brut (M barils)','low', -1.2, -0.8, 'val'],
-  [15,0, 'US','Indice ISM services','med', 52.1, 52.5, 'val'],
-  [16,0, 'EU','Confiance des consommateurs','low', -14.0, -13.5, 'val'],
-  [18,0, 'US','Décision de taux directeur — Fed (%)','high', 5.50, 5.50, 'pct'],
-  [20,0, 'JP','PIB t/t (%)','med', 0.5, 0.4, 'pct'],
-];
-const flagFor = c => ({US:'🇺🇸',EU:'🇪🇺',GB:'🇬🇧',JP:'🇯🇵',CN:'🇨🇳',DE:'🇩🇪',FR:'🇫🇷'})[c] || c;
+// Alimenté par liveCalendar (voir ecouterCalendrierTempsReel), lui-même
+// rempli par calendrier_cloud.py -> Firestore/eco_calendar. Le flux
+// Forex Factory utilise des codes DEVISE (USD, EUR...), pas des codes
+// pays — d'où le drapeau "ALL" pour un évènement multi-devises (ex:
+// "BRICS Summit (All)").
+const mapImpactCal = {high:'high', medium:'med', low:'low', holiday:''};
+const flagFor = c => ({
+  USD:'🇺🇸', EUR:'🇪🇺', GBP:'🇬🇧', JPY:'🇯🇵', CHF:'🇨🇭', CAD:'🇨🇦',
+  AUD:'🇦🇺', NZD:'🇳🇿', CNY:'🇨🇳', ALL:'🌐',
+})[c] || '';
 
-function buildCalEvents(){
-  const now = new Date();
-  const nowMinutes = now.getHours()*60 + now.getMinutes();
-  return calTemplate.map(([h,m,country,name,impact,prev,fcst,type])=>{
-    const evMinutes = h*60+m;
-    const passed = evMinutes < nowMinutes;
-    let actualDisp = '—', actualClass = '';
-    let prevDisp = prev===null ? '—' : (type==='pct' ? prev.toFixed(1)+'%' : prev);
-    let fcstDisp = fcst===null ? '—' : (type==='pct' ? fcst.toFixed(1)+'%' : fcst);
-    if(passed && type!=='none'){
-      const actual = fcst + (Math.random()-0.5) * Math.abs(fcst||1) * 0.3;
-      actualDisp = type==='pct' ? actual.toFixed(1)+'%' : Math.round(actual*10)/10;
-      actualClass = actual >= fcst ? 'actual-beat' : 'actual-miss';
-    } else if(passed){
-      actualDisp = 'Terminé';
-    }
-    return {h,m,country,name,impact,prevDisp,fcstDisp,actualDisp,actualClass,passed,
-      timeStr: String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')};
-  });
+// Parse une valeur deja formatee en texte par calendrier_cloud.py (ex:
+// "0.3%", "150K", "-1.2M") en nombre, pour pouvoir comparer reel vs
+// prevision et colorer la cellule (vert/rouge). Retourne null si non
+// parsable (ex: discours sans chiffre) plutot que de fausser l'affichage.
+function parseValeurCal(v){
+  if(v === null || v === undefined || v === '') return null;
+  const texte = String(v).trim().replace(/,/g, '');
+  const mult = /K$/i.test(texte) ? 1e3 : /M$/i.test(texte) ? 1e6 : /B$/i.test(texte) ? 1e9 : 1;
+  const nombre = parseFloat(texte.replace(/[%KMB]/gi, ''));
+  return Number.isNaN(nombre) ? null : nombre * mult;
+}
+
+// Vue "aujourd'hui" (heure locale du navigateur) : la requête Firestore
+// remonte déjà une fenêtre glissante (voir ecouterCalendrierTempsReel),
+// mais l'affichage lui-même ne montre que le jour courant, comme le
+// faisait la maquette d'origine.
+function evenementsDuJour(){
+  const aujourdhui = new Date().toDateString();
+  return liveCalendar.filter(ev => ev.date && ev.date.toDateString() === aujourdhui);
+}
+
+function preparerEvenementCal(ev){
+  const passed = ev.date ? ev.date.getTime() < Date.now() : false;
+  const previsionNum = parseValeurCal(ev.prevision);
+  const reelNum = parseValeurCal(ev.reel);
+  let actualClass = '';
+  if(reelNum !== null && previsionNum !== null){
+    actualClass = reelNum >= previsionNum ? 'actual-beat' : 'actual-miss';
+  }
+  return {
+    timeStr: ev.date ? ev.date.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', hour12:false}) : '—',
+    country: ev.pays,
+    name: ev.titre,
+    impact: mapImpactCal[ev.impact] !== undefined ? mapImpactCal[ev.impact] : 'low',
+    prevDisp: ev.precedent || '—',
+    fcstDisp: ev.prevision || '—',
+    actualDisp: ev.reel || (passed ? 'Terminé' : '—'),
+    actualClass,
+    passed,
+  };
 }
 
 function renderCalendar(){
@@ -1461,7 +1521,11 @@ function renderCalendar(){
   const bodyEl = document.getElementById('calBody');
   if(!bodyEl) return;
   dateEl.textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-  const events = buildCalEvents();
+  const events = evenementsDuJour().map(preparerEvenementCal);
+  if(events.length === 0){
+    bodyEl.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-low); padding:20px;">Aucun évènement aujourd\'hui</td></tr>';
+    return;
+  }
   bodyEl.innerHTML = events.map(ev=>{
     const dots = '<span></span><span></span><span></span>';
     return `<tr>
@@ -1480,7 +1544,11 @@ function renderCalendarHome(){
   const el = document.getElementById('calListHome');
   if(!el) return;
   document.getElementById('calDateHome').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'short', day:'numeric', month:'short'});
-  const events = buildCalEvents();
+  const events = evenementsDuJour().map(preparerEvenementCal);
+  if(events.length === 0){
+    el.innerHTML = '<div style="text-align:center; color:var(--text-low); padding:20px; font-size:12px;">Aucun évènement aujourd\'hui</div>';
+    return;
+  }
   el.innerHTML = events.map(ev=>`
     <div class="cal-row-compact ${ev.passed?'done':''}">
       <div class="top">
