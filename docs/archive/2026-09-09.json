@@ -18,6 +18,7 @@
       "ignore": false,
       "extrait_fr": "Le Trésor met à jour le calendrier de rachat pour montrer des opérations à long terme d'au moins 4 milliards de dollars.",
       "source": "@financialjuice",
+      "titre_fr": "Le Trésor met à jour le calendrier de rachat pour afficher des opérations à long terme d'au moins 4 milliards de dollars",
       "date_publication": "2026-09-09T15:25:14.927413+00:00",
       "date_recuperation": "2026-09-09T15:26:14.927413+00:00",
       "titre": "Treasury updates the buyback schedule to show long term operations of at least $4B",
@@ -26,6 +27,13 @@
       "extrait": "The Treasury updates the buyback schedule to show long term operations of at least $4b."
     },
     {
+      "titre": "US Treasury To Buy Back Up To $6B In Longer-Dated Debt Thursday",
+      "extrait": "*us Treasury To Buy Back Up To $6b In Longer-dated Debt Thu.",
+      "date_publication": "2026-09-09T15:02:14.950604+00:00",
+      "titre_fr": null,
+      "source": "@zerohedge",
+      "date_recuperation": "2026-09-09T15:03:14.950604+00:00",
+      "ignore": false,
       "impact": "high",
       "ignore": false,
       "extrait_fr": null,
