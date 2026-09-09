@@ -70,6 +70,13 @@
       "ignore": false,
       "extrait_fr": null,
       "date_recuperation": "2026-09-09T18:35:14.559653+00:00",
+      "extrait_fr": null
+    },
+    {
+      "titre_fr": null,
+      "source": "@DeItaone",
+      "extrait": "Trump: Oil Prices Will Tumble After ElectionTrump: The economy is very strong; we're going to explain that.Trump on Gasoline Price: Can't let Iran have nuclear weapons.*trump: Will Get Gasoline Down Below $2",
+      "ignore": false,
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1417215-trump-war-in-iran-will-end-immediately-after"
     },
