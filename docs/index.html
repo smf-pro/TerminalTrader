@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MERIDIAN — Terminal de Trading</title>
+<title>SMF-Terminal-Trading</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
   :root{
-    --bg-0:#0a0d12;
-    --bg-1:#10141b;
-    --bg-2:#161b24;
-    --line:#232a36;
-    --text-hi:#e7ecf3;
-    --text-mid:#8b96a8;
-    --text-low:#525c6d;
-    --green:#26c281;
-    --red:#e5484d;
-    --amber:#e0a542;
-    --blue:#4f8cff;
+    --bg-0:#0a0c11;
+    --bg-1:#10131a;
+    --bg-2:#161a23;
+    --line:#242b38;
+    --text-hi:#eef1f7;
+    --text-mid:#8f9bb0;
+    --text-low:#576079;
+    --green:#22c48d;
+    --red:#ef4a5a;
+    --amber:#e3aa54;
+    --blue:#5b90ff;
+    --gold:#c9a15a;
+    --gold-soft:rgba(201,161,90,0.14);
     --mono:'IBM Plex Mono', monospace;
     --sans:'IBM Plex Sans', sans-serif;
+    --shadow-panel: 0 1px 0 rgba(255,255,255,0.02) inset, 0 8px 20px -12px rgba(0,0,0,0.6);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{
@@ -29,6 +32,7 @@
     font-family:var(--sans);
     height:100%;
     overflow:hidden;
+    -webkit-font-smoothing:antialiased;
   }
   ::-webkit-scrollbar{width:8px; height:8px;}
   ::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
@@ -48,6 +52,14 @@
     padding:10px 18px;
     border-bottom:1px solid var(--line);
     background:var(--bg-1);
+    position:relative;
+    box-shadow:0 4px 16px -8px rgba(0,0,0,0.5);
+  }
+  header::after{
+    content:'';
+    position:absolute; left:0; right:0; bottom:-1px; height:1px;
+    background:linear-gradient(90deg, var(--gold) 0%, transparent 22%);
+    opacity:0.55;
   }
   .brand{
     display:flex;
@@ -55,17 +67,19 @@
     gap:10px;
   }
   .brand .mark{
-    width:26px; height:26px;
-    background:linear-gradient(135deg, var(--green), var(--blue));
-    border-radius:5px;
+    width:28px; height:28px;
+    background:linear-gradient(135deg, var(--gold), var(--blue));
+    border-radius:7px;
     display:flex; align-items:center; justify-content:center;
-    font-family:var(--mono); font-weight:700; font-size:13px; color:#04110b;
+    font-family:var(--mono); font-weight:700; font-size:13px; color:#0a0c11;
+    box-shadow:0 2px 8px -2px rgba(201,161,90,0.45);
+    letter-spacing:-0.5px;
   }
   .brand .name{
     font-family:var(--mono);
     font-weight:600;
-    font-size:15px;
-    letter-spacing:0.5px;
+    font-size:14.5px;
+    letter-spacing:0.6px;
   }
   .brand .name span{ color:var(--text-low); font-weight:400; }
   .status-cluster{ display:flex; align-items:center; gap:22px; font-family:var(--mono); font-size:12px; color:var(--text-mid); }
@@ -73,7 +87,7 @@
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
   .clock{ color:var(--text-hi); cursor:help; }
   .clock.clock-alerte{ color:var(--red, #e05252); }
-  .clock.clock-alerte-partielle{ color:var(--amber, #e0a542); }
+  .clock.clock-alerte-partielle{ color:var(--amber, #e3aa54); }
   .src-status-dot{
     display:inline-block; width:8px; height:8px; border-radius:50%;
     margin-left:8px; vertical-align:middle; cursor:help;
@@ -140,8 +154,9 @@
     padding:10px 14px;
     border-bottom:1px solid var(--line);
     display:flex; align-items:center; justify-content:space-between;
-    font-size:11px; letter-spacing:0.4px; color:var(--text-mid); font-weight:600;
+    font-size:10.5px; letter-spacing:0.6px; color:var(--text-mid); font-weight:600;
     background:var(--bg-1);
+    text-transform:uppercase;
   }
   .panel-body{ overflow-y:auto; flex:1; }
 
@@ -238,7 +253,7 @@
     padding:7px 13px; cursor:pointer; border-radius:5px;
   }
   nav.main-nav .nav-btn:hover{ color:var(--text-hi); background:var(--bg-2); }
-  nav.main-nav .nav-btn.active{ color:var(--text-hi); background:var(--bg-2); }
+  nav.main-nav .nav-btn.active{ color:var(--text-hi); background:var(--bg-2); box-shadow:inset 0 -2px 0 var(--gold); }
   nav.main-nav .nav-btn .dot{ display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--red); margin-left:6px; vertical-align:middle; }
 
   .page{ display:none; height:100%; overflow:hidden; }
@@ -308,6 +323,22 @@
   .cal-num.actual-miss{ color:var(--red); }
 
   /* --- data économique --- */
+  .eco-heading{ flex-direction:row; align-items:center; flex-wrap:wrap; row-gap:12px; }
+  .eco-filters{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px; flex:1; }
+  .eco-filter-group{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .eco-filter-group .flabel{
+    font-family:var(--mono); font-size:9.5px; color:var(--text-low);
+    text-transform:uppercase; letter-spacing:0.6px; margin-right:2px;
+  }
+  .eco-filter-group > div{ display:flex; flex-wrap:wrap; gap:6px; }
+  .eco-chip{
+    background:var(--bg-1); border:1px solid var(--line); color:var(--text-mid);
+    font-family:var(--mono); font-size:11px; padding:5px 11px; border-radius:5px;
+    cursor:pointer; transition:background .12s, border-color .12s, color .12s;
+  }
+  .eco-chip:hover{ color:var(--text-hi); }
+  .eco-chip.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:inset 0 -2px 0 var(--gold); }
+  .eco-empty{ padding:32px 14px; text-align:center; color:var(--text-low); font-size:12px; }
   .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
   .eco-card{ background:var(--bg-0); padding:14px; }
   .eco-card .top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
@@ -316,11 +347,32 @@
   .eco-card .value{ font-family:var(--mono); font-size:22px; font-weight:600; }
   .eco-card .delta{ font-family:var(--mono); font-size:11px; margin-top:2px; }
   .eco-card canvas{ width:100%; height:36px; margin-top:8px; display:block; }
+  .revise-dot{ color:var(--amber); font-size:9px; margin-left:6px; cursor:help; }
+  .eco-hist-toggle{
+    background:none; border:none; color:var(--text-low); font-family:var(--mono);
+    font-size:10px; cursor:pointer; padding:6px 0 0; text-align:left; width:100%;
+  }
+  .eco-hist-toggle:hover{ color:var(--text-hi); }
+  .eco-hist-table{ display:none; width:100%; border-collapse:collapse; margin-top:6px; font-size:10.5px; }
+  .eco-hist-table.open{ display:table; }
+  .eco-hist-table th{ text-align:right; color:var(--text-low); font-weight:500; padding:3px 4px; border-bottom:1px solid var(--line); }
+  .eco-hist-table td{ text-align:right; padding:3px 4px; border-bottom:1px solid var(--line); color:var(--text-mid); }
+  .eco-hist-table th:first-child, .eco-hist-table td:first-child{ text-align:left; color:var(--text-low); }
+  .revise-tag{ color:var(--amber); font-size:9px; margin-left:3px; }
 
   /* --- taux implicite --- */
-  .taux-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:1px; background:var(--line); }
-  .taux-col{ background:var(--bg-0); overflow:hidden; }
   .curve-area{ padding:14px; height:280px; }
+  .taux-layout{ display:grid; grid-template-columns:1fr 2fr 1fr; gap:1px; background:var(--line); flex:1; overflow:hidden; }
+  .taux-layout .taux-col{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .taux-chart-area{ padding:14px; flex:1; min-height:0; }
+  .bps-row{ padding:11px 14px; border-bottom:1px solid var(--line); }
+  .bps-row .bps-bank{ font-size:11.5px; color:var(--text-mid); }
+  .bps-row .bps-meeting{ font-family:var(--mono); font-size:10px; color:var(--text-low); margin-top:2px; }
+  .bps-row .bps-value{ font-family:var(--mono); font-weight:600; font-size:17px; margin-top:7px; }
+  .pm-row{ padding:11px 14px; border-bottom:1px solid var(--line); }
+  .pm-row .pm-top{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px; }
+  .pm-row .pm-bank{ font-size:11.5px; color:var(--text-hi); }
+  .pm-row .pm-date{ font-family:var(--mono); font-size:10px; color:var(--text-low); white-space:nowrap; }
   .prob-table{ width:100%; border-collapse:collapse; }
   .prob-table thead th{ text-align:left; font-size:10px; color:var(--text-low); padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); }
   .prob-table tbody td{ padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
@@ -405,8 +457,8 @@
 
   <header>
     <div class="brand">
-      <div class="mark">M</div>
-      <div class="name">MERIDIAN <span>/ terminal</span></div>
+      <div class="mark">S</div>
+      <div class="name">SMF<span>-TERMINAL-TRADING</span></div>
     </div>
     <nav class="main-nav" id="mainNav">
       <button class="nav-btn active" data-page="accueil">ACCUEIL</button>
@@ -520,9 +572,18 @@
   <!-- ===================== DATA ÉCONOMIQUE ===================== -->
   <div class="page" id="page-dataeco">
     <div class="page-inner">
-      <div class="page-heading">
-        <h1>Données économiques</h1>
-        <span class="sub">Indicateurs macroéconomiques clés</span>
+      <div class="page-heading eco-heading">
+        <h1>Données économiques<span class="src-status-dot" id="dot-dataeco" title=""></span><span class="src-status-time" id="time-dataeco"></span></h1>
+        <div class="eco-filters" id="ecoFilters">
+          <div class="eco-filter-group">
+            <span class="flabel">Devise</span>
+            <div id="ecoFilterCcy"></div>
+          </div>
+          <div class="eco-filter-group">
+            <span class="flabel">Type</span>
+            <div id="ecoFilterType"></div>
+          </div>
+        </div>
       </div>
       <div class="eco-grid" id="ecoGrid"></div>
     </div>
@@ -530,21 +591,30 @@
 
   <!-- ===================== TAUX IMPLICITE ===================== -->
   <div class="page" id="page-taux">
-    <div class="taux-grid" style="flex:1;">
+    <div class="page-heading eco-heading" style="padding:16px 22px 0;">
+      <h1>Taux implicite</h1>
+      <div class="eco-filters" id="tauxFilters">
+        <div class="eco-filter-group">
+          <span class="flabel">Banque centrale</span>
+          <div id="tauxFilterCcy"></div>
+        </div>
+      </div>
+    </div>
+    <div class="taux-layout" style="margin-top:16px;">
       <div class="taux-col">
-        <div class="panel-head"><span>COURBE DES TAUX</span></div>
-        <div class="curve-area"><canvas id="curveCanvas"></canvas></div>
-        <div class="panel-head"><span>PROBABILITÉS IMPLICITES — PROCHAINES RÉUNIONS</span></div>
-        <table class="prob-table">
-          <thead><tr><th>Banque centrale</th><th>Réunion</th><th style="width:40%">Probabilités (baisse / statu quo / hausse)</th></tr></thead>
-          <tbody id="probBody"></tbody>
-        </table>
+        <div class="panel-head"><span>IMPLICITE EN PB — PAR RÉUNION</span></div>
+        <div class="panel-body" id="bpsList"></div>
       </div>
       <div class="taux-col">
-        <div class="panel-head"><span>TAUX PAR ÉCHÉANCE</span></div>
-        <div id="rateTable"></div>
-        <div class="panel-head" style="margin-top:1px;"><span>SPREADS CLÉS</span></div>
-        <div id="spreadTable"></div>
+        <div class="panel-head">
+          <span id="tauxChartTitle">ÉVOLUTION DES PROBABILITÉS — RÉSERVE FÉDÉRALE (FED)</span>
+          <span id="tauxChartSub" style="font-weight:400;"></span>
+        </div>
+        <div class="taux-chart-area"><canvas id="tauxEvolCanvas"></canvas></div>
+      </div>
+      <div class="taux-col">
+        <div class="panel-head"><span>PROCHAINES RÉUNIONS</span></div>
+        <div class="panel-body" id="probBody"></div>
       </div>
     </div>
   </div>
@@ -738,7 +808,7 @@ function ecouterCalendrierTempsReel(){
 // ecrit un document ici a CHAQUE cycle, meme sans nouvel article. Ca sert
 // UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
 // separement de la date/heure des articles eux-memes (deja correcte).
-const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar'];
+const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd'];
 let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
 
 function ecouterStatutPipeline(nomSource){
@@ -758,11 +828,84 @@ function ecouterStatutPipeline(nomSource){
     });
 }
 
+// ===== HISTORIQUE DES INDICATEURS USD (ForexFactory, via data-usd.py) =====
+// Contrairement aux 3 collections de news (un seul listener chacune) et au
+// calendrier (idem), ici on ouvre UN listener PAR indicateur (24 au total)
+// car chaque indicateur a besoin de SON propre tri ('position' croissant,
+// 0 = publication la plus recente) et Firestore ne peut pas trier "par
+// groupe" en une seule requete. La liste ci-dessous doit rester alignee
+// avec LIENS dans data-usd.py (meme slugs) - voir aussi nomLisibleDepuisSlug
+// qui reproduit cote client la meme regle que nom_lisible_depuis_slug()
+// cote Python.
+const ACRONYMES_JS = new Set(['us','cpi','ppi','pce','gdp','ism','pmi','jolts','adp','yy','mm','qq','fomc','ecb','boe','boj']);
+function nomLisibleDepuisSlug(slug){
+  return slug.split('-').map(m => ACRONYMES_JS.has(m.toLowerCase()) ? m.toUpperCase() : m.charAt(0).toUpperCase()+m.slice(1)).join(' ');
+}
+
+const INDICATEURS_USD = [
+  {slug:'us-federal-funds-rate', type:'taux'},
+  {slug:'us-non-farm-employment-change', type:'emploi'},
+  {slug:'us-prelim-benchmark-payrolls-revision', type:'emploi'},
+  {slug:'us-unemployment-rate', type:'emploi'},
+  {slug:'us-adp-non-farm-employment-change', type:'emploi'},
+  {slug:'us-jolts-job-openings', type:'emploi'},
+  {slug:'us-unemployment-claims', type:'emploi'},
+  {slug:'us-adp-weekly-employment-change', type:'emploi'},
+  {slug:'us-challenger-job-cuts-yy', type:'emploi'},
+  {slug:'us-cpi-yy', type:'inflation'},
+  {slug:'us-core-cpi-yy', type:'inflation'},
+  {slug:'us-cpi-mm', type:'inflation'},
+  {slug:'us-core-cpi-mm', type:'inflation'},
+  {slug:'us-ppi-mm', type:'inflation'},
+  {slug:'us-core-ppi-mm', type:'inflation'},
+  {slug:'us-core-pce-price-index-mm', type:'inflation'},
+  {slug:'us-average-hourly-earnings-mm', type:'salaires'},
+  {slug:'us-advance-gdp-price-index-qq', type:'croissance'},
+  {slug:'us-prelim-gdp-price-index-qq', type:'croissance'},
+  {slug:'us-final-gdp-price-index-qq', type:'croissance'},
+  {slug:'us-ism-services-pmi', type:'croissance'},
+  {slug:'us-ism-manufacturing-pmi', type:'croissance'},
+  {slug:'us-philly-fed-manufacturing-index', type:'croissance'},
+  {slug:'us-chicago-pmi', type:'croissance'},
+];
+
+// { slug: [ {date_publication_texte, actual, forecast, previous, previous_revise, position}, ... ] }
+// trie par 'position' croissant (0 = ligne la plus recente), voir la
+// requete plus bas.
+let donneesIndicateurs = {};
+
+function itemDepuisDocIndicateur(d){
+  return {
+    date_publication_texte: d.date_publication_texte || '',
+    actual: d.actual || '',
+    forecast: d.forecast || '',
+    previous: d.previous || '',
+    previous_revise: !!d.previous_revise,
+    position: d.position ?? 999,
+  };
+}
+
+function ecouterIndicateursTempsReel(){
+  INDICATEURS_USD.forEach(ind => {
+    dbFirestore.collection('ff_indicator_history')
+      .where('indicateur_slug', '==', ind.slug)
+      .orderBy('position', 'asc')
+      .limit(20)
+      .onSnapshot(snapshot => {
+        donneesIndicateurs[ind.slug] = snapshot.docs.map(doc => itemDepuisDocIndicateur(doc.data()));
+        renderEcoData();
+      }, erreur => {
+        console.error('Erreur écoute temps réel ff_indicator_history (' + ind.slug + ') :', erreur);
+      });
+  });
+}
+
 function demarrerEcouteTempsReel(){
   ecouterCollectionTempsReel('ff_news', itemDepuisDocFF, items => { liveFF = items; });
   ecouterCollectionTempsReel('cb_articles', itemDepuisDocCB, items => { liveCB = items; });
   ecouterCollectionTempsReel('il_articles', itemDepuisDocIL, items => { liveIL = items; });
   ecouterCalendrierTempsReel();
+  ecouterIndicateursTempsReel();
   SOURCES_PIPELINE.forEach(ecouterStatutPipeline);
 }
 </script>
@@ -875,6 +1018,7 @@ const DOTS_PAR_SOURCE = {
   centralbanks: ['dot-centralbanks'],
   forexfactory: ['dot-forexfactory', 'dot-forexfactory-high'],
   ecocalendar: ['dot-ecocalendar', 'dot-ecocalendar-page'],
+  'data-usd': ['dot-dataeco'],
 };
 
 function mettreAJourPastillesSources(){
@@ -1011,11 +1155,11 @@ function drawChart(){
   const pad = (max-min)*0.08 || 1;
   const yMax = max+pad, yMin = min-pad;
 
-  const gridColor = '#1a2029';
+  const gridColor = '#1c212c';
   ctx.strokeStyle = gridColor;
   ctx.lineWidth = 1;
   ctx.font = '10px IBM Plex Mono';
-  ctx.fillStyle = '#525c6d';
+  ctx.fillStyle = '#576079';
   for(let i=0;i<=4;i++){
     const y = (h*0.82) * (i/4) + 6;
     ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
@@ -1033,8 +1177,8 @@ function drawChart(){
   candles.forEach((c,i)=>{
     const x = i*cw + cw/2;
     const up = c.c >= c.o;
-    ctx.strokeStyle = up ? '#26c281' : '#e5484d';
-    ctx.fillStyle = up ? '#26c281' : '#e5484d';
+    ctx.strokeStyle = up ? '#22c48d' : '#ef4a5a';
+    ctx.fillStyle = up ? '#22c48d' : '#ef4a5a';
     ctx.beginPath();
     ctx.moveTo(x, yFor(c.h));
     ctx.lineTo(x, yFor(c.l));
@@ -1220,7 +1364,7 @@ function formaterDateCarte(date){
   return jour + ' ' + MOIS_ABREGES_FR[date.getMonth()];
 }
 
-let langueAffichage = localStorage.getItem('meridian_langue') || 'fr';
+let langueAffichage = localStorage.getItem('smf_langue') || 'fr';
 
 function texteAffiche(n){
   if(n.textFr === undefined) return n.text || ''; // fallback pour les news simulees
@@ -1234,7 +1378,7 @@ function snippetAffiche(n){
 
 function basculerLangueAffichage(langue){
   langueAffichage = langue;
-  localStorage.setItem('meridian_langue', langue);
+  localStorage.setItem('smf_langue', langue);
   document.getElementById('langBtnFr').classList.toggle('active', langue === 'fr');
   document.getElementById('langBtnEn').classList.toggle('active', langue === 'en');
   renderNewsHomeColumns();
@@ -1630,17 +1774,17 @@ function drawCesiChart(canvas, data){
   const xFor = i => (i/(data.length-1))*w;
 
   // ligne zéro
-  c.strokeStyle = '#232a36'; c.setLineDash([3,3]); c.lineWidth=1;
+  c.strokeStyle = '#242b38'; c.setLineDash([3,3]); c.lineWidth=1;
   c.beginPath(); c.moveTo(0, yFor(0)); c.lineTo(w, yFor(0)); c.stroke();
   c.setLineDash([]);
-  c.fillStyle = '#525c6d'; c.font = '9px IBM Plex Mono';
+  c.fillStyle = '#576079'; c.font = '9px IBM Plex Mono';
   c.fillText('0', 2, yFor(0)-2);
 
   // zone colorée par segment (vert au-dessus de 0, rouge en-dessous)
   for(let i=0;i<data.length-1;i++){
     const v1=data[i], v2=data[i+1];
     const avg = (v1+v2)/2;
-    c.strokeStyle = avg>=0 ? '#26c281' : '#e5484d';
+    c.strokeStyle = avg>=0 ? '#22c48d' : '#ef4a5a';
     c.lineWidth = 1.8;
     c.beginPath();
     c.moveTo(xFor(i), yFor(v1));
@@ -1668,47 +1812,109 @@ function renderCesi(){
   });
 }
 
-// ===================== DATA ÉCONOMIQUE =====================
-const ecoIndicators = [
-  {name:'PIB — croissance annuelle', country:'US', value:2.8, unit:'%'},
-  {name:'Inflation (IPC annuel)', country:'US', value:3.1, unit:'%'},
-  {name:'Taux de chômage', country:'US', value:4.1, unit:'%'},
-  {name:'Taux directeur', country:'US', value:5.50, unit:'%'},
-  {name:'PMI manufacturier', country:'EU', value:48.9, unit:''},
-  {name:'Inflation (IPC annuel)', country:'EU', value:2.4, unit:'%'},
-  {name:'Taux de chômage', country:'EU', value:6.5, unit:'%'},
-  {name:'Taux directeur', country:'EU', value:3.75, unit:'%'},
-  {name:'PIB — croissance annuelle', country:'GB', value:1.1, unit:'%'},
-  {name:'Inflation (IPC annuel)', country:'JP', value:2.8, unit:'%'},
-  {name:'PMI services', country:'CN', value:50.7, unit:''},
-  {name:'Production industrielle', country:'DE', value:-1.8, unit:'%'},
-];
-function genTrend(base){
-  let v = base;
-  const arr = [];
-  for(let i=0;i<16;i++){ v += (Math.random()-0.5)*Math.abs(base||1)*0.06; arr.push(v); }
-  return arr;
+// ===================== DATA ÉCONOMIQUE (données réelles, voir plus haut
+// INDICATEURS_USD / donneesIndicateurs / ecouterIndicateursTempsReel) =====
+const ecoTypeLabels = {
+  croissance:'Croissance', inflation:'Inflation', emploi:'Emploi',
+  salaires:'Salaires', taux:'Taux directeur',
+};
+let ecoFilterType = 'all';
+// Un seul historique déplié à la fois (évite des cartes toutes très
+// hautes en même temps, garde la grille lisible).
+let ecoHistOuvert = null;
+
+function renderEcoFilters(){
+  const typesPresents = [...new Set(INDICATEURS_USD.map(e=>e.type))];
+  const typeHtml = ['all', ...typesPresents].map(t=>
+    `<button class="eco-chip ${ecoFilterType===t?'active':''}" data-type="${t}">${t==='all'?'Tous':ecoTypeLabels[t]||t}</button>`
+  ).join('');
+
+  // Filtre devise laissé en place pour plus tard (Fed SEP + BCE prévus,
+  // voir contexte projet) : pour l'instant tous les indicateurs sont en
+  // USD, donc un simple badge plutôt qu'un vrai filtre cliquable.
+  document.getElementById('ecoFilterCcy').innerHTML = `<span class="eco-chip active" style="cursor:default;">${flagFor('USD')} USD</span>`;
+  document.getElementById('ecoFilterType').innerHTML = typeHtml;
 }
+
 function renderEcoData(){
+  renderEcoFilters();
   const grid = document.getElementById('ecoGrid');
-  grid.innerHTML = ecoIndicators.map((e,i)=>{
-    const trend = genTrend(e.value);
-    const delta = trend[trend.length-1]-trend[0];
+  const filtered = INDICATEURS_USD.filter(e => ecoFilterType==='all' || e.type===ecoFilterType);
+
+  if(!filtered.length){
+    grid.innerHTML = `<div class="eco-empty">Aucun indicateur ne correspond à ces filtres.</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((e,i)=>{
+    const lignes = donneesIndicateurs[e.slug] || [];
+    const nom = nomLisibleDepuisSlug(e.slug);
+
+    if(!lignes.length){
+      return `<div class="eco-card">
+        <div class="top"><div><div class="name">${nom}</div><div class="country">${flagFor('USD')} US</div></div></div>
+        <div class="value" style="color:var(--text-low); font-size:13px;">En attente de données…</div>
+      </div>`;
+    }
+
+    const dernier = lignes[0];
+    // trend en ordre chronologique (le plus ancien d'abord), comme
+    // l'attend drawSparkline. parseValeurCal() reprend le meme parseur
+    // que le calendrier ("0.3%", "150K", "-1.2M" -> nombre).
+    const trendVals = [...lignes].reverse().map(l => parseValeurCal(l.actual)).filter(v => v !== null);
+    const delta = trendVals.length>1 ? trendVals[trendVals.length-1]-trendVals[0] : 0;
     const up = delta>=0;
+    // Badge de révision si l'une des 4 publications les plus récentes
+    // porte le marqueur officiel ForexFactory.
+    const aUneRevision = lignes.slice(0,4).some(l => l.previous_revise);
+    const ouvert = ecoHistOuvert === e.slug;
+
     return `<div class="eco-card">
       <div class="top">
-        <div><div class="name">${e.name}</div><div class="country">${flagFor(e.country)} ${e.country}</div></div>
+        <div>
+          <div class="name">${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</div>
+          <div class="country">${flagFor('USD')} US · ${dernier.date_publication_texte}</div>
+        </div>
       </div>
-      <div class="value">${e.value.toFixed(e.unit==='%'?1:1)}${e.unit}</div>
-      <div class="delta ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(delta).toFixed(2)} sur la période</div>
+      <div class="value">${dernier.actual || '—'}</div>
+      <div class="delta ${up?'up':'down'}">${trendVals.length>1 ? (up?'▲':'▼')+' '+Math.abs(delta).toFixed(2)+' sur la période' : 'Prév. '+(dernier.forecast||'—')}</div>
       <canvas id="eco-spark-${i}"></canvas>
+      <button class="eco-hist-toggle" data-slug="${e.slug}">${ouvert?'Masquer l\u2019historique ▴':'Historique ▾'}</button>
+      <table class="eco-hist-table ${ouvert?'open':''}">
+        <thead><tr><th>Date</th><th>Actual</th><th>Forecast</th><th>Previous</th></tr></thead>
+        <tbody>
+          ${lignes.map(l => `<tr>
+            <td>${l.date_publication_texte}</td>
+            <td>${l.actual || '—'}</td>
+            <td>${l.forecast || '—'}</td>
+            <td>${l.previous || '—'}${l.previous_revise ? '<span class="revise-tag" title="Révisé par la source">rév.</span>' : ''}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
     </div>`;
   }).join('');
-  ecoIndicators.forEach((e,i)=>{
-    const trend = genTrend(e.value);
-    drawSparkline(document.getElementById('eco-spark-'+i), trend);
+
+  filtered.forEach((e,i)=>{
+    const lignes = donneesIndicateurs[e.slug] || [];
+    if(lignes.length < 2) return;
+    const trendVals = [...lignes].reverse().map(l => parseValeurCal(l.actual)).filter(v => v !== null);
+    if(trendVals.length>=2) drawSparkline(document.getElementById('eco-spark-'+i), trendVals);
   });
 }
+
+document.getElementById('ecoFilters').addEventListener('click', e=>{
+  const typeBtn = e.target.closest('[data-type]');
+  if(typeBtn){ ecoFilterType = typeBtn.dataset.type; renderEcoData(); }
+});
+// Deplier/replier le tableau d'historique d'une carte (delegation car les
+// cartes sont regenerees a chaque renderEcoData()).
+document.getElementById('ecoGrid').addEventListener('click', e=>{
+  const histBtn = e.target.closest('.eco-hist-toggle');
+  if(!histBtn) return;
+  const slug = histBtn.dataset.slug;
+  ecoHistOuvert = (ecoHistOuvert === slug) ? null : slug;
+  renderEcoData();
+});
 function drawSparkline(canvas, data){
   if(!canvas) return;
   const rect = canvas.getBoundingClientRect();
@@ -1719,7 +1925,7 @@ function drawSparkline(canvas, data){
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   const min = Math.min(...data), max = Math.max(...data);
   const up = data[data.length-1] >= data[0];
-  c.strokeStyle = up ? '#26c281' : '#e5484d';
+  c.strokeStyle = up ? '#22c48d' : '#ef4a5a';
   c.lineWidth = 1.5;
   c.beginPath();
   data.forEach((v,i)=>{
@@ -1731,95 +1937,158 @@ function drawSparkline(canvas, data){
 }
 
 // ===================== TAUX IMPLICITE =====================
-const maturities = ['1M','3M','6M','1Y','2Y','5Y','10Y','30Y'];
-const usYields = [5.45,5.40,5.20,4.85,4.30,4.10,4.25,4.40];
-const euYields = [3.70,3.65,3.55,3.30,2.95,2.70,2.65,2.80];
 const meetings = [
-  {bank:'Réserve fédérale (Fed)', meeting:'18 sept. 2026', cut:62, hold:33, hike:5},
-  {bank:'Réserve fédérale (Fed)', meeting:'30 oct. 2026', cut:48, hold:40, hike:12},
-  {bank:'BCE', meeting:'11 sept. 2026', cut:55, hold:40, hike:5},
-  {bank:'BCE', meeting:'23 oct. 2026', cut:35, hold:55, hike:10},
-  {bank:"Banque d'Angleterre", meeting:'19 sept. 2026', cut:40, hold:50, hike:10},
-  {bank:'Banque du Japon', meeting:'25 sept. 2026', cut:5, hold:60, hike:35},
+  {ccy:'USD', bank:'Réserve fédérale (Fed)', meeting:'18 sept. 2026', cut:62, hold:33, hike:5},
+  {ccy:'USD', bank:'Réserve fédérale (Fed)', meeting:'30 oct. 2026', cut:48, hold:40, hike:12},
+  {ccy:'EUR', bank:'Banque centrale européenne (BCE)', meeting:'11 sept. 2026', cut:55, hold:40, hike:5},
+  {ccy:'EUR', bank:'Banque centrale européenne (BCE)', meeting:'23 oct. 2026', cut:35, hold:55, hike:10},
+  {ccy:'GBP', bank:"Banque d'Angleterre (BoE)", meeting:'19 sept. 2026', cut:40, hold:50, hike:10},
+  {ccy:'JPY', bank:'Banque du Japon (BoJ)', meeting:'25 sept. 2026', cut:5, hold:60, hike:35},
+  {ccy:'CAD', bank:'Banque du Canada (BoC)', meeting:'16 sept. 2026', cut:45, hold:48, hike:7},
+  {ccy:'CHF', bank:'Banque nationale suisse (BNS)', meeting:'26 sept. 2026', cut:30, hold:65, hike:5},
+  {ccy:'AUD', bank:'Reserve Bank of Australia (RBA)', meeting:'23 sept. 2026', cut:25, hold:60, hike:15},
+  {ccy:'NZD', bank:'Reserve Bank of New Zealand (RBNZ)', meeting:'8 oct. 2026', cut:38, hold:52, hike:10},
 ];
-function drawYieldCurve(){
-  const canvas = document.getElementById('curveCanvas');
+
+// Simule l'historique (20 derniers "jours") des probabilités implicites
+// pour une réunion donnée, en partant à rebours des valeurs actuelles
+// (cut/hold/hike) — juste pour donner une évolution crédible au graphique,
+// les vraies données de marché n'étant pas branchées ici.
+function genProbHistory(finalCut, finalHold, finalHike, days){
+  days = days || 20;
+  let c = finalCut, h = finalHold, k = finalHike;
+  const arr = [{cut:c, hold:h, hike:k}];
+  for(let i=1;i<days;i++){
+    const dc = (Math.random()-0.5)*7;
+    const dk = (Math.random()-0.5)*3;
+    c = Math.max(0, Math.min(100, c-dc));
+    k = Math.max(0, Math.min(100, k-dk));
+    let h2 = 100-c-k;
+    if(h2 < 0){
+      const tot = c+k;
+      c = tot ? c/tot*100 : 0;
+      k = tot ? k/tot*100 : 0;
+      h2 = 0;
+    }
+    h = h2;
+    arr.unshift({cut:c, hold:h, hike:k});
+  }
+  arr[arr.length-1] = {cut:finalCut, hold:finalHold, hike:finalHike};
+  return arr;
+}
+meetings.forEach(m=>{ m.history = genProbHistory(m.cut, m.hold, m.hike); });
+
+let tauxFilterCcy = 'all';
+
+function renderTauxFilters(){
+  const ccys = [...new Set(meetings.map(m=>m.ccy))];
+  document.getElementById('tauxFilterCcy').innerHTML = ['all', ...ccys].map(c=>
+    `<button class="eco-chip ${tauxFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':flagFor(c)+' '+c}</button>`
+  ).join('');
+}
+
+function drawTauxEvolution(history){
+  const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
   const rect = canvas.parentElement.getBoundingClientRect();
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
-  canvas.style.width=rect.width+'px'; canvas.style.height=rect.height+'px';
-  const ctx2 = canvas.getContext('2d');
-  ctx2.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   const w = rect.width, h = rect.height;
-  ctx2.clearRect(0,0,w,h);
-  const all = usYields.concat(euYields);
-  const min = Math.min(...all)-0.3, max = Math.max(...all)+0.3;
-  const padL = 38, padB = 22, padT = 10;
-  const plotW = w-padL-10, plotH = h-padB-padT;
-  const xFor = i => padL + (i/(maturities.length-1))*plotW;
-  const yFor = v => padT + plotH*(1-(v-min)/(max-min));
-  ctx2.strokeStyle = '#1a2029'; ctx2.fillStyle = '#525c6d'; ctx2.font = '10px IBM Plex Mono'; ctx2.lineWidth=1;
-  for(let i=0;i<=4;i++){
-    const val = min + (max-min)*(i/4);
-    const y = yFor(val);
-    ctx2.beginPath(); ctx2.moveTo(padL,y); ctx2.lineTo(w,y); ctx2.stroke();
-    ctx2.fillText(val.toFixed(1)+'%', 2, y+3);
+  ctx.clearRect(0,0,w,h);
+  const padL=36, padB=20, padT=20, padR=12;
+  const plotW = w-padL-padR, plotH = h-padB-padT;
+  const n = history.length;
+  const xFor = i => padL + (i/(n-1))*plotW;
+  const yFor = v => padT + plotH*(1-v/100);
+
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  [0,25,50,75,100].forEach(v=>{
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
+    ctx.fillText(v+'%', 2, y+3);
+  });
+  const step = Math.max(1, Math.round(n/6));
+  history.forEach((_,i)=>{
+    if(i%step===0 || i===n-1){
+      const label = i===n-1 ? "Auj." : `J-${n-1-i}`;
+      ctx.fillText(label, xFor(i)-10, h-4);
+    }
+  });
+
+  function drawLine(key, color){
+    ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.beginPath();
+    history.forEach((d,i)=>{ const x=xFor(i), y=yFor(d[key]); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+    ctx.stroke();
+    const last = history[n-1];
+    ctx.beginPath(); ctx.arc(xFor(n-1), yFor(last[key]), 3, 0, 7); ctx.fillStyle=color; ctx.fill();
   }
-  maturities.forEach((m,i)=> ctx2.fillText(m, xFor(i)-8, h-6));
-  function drawLine(arr, color){
-    ctx2.strokeStyle = color; ctx2.lineWidth = 2; ctx2.beginPath();
-    arr.forEach((v,i)=>{ const x=xFor(i), y=yFor(v); i===0?ctx2.moveTo(x,y):ctx2.lineTo(x,y); });
-    ctx2.stroke();
-    arr.forEach((v,i)=>{ ctx2.beginPath(); ctx2.arc(xFor(i),yFor(v),2.5,0,7); ctx2.fillStyle=color; ctx2.fill(); });
-  }
-  drawLine(usYields, '#4f8cff');
-  drawLine(euYields, '#e0a542');
-  ctx2.fillStyle='#4f8cff'; ctx2.fillRect(padL, 4, 8, 3); ctx2.fillStyle='#8b96a8'; ctx2.fillText('US', padL+12, 10);
-  ctx2.fillStyle='#e0a542'; ctx2.fillRect(padL+45, 4, 8, 3); ctx2.fillStyle='#8b96a8'; ctx2.fillText('EU', padL+57, 10);
+  drawLine('cut', '#22c48d');
+  drawLine('hold', '#8f9bb0');
+  drawLine('hike', '#ef4a5a');
+
+  let lx = padL;
+  [['Baisse','#22c48d'],['Statu quo','#8f9bb0'],['Hausse','#ef4a5a']].forEach(([label,color])=>{
+    ctx.fillStyle = color; ctx.fillRect(lx, 4, 8, 3);
+    ctx.fillStyle = '#8f9bb0'; ctx.fillText(label, lx+12, 10);
+    lx += ctx.measureText(label).width + 34;
+  });
 }
+
+// Conversion des probabilités en un mouvement de taux implicite en points
+// de base (convention standard : 25 pb par baisse/hausse de réunion).
+function impliedBps(m){
+  return Math.round((m.hike/100)*25 - (m.cut/100)*25);
+}
+
 function renderTaux(){
-  document.getElementById('probBody').innerHTML = meetings.map(m=>`
-    <tr>
-      <td>${m.bank}</td>
-      <td class="cal-time">${m.meeting}</td>
-      <td>
-        <div class="prob-bar-wrap">
-          <div class="prob-bar">
-            <div class="seg-cut" style="width:${m.cut}%"></div>
-            <div class="seg-hold" style="width:${m.hold}%"></div>
-            <div class="seg-hike" style="width:${m.hike}%"></div>
-          </div>
-          <span style="font-family:var(--mono); font-size:10.5px; color:var(--text-mid); white-space:nowrap;">
-            ${m.cut}% / ${m.hold}% / ${m.hike}%
-          </span>
-        </div>
-      </td>
-    </tr>
-  `).join('');
+  renderTauxFilters();
+  const chartCcy = tauxFilterCcy==='all' ? 'USD' : tauxFilterCcy;
+  const meeting = meetings.find(m=>m.ccy===chartCcy);
+  if(meeting){
+    document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DES PROBABILITÉS — ' + meeting.bank.toUpperCase();
+    document.getElementById('tauxChartSub').textContent = 'Prochaine réunion : ' + meeting.meeting;
+    drawTauxEvolution(meeting.history);
+  }
 
-  document.getElementById('rateTable').innerHTML = `
-    <div class="book-head" style="grid-template-columns:1fr 1fr 1fr;"><span>ÉCHÉANCE</span><span style="text-align:right">US</span><span style="text-align:right">EU</span></div>
-    ${maturities.map((m,i)=>`
-      <div class="ind-row" style="grid-template-columns:1fr 1fr 1fr; display:grid;">
-        <span class="iname">${m}</span>
-        <span class="ival" style="text-align:right">${usYields[i].toFixed(2)}%</span>
-        <span class="ival" style="text-align:right">${euYields[i].toFixed(2)}%</span>
+  const filtered = tauxFilterCcy==='all' ? meetings : meetings.filter(m=>m.ccy===tauxFilterCcy);
+
+  document.getElementById('bpsList').innerHTML = filtered.map(m=>{
+    const bps = impliedBps(m);
+    return `<div class="bps-row">
+      <div class="bps-bank">${flagFor(m.ccy)} ${m.bank}</div>
+      <div class="bps-meeting">${m.meeting}</div>
+      <div class="bps-value ${bps<=0?'up':'down'}">${bps>0?'+':''}${bps} pb</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('probBody').innerHTML = filtered.map(m=>`
+    <div class="pm-row">
+      <div class="pm-top">
+        <span class="pm-bank">${flagFor(m.ccy)} ${m.bank}</span>
+        <span class="pm-date">${m.meeting}</span>
       </div>
-    `).join('')}
-  `;
-
-  const spread10y2yUS = (usYields[6]-usYields[3])*100;
-  const spread10y2yEU = (euYields[6]-euYields[3])*100;
-  const spreadUSEU10y = (usYields[6]-euYields[6])*100;
-  const spreads = [
-    {label:'10 ans – 2 ans (US)', val: spread10y2yUS},
-    {label:'10 ans – 2 ans (EU)', val: spread10y2yEU},
-    {label:'US – EU (10 ans)', val: spreadUSEU10y},
-  ];
-  document.getElementById('spreadTable').innerHTML = spreads.map(s=>`
-    <div class="ind-row"><span class="iname">${s.label}</span><span class="ival ${s.val>=0?'up':'down'}">${s.val>=0?'+':''}${s.val.toFixed(0)} pb</span></div>
+      <div class="prob-bar-wrap">
+        <div class="prob-bar">
+          <div class="seg-cut" style="width:${m.cut}%"></div>
+          <div class="seg-hold" style="width:${m.hold}%"></div>
+          <div class="seg-hike" style="width:${m.hike}%"></div>
+        </div>
+        <span style="font-family:var(--mono); font-size:10.5px; color:var(--text-mid); white-space:nowrap;">
+          ${m.cut}/${m.hold}/${m.hike}%
+        </span>
+      </div>
+    </div>
   `).join('');
 }
+
+document.getElementById('tauxFilters').addEventListener('click', e=>{
+  const btn = e.target.closest('[data-ccy]');
+  if(!btn) return;
+  tauxFilterCcy = btn.dataset.ccy;
+  renderTaux();
+});
 
 // ===================== ANALYSE TECHNIQUE =====================
 function computeTA(){
@@ -1865,14 +2134,14 @@ function drawGauge(score){
   const cx=80, cy=80, r=62;
   const nx = cx + r*Math.cos(rad);
   const ny = cy - r*Math.sin(rad);
-  let color = '#8b96a8';
-  if(norm>=4) color='#26c281'; else if(norm<=-4) color='#e5484d'; else if(norm>0) color='#7fd3a8'; else if(norm<0) color='#e59a9c';
+  let color = '#8f9bb0';
+  if(norm>=4) color='#22c48d'; else if(norm<=-4) color='#ef4a5a'; else if(norm>0) color='#7fd6ac'; else if(norm<0) color='#f0a3ac';
   svg.innerHTML = `
-    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="#232a36" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="#242b38" stroke-width="10" stroke-linecap="round"/>
     <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="round"
       stroke-dasharray="195" stroke-dashoffset="${195 - 195*((norm+9)/18)}"/>
-    <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="#e7ecf3" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="${cx}" cy="${cy}" r="4" fill="#e7ecf3"/>
+    <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="#eef1f7" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="4" fill="#eef1f7"/>
   `;
 }
 
@@ -1893,20 +2162,20 @@ function drawTAChart(ta){
   const n = candles.length, cw = w/n, bodyW = Math.max(2,cw*0.55);
   const yFor = v => 6 + (h-16) * (1 - (v-yMin)/(yMax-yMin));
 
-  c.strokeStyle = '#1a2029'; c.lineWidth=1; c.font='10px IBM Plex Mono'; c.fillStyle='#525c6d';
+  c.strokeStyle = '#1c212c'; c.lineWidth=1; c.font='10px IBM Plex Mono'; c.fillStyle='#576079';
   for(let i=0;i<=4;i++){ const y=(h-16)*(i/4)+6; c.beginPath(); c.moveTo(0,y); c.lineTo(w,y); c.stroke(); }
 
   candles.forEach((k,i)=>{
     const x = i*cw+cw/2;
     const up = k.c>=k.o;
-    c.strokeStyle = up?'#26c281':'#e5484d'; c.fillStyle = up?'#26c281':'#e5484d';
+    c.strokeStyle = up?'#22c48d':'#ef4a5a'; c.fillStyle = up?'#22c48d':'#ef4a5a';
     c.beginPath(); c.moveTo(x,yFor(k.h)); c.lineTo(x,yFor(k.l)); c.stroke();
     const yO=yFor(k.o), yC=yFor(k.c);
     c.fillRect(x-bodyW/2, Math.min(yO,yC), bodyW, Math.max(1,Math.abs(yC-yO)));
   });
 
   // overlay MM20
-  c.strokeStyle = '#4f8cff'; c.lineWidth=1.6; c.beginPath();
+  c.strokeStyle = '#5b90ff'; c.lineWidth=1.6; c.beginPath();
   candles.forEach((k,i)=>{
     if(i<19) return;
     const slice = candles.slice(i-19,i+1).map(k=>k.c);
@@ -1967,7 +2236,7 @@ document.getElementById('mainNav').addEventListener('click', e=>{
     case 'accueil': resizeCanvas(); break;
     case 'calendrier': renderCalendar(); renderCesi(); break;
     case 'dataeco': renderEcoData(); break;
-    case 'taux': renderTaux(); drawYieldCurve(); break;
+    case 'taux': renderTaux(); break;
     case 'technique': renderTechnique(); break;
   }
 });
