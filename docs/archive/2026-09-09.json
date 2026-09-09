@@ -51,7 +51,8 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1417215-trump-oil-prices-will-tumble-after-election",
-      "extrait_fr": null,
+      "titre": "Trump: Oil Prices Will Tumble After Election",
+      "ignore": false,
       "source": "@DeItaone",
       "date_recuperation": "2026-09-09T18:32:20.065445+00:00",
       "impact": "low",
@@ -87,7 +88,8 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1417206-us-treasury-auction-results",
-      "extrait_fr": null,
+      "titre": "US Treasury Auction Results",
+      "date_publication": "2026-09-09T17:03:15.558615+00:00",
       "source": "treasurydirect.gov",
       "date_recuperation": "2026-09-09T17:04:15.558615+00:00",
       "impact": "low",
@@ -171,7 +173,8 @@
     },
     {
       "url": "https://www.forexfactory.com/news/1417094-in-july-2026-french-manufacturing-output-falls-sharply",
-      "extrait_fr": "En juillet 2026, la production recule de nouveau dans l'industrie manufacturière (-0,8 % après -1,0 % en juin 2026). Dans l'ensemble de l'industrie, il baisse également (-0,4 % après -0,1 %). En juillet 2026*, la production manufacturière recule dans tous les grands secteurs à l'exception de la cokéfaction et du raffinage (+8,3 % après -12,4 %). Concrètement, il recule de nouveau dans la fabrication de matériels de transport (-2,8%...",
+      "titre": "In July 2026, French manufacturing output falls sharply again (-0.8% after -1.0%)",
+      "date_publication": "2026-09-09T06:48:17.769021+00:00",
       "source": "insee.fr",
       "date_recuperation": "2026-09-09T06:49:17.769021+00:00",
       "impact": "low",
@@ -209,6 +212,7 @@
     {
       "ignore": false,
       "url": "https://investinglive.com/commodities/oil-private-survey-of-inventory-shows-a-headline-crude-oil-than-expected/",
+      "titre": "Oil: Private survey of inventory shows a headline crude oil draw smaller than expected",
       "date_recuperation": "2026-09-09T21:00:32.972735+00:00",
       "titre": "Oil: Private survey of inventory shows a headline crude oil draw smaller than expected",
       "titre_fr": null,
@@ -231,6 +235,7 @@
     {
       "titre": "Trump says oil prices won't come down until after the midterms",
       "url": "https://investinglive.com/commodities/trump-says-oil-prices-won-t-come-down-until-after-the-midterms-3/",
+      "titre": "Trump says oil prices won't come down until after the midterms",
       "date_recuperation": "2026-09-09T19:10:22.175109+00:00",
       "ignore": false,
       "titre_fr": "Trump affirme que les prix du pétrole ne baisseront qu'après la mi-mandat",
@@ -242,6 +247,7 @@
     {
       "titre": "Trump says oil prices won't come down until after the midterms",
       "url": "https://investinglive.com/commodities/trump-says-oil-prices-won-t-come-down-until-after-the-midterms-2/",
+      "titre": "Trump says oil prices won't come down until after the midterms",
       "date_recuperation": "2026-09-09T19:10:22.175109+00:00",
       "ignore": false,
       "titre_fr": "Trump affirme que les prix du pétrole ne baisseront qu'après la mi-mandat",
@@ -253,6 +259,7 @@
     {
       "titre": "Trump says oil prices won't come down until after the midterms",
       "url": "https://investinglive.com/commodities/trump-says-oil-prices-won-t-come-down-until-after-the-midterms-1/",
+      "titre": "Trump says oil prices won't come down until after the midterms",
       "date_recuperation": "2026-09-09T19:10:22.175109+00:00",
       "ignore": false,
       "titre_fr": "Trump affirme que les prix du pétrole ne baisseront qu'après la mi-mandat",
@@ -274,7 +281,6 @@
     },
     {
       "titre": "Trump says oil prices won't come down until after the midterms",
-      "url": "https://investinglive.com/commodities/trump-says-oil-prices-won-t-come-down-until-after-the-midterms/",
       "date_recuperation": "2026-09-09T19:10:22.175109+00:00",
       "ignore": false,
       "titre_fr": "Trump affirme que les prix du pétrole ne baisseront qu'après la mi-mandat",
