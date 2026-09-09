@@ -35,7 +35,12 @@
       "url": "https://www.forexfactory.com/news/1417115-japan-is-planning-a-special-diet-session-on",
       "date_recuperation": "2026-09-09T09:05:30.134346+00:00",
       "impact": "low",
-      "extrait": "Japan Is Planning A Special Diet Session On October 5, According To Kyodo."
+      "ignore": false,
+      "titre_fr": "Le Japon prévoit une séance de diète spéciale le 5 octobre, selon Kyodo",
+      "extrait": "Japan Is Planning A Special Diet Session On October 5, According To Kyodo.",
+      "extrait_fr": "Le Japon prévoit une séance de diète spéciale le 5 octobre, selon Kyodo.",
+      "url": "https://www.forexfactory.com/news/1417115-japan-is-planning-a-special-diet-session-on",
+      "date_publication": "2026-09-09T09:04:30.134346+00:00"
     },
     {
       "source": "insee.fr",
