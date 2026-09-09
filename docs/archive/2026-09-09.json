@@ -9,7 +9,10 @@
       "extrait_fr": "Au cours des quatre semaines se terminant le 22 août 2026, les employeurs privés américains ont créé en moyenne 12 000 emplois par semaine, selon le NER Pulse, une mise à jour hebdomadaire du rapport national mensuel sur l'emploi (NER) d'ADP. Les embauches se sont accélérées de semaine en semaine. Ces chiffres sont préliminaires et pourraient changer à mesure que de nouvelles données sont ajoutées.tableLe NER Pulse est une estimation du...",
       "ignore": false,
       "date_publication": "2026-09-09T12:17:17.712778+00:00",
-      "impact": "low",
+      "date_recuperation": "2026-09-09T12:18:17.712778+00:00",
+      "ignore": false,
+      "titre": "US ADP National Employment Report Preliminary Estimate for August 22, 2026",
+      "extrait": "For the four weeks ending August 22, 2026, U.S. private employers added an average of 12,000 jobs per week, according to the NER Pulse, a weekly update of the monthly ADP National Employment Report (NER). Hiring accelerated week over week. These numbers are preliminary and could change as new data is added.tableThe NER Pulse is an estimate of the ...",
       "url": "https://www.forexfactory.com/news/1417148-us-adp-national-employment-report-preliminary-estimate-for",
       "extrait": "For the four weeks ending August 22, 2026, U.S. private employers added an average of 12,000 jobs per week, according to the NER Pulse, a weekly update of the monthly ADP National Employment Report (NER). Hiring accelerated week over week. These numbers are preliminary and could change as new data is added.tableThe NER Pulse is an estimate of the ..."
     },
@@ -110,6 +113,7 @@
     {
       "contenu_fr": null,
       "titre": "ECB preview: A rate hike expected as markets focus on Lagarde, inflation and future policy",
+      "url": "https://investinglive.com/central-banks/ecb-preview-a-rate-hike-expected-as-markets-focus-on-lagarde-inflation-and-future-policy/",
       "titre_fr": null,
       "date_recuperation": "2026-09-09T10:10:23.657351+00:00",
       "categorie": "central-banks",
@@ -121,6 +125,7 @@
     {
       "contenu_fr": null,
       "titre": "Gold trade idea: If price sweeps below 4,431, this buy zone gets interesting",
+      "url": "https://investinglive.com/commodities/gold-trade-idea-if-price-sweeps-below-4-431-this-buy-zone-gets-interesting/",
       "titre_fr": null,
       "date_recuperation": "2026-09-09T10:10:23.657351+00:00",
       "categorie": "commodities",
