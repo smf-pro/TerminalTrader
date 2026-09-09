@@ -26,6 +26,10 @@
       "extrait": "Us Api Crude Oil Stock Change Actual -0.3m (forecast -1.3m, Previous -2.6m) $macroUs Api Cushing Stock Change Actual -0.3m (forecast -, Previous 0.2m) $macro ...Us Api Distillate Stock Change Actual 2m (forecast -, Previous -0.3m) $macro ...Us Api Gasoline Stock Change Actual -1.9m (forecast -, Previous 0.3m) $macro ..."
     },
     {
+      "extrait": "Us Api Crude Oil Stock Change Actual -0.3m (forecast -1.3m, Previous -2.6m) $macroUs Api Cushing Stock Change Actual -0.3m (forecast -, Previous 0.2m) $macro ...Us Api Distillate Stock Change Actual 2m (forecast -, Previous -0.3m) $macro ...Us Api Gasoline Stock Change Actual -1.9m (forecast -, Previous 0.3m) $macro ...",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1417239-api-crude-03m-cushing-03m-distillate-2m",
+      "ignore": false,
       "extrait_fr": "Us Api Variation des stocks de pétrole brut Réel -0,3 m (prévision -1,3 m, Précédent -2,6 m) $macroUs Api Cushing Variation des stocks Réel -0,3 m (prévision -, Précédent 0,2 m) $macro ...Us Api Distillate Variation Réel 2 m (prévision -, Précédent -0,3 m) $macro ...Us Api Variation des stocks d'essence Réel -1,9 m (prévision -, Précédent 0,3 m) $macro...",
       "url": "https://www.forexfactory.com/news/1417239-api-crude-03m-cushing-03m-distillate-2m",
       "date_recuperation": "2026-09-09T20:50:17.325861+00:00",
@@ -74,7 +78,9 @@
       "extrait": "Trump On Iran: War In Iran Will End Immediately After ElectionTrump: The economy is very strong; we're going to explain that.Trump on Gasoline Price: Can't let Iran have nuclear weapons.*trump: Will Get Gasoline Down Below $2Trump: Oil Prices Will Tumble After Election"
     },
     {
-      "extrait_fr": null,
+      "extrait": "Trump: Oil Prices Will Tumble After ElectionTrump: The economy is very strong; we're going to explain that.Trump on Gasoline Price: Can't let Iran have nuclear weapons.*trump: Will Get Gasoline Down Below $2",
+      "url": "https://www.forexfactory.com/news/1417215-trump-oil-prices-will-tumble-after-election",
+      "impact": "low",
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1417208-lagarde-the-choice-facing-europeans",
       "date_recuperation": "2026-09-09T17:10:14.171529+00:00",
@@ -98,6 +104,10 @@
       "extrait": "table"
     },
     {
+      "impact": "medium",
+      "url": "https://www.forexfactory.com/news/1417201-trump-admin-official-buyback-announcement-builds-on-prior",
+      "extrait": "Trump Admin. Official: Treasury Buyback Increase Is Part Of Ongoing Approach - Fox Business - Buyback Announcement Builds On Prior Enhancements",
+      "ignore": false,
       "extrait_fr": null,
       "url": "https://www.forexfactory.com/news/1417201-trump-admin-official-buyback-announcement-builds-on-prior",
       "date_recuperation": "2026-09-09T15:42:14.825862+00:00",
@@ -125,6 +135,7 @@
       "extrait_fr": null,
       "url": "https://www.forexfactory.com/news/1417191-us-treasury-to-buy-back-up-to-6b",
       "ignore": false,
+      "extrait_fr": null,
       "date_recuperation": "2026-09-09T15:03:14.950604+00:00",
       "date_publication": "2026-09-09T15:02:14.950604+00:00",
       "impact": "high",
