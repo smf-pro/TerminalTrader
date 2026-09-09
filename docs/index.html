@@ -125,7 +125,7 @@
   /* ---------- MAIN GRID ---------- */
   .main{
     display:grid;
-    grid-template-columns:260px 1fr 300px;
+    grid-template-columns:1fr 2fr 300px;
     gap:1px;
     background:var(--line);
     overflow:hidden;
@@ -346,11 +346,21 @@
   .sr-row{ display:flex; justify-content:space-between; padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:12px; }
 
   /* --- calendrier compact (colonne Accueil) --- */
-  .cal-row-compact{ padding:10px 14px; border-bottom:1px solid var(--line); }
-  .cal-row-compact .top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
-  .cal-row-compact .name{ font-size:12px; color:var(--text-hi); line-height:1.3; }
-  .cal-row-compact .nums{ display:flex; gap:12px; font-family:var(--mono); font-size:10.5px; color:var(--text-mid); margin-top:4px; }
-  .cal-row-compact .nums b{ color:var(--text-hi); font-weight:500; }
+  .cal-row-compact{
+    display:flex; align-items:center; gap:8px;
+    padding:7px 14px; border-bottom:1px solid var(--line);
+    font-size:11.5px;
+  }
+  .cal-row-compact .cal-time{ flex-shrink:0; }
+  .cal-row-compact .cal-country{ flex-shrink:0; }
+  .cal-row-compact .impact-dots{ flex-shrink:0; }
+  .cal-row-compact .name{
+    flex:1; min-width:0; color:var(--text-hi); line-height:1.3;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .cal-row-compact .actual-inline{
+    flex-shrink:0; font-family:var(--mono); font-size:10.5px; color:var(--text-mid);
+  }
   .cal-row-compact.done{ opacity:0.55; }
 
   /* --- calendrier : 2/3 calendrier + 1/3 CESI --- */
@@ -1387,7 +1397,10 @@ function renderNewsHomeColumns(){
   const allEl = document.getElementById('newsAllHome');
   const highEl = document.getElementById('newsHighHome');
   if(!allEl || !highEl) return;
-  const highNews = newsLog.filter(n=>n.tag==='high');
+  // Inclut aussi l'impact "moyen", pas seulement "fort" (choix explicite,
+  // different de la colonne "FOREXFACTORY — IMPACT FORT" de la page NEWS
+  // qui reste filtree sur 'high' uniquement).
+  const highNews = newsLog.filter(n=>n.tag==='high' || n.tag==='med');
   document.getElementById('newsAllCount').textContent = newsLog.length;
   document.getElementById('newsHighCount').textContent = highNews.length;
   allEl.innerHTML = newsLog.length
@@ -1405,7 +1418,9 @@ function renderNewsColumns(){
   const il = newsLog.filter(n=>n.source==='investinglive');
   const cb = newsLog.filter(n=>n.source==='centralbanks');
   const ff = newsLog.filter(n=>n.source==='forexfactory');
-  const ffHigh = ff.filter(n=>n.tag==='high');
+  // Inclut aussi l'impact "moyen", pas seulement "fort" (meme choix que
+  // la colonne "IMPACT FORT" de l'accueil).
+  const ffHigh = ff.filter(n=>n.tag==='high' || n.tag==='med');
 
   document.getElementById('cnt-il').textContent = il.length;
   document.getElementById('cnt-cb').textContent = cb.length;
@@ -1520,24 +1535,48 @@ function renderCalendar(){
   const dateEl = document.getElementById('calDate');
   const bodyEl = document.getElementById('calBody');
   if(!bodyEl) return;
-  dateEl.textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-  const events = evenementsDuJour().map(preparerEvenementCal);
-  if(events.length === 0){
-    bodyEl.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-low); padding:20px;">Aucun évènement aujourd\'hui</td></tr>';
+
+  if(liveCalendar.length === 0){
+    dateEl.textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+    bodyEl.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-low); padding:20px;">Aucun évènement pour le moment</td></tr>';
     return;
   }
-  bodyEl.innerHTML = events.map(ev=>{
+
+  const premier = liveCalendar[0].date;
+  const dernier = liveCalendar[liveCalendar.length - 1].date;
+  dateEl.textContent = (premier && dernier)
+    ? 'Semaine du ' + premier.toLocaleDateString('fr-FR', {day:'numeric', month:'long'}) + ' au ' + dernier.toLocaleDateString('fr-FR', {day:'numeric', month:'long'})
+    : '';
+
+  // Toute la semaine (pas seulement aujourd'hui) : un separateur visuel
+  // par jour pour garder ~80 evenements lisibles, plutot qu'une longue
+  // liste plate. liveCalendar est deja trie chronologique croissant par
+  // la requete Firestore (voir ecouterCalendrierTempsReel).
+  const aujourdhui = new Date().toDateString();
+  let dernierJourAffiche = null;
+  let html = '';
+  liveCalendar.forEach(ev => {
+    const jour = ev.date ? ev.date.toDateString() : null;
+    if(jour !== dernierJourAffiche){
+      dernierJourAffiche = jour;
+      const label = ev.date
+        ? ev.date.toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long'}) + (jour === aujourdhui ? " — aujourd'hui" : '')
+        : 'Date inconnue';
+      html += `<tr><td colspan="7" style="background:var(--bg-1); color:var(--text-mid); font-weight:600; font-size:11px; letter-spacing:.03em; text-transform:uppercase; padding:8px 12px;">${label}</td></tr>`;
+    }
+    const p = preparerEvenementCal(ev);
     const dots = '<span></span><span></span><span></span>';
-    return `<tr>
-      <td class="cal-time">${ev.timeStr}</td>
-      <td><span class="cal-country">${flagFor(ev.country)} ${ev.country}</span></td>
-      <td>${ev.name}</td>
-      <td><span class="impact-dots ${ev.impact}">${dots}</span></td>
-      <td class="cal-num">${ev.prevDisp}</td>
-      <td class="cal-num">${ev.fcstDisp}</td>
-      <td class="cal-num ${ev.actualClass}">${ev.actualDisp}</td>
+    html += `<tr>
+      <td class="cal-time">${p.timeStr}</td>
+      <td><span class="cal-country">${flagFor(p.country)} ${p.country}</span></td>
+      <td>${p.name}</td>
+      <td><span class="impact-dots ${p.impact}">${dots}</span></td>
+      <td class="cal-num">${p.prevDisp}</td>
+      <td class="cal-num">${p.fcstDisp}</td>
+      <td class="cal-num ${p.actualClass}">${p.actualDisp}</td>
     </tr>`;
-  }).join('');
+  });
+  bodyEl.innerHTML = html;
 }
 
 function renderCalendarHome(){
@@ -1550,18 +1589,12 @@ function renderCalendarHome(){
     return;
   }
   el.innerHTML = events.map(ev=>`
-    <div class="cal-row-compact ${ev.passed?'done':''}">
-      <div class="top">
-        <span class="cal-time">${ev.timeStr}</span>
-        <span class="cal-country">${flagFor(ev.country)} ${ev.country}</span>
-        <span class="impact-dots ${ev.impact}"><span></span><span></span><span></span></span>
-      </div>
-      <div class="name">${ev.name}</div>
-      <div class="nums">
-        <span>Préc. <b>${ev.prevDisp}</b></span>
-        <span>Prév. <b>${ev.fcstDisp}</b></span>
-        <span class="${ev.actualClass}">Réel <b>${ev.actualDisp}</b></span>
-      </div>
+    <div class="cal-row-compact ${ev.passed?'done':''}" title="${ev.name} — Préc. ${ev.prevDisp} · Prév. ${ev.fcstDisp} · Réel ${ev.actualDisp}">
+      <span class="cal-time">${ev.timeStr}</span>
+      <span class="cal-country">${flagFor(ev.country)} ${ev.country}</span>
+      <span class="impact-dots ${ev.impact}"><span></span><span></span><span></span></span>
+      <span class="name">${ev.name}</span>
+      <span class="actual-inline ${ev.actualClass}">${ev.actualDisp}</span>
     </div>
   `).join('');
 }
