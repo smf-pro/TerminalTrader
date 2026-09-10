@@ -6,6 +6,12 @@
       "extrait_fr": "Pour la semaine se terminant le 4 septembre 2026, les raffineries américaines ont traité 17,6 millions de barils par jour (b/j), soit une hausse de 91 000 b/j par rapport à la semaine précédente, à un taux d'utilisation de leur capacité de 97,8 %. La production d'essence s'est élevée en moyenne à 9,3 millions de b/j et la production de distillats a augmenté à 5,3 millions de b/j. Les importations de pétrole brut ont augmenté de 53 000 b/j pour atteindre 6,8 millions de b/j, et la moyenne sur quatre semaines de 6,6...",
       "source": "streetinsider.com",
       "titre": "Crude Inventory -0.4M Barrels Last Week - EIA",
+      "impact": "low",
+      "extrait_fr": "Pour la semaine se terminant le 4 septembre 2026, les raffineries américaines ont traité 17,6 millions de barils par jour (b/j), soit une hausse de 91 000 b/j par rapport à la semaine précédente, à un taux d'utilisation de leur capacité de 97,8 %. La production d'essence s'est élevée en moyenne à 9,3 millions de b/j et la production de distillats a augmenté à 5,3 millions de b/j. Les importations de pétrole brut ont augmenté de 53 000 b/j pour atteindre 6,8 millions de b/j, et la moyenne sur quatre semaines de 6,6...",
+      "titre_fr": "Stock de brut -0,4 million de barils la semaine dernière - EIA",
+      "date_recuperation": "2026-09-10T16:04:19.521088+00:00",
+      "source": "streetinsider.com",
+      "url": "https://www.forexfactory.com/news/1417653-crude-inventory-04m-barrels-last-week-eia",
       "extrait": "For the week ending September 04, 2026, U.S. refineries processed 17.6 million barrels per day (b/d)—up 91,000 b/d from the previous week—at 97.8% capacity utilization. Gasoline output averaged 9.3 million b/d, and distillate production increased to 5.3 million b/d. Crude oil imports increased 53,000 b/d to 6.8 million b/d, and the four-week average of 6.6 ...",
       "url": "https://www.forexfactory.com/news/1417653-crude-inventory-04m-barrels-last-week-eia",
       "date_recuperation": "2026-09-10T16:04:19.521088+00:00",
@@ -257,7 +263,7 @@
       "impact": "low",
       "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis",
       "source": "@NodeWire",
-      "titre": "Trump: I'll issue a $5k dividend to every adult in the US, if Republicans win the House and Senate",
+      "url": "https://www.forexfactory.com/news/1417277-trump-if-republicans-win-the-house-and-senate",
       "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
       "date_recuperation": "2026-09-10T02:18:16.839375+00:00",
       "url": "https://www.forexfactory.com/news/1417277-trump-ill-issue-a-5k-dividend-to-every",
@@ -274,6 +280,12 @@
       "url": "https://www.forexfactory.com/news/1417274-boj-masu-economic-activity-prices-and-monetary-policy",
       "date_recuperation": "2026-09-10T01:35:16.212615+00:00",
       "ignore": false,
+      "date_publication": "2026-09-10T02:12:16.839375+00:00"
+    },
+    {
+      "titre": "BOJ Masu: Economic Activity, Prices, and Monetary Policy in Japan",
+      "impact": "low",
+      "extrait_fr": "Avant de commencer mon discours, je voudrais offrir mes plus sincères condoléances à ceux qui souffrent des fortes pluies récentes. Un peu plus d’un an s’est écoulé depuis que j’ai été nommé membre du Conseil d’orientation. Pendant ce temps, le monde entier a été aux prises avec deux problèmes majeurs liés aux États-Unis : l’un concernant les droits de douane et l’autre concernant la situation en Iran. Contre toute attente, la question des droits de douane n'a provoqué aucune perturbation économique au Japon, même si elle a principalement touché les secteurs qui exportent de gros volumes vers les États-Unis, comme l'automobile. En revanche, la situation iranienne a eu des répercussions bien plus vastes. L'approvisionnement en pétrole brut et autres matières premières s'est resserré en raison de la fermeture du détroit d'Ormuz. Cela pourrait entraîner à la fois une hausse de l’inflation et un ralentissement de l’activité économique, plaçant les banques centrales du monde entier dans un environnement décisionnel difficile. En termes d’impact sur le Japon, le pétrole brut et le gaz naturel liquéfié (GNL) ont affiché des dynamiques de prix différentes. Les prix du pétrole brut ont augmenté en raison d’une pénurie d’approvisionnement, tandis que les prix du GNL ont augmenté même sans une telle pénurie. Masu, membre du conseil d'administration de la CBoJ : la BoJ continuera probablement à augmenter les taux d'intérêt dans le contexte de conditions financières souples actuelles, Masu, membre du conseil d'administration de la Banque du Japon : l'inflation sous-jacente reste inférieure à 2 % mais proche de ce niveau. Masu : le rythme et le calendrier des hausses de taux de la BOJ dépendront de la probabilité de respecter les projections et les risques de référence, en tenant compte de l'évolution des prix du pétrole, de la demande mondiale et des fluctuations monétaires.",
       "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon",
       "date_publication": "2026-09-10T01:34:16.212615+00:00"
     }
@@ -456,6 +468,10 @@
       "date_publication": "2026-09-10T12:30:58.727280+00:00"
     },
     {
+      "titre": "US August existing home sales 3.98m vs 3.98m expected",
+      "contenu_fr": null,
+      "titre_fr": null,
+      "date_recuperation": "2026-09-10T14:00:16.442668+00:00",
       "contenu": "High risk warning: Foreign exchange trading carries a high level of risk that may not be suitable for all investors. Leverage creates additional risk and loss exposure. Before you decide to trade foreign exchange, carefully consider your investment objectives, experience level, and risk tolerance. You could lose some or all your initial investment; do not invest money that you cannot afford to lose. Educate yourself on the risks associated with foreign exchange trading and seek advice from an independent financial or tax advisor if you have any questions.\n\nAdvisory warning: investingLive is not an investment advisor, investingLive provides references and links to selected news, blogs and other sources of economic and market information for informational purposes and as an educational service to its clients and prospects and does not endorse the opinions or recommendations of the blogs or other sources of information. Clients and prospects are advised to carefully consider the opinions and analysis offered in the blogs or other information sources in the context of the client or prospect's individual analysis and decision making. None of the blogs or other sources of information is to be considered as constituting a track record. Past performance is no guarantee of future results and investingLive specifically hereby acknowledges clients and prospects to carefully review all claims and representations made by advisors, bloggers, money managers and system vendors before investing any funds or opening an account with any Forex dealer. Any news, opinions, research, data, or other information contained within this website is provided on an \"as-is\" basis as a general market commentary and does not constitute investment or trading advice, and we do not purport to present the entire relevant or available public information with respect to a specific market or security. investingLive expressly disclaims any liability for any lost principal or profits which may arise directly or indirectly from the use of or reliance on such information, or with respect to any of the content presented within its website, nor its editorial choices.\n\nDisclaimer: investingLive may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
       "categorie": "news",
       "url": "https://investinglive.com/news/us-august-ppi-5-4-vs-5-3-expected/",
