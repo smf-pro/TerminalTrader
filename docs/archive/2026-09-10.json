@@ -22,6 +22,7 @@
       "extrait": "Yemen's Houthis Spokesperson: Operations will stop when attacks on Yemen end and the blockade is lifted.Head of Yemen's Supreme Political Council: Saudi-backed forces will be granted amnesty if they lay down their arms - IRIB NewsIran-backed Yemen's Houthis Spokesperson: Current operations are limited to specified targets and are defensive.Iran-backed Yemen's Houthis spokesperson: Freedom of navigation and international trade in the Red Sea and Bab el-Mandeb Strait remain safe and uninterrupted.",
       "titre": "Yemen's Houthis Spokesperson: Operations will stop when attacks on Yemen end and the blockade is lifted",
       "extrait_fr": "Porte-parole des Houthis du Yémen : les opérations s'arrêteront lorsque les attaques contre le Yémen prendront fin et que le blocus sera levé. Chef du Conseil politique suprême du Yémen : les forces soutenues par l'Arabie saoudite bénéficieront d'une amnistie si elles déposent les armes - IRIB News Porte-parole des Houthis du Yémen soutenus par l'Iran : les opérations actuelles sont limitées à des cibles spécifiées et sont défensives. et sans interruption.",
+      "ignore": false,
       "source": "@financialjuice",
       "date_recuperation": "2026-09-10T14:32:19.549122+00:00"
     },
@@ -34,6 +35,7 @@
       "url": "https://www.forexfactory.com/news/1417632-us-wholesale-inventories-up-by-13-in-july",
       "titre": "US wholesale inventories up by 1.3% in July",
       "extrait_fr": null,
+      "ignore": false,
       "source": "breakingthenews.net",
       "date_recuperation": "2026-09-10T14:07:20.873743+00:00"
     },
@@ -262,6 +264,7 @@
       "url": "https://www.forexfactory.com/news/1417274-boj-masu-economic-activity-prices-and-monetary-policy",
       "titre": "BOJ Masu: Economic Activity, Prices, and Monetary Policy in Japan",
       "extrait_fr": "Avant de commencer mon discours, je voudrais offrir mes plus sincères condoléances à ceux qui souffrent des fortes pluies récentes. Un peu plus d’un an s’est écoulé depuis que j’ai été nommé membre du Conseil d’orientation. Pendant ce temps, le monde entier a été aux prises avec deux problèmes majeurs liés aux États-Unis : l’un concernant les droits de douane et l’autre concernant la situation en Iran. Contre toute attente, la question des droits de douane n'a provoqué aucune perturbation économique au Japon, même si elle a principalement touché les secteurs qui exportent de gros volumes vers les États-Unis, comme l'automobile. En revanche, la situation iranienne a eu des répercussions bien plus vastes. L'approvisionnement en pétrole brut et autres matières premières s'est resserré en raison de la fermeture du détroit d'Ormuz. Cela pourrait entraîner à la fois une hausse de l’inflation et un ralentissement de l’activité économique, plaçant les banques centrales du monde entier dans un environnement décisionnel difficile. En termes d’impact sur le Japon, le pétrole brut et le gaz naturel liquéfié (GNL) ont affiché des dynamiques de prix différentes. Les prix du pétrole brut ont augmenté en raison d’une pénurie d’approvisionnement, tandis que les prix du GNL ont augmenté même sans une telle pénurie. Masu, membre du conseil d'administration de la CBoJ : la BoJ continuera probablement à augmenter les taux d'intérêt dans le contexte de conditions financières souples actuelles, Masu, membre du conseil d'administration de la Banque du Japon : l'inflation sous-jacente reste inférieure à 2 % mais proche de ce niveau. Masu : le rythme et le calendrier des hausses de taux de la BOJ dépendront de la probabilité de respecter les projections et les risques de référence, en tenant compte de l'évolution des prix du pétrole, de la demande mondiale et des fluctuations monétaires.",
+      "ignore": false,
       "source": "boj.or.jp",
       "date_recuperation": "2026-09-10T01:35:16.212615+00:00"
     }
