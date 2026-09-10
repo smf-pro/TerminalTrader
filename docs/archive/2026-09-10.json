@@ -88,6 +88,10 @@
     {
       "titre_fr": null,
       "titre": "ECB's Lagarde: Inflation has been lower recently than anticipated, especially food",
+      "url": "https://www.forexfactory.com/news/1417623-ecbs-lagarde-inflation-has-been-lower-recently-than",
+      "titre_fr": null,
+      "date_publication": "2026-09-10T13:20:15.176048+00:00",
+      "ignore": false,
       "date_recuperation": "2026-09-10T13:21:15.176048+00:00",
       "url": "https://www.forexfactory.com/news/1417623-ecbs-lagarde-inflation-has-been-lower-recently-than",
       "source": "@financialjuice",
@@ -213,6 +217,10 @@
       "source": "@FirstSquawk",
       "extrait": "Pboc Dept Gov: Wants To Develop Digital Yuan At Steady Pace",
       "date_publication": "2026-09-10T07:15:15.891103+00:00",
+      "titre_fr": "Le gouverneur du département de la Banque populaire de Chine veut développer le yuan numérique à un rythme soutenu",
+      "url": "https://www.forexfactory.com/news/1417426-pboc-dept-gov-wants-to-develop-digital-yuan",
+      "date_recuperation": "2026-09-10T07:16:15.891103+00:00",
+      "source": "@FirstSquawk",
       "impact": "low",
       "extrait_fr": "Le gouverneur du département Pboc : veut développer le yuan numérique à un rythme soutenu",
       "ignore": false
@@ -370,7 +378,6 @@
       "ignore": false
     },
     {
-      "titre_fr": null,
       "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7074 – Reuters estimate",
       "date_recuperation": "2026-09-10T00:31:19.965387+00:00",
       "url": "https://investinglive.com/central-banks/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7074-reuters-estimate/",
