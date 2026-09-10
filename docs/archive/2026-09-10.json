@@ -136,6 +136,7 @@
     {
       "date_recuperation": "2026-09-10T05:43:16.935220+00:00",
       "impact": "low",
+      "titre_fr": null,
       "titre": "BoJ's Masu: Underlying inflation gradually approaching 2% but don't see it overshooting sharply above that level now.",
       "ignore": false,
       "extrait_fr": null,
@@ -160,6 +161,7 @@
     {
       "date_recuperation": "2026-09-10T02:13:18.474244+00:00",
       "impact": "low",
+      "titre_fr": null,
       "titre": "Trump pledges $5k payment to every US adult if Republicans win the House and Senate",
       "ignore": false,
       "extrait": "Trump pledges a $5,000 payment to every U.S. adult if Republicans win the House and Senate.",
@@ -172,7 +174,6 @@
     {
       "date_recuperation": "2026-09-10T02:14:17.037561+00:00",
       "impact": "low",
-      "titre": "TRUMP: IF REPUBLICANS WIN THE HOUSE AND SENATE, I'LL ISSUE A $5,000 DIVIDEND TO EVERY ADULT IN THE U.S.",
       "ignore": false,
       "extrait_fr": null,
       "url": "https://www.forexfactory.com/news/1417277-trump-if-republicans-win-the-house-and-senate",
