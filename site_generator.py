@@ -46,6 +46,39 @@ Peu importe LEQUEL des 3 scripts arrive en premier a chaque vague -> si
 l'un des 3 tombe en panne, les 2 autres prennent quand meme le relais
 normalement, pas de dependance a un script en particulier.
 
+MODIF (sept. 2026) - LECTURE INCREMENTALE DU JOUR COURANT :
+Meme avec le throttle ci-dessus, l'archive du JOUR COURANT etait
+entierement relue (les 3 collections, depuis minuit) a CHAQUE appel non
+throttled, soit ~360 fois/jour. Tant que le volume quotidien restait
+faible ca passait, mais depuis qu'investinglive_cloud.py scrape 16
+pages sources (au lieu d'une poignee d'articles avant), le nombre de
+documents il_articles par jour a fortement augmente : relire TOUTE la
+journee toutes les ~4 minutes, alors que le volume s'accumule au fil de
+la journee, a fini par depasser le quota gratuit Firestore
+(ResourceExhausted pendant generer_json()).
+
+Correctif : _generer_archive_jour_courant() ne relit plus tout depuis
+minuit a chaque fois. Un petit cache local (docs/archive/.cache_jour.json)
+garde un CURSEUR par collection (date_publication du dernier document
+deja lu) et le contenu deja accumule. A chaque appel, on ne lit dans
+Firestore QUE les documents publies APRES ce curseur (typiquement
+quelques-uns, ceux ecrits depuis le dernier appel), qu'on ajoute au
+cache. Le cout d'un appel devient proportionnel au nombre de NOUVEAUX
+articles depuis le dernier appel, plus jamais au volume total deja
+accumule dans la journee - meme principe que cache_dedup.py, applique
+ici a la lecture au lieu de l'ecriture.
+
+Limite connue : si un document deja mis en cache voyait son champ
+"ignore" passer a True APRES avoir ete lu une premiere fois, ce
+changement ne serait pas repercute dans l'archive deja generee. Aucun
+des 3 scripts ne fait actuellement ce genre de mise a jour retroactive
+(ignore est toujours ecrit une seule fois, a la creation du document),
+donc non bloquant en pratique.
+
+L'archive de la VEILLE (finalisee une seule fois par jour, voir plus
+bas) garde la lecture complete d'origine : elle ne tourne qu'une fois,
+son cout est negligeable, pas besoin de la rendre incrementale.
+
 La sauvegarde dans Firebase/Firestore continue de fonctionner exactement
 comme avant — ce module ne fait que RELIRE les données déjà écrites pour
 en produire des copies exportables.
@@ -64,6 +97,7 @@ DOSSIER_SITE = "docs"
 DOSSIER_ARCHIVE = os.path.join(DOSSIER_SITE, "archive")
 FICHIER_INDEX_ARCHIVE = os.path.join(DOSSIER_ARCHIVE, "index.json")
 FICHIER_THROTTLE = os.path.join(DOSSIER_ARCHIVE, ".derniere_generation")
+FICHIER_CACHE_JOUR = os.path.join(DOSSIER_ARCHIVE, ".cache_jour.json")
 
 # Ecart minimum entre deux generations reelles de l'archive. Les 3
 # scripts tournent toutes les 5 minutes : un throttle de 4 minutes
@@ -132,9 +166,100 @@ def _mettre_a_jour_index_archive(date_str):
     _ecrire_json(FICHIER_INDEX_ARCHIVE, dates)
 
 
+def _recuperer_documents_apres(db, collection, apres):
+    """Comme _recuperer_documents_periode, mais ne lit QUE les documents
+    publies STRICTEMENT APRES `apres` (lecture incrementale). Utilise le
+    meme index compose (ignore == False + tri/filtre sur
+    date_publication, ordre descendant) que la requete pleine journee -
+    aucun nouvel index Firestore a creer."""
+    requete = (
+        db.collection(collection)
+        .where("ignore", "==", False)
+        .where("date_publication", ">", apres)
+        .order_by("date_publication", direction="DESCENDING")
+    )
+    return [d.to_dict() for d in requete.stream()]
+
+
+def _lire_cache_jour():
+    if not os.path.exists(FICHIER_CACHE_JOUR):
+        return None
+    try:
+        with open(FICHIER_CACHE_JOUR, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def _ecrire_cache_jour(cache):
+    os.makedirs(DOSSIER_ARCHIVE, exist_ok=True)
+    with open(FICHIER_CACHE_JOUR, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def _generer_archive_jour_courant(db, debut_jour, date_str):
+    """Regenere le fichier d'archive du jour EN COURS, de facon
+    INCREMENTALE (voir note en tete de fichier, sept. 2026) : ne relit
+    dans Firestore que les documents publies depuis le dernier appel
+    reussi (curseur par collection, garde dans
+    docs/archive/.cache_jour.json), au lieu de relire tout le volume de
+    la journee a chaque appel."""
+    cache = _lire_cache_jour()
+    if not cache or cache.get("date") != date_str:
+        # Premier appel de la journee (ou cache absent/corrompu/jour
+        # precedent) : on repart de zero, curseur = minuit pour chaque
+        # collection. Lecture complete mais peu couteuse tot dans la
+        # journee (peu de documents encore publies).
+        cache = {
+            "date": date_str,
+            "curseurs": {
+                "ff_news": debut_jour.isoformat(),
+                "cb_articles": debut_jour.isoformat(),
+                "il_articles": debut_jour.isoformat(),
+            },
+            "ff_news": [],
+            "cb_articles": [],
+            "il_articles": [],
+        }
+
+    for collection in ("ff_news", "cb_articles", "il_articles"):
+        curseur = datetime.fromisoformat(cache["curseurs"][collection])
+        nouveaux = _recuperer_documents_apres(db, collection, curseur)
+        if not nouveaux:
+            continue
+        nouveaux_serialises = [_serialiser(d) for d in nouveaux]
+        # "nouveaux" est deja trie du plus recent au plus ancien
+        # (DESCENDING), tout comme ce qui est deja en cache -> on peut
+        # simplement le mettre devant pour garder l'ensemble trie.
+        cache[collection] = nouveaux_serialises + cache[collection]
+        # Le premier element (le plus recent) devient le nouveau curseur.
+        cache["curseurs"][collection] = nouveaux_serialises[0]["date_publication"]
+
+    _ecrire_cache_jour(cache)
+
+    if not (cache["ff_news"] or cache["cb_articles"] or cache["il_articles"]):
+        return None
+
+    contenu = {
+        "date": date_str,
+        "ff_news": cache["ff_news"],
+        "cb_articles": cache["cb_articles"],
+        "il_articles": cache["il_articles"],
+    }
+    chemin = os.path.join(DOSSIER_ARCHIVE, f"{date_str}.json")
+    _ecrire_json(chemin, contenu)
+    _mettre_a_jour_index_archive(date_str)
+
+    return len(cache["ff_news"]), len(cache["cb_articles"]), len(cache["il_articles"])
+
+
 def _generer_archive_jour(db, debut_jour, fin_jour, date_str):
-    """Regenere le fichier d'archive d'une seule journee (requete bornee,
-    jamais tout l'historique)."""
+    """Regenere le fichier d'archive d'UNE SEULE journee PASSEE (requete
+    bornee, lecture complete). Utilisee uniquement pour la finalisation
+    de la veille, qui ne tourne qu'une fois par jour (voir generer_json)
+    - le cout d'une lecture complete y est negligeable, contrairement au
+    jour courant qui est relu a repetition (voir
+    _generer_archive_jour_courant, incrementale, pour ce cas-la)."""
     news_ff = [_serialiser(d) for d in _recuperer_documents_periode(db, "ff_news", debut_jour, fin_jour)]
     articles_cb = [_serialiser(d) for d in _recuperer_documents_periode(db, "cb_articles", debut_jour, fin_jour)]
     articles_il = [_serialiser(d) for d in _recuperer_documents_periode(db, "il_articles", debut_jour, fin_jour)]
@@ -192,10 +317,12 @@ def generer_json(db):
 
     maintenant = datetime.now(timezone.utc)
 
-    # ---- archive du jour courant : requete bornee a aujourd'hui ----
+    # ---- archive du jour courant : lecture INCREMENTALE (curseur par
+    # collection), voir _generer_archive_jour_courant et la note sept.
+    # 2026 en tete de fichier ----
     debut_jour = maintenant.replace(hour=0, minute=0, second=0, microsecond=0)
     date_str_jour = debut_jour.strftime("%Y-%m-%d")
-    compte_jour = _generer_archive_jour(db, debut_jour, None, date_str_jour)
+    compte_jour = _generer_archive_jour_courant(db, debut_jour, date_str_jour)
 
     # ---- finalisation de la veille, une seule fois par jour ----
     debut_hier = debut_jour - timedelta(days=1)
