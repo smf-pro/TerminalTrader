@@ -124,6 +124,7 @@
     {
       "titre": "US Unemployment Insurance Weekly Claims",
       "source": "dol.gov",
+      "url": "https://www.forexfactory.com/news/1417615-us-unemployment-insurance-weekly-claims",
       "titre_fr": null,
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1417615-us-unemployment-insurance-weekly-claims",
@@ -186,6 +187,11 @@
       "ignore": false,
       "titre_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné",
       "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1417603-iran-orders-temporary-suspension-of-10-freight-charge",
+      "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
+      "ignore": false
+    },
+    {
       "date_publication": "2026-09-10T10:29:19.219701+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1417575-white-house-yet-to-decide-on-refined-copper",
@@ -256,6 +262,7 @@
     {
       "titre": "Trump pledges $5k payment to every US adult if Republicans win the House and Senate",
       "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1417277-trump-pledges-5k-payment-to-every-us-adult",
       "titre_fr": null,
       "ignore": false,
       "date_publication": "2026-09-10T02:12:18.474244+00:00",
