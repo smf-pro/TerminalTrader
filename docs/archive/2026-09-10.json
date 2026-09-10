@@ -93,6 +93,20 @@
       "titre_fr": null,
       "extrait": "Trump pledges a $5,000 payment to every U.S. adult if Republicans win the House and Senate.",
       "extrait_fr": null,
+      "extrait": "In July 2026 the seasonally adjusted industrial production index increased by 0.7% compared with the previous month. The percentage change of the average of the last three months with respect to the previous three months was -0.1%. The calendar adjusted industrial production index was unchanged compared with July 2025 (calendar working days in July 2026 ...",
+      "titre_fr": null,
+      "source": "istat.it",
+      "ignore": false
+    },
+    {
+      "date_recuperation": "2026-09-10T07:16:15.891103+00:00",
+      "url": "https://www.forexfactory.com/news/1417426-pboc-dept-gov-wants-to-develop-digital-yuan",
+      "impact": "low",
+      "date_publication": "2026-09-10T07:15:15.891103+00:00",
+      "extrait_fr": "Le gouverneur du département Pboc : veut développer le yuan numérique à un rythme soutenu",
+      "titre": "PBOC Dept Gov: Wants To Develop Digital Yuan At Steady Pace",
+      "extrait": "Pboc Dept Gov: Wants To Develop Digital Yuan At Steady Pace",
+      "titre_fr": "Le gouverneur du département de la Banque populaire de Chine veut développer le yuan numérique à un rythme soutenu",
       "source": "@FirstSquawk",
       "date_publication": "2026-09-10T02:12:18.474244+00:00",
       "ignore": false
@@ -117,7 +131,6 @@
       "titre_fr": "Trump : je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis si les républicains remportent la Chambre et le Sénat",
       "date_publication": "2026-09-10T02:12:16.839375+00:00",
       "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis",
-      "source": "@NodeWire",
       "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
       "ignore": false
     },
@@ -155,6 +168,7 @@
         "EUR",
         "interest rates"
       ],
+      "url": "https://investinglive.com/central-banks/ecb-preview-what-major-banks-and-analysts-expect-from-lagarde-and-interest-rates/",
       "titre": "ECB preview: What major banks and analysts expect from Lagarde and interest rates",
       "ignore": false,
       "date_publication": "2026-09-10T07:05:00.107222+00:00"
