@@ -70,6 +70,7 @@
       "extrait_fr": "Porte-parole des Houthis du Yémen : les opérations s'arrêteront lorsque les attaques contre le Yémen prendront fin et que le blocus sera levé. Chef du Conseil politique suprême du Yémen : les forces soutenues par l'Arabie saoudite bénéficieront d'une amnistie si elles déposent les armes - IRIB News Porte-parole des Houthis du Yémen soutenus par l'Iran : les opérations actuelles sont limitées à des cibles spécifiées et sont défensives. et sans interruption.",
       "ignore": false,
       "titre": "Yemen's Houthis Spokesperson: Operations will stop when attacks on Yemen end and the blockade is lifted",
+      "impact": "low",
       "date_publication": "2026-09-10T14:31:19.549122+00:00",
       "titre_fr": "Porte-parole des Houthis du Yémen : les opérations s'arrêteront lorsque les attaques contre le Yémen prendront fin et que le blocus sera levé"
     },
@@ -82,6 +83,7 @@
       "ignore": false,
       "extrait_fr": null,
       "titre": "US wholesale inventories up by 1.3% in July",
+      "impact": "low",
       "date_publication": "2026-09-10T14:06:20.873743+00:00",
       "titre_fr": null
     },
@@ -202,6 +204,7 @@
       "ignore": false,
       "extrait_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné.",
       "titre": "White House yet to decide on refined copper tariffs",
+      "impact": "low",
       "date_publication": "2026-09-10T10:29:19.219701+00:00",
       "titre_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné"
     },
@@ -226,6 +229,7 @@
       "extrait_fr": "Le gouverneur du département Pboc : veut développer le yuan numérique à un rythme soutenu",
       "ignore": false,
       "titre": "PBOC Dept Gov: Wants To Develop Digital Yuan At Steady Pace",
+      "impact": "low",
       "date_publication": "2026-09-10T07:15:15.891103+00:00",
       "titre_fr": "Le gouverneur du département de la Banque populaire de Chine veut développer le yuan numérique à un rythme soutenu"
     },
@@ -238,6 +242,7 @@
       "extrait_fr": "Le taux d'inflation en Allemagne, mesuré par la variation annuelle de l'indice des prix à la consommation (IPC), s'est élevé à +2,9% en août 2026. La hausse des prix à la consommation s'est donc encore légèrement intensifiée, après avoir atteint +2,8% en juillet 2026 et +2,3% en juin 2026. \"En août, la hausse des prix de l'énergie a de nouveau été le principal moteur de l'inflation globale\", dit ...",
       "ignore": false,
       "titre": "German inflation rate at +2.9% in August 2026",
+      "impact": "low",
       "date_publication": "2026-09-10T06:15:18.168922+00:00",
       "titre_fr": "Taux d'inflation allemand à +2,9% en août 2026"
     },
