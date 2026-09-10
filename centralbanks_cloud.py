@@ -35,6 +35,7 @@ MODIF (sept. 2026) :
 """
 
 import os
+import re
 import time
 import hashlib
 from datetime import datetime, timedelta, timezone
@@ -76,6 +77,12 @@ MARQUEURS_ARRET = [
 LIBELLES_A_IGNORER = {
     "tags", "share", "print", "advertisement - continue reading below",
 }
+
+# Lignes de separation pures (ex: "---", "***", "___"), rencontrees sur
+# le vrai site entre deux blocs (ex: avant/apres un rappel d'article
+# lie). Ce ne sont pas des liens (densite_lien = 0) donc le filtre par
+# densite ne les attrape pas : on les exclut explicitement.
+MOTIF_SEPARATEUR = re.compile(r"^[\-–—_*=~\s]+$")
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -174,6 +181,9 @@ def extraire_contenu_complet(titre_tag):
             break
 
         if texte.lower() in LIBELLES_A_IGNORER:
+            continue
+
+        if MOTIF_SEPARATEUR.match(texte):
             continue
 
         if element.name in ("h1", "h2", "h3", "h4"):
