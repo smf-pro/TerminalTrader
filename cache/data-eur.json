@@ -1,0 +1,506 @@
+{
+  "44e1ffcdf42722272355728e3687a8e9bcf97d319745068ec042f39be709af18": {
+    "actual": "2.40%",
+    "forecast": "2.40%",
+    "previous": "2.40%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "6dacca281c799022aa94b88d746466f50a77c235371108df76f0ab96f4331e83": {
+    "actual": "2.40%",
+    "forecast": "2.40%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "e835ae7a21958500117c53bc189b34271b96786e6c04fea47c0f481f4164ab7a": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 2
+  },
+  "317d998660942b83e99c2688638a0ac43e016adc234c13009c937328382871f8": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "3b3713d504c45476999008af712b62092136c7ac52d3bc5edd36be8469bd7e91": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 4
+  },
+  "666f3dfa0dd6fc6ff7dd5f5bbadd19223064cb229f278dd83b88cb87bb6a1302": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "4999d71082d4054ee9bfba7239b67f3839fa20e97f5a00341123375b1cccdc76": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "8bc694e33893f252dab23a6e52e036ad058f6772493b6842048088909ac328ab": {
+    "actual": "2.15%",
+    "forecast": "2.15%",
+    "previous": "2.15%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "c236a581fbcdb74a258b77710253a7c21b99b5ac452d7fe4dac1d9d3aa6d60e3": {
+    "actual": "3.3%",
+    "forecast": "3.3%",
+    "previous": "2.9%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "2d9cebf4016f96fca15d18169ab818d948133a4d1c69f75297adf8ac9ea2ab46": {
+    "actual": "2.9%",
+    "forecast": "2.9%",
+    "previous": "2.8%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "ff811ac8f03c4124050ac4b5034f946e3d017b48d1d5ffdf96b2836dbffc15f0": {
+    "actual": "2.8%",
+    "forecast": "3.0%",
+    "previous": "3.2%",
+    "previous_revise": false,
+    "position": 2
+  },
+  "34cc0a2ea60f6ad061d13b47a269835e773ffef35e6d88f34402dd1a311c92c0": {
+    "actual": "3.2%",
+    "forecast": "3.2%",
+    "previous": "3.0%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "0fa8cec26ec04d72b4c7a5f625ad6e57f517395ca475e8670499edaf405f3935": {
+    "actual": "3.0%",
+    "forecast": "3.0%",
+    "previous": "2.6%",
+    "previous_revise": true,
+    "position": 4
+  },
+  "be65b7212d7c50ef475e5b372fddc267d4313d92fcf30dc8bb8ae983dc220566": {
+    "actual": "2.5%",
+    "forecast": "2.6%",
+    "previous": "1.9%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "ba77c3520f784a31cd2a77429321bb7f593002d6be079d06222b9fb8916bb1aa": {
+    "actual": "1.9%",
+    "forecast": "1.7%",
+    "previous": "1.7%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "1748a54a30171d805541151baa7449685534b91df640781d3b4edb162aaafce1": {
+    "actual": "1.7%",
+    "forecast": "1.7%",
+    "previous": "1.9%",
+    "previous_revise": true,
+    "position": 7
+  },
+  "265dc6860a4bd9ce654634df6d3c0c3668ebd6aef9180807e0471bcfcff85fb3": {
+    "actual": "2.9%",
+    "forecast": "2.9%",
+    "previous": "2.9%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "3f1e91a2ee0777c639bb3460411e1931f977a4eb1bfe2215f384c6713f0532c0": {
+    "actual": "2.8%",
+    "forecast": "2.8%",
+    "previous": "2.8%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "f45033b97df8e148d1c22207ab3dcd73ad926a5941ca3ad5fc6986ef63b753a5": {
+    "actual": "3.2%",
+    "forecast": "3.2%",
+    "previous": "3.2%",
+    "previous_revise": false,
+    "position": 2
+  },
+  "bba73d9381c09679c99dd7ea6915a8f14fd0bdc914df5be34b1f4c174710d79a": {
+    "actual": "3.0%",
+    "forecast": "3.0%",
+    "previous": "3.0%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "136716bb3140a281ceda5f38bcbe2dec6723e8d93ce72c565fd9b461d0217cac": {
+    "actual": "2.6%",
+    "forecast": "2.5%",
+    "previous": "2.5%",
+    "previous_revise": false,
+    "position": 4
+  },
+  "64657e6581949238d2b90dc22733d43401331fb37fd8c76955eb671a60b3c90a": {
+    "actual": "1.9%",
+    "forecast": "1.9%",
+    "previous": "1.9%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "e37f346dc6d2e1dafe22052dab7abcd46889f85c7cecdfde156caaf9b47cd2f8": {
+    "actual": "1.7%",
+    "forecast": "1.7%",
+    "previous": "1.7%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "e9786d3955942cca45f89b88cfd44bec9f30e4f30ad9c183d136184ad9a6dd93": {
+    "actual": "1.9%",
+    "forecast": "2.0%",
+    "previous": "2.0%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "f038c1ca6c3822df1180447d70d7a06b638287301b28494c73b9f8179f85a50f": {
+    "actual": "2.4%",
+    "forecast": "2.5%",
+    "previous": "2.5%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "7bd384cf53136944ee441d6763763c6983092cec31452d758b2226a848c7f6b0": {
+    "actual": "2.5%",
+    "forecast": "2.4%",
+    "previous": "2.4%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "4369a443f5dd44164880702dc35678cb5efb002e32b19bd906771d1d94a35dd7": {
+    "actual": "2.4%",
+    "forecast": "2.5%",
+    "previous": "2.6%",
+    "previous_revise": true,
+    "position": 2
+  },
+  "5517f5bd6822eef2af4f9afe08b4ad993d7de65dd228853b7c3bcb1a9438e7d3": {
+    "actual": "2.5%",
+    "forecast": "2.4%",
+    "previous": "2.2%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "9e6e3b20468c6f50b91fa1c38c642e9d7b91ac0bb9e1f6f23bd5d4090ca0ab80": {
+    "actual": "2.2%",
+    "forecast": "2.2%",
+    "previous": "2.3%",
+    "previous_revise": false,
+    "position": 4
+  },
+  "268a8c2ad08646708d5825ae7251cdef2e5504857abcd2dab2a7ab19ca66f3c0": {
+    "actual": "2.3%",
+    "forecast": "2.4%",
+    "previous": "2.4%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "96ba4fdd9be1b2cfa5f4f566600c15726d9f5751b17d3ddc26d8354efbe54bf9": {
+    "actual": "2.4%",
+    "forecast": "2.2%",
+    "previous": "2.2%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "4462db7287f4a023fa272941bf4d282a3bf9c8cc5d8f1144ef0d2796b87e4b74": {
+    "actual": "2.2%",
+    "forecast": "2.3%",
+    "previous": "2.3%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "50d0a58fd1a7f43af4b71ae9ebaf7c604548143d278927f579b3a648199698c3": {
+    "actual": "2.5%",
+    "forecast": "2.5%",
+    "previous": "2.5%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "f61c4c16588693125521d8f966f8bd40cc56ff84d700268ae37c126ee0f36418": {
+    "actual": "2.4%",
+    "forecast": "2.4%",
+    "previous": "2.4%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "3dd97d1029ede4e6e8141bbe9073f1d1493d61e3a5d402c084f5b31902412877": {
+    "actual": "2.6%",
+    "forecast": "2.5%",
+    "previous": "2.5%",
+    "previous_revise": false,
+    "position": 2
+  },
+  "23418d7aa8a3d77507d7051b4e938b7ff70a99abf7ecaa3596d0f7f62d1ac6eb": {
+    "actual": "2.2%",
+    "forecast": "2.2%",
+    "previous": "2.2%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "9919d9eff030b012335d3fd9cfb90b0c1ad94cdda96cb60f44ef073de3c94d29": {
+    "actual": "2.3%",
+    "forecast": "2.3%",
+    "previous": "2.3%",
+    "previous_revise": false,
+    "position": 4
+  },
+  "f5461be9d22215d8f72610b73d4b7813d232af4695e7f2a83e4dacfa258a0f94": {
+    "actual": "2.4%",
+    "forecast": "2.4%",
+    "previous": "2.4%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "36774c648fb57b393e9edd9c9d0d3736745ddff23e206342458d1c829b72656c": {
+    "actual": "2.2%",
+    "forecast": "2.2%",
+    "previous": "2.2%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "a9d4577661ff2d874e60a9681b23b8539e26274e6a6475318162bc56f0237902": {
+    "actual": "2.3%",
+    "forecast": "2.3%",
+    "previous": "2.3%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "947a2cf4eec6d6f048c1a17dfe292d29a7bbd4819fa7bd92915006ea1fb6bf9c": {
+    "actual": "6.4%",
+    "forecast": "6.3%",
+    "previous": "6.4%",
+    "previous_revise": true,
+    "position": 0
+  },
+  "eec663e8dbfd1fe1d5438fd6ea9ed0dcc6ff521585c18d87ab3d3a9440c6f3f7": {
+    "actual": "6.3%",
+    "forecast": "6.2%",
+    "previous": "6.3%",
+    "previous_revise": true,
+    "position": 1
+  },
+  "b93c74f2ab63007cc1f7d7b25775fc52f3770bdae62c662c7c0f56ffe5e97222": {
+    "actual": "6.2%",
+    "forecast": "6.3%",
+    "previous": "6.2%",
+    "previous_revise": true,
+    "position": 2
+  },
+  "b6fb481c7901e3d9161f7e75acb67633a99aee50c6de6971ab4ef84968c70987": {
+    "actual": "6.3%",
+    "forecast": "6.2%",
+    "previous": "6.3%",
+    "previous_revise": true,
+    "position": 3
+  },
+  "4fb22e7bad7fe171a0efd5cb4cd0de11d675368f591a00348c701998bb39e0ef": {
+    "actual": "6.2%",
+    "forecast": "6.2%",
+    "previous": "6.3%",
+    "previous_revise": true,
+    "position": 4
+  },
+  "c5e51d88cac996522fe9bd1206f19194ceb5d4df446dc8f9e935fa5a023389b2": {
+    "actual": "6.2%",
+    "forecast": "6.1%",
+    "previous": "6.1%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "b116c313eef97da13c2bc29e445d21cbc08e630d903767f2c7b59300caeeffad": {
+    "actual": "6.1%",
+    "forecast": "6.2%",
+    "previous": "6.3%",
+    "previous_revise": true,
+    "position": 6
+  },
+  "a642f4be2ca916c79b9fb26e572c38567c994114f10c6067cd350c1cb18a9f5e": {
+    "actual": "6.2%",
+    "forecast": "6.3%",
+    "previous": "6.3%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "f5e9ac2632209204733c8702de2e366db1336162e3dc7896f4e351cf155c9f13": {
+    "actual": "0.1%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "ac801b42e1937fba94b7a8e4050dd0741a8ebd404dc6d0ce8112bb9c18d2dfbf": {
+    "actual": "0.1%",
+    "forecast": "0.0%",
+    "previous": "0.2%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "6b9093c077ea1cb2e96b288fb012c6464568e217fcc8402699bc1bd625283e63": {
+    "actual": "0.2%",
+    "forecast": "0.1%",
+    "previous": "0.2%",
+    "previous_revise": true,
+    "position": 2
+  },
+  "8c9121eb3c903c752d0bc36647188b52c77e68c0ae90e9360f4bfe80062f63ed": {
+    "actual": "0.1%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "d432f62947e59e715c834bca0cfaf809fb778cd2a7fc5971442364922ccafe58": {
+    "actual": "0.1%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": true,
+    "position": 4
+  },
+  "5185165b491d7b872888bb163963d7313d9bb926e88938dd8bc7e1293c3a7b01": {
+    "actual": "0.3%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "9e9b69efb929c36dd8fc845eea7e7dc2fb1a7e015ac7e9f8d644c4eb1e30b24d": {
+    "actual": "0.1%",
+    "forecast": "0.1%",
+    "previous": "0.2%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "9d7776ceb0869f6e330a50a7d25bdd4fa2aad91153d0be484d39118e54b1d57b": {
+    "actual": "0.2%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "8d398277c37ae2cc717a1ff06c2f23b98f5b36cf484f1ea32f36fd56f9da49ca": {
+    "actual": "0.4%",
+    "forecast": "0.4%",
+    "previous": "0.4%",
+    "previous_revise": false,
+    "position": 0
+  },
+  "e7e497ebb1febc9a387f43e36ab93e641f34d109476601b1f3f75cd18b420894": {
+    "actual": "0.1%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 1
+  },
+  "9660362e4baf4f39d1327f1ecd9c956c7316cf58a7260544296c8c00144fb1eb": {
+    "actual": "0.3%",
+    "forecast": "0.3%",
+    "previous": "0.3%",
+    "previous_revise": false,
+    "position": 2
+  },
+  "8ed890a005df6765e45fcdc48832c8e5c057d5d05c5d6675252dd7c98a33ce97": {
+    "actual": "0.2%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "4b764c2e380851d0ff68fa7577773ee82df3917574fca4ce237705fd765865c8": {
+    "actual": "0.1%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 4
+  },
+  "a4c1f676d812e8f7ba4dfe126dbb40e0831a17bcca8d2247b055531f650c512c": {
+    "actual": "0.3%",
+    "forecast": "0.4%",
+    "previous": "0.4%",
+    "previous_revise": false,
+    "position": 5
+  },
+  "22645892a974540f06290255e511e407846e91445b89571ff12d32c4e0952ab6": {
+    "actual": "0.1%",
+    "forecast": "0.0%",
+    "previous": "0.0%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "a7ccbc5dbf50b62d14739ed9ff71dc49a6c8b630f247060b521394a32647b5ec": {
+    "actual": "0.4%",
+    "forecast": "0.4%",
+    "previous": "0.4%",
+    "previous_revise": false,
+    "position": 7
+  },
+  "2f9cfc6346f7618deaedb059d2eb5dafe8dc6bd8a2c25d43e28b13083cac693a": {
+    "actual": "0.4%",
+    "forecast": "0.2%",
+    "previous": "-0.2%",
+    "previous_revise": true,
+    "position": 0
+  },
+  "11d9b4f0989126b8bb95ba0f8690d1d0afcd09f19a4a957ac9c6732c98e22ae2": {
+    "actual": "0.1%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": true,
+    "position": 1
+  },
+  "f805093cf04c0ec389f532925d4dbaa5acf3071b35401510a100683fd341b07c": {
+    "actual": "0.3%",
+    "forecast": "0.2%",
+    "previous": "0.3%",
+    "previous_revise": true,
+    "position": 2
+  },
+  "cf40c04a8700693a74ebbe54600ce3d21cf9d4c0676ddf39635135728c465be3": {
+    "actual": "0.2%",
+    "forecast": "0.1%",
+    "previous": "0.1%",
+    "previous_revise": false,
+    "position": 3
+  },
+  "45b9920249a3e5e56c2c45e602373744b8ae340d703fd404a9c888d5db392bac": {
+    "actual": "0.1%",
+    "forecast": "0.0%",
+    "previous": "0.6%",
+    "previous_revise": true,
+    "position": 4
+  },
+  "d95a704dfe173b362f0d611dbf94c102f35b503bee60625715e0dddc9f86804c": {
+    "actual": "0.4%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": true,
+    "position": 5
+  },
+  "5c44d3e8eb7cea53e2e83e5b5ee99810c1df73108546baf15d9964acdcbae44a": {
+    "actual": "0.0%",
+    "forecast": "0.1%",
+    "previous": "0.4%",
+    "previous_revise": false,
+    "position": 6
+  },
+  "b07bd3f7435d294363d6827fcd586edc9e71e705a1a4d1b665d6c4cfd4eb5e19": {
+    "actual": "0.4%",
+    "forecast": "0.2%",
+    "previous": "0.2%",
+    "previous_revise": true,
+    "position": 7
+  }
+}
