@@ -162,6 +162,7 @@
       "impact": "low",
       "date_recuperation": "2026-09-10T09:01:17.288822+00:00",
       "extrait": "In July 2026 the seasonally adjusted industrial production index increased by 0.7% compared with the previous month. The percentage change of the average of the last three months with respect to the previous three months was -0.1%. The calendar adjusted industrial production index was unchanged compared with July 2025 (calendar working days in July 2026 ...",
+      "extrait_fr": null,
       "url": "https://www.forexfactory.com/news/1417565-italian-industrial-production-july-2026",
       "ignore": false,
       "date_publication": "2026-09-10T09:00:17.288822+00:00",
@@ -280,7 +281,7 @@
     },
     {
       "ignore": false,
-      "date_publication": "2026-09-10T12:23:57.947792+00:00",
+      "titre": "ECB hikes by 25 basis points, as expected",
       "contenu": "ECB raises main refi rate to 2.65% from 2.40%\n\nRaises three main rates by 25 bps\n\nCompared to June, baseline inflation projection for 2026 is unchanged but it has been raised for 2027 and 2028\n\nECB says stands ready to adjust all instruments within its mandate to ensure inflation stabilizes at 2% in the medium term\n\nECB is not pre-committed to any path\n\nThe euro sold off ahead of the announcement in a broad USD rally but it's bounced slightly to 1.1618.",
       "url": "https://investinglive.com/central-banks/ecb-hikes-by-25-basis-points-as-expected/",
       "date_recuperation": "2026-09-10T12:24:18.092052+00:00",
