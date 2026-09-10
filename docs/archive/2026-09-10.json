@@ -19,6 +19,8 @@
       "url": "https://www.forexfactory.com/news/1417424-german-inflation-rate-at-29-in-august-2026",
       "titre_fr": "Taux d'inflation allemand à +2,9% en août 2026",
       "extrait": "The inflation rate in Germany, measured as the year-on-year change in the consumer price index (CPI), stood at +2.9% in August 2026. The rise in consumer prices therefore intensified slightly again, after having stood at +2.8% in July 2026 and +2.3% in June 2026. \"In August, higher energy prices were again the primary drivers of overall inflation,\" says ...",
+      "url": "https://www.forexfactory.com/news/1417424-german-inflation-rate-at-29-in-august-2026",
+      "impact": "low",
       "source": "destatis.de",
       "date_recuperation": "2026-09-10T06:16:18.168922+00:00",
       "extrait_fr": "Le taux d'inflation en Allemagne, mesuré par la variation annuelle de l'indice des prix à la consommation (IPC), s'est élevé à +2,9% en août 2026. La hausse des prix à la consommation s'est donc encore légèrement intensifiée, après avoir atteint +2,8% en juillet 2026 et +2,3% en juin 2026. \"En août, la hausse des prix de l'énergie a de nouveau été le principal moteur de l'inflation globale\", dit ...",
@@ -55,6 +57,8 @@
       "url": "https://www.forexfactory.com/news/1417277-trump-pledges-5k-payment-to-every-us-adult",
       "titre_fr": null,
       "extrait": "Trump pledges a $5,000 payment to every U.S. adult if Republicans win the House and Senate.",
+      "url": "https://www.forexfactory.com/news/1417277-trump-pledges-5k-payment-to-every-us-adult",
+      "impact": "low",
       "source": "@FirstSquawk",
       "date_recuperation": "2026-09-10T02:13:18.474244+00:00",
       "date_publication": "2026-09-10T02:12:18.474244+00:00",
@@ -92,8 +96,9 @@
       "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon",
       "extrait_fr": "Avant de commencer mon discours, je voudrais offrir mes plus sincères condoléances à ceux qui souffrent des fortes pluies récentes. Un peu plus d’un an s’est écoulé depuis que j’ai été nommé membre du Conseil d’orientation. Pendant ce temps, le monde entier a été aux prises avec deux problèmes majeurs liés aux États-Unis : l’un concernant les droits de douane et l’autre concernant la situation en Iran. Contre toute attente, la question des droits de douane n'a provoqué aucune perturbation économique au Japon, même si elle a principalement touché les secteurs qui exportent de gros volumes vers les États-Unis, comme l'automobile. En revanche, la situation iranienne a eu des répercussions bien plus vastes. L'approvisionnement en pétrole brut et autres matières premières s'est resserré en raison de la fermeture du détroit d'Ormuz. Cela pourrait entraîner à la fois une hausse de l’inflation et un ralentissement de l’activité économique, plaçant les banques centrales du monde entier dans un environnement décisionnel difficile. En termes d’impact sur le Japon, le pétrole brut et le gaz naturel liquéfié (GNL) ont affiché des dynamiques de prix différentes. Les prix du pétrole brut ont augmenté en raison d’une pénurie d’approvisionnement, tandis que les prix du GNL ont augmenté même sans une telle pénurie. Masu, membre du conseil d'administration de la CBoJ : la BoJ continuera probablement à augmenter les taux d'intérêt dans le contexte de conditions financières souples actuelles, Masu, membre du conseil d'administration de la Banque du Japon : l'inflation sous-jacente reste inférieure à 2 % mais proche de ce niveau. Masu : le rythme et le calendrier des hausses de taux de la BOJ dépendront de la probabilité de respecter les projections et les risques de référence, en tenant compte de l'évolution des prix du pétrole, de la demande mondiale et des fluctuations monétaires.",
       "date_publication": "2026-09-10T01:34:16.212615+00:00",
-      "date_recuperation": "2026-09-10T01:35:16.212615+00:00",
       "extrait": "Before beginning my speech, I would like to offer my heartfelt sympathies to those who are suffering from the recent heavy rain. A little over a year has passed since I was appointed as a member of the Policy Board. During this time, the whole world has wrestled with two major issues related to the United States: one concerning tariffs and the other concerning the Iran situation. The tariff issue, unexpectedly, did not cause any economic disruption in Japan, although it did impact primarily sectors that have high export volumes to the United States, such as automobiles. In contrast, the Iran situation has had far broader repercussions. The supply of crude oil and other materials has tightened due to the closure of the Strait of Hormuz. This could induce both a rise in inflation and a deceleration in economic activity, placing central banks worldwide in a difficult decision-making environment. In terms of the impact on Japan, crude oil and liquefied natural gas (LNG) have shown different price dynamics. Crude oil prices have risen due to a shortage of supply, whereas LNG prices have increased even without such a shortage. CBoJ board member Masu: BoJ likely to keep raising interest rates amid current loose financial conditionsBank of Japan board member Masu: underlying inflation remains under 2% but close to that levelMasu: pace and timing of BOJ rate hikes to hinge on likelihood of meeting baseline projections and risks, taking into account oil price changes, al-demand, and currency fluctuations",
+      "url": "https://www.forexfactory.com/news/1417274-boj-masu-economic-activity-prices-and-monetary-policy",
+      "impact": "low",
       "source": "boj.or.jp",
       "impact": "low"
     }
