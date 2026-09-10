@@ -26,6 +26,19 @@
       "date_recuperation": "2026-09-10T06:16:18.168922+00:00"
     },
     {
+      "date_recuperation": "2026-09-10T06:16:18.168922+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1417424-german-inflation-rate-at-29-in-august-2026",
+      "titre_fr": "Taux d'inflation allemand à +2,9% en août 2026",
+      "extrait_fr": "Le taux d'inflation en Allemagne, mesuré par la variation annuelle de l'indice des prix à la consommation (IPC), s'est élevé à +2,9% en août 2026. La hausse des prix à la consommation s'est donc encore légèrement intensifiée, après avoir atteint +2,8% en juillet 2026 et +2,3% en juin 2026. \"En août, la hausse des prix de l'énergie a de nouveau été le principal moteur de l'inflation globale\", dit ...",
+      "source": "destatis.de",
+      "extrait": "The inflation rate in Germany, measured as the year-on-year change in the consumer price index (CPI), stood at +2.9% in August 2026. The rise in consumer prices therefore intensified slightly again, after having stood at +2.8% in July 2026 and +2.3% in June 2026. \"In August, higher energy prices were again the primary drivers of overall inflation,\" says ...",
+      "titre": "German inflation rate at +2.9% in August 2026",
+      "date_publication": "2026-09-10T06:15:18.168922+00:00",
+      "ignore": false
+    },
+    {
+      "date_recuperation": "2026-09-10T05:43:16.935220+00:00",
       "titre_fr": null,
       "source": "@financialjuice",
       "date_publication": "2026-09-10T05:42:16.935220+00:00",
@@ -38,6 +51,7 @@
       "date_recuperation": "2026-09-10T05:43:16.935220+00:00"
     },
     {
+      "date_recuperation": "2026-09-10T02:15:21.324243+00:00",
       "titre_fr": "Trump : je verserai un dividende de 5 000 dollars à chaque adulte aux États-Unis si les républicains remportent la Chambre et le Sénat",
       "source": "@NodeWire",
       "date_publication": "2026-09-10T02:12:21.324243+00:00",
@@ -86,6 +100,7 @@
       "date_recuperation": "2026-09-10T02:18:16.839375+00:00"
     },
     {
+      "date_recuperation": "2026-09-10T01:35:16.212615+00:00",
       "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon",
       "source": "boj.or.jp",
       "date_publication": "2026-09-10T01:34:16.212615+00:00",
