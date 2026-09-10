@@ -236,6 +236,7 @@
   .news-tag.high{ background:rgba(229,72,77,0.15); color:var(--red); }
   .news-tag.med{ background:rgba(224,165,66,0.15); color:var(--amber); }
   .news-tag.low{ background:rgba(38,194,129,0.15); color:var(--green); }
+  .news-tag.tag-pill{ background:rgba(91,144,255,0.14); color:var(--blue); }
 
   .footer-note{
     font-family:var(--mono); font-size:10px; color:var(--text-low);
@@ -284,10 +285,10 @@
   .news-card.is-open .headline{ color:var(--blue); }
   .news-card .snippet{
     font-size:12px; color:var(--text-mid); line-height:1.5; max-width:70ch;
-    max-height:0; opacity:0; overflow:hidden; margin-top:0;
+    max-height:0; opacity:0; overflow:hidden; margin-top:0; white-space:pre-line;
     transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease;
   }
-  .news-card .snippet.is-visible{ max-height:400px; opacity:1; margin-top:2px; }
+  .news-card .snippet.is-visible{ max-height:400px; opacity:1; margin-top:2px; overflow-y:auto; }
   .news-card .sym-chip{
     font-family:var(--mono); font-size:10px; color:var(--blue); background:rgba(79,140,255,0.12);
     padding:2px 7px; border-radius:3px;
@@ -473,10 +474,6 @@
       <input type="text" placeholder="Rechercher un symbole…" id="searchInput">
     </div>
     <div class="status-cluster">
-      <div class="lang-switch" id="langSwitch">
-        <button class="lang-btn active" id="langBtnFr" onclick="basculerLangueAffichage('fr')">FR</button>
-        <button class="lang-btn" id="langBtnEn" onclick="basculerLangueAffichage('en')">EN</button>
-      </div>
       <div><span class="status-dot"></span></div>
       <div class="clock" id="clock">--:--:--</div>
     </div>
@@ -686,16 +683,21 @@ function versDate(valeur){
   return new Date(valeur);
 }
 
+// NOTE (sept. 2026) : le pipeline ne traduit plus les articles en
+// francais (voir centralbanks_cloud.py etc.) -> chaque article est
+// affiche dans sa langue d'origine (celle du site source). On lit
+// "titre"/"extrait"/"contenu" en priorite ; le fallback sur "_fr" ne
+// sert que pour les tres rares cas ou l'original serait absent (jamais
+// pour prefer la traduction a l'original, y compris sur les anciens
+// articles qui ont encore les deux champs en base).
 function itemDepuisDocFF(d){
   return {
     time: versDate(d.date_publication),
     tag: mapImpactFirestore[d.impact] || 'med',
     sym: null,
     source: 'forexfactory',
-    textFr: d.titre_fr || d.titre || '',
-    textEn: d.titre || d.titre_fr || '',
-    snippetFr: d.extrait_fr || d.extrait || '',
-    snippetEn: d.extrait || d.extrait_fr || '',
+    text: d.titre || d.titre_fr || '',
+    snippet: d.extrait || d.extrait_fr || '',
     url: d.url,
   };
 }
@@ -705,10 +707,9 @@ function itemDepuisDocCB(d){
     tag: 'med',
     sym: null,
     source: 'centralbanks',
-    textFr: d.titre_fr || d.titre || '',
-    textEn: d.titre || d.titre_fr || '',
-    snippetFr: (d.contenu_fr || d.contenu || '').slice(0, 180),
-    snippetEn: (d.contenu || d.contenu_fr || '').slice(0, 180),
+    text: d.titre || d.titre_fr || '',
+    snippet: d.contenu || d.contenu_fr || '',
+    tags: d.tags || [],
     url: d.url,
   };
 }
@@ -718,10 +719,9 @@ function itemDepuisDocIL(d){
     tag: 'med',
     sym: null,
     source: 'investinglive',
-    textFr: d.titre_fr || d.titre || '',
-    textEn: d.titre || d.titre_fr || '',
-    snippetFr: (d.contenu_fr || d.contenu || '').slice(0, 180),
-    snippetEn: (d.contenu || d.contenu_fr || '').slice(0, 180),
+    text: d.titre || d.titre_fr || '',
+    snippet: d.contenu || d.contenu_fr || '',
+    tags: d.tags || [],
     url: d.url,
   };
 }
@@ -808,7 +808,7 @@ function ecouterCalendrierTempsReel(){
 // ecrit un document ici a CHAQUE cycle, meme sans nouvel article. Ca sert
 // UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
 // separement de la date/heure des articles eux-memes (deja correcte).
-const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd'];
+const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd', 'data-cad', 'data-eur', 'data-gbp', 'data-chf', 'data-jpy', 'data-aud', 'data-nzd'];
 let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
 
 function ecouterStatutPipeline(nomSource){
@@ -828,45 +828,118 @@ function ecouterStatutPipeline(nomSource){
     });
 }
 
-// ===== HISTORIQUE DES INDICATEURS USD (ForexFactory, via data-usd.py) =====
-// Contrairement aux 3 collections de news (un seul listener chacune) et au
-// calendrier (idem), ici on ouvre UN listener PAR indicateur (24 au total)
-// car chaque indicateur a besoin de SON propre tri ('position' croissant,
-// 0 = publication la plus recente) et Firestore ne peut pas trier "par
-// groupe" en une seule requete. La liste ci-dessous doit rester alignee
-// avec LIENS dans data-usd.py (meme slugs) - voir aussi nomLisibleDepuisSlug
-// qui reproduit cote client la meme regle que nom_lisible_depuis_slug()
-// cote Python.
-const ACRONYMES_JS = new Set(['us','cpi','ppi','pce','gdp','ism','pmi','jolts','adp','yy','mm','qq','fomc','ecb','boe','boj']);
+// ===== HISTORIQUE DES INDICATEURS (ForexFactory, un script par devise :
+// data-usd.py / data-cad.py / data-eur.py / data-gbp.py / data-chf.py /
+// data-jpy.py / data-aud.py / data-nzd.py) =====
+// On ouvre UN listener PAR indicateur (93 au total, toutes devises
+// confondues) car chaque indicateur a besoin de SON propre tri ('position'
+// croissant, 0 = publication la plus recente) et Firestore ne peut pas
+// trier "par groupe" en une seule requete. La liste ci-dessous doit rester
+// alignee avec les LIENS de chacun des 8 scripts Python (memes slugs) -
+// voir aussi nomLisibleDepuisSlug qui reproduit cote client la meme regle
+// que nom_lisible_depuis_slug() cote Python. Note : ForexFactory prefixe
+// les slugs par pays/zone, pas toujours par le code devise ISO -
+// "ez-" pour la zone euro, "uk-" pour le Royaume-Uni (GBP), "sz-" pour la
+// Suisse (CHF), "jn-" pour le Japon (JPY), "au-"/"nz-" pour AUD/NZD.
+const ACRONYMES_JS = new Set(['us','cpi','ppi','pce','gdp','ism','pmi','jolts','adp','yy','mm','qq','fomc','ecb','boe','boj','snb','kof','anz','brc','ippi']);
 function nomLisibleDepuisSlug(slug){
   return slug.split('-').map(m => ACRONYMES_JS.has(m.toLowerCase()) ? m.toUpperCase() : m.charAt(0).toUpperCase()+m.slice(1)).join(' ');
 }
 
-const INDICATEURS_USD = [
-  {slug:'us-federal-funds-rate', type:'taux'},
-  {slug:'us-non-farm-employment-change', type:'emploi'},
-  {slug:'us-prelim-benchmark-payrolls-revision', type:'emploi'},
-  {slug:'us-unemployment-rate', type:'emploi'},
-  {slug:'us-adp-non-farm-employment-change', type:'emploi'},
-  {slug:'us-jolts-job-openings', type:'emploi'},
-  {slug:'us-unemployment-claims', type:'emploi'},
-  {slug:'us-adp-weekly-employment-change', type:'emploi'},
-  {slug:'us-challenger-job-cuts-yy', type:'emploi'},
-  {slug:'us-cpi-yy', type:'inflation'},
-  {slug:'us-core-cpi-yy', type:'inflation'},
-  {slug:'us-cpi-mm', type:'inflation'},
-  {slug:'us-core-cpi-mm', type:'inflation'},
-  {slug:'us-ppi-mm', type:'inflation'},
-  {slug:'us-core-ppi-mm', type:'inflation'},
-  {slug:'us-core-pce-price-index-mm', type:'inflation'},
-  {slug:'us-average-hourly-earnings-mm', type:'salaires'},
-  {slug:'us-advance-gdp-price-index-qq', type:'croissance'},
-  {slug:'us-prelim-gdp-price-index-qq', type:'croissance'},
-  {slug:'us-final-gdp-price-index-qq', type:'croissance'},
-  {slug:'us-ism-services-pmi', type:'croissance'},
-  {slug:'us-ism-manufacturing-pmi', type:'croissance'},
-  {slug:'us-philly-fed-manufacturing-index', type:'croissance'},
-  {slug:'us-chicago-pmi', type:'croissance'},
+const INDICATEURS_SUIVIS = [
+  {slug:'us-federal-funds-rate', type:'taux', ccy:'USD'},
+  {slug:'us-non-farm-employment-change', type:'emploi', ccy:'USD'},
+  {slug:'us-prelim-benchmark-payrolls-revision', type:'emploi', ccy:'USD'},
+  {slug:'us-unemployment-rate', type:'emploi', ccy:'USD'},
+  {slug:'us-adp-non-farm-employment-change', type:'emploi', ccy:'USD'},
+  {slug:'us-jolts-job-openings', type:'emploi', ccy:'USD'},
+  {slug:'us-unemployment-claims', type:'emploi', ccy:'USD'},
+  {slug:'us-adp-weekly-employment-change', type:'emploi', ccy:'USD'},
+  {slug:'us-challenger-job-cuts-yy', type:'emploi', ccy:'USD'},
+  {slug:'us-cpi-yy', type:'inflation', ccy:'USD'},
+  {slug:'us-core-cpi-yy', type:'inflation', ccy:'USD'},
+  {slug:'us-cpi-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-core-cpi-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-ppi-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-core-ppi-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-core-pce-price-index-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-average-hourly-earnings-mm', type:'inflation', ccy:'USD'},
+  {slug:'us-advance-gdp-price-index-qq', type:'croissance', ccy:'USD'},
+  {slug:'us-prelim-gdp-price-index-qq', type:'croissance', ccy:'USD'},
+  {slug:'us-final-gdp-price-index-qq', type:'croissance', ccy:'USD'},
+  {slug:'us-ism-services-pmi', type:'croissance', ccy:'USD'},
+  {slug:'us-ism-manufacturing-pmi', type:'croissance', ccy:'USD'},
+  {slug:'us-philly-fed-manufacturing-index', type:'croissance', ccy:'USD'},
+  {slug:'us-chicago-pmi', type:'croissance', ccy:'USD'},
+  {slug:'ca-overnight-rate', type:'taux', ccy:'CAD'},
+  {slug:'ca-unemployment-rate', type:'emploi', ccy:'CAD'},
+  {slug:'ca-employment-change', type:'emploi', ccy:'CAD'},
+  {slug:'ca-median-cpi-yy', type:'inflation', ccy:'CAD'},
+  {slug:'ca-trimmed-cpi-yy', type:'inflation', ccy:'CAD'},
+  {slug:'ca-common-cpi-yy', type:'inflation', ccy:'CAD'},
+  {slug:'ca-core-cpi-mm', type:'inflation', ccy:'CAD'},
+  {slug:'ca-ippi-mm', type:'inflation', ccy:'CAD'},
+  {slug:'ca-gdp-mm', type:'croissance', ccy:'CAD'},
+  {slug:'ca-retail-sales-mm', type:'croissance', ccy:'CAD'},
+  {slug:'ca-core-retail-sales-mm', type:'croissance', ccy:'CAD'},
+  {slug:'ca-ivey-pmi', type:'croissance', ccy:'CAD'},
+  {slug:'ez-main-refinancing-rate', type:'taux', ccy:'EUR'},
+  {slug:'ez-cpi-flash-estimate-yy', type:'inflation', ccy:'EUR'},
+  {slug:'ez-final-cpi-yy', type:'inflation', ccy:'EUR'},
+  {slug:'ez-core-cpi-flash-estimate-yy', type:'inflation', ccy:'EUR'},
+  {slug:'ez-final-core-cpi-yy', type:'inflation', ccy:'EUR'},
+  {slug:'ez-unemployment-rate', type:'emploi', ccy:'EUR'},
+  {slug:'ez-flash-employment-change-qq', type:'emploi', ccy:'EUR'},
+  {slug:'ez-flash-gdp-qq', type:'croissance', ccy:'EUR'},
+  {slug:'ez-prelim-flash-gdp-qq', type:'croissance', ccy:'EUR'},
+  {slug:'uk-official-bank-rate', type:'taux', ccy:'GBP'},
+  {slug:'uk-cpi-yy', type:'inflation', ccy:'GBP'},
+  {slug:'uk-core-cpi-yy', type:'inflation', ccy:'GBP'},
+  {slug:'uk-average-earnings-index-3my', type:'inflation', ccy:'GBP'},
+  {slug:'uk-unemployment-rate', type:'emploi', ccy:'GBP'},
+  {slug:'uk-claimant-count-change', type:'emploi', ccy:'GBP'},
+  {slug:'uk-prelim-gdp-qq', type:'croissance', ccy:'GBP'},
+  {slug:'uk-final-gdp-qq', type:'croissance', ccy:'GBP'},
+  {slug:'uk-gdp-mm', type:'croissance', ccy:'GBP'},
+  {slug:'uk-brc-retail-sales-monitor-yy', type:'croissance', ccy:'GBP'},
+  {slug:'uk-retail-sales-mm', type:'croissance', ccy:'GBP'},
+  {slug:'sz-snb-policy-rate', type:'taux', ccy:'CHF'},
+  {slug:'sz-cpi-mm', type:'inflation', ccy:'CHF'},
+  {slug:'sz-unemployment-rate', type:'emploi', ccy:'CHF'},
+  {slug:'sz-manufacturing-pmi', type:'emploi', ccy:'CHF'},
+  {slug:'sz-gdp-qq', type:'croissance', ccy:'CHF'},
+  {slug:'sz-retail-sales-yy', type:'croissance', ccy:'CHF'},
+  {slug:'sz-kof-economic-barometer', type:'croissance', ccy:'CHF'},
+  {slug:'jn-boj-policy-rate', type:'taux', ccy:'JPY'},
+  {slug:'jn-boj-core-cpi-yy', type:'inflation', ccy:'JPY'},
+  {slug:'jn-tokyo-core-cpi-yy', type:'inflation', ccy:'JPY'},
+  {slug:'jn-average-cash-earnings-yy', type:'inflation', ccy:'JPY'},
+  {slug:'jn-unemployment-rate', type:'emploi', ccy:'JPY'},
+  {slug:'jn-prelim-gdp-qq', type:'croissance', ccy:'JPY'},
+  {slug:'jn-final-gdp-qq', type:'croissance', ccy:'JPY'},
+  {slug:'jn-household-spending-yy', type:'croissance', ccy:'JPY'},
+  {slug:'jn-prelim-gdp-price-index-yy', type:'croissance', ccy:'JPY'},
+  {slug:'au-cash-rate', type:'taux', ccy:'AUD'},
+  {slug:'au-cpi-yy', type:'inflation', ccy:'AUD'},
+  {slug:'au-trimmed-mean-cpi-mm', type:'inflation', ccy:'AUD'},
+  {slug:'au-cpi-mm', type:'inflation', ccy:'AUD'},
+  {slug:'au-commodity-prices-yy', type:'inflation', ccy:'AUD'},
+  {slug:'au-wage-price-index-qq', type:'inflation', ccy:'AUD'},
+  {slug:'au-unemployment-rate', type:'emploi', ccy:'AUD'},
+  {slug:'au-employment-change', type:'emploi', ccy:'AUD'},
+  {slug:'au-gdp-qq', type:'croissance', ccy:'AUD'},
+  {slug:'nz-official-cash-rate', type:'taux', ccy:'NZD'},
+  {slug:'nz-cpi-qq', type:'inflation', ccy:'NZD'},
+  {slug:'nz-anz-commodity-prices-mm', type:'inflation', ccy:'NZD'},
+  {slug:'nz-inflation-expectations-qq', type:'inflation', ccy:'NZD'},
+  {slug:'nz-unemployment-rate', type:'emploi', ccy:'NZD'},
+  {slug:'nz-employment-change-qq', type:'emploi', ccy:'NZD'},
+  {slug:'nz-gdp-qq', type:'croissance', ccy:'NZD'},
+  {slug:'nz-retail-sales-qq', type:'croissance', ccy:'NZD'},
+  {slug:'nz-core-retail-sales-qq', type:'croissance', ccy:'NZD'},
+  {slug:'nz-anz-business-confidence', type:'croissance', ccy:'NZD'},
+  {slug:'nz-businessnz-services-index', type:'croissance', ccy:'NZD'},
+  {slug:'nz-businessnz-manufacturing-index', type:'croissance', ccy:'NZD'},
 ];
 
 // { slug: [ {date_publication_texte, actual, forecast, previous, previous_revise, position}, ... ] }
@@ -886,7 +959,7 @@ function itemDepuisDocIndicateur(d){
 }
 
 function ecouterIndicateursTempsReel(){
-  INDICATEURS_USD.forEach(ind => {
+  INDICATEURS_SUIVIS.forEach(ind => {
     dbFirestore.collection('ff_indicator_history')
       .where('indicateur_slug', '==', ind.slug)
       .orderBy('position', 'asc')
@@ -969,6 +1042,7 @@ function mettreAJourHorlogeInfo(){
     clockEl.classList.remove('clock-alerte');
     clockEl.classList.remove('clock-alerte-partielle');
     mettreAJourPastillesSources();
+    mettreAJourPastilleDataEco();
     return;
   }
 
@@ -1005,6 +1079,7 @@ function mettreAJourHorlogeInfo(){
   }).join('\n');
 
   mettreAJourPastillesSources();
+  mettreAJourPastilleDataEco();
 }
 
 // ===== PASTILLES DE STATUT PAR COLONNE (page News) =====
@@ -1018,8 +1093,51 @@ const DOTS_PAR_SOURCE = {
   centralbanks: ['dot-centralbanks'],
   forexfactory: ['dot-forexfactory', 'dot-forexfactory-high'],
   ecocalendar: ['dot-ecocalendar', 'dot-ecocalendar-page'],
-  'data-usd': ['dot-dataeco'],
 };
+
+// Sources dont le statut alimente la pastille AGREGEE 'dot-dataeco' (8
+// devises, un script chacune - voir INDICATEURS_SUIVIS plus haut). Une
+// seule pastille ne peut pas representer 8 sources individuellement : on
+// affiche le PIRE statut des 8, meme logique que l'horloge globale.
+const SOURCES_DATAECO = ['data-usd', 'data-cad', 'data-eur', 'data-gbp', 'data-chf', 'data-jpy', 'data-aud', 'data-nzd'];
+
+function mettreAJourPastilleDataEco(){
+  const dot = document.getElementById('dot-dataeco');
+  const tempsEl = document.getElementById('time-dataeco');
+  if(!dot) return;
+
+  const entrees = SOURCES_DATAECO
+    .map(nom => ({nom, info: statutPipeline[nom]}))
+    .filter(e => e.info && e.info.derniereExecution);
+
+  dot.classList.remove('ok', 'ok_partiel', 'erreur');
+
+  if(entrees.length === 0){
+    dot.title = 'Aucune donnée reçue pour le moment (8 devises)';
+    if(tempsEl) tempsEl.textContent = '';
+    return;
+  }
+
+  entrees.sort((a, b) => a.info.derniereExecution - b.info.derniereExecution);
+  const plusAncienne = entrees[0];
+  const minutesEcoulees = (Date.now() - plusAncienne.info.derniereExecution.getTime()) / 60000;
+  const silencieux = minutesEcoulees > SEUIL_ALERTE_MINUTES;
+  const yAUneErreur = entrees.some(e => e.info.statut === 'erreur') || silencieux;
+  const yAUnePartielle = entrees.some(e => e.info.statut === 'ok_partiel');
+
+  dot.classList.add(yAUneErreur ? 'erreur' : (yAUnePartielle ? 'ok_partiel' : 'ok'));
+  dot.title = SOURCES_DATAECO.map(nom => {
+    const info = statutPipeline[nom];
+    if(!info || !info.derniereExecution) return nom + ' : aucune donnée reçue';
+    const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+    return nom + ' : ' + formaterDateCarte(info.derniereExecution) + ' ' + heure + ' (' + info.statut + ')';
+  }).join('\n');
+
+  if(tempsEl){
+    const heure = plusAncienne.info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+    tempsEl.textContent = formaterDateCarte(plusAncienne.info.derniereExecution) + ' ' + heure;
+  }
+}
 
 function mettreAJourPastillesSources(){
   Object.keys(DOTS_PAR_SOURCE).forEach(nomSource => {
@@ -1364,25 +1482,27 @@ function formaterDateCarte(date){
   return jour + ' ' + MOIS_ABREGES_FR[date.getMonth()];
 }
 
-let langueAffichage = localStorage.getItem('smf_langue') || 'fr';
-
+// Chaque article n'existe plus qu'en langue d'origine (plus de FR/EN) :
+// on lit directement "text"/"snippet", avec un fallback sur les anciens
+// noms "textFr"/"snippetFr" pour ne pas casser d'eventuelles donnees
+// deja en memoire generees avant ce changement.
 function texteAffiche(n){
-  if(n.textFr === undefined) return n.text || ''; // fallback pour les news simulees
-  return langueAffichage === 'en' ? (n.textEn || n.textFr || '') : (n.textFr || n.textEn || '');
+  return n.text || n.textFr || n.textEn || '';
 }
 
 function snippetAffiche(n){
-  if(n.snippetFr === undefined) return n.snippet || ''; // fallback pour les news simulees
-  return langueAffichage === 'en' ? (n.snippetEn || n.snippetFr || '') : (n.snippetFr || n.snippetEn || '');
+  return n.snippet || n.snippetFr || n.snippetEn || '';
 }
 
-function basculerLangueAffichage(langue){
-  langueAffichage = langue;
-  localStorage.setItem('smf_langue', langue);
-  document.getElementById('langBtnFr').classList.toggle('active', langue === 'fr');
-  document.getElementById('langBtnEn').classList.toggle('active', langue === 'en');
-  renderNewsHomeColumns();
-  renderNewsColumns();
+function badgeNewsHtml(n){
+  // ForexFactory a un vrai niveau d'impact (high/med/low) -> on garde le
+  // badge FORT/MOYEN/FAIBLE. Central Banks et InvestingLive n'ont pas de
+  // vrai niveau d'impact (toujours 'med' en dur) -> si des tags sont
+  // disponibles, on les affiche a la place, plus informatif que "MOYEN".
+  if(n.tags && n.tags.length){
+    return `<span class="news-tag tag-pill">${n.tags.join(', ')}</span>`;
+  }
+  return `<span class="news-tag ${n.tag}">${n.tag==='high'?'FORT':n.tag==='med'?'MOYEN':'FAIBLE'}</span>`;
 }
 
 function newsCardHtml(n){
@@ -1391,7 +1511,7 @@ function newsCardHtml(n){
   const heureStr = n.time.toLocaleTimeString('fr-FR', {hour12:false});
   return `<div class="news-card" id="${idCarte}">
     <div class="meta">
-      <span class="news-tag ${n.tag}">${n.tag==='high'?'FORT':n.tag==='med'?'MOYEN':'FAIBLE'}</span>
+      ${badgeNewsHtml(n)}
       ${n.sym ? `<span class="sym-chip">${n.sym}</span>` : ''}
       <span class="news-time">${dateStr} · ${heureStr}</span>
     </div>
@@ -1458,15 +1578,15 @@ async function recupererIndexArchive(){
 function itemsDepuisJourArchive(donneesJour){
   const mapImpact = {high:'high', medium:'med', low:'low'};
 
+  // Meme logique que itemDepuisDocFF/CB/IL : langue d'origine en
+  // priorite, "_fr" seulement en secours pour les vieux jours d'archive.
   const ffItems = (donneesJour.ff_news || []).map(n => ({
     time: new Date(n.date_publication),
     tag: mapImpact[n.impact] || 'med',
     sym: null,
     source: 'forexfactory',
-    textFr: n.titre_fr || n.titre || '',
-    textEn: n.titre || n.titre_fr || '',
-    snippetFr: n.extrait_fr || n.extrait || '',
-    snippetEn: n.extrait || n.extrait_fr || '',
+    text: n.titre || n.titre_fr || '',
+    snippet: n.extrait || n.extrait_fr || '',
     url: n.url,
   }));
 
@@ -1475,10 +1595,9 @@ function itemsDepuisJourArchive(donneesJour){
     tag: 'med',
     sym: null,
     source: 'centralbanks',
-    textFr: a.titre_fr || a.titre || '',
-    textEn: a.titre || a.titre_fr || '',
-    snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
-    snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
+    text: a.titre || a.titre_fr || '',
+    snippet: a.contenu || a.contenu_fr || '',
+    tags: a.tags || [],
     url: a.url,
   }));
 
@@ -1487,10 +1606,9 @@ function itemsDepuisJourArchive(donneesJour){
     tag: 'med',
     sym: null,
     source: 'investinglive',
-    textFr: a.titre_fr || a.titre || '',
-    textEn: a.titre || a.titre_fr || '',
-    snippetFr: (a.contenu_fr || a.contenu || '').slice(0, 180),
-    snippetEn: (a.contenu || a.contenu_fr || '').slice(0, 180),
+    text: a.titre || a.titre_fr || '',
+    snippet: a.contenu || a.contenu_fr || '',
+    tags: a.tags || [],
     url: a.url,
   }));
 
@@ -1813,33 +1931,43 @@ function renderCesi(){
 }
 
 // ===================== DATA ÉCONOMIQUE (données réelles, voir plus haut
-// INDICATEURS_USD / donneesIndicateurs / ecouterIndicateursTempsReel) =====
+// INDICATEURS_SUIVIS / donneesIndicateurs / ecouterIndicateursTempsReel) =====
 const ecoTypeLabels = {
-  croissance:'Croissance', inflation:'Inflation', emploi:'Emploi',
-  salaires:'Salaires', taux:'Taux directeur',
+  croissance:'Croissance', inflation:'Inflation', emploi:'Emploi', taux:'Taux directeur',
 };
+// Code pays/zone affiché à côté du drapeau sur chaque carte (distinct du
+// code devise ISO pour certains : zone euro, Royaume-Uni...).
+const CCY_VERS_PAYS = {
+  USD:'US', CAD:'CA', EUR:'EZ', GBP:'UK', CHF:'CH', JPY:'JP', AUD:'AU', NZD:'NZ',
+};
+let ecoFilterCcy = 'all';
 let ecoFilterType = 'all';
 // Un seul historique déplié à la fois (évite des cartes toutes très
 // hautes en même temps, garde la grille lisible).
 let ecoHistOuvert = null;
 
 function renderEcoFilters(){
-  const typesPresents = [...new Set(INDICATEURS_USD.map(e=>e.type))];
+  const ccysPresentes = [...new Set(INDICATEURS_SUIVIS.map(e=>e.ccy))];
+  const typesPresents = [...new Set(INDICATEURS_SUIVIS.map(e=>e.type))];
+
+  const ccyHtml = ['all', ...ccysPresentes].map(c=>
+    `<button class="eco-chip ${ecoFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':flagFor(c)+' '+c}</button>`
+  ).join('');
   const typeHtml = ['all', ...typesPresents].map(t=>
     `<button class="eco-chip ${ecoFilterType===t?'active':''}" data-type="${t}">${t==='all'?'Tous':ecoTypeLabels[t]||t}</button>`
   ).join('');
 
-  // Filtre devise laissé en place pour plus tard (Fed SEP + BCE prévus,
-  // voir contexte projet) : pour l'instant tous les indicateurs sont en
-  // USD, donc un simple badge plutôt qu'un vrai filtre cliquable.
-  document.getElementById('ecoFilterCcy').innerHTML = `<span class="eco-chip active" style="cursor:default;">${flagFor('USD')} USD</span>`;
+  document.getElementById('ecoFilterCcy').innerHTML = ccyHtml;
   document.getElementById('ecoFilterType').innerHTML = typeHtml;
 }
 
 function renderEcoData(){
   renderEcoFilters();
   const grid = document.getElementById('ecoGrid');
-  const filtered = INDICATEURS_USD.filter(e => ecoFilterType==='all' || e.type===ecoFilterType);
+  const filtered = INDICATEURS_SUIVIS.filter(e =>
+    (ecoFilterCcy==='all' || e.ccy===ecoFilterCcy) &&
+    (ecoFilterType==='all' || e.type===ecoFilterType)
+  );
 
   if(!filtered.length){
     grid.innerHTML = `<div class="eco-empty">Aucun indicateur ne correspond à ces filtres.</div>`;
@@ -1849,10 +1977,11 @@ function renderEcoData(){
   grid.innerHTML = filtered.map((e,i)=>{
     const lignes = donneesIndicateurs[e.slug] || [];
     const nom = nomLisibleDepuisSlug(e.slug);
+    const pays = CCY_VERS_PAYS[e.ccy] || e.ccy;
 
     if(!lignes.length){
       return `<div class="eco-card">
-        <div class="top"><div><div class="name">${nom}</div><div class="country">${flagFor('USD')} US</div></div></div>
+        <div class="top"><div><div class="name">${nom}</div><div class="country">${flagFor(e.ccy)} ${pays}</div></div></div>
         <div class="value" style="color:var(--text-low); font-size:13px;">En attente de données…</div>
       </div>`;
     }
@@ -1873,7 +2002,7 @@ function renderEcoData(){
       <div class="top">
         <div>
           <div class="name">${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</div>
-          <div class="country">${flagFor('USD')} US · ${dernier.date_publication_texte}</div>
+          <div class="country">${flagFor(e.ccy)} ${pays} · ${dernier.date_publication_texte}</div>
         </div>
       </div>
       <div class="value">${dernier.actual || '—'}</div>
@@ -1903,8 +2032,10 @@ function renderEcoData(){
 }
 
 document.getElementById('ecoFilters').addEventListener('click', e=>{
+  const ccyBtn = e.target.closest('[data-ccy]');
   const typeBtn = e.target.closest('[data-type]');
-  if(typeBtn){ ecoFilterType = typeBtn.dataset.type; renderEcoData(); }
+  if(ccyBtn){ ecoFilterCcy = ccyBtn.dataset.ccy; renderEcoData(); }
+  else if(typeBtn){ ecoFilterType = typeBtn.dataset.type; renderEcoData(); }
 });
 // Deplier/replier le tableau d'historique d'une carte (delegation car les
 // cartes sont regenerees a chaque renderEcoData()).
@@ -2246,8 +2377,6 @@ renderAll();
 renderTrades();
 resizeCanvas();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
-document.getElementById('langBtnFr').classList.toggle('active', langueAffichage === 'fr');
-document.getElementById('langBtnEn').classList.toggle('active', langueAffichage === 'en');
 demarrerEcouteTempsReel();
 
 setInterval(()=>{ tickPrices(); renderTape(); renderWatchlist(); renderChartHeader(); drawChart(); document.getElementById('portfolioValue') && renderPortfolio(); }, 1500);
