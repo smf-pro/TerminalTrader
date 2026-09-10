@@ -2,6 +2,9 @@
   "date": "2026-09-10",
   "ff_news": [
     {
+      "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis",
+      "date_publication": "2026-09-10T02:12:21.324243+00:00",
+      "ignore": false,
       "source": "@NodeWire",
       "date_publication": "2026-09-10T02:12:21.324243+00:00",
       "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
@@ -14,6 +17,9 @@
       "ignore": false
     },
     {
+      "extrait_fr": null,
+      "date_publication": "2026-09-10T02:12:18.474244+00:00",
+      "ignore": false,
       "source": "@FirstSquawk",
       "extrait": "Trump pledges a $5,000 payment to every U.S. adult if Republicans win the House and Senate.",
       "date_publication": "2026-09-10T02:12:18.474244+00:00",
@@ -50,6 +56,21 @@
       "ignore": false
     },
     {
+      "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
+      "date_publication": "2026-09-10T02:12:16.839375+00:00",
+      "ignore": false,
+      "source": "@NodeWire",
+      "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis",
+      "titre_fr": "Trump : je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis si les républicains remportent la Chambre et le Sénat",
+      "url": "https://www.forexfactory.com/news/1417277-trump-ill-issue-a-5k-dividend-to-every",
+      "impact": "low",
+      "titre": "Trump: I'll issue a $5k dividend to every adult in the US, if Republicans win the House and Senate",
+      "date_recuperation": "2026-09-10T02:18:16.839375+00:00"
+    },
+    {
+      "extrait_fr": "Avant de commencer mon discours, je voudrais offrir mes plus sincères condoléances à ceux qui souffrent des fortes pluies récentes. Un peu plus d’un an s’est écoulé depuis que j’ai été nommé membre du Conseil d’orientation. Pendant ce temps, le monde entier a été aux prises avec deux problèmes majeurs liés aux États-Unis : l’un concernant les droits de douane et l’autre concernant la situation en Iran. Contre toute attente, la question des droits de douane n'a provoqué aucune perturbation économique au Japon, même si elle a principalement touché les secteurs qui exportent de gros volumes vers les États-Unis, comme l'automobile. En revanche, la situation iranienne a eu des répercussions bien plus vastes. L'approvisionnement en pétrole brut et autres matières premières s'est resserré en raison de la fermeture du détroit d'Ormuz. Cela pourrait entraîner à la fois une hausse de l’inflation et un ralentissement de l’activité économique, plaçant les banques centrales du monde entier dans un environnement décisionnel difficile. En termes d’impact sur le Japon, le pétrole brut et le gaz naturel liquéfié (GNL) ont affiché des dynamiques de prix différentes. Les prix du pétrole brut ont augmenté en raison d’une pénurie d’approvisionnement, tandis que les prix du GNL ont augmenté même sans une telle pénurie. Masu, membre du conseil d'administration de la CBoJ : la BoJ continuera probablement à augmenter les taux d'intérêt dans le contexte de conditions financières souples actuelles, Masu, membre du conseil d'administration de la Banque du Japon : l'inflation sous-jacente reste inférieure à 2 % mais proche de ce niveau. Masu : le rythme et le calendrier des hausses de taux de la BOJ dépendront de la probabilité de respecter les projections et les risques de référence, en tenant compte de l'évolution des prix du pétrole, de la demande mondiale et des fluctuations monétaires.",
+      "date_publication": "2026-09-10T01:34:16.212615+00:00",
+      "ignore": false,
       "source": "boj.or.jp",
       "date_publication": "2026-09-10T01:34:16.212615+00:00",
       "extrait": "Before beginning my speech, I would like to offer my heartfelt sympathies to those who are suffering from the recent heavy rain. A little over a year has passed since I was appointed as a member of the Policy Board. During this time, the whole world has wrestled with two major issues related to the United States: one concerning tariffs and the other concerning the Iran situation. The tariff issue, unexpectedly, did not cause any economic disruption in Japan, although it did impact primarily sectors that have high export volumes to the United States, such as automobiles. In contrast, the Iran situation has had far broader repercussions. The supply of crude oil and other materials has tightened due to the closure of the Strait of Hormuz. This could induce both a rise in inflation and a deceleration in economic activity, placing central banks worldwide in a difficult decision-making environment. In terms of the impact on Japan, crude oil and liquefied natural gas (LNG) have shown different price dynamics. Crude oil prices have risen due to a shortage of supply, whereas LNG prices have increased even without such a shortage. CBoJ board member Masu: BoJ likely to keep raising interest rates amid current loose financial conditionsBank of Japan board member Masu: underlying inflation remains under 2% but close to that levelMasu: pace and timing of BOJ rate hikes to hinge on likelihood of meeting baseline projections and risks, taking into account oil price changes, al-demand, and currency fluctuations",
