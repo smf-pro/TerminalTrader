@@ -64,11 +64,42 @@
     {
       "date_recuperation": "2026-09-10T13:21:15.176048+00:00",
       "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1417641-yemens-houthis-spokesperson-operations-will-stop-when-attacks",
+      "extrait_fr": "Porte-parole des Houthis du Yémen : les opérations s'arrêteront lorsque les attaques contre le Yémen prendront fin et que le blocus sera levé. Chef du Conseil politique suprême du Yémen : les forces soutenues par l'Arabie saoudite bénéficieront d'une amnistie si elles déposent les armes - IRIB News Porte-parole des Houthis du Yémen soutenus par l'Iran : les opérations actuelles sont limitées à des cibles spécifiées et sont défensives. et sans interruption.",
+      "titre": "Yemen's Houthis Spokesperson: Operations will stop when attacks on Yemen end and the blockade is lifted",
+      "titre_fr": "Porte-parole des Houthis du Yémen : les opérations s'arrêteront lorsque les attaques contre le Yémen prendront fin et que le blocus sera levé"
+    },
+    {
+      "impact": "low",
+      "date_recuperation": "2026-09-10T14:07:20.873743+00:00",
+      "ignore": false,
+      "extrait": "Wholesale inventories in the United States rose by 1.3% in July compared to June's revised figure and stood at $958.9 billion, the US Census Bureau revealed in a report released on Thursday. Total inventories climbed by 5.7% compared to the same month in the previous year. The sales of merchant wholesalers, adjusted for seasonal variations and trading-day ...",
+      "date_publication": "2026-09-10T14:06:20.873743+00:00",
+      "source": "breakingthenews.net",
+      "extrait_fr": null,
+      "url": "https://www.forexfactory.com/news/1417632-us-wholesale-inventories-up-by-13-in-july",
+      "titre": "US wholesale inventories up by 1.3% in July",
+      "titre_fr": null
+    },
+    {
+      "impact": "low",
+      "date_recuperation": "2026-09-10T14:03:22.230651+00:00",
+      "ignore": false,
+      "extrait": "Existing-home sales decreased by 2.0% month-over-month and 1.2% year-over-year, according to the National Association of REALTORS® Existing-Home Sales report. The report provides the real estate ecosystem—including agents, homebuyers and sellers—with data on the level of home sales, price, and inventory. Month-over-month sales held steady in the West and ...",
+      "date_publication": "2026-09-10T14:02:22.230651+00:00",
+      "source": "nar.realtor",
+      "url": "https://www.forexfactory.com/news/1417630-us-nar-existing-home-sales-report-shows-20-decrease",
+      "extrait_fr": null,
+      "titre": "US NAR Existing-Home Sales Report Shows 2.0% Decrease in August",
+      "titre_fr": null
+    },
+    {
       "impact": "medium",
       "date_publication": "2026-09-10T13:20:15.176048+00:00",
       "extrait": "ECB's Lagarde: Inflation has been lower recently than anticipated, especially food.ECB's Lagarde: The ECB was surprised by longer-lasting inflation.",
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1417623-ecbs-lagarde-inflation-has-been-lower-recently-than",
+      "extrait_fr": "Lagarde de la BCE : L'inflation a été plus faible que prévu récemment, en particulier dans le secteur alimentaire. Lagarde de la BCE : La BCE a été surprise par une inflation plus durable.",
       "titre": "ECB's Lagarde: Inflation has been lower recently than anticipated, especially food",
       "extrait_fr": "Lagarde de la BCE : L'inflation a été plus faible que prévu récemment, en particulier dans le secteur alimentaire. Lagarde de la BCE : La BCE a été surprise par une inflation plus durable.",
       "titre_fr": null
@@ -141,6 +172,7 @@
       "extrait": "The Governing Council today decided to raise the three key ECB interest rates by 25 basis points. The conflict in the Middle East continues to generate inflation pressures, and inflation is set to remain well above target for an extended period. Today’s decision underscores the Governing Council’s commitment to setting monetary policy to ensure that inflation stabilises at its 2% target in the medium term.ECB HIKES RATES 25 BPS AS INFLATION RISKS RISE The ECB raised rates by 25 basis points, taking the deposit rate to 2.50%, as the Middle East conflict keeps inflation pressures elevated. The ECB now sees inflation averaging 3.0% in 2026, 2.5% in 2027 and 2.1% in 2028, with the latter two forecasts revised higher. Growth forecasts were also upgraded, while the ECB stressed that future rate decisions remain data-dependent with no pre-set path.",
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1417612-ecb-hikes-rates-25-bps-as-inflation-risks",
+      "extrait_fr": "Le Conseil des gouverneurs a décidé aujourd'hui de relever les trois taux d'intérêt directeurs de la BCE de 25 points de base. Le conflit au Moyen-Orient continue de générer des pressions inflationnistes, et l’inflation devrait rester bien supérieure à l’objectif pendant une période prolongée. La décision d’aujourd’hui souligne l’engagement du Conseil des gouverneurs à définir une politique monétaire garantissant que l’inflation se stabilise à son objectif de 2 % à moyen terme. La BCE relève ses taux de 25 points de base à mesure que les risques d’inflation augmentent La BCE a relevé ses taux de 25 points de base, portant le taux de dépôt à 2,50 %, alors que le conflit au Moyen-Orient maintient les pressions inflationnistes élevées. La BCE prévoit désormais une inflation moyenne de 3,0 % en 2026, 2,5 % en 2027 et 2,1 % en 2028, ces deux dernières prévisions étant révisées à la hausse. Les prévisions de croissance ont également été revues à la hausse, tandis que la BCE a souligné que les futures décisions en matière de taux resteraient dépendantes des données, sans trajectoire prédéfinie.",
       "titre": "ECB hikes rates 25 bps as inflation risks rise",
       "extrait_fr": "Le Conseil des gouverneurs a décidé aujourd'hui de relever les trois taux d'intérêt directeurs de la BCE de 25 points de base. Le conflit au Moyen-Orient continue de générer des pressions inflationnistes, et l’inflation devrait rester bien supérieure à l’objectif pendant une période prolongée. La décision d’aujourd’hui souligne l’engagement du Conseil des gouverneurs à définir une politique monétaire garantissant que l’inflation se stabilise à son objectif de 2 % à moyen terme. La BCE relève ses taux de 25 points de base à mesure que les risques d’inflation augmentent La BCE a relevé ses taux de 25 points de base, portant le taux de dépôt à 2,50 %, alors que le conflit au Moyen-Orient maintient les pressions inflationnistes élevées. La BCE prévoit désormais une inflation moyenne de 3,0 % en 2026, 2,5 % en 2027 et 2,1 % en 2028, ces deux dernières prévisions étant révisées à la hausse. Les prévisions de croissance ont également été revues à la hausse, tandis que la BCE a souligné que les futures décisions en matière de taux resteraient dépendantes des données, sans trajectoire prédéfinie.",
       "source": "ecb.europa.eu"
@@ -347,6 +379,7 @@
     },
     {
       "date_recuperation": "2026-09-10T00:31:19.965387+00:00",
+      "ignore": false,
       "date_publication": "2026-09-10T00:30:39.650987+00:00",
       "ignore": false,
       "url": "https://investinglive.com/central-banks/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7074-reuters-estimate/",
@@ -501,6 +534,7 @@
     },
     {
       "date_recuperation": "2026-09-10T11:05:18.772819+00:00",
+      "ignore": false,
       "date_publication": "2026-09-10T11:01:56.462594+00:00",
       "categorie": "news",
       "ignore": false,
@@ -512,6 +546,7 @@
     },
     {
       "date_recuperation": "2026-09-10T10:30:15.281920+00:00",
+      "ignore": false,
       "date_publication": "2026-09-10T10:26:51.416543+00:00",
       "categorie": "forex",
       "ignore": false,
@@ -611,6 +646,7 @@
     },
     {
       "date_recuperation": "2026-09-10T03:30:16.058964+00:00",
+      "ignore": false,
       "date_publication": "2026-09-10T03:29:44.893634+00:00",
       "categorie": "stock-market-update",
       "ignore": false,
