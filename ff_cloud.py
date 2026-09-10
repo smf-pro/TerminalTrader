@@ -26,17 +26,24 @@ contre le vrai HTML en direct. Si les logs affichent "Aucune news trouvée"
 lors du premier run, ouvrez https://www.forexfactory.com/news, faites
 clic droit > Inspecter sur un titre, et ajustez les sélecteurs dans
 recuperer_liens_articles().
+
+MODIF (sept. 2026) : l'article n'est plus traduit en français. Le titre
+et l'extrait affichés sont ceux d'origine (langue du site source), comme
+pour centralbanks_cloud.py et investinglive_cloud.py. Champs "titre_fr"
+et "extrait_fr" retirés. Pas de notion de "tags" ni de "contenu complet"
+ajoutée ici : contrairement aux 2 autres scripts, ForexFactory ne fournit
+qu'un aperçu tronqué sur sa page de liste (le lien pointe généralement
+vers un site tiers externe, pas vers un article ForexFactory), donc rien
+d'équivalent à récupérer de façon fiable.
 """
 
 import os
 import re
-import time
 import hashlib
 from datetime import datetime, timedelta, timezone
 
 import requests
 from bs4 import BeautifulSoup
-from deep_translator import GoogleTranslator
 
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -54,7 +61,6 @@ HEADERS = {
     "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
 }
 
-GENERER_VERSION_FR = True
 COLLECTION = "ff_news"
 NOM_SOURCE = "forexfactory"  # identifiant unique de ce script dans pipeline_status
 
@@ -217,45 +223,6 @@ def recuperer_liens_articles(maintenant):
     return resultats, total_brut
 
 
-def decouper_texte(texte, limite=4500):
-    morceaux = []
-    reste = texte
-    while len(reste) > limite:
-        coupe = reste.rfind(". ", 0, limite)
-        if coupe == -1:
-            coupe = limite
-        morceaux.append(reste[:coupe].strip())
-        reste = reste[coupe:].strip()
-    if reste:
-        morceaux.append(reste)
-    return morceaux
-
-
-SIGNATURES_ERREUR_GOOGLE = ["!!1500", "that's an error", "that\u2019s an error"]
-
-
-def _est_page_erreur_traduction(texte):
-    texte_lower = texte.lower()
-    return any(sig.lower() in texte_lower for sig in SIGNATURES_ERREUR_GOOGLE)
-
-
-def traduire_texte(texte, langue_dest="fr"):
-    if not texte:
-        return texte
-    try:
-        traducteur = GoogleTranslator(source="auto", target=langue_dest)
-        morceaux_traduits = [traducteur.translate(m) for m in decouper_texte(texte)]
-        resultat = " ".join(morceaux_traduits)
-        if _est_page_erreur_traduction(resultat):
-            print(" -> Page d'erreur Google Translate detectee, version originale affichee en attendant")
-            return None
-        time.sleep(0.3)
-        return resultat
-    except Exception as e:
-        print(f" -> Erreur de traduction, version originale affichee en attendant : {e}")
-        return None
-
-
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
 def cycle():
     db = init_firestore()
@@ -339,21 +306,13 @@ def cycle():
                 marquer_traite(cache, doc_id)
                 continue
 
-            titre_fr = None
-            extrait_fr = None
-            if GENERER_VERSION_FR:
-                titre_fr = traduire_texte(news["titre"])
-                extrait_fr = traduire_texte(news["extrait"]) if news["extrait"] else "(Pas d'extrait disponible)"
-
             doc_ref = db.collection(COLLECTION).document(doc_id)
             doc_ref.set({
                 "url": news["url"],
                 "titre": news["titre"],
-                "titre_fr": titre_fr,
                 "source": news["source"],
                 "impact": news["impact"],
                 "extrait": news["extrait"] if news["extrait"] else "(Pas d'extrait disponible)",
-                "extrait_fr": extrait_fr,
                 "date_publication": news["date_pub"],
                 "date_recuperation": maintenant,
                 "ignore": False,
