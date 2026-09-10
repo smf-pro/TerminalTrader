@@ -78,6 +78,15 @@
       "url": "https://www.forexfactory.com/news/1417565-italian-industrial-production-july-2026",
       "titre": "Italian industrial production - July 2026",
       "ignore": false,
+      "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
+      "extrait": "Iran orders temporary suspension of 10% freight charge on foreign vessels carrying energy products to or from Iran - Fars News.",
+      "date_publication": "2026-09-10T10:58:28.836458+00:00",
+      "url": "https://www.forexfactory.com/news/1417603-iran-orders-temporary-suspension-of-10-freight-charge"
+    },
+    {
+      "extrait_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné.",
+      "source": "@financialjuice",
+      "titre_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné",
       "impact": "low",
       "extrait_fr": null,
       "titre_fr": null,
