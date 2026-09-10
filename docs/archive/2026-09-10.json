@@ -2,6 +2,12 @@
   "date": "2026-09-10",
   "ff_news": [
     {
+      "source": "@NodeWire",
+      "date_publication": "2026-09-10T02:12:21.324243+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417277-trump-ill-issue-a-5000-dividend-to-every",
+      "date_recuperation": "2026-09-10T02:15:21.324243+00:00",
+      "impact": "low",
       "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
       "source": "@NodeWire",
       "date_publication": "2026-09-10T02:12:21.324243+00:00",
