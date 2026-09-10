@@ -2,10 +2,13 @@
   "date": "2026-09-10",
   "ff_news": [
     {
-      "titre_fr": null,
       "url": "https://www.forexfactory.com/news/1417565-italian-industrial-production-july-2026",
       "source": "istat.it",
       "date_recuperation": "2026-09-10T09:01:17.288822+00:00",
+      "impact": "low",
+      "source": "istat.it",
+      "titre": "Italian industrial production - July 2026",
+      "ignore": false,
       "date_publication": "2026-09-10T09:00:17.288822+00:00",
       "extrait_fr": null,
       "ignore": false,
