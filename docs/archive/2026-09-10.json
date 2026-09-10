@@ -2,6 +2,8 @@
   "date": "2026-09-10",
   "ff_news": [
     {
+      "extrait_fr": "Le gouverneur du département Pboc : veut développer le yuan numérique à un rythme soutenu",
+      "source": "@FirstSquawk",
       "date_recuperation": "2026-09-10T07:16:15.891103+00:00",
       "date_publication": "2026-09-10T07:15:15.891103+00:00",
       "ignore": false,
@@ -14,6 +16,8 @@
       "url": "https://www.forexfactory.com/news/1417426-pboc-dept-gov-wants-to-develop-digital-yuan"
     },
     {
+      "extrait_fr": "Le taux d'inflation en Allemagne, mesuré par la variation annuelle de l'indice des prix à la consommation (IPC), s'est élevé à +2,9% en août 2026. La hausse des prix à la consommation s'est donc encore légèrement intensifiée, après avoir atteint +2,8% en juillet 2026 et +2,3% en juin 2026. \"En août, la hausse des prix de l'énergie a de nouveau été le principal moteur de l'inflation globale\", dit ...",
+      "ignore": false,
       "date_recuperation": "2026-09-10T06:16:18.168922+00:00",
       "date_publication": "2026-09-10T06:15:18.168922+00:00",
       "ignore": false,
@@ -26,6 +30,8 @@
       "url": "https://www.forexfactory.com/news/1417424-german-inflation-rate-at-29-in-august-2026"
     },
     {
+      "extrait_fr": null,
+      "source": "@financialjuice",
       "date_recuperation": "2026-09-10T05:43:16.935220+00:00",
       "date_publication": "2026-09-10T05:42:16.935220+00:00",
       "ignore": false,
