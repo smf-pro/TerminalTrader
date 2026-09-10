@@ -4,6 +4,8 @@
   "cb_articles": [
     {
       "date_recuperation": "2026-09-10T00:31:19.965387+00:00",
+      "titre_fr": null,
+      "url": "https://investinglive.com/central-banks/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7074-reuters-estimate/",
       "date_publication": "2026-09-10T00:30:39.650987+00:00",
       "ignore": false,
       "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7074 – Reuters estimate",
@@ -14,6 +16,8 @@
     },
     {
       "date_recuperation": "2026-09-10T00:17:24.701924+00:00",
+      "titre_fr": "L'euro se prépare au ton de la BCE aujourd'hui alors qu'ING prévoit une hausse de 25 points de base dans les deux cas",
+      "url": "https://investinglive.com/central-banks/euro-braces-for-ecb-tone-today-as-ing-sees-a-25bp-hike-either-way/",
       "date_publication": "2026-09-10T00:16:51.572367+00:00",
       "ignore": false,
       "titre": "Euro braces for ECB tone today as ING sees a 25bp hike either way",
