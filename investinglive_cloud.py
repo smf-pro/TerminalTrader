@@ -21,17 +21,32 @@ Calquée sur centralbanks_cloud.py, avec une différence majeure :
 
 - Pas de boucle infinie : un seul passage (single-pass), c'est GitHub
   Actions qui se charge de relancer le script périodiquement.
-- Dédup entre exécutions : l'ID du document Firestore = hash SHA256 de
-  l'URL. Avant de traiter un article, on vérifie s'il existe déjà.
-- Après l'écriture dans Firestore, régénère docs/data.json (et
-  docs/archive/) via site_generator.generer_json().
-- NOUVEAU : à CHAQUE cycle, même sans nouvel article, écrit un document
-  dans la collection "pipeline_status" (un battement de coeur). Ça permet
-  au site de distinguer "rien de neuf à publier" de "le script est en
-  panne", en affichant la dernière fois que le script a réellement tourné.
+- Dédup entre exécutions : LOCALE via cache_dedup.py (cache/investinglive.json),
+  jamais de lecture Firestore (doc_ref.get()) pour vérifier l'existence.
+- Après l'écriture dans Firestore, régénère docs/archive/ via
+  site_generator.generer_json().
+- A CHAQUE cycle, même sans nouvel article, écrit un document dans la
+  collection "pipeline_status" (battement de coeur).
+
+MODIF (sept. 2026) — alignée sur centralbanks_cloud.py :
+- L'article n'est plus traduit en français : on ne stocke plus que la
+  langue d'origine du site source (titre, contenu). Champs "titre_fr" et
+  "contenu_fr" retirés.
+- Nouveau champ "tags" : liste des tags/thèmes affichés sur la page
+  source (ex: ["USD", "Fed"]).
+- Extraction du contenu réécrite : parcours du DOM dans l'ordre de
+  lecture à partir du <h1>, en ignorant les blocs majoritairement
+  composés de liens (nav, bloc "Tags", articles liés, CTA...), les
+  lignes de séparation pures ("---", "***"...), et tout ce qui suit un
+  marqueur de fin de contenu éditorial ("Must Read", avertissements
+  légaux, etc.). L'ancienne version ne prenait que les <p> ENFANTS
+  DIRECTS d'un même conteneur, ce qui ratait les paragraphes du corps de
+  l'article quand ils étaient nichés dans des sous-<div> (cas fréquent
+  sur ce site).
 """
 
 import os
+import re
 import time
 import hashlib
 from datetime import datetime, timedelta, timezone
@@ -39,7 +54,6 @@ from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
-from deep_translator import GoogleTranslator
 
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -88,10 +102,31 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 }
 
-GENERER_VERSION_FR = True
-LIMITE_CARACTERES_TRADUCTION = 4500
 COLLECTION = "il_articles"
 NOM_SOURCE = "investinglive"  # identifiant unique de ce script dans pipeline_status
+
+# Seuil au-dessus duquel un bloc est considéré comme "surtout des liens"
+# (nav, listes d'articles liés, bloc Tags, CTA...) et donc ignoré.
+SEUIL_DENSITE_LIEN = 0.6
+
+# Marqueurs de titre/texte qui signalent qu'on est sorti du contenu
+# éditorial (tout ce qui suit est ignoré).
+MARQUEURS_ARRET = [
+    "must read", "featured videos", "best in", "related articles",
+    "high risk warning", "advisory warning", "disclaimer",
+    "subscribe to our", "follow us", "manage cookies",
+]
+
+# Libellés courts à ignorer telles quels s'ils apparaissent seuls.
+LIBELLES_A_IGNORER = {
+    "tags", "share", "print", "advertisement - continue reading below",
+}
+
+# Lignes de separation pures (ex: "---", "***", "___"), rencontrees sur
+# le vrai site entre deux blocs (ex: avant/apres un rappel d'article
+# lie). Ce ne sont pas des liens (densite_lien = 0) donc le filtre par
+# densite ne les attrape pas : on les exclut explicitement.
+MOTIF_SEPARATEUR = re.compile(r"^[\-–—_*=~\s]+$")
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -168,23 +203,87 @@ def recuperer_liens_articles(url_liste):
     return liens
 
 
-def extraire_meilleur_bloc_de_texte(soup):
-    meilleur_conteneur = None
-    meilleur_score = 0
+def densite_lien(tag):
+    """Proportion du texte d'un element qui provient de liens <a>.
+    Pres de 1.0 -> l'element est surtout une liste de liens (nav, tags,
+    articles lies...), pas du contenu editorial."""
+    texte_total = tag.get_text(strip=True)
+    if not texte_total:
+        return 1.0
+    texte_liens = "".join(a.get_text(strip=True) for a in tag.find_all("a"))
+    return len(texte_liens) / max(len(texte_total), 1)
 
-    for conteneur in soup.find_all(["div", "article", "section"]):
-        paragraphes = conteneur.find_all("p", recursive=False)
-        texte = " ".join(p.get_text(strip=True) for p in paragraphes)
-        score = len(texte)
-        if score > meilleur_score:
-            meilleur_score = score
-            meilleur_conteneur = conteneur
 
-    if meilleur_conteneur is None:
+def est_marqueur_arret(texte):
+    texte_lower = texte.strip().lower()
+    return any(motif in texte_lower for motif in MARQUEURS_ARRET)
+
+
+def extraire_contenu_complet(titre_tag):
+    """Parcourt le DOM dans l'ordre de lecture a partir du <h1> du titre,
+    et collecte le texte de chaque paragraphe/puce reel de l'article.
+
+    Remplace l'ancienne approche par "meilleur conteneur" (recursive=
+    False sur les <p>), qui ratait les paragraphes du corps de l'article
+    quand ils etaient niches dans des sous-<div> (cas frequent ici).
+
+    Est ignore :
+    - tout bloc majoritairement compose de liens (nav, bloc "Tags",
+      articles lies, CTA "Add as a preferred source"...),
+    - les lignes de separation pures ("---", "***"...),
+    - tout ce qui suit un marqueur de fin de contenu editorial (heading
+      "Must Read", avertissements legaux, etc.),
+    - les legendes courtes finissant par ":" (ex: "Earlier weight on
+      AUD:"), qui introduisent generalement une liste de liens deja
+      filtree juste apres.
+    """
+    if titre_tag is None:
         return ""
 
-    paragraphes = meilleur_conteneur.find_all("p", recursive=False)
-    return "\n\n".join(p.get_text(strip=True) for p in paragraphes if p.get_text(strip=True))
+    morceaux = []
+    for element in titre_tag.find_all_next(["h1", "h2", "h3", "h4", "p", "li"]):
+        texte = element.get_text(strip=True)
+        if not texte:
+            continue
+
+        if est_marqueur_arret(texte):
+            break
+
+        if texte.lower() in LIBELLES_A_IGNORER:
+            continue
+
+        if MOTIF_SEPARATEUR.match(texte):
+            continue
+
+        if element.name in ("h1", "h2", "h3", "h4"):
+            morceaux.append(texte)
+            continue
+
+        if densite_lien(element) > SEUIL_DENSITE_LIEN:
+            continue
+
+        if texte.endswith(":") and len(texte) < 80:
+            continue
+
+        morceaux.append(texte)
+
+    return "\n\n".join(morceaux)
+
+
+def extraire_tags(soup):
+    """Recupere les tags/themes de l'article (liens de la forme
+    /Tag/nom-du-tag/ sur ce site), dans l'ordre d'apparition, sans
+    doublon."""
+    tags = []
+    vus = set()
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "/tag/" in href.lower():
+            texte = a.get_text(strip=True)
+            if texte and texte.lower() not in vus:
+                vus.add(texte.lower())
+                tags.append(texte)
+    return tags
 
 
 def extraire_date_publication(soup):
@@ -222,52 +321,10 @@ def extraire_article(url):
     titre = titre_tag.get_text(strip=True) if titre_tag else "Sans titre"
 
     date_pub = extraire_date_publication(soup)
-    contenu = extraire_meilleur_bloc_de_texte(soup)
+    contenu = extraire_contenu_complet(titre_tag)
+    tags = extraire_tags(soup)
 
-    return titre, date_pub, contenu
-
-
-def decouper_texte(texte, limite=LIMITE_CARACTERES_TRADUCTION):
-    morceaux = []
-    reste = texte
-    while len(reste) > limite:
-        coupe = reste.rfind("\n\n", 0, limite)
-        if coupe == -1:
-            coupe = reste.rfind(". ", 0, limite)
-        if coupe == -1:
-            coupe = limite
-        morceaux.append(reste[:coupe].strip())
-        reste = reste[coupe:].strip()
-    if reste:
-        morceaux.append(reste)
-    return morceaux
-
-
-SIGNATURES_ERREUR_GOOGLE = ["!!1500", "that's an error", "that\u2019s an error"]
-
-
-def _est_page_erreur_traduction(texte):
-    texte_lower = texte.lower()
-    return any(sig.lower() in texte_lower for sig in SIGNATURES_ERREUR_GOOGLE)
-
-
-def traduire_texte(texte, langue_dest="fr"):
-    if not texte:
-        return texte
-    try:
-        traducteur = GoogleTranslator(source="auto", target=langue_dest)
-        morceaux_traduits = []
-        for morceau in decouper_texte(texte):
-            morceaux_traduits.append(traducteur.translate(morceau))
-            time.sleep(0.3)
-        resultat = "\n\n".join(morceaux_traduits)
-        if _est_page_erreur_traduction(resultat):
-            print(" -> Page d'erreur Google Translate detectee, version originale affichee en attendant")
-            return None
-        return resultat
-    except Exception as e:
-        print(f" -> Erreur de traduction, version originale affichee en attendant : {e}")
-        return None
+    return titre, date_pub, contenu, tags
 
 
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
@@ -320,7 +377,7 @@ def cycle():
             continue
 
         try:
-            titre, date_pub, contenu = extraire_article(url)
+            titre, date_pub, contenu, tags = extraire_article(url)
 
             if page_erreur(titre, contenu):
                 print(f"Page d'erreur detectee, ignore : {url}")
@@ -337,12 +394,6 @@ def cycle():
                 marquer_traite(cache, doc_id)
                 continue
 
-            titre_fr = None
-            contenu_fr = None
-            if GENERER_VERSION_FR:
-                titre_fr = traduire_texte(titre)
-                contenu_fr = traduire_texte(contenu) if contenu else "(Contenu non trouve)"
-
             # Catégorie déduite de l'URL (ex: "news", "centralbanks",
             # "commodities", "forex"...) — utile plus tard si on veut
             # sous-diviser la colonne INVESTINGLIVE par type de contenu.
@@ -353,16 +404,15 @@ def cycle():
                 "url": url,
                 "categorie": categorie,
                 "titre": titre,
-                "titre_fr": titre_fr,
                 "contenu": contenu if contenu else "(Contenu non trouve)",
-                "contenu_fr": contenu_fr,
+                "tags": tags,
                 "date_publication": date_pub,
                 "date_recuperation": maintenant,
                 "ignore": False,
             })
             marquer_traite(cache, doc_id)
             articles_ecrits += 1
-            print(f"Ecrit dans Firestore : {titre}")
+            print(f"Ecrit dans Firestore : {titre} (tags: {tags})")
 
         except ResourceExhausted as e:
             # Quota d'ECRITURE Firestore depasse (rare, mais possible si
@@ -388,7 +438,7 @@ def cycle():
 
     print(f"\nTermine. {articles_ecrits} nouvel(aux) article(s) ecrit(s) dans Firestore.")
 
-    # On régénère docs/data.json avec les données à jour de toutes les
+    # On régénère docs/archive/ avec les données à jour de toutes les
     # collections (ff_news + cb_articles + il_articles), lu ensuite par le site.
     try:
         generer_json(db)
