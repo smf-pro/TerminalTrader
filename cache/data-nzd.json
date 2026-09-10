@@ -620,49 +620,49 @@
     "forecast": "",
     "previous": "60.1",
     "previous_revise": true,
-    "position": 0
+    "position": 1
   },
   "f21b4c60aa5719baa15dd69c1ca576cbff04ff351790b303121addfc85a51244": {
     "actual": "59.7",
     "forecast": "",
     "previous": "51.3",
     "previous_revise": true,
-    "position": 1
+    "position": 2
   },
   "c88dfd4790682eb500a80ba4348c999f2d95b7ed4d132d8b1782a6e3b2b58758": {
     "actual": "49.9",
     "forecast": "",
     "previous": "50.4",
     "previous_revise": true,
-    "position": 2
+    "position": 3
   },
   "4c76c188aaee3ff694261178554a16dc0f337973aa9005dd86f62e8cdf41ec67": {
     "actual": "50.5",
     "forecast": "",
     "previous": "52.8",
     "previous_revise": true,
-    "position": 3
+    "position": 4
   },
   "7ac8204dc80a58faf7f243a63fd406c86b7276fc1e1263f64cd9084c36d97a81": {
     "actual": "53.2",
     "forecast": "",
     "previous": "54.8",
     "previous_revise": true,
-    "position": 4
+    "position": 5
   },
   "df37299249f2fa01d621bf7164947446625f7a7fa604107bc9f120e83a74bad1": {
     "actual": "55.0",
     "forecast": "",
     "previous": "55.1",
     "previous_revise": true,
-    "position": 5
+    "position": 6
   },
   "abd58a2568eb088b03306110939609182dade2deb44a150a190e486dc349c3ac": {
     "actual": "55.2",
     "forecast": "",
     "previous": "56.1",
     "previous_revise": false,
-    "position": 6
+    "position": 7
   },
   "ca1e7a28f89495892534e328dd9022e7eca06445cf9a62264c06c3051840cced": {
     "actual": "56.1",
@@ -670,5 +670,12 @@
     "previous": "51.7",
     "previous_revise": true,
     "position": 7
+  },
+  "57ec6b0588a411e593283337b347818e706053539f3914afb8a28c022783f480": {
+    "actual": "53.1",
+    "forecast": "",
+    "previous": "54.3",
+    "previous_revise": false,
+    "position": 0
   }
 }
