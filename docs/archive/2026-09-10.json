@@ -323,7 +323,8 @@
         "ECB",
         "EUR",
         "interest rates"
-      ]
+      ],
+      "date_recuperation": "2026-09-10T07:05:14.025967+00:00"
     },
     {
       "titre_fr": null,
@@ -346,6 +347,8 @@
       "ignore": false
     },
     {
+      "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7074 – Reuters estimate",
+      "date_publication": "2026-09-10T00:30:39.650987+00:00",
       "titre_fr": null,
       "contenu_fr": null,
       "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7074 – Reuters estimate",
@@ -356,6 +359,8 @@
       "ignore": false
     },
     {
+      "date_publication": "2026-09-10T00:16:51.572367+00:00",
+      "titre": "Euro braces for ECB tone today as ING sees a 25bp hike either way",
       "titre_fr": "L'euro se prépare au ton de la BCE aujourd'hui alors qu'ING prévoit une hausse de 25 points de base dans les deux cas",
       "contenu_fr": null,
       "contenu": "With ING pencilling in a 25 basis point hike across every scenario it considers, today's meeting is likely to be less about the rate decision itself and more about the accompanying language and projections. The spread ING lays out between its most dovish and most hawkish outcomes, EUR/USD ranging from 1.150 to 1.168 and the 10 year Bund yield from 3.30% to 3.45%, points to meaningful two way risk around the press conference rather than the decision itself. Given the euro and Bund currently sit close to the middle of that range, at 1.161 and 3.40% respectively, positioning into the announcement looks reasonably balanced, leaving room for a sharp move once the tone of the guidance becomes clear.\n\n---\n\nEarlier:\n\n---\n\nING thinks the ECB's rate move today is close to a formality, it is the tone of the guidance that will actually move markets.\n\nSummary:\n\nING expects the European Central Bank to raise its deposit rate by 25 basis points at today's meeting regardless of which way the tone of the accompanying guidance breaks, according to a scenario framework the bank published ahead of the decision. The current depo rate stands at 2.25%, with the ECB maintaining a data dependent, meeting by meeting approach heading into the announcement.\n\nThe bank's note, illustrated in an accompanying graphic, sets out four possible outcomes built around inflation, growth and the tone of interest rate guidance. In the current stance, ING sees upside risks to inflation from higher energy prices and the possibility of second round effects, while growth risks remain tilted to the downside in the near term because of the war in the Middle East.\n\nAt the dovish end of the spectrum, ING's very dovish scenario has the ECB delivering the expected hike while signalling a prolonged pause and voicing concern about bond market conditions, a combination the bank associates with a weaker euro near 1.150 and a 10 year Bund yield around 3.30%. ING's own base case sits just above that in a dovish hike scenario, where inflation projections are revised slightly higher without shifting the broader balance of risk, growth forecasts improve while downside risks linger, and policymakers offer only a slight pushback against market pricing while keeping their options open. That scenario is associated with EUR/USD near 1.157 and a Bund yield around 3.35%.\n\nMoving toward the hawkish end, a neutral scenario would see the ECB acknowledge that the latest escalation in the region is adding fresh upside inflation risk, while treating growth risks as more balanced following improved projections, and signalling that another hike in the coming months remains possible. ING pairs that outcome with EUR/USD around 1.163 and a Bund yield near 3.40%, close to where both currently trade. In its most hawkish scenario, ING sees the ECB acknowledging that the inflation impact may be larger than initially thought, requiring continued policy action, alongside a bigger than expected upward revision to growth projections, with clear hints of a further hike in October and potentially beyond. That outcome carries the highest levels in ING's framework, with EUR/USD near 1.168 and the Bund yield around 3.45%.\n\nWith the euro and Bund currently trading closest to ING's neutral case, the bank's framework suggests markets are already leaning toward the view that today's hike will come with a firmer tone rather than a dovish one, leaving scope for a larger reaction if the ECB's guidance ultimately lands closer to either extreme of ING's range.",
