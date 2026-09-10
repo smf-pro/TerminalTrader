@@ -139,6 +139,7 @@
       "url": "https://www.forexfactory.com/news/1417603-iran-orders-temporary-suspension-of-10-freight-charge",
       "titre_fr": "L'Iran ordonne la suspension temporaire des frais de fret de 10 % sur les navires étrangers transportant des produits énergétiques à destination ou en provenance de l'Iran - Fars News",
       "source": "@financialjuice",
+      "date_publication": "2026-09-10T10:58:28.836458+00:00",
       "extrait_fr": "L'Iran ordonne la suspension temporaire des frais de fret de 10 % sur les navires étrangers transportant des produits énergétiques à destination ou en provenance de l'Iran - Fars News.",
       "impact": "medium",
       "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
@@ -187,6 +188,7 @@
       "titre_fr": "Taux d'inflation allemand à +2,9% en août 2026",
       "titre": "German inflation rate at +2.9% in August 2026",
       "source": "destatis.de",
+      "date_publication": "2026-09-10T06:15:18.168922+00:00",
       "extrait_fr": "Le taux d'inflation en Allemagne, mesuré par la variation annuelle de l'indice des prix à la consommation (IPC), s'est élevé à +2,9% en août 2026. La hausse des prix à la consommation s'est donc encore légèrement intensifiée, après avoir atteint +2,8% en juillet 2026 et +2,3% en juin 2026. \"En août, la hausse des prix de l'énergie a de nouveau été le principal moteur de l'inflation globale\", dit ...",
       "impact": "low",
       "date_recuperation": "2026-09-10T06:16:18.168922+00:00",
@@ -199,6 +201,7 @@
       "titre": "BoJ's Masu: Underlying inflation gradually approaching 2% but don't see it overshooting sharply above that level now.",
       "url": "https://www.forexfactory.com/news/1417325-bojs-masu-underlying-inflation-gradually-approaching-2-but",
       "source": "@financialjuice",
+      "date_publication": "2026-09-10T05:42:16.935220+00:00",
       "extrait_fr": null,
       "impact": "low",
       "date_recuperation": "2026-09-10T05:43:16.935220+00:00",
@@ -268,7 +271,6 @@
   ],
   "cb_articles": [
     {
-      "titre": "ECB's Lagarde: The economy is proving resilient",
       "date_publication": "2026-09-10T12:56:29.910881+00:00",
       "contenu": "Comments from the ECB President\n\nResilience likely to persist in Q3\n\nManufacturing is solid and consumer confidence rebounded\n\nLabour market robust\n\nGrowth in employment continues to slow\n\nNear term outlook has improved\n\nGrowth will be bolstered by business and housing investment\n\nExports held back by competitiveness challenges and trade policies\n\nRefining margins made strong contribution to inflation",
       "date_recuperation": "2026-09-10T12:57:17.085318+00:00",
