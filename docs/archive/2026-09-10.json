@@ -237,6 +237,15 @@
       "extrait": "Trump: If Republicans Win The House And Senate, I'll Issue A $5,000 Dividend To Every Adult In The U.s.",
       "url": "https://www.forexfactory.com/news/1417277-trump-if-republicans-win-the-house-and-senate",
       "impact": "low",
+      "source": "@FirstSquawk",
+      "date_publication": "2026-09-10T02:12:18.474244+00:00",
+      "url": "https://www.forexfactory.com/news/1417277-trump-pledges-5k-payment-to-every-us-adult",
+      "ignore": false,
+      "extrait": "Trump pledges a $5,000 payment to every U.S. adult if Republicans win the House and Senate.",
+      "date_recuperation": "2026-09-10T02:13:18.474244+00:00",
+      "extrait_fr": null
+    },
+    {
       "titre": "TRUMP: IF REPUBLICANS WIN THE HOUSE AND SENATE, I'LL ISSUE A $5,000 DIVIDEND TO EVERY ADULT IN THE U.S.",
       "titre_fr": null,
       "ignore": false
@@ -548,6 +557,10 @@
       "titre_fr": "Quels sont les principaux événements du jour ?",
       "date_recuperation": "2026-09-10T06:45:13.701271+00:00",
       "titre": "What are the main events for today?",
+      "titre_fr": "Quels sont les principaux événements du jour ?",
+      "date_publication": "2026-09-10T06:43:45.870793+00:00",
+      "categorie": "news",
+      "ignore": false,
       "url": "https://investinglive.com/news/what-are-the-main-events-for-today-39/",
       "date_publication": "2026-09-10T06:43:45.870793+00:00",
       "categorie": "news",
