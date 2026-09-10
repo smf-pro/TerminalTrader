@@ -50,6 +50,7 @@
       "impact": "low"
     },
     {
+      "extrait": "Wholesale inventories in the United States rose by 1.3% in July compared to June's revised figure and stood at $958.9 billion, the US Census Bureau revealed in a report released on Thursday. Total inventories climbed by 5.7% compared to the same month in the previous year. The sales of merchant wholesalers, adjusted for seasonal variations and trading-day ...",
       "impact": "low",
       "source": "breakingthenews.net",
       "date_recuperation": "2026-09-10T14:07:20.873743+00:00",
@@ -98,6 +99,7 @@
       "url": "https://www.forexfactory.com/news/1417622-ecbs-lagarde-the-discussion-was-focused-on-todays"
     },
     {
+      "date_publication": "2026-09-10T12:55:23.119090+00:00",
       "impact": "medium",
       "source": "@financialjuice",
       "date_recuperation": "2026-09-10T12:57:23.119090+00:00",
@@ -146,6 +148,8 @@
       "impact": "medium"
     },
     {
+      "extrait": "The Producer Price Index for final demand moved up 0.4 percent in August, seasonally adjusted, the U.S. Bureau of Labor Statistics reported today. Final demand prices rose 0.1 percent in July and decreased 0.1 percent in June. (See table A.) On an unadjusted basis, the index for final demand increased 5.4 percent for the 12 months ended in August. In ...",
+      "extrait_fr": null,
       "impact": "high",
       "source": "ecb.europa.eu",
       "date_recuperation": "2026-09-10T12:20:51.042760+00:00",
@@ -182,6 +186,7 @@
       "impact": "low"
     },
     {
+      "date_publication": "2026-09-10T09:00:17.288822+00:00",
       "impact": "low",
       "source": "istat.it",
       "date_recuperation": "2026-09-10T09:01:17.288822+00:00",
@@ -278,6 +283,7 @@
       "impact": "low"
     },
     {
+      "extrait": "Before beginning my speech, I would like to offer my heartfelt sympathies to those who are suffering from the recent heavy rain. A little over a year has passed since I was appointed as a member of the Policy Board. During this time, the whole world has wrestled with two major issues related to the United States: one concerning tariffs and the other concerning the Iran situation. The tariff issue, unexpectedly, did not cause any economic disruption in Japan, although it did impact primarily sectors that have high export volumes to the United States, such as automobiles. In contrast, the Iran situation has had far broader repercussions. The supply of crude oil and other materials has tightened due to the closure of the Strait of Hormuz. This could induce both a rise in inflation and a deceleration in economic activity, placing central banks worldwide in a difficult decision-making environment. In terms of the impact on Japan, crude oil and liquefied natural gas (LNG) have shown different price dynamics. Crude oil prices have risen due to a shortage of supply, whereas LNG prices have increased even without such a shortage. CBoJ board member Masu: BoJ likely to keep raising interest rates amid current loose financial conditionsBank of Japan board member Masu: underlying inflation remains under 2% but close to that levelMasu: pace and timing of BOJ rate hikes to hinge on likelihood of meeting baseline projections and risks, taking into account oil price changes, al-demand, and currency fluctuations",
       "impact": "low",
       "source": "boj.or.jp",
       "date_recuperation": "2026-09-10T01:35:16.212615+00:00",
