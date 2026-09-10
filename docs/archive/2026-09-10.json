@@ -296,6 +296,11 @@
       "url": "https://www.forexfactory.com/news/1417274-boj-masu-economic-activity-prices-and-monetary-policy",
       "source": "boj.or.jp",
       "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417277-trump-ill-issue-a-5k-dividend-to-every",
+      "source": "@NodeWire",
+      "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis"
+    },
+    {
       "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon",
       "extrait": "Before beginning my speech, I would like to offer my heartfelt sympathies to those who are suffering from the recent heavy rain. A little over a year has passed since I was appointed as a member of the Policy Board. During this time, the whole world has wrestled with two major issues related to the United States: one concerning tariffs and the other concerning the Iran situation. The tariff issue, unexpectedly, did not cause any economic disruption in Japan, although it did impact primarily sectors that have high export volumes to the United States, such as automobiles. In contrast, the Iran situation has had far broader repercussions. The supply of crude oil and other materials has tightened due to the closure of the Strait of Hormuz. This could induce both a rise in inflation and a deceleration in economic activity, placing central banks worldwide in a difficult decision-making environment. In terms of the impact on Japan, crude oil and liquefied natural gas (LNG) have shown different price dynamics. Crude oil prices have risen due to a shortage of supply, whereas LNG prices have increased even without such a shortage. CBoJ board member Masu: BoJ likely to keep raising interest rates amid current loose financial conditionsBank of Japan board member Masu: underlying inflation remains under 2% but close to that levelMasu: pace and timing of BOJ rate hikes to hinge on likelihood of meeting baseline projections and risks, taking into account oil price changes, al-demand, and currency fluctuations",
       "impact": "low",
@@ -487,6 +492,9 @@
       "categorie": "commodities",
       "ignore": false,
       "titre_fr": null,
+      "categorie": "commodities",
+      "titre": "WTI crude oil breaks $100 for the first time since May as markets price a prolonged war",
+      "contenu_fr": null,
       "date_recuperation": "2026-09-10T12:45:15.826564+00:00",
       "contenu_fr": null
     },
