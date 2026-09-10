@@ -129,6 +129,8 @@
       "titre": "US Unemployment Insurance Weekly Claims",
       "extrait_fr": null,
       "date_publication": "2026-09-10T12:31:20.669263+00:00",
+      "titre_fr": null,
+      "date_recuperation": "2026-09-10T12:32:20.669263+00:00",
       "source": "dol.gov",
       "ignore": false,
       "extrait": "In the week ending September 5, the advance figure for seasonally adjusted initial claims was 206,000, a decrease of 1,000 from the previous week's revised level. The previous week's level was revised up by 1,000 from 206,000 to 207,000. The 4-week moving average was 206,000, a decrease of 1,500 from the previous week's revised average. The previous week's ..."
@@ -310,12 +312,19 @@
       "titre": "ECB's Lagarde: The economy is proving resilient",
       "ignore": false,
       "contenu": "Comments from the ECB President\n\nResilience likely to persist in Q3\n\nManufacturing is solid and consumer confidence rebounded\n\nLabour market robust\n\nGrowth in employment continues to slow\n\nNear term outlook has improved\n\nGrowth will be bolstered by business and housing investment\n\nExports held back by competitiveness challenges and trade policies\n\nRefining margins made strong contribution to inflation",
+      "url": "https://investinglive.com/central-banks/ecb-s-lagarde-the-economy-is-proving-resilient/",
+      "titre": "ECB's Lagarde: The economy is proving resilient",
+      "date_publication": "2026-09-10T12:56:29.910881+00:00"
+    },
+    {
+      "ignore": false,
       "tags": [
         "ECB"
       ]
     },
     {
       "date_recuperation": "2026-09-10T12:24:18.092052+00:00",
+      "contenu": "ECB raises main refi rate to 2.65% from 2.40%\n\nRaises three main rates by 25 bps\n\nCompared to June, baseline inflation projection for 2026 is unchanged but it has been raised for 2027 and 2028\n\nECB says stands ready to adjust all instruments within its mandate to ensure inflation stabilizes at 2% in the medium term\n\nECB is not pre-committed to any path\n\nThe euro sold off ahead of the announcement in a broad USD rally but it's bounced slightly to 1.1618.",
       "url": "https://investinglive.com/central-banks/ecb-hikes-by-25-basis-points-as-expected/",
       "date_publication": "2026-09-10T12:23:57.947792+00:00",
       "ignore": false,
