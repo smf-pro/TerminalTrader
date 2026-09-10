@@ -341,13 +341,15 @@
   .eco-chip.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:inset 0 -2px 0 var(--gold); }
   .eco-empty{ padding:32px 14px; text-align:center; color:var(--text-low); font-size:12px; }
   .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .eco-card{ background:var(--bg-0); padding:14px; }
-  .eco-card .top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
-  .eco-card .name{ font-size:11.5px; color:var(--text-mid); }
-  .eco-card .country{ font-family:var(--mono); font-size:9.5px; color:var(--text-low); margin-top:2px; }
-  .eco-card .value{ font-family:var(--mono); font-size:22px; font-weight:600; }
-  .eco-card .delta{ font-family:var(--mono); font-size:11px; margin-top:2px; }
-  .eco-card canvas{ width:100%; height:36px; margin-top:8px; display:block; }
+  .eco-card{ background:var(--bg-0); padding:10px 14px; }
+  .eco-card .line{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .eco-card .name{ font-size:11px; color:var(--text-mid); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex:1 1 auto; }
+  .eco-card .valgroup{ display:flex; align-items:baseline; gap:6px; white-space:nowrap; flex:0 0 auto; }
+  .eco-card .value{ font-family:var(--mono); font-size:15px; font-weight:600; }
+  .eco-card .delta{ font-family:var(--mono); font-size:10px; }
+  .eco-card canvas{
+    width:calc(100% + 28px); height:88px; margin:6px -14px -6px -14px; display:block;
+  }
   .revise-dot{ color:var(--amber); font-size:9px; margin-left:6px; cursor:help; }
   .eco-hist-toggle{
     background:none; border:none; color:var(--text-low); font-family:var(--mono);
@@ -579,6 +581,10 @@
           <div class="eco-filter-group">
             <span class="flabel">Type</span>
             <div id="ecoFilterType"></div>
+          </div>
+          <div class="eco-filter-group">
+            <span class="flabel">Graphique</span>
+            <div id="ecoFilterStyle"></div>
           </div>
         </div>
       </div>
@@ -1956,9 +1962,13 @@ function renderEcoFilters(){
   const typeHtml = ['all', ...typesPresents].map(t=>
     `<button class="eco-chip ${ecoFilterType===t?'active':''}" data-type="${t}">${t==='all'?'Tous':ecoTypeLabels[t]||t}</button>`
   ).join('');
+  const styleHtml = ['aire', 'barres'].map(s=>
+    `<button class="eco-chip ${ecoChartStyle===s?'active':''}" data-chartstyle="${s}">${s==='aire'?'Aire':'Barres'}</button>`
+  ).join('');
 
   document.getElementById('ecoFilterCcy').innerHTML = ccyHtml;
   document.getElementById('ecoFilterType').innerHTML = typeHtml;
+  document.getElementById('ecoFilterStyle').innerHTML = styleHtml;
 }
 
 function renderEcoData(){
@@ -1981,8 +1991,8 @@ function renderEcoData(){
 
     if(!lignes.length){
       return `<div class="eco-card">
-        <div class="top"><div><div class="name">${nom}</div><div class="country">${flagFor(e.ccy)} ${pays}</div></div></div>
-        <div class="value" style="color:var(--text-low); font-size:13px;">En attente de données…</div>
+        <div class="line"><span class="name">${flagFor(e.ccy)} ${nom}</span></div>
+        <div style="color:var(--text-low); font-size:11px; margin-top:4px;">En attente de données…</div>
       </div>`;
     }
 
@@ -1997,16 +2007,16 @@ function renderEcoData(){
     // porte le marqueur officiel ForexFactory.
     const aUneRevision = lignes.slice(0,4).some(l => l.previous_revise);
     const ouvert = ecoHistOuvert === e.slug;
+    const deltaTexte = trendVals.length>1 ? (up?'▲':'▼')+Math.abs(delta).toFixed(2) : 'Prév. '+(dernier.forecast||'—');
 
     return `<div class="eco-card">
-      <div class="top">
-        <div>
-          <div class="name">${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</div>
-          <div class="country">${flagFor(e.ccy)} ${pays} · ${dernier.date_publication_texte}</div>
-        </div>
+      <div class="line" title="${pays} · ${dernier.date_publication_texte}">
+        <span class="name">${flagFor(e.ccy)} ${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</span>
+        <span class="valgroup">
+          <span class="value">${dernier.actual || '—'}</span>
+          <span class="delta ${up?'up':'down'}">${deltaTexte}</span>
+        </span>
       </div>
-      <div class="value">${dernier.actual || '—'}</div>
-      <div class="delta ${up?'up':'down'}">${trendVals.length>1 ? (up?'▲':'▼')+' '+Math.abs(delta).toFixed(2)+' sur la période' : 'Prév. '+(dernier.forecast||'—')}</div>
       <canvas id="eco-spark-${i}"></canvas>
       <button class="eco-hist-toggle" data-slug="${e.slug}">${ouvert?'Masquer l\u2019historique ▴':'Historique ▾'}</button>
       <table class="eco-hist-table ${ouvert?'open':''}">
@@ -2034,8 +2044,10 @@ function renderEcoData(){
 document.getElementById('ecoFilters').addEventListener('click', e=>{
   const ccyBtn = e.target.closest('[data-ccy]');
   const typeBtn = e.target.closest('[data-type]');
+  const styleBtn = e.target.closest('[data-chartstyle]');
   if(ccyBtn){ ecoFilterCcy = ccyBtn.dataset.ccy; renderEcoData(); }
   else if(typeBtn){ ecoFilterType = typeBtn.dataset.type; renderEcoData(); }
+  else if(styleBtn){ ecoChartStyle = styleBtn.dataset.chartstyle; renderEcoData(); }
 });
 // Deplier/replier le tableau d'historique d'une carte (delegation car les
 // cartes sont regenerees a chaque renderEcoData()).
@@ -2046,24 +2058,56 @@ document.getElementById('ecoGrid').addEventListener('click', e=>{
   ecoHistOuvert = (ecoHistOuvert === slug) ? null : slug;
   renderEcoData();
 });
+// Style de graphique choisi par l'utilisateur pour TOUTES les cartes
+// DATA ÉCO ('aire' ou 'barres'). Pas de persistance voulue : repart sur
+// 'aire' par défaut à chaque rechargement de page.
+let ecoChartStyle = 'aire';
+
 function drawSparkline(canvas, data){
   if(!canvas) return;
   const rect = canvas.getBoundingClientRect();
-  const w = rect.width || 190, h = 36;
+  // Hauteur fixe plutôt que mesurée : rect.height peut être capturé avant
+  // que le CSS (.eco-card canvas{height:64px...}) ait fini de s'appliquer
+  // au tout premier rendu, ce qui donnait des barres/courbes tronquées à
+  // mi-hauteur. La largeur reste mesurée car elle varie avec la colonne.
+  const w = rect.width || 190, h = 88;
   canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
   canvas.style.width=w+'px'; canvas.style.height=h+'px';
   const c = canvas.getContext('2d');
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   const min = Math.min(...data), max = Math.max(...data);
   const up = data[data.length-1] >= data[0];
-  c.strokeStyle = up ? '#22c48d' : '#ef4a5a';
+  const couleur = up ? '#22c48d' : '#ef4a5a';
+  // Petite marge verticale pour que les pics ne touchent pas les bords.
+  const padHaut = 4, padBas = 4;
+
+  if(ecoChartStyle === 'barres'){
+    const gap = w / data.length;
+    const barW = Math.max(2, gap * 0.6);
+    c.fillStyle = couleur;
+    data.forEach((v,i)=>{
+      const barH = padBas + ((v-min)/((max-min)||1))*(h-padHaut-padBas);
+      const x = i*gap + (gap-barW)/2;
+      c.fillRect(x, h-barH, barW, barH);
+    });
+    return;
+  }
+
+  // 'aire' (défaut) : ligne pleine largeur/hauteur + remplissage dégradé
+  // léger sous la courbe.
+  const pts = data.map((v,i)=>({
+    x: (i/(data.length-1))*w,
+    y: h-padBas - ((v-min)/((max-min)||1))*(h-padHaut-padBas),
+  }));
+  c.beginPath(); c.moveTo(pts[0].x, h);
+  pts.forEach(p=>c.lineTo(p.x,p.y));
+  c.lineTo(pts[pts.length-1].x, h); c.closePath();
+  c.fillStyle = couleur + '26';
+  c.fill();
+  c.strokeStyle = couleur;
   c.lineWidth = 1.5;
   c.beginPath();
-  data.forEach((v,i)=>{
-    const x = (i/(data.length-1))*w;
-    const y = h - ((v-min)/((max-min)||1))*h;
-    i===0 ? c.moveTo(x,y) : c.lineTo(x,y);
-  });
+  pts.forEach((p,i)=> i===0 ? c.moveTo(p.x,p.y) : c.lineTo(p.x,p.y));
   c.stroke();
 }
 
