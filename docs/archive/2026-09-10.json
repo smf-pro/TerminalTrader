@@ -45,6 +45,8 @@
       "date_recuperation": "2026-09-10T14:41:18.597896+00:00",
       "titre_fr": null,
       "extrait": "Working natural gas in storage in the United States increased by 40 billion cubic feet (Bcf) in the week ending September 4, compared with the previous week, reaching 3,254 Bcf, the Energy Information Administration (EIA) revealed on Thursday. Stocks decreased by 79 Bfc annually, while being 148 Bcf above the five-year average of 3,106 Bcf. The agency ...",
+      "titre_fr": null,
+      "impact": "low",
       "titre": "EIA: US natural gas inventories up by 40 Bcf",
       "impact": "low",
       "source": "breakingthenews.net"
@@ -502,6 +504,7 @@
       "titre": "Surging oil prices and sinking bonds have decided the Fed need to hike"
     },
     {
+      "contenu_fr": null,
       "date_publication": "2026-09-10T12:42:49.545670+00:00",
       "url": "https://investinglive.com/commodities/wti-crude-oil-breaks-100-for-the-first-time-since-may-as-markets-price-a-prolonged-iran-war/",
       "categorie": "commodities",
