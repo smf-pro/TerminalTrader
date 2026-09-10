@@ -27,6 +27,9 @@
     },
     {
       "date_recuperation": "2026-09-10T14:07:20.873743+00:00",
+      "source": "breakingthenews.net",
+      "titre_fr": null,
+      "impact": "low",
       "extrait": "Wholesale inventories in the United States rose by 1.3% in July compared to June's revised figure and stood at $958.9 billion, the US Census Bureau revealed in a report released on Thursday. Total inventories climbed by 5.7% compared to the same month in the previous year. The sales of merchant wholesalers, adjusted for seasonal variations and trading-day ...",
       "titre": "US wholesale inventories up by 1.3% in July",
       "ignore": false,
