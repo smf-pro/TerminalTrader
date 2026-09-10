@@ -66,6 +66,15 @@
       "date_publication": "2026-09-10T10:58:28.836458+00:00",
       "url": "https://www.forexfactory.com/news/1417603-iran-orders-temporary-suspension-of-10-freight-charge",
       "impact": "medium",
+      "ignore": false
+    },
+    {
+      "titre_fr": "La BCE relève ses taux de 25 points de base alors que les risques d'inflation augmentent",
+      "extrait_fr": "Le Conseil des gouverneurs a décidé aujourd'hui de relever les trois taux d'intérêt directeurs de la BCE de 25 points de base. Le conflit au Moyen-Orient continue de générer des pressions inflationnistes, et l’inflation devrait rester bien supérieure à l’objectif pendant une période prolongée. La décision d’aujourd’hui souligne l’engagement du Conseil des gouverneurs à définir une politique monétaire garantissant que l’inflation se stabilise à son objectif de 2 % à moyen terme. La BCE relève ses taux de 25 points de base à mesure que les risques d’inflation augmentent La BCE a relevé ses taux de 25 points de base, portant le taux de dépôt à 2,50 %, alors que le conflit au Moyen-Orient maintient les pressions inflationnistes élevées. La BCE prévoit désormais une inflation moyenne de 3,0 % en 2026, 2,5 % en 2027 et 2,1 % en 2028, ces deux dernières prévisions étant révisées à la hausse. Les prévisions de croissance ont également été revues à la hausse, tandis que la BCE a souligné que les futures décisions en matière de taux resteraient dépendantes des données, sans trajectoire prédéfinie.",
+      "url": "https://www.forexfactory.com/news/1417612-ecb-hikes-rates-25-bps-as-inflation-risks",
+      "date_recuperation": "2026-09-10T12:20:51.042760+00:00",
+      "date_publication": "2026-09-10T12:15:51.042760+00:00",
+      "titre": "ECB hikes rates 25 bps as inflation risks rise",
       "ignore": false,
       "titre": "Iran orders temporary suspension of 10% freight charge on foreign vessels carrying energy products to or from Iran - Fars News",
       "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
@@ -82,6 +91,8 @@
       "titre": "White House yet to decide on refined copper tariffs",
       "extrait": "White House yet to decide on refined copper tariffs.",
       "extrait_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné.",
+      "titre_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné",
+      "url": "https://www.forexfactory.com/news/1417575-white-house-yet-to-decide-on-refined-copper",
       "date_recuperation": "2026-09-10T10:30:19.219701+00:00",
       "titre_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné"
     },
@@ -190,6 +201,8 @@
       "extrait": "Before beginning my speech, I would like to offer my heartfelt sympathies to those who are suffering from the recent heavy rain. A little over a year has passed since I was appointed as a member of the Policy Board. During this time, the whole world has wrestled with two major issues related to the United States: one concerning tariffs and the other concerning the Iran situation. The tariff issue, unexpectedly, did not cause any economic disruption in Japan, although it did impact primarily sectors that have high export volumes to the United States, such as automobiles. In contrast, the Iran situation has had far broader repercussions. The supply of crude oil and other materials has tightened due to the closure of the Strait of Hormuz. This could induce both a rise in inflation and a deceleration in economic activity, placing central banks worldwide in a difficult decision-making environment. In terms of the impact on Japan, crude oil and liquefied natural gas (LNG) have shown different price dynamics. Crude oil prices have risen due to a shortage of supply, whereas LNG prices have increased even without such a shortage. CBoJ board member Masu: BoJ likely to keep raising interest rates amid current loose financial conditionsBank of Japan board member Masu: underlying inflation remains under 2% but close to that levelMasu: pace and timing of BOJ rate hikes to hinge on likelihood of meeting baseline projections and risks, taking into account oil price changes, al-demand, and currency fluctuations",
       "titre": "BOJ Masu: Economic Activity, Prices, and Monetary Policy in Japan",
       "extrait_fr": "Avant de commencer mon discours, je voudrais offrir mes plus sincères condoléances à ceux qui souffrent des fortes pluies récentes. Un peu plus d’un an s’est écoulé depuis que j’ai été nommé membre du Conseil d’orientation. Pendant ce temps, le monde entier a été aux prises avec deux problèmes majeurs liés aux États-Unis : l’un concernant les droits de douane et l’autre concernant la situation en Iran. Contre toute attente, la question des droits de douane n'a provoqué aucune perturbation économique au Japon, même si elle a principalement touché les secteurs qui exportent de gros volumes vers les États-Unis, comme l'automobile. En revanche, la situation iranienne a eu des répercussions bien plus vastes. L'approvisionnement en pétrole brut et autres matières premières s'est resserré en raison de la fermeture du détroit d'Ormuz. Cela pourrait entraîner à la fois une hausse de l’inflation et un ralentissement de l’activité économique, plaçant les banques centrales du monde entier dans un environnement décisionnel difficile. En termes d’impact sur le Japon, le pétrole brut et le gaz naturel liquéfié (GNL) ont affiché des dynamiques de prix différentes. Les prix du pétrole brut ont augmenté en raison d’une pénurie d’approvisionnement, tandis que les prix du GNL ont augmenté même sans une telle pénurie. Masu, membre du conseil d'administration de la CBoJ : la BoJ continuera probablement à augmenter les taux d'intérêt dans le contexte de conditions financières souples actuelles, Masu, membre du conseil d'administration de la Banque du Japon : l'inflation sous-jacente reste inférieure à 2 % mais proche de ce niveau. Masu : le rythme et le calendrier des hausses de taux de la BOJ dépendront de la probabilité de respecter les projections et les risques de référence, en tenant compte de l'évolution des prix du pétrole, de la demande mondiale et des fluctuations monétaires.",
+      "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon",
+      "url": "https://www.forexfactory.com/news/1417274-boj-masu-economic-activity-prices-and-monetary-policy",
       "date_recuperation": "2026-09-10T01:35:16.212615+00:00",
       "titre_fr": "BOJ Masu : Activité économique, prix et politique monétaire au Japon"
     }
