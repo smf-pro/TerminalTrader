@@ -35,7 +35,13 @@
       "extrait_fr": "Pour la semaine se terminant le 4 septembre 2026, les raffineries américaines ont traité 17,6 millions de barils par jour (b/j), soit une hausse de 91 000 b/j par rapport à la semaine précédente, à un taux d'utilisation de leur capacité de 97,8 %. La production d'essence s'est élevée en moyenne à 9,3 millions de b/j et la production de distillats a augmenté à 5,3 millions de b/j. Les importations de pétrole brut ont augmenté de 53 000 b/j pour atteindre 6,8 millions de b/j, et la moyenne sur quatre semaines de 6,6...",
       "titre": "Crude Inventory -0.4M Barrels Last Week - EIA",
       "source": "streetinsider.com",
-      "impact": "low"
+      "date_publication": "2026-09-10T16:03:19.521088+00:00",
+      "date_recuperation": "2026-09-10T16:04:19.521088+00:00",
+      "url": "https://www.forexfactory.com/news/1417653-crude-inventory-04m-barrels-last-week-eia",
+      "titre": "Crude Inventory -0.4M Barrels Last Week - EIA",
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": "Pour la semaine se terminant le 4 septembre 2026, les raffineries américaines ont traité 17,6 millions de barils par jour (b/j), soit une hausse de 91 000 b/j par rapport à la semaine précédente, à un taux d'utilisation de leur capacité de 97,8 %. La production d'essence s'est élevée en moyenne à 9,3 millions de b/j et la production de distillats a augmenté à 5,3 millions de b/j. Les importations de pétrole brut ont augmenté de 53 000 b/j pour atteindre 6,8 millions de b/j, et la moyenne sur quatre semaines de 6,6..."
     },
     {
       "date_publication": "2026-09-10T14:40:18.597896+00:00",
@@ -47,7 +53,13 @@
       "date_recuperation": "2026-09-10T14:41:18.597896+00:00",
       "titre": "EIA: US natural gas inventories up by 40 Bcf",
       "source": "breakingthenews.net",
-      "impact": "low"
+      "date_publication": "2026-09-10T14:06:20.873743+00:00",
+      "date_recuperation": "2026-09-10T14:07:20.873743+00:00",
+      "url": "https://www.forexfactory.com/news/1417632-us-wholesale-inventories-up-by-13-in-july",
+      "ignore": false,
+      "extrait": "Wholesale inventories in the United States rose by 1.3% in July compared to June's revised figure and stood at $958.9 billion, the US Census Bureau revealed in a report released on Thursday. Total inventories climbed by 5.7% compared to the same month in the previous year. The sales of merchant wholesalers, adjusted for seasonal variations and trading-day ...",
+      "extrait_fr": null,
+      "titre": "US wholesale inventories up by 1.3% in July"
     },
     {
       "date_publication": "2026-09-10T14:31:19.549122+00:00",
@@ -130,8 +142,8 @@
       "ignore": false,
       "date_recuperation": "2026-09-10T12:32:20.669263+00:00",
       "titre": "US Unemployment Insurance Weekly Claims",
-      "source": "dol.gov",
-      "impact": "medium"
+      "impact": "medium",
+      "extrait_fr": null
     },
     {
       "date_publication": "2026-09-10T12:31:20.669263+00:00",
@@ -142,8 +154,8 @@
       "ignore": false,
       "date_recuperation": "2026-09-10T12:32:20.669263+00:00",
       "titre": "US Producer Price Index - August 2026",
-      "source": "bls.gov",
-      "impact": "high"
+      "impact": "high",
+      "extrait_fr": null
     },
     {
       "impact": "medium",
@@ -179,7 +191,13 @@
       "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
       "titre": "Iran orders temporary suspension of 10% freight charge on foreign vessels carrying energy products to or from Iran - Fars News",
       "source": "@financialjuice",
-      "impact": "medium"
+      "date_publication": "2026-09-10T10:58:28.836458+00:00",
+      "date_recuperation": "2026-09-10T10:59:28.836458+00:00",
+      "url": "https://www.forexfactory.com/news/1417603-iran-orders-temporary-suspension-of-10-freight-charge",
+      "titre": "Iran orders temporary suspension of 10% freight charge on foreign vessels carrying energy products to or from Iran - Fars News",
+      "ignore": false,
+      "impact": "medium",
+      "extrait_fr": "L'Iran ordonne la suspension temporaire des frais de fret de 10 % sur les navires étrangers transportant des produits énergétiques à destination ou en provenance de l'Iran - Fars News."
     },
     {
       "date_publication": "2026-09-10T10:29:19.219701+00:00",
@@ -188,7 +206,6 @@
       "extrait_fr": "La Maison Blanche n'a pas encore décidé des tarifs sur le cuivre raffiné.",
       "extrait": "White House yet to decide on refined copper tariffs.",
       "ignore": false,
-      "date_recuperation": "2026-09-10T10:30:19.219701+00:00",
       "titre": "White House yet to decide on refined copper tariffs",
       "source": "@financialjuice",
       "impact": "low"
@@ -238,7 +255,7 @@
       "ignore": false,
       "extrait_fr": null,
       "titre": "BoJ's Masu: Underlying inflation gradually approaching 2% but don't see it overshooting sharply above that level now.",
-      "source": "@financialjuice",
+      "extrait_fr": null,
       "impact": "low"
     },
     {
@@ -251,7 +268,13 @@
       "extrait_fr": "Trump : si les républicains remportent la Chambre et le Sénat, je verserai un dividende de 5 000 $ à chaque adulte aux États-Unis",
       "titre": "Trump: I'll issue a $5,000 dividend to every adult in the US, if Republicans win the House and Senate",
       "source": "@NodeWire",
-      "impact": "low"
+      "date_publication": "2026-09-10T02:12:17.037561+00:00",
+      "date_recuperation": "2026-09-10T02:14:17.037561+00:00",
+      "url": "https://www.forexfactory.com/news/1417277-trump-if-republicans-win-the-house-and-senate",
+      "titre": "TRUMP: IF REPUBLICANS WIN THE HOUSE AND SENATE, I'LL ISSUE A $5,000 DIVIDEND TO EVERY ADULT IN THE U.S.",
+      "ignore": false,
+      "impact": "low",
+      "extrait_fr": null
     },
     {
       "date_publication": "2026-09-10T02:12:18.474244+00:00",
@@ -354,7 +377,6 @@
       "titre_fr": null,
       "url": "https://investinglive.com/central-banks/weak-yen-oil-costs-and-food-prices-in-focus-as-boj-s-masu-talks-hikes/",
       "date_recuperation": "2026-09-10T01:58:13.681633+00:00",
-      "ignore": false,
       "titre": "Weak yen, oil costs and food prices in focus as BOJ's Masu talks hikes",
       "contenu": "Masu's comments add to a hawkish tilt already building among BOJ board members ahead of the September meeting, reinforcing market expectations that a hike is likely, indeed abasically set in stone. His specific focus on the weak yen having a bigger inflation impact than in the past, alongside concern about producer prices feeding through to consumer inflation more than historically,gives the yen some supporton the margin, since it signals the board is not just reacting to headline energy costs but building a broader case for policy normalisation.\n\nWith the policy rate already described as approaching the estimated neutral range, the more market sensitive signal here may be Masu's comment that the BOJ could be forced to raise rates rapidly if inflation accelerates, which raises the stakes around upcoming data releases between now and the meeting, and beyond.\n\n---\n\nEarlier:\n\n---\n\nA BOJ board member who has already called for early hikes says the case for continuing to raise rates keeps getting stronger, not weaker.\n\nSummary:\n\nBank of Japan board member Kazuyuki Masu said underlying inflation remains below the central bank's 2% target but is now quite close to it, adding that the BOJ is expected to continue raising interest rates given how accommodative financial conditions remain. His comments come ahead of the BOJ's next policy meeting on September 17 and 18, which markets widely expect to produce a further rate hike.\n\nMasu, a former chief financial officer at trading house Mitsubishi Corp, joined the BOJ board in July 2025, filling a seat traditionally reserved for a business executive. He is generally regarded as one of the more hawkish members of the current board. He voted to keep rates unchanged at the BOJ's April meeting, but said the following month that he believed rates should rise as soon as possible provided there were no clear signs of an economic slowdown, so his comments are consistent with that stance rather than a shift in it.\n\nOn the substance, Masu said the pace and timing of further rate increases would depend on the likelihood of achieving the BOJ's baseline inflation projections, alongside risks tied to oil prices, AI related demand and currency fluctuations. He said the most important consideration is avoiding a sharp overshoot of underlying inflation above the 2% target. He also addressed the current run up in energy costs directly, saying that while a rise in fuel and chemical goods prices could prove to be a one off shock, it may still have a broader impact on prices through distribution costs, and separately flagged concern that rising costs stemming from the Middle East conflict could push up overall prices as a lasting trend rather than a temporary one.\n\nMasu pointed to several additional pressures worth watching, including a recent 7% spike in producer prices, which he said could feed through to consumer inflation more than it has historically, alongside an expected reacceleration in food prices that he described as potentially key to the long term inflation outlook. He also said the weak yen is having a larger impact on inflation than in the past and therefore warrants close attention, and separately noted no sign yet that recent rate hikes are denting corporate appetite for funds, adding he was watching for signs that corporate investment could be overheating.\n\nOn the policy framework itself, Masu said Japan is no longer in deflation and that the BOJ must move its real interest rate out of negative territory as soon as possible. With the policy rate now approaching the BOJ's estimated neutral range, he said the central bank needs to watch price, job and financial conditions carefully, and warned that if inflation accelerates, the BOJ could be forced to raise rates more rapidly than currently anticipated. He also flagged a separate, longer term question facing the BOJ over which maturity range of Japanese government bonds it should continue holding as it considers the desirable size of its balance sheet.",
       "date_publication": "2026-09-10T01:58:07.973860+00:00"
