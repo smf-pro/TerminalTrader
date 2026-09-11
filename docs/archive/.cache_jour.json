@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-11T17:59:24.136072+00:00",
     "cb_articles": "2026-09-11T18:28:57.965024+00:00",
-    "il_articles": "2026-09-11T18:53:58.658091+00:00"
+    "il_articles": "2026-09-11T18:55:36.872014+00:00"
   },
   "ff_news": [
     {
@@ -304,6 +304,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "USDCAD Technicals: USDCAD extends higher but stalls at key trendline resistance",
+      "ignore": false,
+      "date_recuperation": "2026-09-11T19:00:27.437575+00:00",
+      "date_publication": "2026-09-11T18:55:36.872014+00:00",
+      "categorie": "technical-analysis",
+      "tags": [
+        "CAD"
+      ],
+      "url": "https://investinglive.com/technical-analysis/usdcad-technicals-usdcad-extends-higher-but-stalls-at-key-trendline-resistance/",
+      "contenu": "Buyers defended the 200-day and 200-hour moving averages, setting up a clearly defined technical battle for next week.\n\nAs the trading week moves to a close, the USDCAD is moving higher in trading today, extending the week’s trading range after buyers leaned against an important cluster of moving-average support.\n\nAt today’s low, the pair found willing buyers near its 200-day moving average at 1.38323 and the 200-hour moving average at 1.38258. When two technically important moving averages sit near one another, the area becomes more significant. Buyers can lean against that cluster because it provides a clearly defined level where they can measure and limit risk.\n\nThe rebound took the price back above the 50% midpoint of the 2026 trading range at 1.38663 and briefly through the nearby swing area between 1.38669 and 1.38770. However, the upside momentum stalled against the downward-sloping trendline connecting the July, late-July, early-August and early-September highs.\n\nThat trendline has now attracted sellers on five separate tests. The repeated failures confirm that it remains an important ceiling—and it sets up the technical battle heading into next week.\n\nFor buyers, getting above the trendline and staying above it would be the first requirement if they are to take more control. They would also need to hold above the 50% retracement at 1.38663. Accomplishing both would increase the bullish bias and put the 100-day moving average at 1.39271 in play as the next major target.\n\nFor sellers, holding the trendline and pushing the price back below the 50% retracement would keep the broader downside bias intact. The 200-day moving average at 1.38323 and the 200-hour moving average at 1.38258 would then become the key downside targets. A break below both would weaken the buyers’ position and open the door toward the rising 100-hour moving average at 1.38096, followed by the lower support area between 1.37655 and 1.37780.\n\nThe technical roadmap for next week is clearly defined. The falling trendline is the ceiling, while the 200-day and 200-hour moving averages form the support floor. Traders do not have to guess. Let the price action at those boundaries tell you which side is taking control.\n\nFundamentally speaking?\n\nFundamentally, the move higher in USDCAD was supported by renewed U.S. dollar strength after the latest inflation data increased expectations that the Federal Reserve could raise interest rates. Higher U.S. rate expectations tend to support the dollar because they can make dollar-denominated assets more attractive to global investors. Meanwhile, the Canadian dollar lagged despite elevated oil prices, which would normally provide some support because Canada is a major energy exporter.\n\nIn addition, trade tensions are also weighing on the Canadian dollar. The escalating dispute between the United States and Canada—including new U.S. tariffs and Canadian retaliatory measures—creates uncertainty for Canadian exports, business investment and economic growth. Since Canada is highly dependent on trade with the United States, that uncertainty can make investors less willing to hold Canadian dollars. When combined with rising expectations for a Federal Reserve rate hike, the fundamental bias helped push USDCAD higher, even as elevated oil prices offered the loonie some support."
+    },
     {
       "url": "https://investinglive.com/commodities/why-the-saudi-arabian-pipeline-strike-is-such-a-big-deal/",
       "tags": [
