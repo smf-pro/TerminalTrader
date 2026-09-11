@@ -1,10 +1,5 @@
 {
   "date": "2026-09-11",
-  "curseurs": {
-    "ff_news": "2026-09-11T06:37:24.145044+00:00",
-    "cb_articles": "2026-09-11T03:15:13.560342+00:00",
-    "il_articles": "2026-09-11T06:00:10.704763+00:00"
-  },
   "ff_news": [
     {
       "titre": "ECB's Nagel: Energy prices will determine ECB policy moves",
