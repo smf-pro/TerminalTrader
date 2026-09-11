@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-11T12:30:36.483024+00:00",
     "cb_articles": "2026-09-11T03:15:13.560342+00:00",
-    "il_articles": "2026-09-11T12:30:07.400994+00:00"
+    "il_articles": "2026-09-11T13:02:46.702156+00:00"
   },
   "ff_news": [
     {
@@ -242,6 +242,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Reaction: Markets rebound after the initial reactions are reversed.  .",
+      "date_recuperation": "2026-09-11T13:05:20.862905+00:00",
+      "url": "https://investinglive.com/technical-analysis/reaction-markets-rebound-after-the-initial-reactions-are-reversed/",
+      "ignore": false,
+      "categorie": "technical-analysis",
+      "contenu": "What are the markets saying after the US CPI report.\n\nThe US CPI did not dissuade the market from a Fed policy change. In fact, it increased the expectations at least initially with the market pricing in a <90% chance for a September hike.\n\nThe month-to-month CPI came in at 0.4% with the year on year 3.4% the core rose by 0.3% above the 0.2% expectations but the year on year was unchanged at 2.4% from prior month. The  super core month-to-month CPI came in it  0.51% which was well above the 0.1% last month. The year on year rose to 3.01% from 2.83%.\n\n“Supercore CPI” is an informal measure of underlying inflation that focuses onservices prices excluding housing costs.\n\nFood\n\nEnergy\n\nGoods\n\nHousing or shelter\n\nThat leaves services such as healthcare, transportation, insurance, recreation, education, and personal care.\n\nWhy is it important? Many of these services are labor-intensive, so their prices can reflect wage pressures. If supercore inflation remains elevated, it suggests inflation is becoming embedded in the service economy and may be difficult for the Federal Reserve to bring down.\n\nIt is worth noting thatsupercore is not an official, universally standardized CPI category. Analysts may calculate it differently. The Fed often pays closer attention to the similarcore PCE services excluding housingmeasure.\n\nIn simple terms: Supercore inflation tries to identify the part of inflation that may be the most persistent—the inflation that does not disappear quickly when energy prices fall or supply chains improve.\n\nThe US dollar moved higher after the report, but is retracing the declines.\n\nGBPUSD: The GBPUSD has moved down to test the 50% midpoint of the last trend move higher from the end of July low (July 28). That level comes in at 1.34732. The level was also near lows from last week and going back to August 13. The price has bounced off that level and is currently trading back above 1.3500 level on the successful test. Resistance remains at the 200 hour moving average at 1.35246 and the 100 hour moving average at 1.35360.\n\nUSDJPY: The USDJPY moved higher off the news but has since reversed to new lows for the day. The price is now back below the 100 hour MA (it stalled at that level on the move lower prior to the report today).   Moving below the level is a bearish tilt.\n\nEURUSD: The EURUSD moved below the swing area target at 1.15849, and briefly below the 38.2% retracement of the move up from the July 28 low at 1.15738. The price has since moved back higher and above the tree release levels and currently trades around 1.1600 level. There is still a cluster of resistance above including the 200 hour moving average at 1.1613, the 100 hour moving average at 1.1623 in the 200 day moving average at 1.16316.\n\nLooking at the US futures are now showing stronger levels with the Dow up over 500 points and the Nasdaq up over 300 points. .\n\nS&P is up 70 points\n\nDow industrial average is up 517point\n\nNASDAQ is up 340 points\n\nU.S. Treasury yields are mixed, with the curve flattening as short-term yields rise and longer-term yields decline:\n\n2-year: 4.5767%, up 2.7 basis points\n\n5-year: 4.7262%, down 0.7 basis points\n\n10-year: 4.924%, down 2.0 basis points\n\n30-year: 5.3328%, down 2.8 basis points\n\nThe key takeaway is that selling pressure is concentrated at the short end, while buyers are moving into longer-dated Treasuries. The 10-year yield remains elevated near 5%, while the 30-year yield is still above 5.30%.\n\nThe reactions are somewhat surprising and may have caught traders off guard.\n\nMarkets are volatile.  Know your levels and listen to the market .",
+      "tags": [
+        "USD"
+      ],
+      "date_publication": "2026-09-11T13:02:46.702156+00:00"
+    },
     {
       "titre": "US August CPI 3.4% vs 3.4% expected",
       "tags": [
