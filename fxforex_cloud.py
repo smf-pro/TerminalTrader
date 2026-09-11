@@ -5,10 +5,25 @@ Script de récupération des taux FX en temps quasi réel (version cloud)
 Version single-pass pour tourner sur GitHub Actions (cron 1 min via
 cron-job.org, secours natif 5 min).
 
-- Pas de WebSocket : contrairement au script de bureau (streaming
-  permanent), un job GitHub Actions se termine après chaque exécution.
-  On fait donc un appel REST ponctuel (GET /quote) par paire à chaque
-  cycle, exactement comme les autres scripts font un scraping ponctuel.
+CORRECTIF IMPORTANT : le endpoint REST /quote de Finnhub est PAYANT pour
+le forex sur le plan gratuit (403 Forbidden constaté en production sur
+les 7 paires). Seul le WebSocket de trades forex est gratuit chez
+Finnhub. On ne peut donc pas faire un simple appel REST bloquant comme
+prévu initialement.
+
+Solution retenue : un WebSocket BORNÉ DANS LE TEMPS (FENETRE_WS_SECONDES,
+20-25s) au lieu d'un ws.run_forever() infini. Le script ouvre la
+connexion, écoute pendant cette fenêtre courte, capture les derniers
+prix reçus, ferme la connexion, puis continue son cycle normalement
+(écriture Firestore, archive...). Le modèle reste single-pass : le
+script se termine toujours après quelques dizaines de secondes.
+
+Comme une fenêtre de 20-25s peut ne recevoir aucun tick sur une paire
+peu tradée à certaines heures (NZDUSD, CHFUSD hors sessions actives), un
+cache local du dernier prix connu (cache/fxforex_last_price.json)
+persiste entre les runs : si aucun tick n'arrive pendant la fenêtre, on
+réutilise le dernier prix connu plutôt que d'écrire None en boucle.
+
 - Les références historiques (24h/7j/30j glissants + jour/semaine/mois
   calendaires en cours) sont coûteuses à recalculer (téléchargement
   yfinance) et ne changent de toute façon qu'une fois par heure (données
@@ -32,9 +47,11 @@ cron-job.org, secours natif 5 min).
 import os
 import json
 import time
+import threading
 from datetime import datetime, timedelta, timezone
 
 import requests
+import websocket
 import pandas as pd
 import numpy as np
 import yfinance as yf
@@ -49,9 +66,12 @@ NOM_SOURCE = "fxforex"
 COLLECTION = "fx_rates"
 DOC_ID_LIVE = "latest"
 
+FENETRE_WS_SECONDES = 22  # durée d'écoute du WebSocket avant de fermer et continuer le cycle
+
 DOSSIER_CACHE = "cache"
 FICHIER_REFS_CACHE = os.path.join(DOSSIER_CACHE, "fxforex_refs.json")
 FICHIER_MARQUEUR_ARCHIVE = os.path.join(DOSSIER_CACHE, ".derniere_archive_fx")
+FICHIER_DERNIER_PRIX = os.path.join(DOSSIER_CACHE, "fxforex_last_price.json")
 
 DOSSIER_SITE = "docs"
 DOSSIER_ARCHIVE_FX = os.path.join(DOSSIER_SITE, "archive", "fx")
@@ -126,30 +146,104 @@ def to_usd_quote(raw_name, value):
     return value
 
 
-# ---------- 1. PRIX LIVE VIA FINNHUB REST (pas de WebSocket, single-pass) ----------
+# ---------- 1. PRIX LIVE VIA FINNHUB WEBSOCKET (borné dans le temps) ----------
+# Le REST /quote est payant pour le forex sur le plan gratuit Finnhub
+# (403 Forbidden constaté en production). Seul le WebSocket est gratuit :
+# on ouvre la connexion, on écoute pendant FENETRE_WS_SECONDES, puis on
+# ferme et on continue le cycle normalement (le script reste single-pass).
 
-def fetch_live_quotes(api_key, timeout=10):
-    """Un appel GET /quote par paire. Retourne {raw_name: prix_brut_ou_None}."""
-    prix_bruts = {}
-    for raw_name, symbol in SYMBOLS_FINNHUB.items():
+finnhub_to_raw_name = {v: k for k, v in SYMBOLS_FINNHUB.items()}
+
+
+def fetch_live_quotes(api_key, fenetre_secondes=FENETRE_WS_SECONDES):
+    """Ouvre un WebSocket Finnhub, écoute pendant `fenetre_secondes`, puis
+    ferme. Retourne {raw_name: dernier_prix_recu_ou_None}."""
+    prix_captures = {raw_name: None for raw_name in SYMBOLS_FINNHUB}
+    verrou = threading.Lock()
+
+    def on_message(ws, message):
         try:
-            reponse = requests.get(
-                "https://finnhub.io/api/v1/quote",
-                params={"symbol": symbol, "token": api_key},
-                timeout=timeout,
-            )
-            reponse.raise_for_status()
-            data = reponse.json()
-            prix = data.get("c")  # "c" = current price
-            if prix in (None, 0):
-                print(f"⚠️  Pas de prix valide pour {raw_name} ({symbol}) : {data}")
-                prix_bruts[raw_name] = None
+            data = json.loads(message)
+        except json.JSONDecodeError:
+            return
+        if data.get("type") != "trade":
+            return
+        for trade in data.get("data", []):
+            raw_name = finnhub_to_raw_name.get(trade.get("s"))
+            if raw_name is None:
+                continue
+            with verrou:
+                prix_captures[raw_name] = trade.get("p")
+
+    def on_error(ws, error):
+        print(f"⚠️  Erreur WebSocket : {error}")
+
+    def on_open(ws):
+        for symbol in SYMBOLS_FINNHUB.values():
+            ws.send(json.dumps({"type": "subscribe", "symbol": symbol}))
+
+    ws_url = f"wss://ws.finnhub.io?token={api_key}"
+    ws = websocket.WebSocketApp(ws_url, on_message=on_message, on_error=on_error)
+    ws.on_open = on_open
+
+    thread = threading.Thread(target=ws.run_forever, kwargs={"ping_interval": 10}, daemon=True)
+    thread.start()
+
+    time.sleep(fenetre_secondes)
+
+    ws.close()
+    thread.join(timeout=5)
+
+    with verrou:
+        resultat = dict(prix_captures)
+
+    manquants = [k for k, v in resultat.items() if v is None]
+    if manquants:
+        print(f"⚠️  Aucun tick reçu pendant la fenêtre pour : {manquants} (fallback sur le dernier prix connu)")
+
+    return resultat
+
+
+# ---------- 1bis. CACHE DU DERNIER PRIX CONNU (fallback inter-cycles) ----------
+
+def _charger_dernier_prix_cache():
+    if not os.path.exists(FICHIER_DERNIER_PRIX):
+        return {}
+    try:
+        with open(FICHIER_DERNIER_PRIX, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _sauvegarder_dernier_prix_cache(cache):
+    os.makedirs(DOSSIER_CACHE, exist_ok=True)
+    with open(FICHIER_DERNIER_PRIX, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def appliquer_fallback_dernier_prix(prix_usd_par_devise, maintenant):
+    """Pour chaque devise sans prix ce cycle (aucun tick reçu pendant la
+    fenêtre WS), réutilise le dernier prix connu du cache local plutôt que
+    de laisser None. Met aussi à jour le cache avec les prix fraîchement
+    reçus ce cycle."""
+    cache = _charger_dernier_prix_cache()
+    resultat = {}
+
+    for usd_name, prix in prix_usd_par_devise.items():
+        if prix is not None:
+            resultat[usd_name] = prix
+            cache[usd_name] = {"prix": prix, "horodatage": maintenant.isoformat()}
+        else:
+            entree_cache = cache.get(usd_name)
+            if entree_cache and entree_cache.get("prix") is not None:
+                resultat[usd_name] = entree_cache["prix"]
+                print(f"↩️  {usd_name} : aucun tick ce cycle, réutilisation du dernier prix connu ({entree_cache['prix']}, du {entree_cache.get('horodatage', '?')})")
             else:
-                prix_bruts[raw_name] = prix
-        except Exception as e:
-            print(f"⚠️  Erreur récupération {raw_name} ({symbol}) : {e}")
-            prix_bruts[raw_name] = None
-    return prix_bruts
+                resultat[usd_name] = None
+
+    _sauvegarder_dernier_prix_cache(cache)
+    return resultat
 
 
 # ---------- 2. RÉFÉRENCES HISTORIQUES (cache local, rafraîchi 1x/heure) ----------
@@ -341,13 +435,17 @@ def cycle():
     # ---- 1. Références historiques (cache 1h) ----
     refs = obtenir_refs_historiques()
 
-    # ---- 2. Prix live (REST, un appel par paire) ----
+    # ---- 2. Prix live (WebSocket borné, ~22s d'écoute) ----
     prix_bruts = fetch_live_quotes(api_key)
+    prix_usd_bruts = {usd_name: to_usd_quote(raw_name, prix_bruts.get(raw_name)) for raw_name, usd_name in USD_NAME.items()}
+
+    # ---- 2bis. Fallback sur le dernier prix connu si aucun tick reçu ce cycle ----
+    prix_usd_final = appliquer_fallback_dernier_prix(prix_usd_bruts, maintenant)
 
     devises_doc = {}
     devises_recuperees = 0
-    for raw_name, usd_name in USD_NAME.items():
-        prix_usd = to_usd_quote(raw_name, prix_bruts.get(raw_name))
+    for usd_name in USD_NAME.values():
+        prix_usd = prix_usd_final.get(usd_name)
         entree = {"prix": prix_usd}
 
         refs_devise = refs.get(usd_name, {})
