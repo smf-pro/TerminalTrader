@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "ignore": false,
+      "date_publication": "2026-09-11T13:41:29.435761+00:00",
+      "extrait": "Iran Foreign Ministry spokesperson announces plans for regional meeting involving Persian Gulf countries.Iran plans a regional meeting with Iraq and other regional countries in Oman to discuss safe commercial shipping routes in the Strait of Hormuz on Monday - Fars, citing the Foreign Ministry SpokespersonIran Foreign Ministry Spokesperson Baghaei: Iran considers itself committed to ensuring maritime security in the Strait of Hormuz - Tasnim News.Iran Foreign Ministry spokesperson: Strait of Hormuz navigation cannot be guaranteed while US maritime blockades and economic warfare continue.",
+      "url": "https://www.forexfactory.com/news/1417855-iran-foreign-ministry-spokesperson-announces-plans-for-regional",
+      "date_recuperation": "2026-09-11T13:42:29.435761+00:00",
+      "source": "@financialjuice",
+      "impact": "low",
+      "titre": "Iran Foreign Ministry spokesperson announces plans for regional meeting involving Persian Gulf countries"
+    },
+    {
       "source": "bls.gov",
       "ignore": false,
       "date_publication": "2026-09-11T12:30:36.483024+00:00",
