@@ -1,0 +1,65 @@
+name: FX Forex Scraper
+
+on:
+  schedule:
+    # Toutes les 5 minutes en secours natif GitHub (minimum pratique gratuit).
+    # La cadence réelle visée (1 minute) est assurée par cron-job.org, qui
+    # déclenche ce workflow via workflow_dispatch bien plus souvent que ce
+    # schedule natif — voir la section "cron-job.org" du contexte du projet.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}  # permet le lancement manuel ET le déclenchement par cron-job.org
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Lancer le script de recuperation des taux FX
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: service_account.json
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: python fxforex_cloud.py
+
+      - name: Commit et push docs/ + cache/ (avec retry en cas de conflit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git add cache/
+          git diff --staged --quiet && exit 0
+          git commit -m "Update fx rates [skip ci]"
+
+          # Plusieurs scrapers tournent en parallele (FF, CB, IL, fxforex...) :
+          # un autre workflow peut pousser entre notre "merge" et notre
+          # "push" : GitHub refuse alors le push (ref-lock). On reessaie
+          # avec un nouveau fetch/merge a chaque tentative, au lieu
+          # d'abandonner directement.
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
+            if git push; then
+              echo "Push reussi (tentative $i)."
+              exit 0
+            fi
+            echo "Push refuse (tentative $i), nouvel essai dans $((i*3))s..."
+            sleep $((i*3))
+          done
+
+          echo "Echec du push apres plusieurs tentatives."
+          exit 1
