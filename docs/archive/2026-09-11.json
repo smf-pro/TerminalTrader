@@ -289,6 +289,18 @@
   ],
   "il_articles": [
     {
+      "url": "https://investinglive.com/news/us-august-federal-budget-deficit-167-billion-vs-404-billion-expected/",
+      "date_recuperation": "2026-09-11T18:05:22.859322+00:00",
+      "titre": "US August Federal budget deficit $167 billion vs $404 billion expected",
+      "date_publication": "2026-09-11T18:03:50.764528+00:00",
+      "tags": [
+        "USD"
+      ],
+      "contenu": "That's a much better number than expected\n\nThe $432 billion deficit last month was near a monthly record but it seems as though much of that spending was pulled forward from August as the latest month shows a nice bounce.\n\nFiscal Year to date deficit at $1.966 trillion verus $1.973 trillion a year ago\n\nOutlates $527 billion vs $689 billion a year ago\n\nReceipts $360 billion vs $344 billion a year ago\n\nNet cutoms receipts of $12.836 billion\n\nThis number could tad some of the pressure of Treasuries but the month-to-month numbers are tough to get a read on because spending shifts around.",
+      "ignore": false,
+      "categorie": "news"
+    },
+    {
       "tags": [
         "Oil"
       ],
