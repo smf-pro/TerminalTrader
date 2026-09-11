@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "date_publication": "2026-09-11T14:04:23.464670+00:00",
+      "source": "breakingthenews.net",
+      "impact": "medium",
+      "titre": "US consumer confidence sinks in September",
+      "extrait": "The Consumer Sentiment Index in the United States contracted by 7.5% on a monthly basis to 47.8 points in September, according to the preliminary report published by the University of Michigan on Friday. On an annual basis, the figure is seen to have decreased by 13.2%. The Current Economic Conditions Index slid by 1.9% month-on-month and dropped by 15.7% compared to September 2025. The Index of Consumer Expectations fell 11.1% compared to August, sinking by 11.4% year-over-year.Ugly Consumer Sentiment: UMich Sentiment 47.8, Exp. 51.0 - Current Conds 50.9, Exp. 51.3 - Expectations 45.8, Exp. 51.0 Inflation expectations: 1Yr: 4.6, Exp. 4.2% 5-10Yr: 3.4%. Exp. 3.3%",
+      "date_recuperation": "2026-09-11T14:05:23.464670+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417859-us-consumer-confidence-sinks-in-september"
+    },
+    {
       "ignore": false,
       "date_publication": "2026-09-11T13:41:29.435761+00:00",
       "extrait": "Iran Foreign Ministry spokesperson announces plans for regional meeting involving Persian Gulf countries.Iran plans a regional meeting with Iraq and other regional countries in Oman to discuss safe commercial shipping routes in the Strait of Hormuz on Monday - Fars, citing the Foreign Ministry SpokespersonIran Foreign Ministry Spokesperson Baghaei: Iran considers itself committed to ensuring maritime security in the Strait of Hormuz - Tasnim News.Iran Foreign Ministry spokesperson: Strait of Hormuz navigation cannot be guaranteed while US maritime blockades and economic warfare continue.",
