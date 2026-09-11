@@ -4,3 +4,4 @@ firebase-admin
 yfinance
 pandas
 numpy
+websocket-client
