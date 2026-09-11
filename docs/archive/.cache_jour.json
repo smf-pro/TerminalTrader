@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-11T08:09:22.532865+00:00",
     "cb_articles": "2026-09-11T03:15:13.560342+00:00",
-    "il_articles": "2026-09-11T07:18:57.017629+00:00"
+    "il_articles": "2026-09-11T08:25:21.966880+00:00"
   },
   "ff_news": [
     {
@@ -202,6 +202,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "Oil"
+      ],
+      "ignore": false,
+      "date_publication": "2026-09-11T08:25:21.966880+00:00",
+      "titre": "Yemen's Iran-backed Houthis have completed the takeover of Bab el-Mandeb Strait",
+      "categorie": "news",
+      "date_recuperation": "2026-09-11T08:25:21.794489+00:00",
+      "contenu": "Houthis have completed the takeover of Bab el-Mandeb Strait after capturing strategic points in the Red Sea. That leaves global energy flows facing pressure from both ends of the Arabian Peninsula.\n\nYemen's Iran-backed Houthis have completed the takeover of Bab el-Mandeb Strait after capturing  strategic points in the Red Sea, according to the AFP. Bab el-Mandeb connects the Red Sea with the Gulf of Aden and provides a key maritime route between the Indian Ocean, the Suez Canal and Europe. Around 10% of global trade passes through this waterway.\n\nThat leaves global energy flows facing pressure from both ends of the Arabian Peninsula. Iran's disruption of Hormuz threatens the main route out of the Persian Gulf, while Houthi control of Bab el-Mandeb creates another bottleneck for shipments moving through the Red Sea and toward the Suez Canal.",
+      "url": "https://investinglive.com/news/yemen-s-iran-backed-houthis-have-completed-the-takeover-of-bab-el-mandeb-strait/"
+    },
     {
       "url": "https://investinglive.com/news/what-is-the-distribution-of-forecasts-for-the-us-cpi-1/",
       "contenu": "Knowing the range of expectations is important, but the distribution of forecasts is another key input in the market's reaction\n\nThe ranges of estimates are important in terms of market reaction because when the actual data deviates from the expectations, it creates a surprise effect. Another important input in market's reaction is the distribution of forecasts.\n\nIn fact, although we can have a range of estimates, most forecasts might be clustered on the upper bound of the range, so even if the data comes out inside the range of estimates but on the lower bound of the range, it can still create a surprise effect.\n\nCPI Y/Y\n\n3.8% (4%)\n\n3.5% (4%)\n\n3.4% (67%) - consensus\n\n3.3% (25%)\n\nCPI M/M\n\n0.4% (76%) - consensus\n\n0.3% (23%)\n\n0.2% (1%)\n\nCore CPI Y/Y\n\n2.7% (2%)\n\n2.5% (6%)\n\n2.4% (82%) - consensus\n\n2.3% (10%)\n\nCore CPI M/M\n\n0.3% (10%)\n\n0.2% (88%) - consensus\n\n0.1% (2%)\n\nThe Core CPI M/M will be the one to watch, as that's what the Fed members have been focusing on. Fed's Waller recently said that he would consider a rate hike in September if the monthly core reading surprises to the upside. Unfortunately, that was before the latest surge in oil prices, with WTI crude now trading above the $100 level.\n\nThe break of that psychological level triggered a hawkish repricing across the board, with traders now pricing in a 67% chance of a rate hike at the upcoming meeting. I feel like an in-line CPI won't be enough to steer the market away from expecting a rate hike. If we go into the FOMC meeting with higher probabilities for a rate hike, then the Fed will be forced to hike just to avoid delivering a dovish surprise.\n\nIn light of this, I think only a soft Core CPI could give the market some short-term relief. An upside surprise, on the other hand, might exacerbate the risk-off sentiment as the market could start expecting an even more aggressive path for rate hikes.",
