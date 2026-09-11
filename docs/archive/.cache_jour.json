@@ -1,11 +1,21 @@
 {
   "date": "2026-09-11",
   "curseurs": {
-    "ff_news": "2026-09-11T06:37:24.145044+00:00",
+    "ff_news": "2026-09-11T07:05:24.420972+00:00",
     "cb_articles": "2026-09-11T03:15:13.560342+00:00",
     "il_articles": "2026-09-11T06:57:14.633749+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-11T07:06:24.420972+00:00",
+      "titre": "Swiss consumer sentiment higher than a year ago",
+      "ignore": false,
+      "date_publication": "2026-09-11T07:05:24.420972+00:00",
+      "extrait": "In August 2026 the consumer sentiment index stood at –33 points. This is 7 points higher than in August 2025. The following sub-indices are higher than in August 2025: economic outlook and past financial situation. The following sub-indices are lower than a year ago: financial outlook and moment to make major purchases.tables",
+      "source": "seco.admin.ch",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1417750-swiss-consumer-sentiment-higher-than-a-year-ago"
+    },
     {
       "titre": "ECB's Nagel: Energy prices will determine ECB policy moves",
       "url": "https://www.forexfactory.com/news/1417748-ecbs-nagel-energy-prices-will-determine-ecb-policy",
