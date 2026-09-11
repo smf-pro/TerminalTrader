@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "titre": "Monthly Treasury Statement: Receipts and Outlays of the United States Government",
+      "source": "fiscaldata.treasury.gov",
+      "date_recuperation": "2026-09-11T18:00:24.136072+00:00",
+      "url": "https://www.forexfactory.com/news/1417893-monthly-treasury-statement-receipts-and-outlays-of-the",
+      "date_publication": "2026-09-11T17:59:24.136072+00:00",
+      "extrait": "August has been a deficit month 71 times out of 72 fiscal years because there are no major tax due dates in this month. Outlays for military active duty and retirement, veterans benefits, Supplemental Security Income, and Medicare payments to health maintenance organizations and prescription drug plans accelerated into July, because August 1, 2026, the ...",
+      "impact": "low",
+      "ignore": false
+    },
+    {
       "ignore": false,
       "date_publication": "2026-09-11T14:21:29.628849+00:00",
       "titre": "ECB's Lagarde: To Proceed On Meeting-By-Meeting Basis, Using Data To Inform Coming Decisions",
