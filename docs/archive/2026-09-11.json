@@ -2,6 +2,46 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-11T08:10:22.532865+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417760-ecbs-kocher-too-early-to-say-anything-about",
+      "extrait": "ECB's Kocher: Too early to say anything about next ECB decision.",
+      "date_publication": "2026-09-11T08:09:22.532865+00:00",
+      "impact": "low",
+      "titre": "ECB's Kocher: Too early to say anything about next ECB decision"
+    },
+    {
+      "source": "@DeItaone",
+      "date_recuperation": "2026-09-11T08:10:22.532865+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417761-iran-supporting-houthis-arrived-at-dhubab-port-city",
+      "extrait": "Houthis Reached Yemeni Port City Of Dhubab, Along Bab El-mandeb Strait- Two Yemeni Governmental Sources",
+      "date_publication": "2026-09-11T08:09:22.532865+00:00",
+      "impact": "low",
+      "titre": "Iran Supporting Houthis Arrived At Dhubab Port City In Yemen, Near Bab El-mandeb Strait"
+    },
+    {
+      "source": "istat.it",
+      "date_recuperation": "2026-09-11T08:07:22.415380+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417758-italian-labour-market-q2-2026",
+      "extrait": "The labour input, as measured by hours worked, increases by 0.3% compared to the previous quarter and by 1.3% compared to the second quarter of 2025. In the same period GDP increases by 0.2% quarter-on-quarter and by 1.0% year-on-year. The number of employed people, adjusted for seasonal effects, rises to 24 million 363 thousand (+155 thousand, +0.6% ...",
+      "date_publication": "2026-09-11T08:06:22.415380+00:00",
+      "impact": "low",
+      "titre": "Italian labour market - Q2 2026"
+    },
+    {
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-11T08:06:23.636061+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417757-iea-2026-world-oil-demand-to-drop-by",
+      "date_publication": "2026-09-11T08:05:23.636061+00:00",
+      "extrait": "IEA: 2026 world oil demand to drop by 2.5 million bpd (prev. forecast 1.6 million bpd drop), citing impasse in US-Iran talks on resolving their conflict.IEA sees total world oil supply 1.74 million bpd lower than demand in 2026 (prev. forecast 1.27 million bpd lower).IEA: World oil supply to average 100.7 million bpd in 2026, down 5.7 million bpd from 2025 and 1.3 million bpd lower than prev. forecast.IEA: Need for progress in resolving Middle East, Russia-Ukraine conflicts is greater than ever to avoid further oil market tightening.",
+      "impact": "low",
+      "titre": "IEA: 2026 world oil demand to drop by 2.5 million bpd (prev. forecast 1.6 million bpd drop)"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1417750-swiss-consumer-sentiment-higher-than-a-year-ago",
       "titre": "Swiss consumer sentiment higher than a year ago",
       "date_publication": "2026-09-11T07:05:24.420972+00:00",
