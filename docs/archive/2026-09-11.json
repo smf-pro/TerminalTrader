@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1417762-bank-of-englandsavanta-inflation-attitudes-survey-august",
+      "ignore": false,
+      "date_publication": "2026-09-11T08:32:24.878161+00:00",
+      "extrait": "Following a competitive re-tendering process, Savanta became the provider of the Inflation Attitudes Survey from August 2026. To assess the impact of this change, a parallel run of the survey was conducted by both Ipsos and Savanta in May. In the parallel run, inflation perceptions were the same in both the Ipsos and the Savanta surveys, at 5.0%. However, ...",
+      "source": "bankofengland.co.uk",
+      "titre": "Bank of England/Savanta Inflation Attitudes Survey - August 2026",
+      "impact": "low",
+      "date_recuperation": "2026-09-11T08:33:24.878161+00:00"
+    },
+    {
       "date_publication": "2026-09-11T08:09:22.532865+00:00",
       "ignore": false,
       "date_recuperation": "2026-09-11T08:10:22.532865+00:00",
