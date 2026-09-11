@@ -12,6 +12,18 @@
         "NZDUSD": null,
         "JPYUSD": null
       }
+    },
+    {
+      "horodatage": "2026-09-11T17:04:57.869536+00:00",
+      "prix": {
+        "EURUSD": null,
+        "GBPUSD": null,
+        "CHFUSD": null,
+        "CADUSD": null,
+        "AUDUSD": null,
+        "NZDUSD": null,
+        "JPYUSD": null
+      }
     }
   ]
 }
