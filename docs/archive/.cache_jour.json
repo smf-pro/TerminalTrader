@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-11T17:59:24.136072+00:00",
     "cb_articles": "2026-09-11T18:28:57.965024+00:00",
-    "il_articles": "2026-09-11T18:03:50.764528+00:00"
+    "il_articles": "2026-09-11T18:53:58.658091+00:00"
   },
   "ff_news": [
     {
@@ -304,6 +304,18 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/commodities/why-the-saudi-arabian-pipeline-strike-is-such-a-big-deal/",
+      "tags": [
+        "Oil"
+      ],
+      "categorie": "commodities",
+      "ignore": false,
+      "date_publication": "2026-09-11T18:53:58.658091+00:00",
+      "contenu": "It's a massive hit to global oil supplies\n\nThe dust is beginning to clear on the Houthi attack on Thursday on Saudi Arabia's east-west pipeline and the picture isn't good. The above picture is the 'after' and here is the purported 'before' image of a pumping station.\n\nEvidently, 'several' of these were hit in the western part of the country.\n\nI want to put into perspective the importance of this pipeline, because it's critical. It carries up to 7 million barrels per day but analysts have pegged the actual useful capacity at 5-6 mbpd. It was constructed as a (wise) backup to exports via Hormuz and was put into service following the war.\n\nIt's been a tremendously important relief valve to get oil to market. Now it's shut down.\n\nWhat's notable is that the statement says there were 'multiple' attacks and that coincides with some of the reports yesterday suggesting as many as five separate attacks along a 100 km stretch. The details are going to matter.\n\nWith a single station destroyed, it could be put back into service in a matter of days at reduced capacity but if multiple stations are destroyed, the oil could be cut off for weeks or months. The exact locations are particularly important as there is mountainous terrain in the area. If it's on the wrong side of that terrain, then the oil simply can't pass. But even if it's in the right place, it could be severely curbed.\n\nIn any case, all the oil is missing right now in an already tight market. That explains why oil shot up yesterday but for today, I wonder if the market is still underestimating the impact. For some perspective, 20 million barrels per day normally transit Hormuz and with this pipeline and US escorts, somewhere in the 11-16 mbpd range is getting out but this will cut that in half.",
+      "titre": "Why the Saudi Arabian pipeline strike is such a big deal",
+      "date_recuperation": "2026-09-11T18:55:25.984733+00:00"
+    },
     {
       "url": "https://investinglive.com/news/us-august-federal-budget-deficit-167-billion-vs-404-billion-expected/",
       "date_recuperation": "2026-09-11T18:05:22.859322+00:00",
