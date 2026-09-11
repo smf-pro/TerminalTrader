@@ -2,7 +2,7 @@
   "date": "2026-09-11",
   "curseurs": {
     "ff_news": "2026-09-11T17:59:24.136072+00:00",
-    "cb_articles": "2026-09-11T17:37:22.011727+00:00",
+    "cb_articles": "2026-09-11T18:28:57.965024+00:00",
     "il_articles": "2026-09-11T18:03:50.764528+00:00"
   },
   "ff_news": [
@@ -218,6 +218,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "ignore": false,
+      "contenu": "Congrats on seeing the obvious\n\nThe market is already priced at 86% so they're late to the party on this one.\n\nMight as well also put out a forecast for Spain to win the 2026 FIFA World Cup.\n\nIn any case, all that's at stake now is Warsh's credibility. If he doesn't hike, then it's going to be a long, ugly term for him and gold is going straight to the moon. It's also going to be interesting to see how the tweeter-in-chief reacts.",
+      "tags": [
+        "Fed"
+      ],
+      "date_publication": "2026-09-11T18:28:57.965024+00:00",
+      "titre": "JPMorgan now sees the Fed hiking in September and December",
+      "url": "https://investinglive.com/central-banks/jpmorgan-now-sees-the-fed-hiking-in-september-and-december/",
+      "date_recuperation": "2026-09-11T18:29:30.396509+00:00"
+    },
     {
       "tags": [
         "ECB"
