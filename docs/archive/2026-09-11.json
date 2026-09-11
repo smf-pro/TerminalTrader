@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "titre": "ECB's Lagarde: To Proceed On Meeting-By-Meeting Basis, Using Data To Inform Coming Decisions",
+      "date_publication": "2026-09-11T14:21:29.628849+00:00",
+      "date_recuperation": "2026-09-11T14:22:29.628849+00:00",
+      "impact": "low",
+      "source": "@LiveSquawk",
+      "url": "https://www.forexfactory.com/news/1417864-ecbs-lagarde-to-proceed-on-meeting-by-meeting-basis-using",
+      "ignore": false,
+      "extrait": "ECB's Lagarde: To Proceed On Meeting-By-Meeting Basis, Using Data To Inform Coming Decisions"
+    },
+    {
       "impact": "medium",
       "source": "breakingthenews.net",
       "date_recuperation": "2026-09-11T14:05:23.464670+00:00",
