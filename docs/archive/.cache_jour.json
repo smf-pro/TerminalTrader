@@ -2,7 +2,7 @@
   "date": "2026-09-11",
   "curseurs": {
     "ff_news": "2026-09-11T14:21:29.628849+00:00",
-    "cb_articles": "2026-09-11T03:15:13.560342+00:00",
+    "cb_articles": "2026-09-11T17:37:22.011727+00:00",
     "il_articles": "2026-09-11T16:52:01.830027+00:00"
   },
   "ff_news": [
@@ -208,6 +208,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "url": "https://investinglive.com/central-banks/ecb-s-lane-if-the-rise-in-energy-prices-persists-maybe-it-will-hit-consumption/",
+      "date_publication": "2026-09-11T17:37:22.011727+00:00",
+      "titre": "ECB's Lane: If the rise in energy prices persists, maybe it will hit consumption",
+      "ignore": false,
+      "contenu": "Lane on eurozone economic resilience\n\nLane says that if the rise in energy prices persists, maybe it will hit consumption in the autumn but it remains an uncertain issue.\n\nThe framing is interesting here because suggests the burden of proof is now on the negative side. Oftentimes, central bankers bake in some weakness in non-energy spending in a price spike but Lagarde this week emphasized the resilience of the economy and consumption.\n\nNow there is a question if the ECB hikes back-to-back  and right now the odds are slightly over 50%.\n\nWages are not responding much to the energy shock",
+      "date_recuperation": "2026-09-11T17:38:01.441205+00:00",
+      "tags": [
+        "ECB"
+      ]
+    },
     {
       "titre": "BOJ hike next week is a given, the real question is pace and terminal rate",
       "url": "https://investinglive.com/central-banks/boj-hike-next-week-is-a-given-the-real-question-is-pace-and-terminal-rate/",
