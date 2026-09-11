@@ -399,7 +399,8 @@
         "ECB",
         "EUR",
         "interest rates"
-      ]
+      ],
+      "url": "https://investinglive.com/central-banks/ecb-preview-what-major-banks-and-analysts-expect-from-lagarde-and-interest-rates/"
     },
     {
       "titre": "Weak yen, oil costs and food prices in focus as BOJ's Masu talks hikes",
@@ -462,7 +463,7 @@
       "date_recuperation": "2026-09-10T22:40:12.981601+00:00",
       "url": "https://investinglive.com/news/nz-manufacturing-growth-slows-in-august-but-stays-above-long-term-average/",
       "tags": [
-        "NZD"
+        "JPY"
       ],
       "ignore": false,
       "date_publication": "2026-09-10T22:37:56.538612+00:00"
@@ -794,6 +795,8 @@
       "titre_fr": null,
       "url": "https://investinglive.com/central-banks/ecb-preview-what-major-banks-and-analysts-expect-from-lagarde-and-interest-rates/",
       "date_recuperation": "2026-09-10T07:05:16.308806+00:00",
+      "categorie": "central-banks",
+      "contenu_fr": null,
       "ignore": false,
       "date_publication": "2026-09-10T07:05:00.107222+00:00"
     },
