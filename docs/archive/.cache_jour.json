@@ -1,11 +1,21 @@
 {
   "date": "2026-09-11",
   "curseurs": {
-    "ff_news": "2026-09-11T08:32:24.878161+00:00",
+    "ff_news": "2026-09-11T09:31:57.177817+00:00",
     "cb_articles": "2026-09-11T03:15:13.560342+00:00",
     "il_articles": "2026-09-11T08:25:21.966880+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "SNB's Chairman Schlegel: Inflation recently ticked up in Switzerland.Snb's Schlegel Presentation Omits Usual Lines On Franc, Prices",
+      "date_publication": "2026-09-11T09:31:57.177817+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417787-snbs-chairman-schlegel-inflation-recently-ticked-up-in",
+      "impact": "medium",
+      "titre": "SNB's Chairman Schlegel: Inflation recently ticked up in Switzerland",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-11T09:33:57.177817+00:00"
+    },
     {
       "source": "bankofengland.co.uk",
       "date_recuperation": "2026-09-11T08:33:24.878161+00:00",
