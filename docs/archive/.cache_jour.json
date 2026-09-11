@@ -1,11 +1,21 @@
 {
   "date": "2026-09-11",
   "curseurs": {
-    "ff_news": "2026-09-11T10:06:19.873089+00:00",
+    "ff_news": "2026-09-11T12:30:36.483024+00:00",
     "cb_articles": "2026-09-11T03:15:13.560342+00:00",
     "il_articles": "2026-09-11T12:30:07.400994+00:00"
   },
   "ff_news": [
+    {
+      "source": "bls.gov",
+      "extrait": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.4 percent on a seasonally adjusted basis in August after rising 0.1 percent in July, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 3.4 percent before seasonal adjustment. The index for gasoline rose 3.9 percent in August, ...",
+      "titre": "US Consumer Price Index - August 2026",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417816-us-consumer-price-index-august-2026",
+      "date_publication": "2026-09-11T12:30:36.483024+00:00",
+      "impact": "high",
+      "date_recuperation": "2026-09-11T12:31:36.483024+00:00"
+    },
     {
       "titre": "Schlegel: Swiss franc exchange rate challenges the Swiss economy, but the real franc has been stable since 2020",
       "ignore": false,
