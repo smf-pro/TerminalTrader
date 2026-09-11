@@ -2,6 +2,16 @@
   "date": "2026-09-11",
   "ff_news": [
     {
+      "impact": "medium",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417787-snbs-chairman-schlegel-inflation-recently-ticked-up-in",
+      "source": "@financialjuice",
+      "extrait": "SNB's Chairman Schlegel: Inflation recently ticked up in Switzerland.Snb's Schlegel Presentation Omits Usual Lines On Franc, Prices",
+      "date_recuperation": "2026-09-11T09:33:57.177817+00:00",
+      "titre": "SNB's Chairman Schlegel: Inflation recently ticked up in Switzerland",
+      "date_publication": "2026-09-11T09:31:57.177817+00:00"
+    },
+    {
       "source": "bankofengland.co.uk",
       "date_recuperation": "2026-09-11T08:33:24.878161+00:00",
       "extrait": "Following a competitive re-tendering process, Savanta became the provider of the Inflation Attitudes Survey from August 2026. To assess the impact of this change, a parallel run of the survey was conducted by both Ipsos and Savanta in May. In the parallel run, inflation perceptions were the same in both the Ipsos and the Savanta surveys, at 5.0%. However, ...",
