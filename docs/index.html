@@ -341,6 +341,36 @@
   .eco-chip.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:inset 0 -2px 0 var(--gold); }
   .eco-empty{ padding:32px 14px; text-align:center; color:var(--text-low); font-size:12px; }
   .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+
+  /* ---------- CESI ---------- */
+  .cesi-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cesi-card{ background:var(--bg-0); padding:14px 16px; }
+  .cesi-card-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+  .cesi-ccy{ font-family:var(--mono); font-size:13px; font-weight:600; color:var(--text-hi); }
+  .cesi-global{ font-family:var(--mono); font-size:20px; font-weight:700; }
+  .cesi-souscats{ display:flex; flex-direction:column; gap:6px; }
+  .cesi-souscat{ display:flex; justify-content:space-between; align-items:center; font-size:11px; }
+  .cesi-souscat-label{ color:var(--text-mid); }
+  .cesi-souscat-val{ font-family:var(--mono); font-weight:600; }
+  .cesi-meta{ margin-top:10px; font-family:var(--mono); font-size:9.5px; color:var(--text-low); }
+  .cesi-fort-haussier{ color:var(--green); }
+  .cesi-haussier{ color:var(--green); opacity:0.75; }
+  .cesi-neutre{ color:var(--text-mid); }
+  .cesi-baissier{ color:var(--red); opacity:0.75; }
+  .cesi-fort-baissier{ color:var(--red); }
+
+  .cesi-detail-heading{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; row-gap:6px; margin:26px 0 10px; }
+  .cesi-detail-heading h2{ font-size:13px; font-weight:600; color:var(--text-hi); }
+  .cesi-detail-grid{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cesi-detail-block{ background:var(--bg-0); padding:10px 14px; }
+  .cesi-detail-block-head{ font-family:var(--mono); font-size:12px; font-weight:600; color:var(--text-hi); margin-bottom:8px; }
+  .cesi-detail-charts{ display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+  .cesi-mini-wrap{ min-width:0; }
+  .cesi-mini-headline{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; }
+  .cesi-mini-label{ font-size:10.5px; color:var(--text-mid); }
+  .cesi-mini-val{ font-family:var(--mono); font-size:12px; font-weight:600; }
+  .cesi-mini-chart-area{ height:70px; }
+  .cesi-mini-chart-area canvas{ width:100%; height:100%; display:block; }
   .eco-card{ background:var(--bg-0); padding:10px 14px; }
   .eco-card .line{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
   .eco-card .name{ font-size:11px; color:var(--text-mid); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex:1 1 auto; }
@@ -400,6 +430,116 @@
   .ta-chart-area{ padding:14px; height:100%; }
   .sr-row{ display:flex; justify-content:space-between; padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:12px; }
 
+  /* ---------- FX LIVE ---------- */
+  .fx-head-row, .fx-row{
+    display:grid;
+    grid-template-columns:90px 110px repeat(6, 1fr);
+    gap:8px;
+    align-items:center;
+    padding:9px 14px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+  }
+  .fx-head-row{
+    color:var(--text-mid);
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    background:var(--bg-1);
+    position:sticky; top:0;
+  }
+  .fx-row .fx-sym{ font-weight:600; color:var(--text-hi); }
+  .fx-row .fx-px, .fx-head-row span:not(:first-child){ text-align:right; }
+  .fx-pct.na{ color:var(--text-low); }
+
+  /* ---------- FX PERFORMANCE (graphique type Finviz) ---------- */
+  .fx-perf-tabs{
+    display:flex; gap:4px; padding:10px 14px;
+    border-bottom:1px solid var(--line);
+  }
+  .fx-perf-tab{
+    font-family:var(--mono); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.5px; color:var(--text-mid);
+    background:var(--bg-1); border:1px solid var(--line);
+    border-radius:3px; padding:5px 12px; cursor:pointer;
+  }
+  .fx-perf-tab:hover{ color:var(--text-hi); }
+  .fx-perf-tab.active{
+    color:var(--gold); border-color:var(--gold); background:var(--gold-soft);
+  }
+  .fx-perf-chart{
+    position:relative; height:280px; padding:0; margin:20px 60px 20px 24px;
+  }
+  .fx-perf-grid-line{
+    position:absolute; left:0; right:0;
+    border-top:1px dashed var(--line); z-index:0;
+  }
+  .fx-perf-grid-line.zero{ border-top-style:solid; border-top-color:var(--text-low); }
+  .fx-perf-grid-label{
+    position:absolute; right:-56px; transform:translateY(-50%);
+    font-family:var(--mono); font-size:10px; color:var(--text-low); white-space:nowrap;
+  }
+  .fx-perf-cols{
+    position:absolute; left:0; right:0; top:0; bottom:0;
+    display:flex; z-index:1;
+  }
+  .fx-perf-col{ flex:1; position:relative; }
+  .fx-perf-bar{
+    position:absolute; left:22%; right:22%; border-radius:2px;
+  }
+  .fx-perf-bar.up.weak{ background:rgba(34,196,141,0.35); }
+  .fx-perf-bar.up.strong{ background:var(--green); }
+  .fx-perf-bar.down.weak{ background:rgba(239,74,90,0.35); }
+  .fx-perf-bar.down.strong{ background:var(--red); }
+  .fx-perf-badge{
+    position:absolute; left:8%; right:8%; height:24px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:10.5px; font-weight:700;
+    border-radius:2px; z-index:2;
+  }
+  .fx-perf-badge.up{ background:var(--green); color:#06281c; }
+  .fx-perf-badge.down{ background:var(--red); color:#2c0a0e; }
+  .fx-perf-badge.baseline{ background:#232b3d; color:var(--text-mid); }
+  .fx-perf-val{
+    position:absolute; left:0; right:0; text-align:center;
+    font-family:var(--mono); font-size:10.5px; font-weight:600; white-space:nowrap;
+  }
+  .fx-perf-val.up{ color:var(--green); }
+  .fx-perf-val.down{ color:var(--red); }
+
+  /* ---------- FX EVOLUTION (courbe temporelle) ---------- */
+  .fx-evol-head{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
+    gap:10px; padding:12px 14px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .fx-evol-mode-tabs, .fx-evol-periods{ display:flex; gap:4px; flex-wrap:wrap; }
+  .fx-evol-mode-tab, .fx-evol-period-tab, .fx-evol-toggle-btn{
+    font-family:var(--mono); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.4px; color:var(--text-mid);
+    background:var(--bg-1); border:1px solid var(--line);
+    border-radius:3px; padding:5px 10px; cursor:pointer;
+  }
+  .fx-evol-mode-tab.active, .fx-evol-period-tab.active, .fx-evol-toggle-btn.active{
+    color:var(--gold); border-color:var(--gold); background:var(--gold-soft);
+  }
+  .fx-evol-controls{ display:flex; gap:8px; align-items:center; }
+  .fx-evol-select{
+    font-family:var(--mono); font-size:10.5px; color:var(--text-hi);
+    background:var(--bg-1); border:1px solid var(--line); border-radius:3px;
+    padding:5px 8px;
+  }
+  .fx-evol-toggle{ display:flex; gap:4px; }
+  .fx-evol-periods{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .fx-evol-legend{
+    display:flex; gap:14px; flex-wrap:wrap; padding:10px 14px;
+    font-family:var(--mono); font-size:10.5px; color:var(--text-mid);
+  }
+  .fx-evol-legend-item{ display:flex; align-items:center; gap:5px; }
+  .fx-evol-legend-swatch{ width:9px; height:9px; border-radius:2px; display:inline-block; }
+  .fx-evol-chart-area{ height:280px; padding:10px 14px; }
+  .fx-evol-chart-area canvas{ width:100%; height:100%; display:block; }
+
   /* --- calendrier compact (colonne Accueil) --- */
   .cal-row-compact{
     display:flex; align-items:center; gap:8px;
@@ -421,8 +561,8 @@
   /* --- calendrier : 2/3 calendrier + 1/3 CESI --- */
   .cal-layout{ display:grid; grid-template-columns:2fr 1fr; gap:1px; background:var(--line); flex:1; overflow:hidden; }
   .cal-layout > .page-inner{ background:var(--bg-0); overflow-y:auto; }
-  .cesi-col{ display:flex; flex-direction:column; gap:1px; background:var(--line); overflow:hidden; }
-  .cesi-panel{ background:var(--bg-0); flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+  .cesi-col{ display:flex; flex-direction:column; gap:1px; background:var(--line); overflow-y:auto; overflow-x:hidden; }
+  .cesi-panel{ background:var(--bg-0); flex:0 0 130px; display:flex; flex-direction:column; overflow:hidden; min-height:0; }
   .cesi-val{ font-family:var(--mono); font-weight:600; font-size:12px; }
   .cesi-val.up{ color:var(--green); } .cesi-val.down{ color:var(--red); }
   .cesi-chart-area{ flex:1; padding:10px 14px; min-height:0; }
@@ -468,8 +608,10 @@
       <button class="nav-btn" data-page="news">NEWS<span class="dot" id="newsDot"></span></button>
       <button class="nav-btn" data-page="calendrier">CALENDRIER</button>
       <button class="nav-btn" data-page="dataeco">DATA ÉCO</button>
+      <button class="nav-btn" data-page="cesi">CESI</button>
       <button class="nav-btn" data-page="taux">TAUX IMPLICITE</button>
       <button class="nav-btn" data-page="technique">ANALYSE TECH.</button>
+      <button class="nav-btn" data-page="fx">FX<span class="src-status-dot" id="dot-fxforex" title=""></span></button>
     </nav>
     <div class="search">
       <span style="color:var(--text-low); font-family:var(--mono); font-size:12px;">⌕</span>
@@ -564,6 +706,26 @@
           <div class="panel-head"><span>CESI — GBP</span><span class="cesi-val" id="cesiVal-GBP"></span></div>
           <div class="cesi-chart-area"><canvas id="cesiCanvas-GBP"></canvas></div>
         </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — JPY</span><span class="cesi-val" id="cesiVal-JPY"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-JPY"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — CHF</span><span class="cesi-val" id="cesiVal-CHF"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-CHF"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — CAD</span><span class="cesi-val" id="cesiVal-CAD"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-CAD"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — AUD</span><span class="cesi-val" id="cesiVal-AUD"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-AUD"></canvas></div>
+        </div>
+        <div class="cesi-panel">
+          <div class="panel-head"><span>CESI — NZD</span><span class="cesi-val" id="cesiVal-NZD"></span></div>
+          <div class="cesi-chart-area"><canvas id="cesiCanvas-NZD"></canvas></div>
+        </div>
       </div>
     </div>
   </div>
@@ -589,6 +751,27 @@
         </div>
       </div>
       <div class="eco-grid" id="ecoGrid"></div>
+    </div>
+  </div>
+
+  <!-- ===================== CESI (Citi Economic Surprise Index "maison") ===================== -->
+  <div class="page" id="page-cesi">
+    <div class="page-inner">
+      <div class="page-heading eco-heading">
+        <h1>CESI — Indice de surprise économique</h1>
+        <span class="sub" style="font-family:var(--mono); font-size:10.5px; color:var(--text-low);">
+          Calculé en direct à partir des surprises Actual vs Forecast — pas l'indice officiel Citigroup
+        </span>
+      </div>
+      <div class="cesi-grid" id="cesiGrid"></div>
+
+      <div class="cesi-detail-heading">
+        <h2>Historique par catégorie</h2>
+        <span class="sub" style="font-family:var(--mono); font-size:10.5px; color:var(--text-low);">
+          Profondeur limitée par l'historique réellement présent dans Firestore (pas par le calcul)
+        </span>
+      </div>
+      <div class="cesi-detail-grid" id="cesiDetailGrid"></div>
     </div>
   </div>
 
@@ -647,6 +830,58 @@
         <div class="panel-head"><span>RÉSUMÉ DES SIGNAUX</span></div>
         <div style="padding:12px 14px; font-size:12px; color:var(--text-mid); line-height:1.6;" id="taSummary"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- ===================== FX TEMPS RÉEL ===================== -->
+  <div class="page" id="page-fx">
+    <div class="panel" style="height:100%;">
+      <div class="panel-head">
+        <span>FX LIVE<span class="src-status-dot" id="dot-fxforex-page" title=""></span><span class="src-status-time" id="time-fxforex"></span></span>
+        <span style="font-weight:400; font-size:10px;">Maj ~1 min · sources : Finnhub (live) + Yahoo Finance (référence)</span>
+      </div>
+      <div class="fx-perf-tabs" id="fxPerfTabs">
+        <span class="fx-perf-tab active" data-periode="pct_24h">24h</span>
+        <span class="fx-perf-tab" data-periode="pct_7d">7j</span>
+        <span class="fx-perf-tab" data-periode="pct_30d">30j</span>
+        <span class="fx-perf-tab" data-periode="pct_jour">Jour</span>
+        <span class="fx-perf-tab" data-periode="pct_semaine">Semaine</span>
+        <span class="fx-perf-tab" data-periode="pct_mois">Mois</span>
+      </div>
+      <div class="fx-perf-chart" id="fxPerfChart"></div>
+      <div class="panel-body" id="fxTable"></div>
+
+      <div class="fx-evol-head">
+        <div class="fx-evol-mode-tabs" id="fxEvolModeTabs">
+          <span class="fx-evol-mode-tab active" data-mode="unique">Devise unique</span>
+          <span class="fx-evol-mode-tab" data-mode="comparaison">Comparaison (indexée à 100)</span>
+        </div>
+        <div class="fx-evol-controls" id="fxEvolControls">
+          <select class="fx-evol-select" id="fxEvolDeviseSelect">
+            <option value="EURUSD">EURUSD</option>
+            <option value="GBPUSD">GBPUSD</option>
+            <option value="CHFUSD">CHFUSD</option>
+            <option value="CADUSD">CADUSD</option>
+            <option value="AUDUSD">AUDUSD</option>
+            <option value="NZDUSD">NZDUSD</option>
+            <option value="JPYUSD">JPYUSD</option>
+          </select>
+          <div class="fx-evol-toggle" id="fxEvolToggle">
+            <span class="fx-evol-toggle-btn active" data-affichage="prix">Prix</span>
+            <span class="fx-evol-toggle-btn" data-affichage="pct">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="fx-evol-periods" id="fxEvolPeriods">
+        <span class="fx-evol-period-tab active" data-periode="pct_24h">24h</span>
+        <span class="fx-evol-period-tab" data-periode="pct_7d">7j</span>
+        <span class="fx-evol-period-tab" data-periode="pct_30d">30j</span>
+        <span class="fx-evol-period-tab" data-periode="pct_jour">Jour</span>
+        <span class="fx-evol-period-tab" data-periode="pct_semaine">Semaine</span>
+        <span class="fx-evol-period-tab" data-periode="pct_mois">Mois</span>
+      </div>
+      <div class="fx-evol-legend" id="fxEvolLegend"></div>
+      <div class="fx-evol-chart-area"><canvas id="fxEvolCanvas"></canvas></div>
     </div>
   </div>
 
@@ -814,7 +1049,7 @@ function ecouterCalendrierTempsReel(){
 // ecrit un document ici a CHAQUE cycle, meme sans nouvel article. Ca sert
 // UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
 // separement de la date/heure des articles eux-memes (deja correcte).
-const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd', 'data-cad', 'data-eur', 'data-gbp', 'data-chf', 'data-jpy', 'data-aud', 'data-nzd'];
+const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd', 'data-cad', 'data-eur', 'data-gbp', 'data-chf', 'data-jpy', 'data-aud', 'data-nzd', 'fxforex'];
 let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
 
 function ecouterStatutPipeline(nomSource){
@@ -912,7 +1147,7 @@ const INDICATEURS_SUIVIS = [
   {slug:'sz-snb-policy-rate', type:'taux', ccy:'CHF'},
   {slug:'sz-cpi-mm', type:'inflation', ccy:'CHF'},
   {slug:'sz-unemployment-rate', type:'emploi', ccy:'CHF'},
-  {slug:'sz-manufacturing-pmi', type:'emploi', ccy:'CHF'},
+  {slug:'sz-manufacturing-pmi', type:'croissance', ccy:'CHF'},
   {slug:'sz-gdp-qq', type:'croissance', ccy:'CHF'},
   {slug:'sz-retail-sales-yy', type:'croissance', ccy:'CHF'},
   {slug:'sz-kof-economic-barometer', type:'croissance', ccy:'CHF'},
@@ -964,6 +1199,265 @@ function itemDepuisDocIndicateur(d){
   };
 }
 
+// ===================== CESI — module de calcul (config + fonctions) =====
+// sens : +1 si "plus haut que prévu" est haussier pour la devise, -1 sinon
+//        (ex: chômage en hausse = baissier). poids : importance de marché
+//        approximative ("bon sens", pas calibrée statistiquement — voir
+//        discussion). poids:0 = indicateur exclu du calcul (ex: décision de
+//        taux directeur, qui n'est pas une "surprise" de donnée macro).
+// frequenceJours : espacement typique entre publications, utilisé UNIQUEMENT
+// en secours si la date d'une publication ne peut pas être parsée.
+const CESI_CONFIG = {
+  // --- USD ---
+  'us-federal-funds-rate': {sens:+1, poids:0, frequenceJours:30},
+  'us-non-farm-employment-change': {sens:+1, poids:10, frequenceJours:30},
+  'us-prelim-benchmark-payrolls-revision': {sens:+1, poids:2, frequenceJours:365},
+  'us-unemployment-rate': {sens:-1, poids:6, frequenceJours:30},
+  'us-adp-non-farm-employment-change': {sens:+1, poids:4, frequenceJours:30},
+  'us-jolts-job-openings': {sens:+1, poids:3, frequenceJours:30},
+  'us-unemployment-claims': {sens:-1, poids:5, frequenceJours:7},
+  'us-adp-weekly-employment-change': {sens:+1, poids:2, frequenceJours:7},
+  'us-challenger-job-cuts-yy': {sens:-1, poids:2, frequenceJours:30},
+  'us-cpi-yy': {sens:+1, poids:9, frequenceJours:30},
+  'us-core-cpi-yy': {sens:+1, poids:8, frequenceJours:30},
+  'us-cpi-mm': {sens:+1, poids:6, frequenceJours:30},
+  'us-core-cpi-mm': {sens:+1, poids:6, frequenceJours:30},
+  'us-ppi-mm': {sens:+1, poids:4, frequenceJours:30},
+  'us-core-ppi-mm': {sens:+1, poids:4, frequenceJours:30},
+  'us-core-pce-price-index-mm': {sens:+1, poids:8, frequenceJours:30},
+  'us-average-hourly-earnings-mm': {sens:+1, poids:5, frequenceJours:30},
+  'us-advance-gdp-price-index-qq': {sens:+1, poids:3, frequenceJours:90},
+  'us-prelim-gdp-price-index-qq': {sens:+1, poids:2, frequenceJours:90},
+  'us-final-gdp-price-index-qq': {sens:+1, poids:2, frequenceJours:90},
+  'us-ism-services-pmi': {sens:+1, poids:7, frequenceJours:30},
+  'us-ism-manufacturing-pmi': {sens:+1, poids:6, frequenceJours:30},
+  'us-philly-fed-manufacturing-index': {sens:+1, poids:3, frequenceJours:30},
+  'us-chicago-pmi': {sens:+1, poids:3, frequenceJours:30},
+  // --- CAD ---
+  'ca-overnight-rate': {sens:+1, poids:0, frequenceJours:30},
+  'ca-unemployment-rate': {sens:-1, poids:6, frequenceJours:30},
+  'ca-employment-change': {sens:+1, poids:8, frequenceJours:30},
+  'ca-median-cpi-yy': {sens:+1, poids:6, frequenceJours:30},
+  'ca-trimmed-cpi-yy': {sens:+1, poids:6, frequenceJours:30},
+  'ca-common-cpi-yy': {sens:+1, poids:5, frequenceJours:30},
+  'ca-core-cpi-mm': {sens:+1, poids:5, frequenceJours:30},
+  'ca-ippi-mm': {sens:+1, poids:3, frequenceJours:30},
+  'ca-gdp-mm': {sens:+1, poids:7, frequenceJours:30},
+  'ca-retail-sales-mm': {sens:+1, poids:5, frequenceJours:30},
+  'ca-core-retail-sales-mm': {sens:+1, poids:4, frequenceJours:30},
+  'ca-ivey-pmi': {sens:+1, poids:3, frequenceJours:30},
+  // --- EUR ---
+  'ez-main-refinancing-rate': {sens:+1, poids:0, frequenceJours:30},
+  'ez-cpi-flash-estimate-yy': {sens:+1, poids:9, frequenceJours:30},
+  'ez-core-cpi-flash-estimate-yy': {sens:+1, poids:8, frequenceJours:30},
+  'ez-final-cpi-yy': {sens:+1, poids:3, frequenceJours:30},
+  'ez-final-core-cpi-yy': {sens:+1, poids:3, frequenceJours:30},
+  'ez-unemployment-rate': {sens:-1, poids:4, frequenceJours:30},
+  'ez-flash-employment-change-qq': {sens:+1, poids:4, frequenceJours:90},
+  'ez-flash-gdp-qq': {sens:+1, poids:8, frequenceJours:90},
+  'ez-prelim-flash-gdp-qq': {sens:+1, poids:4, frequenceJours:90},
+  // --- GBP ---
+  'uk-official-bank-rate': {sens:+1, poids:0, frequenceJours:30},
+  'uk-cpi-yy': {sens:+1, poids:9, frequenceJours:30},
+  'uk-core-cpi-yy': {sens:+1, poids:7, frequenceJours:30},
+  'uk-average-earnings-index-3my': {sens:+1, poids:5, frequenceJours:30},
+  'uk-unemployment-rate': {sens:-1, poids:5, frequenceJours:30},
+  'uk-claimant-count-change': {sens:-1, poids:4, frequenceJours:30},
+  'uk-prelim-gdp-qq': {sens:+1, poids:8, frequenceJours:90},
+  'uk-final-gdp-qq': {sens:+1, poids:3, frequenceJours:90},
+  'uk-gdp-mm': {sens:+1, poids:6, frequenceJours:30},
+  'uk-brc-retail-sales-monitor-yy': {sens:+1, poids:2, frequenceJours:30},
+  'uk-retail-sales-mm': {sens:+1, poids:5, frequenceJours:30},
+  // --- CHF ---
+  'sz-snb-policy-rate': {sens:+1, poids:0, frequenceJours:30},
+  'sz-cpi-mm': {sens:+1, poids:7, frequenceJours:30},
+  'sz-unemployment-rate': {sens:-1, poids:4, frequenceJours:30},
+  'sz-manufacturing-pmi': {sens:+1, poids:5, frequenceJours:30}, // traité en "croissance" (voir INDICATEURS_SUIVIS, corrigé)
+  'sz-gdp-qq': {sens:+1, poids:6, frequenceJours:90},
+  'sz-retail-sales-yy': {sens:+1, poids:3, frequenceJours:30},
+  'sz-kof-economic-barometer': {sens:+1, poids:4, frequenceJours:30},
+  // --- JPY ---
+  'jn-boj-policy-rate': {sens:+1, poids:0, frequenceJours:30},
+  'jn-boj-core-cpi-yy': {sens:+1, poids:8, frequenceJours:30},
+  'jn-tokyo-core-cpi-yy': {sens:+1, poids:6, frequenceJours:30},
+  'jn-average-cash-earnings-yy': {sens:+1, poids:5, frequenceJours:30},
+  'jn-unemployment-rate': {sens:-1, poids:4, frequenceJours:30},
+  'jn-prelim-gdp-qq': {sens:+1, poids:7, frequenceJours:90},
+  'jn-final-gdp-qq': {sens:+1, poids:3, frequenceJours:90},
+  'jn-household-spending-yy': {sens:+1, poids:3, frequenceJours:30},
+  'jn-prelim-gdp-price-index-yy': {sens:+1, poids:3, frequenceJours:90},
+  // --- AUD ---
+  'au-cash-rate': {sens:+1, poids:0, frequenceJours:30},
+  'au-cpi-yy': {sens:+1, poids:8, frequenceJours:90},
+  'au-trimmed-mean-cpi-mm': {sens:+1, poids:7, frequenceJours:30},
+  'au-cpi-mm': {sens:+1, poids:6, frequenceJours:30},
+  'au-commodity-prices-yy': {sens:+1, poids:2, frequenceJours:30},
+  'au-wage-price-index-qq': {sens:+1, poids:5, frequenceJours:90},
+  'au-unemployment-rate': {sens:-1, poids:7, frequenceJours:30},
+  'au-employment-change': {sens:+1, poids:8, frequenceJours:30},
+  'au-gdp-qq': {sens:+1, poids:6, frequenceJours:90},
+  // --- NZD ---
+  'nz-official-cash-rate': {sens:+1, poids:0, frequenceJours:30},
+  'nz-cpi-qq': {sens:+1, poids:9, frequenceJours:90},
+  'nz-anz-commodity-prices-mm': {sens:+1, poids:2, frequenceJours:30},
+  'nz-inflation-expectations-qq': {sens:+1, poids:4, frequenceJours:90},
+  'nz-unemployment-rate': {sens:-1, poids:6, frequenceJours:90},
+  'nz-employment-change-qq': {sens:+1, poids:7, frequenceJours:90},
+  'nz-gdp-qq': {sens:+1, poids:7, frequenceJours:90},
+  'nz-retail-sales-qq': {sens:+1, poids:4, frequenceJours:90},
+  'nz-core-retail-sales-qq': {sens:+1, poids:3, frequenceJours:90},
+  'nz-anz-business-confidence': {sens:+1, poids:3, frequenceJours:30},
+  'nz-businessnz-services-index': {sens:+1, poids:3, frequenceJours:30},
+  'nz-businessnz-manufacturing-index': {sens:+1, poids:3, frequenceJours:30},
+};
+
+const CESI_DEMI_VIE_JOURS = 45; // convention Citi : décroissance exponentielle
+const CCY_LISTE_CESI = ['USD','EUR','GBP','JPY','CHF','CAD','AUD','NZD'];
+
+// Tente de parser 'date_publication_texte' (format ForexFactory, ex: "Sep 5"
+// ou "Sep 5, 2026"). Si l'année est absente et que la date tombe dans le
+// futur, on suppose que c'est l'année précédente. Renvoie null si le texte
+// n'est pas interprétable (dans ce cas, l'appelant retombe sur
+// frequenceJours pour estimer l'ancienneté).
+function parserDatePublicationCesi(texte, aujourdhui){
+  if(!texte) return null;
+  let d = new Date(texte);
+  if(isNaN(d.getTime())) d = new Date(texte + ', ' + aujourdhui.getFullYear());
+  if(isNaN(d.getTime())) return null;
+  if(d.getTime() - aujourdhui.getTime() > 3*24*3600*1000) d.setFullYear(d.getFullYear()-1);
+  return d;
+}
+
+function ecartTypePopulationCesi(valeurs){
+  const n = valeurs.length;
+  if(n < 2) return null;
+  const moyenne = valeurs.reduce((a,b)=>a+b,0)/n;
+  const variance = valeurs.reduce((a,b)=>a+(b-moyenne)**2,0)/n;
+  const ecart = Math.sqrt(variance);
+  return ecart > 0 ? ecart : null;
+}
+
+function decroissanceCesi(joursEcoules){
+  if(joursEcoules === null || joursEcoules === undefined || joursEcoules < 0) return 1;
+  return Math.pow(0.5, joursEcoules / CESI_DEMI_VIE_JOURS);
+}
+
+// Prépare, pour UN indicateur, l'écart-type historique (calculé sur TOUTES
+// les surprises disponibles dans donneesIndicateurs) et la liste de ses
+// publications passées {date, surprise}, triée du plus ANCIEN au plus
+// RÉCENT. Les lignes sans date interprétable se voient attribuer une date
+// estimée (aujourd'hui - position*frequenceJours), pour rester exploitables
+// dans le calcul plutôt que d'être perdues.
+function preparerIndicateurCesi(slug, aujourdhui){
+  const config = CESI_CONFIG[slug];
+  const lignes = donneesIndicateurs[slug] || [];
+  if(!config || config.poids <= 0 || lignes.length < 2) return null;
+
+  const points = [];
+  lignes.forEach(l => {
+    const a = parseValeurCal(l.actual);
+    const f = parseValeurCal(l.forecast);
+    if(a === null || f === null) return;
+    let date = parserDatePublicationCesi(l.date_publication_texte, aujourdhui);
+    if(!date){
+      date = new Date(aujourdhui.getTime() - (l.position||0) * config.frequenceJours * 86400000);
+    }
+    points.push({date, surprise: a - f});
+  });
+  if(points.length < 2) return null;
+
+  const ecart = ecartTypePopulationCesi(points.map(p=>p.surprise));
+  if(!ecart) return null;
+
+  points.sort((p1,p2)=>p1.date-p2.date);
+  return {ecart, points};
+}
+
+// Calcule le CESI d'une devise à une date d'évaluation donnée, en sommant
+// les contributions DÉCROISSANTES de toutes les publications passées de
+// chaque indicateur (pas seulement la plus récente) — c'est ce qui permet
+// de reconstituer une évolution dans le temps (voir calculerSerieCesi), et
+// c'est aussi fidèle à la méthodologie Citi (fenêtre glissante pondérée).
+function calculerCESIauDate(ccy, dateEval, cachePrepare){
+  const indicateurs = INDICATEURS_SUIVIS.filter(e => e.ccy === ccy);
+  const categories = {emploi:0, inflation:0, croissance:0};
+  const poidsCategories = {emploi:0, inflation:0, croissance:0};
+  let nbIndicateursActifs = 0;
+
+  indicateurs.forEach(ind => {
+    const config = CESI_CONFIG[ind.slug];
+    if(!config || config.poids <= 0) return;
+    const prepared = cachePrepare[ind.slug];
+    if(!prepared) return;
+
+    const pointsPasses = prepared.points.filter(p => p.date <= dateEval);
+    if(!pointsPasses.length) return;
+    if(!(ind.type in categories)) return; // ignore 'taux' si jamais poids>0 par erreur
+
+    let contributionIndicateur = 0;
+    pointsPasses.forEach(p => {
+      const z = (p.surprise / prepared.ecart) * config.sens;
+      const jours = Math.max(0, Math.round((dateEval - p.date) / 86400000));
+      contributionIndicateur += z * decroissanceCesi(jours);
+    });
+
+    categories[ind.type] += config.poids * contributionIndicateur;
+    poidsCategories[ind.type] += config.poids;
+    nbIndicateursActifs++;
+  });
+
+  const scoresCategories = {};
+  Object.keys(categories).forEach(cat => {
+    scoresCategories[cat] = poidsCategories[cat] > 0 ? (categories[cat]/poidsCategories[cat])*10 : 0;
+  });
+  const poidsTotal = Object.values(poidsCategories).reduce((a,b)=>a+b,0);
+  const sommeContrib = Object.values(categories).reduce((a,b)=>a+b,0);
+  const cesiGlobal = poidsTotal > 0 ? (sommeContrib/poidsTotal)*10 : 0;
+
+  return {ccy, categories: scoresCategories, cesiGlobal, nbIndicateurs: nbIndicateursActifs};
+}
+
+// Reconstitue une SÉRIE temporelle du CESI (nbPoints valeurs, espacées de
+// pasJours jours, la plus ancienne en premier) en ré-évaluant
+// calculerCESIauDate() à chaque date passée — même principe que le vrai
+// indice, qui évolue publication après publication plutôt que par un tirage
+// aléatoire.
+function calculerSerieCesi(ccy, nbPoints, pasJours, aujourdhui){
+  const indicateurs = INDICATEURS_SUIVIS.filter(e => e.ccy === ccy);
+  const cachePrepare = {};
+  indicateurs.forEach(ind => { cachePrepare[ind.slug] = preparerIndicateurCesi(ind.slug, aujourdhui); });
+
+  const serie = [];
+  for(let i = nbPoints - 1; i >= 0; i--){
+    const dateEval = new Date(aujourdhui.getTime() - i * pasJours * 86400000);
+    serie.push(calculerCESIauDate(ccy, dateEval, cachePrepare).cesiGlobal);
+  }
+  return serie;
+}
+
+// Même principe que calculerSerieCesi, mais garde les 3 SOUS-scores
+// (emploi/inflation/croissance) à chaque point plutôt que le seul score
+// global — utilisé pour les graphiques détaillés par catégorie de la page
+// CESI. La profondeur réelle disponible dépend de l'historique présent
+// dans Firestore (voir note dans la conversation : limite technique de 20
+// publications par indicateur, mais la profondeur RÉELLE dépend de la date
+// de démarrage du scraping, pas du code).
+function calculerSerieCesiParCategorie(ccy, nbPoints, pasJours, aujourdhui){
+  const indicateurs = INDICATEURS_SUIVIS.filter(e => e.ccy === ccy);
+  const cachePrepare = {};
+  indicateurs.forEach(ind => { cachePrepare[ind.slug] = preparerIndicateurCesi(ind.slug, aujourdhui); });
+
+  const series = {emploi:[], inflation:[], croissance:[]};
+  for(let i = nbPoints - 1; i >= 0; i--){
+    const dateEval = new Date(aujourdhui.getTime() - i * pasJours * 86400000);
+    const r = calculerCESIauDate(ccy, dateEval, cachePrepare);
+    series.emploi.push(r.categories.emploi);
+    series.inflation.push(r.categories.inflation);
+    series.croissance.push(r.categories.croissance);
+  }
+  return series;
+}
+
 function ecouterIndicateursTempsReel(){
   INDICATEURS_SUIVIS.forEach(ind => {
     dbFirestore.collection('ff_indicator_history')
@@ -973,10 +1467,34 @@ function ecouterIndicateursTempsReel(){
       .onSnapshot(snapshot => {
         donneesIndicateurs[ind.slug] = snapshot.docs.map(doc => itemDepuisDocIndicateur(doc.data()));
         renderEcoData();
+        renderCesi();
+        renderCesiPage();
       }, erreur => {
         console.error('Erreur écoute temps réel ff_indicator_history (' + ind.slug + ') :', erreur);
       });
   });
+}
+
+// ===== FX TEMPS RÉEL (collection fx_rates, un seul document "latest",
+// écrit par fxforex_cloud.py toutes les ~1 minute) =====
+// Contrairement aux news (ecouterCollectionTempsReel, dédup par URL,
+// requête filtrée/triée), ici il n'y a qu'un document unique, écrasé à
+// chaque cycle : un onSnapshot direct sur le document suffit, pas besoin
+// de where()/orderBy() ni d'index composite.
+const ORDRE_FX = ['EURUSD', 'GBPUSD', 'CHFUSD', 'CADUSD', 'AUDUSD', 'NZDUSD', 'JPYUSD'];
+let fxLive = {}; // { EURUSD: {prix, pct_24h, pct_7d, pct_30d, pct_jour, pct_semaine, pct_mois}, ... }
+
+function ecouterFxTempsReel(){
+  dbFirestore.collection('fx_rates').doc('latest')
+    .onSnapshot(doc => {
+      const d = doc.data();
+      fxLive = (d && d.devises) ? d.devises : {};
+      renderFxTable();
+      renderFxPerfChart();
+      renderTape();
+    }, erreur => {
+      console.error('Erreur écoute temps réel fx_rates :', erreur);
+    });
 }
 
 function demarrerEcouteTempsReel(){
@@ -985,6 +1503,7 @@ function demarrerEcouteTempsReel(){
   ecouterCollectionTempsReel('il_articles', itemDepuisDocIL, items => { liveIL = items; });
   ecouterCalendrierTempsReel();
   ecouterIndicateursTempsReel();
+  ecouterFxTempsReel();
   SOURCES_PIPELINE.forEach(ecouterStatutPipeline);
 }
 </script>
@@ -1099,6 +1618,7 @@ const DOTS_PAR_SOURCE = {
   centralbanks: ['dot-centralbanks'],
   forexfactory: ['dot-forexfactory', 'dot-forexfactory-high'],
   ecocalendar: ['dot-ecocalendar', 'dot-ecocalendar-page'],
+  fxforex: ['dot-fxforex', 'dot-fxforex-page'],
 };
 
 // Sources dont le statut alimente la pastille AGREGEE 'dot-dataeco' (8
@@ -1202,15 +1722,512 @@ setInterval(mettreAJourHorlogeInfo, 60000);
 /* ===================== TAPE DÉFILANTE ===================== */
 function renderTape(){
   const el = document.getElementById('tape');
-  const build = () => SYMBOLS.map(s=>{
+  const buildStocks = () => SYMBOLS.map(s=>{
     const chg = ((s.price - (s._prev||s.price))/(s._prev||s.price))*100;
     const dir = chg>=0 ? 'up':'down';
     return `<span class="tape-item"><span class="sym">${s.sym}</span><span class="px">$${s.price.toFixed(2)}</span><span class="chg ${dir}">${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(2)}%</span></span>`;
   }).join('');
+  // Devises FX réelles (fx_rates/latest) : on utilise pct_jour (variation
+  // depuis minuit UTC) comme % unique affiché ici, faute de place pour les
+  // 6 périodes — le détail complet est sur la page FX dédiée.
+  const buildFx = () => ORDRE_FX.map(sym=>{
+    const d = fxLive[sym];
+    if(!d || d.prix === null || d.prix === undefined) return '';
+    const chg = d.pct_jour;
+    const connu = chg !== null && chg !== undefined;
+    const dir = connu ? (chg>=0?'up':'down') : '';
+    const txtChg = connu ? `${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(3)}%` : 'n/a';
+    return `<span class="tape-item"><span class="sym">${sym}</span><span class="px">${d.prix.toFixed(5)}</span><span class="chg ${dir}">${txtChg}</span></span>`;
+  }).join('');
+  const build = () => buildStocks() + buildFx();
   el.innerHTML = build() + build();
 }
 
-/* ===================== WATCHLIST ===================== */
+/* ===================== TABLEAU FX (page dédiée) ===================== */
+function formaterPourcentageFx(v){
+  if(v === null || v === undefined || isNaN(v)) return '<span class="fx-pct na">n/a</span>';
+  const dir = v >= 0 ? 'up' : 'down';
+  return `<span class="fx-pct ${dir}">${v>=0?'+':''}${v.toFixed(3)}%</span>`;
+}
+
+function renderFxTable(){
+  const el = document.getElementById('fxTable');
+  if(!el) return;
+
+  const entete = `<div class="fx-head-row">
+    <span>Devise</span><span>Prix</span><span>24h</span><span>7j</span><span>30j</span>
+    <span>Jour</span><span>Semaine</span><span>Mois</span>
+  </div>`;
+
+  const lignes = ORDRE_FX.map(sym => {
+    const d = fxLive[sym];
+    if(!d){
+      return `<div class="fx-row"><span class="fx-sym">${sym}</span><span class="fx-px" style="grid-column:span 7; text-align:left; color:var(--text-low);">En attente de données…</span></div>`;
+    }
+    const prixTxt = (d.prix === null || d.prix === undefined) ? 'n/a' : d.prix.toFixed(5);
+    return `<div class="fx-row">
+      <span class="fx-sym">${sym}</span>
+      <span class="fx-px">${prixTxt}</span>
+      <span>${formaterPourcentageFx(d.pct_24h)}</span>
+      <span>${formaterPourcentageFx(d.pct_7d)}</span>
+      <span>${formaterPourcentageFx(d.pct_30d)}</span>
+      <span>${formaterPourcentageFx(d.pct_jour)}</span>
+      <span>${formaterPourcentageFx(d.pct_semaine)}</span>
+      <span>${formaterPourcentageFx(d.pct_mois)}</span>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = entete + lignes;
+}
+
+/* ===================== GRAPHIQUE PERFORMANCE FX (type Finviz) ===================== */
+let fxPeriodeActive = 'pct_24h';
+
+const FX_CHART_H = 280;   // doit correspondre à la hauteur CSS de .fx-perf-chart
+const FX_MARGIN_TB = 34;  // marge haute/basse pour ne pas rogner les libellés
+
+// Arrondit vers le haut au "nombre rond" superieur (1/2/5 * 10^n), comme les
+// echelles d'axe de Finviz (0.20% / 0.40% / ... plutot que des valeurs quelconques).
+function fxNiceCeil(x){
+  if(x <= 0) return 0.2;
+  const exposant = Math.floor(Math.log10(x));
+  const base = Math.pow(10, exposant);
+  const norme = x / base;
+  let normeRonde;
+  if(norme <= 1) normeRonde = 1;
+  else if(norme <= 2) normeRonde = 2;
+  else if(norme <= 5) normeRonde = 5;
+  else normeRonde = 10;
+  return normeRonde * base;
+}
+
+function renderFxPerfChart(){
+  const el = document.getElementById('fxPerfChart');
+  if(!el) return;
+
+  const donnees = ORDRE_FX
+    .map(sym => ({ sym, val: fxLive[sym] ? fxLive[sym][fxPeriodeActive] : null }))
+    .filter(d => d.val !== null && d.val !== undefined && !isNaN(d.val))
+    .sort((a, b) => b.val - a.val);
+
+  if(donnees.length === 0){
+    el.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--text-low); font-family:var(--mono); font-size:12px;">En attente de données…</div>';
+    return;
+  }
+
+  // Repere USD a 0.00% insere a la frontiere positif/negatif (comme Finviz,
+  // puisque toutes ces paires sont deja exprimees contre USD).
+  let indexCoupure = donnees.findIndex(d => d.val < 0);
+  if(indexCoupure === -1) indexCoupure = donnees.length;
+  donnees.splice(indexCoupure, 0, { sym: 'USD', val: 0, baseline: true });
+
+  const maxAbs = Math.max(...donnees.map(d => Math.abs(d.val)), 0.01);
+  const scaleMax = fxNiceCeil(maxAbs * 1.2); // ~20% de marge pour que la barre max ne touche pas le bord
+  const halfPx = (FX_CHART_H / 2) - FX_MARGIN_TB;
+  const zeroY = FX_CHART_H / 2;
+
+  // ---- Grille graduee fixe (5 divisions de chaque cote, comme Finviz) ----
+  const nbDivisions = 5;
+  const pasEchelle = scaleMax / nbDivisions;
+  let grilleHtml = '';
+  for(let i = -nbDivisions; i <= nbDivisions; i++){
+    const valeurTick = i * pasEchelle;
+    const y = zeroY - (valeurTick / scaleMax) * halfPx;
+    const estZero = i === 0;
+    grilleHtml += `<div class="fx-perf-grid-line${estZero ? ' zero' : ''}" style="top:${y}px"></div>`;
+    grilleHtml += `<div class="fx-perf-grid-label" style="top:${y}px">${valeurTick >= 0 && !estZero ? '+' : ''}${valeurTick.toFixed(2)}%</div>`;
+  }
+
+  // ---- Colonnes (badge + barre) ----
+  const colonnesHtml = donnees.map(d => {
+    if(d.baseline){
+      return `<div class="fx-perf-col">
+        <div class="fx-perf-badge baseline" style="top:${zeroY - 12}px">USD</div>
+      </div>`;
+    }
+
+    const dir = d.val >= 0 ? 'up' : 'down';
+    const intensite = Math.abs(d.val) >= scaleMax * 0.5 ? 'strong' : 'weak';
+    const barLen = Math.min(Math.abs(d.val) / scaleMax, 1) * halfPx;
+    const valTxt = `${d.val >= 0 ? '+' : ''}${d.val.toFixed(2)}%`;
+
+    let barStyle, valStyle;
+    if(d.val >= 0){
+      barStyle = `top:${zeroY - 12 - barLen}px; height:${barLen}px;`;
+      valStyle = `top:${zeroY - 12 - barLen - 18}px;`;
+    } else {
+      barStyle = `top:${zeroY + 12}px; height:${barLen}px;`;
+      valStyle = `top:${zeroY + 12 + barLen + 4}px;`;
+    }
+
+    return `<div class="fx-perf-col">
+      <div class="fx-perf-bar ${dir} ${intensite}" style="${barStyle}"></div>
+      <div class="fx-perf-badge ${dir}" style="top:${zeroY - 12}px">${d.sym.replace('USD', '')}</div>
+      <div class="fx-perf-val ${dir}" style="${valStyle}">${valTxt}</div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `${grilleHtml}<div class="fx-perf-cols">${colonnesHtml}</div>`;
+}
+
+function initialiserOngletsFxPerf(){
+  const conteneur = document.getElementById('fxPerfTabs');
+  if(!conteneur) return;
+  conteneur.querySelectorAll('.fx-perf-tab').forEach(onglet => {
+    onglet.addEventListener('click', () => {
+      conteneur.querySelectorAll('.fx-perf-tab').forEach(o => o.classList.remove('active'));
+      onglet.classList.add('active');
+      fxPeriodeActive = onglet.dataset.periode;
+      renderFxPerfChart();
+    });
+  });
+}
+
+/* ===================== COURBE D'ÉVOLUTION FX ===================== */
+let fxEvolMode = 'unique';         // 'unique' ou 'comparaison'
+let fxEvolDevise = 'EURUSD';
+let fxEvolAffichage = 'prix';      // 'prix' ou 'pct'
+let fxEvolPeriode = 'pct_24h';
+let fxArchiveIndexDates = null;    // cache en mémoire, chargé une seule fois
+let fxEvolAppelEnCours = 0;        // évite qu'une réponse lente n'écrase un rendu plus récent
+
+const FX_EVOL_COULEURS = {
+  EURUSD: '#4f8cff', GBPUSD: '#c9a15a', CHFUSD: '#22c48d', CADUSD: '#ef4a5a',
+  AUDUSD: '#a56bff', NZDUSD: '#33c2c2', JPYUSD: '#e0a542',
+};
+
+async function chargerIndexArchiveFx(){
+  if(fxArchiveIndexDates !== null) return fxArchiveIndexDates;
+  try{
+    const reponse = await fetch('archive/fx/index.json');
+    fxArchiveIndexDates = reponse.ok ? await reponse.json() : [];
+  } catch(erreur){
+    console.error('Erreur chargement archive/fx/index.json :', erreur);
+    fxArchiveIndexDates = [];
+  }
+  return fxArchiveIndexDates;
+}
+
+// Bornes calendaires UTC (même logique que _calendar_boundaries dans
+// fxforex_cloud.py, pour rester cohérent entre le backend et le site).
+function fxCalendarBoundaries(now){
+  const startOfDay = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  const jourSemaineISO = (startOfDay.getUTCDay() + 6) % 7; // lundi = 0
+  const startOfWeek = new Date(startOfDay);
+  startOfWeek.setUTCDate(startOfDay.getUTCDate() - jourSemaineISO);
+  const startOfMonth = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+  return { startOfDay, startOfWeek, startOfMonth };
+}
+
+function fxPeriodeDebut(periode, now){
+  const { startOfDay, startOfWeek, startOfMonth } = fxCalendarBoundaries(now);
+  switch(periode){
+    case 'pct_24h': return new Date(now.getTime() - 24*3600*1000);
+    case 'pct_7d': return new Date(now.getTime() - 7*24*3600*1000);
+    case 'pct_30d': return new Date(now.getTime() - 30*24*3600*1000);
+    case 'pct_jour': return startOfDay;
+    case 'pct_semaine': return startOfWeek;
+    case 'pct_mois': return startOfMonth;
+    default: return new Date(now.getTime() - 24*3600*1000);
+  }
+}
+
+function fxDatesEntre(debut, fin){
+  const dates = [];
+  const curseur = new Date(Date.UTC(debut.getUTCFullYear(), debut.getUTCMonth(), debut.getUTCDate()));
+  const finJour = new Date(Date.UTC(fin.getUTCFullYear(), fin.getUTCMonth(), fin.getUTCDate()));
+  while(curseur <= finJour){
+    dates.push(curseur.toISOString().slice(0, 10));
+    curseur.setUTCDate(curseur.getUTCDate() + 1);
+  }
+  return dates;
+}
+
+async function chargerPointsPourPeriode(periode){
+  const maintenant = new Date();
+  const debut = fxPeriodeDebut(periode, maintenant);
+  const indexDates = await chargerIndexArchiveFx();
+  const datesNecessaires = fxDatesEntre(debut, maintenant).filter(d => indexDates.includes(d));
+
+  const reponses = await Promise.all(datesNecessaires.map(d =>
+    fetch('archive/fx/' + d + '.json').then(r => r.ok ? r.json() : null).catch(() => null)
+  ));
+
+  let points = [];
+  reponses.forEach(rep => { if(rep && Array.isArray(rep.points)) points = points.concat(rep.points); });
+  points = points
+    .filter(p => new Date(p.horodatage) >= debut)
+    .sort((a, b) => new Date(a.horodatage) - new Date(b.horodatage));
+
+  // Prolonge la courbe jusqu'à "maintenant" avec les derniers prix live
+  // connus, si le dernier point d'archive date de plus de quelques minutes
+  // (l'archive n'ajoute un point qu'une fois par heure).
+  const dernier = points[points.length - 1];
+  if(!dernier || (maintenant - new Date(dernier.horodatage)) > 5*60*1000){
+    const prixLive = {};
+    let auMoinsUn = false;
+    ORDRE_FX.forEach(sym => {
+      if(fxLive[sym] && fxLive[sym].prix !== null && fxLive[sym].prix !== undefined){
+        prixLive[sym] = fxLive[sym].prix;
+        auMoinsUn = true;
+      }
+    });
+    if(auMoinsUn) points.push({ horodatage: maintenant.toISOString(), prix: prixLive });
+  }
+
+  return points;
+}
+
+// Indexe chaque devise à 100 sur sa PREMIÈRE valeur connue dans la
+// période affichée (base commune aux modes Comparaison et %, qui ne
+// diffèrent que par un décalage de 100).
+function indexerPointsFx(points){
+  const base = {};
+  const series = {};
+  ORDRE_FX.forEach(sym => { base[sym] = null; series[sym] = []; });
+
+  points.forEach(p => {
+    ORDRE_FX.forEach(sym => {
+      const v = p.prix ? p.prix[sym] : null;
+      if(v === null || v === undefined) return;
+      if(base[sym] === null) base[sym] = v;
+      series[sym].push({ t: new Date(p.horodatage).getTime(), v: (v / base[sym]) * 100 });
+    });
+  });
+  return series;
+}
+
+function fxFormatAxeTemps(timestamp, spanMs){
+  const d = new Date(timestamp);
+  if(spanMs <= 2*24*3600*1000){
+    return d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+  }
+  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', timeZone: 'UTC' });
+}
+
+function fxPreparerCanvas(canvas){
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * devicePixelRatio;
+  canvas.height = rect.height * devicePixelRatio;
+  canvas.style.width = rect.width + 'px';
+  canvas.style.height = rect.height + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  return { ctx, w: rect.width, h: rect.height };
+}
+
+function dessinerFxEvolutionVide(canvas){
+  const { ctx, w, h } = fxPreparerCanvas(canvas);
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = 'var(--text-low)'.startsWith('var') ? '#576079' : 'var(--text-low)';
+  ctx.font = '12px IBM Plex Mono';
+  ctx.fillText('Pas assez de données pour cette période…', 14, h/2);
+}
+
+function dessinerFxEvolutionUnique(canvas, serie, estIndexee){
+  if(serie.length < 2){ dessinerFxEvolutionVide(canvas); return; }
+  const { ctx, w, h } = fxPreparerCanvas(canvas);
+  ctx.clearRect(0, 0, w, h);
+
+  const padL = 54, padR = 12, padT = 16, padB = 22;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+
+  const valeurs = serie.map(p => p.v);
+  let vMin = Math.min(...valeurs), vMax = Math.max(...valeurs);
+  if(vMin === vMax){ vMin -= 1; vMax += 1; } // évite une échelle nulle si prix constant
+  const marge = (vMax - vMin) * 0.08;
+  vMin -= marge; vMax += marge;
+
+  const tMin = serie[0].t, tMax = serie[serie.length - 1].t;
+  const spanMs = Math.max(tMax - tMin, 1);
+  const xFor = t => padL + ((t - tMin) / spanMs) * plotW;
+  const yFor = v => padT + plotH * (1 - (v - vMin) / (vMax - vMin));
+
+  const dernierMontant = serie[serie.length - 1].v >= serie[0].v;
+  const couleur = dernierMontant ? '#22c48d' : '#ef4a5a';
+
+  // Grille horizontale + libellés d'axe
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  const nbTicks = 5;
+  for(let i = 0; i <= nbTicks; i++){
+    const v = vMin + (vMax - vMin) * (i / nbTicks);
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+    const label = estIndexee ? `${v >= 0 ? '+' : ''}${v.toFixed(2)}%` : v.toFixed(5);
+    ctx.fillText(label, 2, y + 3);
+  }
+
+  // Libellés d'axe temporel (début, milieu, fin)
+  [0, 0.5, 1].forEach(frac => {
+    const t = tMin + spanMs * frac;
+    const x = xFor(t);
+    ctx.fillText(fxFormatAxeTemps(t, spanMs), Math.min(Math.max(x - 20, padL), w - padR - 40), h - 4);
+  });
+
+  // Ligne zéro en pointillés si mode pourcentage (repère à 0%)
+  if(estIndexee && vMin < 0 && vMax > 0){
+    ctx.setLineDash([3, 3]);
+    ctx.strokeStyle = '#576079';
+    const yZero = yFor(0);
+    ctx.beginPath(); ctx.moveTo(padL, yZero); ctx.lineTo(w - padR, yZero); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Courbe
+  ctx.strokeStyle = couleur; ctx.lineWidth = 1.6; ctx.beginPath();
+  serie.forEach((p, i) => {
+    const x = xFor(p.t), y = yFor(p.v);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  const dernier = serie[serie.length - 1];
+  ctx.beginPath(); ctx.arc(xFor(dernier.t), yFor(dernier.v), 3, 0, 2*Math.PI);
+  ctx.fillStyle = couleur; ctx.fill();
+}
+
+function dessinerFxEvolutionMulti(canvas, seriesParDevise){
+  const { ctx, w, h } = fxPreparerCanvas(canvas);
+  ctx.clearRect(0, 0, w, h);
+
+  const padL = 54, padR = 12, padT = 16, padB = 22;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+
+  const devisesAvecDonnees = ORDRE_FX.filter(sym => (seriesParDevise[sym] || []).length >= 2);
+  if(devisesAvecDonnees.length === 0){ dessinerFxEvolutionVide(canvas); return; }
+
+  const toutesValeurs = devisesAvecDonnees.flatMap(sym => seriesParDevise[sym].map(p => p.v));
+  let vMin = Math.min(...toutesValeurs), vMax = Math.max(...toutesValeurs);
+  if(vMin === vMax){ vMin -= 1; vMax += 1; }
+  const marge = (vMax - vMin) * 0.08;
+  vMin -= marge; vMax += marge;
+
+  const tMin = Math.min(...devisesAvecDonnees.map(sym => seriesParDevise[sym][0].t));
+  const tMax = Math.max(...devisesAvecDonnees.map(sym => seriesParDevise[sym][seriesParDevise[sym].length-1].t));
+  const spanMs = Math.max(tMax - tMin, 1);
+  const xFor = t => padL + ((t - tMin) / spanMs) * plotW;
+  const yFor = v => padT + plotH * (1 - (v - vMin) / (vMax - vMin));
+
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  const nbTicks = 5;
+  for(let i = 0; i <= nbTicks; i++){
+    const v = vMin + (vMax - vMin) * (i / nbTicks);
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+    ctx.fillText(v.toFixed(1), 2, y + 3);
+  }
+  [0, 0.5, 1].forEach(frac => {
+    const t = tMin + spanMs * frac;
+    const x = xFor(t);
+    ctx.fillText(fxFormatAxeTemps(t, spanMs), Math.min(Math.max(x - 20, padL), w - padR - 40), h - 4);
+  });
+
+  // Ligne de base à 100 (référence de départ, en trait plein)
+  ctx.strokeStyle = '#576079'; ctx.lineWidth = 1;
+  const y100 = yFor(100);
+  ctx.beginPath(); ctx.moveTo(padL, y100); ctx.lineTo(w - padR, y100); ctx.stroke();
+
+  devisesAvecDonnees.forEach(sym => {
+    const serie = seriesParDevise[sym];
+    ctx.strokeStyle = FX_EVOL_COULEURS[sym]; ctx.lineWidth = 1.6; ctx.beginPath();
+    serie.forEach((p, i) => {
+      const x = xFor(p.t), y = yFor(p.v);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    const dernier = serie[serie.length - 1];
+    ctx.beginPath(); ctx.arc(xFor(dernier.t), yFor(dernier.v), 2.5, 0, 2*Math.PI);
+    ctx.fillStyle = FX_EVOL_COULEURS[sym]; ctx.fill();
+  });
+}
+
+function renderFxEvolLegende(seriesParDevise){
+  const el = document.getElementById('fxEvolLegend');
+  if(!el) return;
+  el.innerHTML = ORDRE_FX
+    .filter(sym => (seriesParDevise[sym] || []).length >= 2)
+    .map(sym => `<span class="fx-evol-legend-item"><span class="fx-evol-legend-swatch" style="background:${FX_EVOL_COULEURS[sym]}"></span>${sym}</span>`)
+    .join('');
+}
+
+async function renderFxEvolution(){
+  const idAppel = ++fxEvolAppelEnCours;
+  const canvas = document.getElementById('fxEvolCanvas');
+  if(!canvas) return;
+
+  const points = await chargerPointsPourPeriode(fxEvolPeriode);
+  if(idAppel !== fxEvolAppelEnCours) return; // un changement plus récent a déjà été lancé entre-temps
+
+  if(points.length < 2){
+    dessinerFxEvolutionVide(canvas);
+    document.getElementById('fxEvolLegend').innerHTML = '';
+    return;
+  }
+
+  if(fxEvolMode === 'comparaison'){
+    const series = indexerPointsFx(points);
+    dessinerFxEvolutionMulti(canvas, series);
+    renderFxEvolLegende(series);
+  } else {
+    document.getElementById('fxEvolLegend').innerHTML = '';
+    if(fxEvolAffichage === 'prix'){
+      const serie = points
+        .filter(p => p.prix && p.prix[fxEvolDevise] !== null && p.prix[fxEvolDevise] !== undefined)
+        .map(p => ({ t: new Date(p.horodatage).getTime(), v: p.prix[fxEvolDevise] }));
+      dessinerFxEvolutionUnique(canvas, serie, false);
+    } else {
+      const series = indexerPointsFx(points);
+      const serieIndexee = (series[fxEvolDevise] || []).map(pt => ({ t: pt.t, v: pt.v - 100 }));
+      dessinerFxEvolutionUnique(canvas, serieIndexee, true);
+    }
+  }
+}
+
+function initialiserControlesFxEvolution(){
+  const modeTabs = document.getElementById('fxEvolModeTabs');
+  const controls = document.getElementById('fxEvolControls');
+  const deviseSelect = document.getElementById('fxEvolDeviseSelect');
+  const toggle = document.getElementById('fxEvolToggle');
+  const periodTabs = document.getElementById('fxEvolPeriods');
+  if(!modeTabs || !periodTabs) return;
+
+  modeTabs.querySelectorAll('.fx-evol-mode-tab').forEach(onglet => {
+    onglet.addEventListener('click', () => {
+      modeTabs.querySelectorAll('.fx-evol-mode-tab').forEach(o => o.classList.remove('active'));
+      onglet.classList.add('active');
+      fxEvolMode = onglet.dataset.mode;
+      controls.style.display = fxEvolMode === 'comparaison' ? 'none' : 'flex';
+      renderFxEvolution();
+    });
+  });
+
+  if(deviseSelect){
+    deviseSelect.addEventListener('change', () => {
+      fxEvolDevise = deviseSelect.value;
+      renderFxEvolution();
+    });
+  }
+
+  if(toggle){
+    toggle.querySelectorAll('.fx-evol-toggle-btn').forEach(bouton => {
+      bouton.addEventListener('click', () => {
+        toggle.querySelectorAll('.fx-evol-toggle-btn').forEach(b => b.classList.remove('active'));
+        bouton.classList.add('active');
+        fxEvolAffichage = bouton.dataset.affichage;
+        renderFxEvolution();
+      });
+    });
+  }
+
+  periodTabs.querySelectorAll('.fx-evol-period-tab').forEach(onglet => {
+    onglet.addEventListener('click', () => {
+      periodTabs.querySelectorAll('.fx-evol-period-tab').forEach(o => o.classList.remove('active'));
+      onglet.classList.add('active');
+      fxEvolPeriode = onglet.dataset.periode;
+      renderFxEvolution();
+    });
+  });
+}
 function renderWatchlist(){
   const el = document.getElementById('watchlist');
   if(!el) return;
@@ -1867,23 +2884,15 @@ function renderCalendarHome(){
   `).join('');
 }
 
-/* ===================== CESI — Citi Economic Surprise Index ===================== */
-const cesiSeed = {USD: 32, EUR: -18, GBP: 6};
-const cesiSeries = {};
-function genCesiSeries(base){
-  let v = base;
-  const arr = [];
-  for(let i=0;i<50;i++){
-    v += (Math.random()-0.5)*9;
-    v = Math.max(-100, Math.min(100, v));
-    arr.push(v);
-  }
-  return arr;
-}
-Object.keys(cesiSeed).forEach(ccy=>{ cesiSeries[ccy] = genCesiSeries(cesiSeed[ccy]); });
+/* ===================== CESI — Citi Economic Surprise Index "maison" =====
+   Le calcul lui-même (CESI_CONFIG, calculerCESIauDate, calculerSerieCesi)
+   est défini plus haut, juste après ecouterIndicateursTempsReel, pour rester
+   à côté de donneesIndicateurs/INDICATEURS_SUIVIS dont il dépend. Cette
+   section ne fait que l'AFFICHAGE (graphique existant de la page Calendrier
+   + nouvelle page CESI dédiée). */
 
 function drawCesiChart(canvas, data){
-  if(!canvas) return;
+  if(!canvas || data.length < 2) return;
   const rect = canvas.parentElement.getBoundingClientRect();
   const w = rect.width, h = rect.height;
   if(w<=0||h<=0) return;
@@ -1893,7 +2902,19 @@ function drawCesiChart(canvas, data){
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   c.clearRect(0,0,w,h);
 
-  const min = -100, max = 100;
+  // Échelle ADAPTATIVE : calée sur les valeurs réellement présentes dans
+  // "data" (+ une marge de 15%), et pas une échelle fixe -100/+100. Cette
+  // échelle fixe écrasait les vraies variations du CESI (qui oscille
+  // plutôt entre -20 et +20 en pratique), donnant des courbes qui
+  // semblaient plates. Le zéro reste toujours inclus dans l'échelle, pour
+  // garder la ligne de référence visuellement cohérente.
+  const valeurMin = Math.min(...data, 0);
+  const valeurMax = Math.max(...data, 0);
+  let etendue = valeurMax - valeurMin;
+  if(etendue < 2) etendue = 2; // évite une échelle absurde si les valeurs sont ~constantes
+  const marge = etendue * 0.15;
+  const min = valeurMin - marge, max = valeurMax + marge;
+
   const yFor = v => h - ((v-min)/(max-min))*h;
   const xFor = i => (i/(data.length-1))*w;
 
@@ -1919,20 +2940,105 @@ function drawCesiChart(canvas, data){
 
 function renderCesi(){
   const anyEl = document.getElementById('cesiCanvas-USD');
-  if(!anyEl) return;
-  Object.keys(cesiSeries).forEach(ccy=>{
-    // dérive légère de la série pour simuler une mise à jour en direct
-    const arr = cesiSeries[ccy];
-    arr.shift();
-    let last = arr[arr.length-1] + (Math.random()-0.5)*9;
-    last = Math.max(-100, Math.min(100, last));
-    arr.push(last);
+  if(!anyEl) return; // aucune donnée reçue de Firestore pour l'instant, ou page pas encore chargée
+  const aujourdhui = new Date();
+
+  CCY_LISTE_CESI.forEach(ccy=>{
+    const serie = calculerSerieCesi(ccy, 60, 3, aujourdhui); // 60 points, 1 tous les 3 jours = ~6 mois
+    const dernier = serie[serie.length-1] ?? 0;
 
     const valEl = document.getElementById('cesiVal-'+ccy);
-    valEl.textContent = (last>=0?'+':'') + last.toFixed(1);
-    valEl.className = 'cesi-val ' + (last>=0?'up':'down');
+    if(valEl){
+      valEl.textContent = (dernier>=0?'+':'') + dernier.toFixed(1);
+      valEl.className = 'cesi-val ' + (dernier>=0?'up':'down');
+    }
+    drawCesiChart(document.getElementById('cesiCanvas-'+ccy), serie);
+  });
+}
 
-    drawCesiChart(document.getElementById('cesiCanvas-'+ccy), arr);
+// Classe CSS selon l'intensité/le sens du score, pour la nouvelle page CESI.
+function classeSelonScoreCesi(score){
+  if(score > 15) return 'cesi-fort-haussier';
+  if(score > 3) return 'cesi-haussier';
+  if(score < -15) return 'cesi-fort-baissier';
+  if(score < -3) return 'cesi-baissier';
+  return 'cesi-neutre';
+}
+
+function renderCesiPage(){
+  const grid = document.getElementById('cesiGrid');
+  if(!grid) return; // page pas encore visitée / pas dans le DOM courant
+  const aujourdhui = new Date();
+
+  grid.innerHTML = CCY_LISTE_CESI.map(ccy => {
+    const indicateurs = INDICATEURS_SUIVIS.filter(e => e.ccy === ccy);
+    const cachePrepare = {};
+    indicateurs.forEach(ind => { cachePrepare[ind.slug] = preparerIndicateurCesi(ind.slug, aujourdhui); });
+    const r = calculerCESIauDate(ccy, aujourdhui, cachePrepare);
+
+    const catsHtml = ['emploi','inflation','croissance'].map(cat => {
+      const val = r.categories[cat];
+      return `<div class="cesi-souscat">
+        <span class="cesi-souscat-label">${ecoTypeLabels[cat]}</span>
+        <span class="cesi-souscat-val ${classeSelonScoreCesi(val)}">${val>=0?'+':''}${val.toFixed(1)}</span>
+      </div>`;
+    }).join('');
+
+    return `<div class="cesi-card">
+      <div class="cesi-card-head">
+        <span class="cesi-ccy">${flagFor(ccy)} ${ccy}</span>
+        <span class="cesi-global ${classeSelonScoreCesi(r.cesiGlobal)}">${r.cesiGlobal>=0?'+':''}${r.cesiGlobal.toFixed(1)}</span>
+      </div>
+      <div class="cesi-souscats">${catsHtml}</div>
+      <div class="cesi-meta">${r.nbIndicateurs} indicateur(s) actif(s) · calculé en direct, pas l'indice officiel Citigroup</div>
+    </div>`;
+  }).join('');
+
+  renderCesiDetailGrid(aujourdhui);
+}
+
+// Section "Historique par catégorie" : 3 mini-graphiques (Emploi/Inflation/
+// Croissance) par devise, sous les cartes. Même principe que les sparklines
+// de renderEcoData() : on écrit d'abord le HTML (avec les <canvas> vides),
+// puis on trace dedans une fois que le navigateur leur a donné une taille
+// réelle (les canvas n'ont pas de dimensions tant qu'ils ne sont pas dans
+// le DOM et stylés par le CSS).
+function renderCesiDetailGrid(aujourdhui){
+  const conteneur = document.getElementById('cesiDetailGrid');
+  if(!conteneur) return;
+
+  const NB_POINTS = 60, PAS_JOURS = 3; // ~6 mois d'historique reconstitué
+
+  conteneur.innerHTML = CCY_LISTE_CESI.map(ccy => {
+    const miniHtml = ['emploi','inflation','croissance'].map(cat => `
+      <div class="cesi-mini-wrap">
+        <div class="cesi-mini-headline">
+          <span class="cesi-mini-label">${ecoTypeLabels[cat]}</span>
+          <span class="cesi-mini-val" id="cesi-mini-val-${ccy}-${cat}"></span>
+        </div>
+        <div class="cesi-mini-chart-area"><canvas id="cesi-mini-canvas-${ccy}-${cat}"></canvas></div>
+      </div>`
+    ).join('');
+
+    return `<div class="cesi-detail-block">
+      <div class="cesi-detail-block-head">${flagFor(ccy)} ${ccy}</div>
+      <div class="cesi-detail-charts">${miniHtml}</div>
+    </div>`;
+  }).join('');
+
+  CCY_LISTE_CESI.forEach(ccy => {
+    const series = calculerSerieCesiParCategorie(ccy, NB_POINTS, PAS_JOURS, aujourdhui);
+    ['emploi','inflation','croissance'].forEach(cat => {
+      const valeurs = series[cat];
+      const dernier = valeurs[valeurs.length-1] ?? 0;
+
+      const valEl = document.getElementById(`cesi-mini-val-${ccy}-${cat}`);
+      if(valEl){
+        valEl.textContent = (dernier>=0?'+':'') + dernier.toFixed(1);
+        valEl.className = 'cesi-mini-val ' + classeSelonScoreCesi(dernier);
+      }
+      drawCesiChart(document.getElementById(`cesi-mini-canvas-${ccy}-${cat}`), valeurs);
+    });
   });
 }
 
@@ -2411,8 +3517,10 @@ document.getElementById('mainNav').addEventListener('click', e=>{
     case 'accueil': resizeCanvas(); break;
     case 'calendrier': renderCalendar(); renderCesi(); break;
     case 'dataeco': renderEcoData(); break;
+    case 'cesi': renderCesiPage(); break;
     case 'taux': renderTaux(); break;
     case 'technique': renderTechnique(); break;
+    case 'fx': renderFxTable(); renderFxPerfChart(); renderFxEvolution(); break;
   }
 });
 
@@ -2420,6 +3528,11 @@ document.getElementById('mainNav').addEventListener('click', e=>{
 renderAll();
 renderTrades();
 resizeCanvas();
+renderFxTable();
+renderFxPerfChart();
+initialiserOngletsFxPerf();
+initialiserControlesFxEvolution();
+renderFxEvolution();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
 demarrerEcouteTempsReel();
 
