@@ -387,6 +387,33 @@ def _marquer_point_archive():
         f.write(datetime.now(timezone.utc).isoformat())
 
 
+FICHIER_INDEX_ARCHIVE_FX = os.path.join(DOSSIER_ARCHIVE_FX, "index.json")
+
+
+def _lire_index_archive_fx():
+    if not os.path.exists(FICHIER_INDEX_ARCHIVE_FX):
+        return []
+    try:
+        with open(FICHIER_INDEX_ARCHIVE_FX, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def _mettre_a_jour_index_archive_fx(date_str):
+    """Ajoute date_str à docs/archive/fx/index.json si absente, trié du
+    plus récent au plus ancien (même patron que _mettre_a_jour_index_archive
+    dans site_generator.py, pour que le site sache quelles dates sont
+    disponibles sans deviner/tomber sur des 404)."""
+    dates = _lire_index_archive_fx()
+    if date_str not in dates:
+        dates.append(date_str)
+    dates.sort(reverse=True)
+    os.makedirs(DOSSIER_ARCHIVE_FX, exist_ok=True)
+    with open(FICHIER_INDEX_ARCHIVE_FX, "w", encoding="utf-8") as f:
+        json.dump(dates, f, ensure_ascii=False, indent=2)
+
+
 def ajouter_point_archive_horaire(devises_doc, maintenant):
     """Ajoute un point (prix uniquement, pas les %) au fichier d'archive
     du jour, un point par heure maximum (voir marqueur ci-dessus)."""
@@ -416,6 +443,7 @@ def ajouter_point_archive_horaire(devises_doc, maintenant):
     with open(chemin, "w", encoding="utf-8") as f:
         json.dump(contenu, f, ensure_ascii=False, indent=2)
 
+    _mettre_a_jour_index_archive_fx(date_str)
     _marquer_point_archive()
     print(f"Archive horaire : point ajouté ({len(contenu['points'])} points aujourd'hui).")
 
