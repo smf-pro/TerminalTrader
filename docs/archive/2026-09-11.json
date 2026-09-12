@@ -57,6 +57,8 @@
       "date_publication": "2026-09-11T12:30:36.483024+00:00",
       "url": "https://www.forexfactory.com/news/1417816-us-consumer-price-index-august-2026",
       "source": "bls.gov",
+      "extrait": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.4 percent on a seasonally adjusted basis in August after rising 0.1 percent in July, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 3.4 percent before seasonal adjustment. The index for gasoline rose 3.9 percent in August, ...",
+      "url": "https://www.forexfactory.com/news/1417816-us-consumer-price-index-august-2026",
       "ignore": false,
       "titre": "US Consumer Price Index - August 2026",
       "extrait": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.4 percent on a seasonally adjusted basis in August after rising 0.1 percent in July, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 3.4 percent before seasonal adjustment. The index for gasoline rose 3.9 percent in August, ..."
@@ -313,6 +315,7 @@
       "date_recuperation": "2026-09-11T21:20:28.032769+00:00",
       "date_publication": "2026-09-11T21:18:48.601898+00:00",
       "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-11-sept-us-cpi-keeps-fed-raises-odds-for-fed-rate-hike/",
+      "categorie": "news",
       "tags": [
         "USD",
         "Session wrap",
@@ -402,7 +405,6 @@
       "tags": [
         "USD"
       ],
-      "categorie": "news",
       "ignore": false,
       "titre": "Some anniversaries aren’t meant to be celebrated. They are simply remembered and never forgotten.",
       "contenu": ".....but, from the ashes, a phoenix rises.\n\nToday is an anniversary.\n\nAnniversaries are often days of celebration. They are also days of remembrance. Today is not a day to celebrate. It is a day to pause and remember—to remember all those who “slipped the surly bonds of Earth” and touched the face of God.\n\nI personally knew three people who died that day. Ironically, each was named John, and each was working on the upper floors of the World Trade Center.\n\nIt is difficult to imagine what they went through. In a strange way, I hope the plane struck where they were working and that their lives ended instantly. The alternative—the thought of them trapped by the intense heat, forced to jump or waiting helplessly for the buildings to collapse—is something I would rather not contemplate.\n\nAnd yet, even after unimaginable tragedy, something can rise from the ashes. It does not erase the pain or replace what was lost. But there can be a rebound. There can be goodness. Things can get better.\n\nI had moved to Arizona in August 2001, just one month before the attacks. When the planes struck, I was on the phone with a colleague at FXDD, whose offices were two blocks north of 7 World Trade Center.\n\nI returned to New York in November and went to our building, which now overlooked the rubble. The electrical smell was unforgettable. The piles of steel and concrete seemed as if they could never be removed. Trucks lined up one after another, were filled and then drove away to wherever they were taking the debris—debris that likely included the remains of some who had died.\n\nStill, work had restarted. People were moving around the city. I met with friends from the markets, but when we greeted one another, we hugged instead of shaking hands. I listened to their stories. For many, those stories included funeral after funeral. The financial community had suffered a devastating blow, particularly at firms such as Cantor Fitzgerald.\n\nAfter one of those meetings, I went to catch a bus to my parents’ home in New Jersey, just off the Garden State Parkway. It was not especially late—perhaps 7:00 in the evening. When I tried to board, the driver stopped me and explained that the last bus serving my exit had already departed. His route ended several exits before mine.\n\nI stepped off the bus. I thought about all those people who had left home on September 11 and never made it back. I knew that my situation was nothing like theirs. I would find another way. Somehow, I would get home.\n\nAs I started walking away, the bus driver left his bus and caught up with me.\n\n“I’ll take you home,” he said.\n\nEven today, remembering that simple act of kindness brings tears to my eyes. It helped shape the way I have tried to live my life ever since.\n\nWhen we reached what should have been his final stop and the last passenger got off, I moved to the front row. The driver and I talked as he continued down the Parkway toward my exit. We spoke about the attacks, the lives lost and the city we had just left behind.\n\nWhen we finally reached my stop, I thanked him and offered him a tip. He refused. We hugged, and I stepped off the bus.\n\nI had made it home.\n\nOn an anniversary such as this, we remember the lives that were lost and the pain that remains. But we should also remember the goodness that survived—the compassion, humanity and quiet acts of kindness that helped people find their way through the darkness.\n\nThat night, through the kindness of one bus driver, I saw the phoenix rise from the ashes.Rest in peace John, John and John and may God keep your loved ones you left behind firmly in the palm of His hand."
@@ -525,6 +527,7 @@
       "date_recuperation": "2026-09-11T06:00:26.372164+00:00",
       "date_publication": "2026-09-11T06:00:10.704763+00:00",
       "url": "https://investinglive.com/news/uk-july-monthly-gdp-xx-vs-0-0-m-m-expected/",
+      "contenu": "Latest data released by ONS - 11 September 2026\n\nPrior +0.3%\n\nGDP Y/Y +1.6% vs +1.0% expected\n\nPrior +1.1%\n\nmore to come...",
       "tags": [
         "GBP"
       ],
@@ -600,6 +603,7 @@
       "date_recuperation": "2026-09-11T00:40:22.118348+00:00",
       "date_publication": "2026-09-11T00:37:16.708647+00:00",
       "url": "https://investinglive.com/news/japan-wholesale-inflation-stays-hot-in-august-cements-case-for-boj-hike/",
+      "categorie": "news",
       "tags": [
         "Nikkei",
         "BOJ",
