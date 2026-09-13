@@ -847,7 +847,7 @@
   },
   "8a178a891a632d35f77255615348d8659837559df4deb4cb2ae5b9265ae9bb02": {
     "date_evenement": "2026-09-16T14:00:00-04:00",
-    "forecast": null,
+    "forecast": "3.75%",
     "previous": "3.75%",
     "actual": null
   },
@@ -1071,6 +1071,12 @@
     "date_evenement": "2026-09-18T10:00:00-04:00",
     "forecast": "0.2%",
     "previous": "0.2%",
+    "actual": null
+  },
+  "d2c39e1499f458c8536f0f0455a73acef6937a0fe62f139a8aa8231c6400a26f": {
+    "date_evenement": "2026-09-15T02:02:00-04:00",
+    "forecast": null,
+    "previous": "-6.2%",
     "actual": null
   }
 }
