@@ -5,3 +5,4 @@ yfinance
 pandas
 numpy
 websocket-client
+pandas
