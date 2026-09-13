@@ -2,6 +2,26 @@
   "date": "2026-09-13",
   "ff_news": [
     {
+      "date_publication": "2026-09-13T15:26:52.772197+00:00",
+      "source": "@FirstSquawk",
+      "titre": "Trump on China: not concerned Xi will cancel summit, says China has treated US fairly over recent years",
+      "ignore": false,
+      "date_recuperation": "2026-09-13T17:22:52.772197+00:00",
+      "extrait": "US Trump on China: not concerned Xi will cancel summit, says China has treated US fairly over recent yearsUS Trump on Irish unity: natural to unite north and southUS Trump on Irish unity: Won't discuss Scotland for now, will address laterTrump: Iran eager to reach a deal",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1417975-trump-on-china-not-concerned-xi-will-cancel"
+    },
+    {
+      "date_publication": "2026-09-13T15:24:52.772197+00:00",
+      "source": "@FirstSquawk",
+      "titre": "Saudi Foreign Minister: The security of the Arabian Gulf will not be stable without respecting the sovereignty and independence of its states",
+      "ignore": false,
+      "date_recuperation": "2026-09-13T17:22:52.772197+00:00",
+      "extrait": "Saudi Foreign Minister: The security of the Arabian Gulf will not be stable without respecting the sovereignty and independence of its states and refraining from interfering in their affairs.Saudi Foreign Minister: The Kingdom's security is inviolable, and the GCC states will not accept any targeting of their territories.",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1417973-saudi-foreign-minister-the-security-of-the-arabian"
+    },
+    {
       "source": "ecb.europa.eu",
       "impact": "low",
       "date_recuperation": "2026-09-13T04:55:56.155844+00:00",
