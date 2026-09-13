@@ -221,14 +221,14 @@ def id_document(collection, market, date_str):
     return hashlib.sha256(brut.encode("utf-8")).hexdigest()
 
 
-def serialiser_ligne(ligne, market, date_str):
+def serialiser_ligne(ligne, market, date_str, position=0):
     """Convertit une ligne pandas en dict pret pour Firestore. Necessaire
     car les valeurs numpy (int64, float64...) ne sont pas serialisables
     telles quelles par le SDK Firestore - d'ou l'appel a .item()."""
     champs = {
         "market_and_exchange_names": market,
         "report_date_as_yyyy_mm_dd": date_str,
-        "position": 0,
+        "position": position,
     }
     for col in ligne.index:
         if col in ("market_and_exchange_names", "report_date_as_yyyy_mm_dd"):
@@ -266,9 +266,22 @@ def recuperer_historique_existant(db, collection, market):
 def mettre_a_jour_historique_marche(db, collection, market, market_df):
     """Ecrit dans Firestore les publications NOUVELLES pour ce marche
     (celles dont la date n'est pas deja connue), en maintenant le champ
-    'position' (0 = plus recente) par decalage des documents existants.
-    Retourne le nombre de nouvelles publications ecrites (0 si rien de
-    neuf - cas le plus frequent, hors vendredi soir)."""
+    'position' (0 = plus recente). Retourne le nombre de nouvelles
+    publications ecrites (0 si rien de neuf - cas le plus frequent, hors
+    vendredi soir).
+
+    IMPORTANT (bug corrige) : la toute premiere version de cette fonction
+    decalait les positions PAS A PAS, un batch.commit() par nouvelle date,
+    en reecrivant TOUS les documents existants a chaque fois. Ca marche
+    bien pour l'usage hebdomadaire normal (1 seule nouvelle date par
+    cycle), mais lors d'un BACKFILL de plusieurs dizaines de semaines
+    d'un coup (ex: extension de HISTORIQUE_MAX), le nombre d'ecritures
+    explose de facon QUADRATIQUE (sum(1..N) au lieu de N) et declenche un
+    "429 Quota exceeded" cote Firestore. Version corrigee : on fusionne
+    l'existant et les nouvelles dates, on trie UNE SEULE FOIS, et on
+    n'ecrit QUE les documents dont la position a reellement change -
+    cout total en O(N), quel que soit le nombre de dates rattrapees d'un
+    coup."""
     market_df = market_df.sort_values("report_date_as_yyyy_mm_dd")
     dates_recuperees = [d.isoformat() for d in market_df["report_date_as_yyyy_mm_dd"]]
 
@@ -279,38 +292,65 @@ def mettre_a_jour_historique_marche(db, collection, market, market_df):
     if not nouvelles_dates:
         return 0
 
-    # Etat en memoire des positions actuelles : evite de relire Firestore
-    # a chaque nouvelle date traitee dans cette meme execution (utile si
-    # plusieurs semaines de retard sont rattrapees d'un coup).
-    positions_actuelles = {e["id"]: e["position"] for e in existants}
-
-    for date_str in nouvelles_dates:  # du plus ancien au plus recent
-        batch = db.batch()
-
-        a_oublier = []
-        for doc_id, position in positions_actuelles.items():
-            nouvelle_position = position + 1
-            ref = db.collection(collection).document(doc_id)
-            if nouvelle_position >= HISTORIQUE_MAX:
-                # Sort de la fenetre d'historique conservee -> purge.
-                batch.delete(ref)
-                a_oublier.append(doc_id)
-            else:
-                batch.update(ref, {"position": nouvelle_position})
-        for doc_id in a_oublier:
-            positions_actuelles.pop(doc_id, None)
-        for doc_id in positions_actuelles:
-            positions_actuelles[doc_id] += 1
-
+    # Fusionne existants + nouveaux dans un seul dict {date: info}.
+    entrees = {
+        e["date"]: {"id": e["id"], "position_avant": e["position"], "ligne": None}
+        for e in existants
+    }
+    for date_str in nouvelles_dates:
         ligne = market_df[
             market_df["report_date_as_yyyy_mm_dd"].astype(str) == date_str
         ].iloc[0]
-        nouveau_id = id_document(collection, market, date_str)
-        batch.set(db.collection(collection).document(nouveau_id),
-                   serialiser_ligne(ligne, market, date_str))
-        batch.commit()
+        entrees[date_str] = {
+            "id": id_document(collection, market, date_str),
+            "position_avant": None,  # n'existait pas encore
+            "ligne": ligne,
+        }
 
-        positions_actuelles[nouveau_id] = 0
+    # Tri UNIQUE par date decroissante -> la position finale de chaque
+    # document est simplement son rang dans cette liste (0 = plus recent).
+    dates_triees = sorted(entrees.keys(), reverse=True)
+
+    batch = db.batch()
+    operations_en_attente = 0
+
+    def _commit_si_plein():
+        nonlocal batch, operations_en_attente
+        # Marge de securite sous la limite Firestore de 500 operations par
+        # batch (jamais atteinte avec HISTORIQUE_MAX=55, mais on se
+        # protege si cette constante est relevee plus tard).
+        if operations_en_attente >= 400:
+            batch.commit()
+            batch = db.batch()
+            operations_en_attente = 0
+
+    for nouvelle_position, date_str in enumerate(dates_triees):
+        entree = entrees[date_str]
+        ref = db.collection(collection).document(entree["id"])
+
+        if nouvelle_position >= HISTORIQUE_MAX:
+            # Sort de la fenetre d'historique conservee.
+            if entree["position_avant"] is not None:
+                batch.delete(ref)  # existait deja -> purge
+                operations_en_attente += 1
+            # Sinon : une date nouvellement recuperee mais deja trop
+            # ancienne pour rentrer dans la fenetre -> on ne l'ecrit
+            # meme pas (evite d'ecrire pour la supprimer aussitot).
+            _commit_si_plein()
+            continue
+
+        if entree["ligne"] is None and entree["position_avant"] == nouvelle_position:
+            continue  # rien ne change pour ce document -> aucune ecriture
+
+        if entree["ligne"] is not None:
+            batch.set(ref, serialiser_ligne(entree["ligne"], market, date_str, position=nouvelle_position))
+        else:
+            batch.update(ref, {"position": nouvelle_position})
+        operations_en_attente += 1
+        _commit_si_plein()
+
+    if operations_en_attente > 0:
+        batch.commit()
 
     return len(nouvelles_dates)
 
