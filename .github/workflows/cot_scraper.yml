@@ -1,0 +1,30 @@
+name: COT Scraper
+on:
+  schedule:
+    # Vendredi 22h00 UTC : le rapport TFF du CFTC est publie ~15h30 ET
+    # (~19h30-20h30 UTC selon heure d'ete/hiver US) le vendredi. 22h UTC
+    # laisse une marge de securite confortable.
+    - cron: "0 22 * * 5"
+    # Samedi 8h00 UTC : rattrapage automatique si le run du vendredi a
+    # echoue (panne GitHub Actions, API CFTC temporairement indisponible,
+    # etc.). cot_cloud.py interroge une fenetre de secours de 40 jours et
+    # ne reecrit que les semaines reellement nouvelles (voir dedup dans le
+    # script) : relancer un run "pour rien" le samedi ne cree aucun
+    # doublon si le vendredi a deja bien fonctionne.
+    - cron: "0 8 * * 6"
+  workflow_dispatch: {}
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env: { FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }} }
+      - name: Lancer le script de collecte COT
+        env: { GOOGLE_APPLICATION_CREDENTIALS: service_account.json }
+        run: python cot_cloud.py
