@@ -74,13 +74,19 @@ FOREX_KEYWORDS = [
     "SWISS FRANC",
     "CANADIAN DOLLAR",
     "AUSTRALIAN DOLLAR",
-    "NEW ZEALAND DOLLAR",
+    "NZ DOLLAR",
     "MEXICAN PESO",
     "BRAZILIAN REAL",
     "RUSSIAN RUBLE",
-    "SOUTH AFRICAN RAND",
-    "U.S. DOLLAR INDEX",
+    "SO AFRICAN RAND",
+    "USD INDEX",
 ]
+# ATTENTION : ce sont les noms REELS utilises par le CFTC (verifies sur
+# https://www.cftc.gov/dea/futures/financial_lf.htm et le dataset Socrata),
+# qui different parfois de l'intitule usuel de la devise :
+#   - "NZ DOLLAR" et non "NEW ZEALAND DOLLAR"
+#   - "SO AFRICAN RAND" et non "SOUTH AFRICAN RAND"
+#   - "USD INDEX" (cote ICE Futures U.S.) et non "U.S. DOLLAR INDEX"
 
 # Mêmes colonnes utiles que COT.py (voir ce fichier pour le détail des
 # quirks de nommage CFTC) - "report_date_as_yyyy_mm_dd" et
