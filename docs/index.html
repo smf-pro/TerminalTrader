@@ -820,7 +820,16 @@
       </div>
       <div class="ta-col" style="overflow:hidden;">
         <div class="panel-head">
-          <span id="taSymTitle">ANALYSE — NVA</span>
+          <span id="taSymTitle">ANALYSE — EURUSD</span>
+        </div>
+        <div class="fx-perf-tabs" id="taSymTabs">
+          <span class="fx-perf-tab active" data-sym="EURUSD">EURUSD</span>
+          <span class="fx-perf-tab" data-sym="GBPUSD">GBPUSD</span>
+          <span class="fx-perf-tab" data-sym="CHFUSD">CHFUSD</span>
+          <span class="fx-perf-tab" data-sym="CADUSD">CADUSD</span>
+          <span class="fx-perf-tab" data-sym="AUDUSD">AUDUSD</span>
+          <span class="fx-perf-tab" data-sym="NZDUSD">NZDUSD</span>
+          <span class="fx-perf-tab" data-sym="JPYUSD">JPYUSD</span>
         </div>
         <div class="ta-chart-area"><canvas id="taCanvas"></canvas></div>
       </div>
@@ -887,7 +896,6 @@
 
   <div class="footer-note">
     <span>Données simulées à des fins de démonstration — non des cotations réelles</span>
-    <span id="latency">latence: 12ms</span>
   </div>
 
 </div>
@@ -1509,37 +1517,12 @@ function demarrerEcouteTempsReel(){
 </script>
 <script>
 /* ===================== DONNÉES SIMULÉES ===================== */
-const SYMBOLS = [
-  {sym:'NVA', name:'Novara Semiconductors', price:412.30, vol:0.018},
-  {sym:'HLX', name:'Helix Biotech',        price:88.15,  vol:0.024},
-  {sym:'ORN', name:'Orion Énergie',        price:56.42,  vol:0.014},
-  {sym:'QTM', name:'Quantum Dynamics',     price:1284.60,vol:0.03},
-  {sym:'FLR', name:'Fleuron Capital',      price:23.75,  vol:0.02},
-  {sym:'VRT', name:'Vertex Logistics',     price:145.90, vol:0.012},
-  {sym:'AZR', name:'Azurite Mining',       price:9.84,   vol:0.035},
-  {sym:'PLM', name:'Palmier Retail',       price:67.20,  vol:0.016},
-];
-let active = SYMBOLS[0];
-let candles = [];
-let lastClose = active.price;
-
-function seedCandles(){
-  candles = [];
-  let p = active.price * 0.97;
-  const now = Date.now();
-  for(let i=60;i>=0;i--){
-    const o = p;
-    const drift = (Math.random()-0.5) * active.price * active.vol;
-    const c = Math.max(0.5, o + drift);
-    const h = Math.max(o,c) + Math.random()*active.price*active.vol*0.5;
-    const l = Math.min(o,c) - Math.random()*active.price*active.vol*0.5;
-    candles.push({t: now - i*5*60000, o, h, l, c, v: Math.round(Math.random()*50000+5000)});
-    p = c;
-  }
-  lastClose = candles[candles.length-1].c;
-  active.price = lastClose;
-}
-seedCandles();
+// Ancien système de simulation (SYMBOLS/candles/active/seedCandles) retiré :
+// il ne pilotait que des panneaux jamais rendus dans le DOM (graphique
+// principal, carnet d'ordres, portefeuille, watchlist — aucun conteneur
+// HTML correspondant n'existe sur le site), plus la page ANALYSE TECH.
+// qui utilise maintenant de vraies données FX (voir plus bas).
+let taActiveSym = 'EURUSD'; // devise actuellement affichée sur la page ANALYSE TECH.
 
 /* ===================== HORODATAGE DE LA DERNIÈRE EXÉCUTION DES SCRIPTS ===================== */
 /* Affiche la date/heure ou un script (ff_cloud.py / centralbanks_cloud.py /
@@ -1722,15 +1705,10 @@ setInterval(mettreAJourHorlogeInfo, 60000);
 /* ===================== TAPE DÉFILANTE ===================== */
 function renderTape(){
   const el = document.getElementById('tape');
-  const buildStocks = () => SYMBOLS.map(s=>{
-    const chg = ((s.price - (s._prev||s.price))/(s._prev||s.price))*100;
-    const dir = chg>=0 ? 'up':'down';
-    return `<span class="tape-item"><span class="sym">${s.sym}</span><span class="px">$${s.price.toFixed(2)}</span><span class="chg ${dir}">${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(2)}%</span></span>`;
-  }).join('');
   // Devises FX réelles (fx_rates/latest) : on utilise pct_jour (variation
   // depuis minuit UTC) comme % unique affiché ici, faute de place pour les
   // 6 périodes — le détail complet est sur la page FX dédiée.
-  const buildFx = () => ORDRE_FX.map(sym=>{
+  const build = () => ORDRE_FX.map(sym=>{
     const d = fxLive[sym];
     if(!d || d.prix === null || d.prix === undefined) return '';
     const chg = d.pct_jour;
@@ -1739,7 +1717,6 @@ function renderTape(){
     const txtChg = connu ? `${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(3)}%` : 'n/a';
     return `<span class="tape-item"><span class="sym">${sym}</span><span class="px">${d.prix.toFixed(5)}</span><span class="chg ${dir}">${txtChg}</span></span>`;
   }).join('');
-  const build = () => buildStocks() + buildFx();
   el.innerHTML = build() + build();
 }
 
@@ -2228,275 +2205,28 @@ function initialiserControlesFxEvolution(){
     });
   });
 }
-function renderWatchlist(){
-  const el = document.getElementById('watchlist');
-  if(!el) return;
-  document.getElementById('wlCount').textContent = SYMBOLS.length;
-  el.innerHTML = SYMBOLS.map(s=>{
-    const chg = ((s.price - (s._prev||s.price))/(s._prev||s.price))*100;
-    const dir = chg>=0?'up':'down';
-    return `<div class="wl-row ${s.sym===active.sym?'active':''}" data-sym="${s.sym}">
-      <div>
-        <div class="wl-sym">${s.sym}</div>
-        <div class="wl-name">${s.name}</div>
-      </div>
-      <div>
-        <div class="wl-px">$${s.price.toFixed(2)}</div>
-        <div class="wl-chg ${dir}">${chg>=0?'+':''}${chg.toFixed(2)}%</div>
-      </div>
-    </div>`;
-  }).join('');
-  el.querySelectorAll('.wl-row').forEach(row=>{
-    row.addEventListener('click', ()=>{
-      active = SYMBOLS.find(s=>s.sym===row.dataset.sym);
-      seedCandles();
-      renderAll();
+
+function initialiserOngletsTechnique(){
+  const conteneur = document.getElementById('taSymTabs');
+  if(!conteneur) return;
+  conteneur.querySelectorAll('.fx-perf-tab').forEach(onglet => {
+    onglet.addEventListener('click', () => {
+      conteneur.querySelectorAll('.fx-perf-tab').forEach(o => o.classList.remove('active'));
+      onglet.classList.add('active');
+      taActiveSym = onglet.dataset.sym;
+      renderTechnique();
     });
   });
 }
 
-function renderChartHeader(){
-  const symEl = document.getElementById('chartSym');
-  if(!symEl) return;
-  symEl.textContent = active.sym + '  ·  ' + active.name;
-  document.getElementById('chartPx').textContent = '$' + active.price.toFixed(2);
-  const first = candles[0].o;
-  const chg = ((active.price-first)/first)*100;
-  const chgEl = document.getElementById('chartChg');
-  chgEl.textContent = (chg>=0?'+':'') + chg.toFixed(2) + '%  (24h)';
-  chgEl.className = 'chg ' + (chg>=0?'up':'down');
-}
-
-/* ===================== CANVAS CHANDELIER ===================== */
-function resizeCanvas(){
-  const canvas = document.getElementById('chartCanvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width * devicePixelRatio;
-  canvas.height = rect.height * devicePixelRatio;
-  canvas.style.width = rect.width+'px';
-  canvas.style.height = rect.height+'px';
-  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-  drawChart();
-}
-window.addEventListener('resize', resizeCanvas);
-
-function drawChart(){
-  const canvas = document.getElementById('chartCanvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const w = canvas.width / devicePixelRatio;
-  const h = canvas.height / devicePixelRatio;
-  ctx.clearRect(0,0,w,h);
-
-  const highs = candles.map(c=>c.h);
-  const lows = candles.map(c=>c.l);
-  const max = Math.max(...highs), min = Math.min(...lows);
-  const pad = (max-min)*0.08 || 1;
-  const yMax = max+pad, yMin = min-pad;
-
-  const gridColor = '#1c212c';
-  ctx.strokeStyle = gridColor;
-  ctx.lineWidth = 1;
-  ctx.font = '10px IBM Plex Mono';
-  ctx.fillStyle = '#576079';
-  for(let i=0;i<=4;i++){
-    const y = (h*0.82) * (i/4) + 6;
-    ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
-    const val = yMax - (yMax-yMin)*(i/4);
-    ctx.fillText('$'+val.toFixed(2), 4, y-3);
-  }
-
-  const n = candles.length;
-  const cw = w / n;
-  const bodyW = Math.max(2, cw*0.55);
-  const chartH = h*0.82;
-
-  const yFor = v => 6 + chartH * (1 - (v-yMin)/(yMax-yMin));
-
-  candles.forEach((c,i)=>{
-    const x = i*cw + cw/2;
-    const up = c.c >= c.o;
-    ctx.strokeStyle = up ? '#22c48d' : '#ef4a5a';
-    ctx.fillStyle = up ? '#22c48d' : '#ef4a5a';
-    ctx.beginPath();
-    ctx.moveTo(x, yFor(c.h));
-    ctx.lineTo(x, yFor(c.l));
-    ctx.stroke();
-    const yO = yFor(c.o), yC = yFor(c.c);
-    const top = Math.min(yO,yC), hgt = Math.max(1, Math.abs(yC-yO));
-    ctx.fillRect(x-bodyW/2, top, bodyW, hgt);
-  });
-
-  // volume
-  const maxV = Math.max(...candles.map(c=>c.v));
-  const volTop = h*0.86, volH = h*0.14;
-  candles.forEach((c,i)=>{
-    const x = i*cw + cw/2;
-    const up = c.c >= c.o;
-    ctx.fillStyle = up ? 'rgba(38,194,129,0.35)' : 'rgba(229,72,77,0.35)';
-    const bh = (c.v/maxV) * volH;
-    ctx.fillRect(x-bodyW/2, volTop+volH-bh, bodyW, bh);
-  });
-}
-
-/* ===================== CARNET D'ORDRES ===================== */
-function renderBook(){
-  const bookBody = document.getElementById('bookBody');
-  if(!bookBody) return;
-  const p = active.price;
-  let rows = '';
-  let asks = [];
-  let cum = 0;
-  for(let i=8;i>=1;i--){
-    const price = p + i*p*0.0006;
-    const qty = Math.round(Math.random()*400+20);
-    cum += qty;
-    asks.push({price, qty, cum});
-  }
-  const maxCum = Math.max(...asks.map(a=>a.cum), 1);
-  asks.forEach(a=>{
-    const pct = (a.cum/maxCum)*100;
-    rows += `<div class="book-row ask"><span class="bar" style="width:${pct}%"></span><span class="p ask">${a.price.toFixed(2)}</span><span class="q">${a.qty}</span><span class="t">${a.cum}</span></div>`;
-  });
-  rows += `<div style="text-align:center; padding:6px; font-family:var(--mono); font-size:12px; color:var(--text-hi); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">$${p.toFixed(2)}</div>`;
-  let bids = []; cum = 0;
-  for(let i=1;i<=8;i++){
-    const price = p - i*p*0.0006;
-    const qty = Math.round(Math.random()*400+20);
-    cum += qty;
-    bids.push({price, qty, cum});
-  }
-  const maxCumB = Math.max(...bids.map(a=>a.cum), 1);
-  bids.forEach(b=>{
-    const pct = (b.cum/maxCumB)*100;
-    rows += `<div class="book-row bid"><span class="bar" style="width:${pct}%"></span><span class="p bid">${b.price.toFixed(2)}</span><span class="q">${b.qty}</span><span class="t">${b.cum}</span></div>`;
-  });
-  bookBody.innerHTML = rows;
-}
-
-/* ===================== TRANSACTIONS ===================== */
-let tradeLog = [];
-function pushTrade(){
-  const p = active.price + (Math.random()-0.5)*active.price*0.001;
-  const up = Math.random()>0.5;
-  tradeLog.unshift({p, q: Math.round(Math.random()*200+5), up, t: new Date()});
-  if(tradeLog.length>40) tradeLog.pop();
-  renderTrades();
-}
-function renderTrades(){
-  const el = document.getElementById('tradesBody');
-  if(!el) return;
-  el.innerHTML = tradeLog.map(tr=>`<div class="trade-row">
-    <span class="p ${tr.up?'up':'down'}">${tr.p.toFixed(2)}</span>
-    <span class="q">${tr.q}</span>
-    <span class="tm">${tr.t.toLocaleTimeString('fr-FR',{hour12:false})}</span>
-  </div>`).join('');
-}
-
-/* ===================== PORTEFEUILLE ===================== */
-const holdings = [
-  {sym:'NVA', qty:40, avg:398.10},
-  {sym:'HLX', qty:120, avg:81.40},
-  {sym:'QTM', qty:6, avg:1190.00},
-  {sym:'AZR', qty:900, avg:10.55},
-];
-function renderPortfolio(){
-  const posEl = document.getElementById('positions');
-  if(!posEl) return;
-  let total=0, cost=0;
-  const rows = holdings.map(h=>{
-    const s = SYMBOLS.find(x=>x.sym===h.sym);
-    const val = s.price*h.qty;
-    const c = h.avg*h.qty;
-    total+=val; cost+=c;
-    const pl = val-c;
-    const plPct = (pl/c)*100;
-    return `<div class="pos-row">
-      <div class="pos-top">
-        <span class="pos-sym">${h.sym}</span>
-        <span class="pos-pl ${pl>=0?'up':'down'}">${pl>=0?'+':''}$${pl.toFixed(2)}</span>
-      </div>
-      <div class="pos-sub">
-        <span>${h.qty} @ $${h.avg.toFixed(2)}</span>
-        <span class="${plPct>=0?'up':'down'}">${plPct>=0?'+':''}${plPct.toFixed(2)}%</span>
-      </div>
-    </div>`;
-  }).join('');
-  posEl.innerHTML = rows;
-  document.getElementById('portfolioValue').textContent = '$'+total.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const pl = total-cost;
-  const plPct = (pl/cost)*100;
-  const chgEl = document.getElementById('portfolioChg');
-  chgEl.textContent = `${pl>=0?'+':''}$${pl.toFixed(2)} (${plPct>=0?'+':''}${plPct.toFixed(2)}%) aujourd'hui`;
-  chgEl.className = 'pl-sub ' + (pl>=0?'up':'down');
-}
-
 /* ===================== ACTUALITÉS ===================== */
-const investingLiveTemplates = [
-  {tag:'high', text:s=>`${s.name} annonce des résultats trimestriels supérieurs aux attentes.`},
-  {tag:'med',  text:s=>`Les analystes révisent leur objectif de cours sur ${s.sym}.`},
-  {tag:'low',  text:s=>`Volume d'échanges inhabituel détecté sur ${s.sym}.`},
-  {tag:'high', text:s=>`Rumeur de fusion-acquisition autour de ${s.name}.`},
-  {tag:'med',  text:s=>`${s.sym} franchit un seuil technique clé sur le graphique journalier.`},
-  {tag:'low',  text:s=>`Mise à jour réglementaire pouvant affecter ${s.name}.`},
-];
-const centralBankTemplates = [
-  {tag:'high', text:()=>"La Fed maintient ses taux inchangés, ton jugé accommodant sur la suite."},
-  {tag:'high', text:()=>"La BCE laisse entrevoir une possible baisse de taux à la prochaine réunion."},
-  {tag:'med',  text:()=>"La Banque d'Angleterre révise ses prévisions d'inflation à la hausse."},
-  {tag:'med',  text:()=>"La Banque du Japon maintient sa politique monétaire ultra-accommodante."},
-  {tag:'low',  text:()=>"Un membre du comité de la Fed appelle à la prudence sur le rythme des baisses."},
-  {tag:'high', text:()=>"La Banque nationale suisse intervient pour freiner l'appréciation du franc."},
-  {tag:'med',  text:()=>"La Banque populaire de Chine injecte des liquidités dans le système bancaire."},
-  {tag:'high', text:()=>"La Fed publie le compte-rendu de sa dernière réunion de politique monétaire."},
-  {tag:'low',  text:()=>"La Banque du Canada juge l'économie 'résiliente' face aux taux actuels."},
-];
-const forexFactoryTemplates = [
-  {tag:'high', text:()=>"EUR/USD chute après la publication de l'IPC américain."},
-  {tag:'med',  text:()=>"GBP/JPY teste un niveau de résistance technique clé."},
-  {tag:'high', text:()=>"USD/JPY franchit un seuil psychologique suite aux commentaires de la BoJ."},
-  {tag:'low',  text:()=>"AUD/USD stable en l'absence de catalyseur macro majeur."},
-  {tag:'med',  text:()=>"Le dollar canadien réagit à la variation des prix du pétrole."},
-  {tag:'high', text:()=>"L'or atteint un nouveau plus haut face à l'incertitude macroéconomique."},
-  {tag:'med',  text:()=>"NZD/USD sous pression après des données d'emploi décevantes."},
-  {tag:'high', text:()=>"Le dollar index bondit après un discours inattendu de la Fed."},
-  {tag:'low',  text:()=>"EUR/GBP évolue dans un range étroit avant les données de la semaine."},
-];
-const newsSnippets = [
-  "Les intervenants du marché ajustent leurs positions à l'approche de la clôture.",
-  "Le volume d'échanges reste supérieur à la moyenne des dix dernières séances.",
-  "Des mouvements de couverture ont été observés sur les positions à court terme.",
-  "Le consensus des analystes reste partagé sur la trajectoire à venir.",
-  "Un rebond technique a été noté après plusieurs séances de baisse.",
-  "La volatilité implicite grimpe alors que l'échéance approche.",
-];
+// Ancien générateur de fausses actualités (investingLiveTemplates,
+// centralBankTemplates, forexFactoryTemplates, newsSnippets, genNewsItem,
+// pushNews) retiré : il n'était jamais appelé (code mort), et newsLog est
+// de toute façon entièrement reconstruit à partir des VRAIES données
+// Firestore (liveFF/liveCB/liveIL) à chaque mise à jour temps réel, voir
+// plus bas.
 let newsLog = [];
-
-function genNewsItem(source){
-  const snippet = newsSnippets[Math.floor(Math.random()*newsSnippets.length)];
-  if(source==='investinglive'){
-    const s = SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)];
-    const tpl = investingLiveTemplates[Math.floor(Math.random()*investingLiveTemplates.length)];
-    return {time:new Date(), tag:tpl.tag, sym:s.sym, source, text:tpl.text(s), snippet};
-  }
-  if(source==='centralbanks'){
-    const tpl = centralBankTemplates[Math.floor(Math.random()*centralBankTemplates.length)];
-    return {time:new Date(), tag:tpl.tag, sym:null, source, text:tpl.text(), snippet};
-  }
-  const tpl = forexFactoryTemplates[Math.floor(Math.random()*forexFactoryTemplates.length)];
-  return {time:new Date(), tag:tpl.tag, sym:null, source, text:tpl.text(), snippet};
-}
-
-function pushNews(){
-  const sources = ['investinglive','centralbanks','forexfactory'];
-  const source = sources[Math.floor(Math.random()*sources.length)];
-  newsLog.unshift(genNewsItem(source));
-  if(newsLog.length>120) newsLog.pop();
-  renderNewsHomeColumns();
-  renderNewsColumns();
-}
 
 const MOIS_ABREGES_FR = ['Janv','Févr','Mars','Avr','Mai','Juin','Juil','Août','Sept','Oct','Nov','Déc'];
 
@@ -2721,46 +2451,27 @@ function renderNewsColumns(){
 }
 
 /* ===================== BOUCLE TEMPS RÉEL ===================== */
-function tickPrices(){
-  SYMBOLS.forEach(s=>{
-    s._prev = s.price;
-    const drift = (Math.random()-0.5) * s.price * s.vol * 0.15;
-    s.price = Math.max(0.5, s.price + drift);
-  });
-  // met à jour la dernière bougie du symbole actif
-  const last = candles[candles.length-1];
-  last.c = active.price;
-  last.h = Math.max(last.h, active.price);
-  last.l = Math.min(last.l, active.price);
-}
-
 function renderAll(){
   renderTape();
-  renderWatchlist();
-  renderChartHeader();
-  drawChart();
-  renderBook();
-  renderPortfolio();
   renderCalendarHome();
   renderNewsHomeColumns();
 }
 
-const tfGroupEl = document.getElementById('tfGroup');
-if(tfGroupEl) tfGroupEl.addEventListener('click', e=>{
-  if(e.target.classList.contains('tf-btn')){
-    document.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('active'));
-    e.target.classList.add('active');
-    seedCandles();
-    renderAll();
-  }
-});
-
 document.getElementById('searchInput').addEventListener('input', e=>{
   const q = e.target.value.trim().toUpperCase();
   if(!q) return;
-  const found = SYMBOLS.find(s=>s.sym.startsWith(q));
-  if(found){ active = found; seedCandles(); renderAll(); }
+  const found = ORDRE_FX.find(sym => sym.startsWith(q));
+  if(found){
+    taActiveSym = found;
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.nav-btn[data-page="technique"]').classList.add('active');
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page-technique').classList.add('active');
+    document.querySelectorAll('#taSymTabs .fx-perf-tab').forEach(o => o.classList.toggle('active', o.dataset.sym === found));
+    renderTechnique();
+  }
 });
+
 
 // ===================== CALENDRIER ÉCONOMIQUE =====================
 // Alimenté par liveCalendar (voir ecouterCalendrierTempsReel), lui-même
@@ -3372,39 +3083,131 @@ document.getElementById('tauxFilters').addEventListener('click', e=>{
 });
 
 // ===================== ANALYSE TECHNIQUE =====================
-function computeTA(){
-  const closes = candles.map(c=>c.c);
-  const price = closes[closes.length-1];
-  const ma = n => {
-    const slice = closes.slice(-n);
-    return slice.reduce((a,b)=>a+b,0)/slice.length;
+/* ===================== INDICATEURS TECHNIQUES RÉELS (calculés sur les
+   vrais prix de clôture FX, aucune valeur aléatoire) ===================== */
+
+function calculerSMA(closes, n){
+  const slice = closes.slice(-Math.min(n, closes.length));
+  return slice.reduce((a,b)=>a+b, 0) / slice.length;
+}
+
+function calculerEMA(closes, periode){
+  if(closes.length < periode) return null;
+  const k = 2 / (periode + 1);
+  let ema = closes.slice(0, periode).reduce((a,b)=>a+b, 0) / periode; // amorce = SMA
+  for(let i = periode; i < closes.length; i++){
+    ema = closes[i] * k + ema * (1 - k);
+  }
+  return ema;
+}
+
+// RSI de Wilder (formule standard), aucune approximation aléatoire.
+function calculerRSI(closes, periode = 14){
+  if(closes.length < periode + 1) return null;
+  let gains = 0, pertes = 0;
+  for(let i = 1; i <= periode; i++){
+    const diff = closes[i] - closes[i-1];
+    if(diff >= 0) gains += diff; else pertes -= diff;
+  }
+  let avgGain = gains / periode, avgLoss = pertes / periode;
+  for(let i = periode + 1; i < closes.length; i++){
+    const diff = closes[i] - closes[i-1];
+    const gain = diff > 0 ? diff : 0, loss = diff < 0 ? -diff : 0;
+    avgGain = (avgGain * (periode - 1) + gain) / periode;
+    avgLoss = (avgLoss * (periode - 1) + loss) / periode;
+  }
+  if(avgLoss === 0) return 100;
+  const rs = avgGain / avgLoss;
+  return 100 - (100 / (1 + rs));
+}
+
+function calculerMACD(closes){
+  const ema12 = calculerEMA(closes, 12);
+  const ema26 = calculerEMA(closes, 26);
+  if(ema12 === null || ema26 === null) return null;
+  return ema12 - ema26;
+}
+
+// Stochastique %K : formule standard, mais basée sur le plus haut/plus bas
+// des CLÔTURES (notre archive FX ne stocke qu'un prix de clôture horaire,
+// pas de vrai haut/bas intra-heure) — substitution courante et honnête
+// quand seules des clôtures sont disponibles.
+function calculerStochastique(closes, periode = 14){
+  if(closes.length < periode) return null;
+  const fenetre = closes.slice(-periode);
+  const plusHaut = Math.max(...fenetre), plusBas = Math.min(...fenetre);
+  if(plusHaut === plusBas) return 50;
+  const dernier = closes[closes.length - 1];
+  return ((dernier - plusBas) / (plusHaut - plusBas)) * 100;
+}
+
+// Williams %R = Stochastique - 100 (identité mathématique standard).
+function calculerWilliamsR(closes, periode = 14){
+  const stoch = calculerStochastique(closes, periode);
+  return stoch === null ? null : stoch - 100;
+}
+
+// CCI(20) : formule standard, prix typique substitué par la clôture
+// (même raison que le Stochastique ci-dessus, pas de H/L horaire réel).
+function calculerCCI(closes, periode = 20){
+  if(closes.length < periode) return null;
+  const fenetre = closes.slice(-periode);
+  const sma = fenetre.reduce((a,b)=>a+b, 0) / periode;
+  const ecartMoyen = fenetre.reduce((a,b)=>a+Math.abs(b-sma), 0) / periode;
+  if(ecartMoyen === 0) return 0;
+  const dernier = closes[closes.length - 1];
+  return (dernier - sma) / (0.015 * ecartMoyen);
+}
+
+function calculerSupportsResistances(closes){
+  const prix = closes[closes.length - 1];
+  const fenetre7j = closes.slice(-Math.min(7*24, closes.length)); // ~7 jours de points horaires
+  return [
+    { label: 'Plus haut 30j', val: Math.max(...closes) },
+    { label: 'Plus haut 7j', val: Math.max(...fenetre7j) },
+    { label: 'Prix actuel', val: prix, current: true },
+    { label: 'Plus bas 7j', val: Math.min(...fenetre7j) },
+    { label: 'Plus bas 30j', val: Math.min(...closes) },
+  ];
+}
+
+function computeTAReel(closes){
+  const prix = closes[closes.length - 1];
+  const ma20 = calculerSMA(closes, 20);
+  const ma50 = calculerSMA(closes, 50);
+  const ma100 = calculerSMA(closes, 100);
+  const ma200 = calculerSMA(closes, 200);
+  const rsi = calculerRSI(closes, 14);
+  const macdVal = calculerMACD(closes);
+  const stoch = calculerStochastique(closes, 14);
+  const willR = calculerWilliamsR(closes, 14);
+  const cci = calculerCCI(closes, 20);
+
+  const fmt = (v, decimales=1) => v === null ? 'n/a' : v.toFixed(decimales);
+  const sig = (v, seuilAchat, seuilVente, inverse=false) => {
+    if(v === null) return 'neutral';
+    return inverse
+      ? (v > seuilVente ? 'sell' : v < seuilAchat ? 'buy' : 'neutral')
+      : (v < seuilAchat ? 'buy' : v > seuilVente ? 'sell' : 'neutral');
   };
-  const ma20 = ma(20), ma50 = ma(Math.min(50,closes.length)), ma100 = ma(Math.min(closes.length,closes.length)), ma200 = ma(closes.length);
-  const rsi = 30 + Math.random()*40 + (price>ma20 ? 10:-10);
-  const rsiClamped = Math.max(5, Math.min(95, rsi));
-  const macdVal = (ma20-ma50);
-  const stoch = Math.max(5, Math.min(95, 50 + (price-ma20)/ (ma20*0.01)));
-  const willR = -Math.max(5, Math.min(95, 100-stoch));
-  const cci = (price-ma20)/(ma20*0.004);
 
   const oscillators = [
-    {name:'RSI (14)', val: rsiClamped.toFixed(1), signal: rsiClamped>65?'sell':rsiClamped<35?'buy':'neutral'},
-    {name:'Stochastique %K', val: stoch.toFixed(1), signal: stoch>75?'sell':stoch<25?'buy':'neutral'},
-    {name:'MACD (12,26)', val: macdVal.toFixed(2), signal: macdVal>0?'buy':'sell'},
-    {name:'Williams %R', val: willR.toFixed(1), signal: willR<-80?'buy':willR>-20?'sell':'neutral'},
-    {name:'CCI (20)', val: cci.toFixed(1), signal: cci>100?'sell':cci<-100?'buy':'neutral'},
+    { name:'RSI (14)', val: fmt(rsi), signal: rsi===null?'neutral':(rsi<35?'buy':rsi>65?'sell':'neutral') },
+    { name:'Stochastique %K (14)', val: fmt(stoch), signal: stoch===null?'neutral':(stoch<25?'buy':stoch>75?'sell':'neutral') },
+    { name:'MACD (12,26)', val: fmt(macdVal,5), signal: macdVal===null?'neutral':(macdVal>0?'buy':'sell') },
+    { name:'Williams %R (14)', val: fmt(willR), signal: willR===null?'neutral':(willR<-80?'buy':willR>-20?'sell':'neutral') },
+    { name:'CCI (20)', val: fmt(cci), signal: cci===null?'neutral':(cci<-100?'buy':cci>100?'sell':'neutral') },
   ];
   const mas = [
-    {name:'MM 20', val: ma20.toFixed(2), signal: price>ma20?'buy':'sell'},
-    {name:'MM 50', val: ma50.toFixed(2), signal: price>ma50?'buy':'sell'},
-    {name:'MM 100', val: ma100.toFixed(2), signal: price>ma100?'buy':'sell'},
-    {name:'MM 200', val: ma200.toFixed(2), signal: price>ma200?'buy':'sell'},
+    { name:'MM 20', val: fmt(ma20,5), signal: prix>ma20?'buy':'sell' },
+    { name:'MM 50', val: fmt(ma50,5), signal: prix>ma50?'buy':'sell' },
+    { name:'MM 100', val: fmt(ma100,5), signal: prix>ma100?'buy':'sell' },
+    { name:'MM 200', val: fmt(ma200,5), signal: prix>ma200?'buy':'sell' },
   ];
   const all = oscillators.concat(mas);
   const buyCt = all.filter(a=>a.signal==='buy').length;
   const sellCt = all.filter(a=>a.signal==='sell').length;
-  const score = buyCt - sellCt; // -9..9
-  return {price, oscillators, mas, buyCt, sellCt, neutralCt: all.length-buyCt-sellCt, score, ma20};
+  return { price: prix, oscillators, mas, buyCt, sellCt, neutralCt: all.length-buyCt-sellCt, score: buyCt-sellCt, ma20 };
 }
 
 function drawGauge(score){
@@ -3426,50 +3229,32 @@ function drawGauge(score){
   `;
 }
 
-function drawTAChart(ta){
+// Le tracé du graphique réutilise directement dessinerFxEvolutionUnique
+// (déjà écrit et testé pour la courbe FX) plutôt que de dupliquer une
+// logique de dessin distincte — même style, même comportement.
+
+async function renderTechnique(){
+  document.getElementById('taSymTitle').textContent = 'ANALYSE — ' + taActiveSym;
+
+  const points = await chargerPointsPourPeriode('pct_30d');
+  const pointsAvecPrix = points.filter(p => p.prix && p.prix[taActiveSym] !== null && p.prix[taActiveSym] !== undefined);
+  const closes = pointsAvecPrix.map(p => p.prix[taActiveSym]);
+  const seriePourGraphique = pointsAvecPrix.map(p => ({ t: new Date(p.horodatage).getTime(), v: p.prix[taActiveSym] }));
+
   const canvas = document.getElementById('taCanvas');
-  if(!canvas) return;
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
-  canvas.style.width=rect.width+'px'; canvas.style.height=rect.height+'px';
-  const c = canvas.getContext('2d');
-  c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-  const w = rect.width, h = rect.height;
-  c.clearRect(0,0,w,h);
-  const highs = candles.map(k=>k.h), lows = candles.map(k=>k.l);
-  const max = Math.max(...highs), min = Math.min(...lows);
-  const pad = (max-min)*0.08 || 1;
-  const yMax = max+pad, yMin = min-pad;
-  const n = candles.length, cw = w/n, bodyW = Math.max(2,cw*0.55);
-  const yFor = v => 6 + (h-16) * (1 - (v-yMin)/(yMax-yMin));
 
-  c.strokeStyle = '#1c212c'; c.lineWidth=1; c.font='10px IBM Plex Mono'; c.fillStyle='#576079';
-  for(let i=0;i<=4;i++){ const y=(h-16)*(i/4)+6; c.beginPath(); c.moveTo(0,y); c.lineTo(w,y); c.stroke(); }
+  if(closes.length < 26){
+    document.getElementById('oscList').innerHTML = '<div style="padding:14px; color:var(--text-low); font-family:var(--mono); font-size:12px;">Pas assez de données pour calculer les indicateurs (minimum ~26 points horaires).</div>';
+    document.getElementById('maList').innerHTML = '';
+    document.getElementById('srList').innerHTML = '';
+    document.getElementById('taSummary').innerHTML = '';
+    document.getElementById('gaugeLabel').textContent = '—';
+    drawGauge(0);
+    if(canvas) dessinerFxEvolutionUnique(canvas, seriePourGraphique, false);
+    return;
+  }
 
-  candles.forEach((k,i)=>{
-    const x = i*cw+cw/2;
-    const up = k.c>=k.o;
-    c.strokeStyle = up?'#22c48d':'#ef4a5a'; c.fillStyle = up?'#22c48d':'#ef4a5a';
-    c.beginPath(); c.moveTo(x,yFor(k.h)); c.lineTo(x,yFor(k.l)); c.stroke();
-    const yO=yFor(k.o), yC=yFor(k.c);
-    c.fillRect(x-bodyW/2, Math.min(yO,yC), bodyW, Math.max(1,Math.abs(yC-yO)));
-  });
-
-  // overlay MM20
-  c.strokeStyle = '#5b90ff'; c.lineWidth=1.6; c.beginPath();
-  candles.forEach((k,i)=>{
-    if(i<19) return;
-    const slice = candles.slice(i-19,i+1).map(k=>k.c);
-    const avg = slice.reduce((a,b)=>a+b,0)/slice.length;
-    const x=i*cw+cw/2, y=yFor(avg);
-    (i===19) ? c.moveTo(x,y) : c.lineTo(x,y);
-  });
-  c.stroke();
-}
-
-function renderTechnique(){
-  const ta = computeTA();
-  document.getElementById('taSymTitle').textContent = 'ANALYSE — ' + active.sym;
+  const ta = computeTAReel(closes);
   drawGauge(ta.score);
   let label = 'NEUTRE';
   if(ta.score>=4) label='ACHAT FORT'; else if(ta.score>0) label='ACHAT'; else if(ta.score<=-4) label='VENTE FORTE'; else if(ta.score<0) label='VENTE';
@@ -3479,29 +3264,23 @@ function renderTechnique(){
     <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':o.signal==='sell'?'VENTE':'NEUTRE'}</span></span></div>
   `).join('');
   document.getElementById('maList').innerHTML = ta.mas.map(o=>`
-    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">$${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':'VENTE'}</span></span></div>
+    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':'VENTE'}</span></span></div>
   `).join('');
 
-  const p = ta.price;
-  const sr = [
-    {label:'Résistance 2', val: p*1.045},
-    {label:'Résistance 1', val: p*1.018},
-    {label:'Prix actuel', val: p, current:true},
-    {label:'Support 1', val: p*0.982},
-    {label:'Support 2', val: p*0.955},
-  ];
+  const sr = calculerSupportsResistances(closes);
   document.getElementById('srList').innerHTML = sr.map(s=>`
     <div class="sr-row" style="${s.current?'color:var(--text-hi); background:var(--bg-2);':'color:var(--text-mid);'}">
-      <span>${s.label}</span><span>$${s.val.toFixed(2)}</span>
+      <span>${s.label}</span><span>${s.val.toFixed(5)}</span>
     </div>
   `).join('');
 
   document.getElementById('taSummary').innerHTML =
     `Sur ${ta.oscillators.length+ta.mas.length} indicateurs suivis : <span class="up">${ta.buyCt} à l'achat</span>, ` +
     `<span class="down">${ta.sellCt} à la vente</span>, ${ta.neutralCt} neutres. ` +
-    `Le signal global ressort <strong>${label.toLowerCase()}</strong> pour ${active.sym}.`;
+    `Le signal global ressort <strong>${label.toLowerCase()}</strong> pour ${taActiveSym}. ` +
+    `<span style="color:var(--text-low);">(RSI, MACD, MM : formules réelles. Stochastique/Williams %R/CCI : substituent la clôture au haut/bas horaire, non disponible dans l'archive actuelle.)</span>`;
 
-  drawTAChart(ta);
+  if(canvas) dessinerFxEvolutionUnique(canvas, seriePourGraphique, false);
 }
 
 
@@ -3514,7 +3293,6 @@ document.getElementById('mainNav').addEventListener('click', e=>{
   document.getElementById('page-'+btn.dataset.page).classList.add('active');
   switch(btn.dataset.page){
     case 'news': document.getElementById('newsDot').style.display='none'; renderNewsColumns(); break;
-    case 'accueil': resizeCanvas(); break;
     case 'calendrier': renderCalendar(); renderCesi(); break;
     case 'dataeco': renderEcoData(); break;
     case 'cesi': renderCesiPage(); break;
@@ -3526,22 +3304,18 @@ document.getElementById('mainNav').addEventListener('click', e=>{
 
 // init
 renderAll();
-renderTrades();
-resizeCanvas();
 renderFxTable();
 renderFxPerfChart();
 initialiserOngletsFxPerf();
 initialiserControlesFxEvolution();
+initialiserOngletsTechnique();
 renderFxEvolution();
+renderTechnique();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
 demarrerEcouteTempsReel();
 
-setInterval(()=>{ tickPrices(); renderTape(); renderWatchlist(); renderChartHeader(); drawChart(); document.getElementById('portfolioValue') && renderPortfolio(); }, 1500);
-setInterval(renderBook, 2500);
-setInterval(pushTrade, 1100);
 // Plus besoin de recharger périodiquement : Firestore pousse les mises à
 // jour en temps réel via onSnapshot (voir demarrerEcouteTempsReel()).
-setInterval(()=>{ document.getElementById('latency').textContent = 'latence: '+(8+Math.round(Math.random()*20))+'ms'; }, 2000);
 setInterval(renderCalendarHome, 30000);
 setInterval(renderCesi, 20000);
 </script>
