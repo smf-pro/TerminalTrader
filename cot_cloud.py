@@ -109,14 +109,23 @@ COLONNES_NUMERIQUES = [
 ]
 
 # Profondeur d'historique conservee PAR MARCHE (comme le limit(20) de
-# ecouterIndicateursTempsReel cote site). A cadence hebdomadaire, 20
-# publications = un peu moins de 5 mois d'historique glissant.
-HISTORIQUE_MAX = 20
+# ecouterIndicateursTempsReel cote site, mais releve ici pour couvrir
+# environ UN AN de publications hebdomadaires (52 semaines + une petite
+# marge), demande explicitement pour l'affichage cote site.
+HISTORIQUE_MAX = 55
 
 # Fenetre de secours interrogee a chaque cycle : largement superieure a 1
 # semaine pour absorber un cycle manque (script en panne une semaine,
 # rattrapage automatique au cycle suivant sans intervention manuelle).
-FENETRE_SECOURS_JOURS = 40
+# Portee a 380 jours (> HISTORIQUE_MAX semaines) pour permettre aussi le
+# BACKFILL initial : la toute premiere execution apres ce changement va
+# recuperer d'un coup tout l'historique disponible aupres du CFTC (qui le
+# conserve), au lieu de n'accumuler qu'une semaine a la fois a partir de
+# maintenant. mettre_a_jour_historique_marche() gere deja ce cas (voir le
+# test test_rattrapage_plusieurs_semaines_dun_coup) : les dates deja
+# connues sont ignorees, seules les nouvelles sont ecrites, dans l'ordre
+# chronologique.
+FENETRE_SECOURS_JOURS = 380
 
 
 def build_date_filter(start):
