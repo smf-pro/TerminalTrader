@@ -453,6 +453,25 @@
   .fx-row .fx-px, .fx-head-row span:not(:first-child){ text-align:right; }
   .fx-pct.na{ color:var(--text-low); }
 
+  /* Le panneau FX empile désormais beaucoup de contenu (onglets +
+     graphique de performance + tableau + courbe d'évolution + ses
+     propres onglets + graphique) — largement plus qu'un seul écran.
+     .panel étant un flex-container avec overflow:hidden (par défaut
+     pour les autres pages, à une seule zone scrollable), Flexbox
+     écrasait (flex-shrink) nos graphiques à hauteur fixe pour faire
+     tenir le tout, alors que le JS continue de dessiner en supposant
+     leur pleine hauteur (280px) — d'où le chevauchement visuel.
+     On rend ce panneau spécifiquement scrollable, et on fige la
+     hauteur de chaque section fixe pour qu'elle ne soit plus écrasée. */
+  #page-fx .panel{ overflow-y:auto; }
+  #page-fx .fx-perf-tabs,
+  #page-fx .fx-perf-chart,
+  #page-fx .fx-evol-head,
+  #page-fx .fx-evol-periods,
+  #page-fx .fx-evol-legend,
+  #page-fx .fx-evol-chart-area{ flex-shrink:0; }
+  #page-fx #fxTable{ flex:none; }
+
   /* ---------- FX PERFORMANCE (graphique type Finviz) ---------- */
   .fx-perf-tabs{
     display:flex; gap:4px; padding:10px 14px;
