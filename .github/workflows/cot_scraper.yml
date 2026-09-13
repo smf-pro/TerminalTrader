@@ -24,7 +24,8 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Ecrire la cle de service Firebase
         run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
-        env: { FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }} }
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
       - name: Lancer le script de collecte COT
         env: { GOOGLE_APPLICATION_CREDENTIALS: service_account.json }
         run: python cot_cloud.py
