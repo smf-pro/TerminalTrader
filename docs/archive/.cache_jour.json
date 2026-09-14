@@ -1,11 +1,21 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T06:41:26.600557+00:00",
+    "ff_news": "2026-09-14T07:55:26.926898+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T07:32:04.357544+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "extrait": "Ecb's Simkus: December Is Natural Time To Assess Sitaution MoreSimkus: Ecb Must Also Look At Energy Prices Before Oct. Meeting",
+      "url": "https://www.forexfactory.com/news/1418048-ecbs-simkus-december-is-natural-time-to-assess",
+      "source": "@FirstSquawk",
+      "titre": "ECB's Simkus: December Is Natural Time To Assess Situation More",
+      "date_recuperation": "2026-09-14T07:56:26.926898+00:00",
+      "date_publication": "2026-09-14T07:55:26.926898+00:00",
+      "impact": "low"
+    },
     {
       "titre": "Swiss Producer and Import Price Index rose by 0.7% in August",
       "impact": "low",
