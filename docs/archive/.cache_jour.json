@@ -3,43 +3,46 @@
   "curseurs": {
     "ff_news": "2026-09-14T06:41:26.600557+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T06:02:25.462204+00:00"
+    "il_articles": "2026-09-14T06:26:33.247447+00:00"
   },
   "ff_news": [
     {
-      "date_recuperation": "2026-09-14T06:43:26.600557+00:00",
-      "source": "bfs.admin.ch",
-      "impact": "low",
-      "url": "https://www.forexfactory.com/news/1418036-swiss-producer-and-import-price-index-rose-by",
-      "extrait": "The Producer and Import Price Index rose in August 2026 by 0.7% compared with the previous month, reaching 100.4 points (December 2025 = 100). In particular, petroleum products, chemical products, and petroleum and natural gas saw higher prices. Compared with August 2025, the price level of the whole range of domestic and imported products fell by 0.7%. ...",
-      "ignore": false,
       "titre": "Swiss Producer and Import Price Index rose by 0.7% in August",
-      "date_publication": "2026-09-14T06:41:26.600557+00:00"
+      "impact": "low",
+      "date_publication": "2026-09-14T06:41:26.600557+00:00",
+      "source": "bfs.admin.ch",
+      "extrait": "The Producer and Import Price Index rose in August 2026 by 0.7% compared with the previous month, reaching 100.4 points (December 2025 = 100). In particular, petroleum products, chemical products, and petroleum and natural gas saw higher prices. Compared with August 2025, the price level of the whole range of domestic and imported products fell by 0.7%. ...",
+      "date_recuperation": "2026-09-14T06:43:26.600557+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418036-swiss-producer-and-import-price-index-rose-by"
     },
     {
-      "source": "meti.go.jp",
-      "date_recuperation": "2026-09-14T06:01:21.454954+00:00",
-      "impact": "low",
-      "url": "https://www.forexfactory.com/news/1418022-japan-indices-of-industrial-production-for-july-2026",
-      "extrait": "tables",
-      "ignore": false,
       "titre": "Japan Indices of Industrial Production for July, 2026 (Revised Report)",
-      "date_publication": "2026-09-14T04:32:21.454954+00:00"
+      "impact": "low",
+      "date_publication": "2026-09-14T04:32:21.454954+00:00",
+      "source": "meti.go.jp",
+      "extrait": "tables",
+      "date_recuperation": "2026-09-14T06:01:21.454954+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418022-japan-indices-of-industrial-production-for-july-2026"
     },
     {
-      "source": "@financialjuice",
-      "date_recuperation": "2026-09-14T06:01:21.454954+00:00",
-      "impact": "low",
-      "url": "https://www.forexfactory.com/news/1417999-early-warning-issued-in-khamis-mushait-to-signal",
-      "extrait": "Early warning issued in Khamis Mushait to signal possible threat: Saudi civil defenseEarly Warning Issued In Abha To Alert Of Possible Danger: Saudi Civil Defense ...",
-      "ignore": false,
       "titre": "Early warning issued in Khamis Mushait to signal possible threat: Saudi civil defense",
-      "date_publication": "2026-09-14T00:01:21.454954+00:00"
+      "impact": "low",
+      "date_publication": "2026-09-14T00:01:21.454954+00:00",
+      "source": "@financialjuice",
+      "extrait": "Early warning issued in Khamis Mushait to signal possible threat: Saudi civil defenseEarly Warning Issued In Abha To Alert Of Possible Danger: Saudi Civil Defense ...",
+      "date_recuperation": "2026-09-14T06:01:21.454954+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1417999-early-warning-issued-in-khamis-mushait-to-signal"
     }
   ],
   "cb_articles": [
     {
+      "titre": "Fed rate hike bets surge as Wall Street analysts converge on September move",
       "date_recuperation": "2026-09-14T06:14:23.826121+00:00",
+      "contenu": "The likes of Goldman Sachs and JP Morgan turn more hawkish as inflation and rising oil prices reshape the Fed outlook\n\nIt is getting increasingly difficult to find anyone willing to stand in the way of a Fed rate hike this week.\n\nThe shift in analyst expectations has been pretty striking as we get into the new week. That especially after the US CPI report on Friday, continued tensions between US and Iran, and a further rise in long-term bond yields.\n\nGoldman Sachs, JP Morgan, and HSBC have all moved towards a 25 bps hike in September, after previously expecting the Fed to leave rates unchanged.\n\nAnd for some, September is no longer looking like a one-and-done move.\n\nHSBC now expects the Fed to raise interest rates by 25 bps in both September and December. Meanwhile, JPMorgan has made the same change in bringing forward a hike it had previously only expected in December.\n\nGoldman Sachs is a little less aggressive, pencilling in a 25 bps move this week after previously forecasting no change. But perhaps the more interesting part of its argument is less about the inflation data itself and more about what markets are already expecting.\n\n\"We think that the FOMC will be reluctant to surprise\", Goldman economist David Mericle said.\n\nThat matters when markets are now pricing around an 87% chance of a rate hike. Once expectations get that far along, holding rates steady becomes a much bigger policy signal than it otherwise would be.\n\nTaking a step back, the latest market developments are also a key reason as to why the consensus has shifted so quickly.\n\nInflation readings last week came in firm enough to raise doubts over whether the disinflation trend is really continuing, while oil prices have pushed back above $100 and Treasury yields remain around multi-year highs.\n\nJP Morgan economists summed up the change as a week of rising bond yields, higher energy prices and inflation data strong enough to make a September hike \"more likely than not\".\n\nAnd the hawkish shift is beginning to extend further down the road.\n\nDeutsche Bank already expects hikes in September and December and is now adding another 25 bps move in March 2027 to its forecast.\n\nThat is probably the bigger story heading into Wednesday. A September hike is rapidly becoming the consensus call. The more important question for markets may be whether the Fed treats it as an insurance move against inflation, or the beginning of another tightening sequence.",
+      "ignore": false,
       "date_publication": "2026-09-14T06:02:25.462204+00:00",
       "tags": [
         "Fed",
@@ -48,15 +51,25 @@
         "Bonds",
         "yield"
       ],
-      "contenu": "The likes of Goldman Sachs and JP Morgan turn more hawkish as inflation and rising oil prices reshape the Fed outlook\n\nIt is getting increasingly difficult to find anyone willing to stand in the way of a Fed rate hike this week.\n\nThe shift in analyst expectations has been pretty striking as we get into the new week. That especially after the US CPI report on Friday, continued tensions between US and Iran, and a further rise in long-term bond yields.\n\nGoldman Sachs, JP Morgan, and HSBC have all moved towards a 25 bps hike in September, after previously expecting the Fed to leave rates unchanged.\n\nAnd for some, September is no longer looking like a one-and-done move.\n\nHSBC now expects the Fed to raise interest rates by 25 bps in both September and December. Meanwhile, JPMorgan has made the same change in bringing forward a hike it had previously only expected in December.\n\nGoldman Sachs is a little less aggressive, pencilling in a 25 bps move this week after previously forecasting no change. But perhaps the more interesting part of its argument is less about the inflation data itself and more about what markets are already expecting.\n\n\"We think that the FOMC will be reluctant to surprise\", Goldman economist David Mericle said.\n\nThat matters when markets are now pricing around an 87% chance of a rate hike. Once expectations get that far along, holding rates steady becomes a much bigger policy signal than it otherwise would be.\n\nTaking a step back, the latest market developments are also a key reason as to why the consensus has shifted so quickly.\n\nInflation readings last week came in firm enough to raise doubts over whether the disinflation trend is really continuing, while oil prices have pushed back above $100 and Treasury yields remain around multi-year highs.\n\nJP Morgan economists summed up the change as a week of rising bond yields, higher energy prices and inflation data strong enough to make a September hike \"more likely than not\".\n\nAnd the hawkish shift is beginning to extend further down the road.\n\nDeutsche Bank already expects hikes in September and December and is now adding another 25 bps move in March 2027 to its forecast.\n\nThat is probably the bigger story heading into Wednesday. A September hike is rapidly becoming the consensus call. The more important question for markets may be whether the Fed treats it as an insurance move against inflation, or the beginning of another tightening sequence.",
-      "url": "https://investinglive.com/central-banks/fed-rate-hike-bets-surge-as-wall-street-analysts-converge-on-september-move/",
-      "ignore": false,
-      "titre": "Fed rate hike bets surge as Wall Street analysts converge on September move"
+      "url": "https://investinglive.com/central-banks/fed-rate-hike-bets-surge-as-wall-street-analysts-converge-on-september-move/"
     }
   ],
   "il_articles": [
     {
-      "date_recuperation": "2026-09-14T06:55:25.162507+00:00",
+      "titre": "What are the main events for today?",
+      "date_publication": "2026-09-14T06:26:33.247447+00:00",
+      "tags": [
+        "market overview"
+      ],
+      "categorie": "news",
+      "date_recuperation": "2026-09-14T07:00:27.608527+00:00",
+      "contenu": "The Canadian CPI is the only highlight\n\nEUROPEAN SESSION\n\nIn the European session, we don't have much on the agenda other than the Swiss PPI report. The data won't change anything for the SNB, so the market reaction will likely be muted.\n\nThe focus is currently on oil prices, with WTI and Brent both trading above the $100 level amid disruptions in the Strait of Hormuz, Bab-el Mandeb and increased supply concerns after Saudi Arabia shut a key oil pipeline following drone attacks.\n\nLooking ahead, the developments in the Middle East and the FOMC rate decision on Wednesday are going to be key for markets.\n\nAMERICAN SESSION\n\nIn the American session, the only highlight is the Canadian CPI report. Headline CPI Y/Y is expected at 3.0% vs 3.0% prior, while the Trimmed-Mean CPI (the core measure the BoC focuses on) is seen at 1.9% vs 1.9% prior.\n\nAs a reminder, the BoC surprised at the last policy meeting delivering a more hawkish than expected decision. The central bank removed the reference to the policy rate being \"appropriate\" and downplayed tariffs headwinds as businesses adapted. Since then, we got a soft Canadian employment report, with -41.7K job cuts in August and a much lower than expected wage growth at 2.0% y/y.\n\nThe only thing that's been keeping rate hike expectations alive is surging oil prices. The market is currently pricing in a 56% chance of a hike in October and a total of 128 bps of tightening by the end of 2027.\n\nCENTRAL BANK SPEAKERS\n\n09:15 GMT/05:15 ET - ECB's Schnabel (hawkish - voter)\n\n13:00 GMT/09:00 ET - ECB's Cipollone (neutral - voter)\n\n15:15 GMT/11:15 ET - ECB President Lagarde (hawkish - voter)",
+      "ignore": false,
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-41/"
+    },
+    {
+      "titre": "Fed rate hike bets surge as Wall Street analysts converge on September move",
+      "date_publication": "2026-09-14T06:02:25.462204+00:00",
       "tags": [
         "Fed",
         "USD",
@@ -64,67 +77,66 @@
         "Bonds",
         "yield"
       ],
-      "url": "https://investinglive.com/central-banks/fed-rate-hike-bets-surge-as-wall-street-analysts-converge-on-september-move/",
-      "ignore": false,
       "categorie": "central-banks",
-      "date_publication": "2026-09-14T06:02:25.462204+00:00",
+      "date_recuperation": "2026-09-14T06:55:25.162507+00:00",
       "contenu": "The likes of Goldman Sachs and JP Morgan turn more hawkish as inflation and rising oil prices reshape the Fed outlook\n\nIt is getting increasingly difficult to find anyone willing to stand in the way of a Fed rate hike this week.\n\nThe shift in analyst expectations has been pretty striking as we get into the new week. That especially after the US CPI report on Friday, continued tensions between US and Iran, and a further rise in long-term bond yields.\n\nGoldman Sachs, JP Morgan, and HSBC have all moved towards a 25 bps hike in September, after previously expecting the Fed to leave rates unchanged.\n\nAnd for some, September is no longer looking like a one-and-done move.\n\nHSBC now expects the Fed to raise interest rates by 25 bps in both September and December. Meanwhile, JPMorgan has made the same change in bringing forward a hike it had previously only expected in December.\n\nGoldman Sachs is a little less aggressive, pencilling in a 25 bps move this week after previously forecasting no change. But perhaps the more interesting part of its argument is less about the inflation data itself and more about what markets are already expecting.\n\n\"We think that the FOMC will be reluctant to surprise\", Goldman economist David Mericle said.\n\nThat matters when markets are now pricing around an 87% chance of a rate hike. Once expectations get that far along, holding rates steady becomes a much bigger policy signal than it otherwise would be.\n\nTaking a step back, the latest market developments are also a key reason as to why the consensus has shifted so quickly.\n\nInflation readings last week came in firm enough to raise doubts over whether the disinflation trend is really continuing, while oil prices have pushed back above $100 and Treasury yields remain around multi-year highs.\n\nJP Morgan economists summed up the change as a week of rising bond yields, higher energy prices and inflation data strong enough to make a September hike \"more likely than not\".\n\nAnd the hawkish shift is beginning to extend further down the road.\n\nDeutsche Bank already expects hikes in September and December and is now adding another 25 bps move in March 2027 to its forecast.\n\nThat is probably the bigger story heading into Wednesday. A September hike is rapidly becoming the consensus call. The more important question for markets may be whether the Fed treats it as an insurance move against inflation, or the beginning of another tightening sequence.",
-      "titre": "Fed rate hike bets surge as Wall Street analysts converge on September move"
+      "ignore": false,
+      "url": "https://investinglive.com/central-banks/fed-rate-hike-bets-surge-as-wall-street-analysts-converge-on-september-move/"
     },
     {
-      "date_recuperation": "2026-09-14T06:00:36.124564+00:00",
+      "titre": "Oil prices climb again as Hormuz disruption and Saudi pipeline attack deepen inflation fears",
+      "date_publication": "2026-09-14T05:27:15.979760+00:00",
       "tags": [
         "Oil",
         "crude oil futures",
         "oil analysis"
       ],
-      "url": "https://investinglive.com/commodities/oil-prices-climb-again-as-hormuz-disruption-and-saudi-pipeline-attack-deepen-inflation-fears/",
-      "titre": "Oil prices climb again as Hormuz disruption and Saudi pipeline attack deepen inflation fears",
       "categorie": "commodities",
-      "date_publication": "2026-09-14T05:27:15.979760+00:00",
       "contenu": "Higher oil prices continue to be the main story, adding to inflation pressures and an already-stretched bond market\n\nOil prices are starting the week with another push higher, with more disconcerting headlines from the Middle East offering little comfort to markets.\n\nSaudi Arabia's East-West pipeline, which has been an alternative to bypass the Strait of Hormuz and move roughly 4 million barrels per day towards the Red Sea, was temporarily shut following drone attacks.\n\nMeanwhile, the Strait of Hormuz itself remains an obvious problem. Ship vessel traffic fell to single digits per day over the weekend, compared with a 10-day average of 14 vessels. For some context, the strait typically handled around 125 large commercial vessels per day before the US-Iran war began.\n\nThe developments above are leading oil prices higher with Brent crude up 2.5% to $107.30 while WTI crude is gaining 2.7% to $102.70. The pressure remains firmly on after the sharp rise in energy prices over the past few weeks.\n\nAnd it's all coming as we get into an all-important week with the Fed decision on the calendar.\n\nWith higher oil prices, inflation will continue to be a hot topic for markets. That as the longer oil prices stay elevated, the harder it becomes for central banks to argue that the shock can simply be looked through.\n\nAnd that also feeds straight into the bond market.\n\n10-year Treasury yields are already sitting near 5% since the end of last week, with 30-year Treasury yields briefly crossing above 5.40% on Friday.\n\nThe inflation picture is one story driving that argument. But at the same time, market players are now increasingly more convinced that the Fed has to raise interest rates this week and the latest developments above only serve to reinforce that outlook.\n\nThe market pricing now shows that traders are pricing in ~87% odds of a rate hike for 16 September with another 25 bps rate hike more or less priced in for December next.\n\nThe next move by the Fed might feel a bit more straightforward in this case. But if things persist for much longer,central banks will have a bigger problem to deal with down the road.",
-      "ignore": false
+      "date_recuperation": "2026-09-14T06:00:36.124564+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/commodities/oil-prices-climb-again-as-hormuz-disruption-and-saudi-pipeline-attack-deepen-inflation-fears/"
     },
     {
-      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "titre": "PBOC sets USD/ CNY reference rate for today at 6.7698 (vs. estimate at 6.7083)",
+      "date_publication": "2026-09-14T01:15:24.217738+00:00",
       "tags": [
         "CNY",
         "CNH",
         "pboc"
       ],
-      "url": "https://investinglive.com/forex/pboc-sets-usd-cny-reference-rate-for-today-at-6-7-vs-estimate-at-6-7083/",
-      "titre": "PBOC sets USD/ CNY reference rate for today at 6.7698 (vs. estimate at 6.7083)",
-      "ignore": false,
-      "date_publication": "2026-09-14T01:15:24.217738+00:00",
+      "categorie": "forex",
       "contenu": "PBOC CNY reference rate setting for the trading session ahead.\n\nThe PBOC allows the yuan to fluctuate within a +/- 2% range, around this reference rate.More here on this.\n\nCNY midpoint strongest level since 3 February 2023\n\nNo 7 day reverse repo today\n\ninjected 504 bn yuan of overnight reverse repurchase operations",
-      "categorie": "forex"
+      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/forex/pboc-sets-usd-cny-reference-rate-for-today-at-6-7-vs-estimate-at-6-7083/"
     },
     {
-      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "titre": "CICC warns $100 oil could bring demand destruction into view",
+      "date_publication": "2026-09-14T00:37:27.412122+00:00",
       "tags": [
         "Oil",
         "oil price forecast"
       ],
-      "url": "https://investinglive.com/commodities/cicc-warns-100-oil-could-bring-demand-destruction-into-view/",
-      "titre": "CICC warns $100 oil could bring demand destruction into view",
-      "ignore": false,
-      "date_publication": "2026-09-14T00:37:27.412122+00:00",
+      "categorie": "commodities",
       "contenu": "China International Capital Corp raised its fourth quarter Brent forecast to $85 a barrel from $80, citing a slower Middle East crude restart and rising regional tensions that are re-pricing persistent supply losses and lifting the oil price floor.\n\nThe upward revision adds a notable data point from a major Chinese institution to the broader narrative that Middle East supply losses are proving more persistent than markets had priced earlier in the year, consistent with the pattern of escalating attacks on shipping and infrastructure already running through this morning's coverage. CICC's flagging of a potential demand ceiling above $100 a barrel is a useful counterweight to the pure supply side story, since it suggests the bank sees limits to how far a supply driven rally can run before affecting consumption. The commentary on compressed Eurasian refining margins, softening gasoline cracks from currently elevated levels, and structurally tight overseas diesel points to a more complex product market picture than the crude headline alone captures, with implications for refiners and product traders as much as for outright crude positioning.\n\nCICC has lifted its Brent forecast on the view that Middle East supply losses are proving stickier than expected, while flagging that oil above $100 could finally start denting demand.\n\nChina International Capital Corp raised its fourth quarter 2026 central Brent forecast to $85 a barrel, up from $80 set in June.\n\nThe bank cited a slower than expected Middle East crude restart since the third quarter and a recent escalation in regional tensions as reasons markets are re-pricing the persistence of supply losses.\n\nCICC said the revision reflects a more persistent supply shortfall and lower inventories, effectively lifting the floor under oil prices.\n\nThe note cautioned that end-user demand remains weak and that the summer recovery in consumption should not be extrapolated linearly, adding that a demand peak could emerge if oil tops $100 a barrel.\n\nIn product markets, CICC flagged that near-term increases in crude and freight costs are compressing refining margins across Eurasia.\n\nGasoline cracks face downside pressure from currently high levels, while overseas diesel is showing structural tightness and resilient crack spreads, according to the note.\n\nChina International Capital Corp has raised its central forecast for fourth quarter 2026 Brent crude to $85 a barrel, up from the $80 level it set in June, pointing to a Middle East supply picture that has proven more stubborn than markets had anticipated.\n\nThe bank's research note attributed the upward revision to a slower than expected restart of Middle East crude output since the third quarter, combined with a recent escalation in regional tensions that is prompting markets to re-price how long supply losses from the conflict are likely to persist. That reassessment, CICC said, is effectively lifting the floor under oil prices, with the revision reflecting both a more persistent supply shortfall and lower inventory levels than had previously been factored in.\n\nThe note struck a more cautious tone on the demand side, however. CICC said end-user demand remains weak and warned that the summer recovery in consumption should not be extrapolated in a straight line going forward. The bank flagged that if oil prices climb above $100 a barrel, a demand peak could begin to emerge, suggesting that further supply driven gains in crude may eventually run into a ceiling as higher prices start to weigh on consumption.\n\nBeyond crude itself, CICC's note addressed pressure building in product markets. Near term increases in both crude prices and freight costs are compressing refining margins across Eurasia, the bank said, squeezing the economics for refiners processing crude into finished products. Gasoline cracks, having climbed to currently elevated levels, face downside pressure from here, according to the note, while overseas diesel markets are showing structural tightness and more resilient crack spreads, pointing to a divergence between how the two major refined products are likely to trade in the period ahead.\n\nChina International Capital Corp, commonly known as CICC, is one of China's top tier investment banks and was the country's first international joint venture investment bank when it was founded in Beijing in 1995. It offers a full range of services spanning investment banking, equities, fixed income, currencies and commodities, research, private equity, and wealth management, with offices across mainland China as well as in Hong Kong, Singapore, New York, London, San Francisco, Frankfurt and Tokyo. Its research desk is widely regarded as one of the most influential sources of analysis on the Chinese economy and Asian capital markets, and its commodities coverage carries particular weight given China's position as the world's largest crude oil importer, meaning CICC's demand side observations often reflect insight into Chinese buying patterns that Western banks are less positioned to capture directly.",
-      "categorie": "commodities"
+      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/commodities/cicc-warns-100-oil-could-bring-demand-destruction-into-view/"
     },
     {
-      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7083 – Reuters estimate",
+      "date_publication": "2026-09-14T00:26:34.695690+00:00",
       "tags": [
         "CNY",
         "CNH",
         "pboc"
       ],
-      "url": "https://investinglive.com/forex/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7083-reuters-estimate/",
-      "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7083 – Reuters estimate",
-      "ignore": false,
-      "date_publication": "2026-09-14T00:26:34.695690+00:00",
+      "categorie": "forex",
       "contenu": "PBOC CNY reference rate setting for the trading session ahead.\n\nThe fixing mechanism matters most right now because of what it has been signalling over recent weeks. The PBOC set its reference rate at the widest weak side deviation from market estimates in six months in late August, after the yuan touched a three and a half year high, a clear sign of discomfort with the pace of gains rather than the level itself. Traders should read this as the central bank applying the brakes rather than attempting to reverse the broader trend, since the yuan has still risen a meaningful amount against the dollar this year. The balancing act Beijing faces is straightforward: a stronger currency helps with capital stability and import costs, but too rapid a rise risks eroding export competitiveness at a time when the domestic economy is showing renewed signs of softness. Watching the gap between the daily fixing and consensus estimates remains one of the more reliable ways to gauge PBOC intent in the days ahead.\n\n---The daily fixing is Beijing's quietest but clearest tool for telling markets how fast it wants the yuan to move, and lately the message has been to slow down.\n\nThe PBOC sets the daily USD/CNY reference rate, or midpoint, at around 0115 GMT, one of the most closely watched signals in Asian FX markets.\n\nChina operates a managed floating exchange rate system, allowing the yuan to trade within a band of plus or minus 2% around the daily midpoint during onshore hours.\n\nThe midpoint reflects a mix of inputs including the prior day's close, moves in major currencies, broader international FX conditions and domestic factors such as capital flows and growth momentum, with policymakers retaining discretion over the final number.\n\nIf market pressure pushes the yuan toward either edge of the band, the PBOC can intervene through direct buying or selling of yuan, liquidity adjustments, or guidance via state owned banks.\n\nA stronger than expected fixing typically signals the PBOC is leaning against depreciation, while a weaker fixing can indicate tolerance for a softer currency.\n\nIn late August, the PBOC set its fixing at the widest weak side deviation from market estimates in six months, shortly after the yuan hit a three and a half year high against the dollar.\n\nAnalysts characterised the move as the central bank applying the brakes on the pace of appreciation rather than trying to reverse the broader uptrend, with the yuan still up a meaningful amount against the dollar this year.\n\nThe underlying tension is that continued yuan strength risks hurting export competitiveness at a time when China's broader economy is showing renewed signs of weakness.\n\nThe People's Bank of China sets the daily USD/CNY reference rate at around 0115 GMT, a fixing that remains one of the most closely watched signals in Asian foreign exchange markets, and one that has taken on added significance in recent weeks as policymakers work to manage the pace of the yuan's rise.\n\nChina operates a managed floating exchange rate system, under which the yuan is allowed to trade within a band of plus or minus 2% around the central midpoint set each trading day. That midpoint reflects a mix of inputs, including the previous day's closing price, movements in major currencies such as the US dollar, broader international FX conditions, and domestic considerations like capital flows, growth momentum and financial stability objectives. The calculation is not purely mechanical, giving policymakers room to use the fixing to guide market expectations.\n\nOnce the midpoint is set, onshore USD/CNY trades freely within the allowable range. Should market pressure push the currency toward either edge of that band, the central bank can step in to smooth volatility, whether through direct buying or selling of yuan, adjustments to liquidity conditions, or guidance channelled through state owned banks. As a result, the daily fixing is often read as a policy signal rather than a purely technical reference point. A stronger than expected midpoint typically suggests the PBOC is leaning against depreciation, while a weaker fixing can signal tolerance for a softer currency, often in response to dollar strength or domestic headwinds.\n\nThis dynamic has played out clearly over the past couple of weeks. In late August, the PBOC set its fixing at the widest weak side deviation from market estimates in six months, coming shortly after the yuan touched a three and a half year high against the dollar. The move was widely read as a sign of unease with the speed of the currency's advance rather than its overall direction, with analysts describing the central bank as applying the brakes rather than reversing the trend. The yuan had still gained a meaningful amount against the dollar this year at that point, underscoring that Beijing's concern was pace rather than level.\n\nThe underlying tension is a familiar one. A firmer yuan supports capital stability and eases import costs, but a rapid rise risks undermining export competitiveness at a moment when China's broader economy continues to show signs of softness. For traders and investors, the gap between each day's fixing and consensus estimates remains one of the clearest windows into how Beijing is currently weighing that trade off.",
-      "categorie": "forex"
+      "date_recuperation": "2026-09-14T01:39:29.168994+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/forex/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7083-reuters-estimate/"
     }
   ]
 }
