@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-14T15:33:26.283233+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T15:08:02.590777+00:00"
+    "il_articles": "2026-09-14T16:14:29.303948+00:00"
   },
   "ff_news": [
     {
@@ -194,6 +194,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Zelensky says Trump's deal to stop energy strikes is just a proposal",
+      "tags": [
+        "Oil"
+      ],
+      "contenu": "Ukraine's President writes on twitter\n\nFor background, earlier Trump sais that Russia and Ukraine had both agreed to stop striking energy but it sounds like Zelensky hasn't agreed to anything and is seeking a larger deal. He's also skeptical that Russia will follow any deal.\n\nI'd expect some kind of communication from Russia at some point but they might see all this as weakness. Yes, Russia is facing shortages of fuel but soon the rest of the world might be as well and Trump is leaning on Ukraine and probably will continue to lean on them, whatever Russia does.",
+      "date_recuperation": "2026-09-14T16:15:23.424113+00:00",
+      "url": "https://investinglive.com/commodities/zelensky-says-trump-s-deal-to-stop-energy-strikes-is-just-a-proposal/",
+      "categorie": "commodities",
+      "ignore": false,
+      "date_publication": "2026-09-14T16:14:29.303948+00:00"
+    },
     {
       "titre": "Trump: Ukraine and Russia have agreed not to hit energy targets",
       "categorie": "commodities",
