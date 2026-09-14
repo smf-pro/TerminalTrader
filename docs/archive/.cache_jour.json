@@ -1,11 +1,21 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T08:04:21.570907+00:00",
+    "ff_news": "2026-09-14T08:13:56.724005+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T07:32:04.357544+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-14T08:13:56.724005+00:00",
+      "source": "@financialjuice",
+      "impact": "low",
+      "source": "@financialjuice",
+      "extrait": "Iran: US lack of mediation, is main obstacle to diplomacy.",
+      "date_recuperation": "2026-09-14T08:14:56.724005+00:00",
+      "url": "https://www.forexfactory.com/news/1418054-iran-us-lack-of-mediation-is-main-obstacle",
+      "titre": "Iran: US lack of mediation, is main obstacle to diplomacy"
+    },
     {
       "date_publication": "2026-09-14T08:04:21.570907+00:00",
       "url": "https://www.forexfactory.com/news/1418052-ecbs-kazimir-says-they-will-consider-all-options",
