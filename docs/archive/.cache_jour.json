@@ -1,11 +1,31 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T10:01:25.429079+00:00",
+    "ff_news": "2026-09-14T12:32:24.654090+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T11:29:43.242674+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418088-canada-monthly-survey-of-manufacturing-july-2026",
+      "extrait": "Following five consecutive monthly increases, total manufacturing sales were down 0.4% to $78.7 billion in July. Sales fell in 8 of the 21 subsectors, led by the chemical (-6.6%) and food (-1.4%) subsectors. The declines were partially offset by a 1.9% increase in petroleum and coal product sales. Despite the overall monthly decline, total manufacturing ...",
+      "impact": "low",
+      "titre": "Canada Monthly Survey of Manufacturing, July 2026",
+      "date_recuperation": "2026-09-14T12:33:24.654090+00:00",
+      "ignore": false,
+      "source": "statcan.gc.ca",
+      "date_publication": "2026-09-14T12:32:24.654090+00:00"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1418087-canada-consumer-price-index-august-2026",
+      "extrait": "The Consumer Price Index (CPI) rose 3.0% year over year in August, matching the 3.0% increase in July. Year over year, prices for gasoline rose at a slower pace in August compared with July, putting downward pressure on the all-items CPI. Excluding gasoline, the CPI rose 2.4% in August, after increasing 2.2% in July. In August, the slowdown in gasoline ...",
+      "titre": "Canada Consumer Price Index, August 2026",
+      "impact": "high",
+      "date_recuperation": "2026-09-14T12:32:22.186593+00:00",
+      "ignore": false,
+      "source": "statcan.gc.ca",
+      "date_publication": "2026-09-14T12:31:22.186593+00:00"
+    },
     {
       "ignore": false,
       "titre": "Ecbs Schnabel: Recent Energy Price Developments Are Quite Concerning",
