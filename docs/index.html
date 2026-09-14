@@ -342,6 +342,17 @@
   .eco-empty{ padding:32px 14px; text-align:center; color:var(--text-low); font-size:12px; }
   .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
 
+  /* ---------- TAUX IMPLICITE : bascule % / pb ---------- */
+  .taux-chart-toggle{ display:flex; justify-content:center; gap:8px; padding:10px 14px; border-top:1px solid var(--line); background:var(--bg-1); }
+  .taux-toggle-btn{
+    font-family:var(--mono); font-size:10px; letter-spacing:0.4px; text-transform:uppercase;
+    padding:5px 10px; border-radius:5px; border:1px solid var(--line);
+    background:var(--bg-0); color:var(--text-mid); cursor:pointer;
+    transition:background .12s, border-color .12s, color .12s;
+  }
+  .taux-toggle-btn:hover{ color:var(--text-hi); }
+  .taux-toggle-btn.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:inset 0 -2px 0 var(--gold); }
+
   /* ---------- CESI ---------- */
   .cesi-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
   .cesi-card{ background:var(--bg-0); padding:14px 16px; }
@@ -402,10 +413,19 @@
   .bps-row .bps-bank{ font-size:11.5px; color:var(--text-mid); }
   .bps-row .bps-meeting{ font-family:var(--mono); font-size:10px; color:var(--text-low); margin-top:2px; }
   .bps-row .bps-value{ font-family:var(--mono); font-weight:600; font-size:17px; margin-top:7px; }
-  .pm-row{ padding:11px 14px; border-bottom:1px solid var(--line); }
+  .pm-row{ padding:11px 14px; border-bottom:1px solid var(--line); cursor:pointer; transition:background 0.15s; border-left:2px solid transparent; }
+  .pm-row:hover{ background:var(--bg-2); }
+  .pm-row.pm-row-active{ background:var(--gold-soft); border-left:2px solid var(--gold); }
   .pm-row .pm-top{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px; }
   .pm-row .pm-bank{ font-size:11.5px; color:var(--text-hi); }
   .pm-row .pm-date{ font-family:var(--mono); font-size:10px; color:var(--text-low); white-space:nowrap; }
+  .pm-back{
+    display:flex; align-items:center; gap:6px;
+    padding:10px 14px; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:10.5px; color:var(--blue);
+    cursor:pointer; transition:background 0.15s;
+  }
+  .pm-back:hover{ background:var(--bg-2); }
   .prob-table{ width:100%; border-collapse:collapse; }
   .prob-table thead th{ text-align:left; font-size:10px; color:var(--text-low); padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); }
   .prob-table tbody td{ padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
@@ -415,20 +435,51 @@
   .prob-bar .seg-hold{ background:var(--text-low); height:100%; }
   .prob-bar .seg-hike{ background:var(--red); height:100%; }
 
-  /* --- analyse technique --- */
-  .ta-grid{ display:grid; grid-template-columns:280px 1fr 260px; gap:1px; background:var(--line); flex:1; overflow:hidden; }
-  .ta-col{ background:var(--bg-0); overflow-y:auto; }
-  .gauge-wrap{ padding:20px 16px; text-align:center; border-bottom:1px solid var(--line); }
-  .gauge-label{ font-family:var(--mono); font-size:13px; font-weight:600; margin-top:8px; letter-spacing:0.4px; }
-  .ind-row{ display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
-  .ind-row .iname{ color:var(--text-mid); }
-  .ind-row .ival{ font-family:var(--mono); }
-  .ind-signal{ font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:3px; font-weight:600; }
-  .ind-signal.buy{ background:rgba(38,194,129,0.15); color:var(--green); }
-  .ind-signal.sell{ background:rgba(229,72,77,0.15); color:var(--red); }
-  .ind-signal.neutral{ background:rgba(139,150,168,0.15); color:var(--text-mid); }
-  .ta-chart-area{ padding:14px; height:100%; }
-  .sr-row{ display:flex; justify-content:space-between; padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:12px; }
+  /* barre divergente pb (centrée sur 0 : baisse = gauche/vert, hausse = droite/rouge) */
+  .bps-bar{ position:relative; flex:1; height:6px; background:var(--bg-2); border-radius:3px; overflow:hidden; }
+  .bps-bar-fill{ position:absolute; left:0; top:0; height:100%; border-radius:2px; }
+  .bps-bar-fill.cut{ background:var(--green); }
+  .bps-bar-fill.hike{ background:var(--red); }
+  .bps-val{ font-family:var(--mono); font-size:10.5px; font-weight:600; white-space:nowrap; }
+
+  /* diagramme fusionné (type "bullet chart") : bande extérieure atténuée =
+     cumul 12 mois, bande intérieure pleine couleur imbriquée = prochaine
+     réunion — les deux infos sur une seule bande. */
+  .bps-combo-labels{ display:flex; justify-content:space-between; gap:8px; font-family:var(--mono); font-size:9.5px; color:var(--text-low); text-transform:uppercase; letter-spacing:0.2px; margin-bottom:6px; }
+  .bps-combo-labels b{ font-family:var(--mono); font-weight:600; text-transform:none; letter-spacing:0; margin-left:5px; font-size:11px; }
+  .bps-combo-bar{ position:relative; width:100%; height:11px; background:var(--bg-2); border-radius:4px; overflow:hidden; }
+  .bps-combo-fill-12m{ position:absolute; left:0; top:0; height:100%; border-radius:4px; opacity:0.32; }
+  .bps-combo-fill-next{ position:absolute; left:0; top:2px; height:7px; border-radius:3px; }
+  .bps-combo-fill-12m.cut, .bps-combo-fill-next.cut{ background:var(--green); }
+  .bps-combo-fill-12m.hike, .bps-combo-fill-next.hike{ background:var(--red); }
+
+  /* regroupement par banque centrale : 2 diagrammes (prochaine réunion / sur 12 mois),
+     structurés comme PROCHAINES RÉUNIONS (label+valeur au-dessus, barre pleine largeur en dessous) */
+  .bank-group{ padding:12px 14px; border-bottom:1px solid var(--line); cursor:pointer; transition:background 0.15s; border-left:2px solid transparent; }
+  .bank-group:hover{ background:var(--bg-2); }
+  .bank-group.bank-group-active{ background:var(--gold-soft); border-left:2px solid var(--gold); }
+  .bank-group-head{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:9px; }
+  .bank-group-head .bgh-name{ font-size:11.5px; color:var(--text-hi); font-weight:600; }
+  .bank-group-head .bgh-date{ font-family:var(--mono); font-size:10px; font-weight:400; color:var(--text-low); white-space:nowrap; }
+
+  /* --- analyse technique : force des devises (8 fenêtres) --- */
+  .cs-toolbar{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding:12px 16px; border-bottom:1px solid var(--line); background:var(--bg-1); flex-shrink:0;
+  }
+  .cs-title{ font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:0.5px; }
+  .cs-title-sub{ font-family:var(--sans); font-weight:400; font-size:11px; color:var(--text-low); margin-left:10px; }
+  .cs-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr);
+    gap:1px; background:var(--line); flex:1; overflow:hidden;
+  }
+  .cs-panel{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .cs-panel-head{ display:flex; align-items:baseline; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--line); flex-shrink:0; }
+  .cs-name{ font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:0.5px; }
+  .cs-val{ font-family:var(--mono); font-size:12.5px; color:var(--text-mid); }
+  .cs-val.up{ color:var(--green); }
+  .cs-val.down{ color:var(--red); }
+  .cs-chart-area{ flex:1; padding:8px; min-height:0; position:relative; }
 
   /* ---------- FX LIVE ---------- */
   .fx-head-row, .fx-row{
@@ -631,6 +682,7 @@
       <button class="nav-btn" data-page="taux">TAUX IMPLICITE</button>
       <button class="nav-btn" data-page="technique">ANALYSE TECH.</button>
       <button class="nav-btn" data-page="fx">FX<span class="src-status-dot" id="dot-fxforex" title=""></span></button>
+      <button class="nav-btn" data-page="cot">COT<span class="src-status-dot" id="dot-cot" title=""></span></button>
     </nav>
     <div class="search">
       <span style="color:var(--text-low); font-family:var(--mono); font-size:12px;">⌕</span>
@@ -796,18 +848,9 @@
 
   <!-- ===================== TAUX IMPLICITE ===================== -->
   <div class="page" id="page-taux">
-    <div class="page-heading eco-heading" style="padding:16px 22px 0;">
-      <h1>Taux implicite</h1>
-      <div class="eco-filters" id="tauxFilters">
-        <div class="eco-filter-group">
-          <span class="flabel">Banque centrale</span>
-          <div id="tauxFilterCcy"></div>
-        </div>
-      </div>
-    </div>
-    <div class="taux-layout" style="margin-top:16px;">
+    <div class="taux-layout" style="margin-top:22px;">
       <div class="taux-col">
-        <div class="panel-head"><span>IMPLICITE EN PB — PAR RÉUNION</span></div>
+        <div class="panel-head"><span>IMPLICITE EN PB — PAR BANQUE CENTRALE</span></div>
         <div class="panel-body" id="bpsList"></div>
       </div>
       <div class="taux-col">
@@ -816,6 +859,11 @@
           <span id="tauxChartSub" style="font-weight:400;"></span>
         </div>
         <div class="taux-chart-area"><canvas id="tauxEvolCanvas"></canvas></div>
+        <div class="taux-chart-toggle" id="tauxChartToggle">
+          <button class="taux-toggle-btn" data-mode="pct">Prochaine réunion (%)</button>
+          <button class="taux-toggle-btn active" data-mode="bps_next">Évolution pb (prochaine réunion)</button>
+          <button class="taux-toggle-btn" data-mode="bps_1y">Évolution 1 an (pb)</button>
+        </div>
       </div>
       <div class="taux-col">
         <div class="panel-head"><span>PROCHAINES RÉUNIONS</span></div>
@@ -824,40 +872,28 @@
     </div>
   </div>
 
-  <!-- ===================== ANALYSE TECHNIQUE ===================== -->
+  <!-- ===================== ANALYSE TECHNIQUE — FORCE DES DEVISES ===================== -->
   <div class="page" id="page-technique">
-    <div class="ta-grid">
-      <div class="ta-col">
-        <div class="gauge-wrap">
-          <svg width="160" height="90" viewBox="0 0 160 90" id="gaugeSvg"></svg>
-          <div class="gauge-label" id="gaugeLabel">—</div>
-        </div>
-        <div class="panel-head"><span>OSCILLATEURS</span></div>
-        <div id="oscList"></div>
-        <div class="panel-head"><span>MOYENNES MOBILES</span></div>
-        <div id="maList"></div>
+    <div class="cs-toolbar">
+      <div><span class="cs-title">FORCE DES DEVISES</span><span class="cs-title-sub">Indice = produit des 7 paires croisées de chaque devise, indexé à 0% en début de période</span></div>
+      <div class="fx-perf-tabs" id="csPeriodTabs">
+        <span class="fx-perf-tab" data-periode="pct_24h">24h</span>
+        <span class="fx-perf-tab" data-periode="pct_7d">7j</span>
+        <span class="fx-perf-tab active" data-periode="pct_30d">30j</span>
+        <span class="fx-perf-tab" data-periode="pct_jour">Jour</span>
+        <span class="fx-perf-tab" data-periode="pct_semaine">Semaine</span>
+        <span class="fx-perf-tab" data-periode="pct_mois">Mois</span>
       </div>
-      <div class="ta-col" style="overflow:hidden;">
-        <div class="panel-head">
-          <span id="taSymTitle">ANALYSE — EURUSD</span>
-        </div>
-        <div class="fx-perf-tabs" id="taSymTabs">
-          <span class="fx-perf-tab active" data-sym="EURUSD">EURUSD</span>
-          <span class="fx-perf-tab" data-sym="GBPUSD">GBPUSD</span>
-          <span class="fx-perf-tab" data-sym="CHFUSD">CHFUSD</span>
-          <span class="fx-perf-tab" data-sym="CADUSD">CADUSD</span>
-          <span class="fx-perf-tab" data-sym="AUDUSD">AUDUSD</span>
-          <span class="fx-perf-tab" data-sym="NZDUSD">NZDUSD</span>
-          <span class="fx-perf-tab" data-sym="JPYUSD">JPYUSD</span>
-        </div>
-        <div class="ta-chart-area"><canvas id="taCanvas"></canvas></div>
-      </div>
-      <div class="ta-col">
-        <div class="panel-head"><span>SUPPORTS &amp; RÉSISTANCES</span></div>
-        <div id="srList"></div>
-        <div class="panel-head"><span>RÉSUMÉ DES SIGNAUX</span></div>
-        <div style="padding:12px 14px; font-size:12px; color:var(--text-mid); line-height:1.6;" id="taSummary"></div>
-      </div>
+    </div>
+    <div class="cs-grid" id="csGrid">
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">USD</span><span class="cs-val" id="csVal-USD">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-USD"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">CAD</span><span class="cs-val" id="csVal-CAD">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-CAD"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">EUR</span><span class="cs-val" id="csVal-EUR">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-EUR"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">GBP</span><span class="cs-val" id="csVal-GBP">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-GBP"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">CHF</span><span class="cs-val" id="csVal-CHF">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-CHF"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">JPY</span><span class="cs-val" id="csVal-JPY">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-JPY"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">AUD</span><span class="cs-val" id="csVal-AUD">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-AUD"></canvas></div></div>
+      <div class="cs-panel"><div class="cs-panel-head"><span class="cs-name">NZD</span><span class="cs-val" id="csVal-NZD">—</span></div><div class="cs-chart-area"><canvas id="csCanvas-NZD"></canvas></div></div>
     </div>
   </div>
 
@@ -910,6 +946,48 @@
       </div>
       <div class="fx-evol-legend" id="fxEvolLegend"></div>
       <div class="fx-evol-chart-area"><canvas id="fxEvolCanvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===================== COT (COMMITMENTS OF TRADERS) ===================== -->
+  <div class="page" id="page-cot">
+    <div class="page-heading eco-heading" style="padding:16px 22px 0;">
+      <h1>COT — Positionnement spéculateurs<span class="src-status-dot" id="dot-cot-page" title=""></span><span class="src-status-time" id="time-cot"></span></h1>
+      <div class="eco-filters" id="cotFilters">
+        <div class="eco-filter-group">
+          <span class="flabel">Rapport</span>
+          <div id="cotFilterReport"></div>
+        </div>
+        <div class="eco-filter-group">
+          <span class="flabel">Devise</span>
+          <div id="cotFilterCcy"></div>
+        </div>
+      </div>
+    </div>
+    <div class="taux-layout" style="margin-top:16px; grid-template-columns:1fr 1.4fr;">
+      <div class="taux-col">
+        <div class="panel-head"><span>DERNIÈRES VALEURS PAR DEVISE</span></div>
+        <div class="panel-body">
+          <table class="cal-table">
+            <thead>
+              <tr>
+                <th>Devise</th><th>Date</th>
+                <th style="text-align:right">Lev. Money Net</th>
+                <th style="text-align:right">Asset Mgr Net</th>
+                <th style="text-align:right">Var. semaine</th>
+              </tr>
+            </thead>
+            <tbody id="cotTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="taux-col">
+        <div class="panel-head">
+          <span id="cotChartTitle">ÉVOLUTION — LEVERAGED FUNDS — EUR</span>
+          <span style="font-weight:400; font-size:10px;">Long, short et net, source CFTC, publication hebdomadaire (mardi)</span>
+        </div>
+        <div class="taux-chart-area"><canvas id="cotEvolCanvas"></canvas></div>
+      </div>
     </div>
   </div>
 
@@ -1077,6 +1155,14 @@ function ecouterCalendrierTempsReel(){
 // UNIQUEMENT a l'horloge en haut a droite ("le pipeline tourne bien"),
 // separement de la date/heure des articles eux-memes (deja correcte).
 const SOURCES_PIPELINE = ['forexfactory', 'centralbanks', 'investinglive', 'ecocalendar', 'data-usd', 'data-cad', 'data-eur', 'data-gbp', 'data-chf', 'data-jpy', 'data-aud', 'data-nzd', 'fxforex'];
+// NOTE : 'cot-futures' et 'cot-combined' ne sont volontairement PAS dans
+// cette liste. SOURCES_PIPELINE alimente l'horloge globale, dont le seuil
+// d'alerte (SEUIL_ALERTE_MINUTES = 15 min) suppose des scripts a cadence
+// 5 minutes - le COT tourne 1x/semaine, il serait en permanence detecte
+// comme "silencieux" et fausserait l'horloge globale (qui afficherait sa
+// vieille date au lieu de la fraicheur reelle des autres scripts). Le COT
+// a sa PROPRE pastille (voir mettreAJourPastilleCot et SOURCES_COT plus
+// bas), sur le meme principe que mettreAJourPastilleDataEco.
 let statutPipeline = {}; // { nomSource: {derniereExecution, statut, liensVus, articlesNouveaux, erreur} }
 
 function ecouterStatutPipeline(nomSource){
@@ -1524,6 +1610,341 @@ function ecouterFxTempsReel(){
     });
 }
 
+// ===== COT (Commitments of Traders, CFTC) =====
+// Alimenté par cot_cloud.py -> collections cot_futures_only_history et
+// cot_combined_history (un document = une publication hebdomadaire pour
+// UN marche, champ 'position' = 0 pour la plus recente - meme patron que
+// ff_indicator_history). Contrairement a ecouterIndicateursTempsReel (un
+// listener par indicateur, filtre sur le slug), ici on ouvre UN SEUL
+// listener PAR COLLECTION (pas par marche) : le volume total est faible
+// (~20 semaines x ~12 devises), et lire toute la collection en une fois
+// evite tout risque de decalage entre le nom de marche stocke cote CFTC
+// (qui inclut le suffixe de bourse, ex: "EURO FX - CHICAGO MERCANTILE
+// EXCHANGE") et un nom qu'on aurait code en dur cote site pour un
+// where() - le regroupement par devise se fait ici, cote client, a partir
+// du nom de marche SANS le suffixe de bourse.
+const COLLECTIONS_COT = {
+  futures_only: 'cot_futures_only_history',
+  combined: 'cot_combined_history',
+};
+
+// Sous-ensemble des marches stockes en base qu'on affiche sur le site :
+// exclut volontairement les contrats croises type "EURO FX/BRITISH POUND
+// XRATE" (matchent aussi le mot-cle "EURO FX" cote script Python, mais ne
+// sont pas des sentiments par devise directement exploitables ici).
+// ATTENTION : nomBase doit correspondre EXACTEMENT au nom CFTC reel (verifie
+// sur https://www.cftc.gov/dea/futures/financial_lf.htm), qui differe parfois
+// de l'intitule usuel de la devise : "NZ DOLLAR" (pas "NEW ZEALAND DOLLAR"),
+// "SO AFRICAN RAND" (pas "SOUTH AFRICAN RAND"), "USD INDEX" (pas "U.S.
+// DOLLAR INDEX", cote ICE Futures U.S. et non CME).
+const MARCHES_COT = [
+  {nomBase:'EURO FX', ccy:'EUR'},
+  {nomBase:'JAPANESE YEN', ccy:'JPY'},
+  {nomBase:'BRITISH POUND', ccy:'GBP'},
+  {nomBase:'SWISS FRANC', ccy:'CHF'},
+  {nomBase:'CANADIAN DOLLAR', ccy:'CAD'},
+  {nomBase:'AUSTRALIAN DOLLAR', ccy:'AUD'},
+  {nomBase:'NZ DOLLAR', ccy:'NZD'},
+  {nomBase:'MEXICAN PESO', ccy:'MXN'},
+  {nomBase:'BRAZILIAN REAL', ccy:'BRL'},
+  {nomBase:'RUSSIAN RUBLE', ccy:'RUB'},
+  {nomBase:'SO AFRICAN RAND', ccy:'ZAR'},
+  {nomBase:'USD INDEX', ccy:'USD'},
+];
+const CCY_PAR_NOM_BASE_COT = Object.fromEntries(MARCHES_COT.map(m => [m.nomBase, m.ccy]));
+const ORDRE_CCY_COT = MARCHES_COT.map(m => m.ccy);
+
+// { futures_only: { EUR: [ {position, date, ...}, ... ] }, combined: {...} }
+// Chaque liste triee par position CROISSANT (0 = plus recente en premier).
+let cotDonnees = { futures_only: {}, combined: {} };
+let cotReportActif = 'futures_only';
+let cotDeviseActive = 'EUR';
+
+function itemDepuisDocCot(d){
+  return {
+    date: d.report_date_as_yyyy_mm_dd || '',
+    position: d.position ?? 999,
+    open_interest: d.open_interest_all ?? null,
+    lev_money_long: d.lev_money_positions_long ?? null,
+    lev_money_short: d.lev_money_positions_short ?? null,
+    lev_money_net: d.lev_money_net_position ?? null,
+    asset_mgr_long: d.asset_mgr_positions_long ?? null,
+    asset_mgr_short: d.asset_mgr_positions_short ?? null,
+    asset_mgr_net: d.asset_mgr_net_position ?? null,
+  };
+}
+
+function ecouterCotTempsReel(){
+  Object.entries(COLLECTIONS_COT).forEach(([reportType, collection]) => {
+    // Pas de where() ici : juste un tri par 'position' (index simple,
+    // automatique cote Firestore, aucun index composite necessaire pour
+    // CETTE requete precise - contrairement a l'ecriture cote Python qui,
+    // elle, filtre ET trie sur 2 champs differents).
+    dbFirestore.collection(collection)
+      .orderBy('position', 'asc')
+      .limit(500)
+      .onSnapshot(snapshot => {
+        const parDevise = {};
+        snapshot.docs.forEach(doc => {
+          const data = doc.data();
+          const nomBase = (data.market_and_exchange_names || '').split(' - ')[0].trim();
+          const ccy = CCY_PAR_NOM_BASE_COT[nomBase];
+          if(!ccy) return; // marche non suivi sur le site (ex: contrat croise XRATE)
+          if(!parDevise[ccy]) parDevise[ccy] = [];
+          parDevise[ccy].push(itemDepuisDocCot(data));
+        });
+        Object.values(parDevise).forEach(liste => liste.sort((a, b) => a.position - b.position));
+        cotDonnees[reportType] = parDevise;
+        renderCot();
+      }, erreur => {
+        console.error('Erreur écoute temps réel ' + collection + ' :', erreur);
+      });
+  });
+}
+
+// Pastille agregee (2 sources : cot-futures, cot-combined), meme principe
+// que mettreAJourPastilleDataEco (pire statut des N sources qui alimentent
+// une seule pastille visible).
+const SOURCES_COT = ['cot-futures', 'cot-combined'];
+
+function mettreAJourPastilleCot(){
+  const dotNav = document.getElementById('dot-cot');
+  const dotPage = document.getElementById('dot-cot-page');
+  const tempsEl = document.getElementById('time-cot');
+  if(!dotNav && !dotPage) return;
+
+  const entrees = SOURCES_COT
+    .map(nom => ({nom, info: statutPipeline[nom]}))
+    .filter(e => e.info && e.info.derniereExecution);
+
+  [dotNav, dotPage].forEach(dot => dot && dot.classList.remove('ok', 'ok_partiel', 'erreur'));
+
+  if(entrees.length === 0){
+    const texte = 'Aucune donnée reçue pour le moment (COT)';
+    if(dotNav) dotNav.title = texte;
+    if(dotPage) dotPage.title = texte;
+    if(tempsEl) tempsEl.textContent = '';
+    return;
+  }
+
+  entrees.sort((a, b) => a.info.derniereExecution - b.info.derniereExecution);
+  const plusAncienne = entrees[0];
+  const minutesEcoulees = (Date.now() - plusAncienne.info.derniereExecution.getTime()) / 60000;
+  // Seuil de silence bien plus large que SEUIL_ALERTE_MINUTES (15 min) :
+  // le COT tourne 1x/semaine, un ecart de quelques heures ne veut rien
+  // dire. On considere "silencieux" au-dela de 8 jours (marge sur la
+  // cadence hebdomadaire + le rattrapage du samedi).
+  const silencieux = minutesEcoulees > 8 * 24 * 60;
+  const yAUneErreur = entrees.some(e => e.info.statut === 'erreur') || silencieux;
+  const yAUnePartielle = entrees.some(e => e.info.statut === 'ok_partiel');
+  const classe = yAUneErreur ? 'erreur' : (yAUnePartielle ? 'ok_partiel' : 'ok');
+
+  [dotNav, dotPage].forEach(dot => dot && dot.classList.add(classe));
+
+  const titre = SOURCES_COT.map(nom => {
+    const info = statutPipeline[nom];
+    if(!info || !info.derniereExecution) return nom + ' : aucune donnée reçue';
+    const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+    return nom + ' : ' + formaterDateCarte(info.derniereExecution) + ' ' + heure + ' (' + info.statut + ', ' + info.articlesNouveaux + ' nouvelle(s) semaine(s))';
+  }).join('\n');
+  if(dotNav) dotNav.title = titre;
+  if(dotPage) dotPage.title = titre;
+
+  if(tempsEl){
+    const heure = plusAncienne.info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+    tempsEl.textContent = formaterDateCarte(plusAncienne.info.derniereExecution) + ' ' + heure;
+  }
+}
+
+function renderCotFiltres(){
+  const reportHtml = [['futures_only','Futures only'],['combined','Futures + options']].map(([val,label]) =>
+    `<button class="eco-chip ${cotReportActif===val?'active':''}" data-report="${val}">${label}</button>`
+  ).join('');
+  document.getElementById('cotFilterReport').innerHTML = reportHtml;
+
+  const devisesPresentes = ORDRE_CCY_COT.filter(ccy => (cotDonnees[cotReportActif][ccy] || []).length > 0);
+  const ccyHtml = (devisesPresentes.length ? devisesPresentes : ORDRE_CCY_COT).map(ccy =>
+    `<button class="eco-chip ${cotDeviseActive===ccy?'active':''}" data-ccy="${ccy}">${flagFor(ccy)} ${ccy}</button>`
+  ).join('');
+  document.getElementById('cotFilterCcy').innerHTML = ccyHtml;
+}
+
+function formaterNombreCot(v){
+  if(v === null || v === undefined) return '—';
+  return v.toLocaleString('fr-FR');
+}
+
+function renderCotTable(){
+  const corps = ORDRE_CCY_COT.map(ccy => {
+    const liste = cotDonnees[cotReportActif][ccy];
+    if(!liste || !liste.length) return null;
+    const dernier = liste[0]; // position 0 = plus recent
+    const precedent = liste[1]; // position 1 = semaine d'avant (peut etre absent)
+    let variationHtml = '<span style="color:var(--text-low);">—</span>';
+    if(precedent && dernier.lev_money_net !== null && precedent.lev_money_net !== null){
+      const delta = dernier.lev_money_net - precedent.lev_money_net;
+      const classe = delta > 0 ? 'up' : delta < 0 ? 'down' : '';
+      variationHtml = `<span class="${classe}">${delta > 0 ? '+' : ''}${formaterNombreCot(delta)}</span>`;
+    }
+    return `
+      <tr style="cursor:pointer; ${ccy===cotDeviseActive?'background:var(--bg-2);':''}" data-ccy="${ccy}">
+        <td>${flagFor(ccy)} ${ccy}</td>
+        <td style="color:var(--text-low); font-family:var(--mono); font-size:11px;">${dernier.date}</td>
+        <td style="text-align:right; font-family:var(--mono);">${formaterNombreCot(dernier.lev_money_net)}</td>
+        <td style="text-align:right; font-family:var(--mono);">${formaterNombreCot(dernier.asset_mgr_net)}</td>
+        <td style="text-align:right;">${variationHtml}</td>
+      </tr>`;
+  }).filter(Boolean);
+
+  document.getElementById('cotTableBody').innerHTML = corps.length
+    ? corps.join('')
+    : '<tr><td colspan="5" style="padding:14px; color:var(--text-low); text-align:center;">Aucune donnée COT reçue pour le moment.</td></tr>';
+}
+
+// Graphique dedie au COT : contrairement a dessinerFxEvolutionUnique (axe
+// temporel CONTINU, adapte a des cours FX quotidiens), le COT est publie
+// UNE FOIS PAR SEMAINE (toujours un mardi) - on espace donc les points
+// PAR INDEX (une semaine = un intervalle egal), comme drawTauxEvolution,
+// et on affiche la vraie date de chaque repere d'axe plutot qu'une
+// interpolation temporelle. Affiche 3 courbes simultanement (Long, Short,
+// Net) plutot qu'une seule, avec une legende - meme principe que
+// drawTauxEvolution (cut/hold/hike).
+const COT_COULEURS = { long: '#22c48d', short: '#ef4a5a', net: '#8ab4f8' };
+const COT_LABELS = { long: 'Long', short: 'Short', net: 'Net (Long − Short)' };
+
+function dessinerCotEvolution(canvas, seriesParCle){
+  const clesAvecDonnees = ['long', 'short', 'net'].filter(cle => (seriesParCle[cle] || []).length >= 2);
+  if(clesAvecDonnees.length === 0){ dessinerFxEvolutionVide(canvas); return; }
+
+  const { ctx, w, h } = fxPreparerCanvas(canvas);
+  ctx.clearRect(0, 0, w, h);
+
+  const padL = 54, padR = 12, padT = 26, padB = 22;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const n = Math.max(...clesAvecDonnees.map(cle => seriesParCle[cle].length));
+
+  const toutesValeurs = clesAvecDonnees.flatMap(cle => seriesParCle[cle].map(p => p.v));
+  let vMin = Math.min(...toutesValeurs), vMax = Math.max(...toutesValeurs);
+  if(vMin === vMax){ vMin -= 1; vMax += 1; }
+  const marge = (vMax - vMin) * 0.08;
+  vMin -= marge; vMax += marge;
+
+  const xFor = i => padL + (n === 1 ? 0 : (i / (n - 1)) * plotW);
+  const yFor = v => padT + plotH * (1 - (v - vMin) / (vMax - vMin));
+
+  // Légende (en haut du canvas, comme drawTauxEvolution)
+  let lx = padL;
+  ctx.font = '10px IBM Plex Mono';
+  ['long', 'short', 'net'].forEach(cle => {
+    ctx.fillStyle = COT_COULEURS[cle]; ctx.fillRect(lx, 4, 8, 3);
+    ctx.fillStyle = '#8f9bb0'; ctx.fillText(COT_LABELS[cle], lx + 12, 10);
+    lx += ctx.measureText(COT_LABELS[cle]).width + 34;
+  });
+
+  // Grille horizontale + libellés d'axe Y
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  const nbTicks = 5;
+  for(let i = 0; i <= nbTicks; i++){
+    const v = vMin + (vMax - vMin) * (i / nbTicks);
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+    ctx.fillText(Math.round(v).toLocaleString('fr-FR'), 2, y + 3);
+  }
+
+  // Ligne zéro en pointillés (repère long/court)
+  if(vMin < 0 && vMax > 0){
+    ctx.setLineDash([3, 3]); ctx.strokeStyle = '#576079';
+    const y0 = yFor(0);
+    ctx.beginPath(); ctx.moveTo(padL, y0); ctx.lineTo(w - padR, y0); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Libellés d'axe X : la VRAIE date de publication (toujours un mardi),
+  // prise sur la série la plus longue, espacée pour éviter le chevauchement.
+  const serieReference = seriesParCle[clesAvecDonnees.reduce((a, b) => seriesParCle[a].length >= seriesParCle[b].length ? a : b)];
+  const step = Math.max(1, Math.round(serieReference.length / 6));
+  ctx.fillStyle = '#576079';
+  serieReference.forEach((p, i) => {
+    if(i % step === 0 || i === serieReference.length - 1){
+      const d = new Date(p.date + 'T00:00:00Z');
+      const label = String(d.getUTCDate()).padStart(2, '0') + '/' + String(d.getUTCMonth() + 1).padStart(2, '0');
+      const x = xFor(i);
+      ctx.fillText(label, Math.min(Math.max(x - 14, padL), w - padR - 28), h - 4);
+    }
+  });
+
+  // Les 3 courbes
+  clesAvecDonnees.forEach(cle => {
+    const serie = seriesParCle[cle];
+    ctx.strokeStyle = COT_COULEURS[cle]; ctx.lineWidth = 1.6; ctx.beginPath();
+    serie.forEach((p, i) => {
+      const x = xFor(i), y = yFor(p.v);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    const dernier = serie[serie.length - 1];
+    ctx.beginPath(); ctx.arc(xFor(serie.length - 1), yFor(dernier.v), 2.8, 0, 2 * Math.PI);
+    ctx.fillStyle = COT_COULEURS[cle]; ctx.fill();
+  });
+}
+
+function renderCotChart(){
+  const canvas = document.getElementById('cotEvolCanvas');
+  if(!canvas) return;
+  const libelleRapport = cotReportActif === 'futures_only' ? 'FUTURES ONLY' : 'FUTURES + OPTIONS';
+  document.getElementById('cotChartTitle').textContent =
+    `ÉVOLUTION — LEVERAGED FUNDS — ${cotDeviseActive} (${libelleRapport})`;
+
+  const liste = cotDonnees[cotReportActif][cotDeviseActive] || [];
+  // La liste est triee position CROISSANT (0=plus recent en premier) ->
+  // dessinerCotEvolution attend l'ordre chronologique CROISSANT (le plus
+  // ancien en premier), d'ou le reverse().
+  const chrono = [...liste].reverse();
+  const seriesParCle = {
+    long: chrono.filter(p => p.lev_money_long !== null && p.date).map(p => ({ date: p.date, v: p.lev_money_long })),
+    short: chrono.filter(p => p.lev_money_short !== null && p.date).map(p => ({ date: p.date, v: p.lev_money_short })),
+    net: chrono.filter(p => p.lev_money_net !== null && p.date).map(p => ({ date: p.date, v: p.lev_money_net })),
+  };
+
+  dessinerCotEvolution(canvas, seriesParCle);
+}
+
+function renderCot(){
+  renderCotFiltres();
+  renderCotTable();
+  renderCotChart();
+}
+
+function initialiserCotFiltres(){
+  const zoneReport = document.getElementById('cotFilterReport');
+  const zoneCcy = document.getElementById('cotFilterCcy');
+  const corpsTable = document.getElementById('cotTableBody');
+  if(!zoneReport || !zoneCcy) return;
+
+  zoneReport.addEventListener('click', e => {
+    const btn = e.target.closest('[data-report]');
+    if(!btn) return;
+    cotReportActif = btn.dataset.report;
+    renderCot();
+  });
+  zoneCcy.addEventListener('click', e => {
+    const btn = e.target.closest('[data-ccy]');
+    if(!btn) return;
+    cotDeviseActive = btn.dataset.ccy;
+    renderCot();
+  });
+  // Cliquer une ligne du tableau change aussi la devise du graphique
+  // (raccourci pratique, en plus des chips de filtre ci-dessus).
+  if(corpsTable){
+    corpsTable.addEventListener('click', e => {
+      const ligne = e.target.closest('[data-ccy]');
+      if(!ligne) return;
+      cotDeviseActive = ligne.dataset.ccy;
+      renderCot();
+    });
+  }
+}
+
 function demarrerEcouteTempsReel(){
   ecouterCollectionTempsReel('ff_news', itemDepuisDocFF, items => { liveFF = items; });
   ecouterCollectionTempsReel('cb_articles', itemDepuisDocCB, items => { liveCB = items; });
@@ -1531,7 +1952,11 @@ function demarrerEcouteTempsReel(){
   ecouterCalendrierTempsReel();
   ecouterIndicateursTempsReel();
   ecouterFxTempsReel();
+  ecouterCotTempsReel();
   SOURCES_PIPELINE.forEach(ecouterStatutPipeline);
+  // Sources COT ecoutees a part (voir note sur SOURCES_PIPELINE plus haut) :
+  // meme fonction ecouterStatutPipeline, juste hors de la boucle globale.
+  SOURCES_COT.forEach(ecouterStatutPipeline);
 }
 </script>
 <script>
@@ -1541,8 +1966,6 @@ function demarrerEcouteTempsReel(){
 // principal, carnet d'ordres, portefeuille, watchlist — aucun conteneur
 // HTML correspondant n'existe sur le site), plus la page ANALYSE TECH.
 // qui utilise maintenant de vraies données FX (voir plus bas).
-let taActiveSym = 'EURUSD'; // devise actuellement affichée sur la page ANALYSE TECH.
-
 /* ===================== HORODATAGE DE LA DERNIÈRE EXÉCUTION DES SCRIPTS ===================== */
 /* Affiche la date/heure ou un script (ff_cloud.py / centralbanks_cloud.py /
    investinglive_cloud.py) a REELLEMENT termine un cycle pour la derniere
@@ -1570,6 +1993,7 @@ function mettreAJourHorlogeInfo(){
     clockEl.classList.remove('clock-alerte-partielle');
     mettreAJourPastillesSources();
     mettreAJourPastilleDataEco();
+    mettreAJourPastilleCot();
     return;
   }
 
@@ -1607,6 +2031,7 @@ function mettreAJourHorlogeInfo(){
 
   mettreAJourPastillesSources();
   mettreAJourPastilleDataEco();
+  mettreAJourPastilleCot();
 }
 
 // ===== PASTILLES DE STATUT PAR COLONNE (page News) =====
@@ -2225,19 +2650,6 @@ function initialiserControlesFxEvolution(){
   });
 }
 
-function initialiserOngletsTechnique(){
-  const conteneur = document.getElementById('taSymTabs');
-  if(!conteneur) return;
-  conteneur.querySelectorAll('.fx-perf-tab').forEach(onglet => {
-    onglet.addEventListener('click', () => {
-      conteneur.querySelectorAll('.fx-perf-tab').forEach(o => o.classList.remove('active'));
-      onglet.classList.add('active');
-      taActiveSym = onglet.dataset.sym;
-      renderTechnique();
-    });
-  });
-}
-
 /* ===================== ACTUALITÉS ===================== */
 // Ancien générateur de fausses actualités (investingLiveTemplates,
 // centralBankTemplates, forexFactoryTemplates, newsSnippets, genNewsItem,
@@ -2479,15 +2891,13 @@ function renderAll(){
 document.getElementById('searchInput').addEventListener('input', e=>{
   const q = e.target.value.trim().toUpperCase();
   if(!q) return;
-  const found = ORDRE_FX.find(sym => sym.startsWith(q));
+  const found = ORDRE_FX.find(sym => sym.startsWith(q)) || CS_DEVISES.find(ccy => ccy.startsWith(q));
   if(found){
-    taActiveSym = found;
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
     document.querySelector('.nav-btn[data-page="technique"]').classList.add('active');
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById('page-technique').classList.add('active');
-    document.querySelectorAll('#taSymTabs .fx-perf-tab').forEach(o => o.classList.toggle('active', o.dataset.sym === found));
-    renderTechnique();
+    renderForceDevises();
   }
 });
 
@@ -2502,6 +2912,8 @@ const mapImpactCal = {high:'high', medium:'med', low:'low', holiday:''};
 const flagFor = c => ({
   USD:'🇺🇸', EUR:'🇪🇺', GBP:'🇬🇧', JPY:'🇯🇵', CHF:'🇨🇭', CAD:'🇨🇦',
   AUD:'🇦🇺', NZD:'🇳🇿', CNY:'🇨🇳', ALL:'🌐',
+  // Ajoutes pour la page COT (devises emergentes suivies par le rapport TFF)
+  MXN:'🇲🇽', BRL:'🇧🇷', RUB:'🇷🇺', ZAR:'🇿🇦',
 })[c] || '';
 
 // Parse une valeur deja formatee en texte par calendrier_cloud.py (ex:
@@ -2970,8 +3382,8 @@ function genProbHistory(finalCut, finalHold, finalHike, days){
   let c = finalCut, h = finalHold, k = finalHike;
   const arr = [{cut:c, hold:h, hike:k}];
   for(let i=1;i<days;i++){
-    const dc = (Math.random()-0.5)*7;
-    const dk = (Math.random()-0.5)*3;
+    const dc = (Math.random()-0.5)*14;
+    const dk = (Math.random()-0.5)*6;
     c = Math.max(0, Math.min(100, c-dc));
     k = Math.max(0, Math.min(100, k-dk));
     let h2 = 100-c-k;
@@ -2987,9 +3399,53 @@ function genProbHistory(finalCut, finalHold, finalHike, days){
   arr[arr.length-1] = {cut:finalCut, hold:finalHold, hike:finalHike};
   return arr;
 }
-meetings.forEach(m=>{ m.history = genProbHistory(m.cut, m.hold, m.hike); });
+meetings.forEach(m=>{
+  m.history = genProbHistory(m.cut, m.hold, m.hike);
+  // Évolution en pb de la réunion elle-même (jour par jour, sur la même
+  // fenêtre que l'historique des probabilités) — dérivée directement des
+  // probabilités cut/hike de chaque jour pour rester cohérente.
+  m.nextBpsHistory = m.history.map(d => bpsProchaineReunionFromProbs(d.cut, d.hike));
+  // Évolution en pb cumulée sur 12 mois (vue longue durée, indépendante).
+  m.bpsHistory = genBpsHistory(bpsSur12Mois(m), 12);
+});
+
+// Simule l'évolution du mouvement de taux implicite cumulé (en pb) sur les
+// 12 derniers mois pour une banque donnée, en partant de ~0 pb il y a un an
+// et en convergeant (avec du bruit) vers la valeur actuelle "sur 12 mois".
+function genBpsHistory(finalBps, months){
+  months = months || 12;
+  const arr = [];
+  for(let i=0;i<months;i++){
+    const t = i/(months-1);
+    const base = finalBps*t;
+    const noise = (Math.random()-0.5)*34*(1-t*0.45);
+    arr.push(Math.round(base+noise));
+  }
+  arr[arr.length-1] = finalBps;
+  return arr;
+}
+
+// Ordre d'affichage fixe pour le bloc "Implicite en pb — par banque centrale"
+const BANK_SORT_ORDER = ['USD','CAD','EUR','GBP','CHF','JPY','AUD','NZD']; // Fed, BoC, BCE, BoE, BNS, BoJ, RBA, RBNZ
+
+// Convertit une date de réunion au format "18 sept. 2026" en objet Date
+// pour permettre un tri chronologique.
+const FR_MONTHS = {
+  'janv':0, 'févr':1, 'fevr':1, 'mars':2, 'avr':3, 'mai':4, 'juin':5,
+  'juil':6, 'août':7, 'aout':7, 'sept':8, 'oct':9, 'nov':10, 'déc':11, 'dec':11
+};
+function parseMeetingDate(str){
+  const parts = str.replace('.', '').split(' ');
+  const day = parseInt(parts[0], 10);
+  const month = FR_MONTHS[parts[1].toLowerCase().replace('.', '')] ?? 0;
+  const year = parseInt(parts[2], 10);
+  return new Date(year, month, day);
+}
 
 let tauxFilterCcy = 'all';
+let tauxSelectedBank = null; // banque dont on affiche toutes les réunions à venir
+let tauxActiveMeetingKey = null; // réunion précise choisie pour le graphique (clic dans la liste dépliée)
+let tauxChartMode = 'bps_next'; // 'pct' = probabilités prochaine réunion, 'bps_next' = évolution pb de la prochaine réunion (défaut), 'bps_1y' = évolution pb sur 1 an
 
 function renderTauxFilters(){
   const ccys = [...new Set(meetings.map(m=>m.ccy))];
@@ -3047,35 +3503,307 @@ function drawTauxEvolution(history){
   });
 }
 
-// Conversion des probabilités en un mouvement de taux implicite en points
-// de base (convention standard : 25 pb par baisse/hausse de réunion).
-function impliedBps(m){
-  return Math.round((m.hike/100)*25 - (m.cut/100)*25);
+// Calcule une plage d'axe [lo, hi] + un pas de grille "propre", ajustée aux
+// vraies données plutôt que forcée symétrique autour de 0. La ligne du 0 pb
+// reste toujours visible dans la plage (repère "aucun mouvement"), et si les
+// données ne changent jamais de signe, on ne trace plus l'échelle du côté
+// opposé (inutilisé). Important : lo/hi restent collés à l'amplitude réelle
+// des données (+ petite marge) — on ne les arrondit PAS au cran de grille
+// supérieur, sinon l'axe irait par exemple jusqu'à 25 ou 50 pb alors que la
+// courbe n'a jamais dépassé 18 pb. Seul le PAS des graduations (step) est
+// choisi "rond" ; les graduations qui tombent hors de [lo, hi] ne sont
+// simplement pas dessinées.
+function niceAxisRange(values){
+  let dataMin = Math.min(...values);
+  let dataMax = Math.max(...values);
+  if(dataMin === dataMax){ dataMin -= 5; dataMax += 5; }
+  const allNonPositive = dataMax <= 0;
+  const allNonNegative = dataMin >= 0;
+
+  let lo, hi;
+  if(allNonPositive){
+    lo = dataMin - Math.max(Math.abs(dataMin)*0.15, 2);
+    hi = 0;
+  } else if(allNonNegative){
+    lo = 0;
+    hi = dataMax + Math.max(dataMax*0.15, 2);
+  } else {
+    const span = dataMax - dataMin;
+    const pad = span * 0.15;
+    lo = dataMin - pad;
+    hi = dataMax + pad;
+  }
+
+  const rawStep = (hi - lo) / 4;
+  const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm = rawStep / mag;
+  let niceNorm;
+  if(norm <= 1) niceNorm = 1;
+  else if(norm <= 2) niceNorm = 2;
+  else if(norm <= 2.5) niceNorm = 2.5;
+  else if(norm <= 5) niceNorm = 5;
+  else niceNorm = 10;
+  const step = niceNorm * mag;
+
+  return { lo, hi, step };
+}
+
+// Trace l'évolution du taux implicite cumulé (en pb) sur les 12 derniers
+// mois pour la banque sélectionnée. L'axe inclut toujours le 0 pb comme
+// repère, mais se resserre sur le côté réellement utilisé par les données
+// (au-dessus de 0 = hausse implicite en rouge, en dessous = baisse en vert).
+function drawTauxBpsEvolution(bpsHistory, labelPrefix){
+  labelPrefix = labelPrefix || 'M-';
+  const canvas = document.getElementById('tauxEvolCanvas');
+  if(!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
+  canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const w = rect.width, h = rect.height;
+  ctx.clearRect(0,0,w,h);
+  const padL=46, padB=20, padT=20, padR=12;
+  const plotW = w-padL-padR, plotH = h-padB-padT;
+  const n = bpsHistory.length;
+
+  const {lo, hi, step: gridStep} = niceAxisRange(bpsHistory);
+  const xFor = i => padL + (i/(n-1))*plotW;
+  const yFor = v => padT + plotH*(1 - (v-lo)/(hi-lo));
+
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  const firstTick = Math.ceil(lo/gridStep)*gridStep;
+  const tickCount = Math.floor((hi-firstTick)/gridStep + 1e-9);
+  for(let i=0;i<=tickCount;i++){
+    const v = firstTick + i*gridStep;
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
+    ctx.fillText((v>0?'+':'')+Math.round(v)+' pb', 2, y+3);
+  }
+
+  const step = Math.max(1, Math.round(n/6));
+  bpsHistory.forEach((_,i)=>{
+    if(i%step===0 || i===n-1){
+      const label = i===n-1 ? 'Auj.' : `${labelPrefix}${n-1-i}`;
+      ctx.fillText(label, xFor(i)-10, h-4);
+    }
+  });
+
+  const last = bpsHistory[n-1];
+  const lineColor = last>=0 ? '#22c48d' : '#ef4a5a';
+  ctx.strokeStyle = lineColor; ctx.lineWidth = 2; ctx.beginPath();
+  bpsHistory.forEach((v,i)=>{ const x=xFor(i), y=yFor(v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+  ctx.stroke();
+  ctx.beginPath(); ctx.arc(xFor(n-1), yFor(last), 3, 0, 7); ctx.fillStyle=lineColor; ctx.fill();
+
+  ctx.fillStyle = lineColor; ctx.fillRect(padL, 4, 8, 3);
+  ctx.fillStyle = '#8f9bb0';
+  ctx.fillText(last>=0 ? 'Hausse implicite cumulée' : 'Baisse implicite cumulée', padL+12, 10);
+}
+
+// Palette de couleurs distinctes pour superposer les courbes de plusieurs
+// banques centrales sur un même graphique (une couleur par devise, ordre
+// aligné sur BANK_SORT_ORDER : Fed, BoC, BCE, BoE, BNS, BoJ, RBA, RBNZ).
+const BANK_LINE_COLORS = {
+  USD:'#5b90ff', CAD:'#22c48d', EUR:'#c9a15a', GBP:'#ef4a5a',
+  CHF:'#8f5bff', JPY:'#e3aa54', AUD:'#2dd4bf', NZD:'#f472b6'
+};
+
+// Trace, pour la prochaine réunion de CHAQUE banque, l'évolution en pb
+// (jour par jour) sur un même graphique — vue d'ensemble par défaut.
+function drawTauxBpsEvolutionMulti(bankMeetings, labelPrefix){
+  labelPrefix = labelPrefix || 'J-';
+  const canvas = document.getElementById('tauxEvolCanvas');
+  if(!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
+  canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const w = rect.width, h = rect.height;
+  ctx.clearRect(0,0,w,h);
+  const padL=46, padB=20, padT=34, padR=12;
+  const plotW = w-padL-padR, plotH = h-padB-padT;
+  const n = Math.min(...bankMeetings.map(m=>m.nextBpsHistory.length));
+
+  const allValues = bankMeetings.flatMap(m=>m.nextBpsHistory);
+  const {lo, hi, step: gridStep} = niceAxisRange(allValues);
+  const xFor = i => padL + (i/(n-1))*plotW;
+  const yFor = v => padT + plotH*(1 - (v-lo)/(hi-lo));
+
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  const firstTick = Math.ceil(lo/gridStep)*gridStep;
+  const tickCount = Math.floor((hi-firstTick)/gridStep + 1e-9);
+  for(let i=0;i<=tickCount;i++){
+    const v = firstTick + i*gridStep;
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
+    ctx.fillText((v>0?'+':'')+Math.round(v)+' pb', 2, y+3);
+  }
+
+  const step = Math.max(1, Math.round(n/6));
+  for(let i=0;i<n;i++){
+    if(i%step===0 || i===n-1){
+      const label = i===n-1 ? 'Auj.' : `${labelPrefix}${n-1-i}`;
+      ctx.fillText(label, xFor(i)-10, h-4);
+    }
+  }
+
+  bankMeetings.forEach(m=>{
+    const color = BANK_LINE_COLORS[m.ccy] || '#8f9bb0';
+    const data = m.nextBpsHistory;
+    ctx.strokeStyle = color; ctx.lineWidth = 1.75; ctx.beginPath();
+    data.forEach((v,i)=>{ if(i<n){ const x=xFor(i), y=yFor(v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); } });
+    ctx.stroke();
+    ctx.beginPath(); ctx.arc(xFor(n-1), yFor(data[n-1]), 2.5, 0, 7); ctx.fillStyle=color; ctx.fill();
+  });
+
+  // Légende (deux lignes pour ne pas déborder avec 8 banques)
+  ctx.font = '9.5px IBM Plex Mono';
+  let lx = padL, ly = 8, rowH = 13, colW = plotW/4;
+  bankMeetings.forEach((m,idx)=>{
+    if(idx===4){ lx = padL; ly += rowH; }
+    const color = BANK_LINE_COLORS[m.ccy] || '#8f9bb0';
+    ctx.fillStyle = color; ctx.fillRect(lx, ly-6, 8, 3);
+    ctx.fillStyle = '#8f9bb0'; ctx.fillText(m.ccy, lx+12, ly);
+    lx += colW;
+  });
+}
+
+// Magnitude du mouvement implicite dérivée du biais directionnel des
+// probabilités (hike vs cut) — pas une vraie somme de réunions (les
+// données ci-dessus ne couvrent qu'1-2 réunions), mais une estimation
+// simulée bornée dans une fourchette réaliste :
+//   - prochaine réunion : 20 à 50 pb
+//   - sur 12 mois        : 80 à 150 pb
+// Le signe suit le camp majoritaire (hausse si hike>cut, baisse sinon).
+function biaisDirectionnel(m){
+  return biaisDirectionnelFromProbs(m.cut, m.hike);
+}
+function biaisDirectionnelFromProbs(cut, hike){
+  const lean = (hike - cut) / 100; // -1..1
+  return { signe: lean >= 0 ? 1 : -1, force: Math.min(1, Math.abs(lean)) };
+}
+function bpsProchaineReunion(m){
+  return bpsProchaineReunionFromProbs(m.cut, m.hike);
+}
+function bpsProchaineReunionFromProbs(cut, hike){
+  const {signe, force} = biaisDirectionnelFromProbs(cut, hike);
+  return Math.round(signe * (20 + force*30));
+}
+function bpsSur12Mois(m){
+  const {signe, force} = biaisDirectionnel(m);
+  return Math.round(signe * (80 + force*70));
 }
 
 function renderTaux(){
-  renderTauxFilters();
-  const chartCcy = tauxFilterCcy==='all' ? 'USD' : tauxFilterCcy;
-  const meeting = meetings.find(m=>m.ccy===chartCcy);
-  if(meeting){
-    document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DES PROBABILITÉS — ' + meeting.bank.toUpperCase();
-    document.getElementById('tauxChartSub').textContent = 'Prochaine réunion : ' + meeting.meeting;
-    drawTauxEvolution(meeting.history);
+  // Détermine la réunion à afficher sur le graphique : soit celle choisie
+  // manuellement (clic sur une ligne ou une banque), soit — par défaut —
+  // une vue combinée de la prochaine réunion de toutes les banques (mode
+  // "bps_next" uniquement) ou la toute prochaine réunion globale sinon.
+  let meeting = tauxActiveMeetingKey
+    ? meetings.find(m => (m.bank+'||'+m.meeting) === tauxActiveMeetingKey)
+    : null;
+  const noSelection = !meeting;
+  const showAllBanks = noSelection && tauxChartMode === 'bps_next';
+
+  if(!meeting){
+    meeting = [...meetings].sort((a,b)=> parseMeetingDate(a.meeting) - parseMeetingDate(b.meeting))[0];
+  }
+
+  document.querySelectorAll('#tauxChartToggle .taux-toggle-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.mode === tauxChartMode);
+  });
+
+  if(showAllBanks){
+    // Une réunion (la plus proche) par banque, ordonnée comme le panneau de gauche
+    const nextPerBank = [...new Map(meetings.map(m=>[m.bank,m])).values()]
+      .map(b => meetings.filter(m=>m.bank===b.bank).sort((a,b2)=>parseMeetingDate(a.meeting)-parseMeetingDate(b2.meeting))[0])
+      .sort((a,b)=> BANK_SORT_ORDER.indexOf(a.ccy) - BANK_SORT_ORDER.indexOf(b.ccy));
+    document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — PROCHAINE RÉUNION, TOUTES BANQUES';
+    document.getElementById('tauxChartSub').textContent = 'Cliquez une banque pour l\'isoler';
+    drawTauxBpsEvolutionMulti(nextPerBank, 'J-');
+  } else if(meeting){
+    if(tauxChartMode === 'bps_1y'){
+      const bps12m = bpsSur12Mois(meeting);
+      document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — ' + meeting.bank.toUpperCase();
+      document.getElementById('tauxChartSub').textContent = 'Sur 12 mois : ' + (bps12m>0?'+':'') + bps12m + ' pb';
+      drawTauxBpsEvolution(meeting.bpsHistory, 'M-');
+    } else if(tauxChartMode === 'bps_next'){
+      const bpsNext = bpsProchaineReunion(meeting);
+      document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — ' + meeting.bank.toUpperCase();
+      document.getElementById('tauxChartSub').textContent = 'Prochaine réunion (' + meeting.meeting + ') : ' + (bpsNext>0?'+':'') + bpsNext + ' pb';
+      drawTauxBpsEvolution(meeting.nextBpsHistory, 'J-');
+    } else {
+      document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DES PROBABILITÉS — ' + meeting.bank.toUpperCase();
+      document.getElementById('tauxChartSub').textContent = 'Prochaine réunion : ' + meeting.meeting;
+      drawTauxEvolution(meeting.history);
+    }
   }
 
   const filtered = tauxFilterCcy==='all' ? meetings : meetings.filter(m=>m.ccy===tauxFilterCcy);
 
-  document.getElementById('bpsList').innerHTML = filtered.map(m=>{
-    const bps = impliedBps(m);
-    return `<div class="bps-row">
-      <div class="bps-bank">${flagFor(m.ccy)} ${m.bank}</div>
-      <div class="bps-meeting">${m.meeting}</div>
-      <div class="bps-value ${bps<=0?'up':'down'}">${bps>0?'+':''}${bps} pb</div>
+  // Regroupement des réunions filtrées par banque centrale (ordre de
+  // première apparition dans le tableau meetings = ordre chronologique).
+  const banksMap = new Map();
+  filtered.forEach(m=>{
+    if(!banksMap.has(m.bank)) banksMap.set(m.bank, { ccy:m.ccy, bank:m.bank, list:[] });
+    banksMap.get(m.bank).list.push(m);
+  });
+  const banks = [...banksMap.values()];
+
+  // Tri du bloc "Implicite en pb" selon l'ordre fixe FED, BoC, BCE, BoE, BNS, BoJ, RBA, RBNZ
+  const banksByFixedOrder = [...banks].sort((a,b)=>
+    BANK_SORT_ORDER.indexOf(a.ccy) - BANK_SORT_ORDER.indexOf(b.ccy)
+  );
+
+  document.getElementById('bpsList').innerHTML = banksByFixedOrder.map(b=>{
+    const next = b.list[0];
+    const bpsNext = bpsProchaineReunion(next);
+    const bps12m = bpsSur12Mois(next);
+    const isPositive = bps12m >= 0; // vert = positif, rouge = négatif (convention standard, indépendante du sens cut/hike)
+    const pctNext = Math.min(100, Math.abs(bpsNext) / Math.abs(bps12m) * 100);
+    const isActiveBank = b.bank === tauxSelectedBank;
+    return `<div class="bank-group ${isActiveBank?'bank-group-active':''}" data-bank="${b.bank}">
+      <div class="bank-group-head">
+        <span class="bgh-name">${flagFor(b.ccy)} ${b.bank}</span>
+        <span class="bgh-date">${next.meeting}</span>
+      </div>
+      <div class="bps-combo-labels">
+        <span>Prochaine<b class="${bpsNext>=0?'up':'down'}">${bpsNext>0?'+':''}${bpsNext} pb</b></span>
+        <span>Sur 12 mois<b class="${bps12m>=0?'up':'down'}">${bps12m>0?'+':''}${bps12m} pb</b></span>
+      </div>
+      <div class="bps-combo-bar">
+        <div class="bps-combo-fill-12m ${isPositive?'cut':'hike'}" style="width:100%;"></div>
+        <div class="bps-combo-fill-next ${isPositive?'cut':'hike'}" style="width:${pctNext}%;"></div>
+      </div>
     </div>`;
   }).join('');
 
-  document.getElementById('probBody').innerHTML = filtered.map(m=>`
-    <div class="pm-row">
+  // Réinitialise la sélection si la banque choisie n'existe plus dans le
+  // filtre courant (ex : changement de filtre par devise).
+  if(tauxSelectedBank && !banks.some(b=>b.bank===tauxSelectedBank)){
+    tauxSelectedBank = null;
+  }
+
+  // Contenu du panneau "PROCHAINES RÉUNIONS" :
+  // - par défaut, une ligne par banque (sa prochaine réunion), triée par date la plus proche ;
+  // - si une banque est sélectionnée (clic sur une ligne), toutes ses réunions à venir, triées par date.
+  let rowsData, headerHtml = '';
+  if(tauxSelectedBank){
+    const bankData = banks.find(b=>b.bank===tauxSelectedBank);
+    rowsData = bankData ? [...bankData.list].sort((a,b)=> parseMeetingDate(a.meeting) - parseMeetingDate(b.meeting)) : [];
+    headerHtml = `<div class="pm-back" data-action="back">&larr; ${flagFor(bankData.ccy)} ${tauxSelectedBank} — toutes les réunions</div>`;
+  } else {
+    rowsData = banks.map(b=>b.list[0])
+      .sort((a,b)=> parseMeetingDate(a.meeting) - parseMeetingDate(b.meeting));
+  }
+
+  document.getElementById('probBody').innerHTML = headerHtml + rowsData.map(m=>{
+    const key = m.bank+'||'+m.meeting;
+    const isActive = key === tauxActiveMeetingKey || (!tauxActiveMeetingKey && !showAllBanks && meeting && key === (meeting.bank+'||'+meeting.meeting));
+    return `
+    <div class="pm-row ${isActive?'pm-row-active':''}" data-bank="${m.bank}" data-meeting-key="${key}">
       <div class="pm-top">
         <span class="pm-bank">${flagFor(m.ccy)} ${m.bank}</span>
         <span class="pm-date">${m.meeting}</span>
@@ -3091,215 +3819,135 @@ function renderTaux(){
         </span>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
-document.getElementById('tauxFilters').addEventListener('click', e=>{
-  const btn = e.target.closest('[data-ccy]');
+// Bascule entre les deux vues du graphique central : probabilités de la
+// prochaine réunion (%) ou évolution du taux implicite cumulé sur 1 an (pb).
+document.getElementById('tauxChartToggle').addEventListener('click', e=>{
+  const btn = e.target.closest('[data-mode]');
   if(!btn) return;
-  tauxFilterCcy = btn.dataset.ccy;
+  tauxChartMode = btn.dataset.mode;
   renderTaux();
 });
 
-// ===================== ANALYSE TECHNIQUE =====================
-/* ===================== INDICATEURS TECHNIQUES RÉELS (calculés sur les
-   vrais prix de clôture FX, aucune valeur aléatoire) ===================== */
-
-function calculerSMA(closes, n){
-  const slice = closes.slice(-Math.min(n, closes.length));
-  return slice.reduce((a,b)=>a+b, 0) / slice.length;
-}
-
-function calculerEMA(closes, periode){
-  if(closes.length < periode) return null;
-  const k = 2 / (periode + 1);
-  let ema = closes.slice(0, periode).reduce((a,b)=>a+b, 0) / periode; // amorce = SMA
-  for(let i = periode; i < closes.length; i++){
-    ema = closes[i] * k + ema * (1 - k);
+// Panneau de gauche : cliquer sur une banque déplie ses prochaines réunions
+// dans le panneau de droite (clic à nouveau sur la même banque = replier),
+// et sélectionne automatiquement la prochaine réunion de cette banque sur
+// le graphique central.
+document.getElementById('bpsList').addEventListener('click', e=>{
+  const group = e.target.closest('.bank-group');
+  if(!group) return;
+  const bank = group.dataset.bank;
+  const wasSelected = tauxSelectedBank === bank;
+  tauxSelectedBank = wasSelected ? null : bank;
+  if(!wasSelected){
+    const bankMeetings = meetings
+      .filter(m=>m.bank===bank)
+      .sort((a,b)=> parseMeetingDate(a.meeting) - parseMeetingDate(b.meeting));
+    if(bankMeetings.length) tauxActiveMeetingKey = bankMeetings[0].bank+'||'+bankMeetings[0].meeting;
   }
-  return ema;
-}
+  renderTaux();
+});
 
-// RSI de Wilder (formule standard), aucune approximation aléatoire.
-function calculerRSI(closes, periode = 14){
-  if(closes.length < periode + 1) return null;
-  let gains = 0, pertes = 0;
-  for(let i = 1; i <= periode; i++){
-    const diff = closes[i] - closes[i-1];
-    if(diff >= 0) gains += diff; else pertes -= diff;
-  }
-  let avgGain = gains / periode, avgLoss = pertes / periode;
-  for(let i = periode + 1; i < closes.length; i++){
-    const diff = closes[i] - closes[i-1];
-    const gain = diff > 0 ? diff : 0, loss = diff < 0 ? -diff : 0;
-    avgGain = (avgGain * (periode - 1) + gain) / periode;
-    avgLoss = (avgLoss * (periode - 1) + loss) / periode;
-  }
-  if(avgLoss === 0) return 100;
-  const rs = avgGain / avgLoss;
-  return 100 - (100 / (1 + rs));
-}
-
-function calculerMACD(closes){
-  const ema12 = calculerEMA(closes, 12);
-  const ema26 = calculerEMA(closes, 26);
-  if(ema12 === null || ema26 === null) return null;
-  return ema12 - ema26;
-}
-
-// Stochastique %K : formule standard, mais basée sur le plus haut/plus bas
-// des CLÔTURES (notre archive FX ne stocke qu'un prix de clôture horaire,
-// pas de vrai haut/bas intra-heure) — substitution courante et honnête
-// quand seules des clôtures sont disponibles.
-function calculerStochastique(closes, periode = 14){
-  if(closes.length < periode) return null;
-  const fenetre = closes.slice(-periode);
-  const plusHaut = Math.max(...fenetre), plusBas = Math.min(...fenetre);
-  if(plusHaut === plusBas) return 50;
-  const dernier = closes[closes.length - 1];
-  return ((dernier - plusBas) / (plusHaut - plusBas)) * 100;
-}
-
-// Williams %R = Stochastique - 100 (identité mathématique standard).
-function calculerWilliamsR(closes, periode = 14){
-  const stoch = calculerStochastique(closes, periode);
-  return stoch === null ? null : stoch - 100;
-}
-
-// CCI(20) : formule standard, prix typique substitué par la clôture
-// (même raison que le Stochastique ci-dessus, pas de H/L horaire réel).
-function calculerCCI(closes, periode = 20){
-  if(closes.length < periode) return null;
-  const fenetre = closes.slice(-periode);
-  const sma = fenetre.reduce((a,b)=>a+b, 0) / periode;
-  const ecartMoyen = fenetre.reduce((a,b)=>a+Math.abs(b-sma), 0) / periode;
-  if(ecartMoyen === 0) return 0;
-  const dernier = closes[closes.length - 1];
-  return (dernier - sma) / (0.015 * ecartMoyen);
-}
-
-function calculerSupportsResistances(closes){
-  const prix = closes[closes.length - 1];
-  const fenetre7j = closes.slice(-Math.min(7*24, closes.length)); // ~7 jours de points horaires
-  return [
-    { label: 'Plus haut 30j', val: Math.max(...closes) },
-    { label: 'Plus haut 7j', val: Math.max(...fenetre7j) },
-    { label: 'Prix actuel', val: prix, current: true },
-    { label: 'Plus bas 7j', val: Math.min(...fenetre7j) },
-    { label: 'Plus bas 30j', val: Math.min(...closes) },
-  ];
-}
-
-function computeTAReel(closes){
-  const prix = closes[closes.length - 1];
-  const ma20 = calculerSMA(closes, 20);
-  const ma50 = calculerSMA(closes, 50);
-  const ma100 = calculerSMA(closes, 100);
-  const ma200 = calculerSMA(closes, 200);
-  const rsi = calculerRSI(closes, 14);
-  const macdVal = calculerMACD(closes);
-  const stoch = calculerStochastique(closes, 14);
-  const willR = calculerWilliamsR(closes, 14);
-  const cci = calculerCCI(closes, 20);
-
-  const fmt = (v, decimales=1) => v === null ? 'n/a' : v.toFixed(decimales);
-  const sig = (v, seuilAchat, seuilVente, inverse=false) => {
-    if(v === null) return 'neutral';
-    return inverse
-      ? (v > seuilVente ? 'sell' : v < seuilAchat ? 'buy' : 'neutral')
-      : (v < seuilAchat ? 'buy' : v > seuilVente ? 'sell' : 'neutral');
-  };
-
-  const oscillators = [
-    { name:'RSI (14)', val: fmt(rsi), signal: rsi===null?'neutral':(rsi<35?'buy':rsi>65?'sell':'neutral') },
-    { name:'Stochastique %K (14)', val: fmt(stoch), signal: stoch===null?'neutral':(stoch<25?'buy':stoch>75?'sell':'neutral') },
-    { name:'MACD (12,26)', val: fmt(macdVal,5), signal: macdVal===null?'neutral':(macdVal>0?'buy':'sell') },
-    { name:'Williams %R (14)', val: fmt(willR), signal: willR===null?'neutral':(willR<-80?'buy':willR>-20?'sell':'neutral') },
-    { name:'CCI (20)', val: fmt(cci), signal: cci===null?'neutral':(cci<-100?'buy':cci>100?'sell':'neutral') },
-  ];
-  const mas = [
-    { name:'MM 20', val: fmt(ma20,5), signal: prix>ma20?'buy':'sell' },
-    { name:'MM 50', val: fmt(ma50,5), signal: prix>ma50?'buy':'sell' },
-    { name:'MM 100', val: fmt(ma100,5), signal: prix>ma100?'buy':'sell' },
-    { name:'MM 200', val: fmt(ma200,5), signal: prix>ma200?'buy':'sell' },
-  ];
-  const all = oscillators.concat(mas);
-  const buyCt = all.filter(a=>a.signal==='buy').length;
-  const sellCt = all.filter(a=>a.signal==='sell').length;
-  return { price: prix, oscillators, mas, buyCt, sellCt, neutralCt: all.length-buyCt-sellCt, score: buyCt-sellCt, ma20 };
-}
-
-function drawGauge(score){
-  const svg = document.getElementById('gaugeSvg');
-  const norm = Math.max(-9, Math.min(9, score));
-  const angle = 180 - ((norm+9)/18)*180; // 180deg(gauche/vente) -> 0deg(droite/achat)
-  const rad = angle*Math.PI/180;
-  const cx=80, cy=80, r=62;
-  const nx = cx + r*Math.cos(rad);
-  const ny = cy - r*Math.sin(rad);
-  let color = '#8f9bb0';
-  if(norm>=4) color='#22c48d'; else if(norm<=-4) color='#ef4a5a'; else if(norm>0) color='#7fd6ac'; else if(norm<0) color='#f0a3ac';
-  svg.innerHTML = `
-    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="#242b38" stroke-width="10" stroke-linecap="round"/>
-    <path d="M 18 80 A 62 62 0 0 1 142 80" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="round"
-      stroke-dasharray="195" stroke-dashoffset="${195 - 195*((norm+9)/18)}"/>
-    <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="#eef1f7" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="${cx}" cy="${cy}" r="4" fill="#eef1f7"/>
-  `;
-}
-
-// Le tracé du graphique réutilise directement dessinerFxEvolutionUnique
-// (déjà écrit et testé pour la courbe FX) plutôt que de dupliquer une
-// logique de dessin distincte — même style, même comportement.
-
-async function renderTechnique(){
-  document.getElementById('taSymTitle').textContent = 'ANALYSE — ' + taActiveSym;
-
-  const points = await chargerPointsPourPeriode('pct_30d');
-  const pointsAvecPrix = points.filter(p => p.prix && p.prix[taActiveSym] !== null && p.prix[taActiveSym] !== undefined);
-  const closes = pointsAvecPrix.map(p => p.prix[taActiveSym]);
-  const seriePourGraphique = pointsAvecPrix.map(p => ({ t: new Date(p.horodatage).getTime(), v: p.prix[taActiveSym] }));
-
-  const canvas = document.getElementById('taCanvas');
-
-  if(closes.length < 26){
-    document.getElementById('oscList').innerHTML = '<div style="padding:14px; color:var(--text-low); font-family:var(--mono); font-size:12px;">Pas assez de données pour calculer les indicateurs (minimum ~26 points horaires).</div>';
-    document.getElementById('maList').innerHTML = '';
-    document.getElementById('srList').innerHTML = '';
-    document.getElementById('taSummary').innerHTML = '';
-    document.getElementById('gaugeLabel').textContent = '—';
-    drawGauge(0);
-    if(canvas) dessinerFxEvolutionUnique(canvas, seriePourGraphique, false);
+// Panneau de droite : cliquer sur une réunion (qu'elle soit la seule affichée
+// ou l'une des réunions dépliées) la charge sur le graphique d'évolution.
+document.getElementById('probBody').addEventListener('click', e=>{
+  const back = e.target.closest('[data-action="back"]');
+  if(back){
+    tauxSelectedBank = null;
+    renderTaux();
     return;
   }
+  const row = e.target.closest('.pm-row');
+  if(!row) return;
+  tauxActiveMeetingKey = row.dataset.meetingKey;
+  renderTaux();
+});
 
-  const ta = computeTAReel(closes);
-  drawGauge(ta.score);
-  let label = 'NEUTRE';
-  if(ta.score>=4) label='ACHAT FORT'; else if(ta.score>0) label='ACHAT'; else if(ta.score<=-4) label='VENTE FORTE'; else if(ta.score<0) label='VENTE';
-  document.getElementById('gaugeLabel').textContent = label;
+// ===================== ANALYSE TECHNIQUE — FORCE DES DEVISES =====================
+// Indice de force par devise : pour une devise X, on multiplie ses 7 paires
+// contre chacune des 7 autres devises, ex. pour USD :
+//   USDCAD*USDEUR*USDGBP*USDCHF*USDJPY*USDAUD*USDNZD
+// L'archive FX ne stocke que 7 paires XXX/USD (voir ORDRE_FX) : chaque devise
+// Y != USD vaut donc p.prix['YUSD'], et USD lui-même vaut 1. N'importe quelle
+// paire croisée X/Y s'obtient alors par P(X)/P(Y), ce qui permet de reproduire
+// exactement les formules ci-dessus sans données supplémentaires.
+const CS_DEVISES = ['USD', 'CAD', 'EUR', 'GBP', 'CHF', 'JPY', 'AUD', 'NZD'];
+let csPeriodeActive = 'pct_30d';
 
-  document.getElementById('oscList').innerHTML = ta.oscillators.map(o=>`
-    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':o.signal==='sell'?'VENTE':'NEUTRE'}</span></span></div>
-  `).join('');
-  document.getElementById('maList').innerHTML = ta.mas.map(o=>`
-    <div class="ind-row"><span class="iname">${o.name}</span><span style="display:flex; align-items:center; gap:8px;"><span class="ival">${o.val}</span><span class="ind-signal ${o.signal}">${o.signal==='buy'?'ACHAT':'VENTE'}</span></span></div>
-  `).join('');
+function calculerForceDevises(points){
+  const series = {};
+  CS_DEVISES.forEach(ccy => series[ccy] = []);
 
-  const sr = calculerSupportsResistances(closes);
-  document.getElementById('srList').innerHTML = sr.map(s=>`
-    <div class="sr-row" style="${s.current?'color:var(--text-hi); background:var(--bg-2);':'color:var(--text-mid);'}">
-      <span>${s.label}</span><span>${s.val.toFixed(5)}</span>
-    </div>
-  `).join('');
+  points.forEach(p => {
+    if(!p.prix) return;
+    const P = { USD: 1 };
+    let complet = true;
+    ORDRE_FX.forEach(sym => {
+      const v = p.prix[sym];
+      if(v === null || v === undefined){ complet = false; return; }
+      P[sym.slice(0, 3)] = v; // 'EURUSD' -> 'EUR'
+    });
+    if(!complet) return; // point ignoré si une des 7 paires manque à cet horodatage
 
-  document.getElementById('taSummary').innerHTML =
-    `Sur ${ta.oscillators.length+ta.mas.length} indicateurs suivis : <span class="up">${ta.buyCt} à l'achat</span>, ` +
-    `<span class="down">${ta.sellCt} à la vente</span>, ${ta.neutralCt} neutres. ` +
-    `Le signal global ressort <strong>${label.toLowerCase()}</strong> pour ${taActiveSym}. ` +
-    `<span style="color:var(--text-low);">(RSI, MACD, MM : formules réelles. Stochastique/Williams %R/CCI : substituent la clôture au haut/bas horaire, non disponible dans l'archive actuelle.)</span>`;
+    const t = new Date(p.horodatage).getTime();
+    CS_DEVISES.forEach(ccy => {
+      let force = 1;
+      CS_DEVISES.forEach(autre => {
+        if(autre !== ccy) force *= (P[ccy] / P[autre]);
+      });
+      series[ccy].push({ t, v: force });
+    });
+  });
 
-  if(canvas) dessinerFxEvolutionUnique(canvas, seriePourGraphique, false);
+  return series;
+}
+
+// Le produit brut n'est pas lisible tel quel (ordres de grandeur très
+// différents d'une devise à l'autre - ex. JPY vs les autres). On indexe
+// chaque série sur sa première valeur pour afficher une variation en %
+// depuis le début de la période, comme le mode "Comparaison" de l'onglet FX.
+function indexerSerieForce(serie){
+  if(!serie.length || !serie[0].v) return [];
+  const base = serie[0].v;
+  return serie.map(p => ({ t: p.t, v: (p.v / base - 1) * 100 }));
+}
+
+async function renderForceDevises(){
+  const points = await chargerPointsPourPeriode(csPeriodeActive);
+  const series = calculerForceDevises(points);
+
+  CS_DEVISES.forEach(ccy => {
+    const serieIndexee = indexerSerieForce(series[ccy]);
+    const canvas = document.getElementById('csCanvas-' + ccy);
+    if(canvas) dessinerFxEvolutionUnique(canvas, serieIndexee, true);
+
+    const valEl = document.getElementById('csVal-' + ccy);
+    if(!valEl) return;
+    const dernier = serieIndexee[serieIndexee.length - 1];
+    if(dernier){
+      valEl.textContent = (dernier.v >= 0 ? '+' : '') + dernier.v.toFixed(2) + '%';
+      valEl.className = 'cs-val ' + (dernier.v >= 0 ? 'up' : 'down');
+    } else {
+      valEl.textContent = 'n/a';
+      valEl.className = 'cs-val';
+    }
+  });
+}
+
+function initialiserCsPeriodTabs(){
+  const conteneur = document.getElementById('csPeriodTabs');
+  if(!conteneur) return;
+  conteneur.querySelectorAll('.fx-perf-tab').forEach(onglet => {
+    onglet.addEventListener('click', () => {
+      conteneur.querySelectorAll('.fx-perf-tab').forEach(o => o.classList.remove('active'));
+      onglet.classList.add('active');
+      csPeriodeActive = onglet.dataset.periode;
+      renderForceDevises();
+    });
+  });
 }
 
 
@@ -3316,8 +3964,9 @@ document.getElementById('mainNav').addEventListener('click', e=>{
     case 'dataeco': renderEcoData(); break;
     case 'cesi': renderCesiPage(); break;
     case 'taux': renderTaux(); break;
-    case 'technique': renderTechnique(); break;
+    case 'technique': renderForceDevises(); break;
     case 'fx': renderFxTable(); renderFxPerfChart(); renderFxEvolution(); break;
+    case 'cot': renderCot(); break;
   }
 });
 
@@ -3327,9 +3976,10 @@ renderFxTable();
 renderFxPerfChart();
 initialiserOngletsFxPerf();
 initialiserControlesFxEvolution();
-initialiserOngletsTechnique();
+initialiserCsPeriodTabs();
+initialiserCotFiltres();
 renderFxEvolution();
-renderTechnique();
+renderForceDevises();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
 demarrerEcouteTempsReel();
 
