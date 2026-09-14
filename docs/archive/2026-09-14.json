@@ -2,6 +2,16 @@
   "date": "2026-09-14",
   "ff_news": [
     {
+      "impact": "high",
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-14T15:07:24.524721+00:00",
+      "date_publication": "2026-09-14T15:06:24.524721+00:00",
+      "url": "https://www.forexfactory.com/news/1418137-trump-ukraine-has-agreed-not-to-hit-russian",
+      "extrait": "Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise! The World’s Diesel price rise is mostly caused by the Russia/Ukraine War, not Iran. President DJT",
+      "ignore": false,
+      "titre": "Trump: Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise!"
+    },
+    {
       "ignore": false,
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1418120-the-conference-board-leading-economic-index-lei-for",
@@ -149,6 +159,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Trump: Ukraine and Russia have agreed not to hit energy targets",
+      "categorie": "commodities",
+      "date_recuperation": "2026-09-14T15:10:37.384131+00:00",
+      "date_publication": "2026-09-14T15:08:02.590777+00:00",
+      "url": "https://investinglive.com/commodities/trump-ukraine-and-russia-have-agreed-not-to-hit-energy-targets/",
+      "contenu": "Trump trying to pin diesel on Russia and Ukraine\n\nOil is lower on the headlines.\n\nThere has been a non-stop messaging push from the White House to blame energy prices on the Ukraine war instead of the Iran war. There is some truth to the point about diesel though, but huge refineries in the Middle East are also curbed by the closure in Hormuz.",
+      "ignore": false,
+      "tags": [
+        "Oil"
+      ]
+    },
     {
       "ignore": false,
       "contenu": "The 10-year cracks the big figure\n\nI thought 10-year buyers might hold the line until after the FOMC. There were a couple of strong auctions last week but it didn't matter with oil up $4 today and talk of longer shutdowns in the Saudi east-west pipeline.\n\n5% is big but 5.02% is equally important as cracking it would get yields back to financial crisis levels.",
