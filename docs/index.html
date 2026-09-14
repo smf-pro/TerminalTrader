@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMF-Terminal-Trading</title>
+<title>SMF-Terminal</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
@@ -322,6 +322,16 @@
   .cal-num{ font-family:var(--mono); text-align:right; color:var(--text-mid); }
   .cal-num.actual-beat{ color:var(--green); }
   .cal-num.actual-miss{ color:var(--red); }
+  /* Valeur "Précédent" absente du calendrier et déduite depuis Data Éco
+     (voir precedentDeduit) : style distinct pour ne pas la faire passer
+     pour une donnée confirmée par le flux calendrier lui-même. */
+  .cal-num.deduit{ color:var(--blue); font-style:italic; }
+  .cal-filters{ display:flex; gap:6px; margin-top:2px; }
+  .page-heading.cal-page-heading{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:baseline; column-gap:16px;
+  }
+  .cal-page-heading .cal-filters{ justify-self:center; margin-top:0; }
+  .cal-page-heading .sub{ justify-self:end; text-align:right; }
 
   /* --- data économique --- */
   .eco-heading{ flex-direction:row; align-items:center; flex-wrap:wrap; row-gap:12px; }
@@ -554,9 +564,10 @@
     position:absolute; left:0; right:0; top:0; bottom:0;
     display:flex; z-index:1;
   }
-  .fx-perf-col{ flex:1; position:relative; }
+  .fx-perf-col{ flex:1; position:relative; transition:transform .5s ease; }
   .fx-perf-bar{
     position:absolute; left:22%; right:22%; border-radius:2px;
+    transition:top .5s ease, height .5s ease, background-color .4s ease;
   }
   .fx-perf-bar.up.weak{ background:rgba(34,196,141,0.35); }
   .fx-perf-bar.up.strong{ background:var(--green); }
@@ -567,6 +578,7 @@
     display:flex; align-items:center; justify-content:center;
     font-family:var(--mono); font-size:10.5px; font-weight:700;
     border-radius:2px; z-index:2;
+    transition:top .5s ease, background-color .4s ease, color .4s ease;
   }
   .fx-perf-badge.up{ background:var(--green); color:#06281c; }
   .fx-perf-badge.down{ background:var(--red); color:#2c0a0e; }
@@ -574,6 +586,7 @@
   .fx-perf-val{
     position:absolute; left:0; right:0; text-align:center;
     font-family:var(--mono); font-size:10.5px; font-weight:600; white-space:nowrap;
+    transition:top .5s ease, color .4s ease;
   }
   .fx-perf-val.up{ color:var(--green); }
   .fx-perf-val.down{ color:var(--red); }
@@ -671,7 +684,7 @@
   <header>
     <div class="brand">
       <div class="mark">S</div>
-      <div class="name">SMF<span>-TERMINAL-TRADING</span></div>
+      <div class="name">SMF<span>-TERMINAL</span></div>
     </div>
     <nav class="main-nav" id="mainNav">
       <button class="nav-btn active" data-page="accueil">ACCUEIL</button>
@@ -750,8 +763,13 @@
   <div class="page" id="page-calendrier">
     <div class="cal-layout">
       <div class="page-inner">
-        <div class="page-heading">
+        <div class="page-heading cal-page-heading">
           <h1>Calendrier économique<span class="src-status-dot" id="dot-ecocalendar-page" title=""></span><span class="src-status-time" id="time-ecocalendar-page"></span></h1>
+          <div class="cal-filters" id="calFilters">
+            <button class="eco-chip" data-impact="all">Tous</button>
+            <button class="eco-chip" data-impact="medium">Moyen +</button>
+            <button class="eco-chip active" data-impact="high">Fort</button>
+          </div>
           <span class="sub" id="calDate"></span>
         </div>
         <table class="cal-table">
@@ -1582,6 +1600,12 @@ function ecouterIndicateursTempsReel(){
         renderEcoData();
         renderCesi();
         renderCesiPage();
+        // Le calendrier peut avoir été rendu avant que Data Éco n'ait
+        // fini de charger : on le rafraîchit ici pour que "Précédent"
+        // se complète dès que la donnée devient disponible (voir
+        // precedentDeduit), sans attendre un rechargement de page.
+        renderCalendar();
+        renderCalendarHome();
       }, erreur => {
         console.error('Erreur écoute temps réel ff_indicator_history (' + ind.slug + ') :', erreur);
       });
@@ -2248,6 +2272,9 @@ function renderFxPerfChart(){
   const zeroY = FX_CHART_H / 2;
 
   // ---- Grille graduee fixe (5 divisions de chaque cote, comme Finviz) ----
+  // Dans un conteneur a part (recree entierement a chaque appel, pas
+  // besoin d'animation ici) pour ne jamais toucher .fx-perf-cols, qui lui
+  // doit garder ses noeuds DOM d'un appel a l'autre (voir plus bas).
   const nbDivisions = 5;
   const pasEchelle = scaleMax / nbDivisions;
   let grilleHtml = '';
@@ -2258,37 +2285,115 @@ function renderFxPerfChart(){
     grilleHtml += `<div class="fx-perf-grid-line${estZero ? ' zero' : ''}" style="top:${y}px"></div>`;
     grilleHtml += `<div class="fx-perf-grid-label" style="top:${y}px">${valeurTick >= 0 && !estZero ? '+' : ''}${valeurTick.toFixed(2)}%</div>`;
   }
+  let grilleEl = el.querySelector('.fx-perf-grid-wrap');
+  if(!grilleEl){
+    grilleEl = document.createElement('div');
+    grilleEl.className = 'fx-perf-grid-wrap';
+    el.appendChild(grilleEl);
+  }
+  grilleEl.innerHTML = grilleHtml;
 
-  // ---- Colonnes (badge + barre) ----
-  const colonnesHtml = donnees.map(d => {
+  let colsEl = el.querySelector('.fx-perf-cols');
+  if(!colsEl){
+    colsEl = document.createElement('div');
+    colsEl.className = 'fx-perf-cols';
+    el.appendChild(colsEl);
+  }
+
+  // ---- Animation (FLIP) : on mesure la position "avant" de chaque
+  // colonne existante, avant de reordonner/mettre a jour le DOM. Comme
+  // les noeuds sont reutilises (par symbole) plutot que recrees, les
+  // transitions CSS (top/height sur les barres, transform sur la
+  // colonne) partent bien de l'ancienne valeur au lieu de sauter direct
+  // a la nouvelle - c'est ca qui donne l'effet "glissement" quand une
+  // devise change de rang ou d'intensite.
+  const rectsAvant = {};
+  colsEl.querySelectorAll('.fx-perf-col[data-sym]').forEach(node => {
+    rectsAvant[node.dataset.sym] = node.getBoundingClientRect();
+  });
+
+  const symsVus = new Set();
+  donnees.forEach(d => {
+    symsVus.add(d.sym);
+    let node = colsEl.querySelector(`.fx-perf-col[data-sym="${d.sym}"]`);
+    if(!node){
+      node = document.createElement('div');
+      node.className = 'fx-perf-col';
+      node.dataset.sym = d.sym;
+    }
+
     if(d.baseline){
-      return `<div class="fx-perf-col">
-        <div class="fx-perf-badge baseline" style="top:${zeroY - 12}px">USD</div>
-      </div>`;
+      node.innerHTML = '';
+      const badge = document.createElement('div');
+      badge.className = 'fx-perf-badge baseline';
+      badge.style.top = (zeroY - 12) + 'px';
+      badge.textContent = 'USD';
+      node.appendChild(badge);
+      colsEl.appendChild(node); // reinsere a la bonne position dans l'ordre trie
+      return;
     }
 
     const dir = d.val >= 0 ? 'up' : 'down';
     const intensite = Math.abs(d.val) >= scaleMax * 0.5 ? 'strong' : 'weak';
     const barLen = Math.min(Math.abs(d.val) / scaleMax, 1) * halfPx;
     const valTxt = `${d.val >= 0 ? '+' : ''}${d.val.toFixed(2)}%`;
-
-    let barStyle, valStyle;
+    let barTop, valTop;
     if(d.val >= 0){
-      barStyle = `top:${zeroY - 12 - barLen}px; height:${barLen}px;`;
-      valStyle = `top:${zeroY - 12 - barLen - 18}px;`;
+      barTop = zeroY - 12 - barLen;
+      valTop = zeroY - 12 - barLen - 18;
     } else {
-      barStyle = `top:${zeroY + 12}px; height:${barLen}px;`;
-      valStyle = `top:${zeroY + 12 + barLen + 4}px;`;
+      barTop = zeroY + 12;
+      valTop = zeroY + 12 + barLen + 4;
     }
 
-    return `<div class="fx-perf-col">
-      <div class="fx-perf-bar ${dir} ${intensite}" style="${barStyle}"></div>
-      <div class="fx-perf-badge ${dir}" style="top:${zeroY - 12}px">${d.sym.replace('USD', '')}</div>
-      <div class="fx-perf-val ${dir}" style="${valStyle}">${valTxt}</div>
-    </div>`;
-  }).join('');
+    let bar = node.querySelector('.fx-perf-bar');
+    if(!bar){ bar = document.createElement('div'); node.appendChild(bar); }
+    bar.className = `fx-perf-bar ${dir} ${intensite}`;
+    bar.style.top = barTop + 'px';
+    bar.style.height = barLen + 'px';
 
-  el.innerHTML = `${grilleHtml}<div class="fx-perf-cols">${colonnesHtml}</div>`;
+    let badge = node.querySelector('.fx-perf-badge');
+    if(!badge){ badge = document.createElement('div'); node.appendChild(badge); }
+    badge.className = `fx-perf-badge ${dir}`;
+    badge.style.top = (zeroY - 12) + 'px';
+    badge.textContent = d.sym.replace('USD', '');
+
+    let val = node.querySelector('.fx-perf-val');
+    if(!val){ val = document.createElement('div'); node.appendChild(val); }
+    val.className = `fx-perf-val ${dir}`;
+    val.style.top = valTop + 'px';
+    val.textContent = valTxt;
+
+    colsEl.appendChild(node); // reinsere a la bonne position dans l'ordre trie
+  });
+
+  // Nettoyage des colonnes qui n'ont plus de donnee ce cycle (rare, ex :
+  // source qui saute un tick pour une devise).
+  colsEl.querySelectorAll('.fx-perf-col[data-sym]').forEach(node => {
+    if(!symsVus.has(node.dataset.sym)) node.remove();
+  });
+
+  // ---- FLIP, suite : "Invert" (place chaque colonne visuellement a son
+  // ancienne position via un translateX, sans transition) puis "Play"
+  // (au frame suivant, on relache vers transform:none avec la transition
+  // CSS .5s de .fx-perf-col - le navigateur anime le trajet). ----
+  colsEl.querySelectorAll('.fx-perf-col[data-sym]').forEach(node => {
+    const avant = rectsAvant[node.dataset.sym];
+    if(!avant) return; // colonne nouvelle ce cycle : pas d'animation d'entree
+    const apres = node.getBoundingClientRect();
+    const deltaX = avant.left - apres.left;
+    if(Math.abs(deltaX) < 1) return;
+    node.style.transition = 'none';
+    node.style.transform = `translateX(${deltaX}px)`;
+  });
+  // Force le navigateur a appliquer l'etat "avant" ci-dessus avant de
+  // relacher vers l'etat final, sinon les deux changements de style sont
+  // fusionnes en un seul frame et rien ne s'anime.
+  colsEl.offsetHeight;
+  colsEl.querySelectorAll('.fx-perf-col[data-sym]').forEach(node => {
+    node.style.transition = '';
+    node.style.transform = '';
+  });
 }
 
 function initialiserOngletsFxPerf(){
@@ -2928,6 +3033,46 @@ function parseValeurCal(v){
   return Number.isNaN(nombre) ? null : nombre * mult;
 }
 
+// ===== Rapprochement calendrier <-> indicateurs suivis (Data Éco) =====
+// calendrier_cloud.py ne renseigne pas toujours "Précédent" (évènement
+// jamais vu avec ce champ côté ForexFactory, formulation différente...).
+// Quand un évènement du calendrier correspond à un indicateur qu'on suit
+// déjà en détail (INDICATEURS_SUIVIS / data-xxx.py), on va chercher le
+// dernier "actual" connu côté Data Éco pour combler le trou - c'est
+// justement la valeur qui devrait redevenir "Précédent" au prochain
+// passage de cet indicateur au calendrier.
+// Rapprochement par NOM (les deux flux n'ont pas de slug commun) : pour
+// chaque indicateur suivi, on reconstruit son nom façon ForexFactory
+// (nomLisibleDepuisSlug, préfixe pays retiré) et on le compare à
+// ev.titre en ignorant casse/ponctuation/espaces. Approximatif par
+// nature - deux formulations proches mais différentes ne matcheront
+// pas. Le correctif propre à terme serait que calendrier_cloud.py
+// écrive directement le slug FF de l'évènement dans eco_calendar.
+function normaliserTitreEco(t){
+  return String(t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+const INDICATEUR_PAR_TITRE = {};
+INDICATEURS_SUIVIS.forEach(ind => {
+  const nomSansPays = ind.slug.replace(/^[a-z]{2}-/, '');
+  const cle = ind.ccy + '|' + normaliserTitreEco(nomLisibleDepuisSlug(nomSansPays));
+  INDICATEUR_PAR_TITRE[cle] = ind.slug;
+});
+
+function slugPourEvenementCal(ev){
+  return INDICATEUR_PAR_TITRE[ev.pays + '|' + normaliserTitreEco(ev.titre)] || null;
+}
+
+// donneesIndicateurs est trié 'position' croissant (0 = publication la
+// plus récente) - on prend le premier "actual" renseigné.
+function precedentDeduit(ev){
+  const slug = slugPourEvenementCal(ev);
+  if(!slug) return null;
+  const lignes = donneesIndicateurs[slug];
+  if(!lignes || !lignes.length) return null;
+  const ligne = lignes.find(l => l.actual);
+  return ligne ? ligne.actual : null;
+}
+
 // Vue "aujourd'hui" (heure locale du navigateur) : la requête Firestore
 // remonte déjà une fenêtre glissante (voir ecouterCalendrierTempsReel),
 // mais l'affichage lui-même ne montre que le jour courant, comme le
@@ -2937,6 +3082,35 @@ function evenementsDuJour(){
   return liveCalendar.filter(ev => ev.date && ev.date.toDateString() === aujourdhui);
 }
 
+// ===== Filtre par impact (chips "Tous / Moyen+ / Fort" au-dessus du
+// tableau) : evite le bruit des evenements a faible impact (discours
+// mineurs, statistiques secondaires...) quand on ne veut suivre que le
+// gros market-mover du jour. 'medium' = affiche moyen ET fort, 'high' =
+// fort uniquement. S'applique aussi bien à la page Calendrier qu'au
+// widget compact de l'Accueil, pour rester cohérent.
+// Tout indicateur qu'on suit en detail cote Data Eco (INDICATEURS_SUIVIS)
+// est considere "Fort" pour ce filtre, meme si ForexFactory l'etiquette
+// "Moyen" dans le calendrier brut - on fait plus confiance a la liste
+// qu'on a nous-meme constituee qu'a l'etiquette d'impact de la source.
+const NIVEAU_IMPACT_CAL = {holiday:0, low:1, medium:2, high:3};
+let calFilterImpact = 'high'; // 'all' | 'medium' | 'high' — Fort par défaut
+
+function passeFiltreImpactCal(ev){
+  if(calFilterImpact === 'all') return true;
+  if(slugPourEvenementCal(ev) !== null) return true; // suivi dans Data Éco = Fort
+  const seuil = calFilterImpact === 'high' ? 3 : 2;
+  return (NIVEAU_IMPACT_CAL[ev.impact] ?? 0) >= seuil;
+}
+
+document.getElementById('calFilters').addEventListener('click', e => {
+  const btn = e.target.closest('[data-impact]');
+  if(!btn) return;
+  calFilterImpact = btn.dataset.impact;
+  document.querySelectorAll('#calFilters .eco-chip').forEach(c => c.classList.toggle('active', c === btn));
+  renderCalendar();
+  renderCalendarHome();
+});
+
 function preparerEvenementCal(ev){
   const passed = ev.date ? ev.date.getTime() < Date.now() : false;
   const previsionNum = parseValeurCal(ev.prevision);
@@ -2945,12 +3119,19 @@ function preparerEvenementCal(ev){
   if(reelNum !== null && previsionNum !== null){
     actualClass = reelNum >= previsionNum ? 'actual-beat' : 'actual-miss';
   }
+  let prevDisp = ev.precedent || '';
+  let prevDeduit = false;
+  if(!prevDisp){
+    const deduit = precedentDeduit(ev);
+    if(deduit){ prevDisp = deduit; prevDeduit = true; }
+  }
   return {
     timeStr: ev.date ? ev.date.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit', hour12:false}) : '—',
     country: ev.pays,
     name: ev.titre,
     impact: mapImpactCal[ev.impact] !== undefined ? mapImpactCal[ev.impact] : 'low',
-    prevDisp: ev.precedent || '—',
+    prevDisp: prevDisp || '—',
+    prevDeduit,
     fcstDisp: ev.prevision || '—',
     actualDisp: ev.reel || (passed ? 'Terminé' : '—'),
     actualClass,
@@ -2978,11 +3159,19 @@ function renderCalendar(){
   // Toute la semaine (pas seulement aujourd'hui) : un separateur visuel
   // par jour pour garder ~80 evenements lisibles, plutot qu'une longue
   // liste plate. liveCalendar est deja trie chronologique croissant par
-  // la requete Firestore (voir ecouterCalendrierTempsReel).
+  // la requete Firestore (voir ecouterCalendrierTempsReel). Le filtre
+  // d'impact (calFilterImpact) s'applique ici, PAS sur liveCalendar
+  // lui-meme, pour garder l'entete "Semaine du ... au ..." basee sur la
+  // fenetre reelle meme quand le filtre est actif.
+  const evenements = liveCalendar.filter(passeFiltreImpactCal);
+  if(evenements.length === 0){
+    bodyEl.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-low); padding:20px;">Aucun évènement ne correspond à ce filtre</td></tr>';
+    return;
+  }
   const aujourdhui = new Date().toDateString();
   let dernierJourAffiche = null;
   let html = '';
-  liveCalendar.forEach(ev => {
+  evenements.forEach(ev => {
     const jour = ev.date ? ev.date.toDateString() : null;
     if(jour !== dernierJourAffiche){
       dernierJourAffiche = jour;
@@ -2998,7 +3187,7 @@ function renderCalendar(){
       <td><span class="cal-country">${flagFor(p.country)} ${p.country}</span></td>
       <td>${p.name}</td>
       <td><span class="impact-dots ${p.impact}">${dots}</span></td>
-      <td class="cal-num">${p.prevDisp}</td>
+      <td class="cal-num ${p.prevDeduit?'deduit':''}" ${p.prevDeduit?`title="Déduit de Data Éco (dernière valeur connue, pas encore confirmé par le calendrier)"`:''}>${p.prevDisp}</td>
       <td class="cal-num">${p.fcstDisp}</td>
       <td class="cal-num ${p.actualClass}">${p.actualDisp}</td>
     </tr>`;
@@ -3010,13 +3199,14 @@ function renderCalendarHome(){
   const el = document.getElementById('calListHome');
   if(!el) return;
   document.getElementById('calDateHome').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'short', day:'numeric', month:'short'});
-  const events = evenementsDuJour().map(preparerEvenementCal);
+  const events = evenementsDuJour().filter(passeFiltreImpactCal).map(preparerEvenementCal);
   if(events.length === 0){
-    el.innerHTML = '<div style="text-align:center; color:var(--text-low); padding:20px; font-size:12px;">Aucun évènement aujourd\'hui</div>';
+    const msg = calFilterImpact === 'all' ? 'Aucun évènement aujourd\'hui' : 'Aucun évènement ne correspond à ce filtre aujourd\'hui';
+    el.innerHTML = `<div style="text-align:center; color:var(--text-low); padding:20px; font-size:12px;">${msg}</div>`;
     return;
   }
   el.innerHTML = events.map(ev=>`
-    <div class="cal-row-compact ${ev.passed?'done':''}" title="${ev.name} — Préc. ${ev.prevDisp} · Prév. ${ev.fcstDisp} · Réel ${ev.actualDisp}">
+    <div class="cal-row-compact ${ev.passed?'done':''}" title="${ev.name} — Préc. ${ev.prevDisp}${ev.prevDeduit?' (déduit de Data Éco)':''} · Prév. ${ev.fcstDisp} · Réel ${ev.actualDisp}">
       <span class="cal-time">${ev.timeStr}</span>
       <span class="cal-country">${flagFor(ev.country)} ${ev.country}</span>
       <span class="impact-dots ${ev.impact}"><span></span><span></span><span></span></span>
