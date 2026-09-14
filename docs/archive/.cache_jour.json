@@ -1,11 +1,21 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T15:16:28.097567+00:00",
+    "ff_news": "2026-09-14T15:33:26.283233+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T15:08:02.590777+00:00"
   },
   "ff_news": [
+    {
+      "impact": "medium",
+      "extrait": "The failing Nation of Iran wants to make a deal, quickly and badly. I will determine whether or not the U.S.A. will choose to engage - The concept of which we are open to. Thank you for your attention to this matter! President DONALD J. TRUMP",
+      "source": "@realDonaldTrump",
+      "titre": "Trump: Iran wants to make a deal, quickly and badly. I will determine whether or not the U.S.A. will choose to engage",
+      "date_publication": "2026-09-14T15:33:26.283233+00:00",
+      "date_recuperation": "2026-09-14T15:34:26.283233+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418142-trump-iran-wants-to-make-a-deal-quickly"
+    },
     {
       "impact": "low",
       "ignore": false,
