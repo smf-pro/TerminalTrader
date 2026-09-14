@@ -2,6 +2,16 @@
   "date": "2026-09-14",
   "ff_news": [
     {
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418142-trump-iran-wants-to-make-a-deal-quickly",
+      "date_recuperation": "2026-09-14T15:34:26.283233+00:00",
+      "extrait": "The failing Nation of Iran wants to make a deal, quickly and badly. I will determine whether or not the U.S.A. will choose to engage - The concept of which we are open to. Thank you for your attention to this matter! President DONALD J. TRUMP",
+      "impact": "medium",
+      "titre": "Trump: Iran wants to make a deal, quickly and badly. I will determine whether or not the U.S.A. will choose to engage",
+      "date_publication": "2026-09-14T15:33:26.283233+00:00",
+      "source": "@realDonaldTrump"
+    },
+    {
       "impact": "low",
       "ignore": false,
       "titre": "Lagarde: A new age of capital: growth, sovereignty and AI",
