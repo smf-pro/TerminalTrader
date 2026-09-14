@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-14T10:01:25.429079+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T09:09:56.008428+00:00"
+    "il_articles": "2026-09-14T11:29:43.242674+00:00"
   },
   "ff_news": [
     {
@@ -114,6 +114,19 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "tags": [
+        "market overview",
+        "interest rates"
+      ],
+      "date_publication": "2026-09-14T11:29:43.242674+00:00",
+      "titre": "How have interest rate expectations changed after last week's events?",
+      "categorie": "news",
+      "date_recuperation": "2026-09-14T11:30:27.063678+00:00",
+      "contenu": "There's been a hawkish repricing across the board as oil prices breached the psychological $100 level and hopes for an end to the war before the November midterms faded.\n\nRate hikes by year-end\n\nBoE:51 bps (57% probability of no change at the next meeting)\n\n2027: 111 bps\n\nFed:50 bps (87% probability ofrate hikeat the next meeting)\n\n2027: 91 bps\n\nBoJ:43 bps (76% probability ofrate hikeat the next meeting)\n\n2027: 111 bps\n\nRBA:38 bps (85% probability ofrate hikeat the next meeting)\n\n2027: 61 bps\n\nBoC:38 bps (58% probability ofrate hikeat the next meeting)\n\n2027: 132 bps\n\nECB:37 bps (62% probability ofrate hikeat the next meeting)\n\n2027: 82 bps\n\nRBNZ:35 bps (54% probability ofrate hikeat the next meeting)\n\n2027: 119 bps\n\nSNB:13 bps (88% probability of no change at the next meeting)\n\n2027: 77 bps\n\nLast week's market pricinghere.The 2027 pricing indicates the total amount of tigthening expected by the end of 2027, not how much is expected in 2027 alone.\n\nRate markets saw a broad hawkish repricing last week, with expectations for rate hikes rising across all major central banks. The main catalyst was the surge in oil prices above the psychologically important $100  level, which reinforced inflation concerns.\n\nThe shift was particularly notable on the Federal Reserve side, where year-end hike expectations rose to 50 bps from 33 bps a week earlier. The September rate hike got sealed after Friday's hotter-than-expected monthly core US CPI, which added to concerns that underlying inflation could be drifting higher.\n\nElsewhere, expectations also moved higher across the board. BoE year-end hikes rose to 51 bps from 26 bps, BoC to 38 bps from 26 bps, RBA to 38 bps from 30 bps, and RBNZ to 35 bps from 25 bps. Even the SNB, which is the least hawkish of the group, saw expectations rise to 13 bps from 5 bps.\n\nThe $100 oil threshold has changed the inflation equation, forcing traders to price a more hawkish path for central banks.\n\nEveryone is an oil trader  now.",
+      "url": "https://investinglive.com/news/how-have-interest-rate-expectations-changed-after-last-week-s-events/"
+    },
     {
       "tags": [
         "Oil",
