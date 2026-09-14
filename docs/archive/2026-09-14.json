@@ -3,6 +3,16 @@
   "ff_news": [
     {
       "ignore": false,
+      "impact": "high",
+      "titre": "Trump: Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise!",
+      "url": "https://www.forexfactory.com/news/1418137-trump-ukraine-has-agreed-not-to-hit-russian",
+      "extrait": "Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise! The World’s Diesel price rise is mostly caused by the Russia/Ukraine War, not Iran. President DJT",
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-14T15:07:24.524721+00:00",
+      "date_publication": "2026-09-14T15:06:24.524721+00:00"
+    },
+    {
+      "ignore": false,
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1418120-the-conference-board-leading-economic-index-lei-for",
       "titre": "The Conference Board Leading Economic Index (LEI) for the UK Ticked Down in July",
