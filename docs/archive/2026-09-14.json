@@ -2,6 +2,16 @@
   "date": "2026-09-14",
   "ff_news": [
     {
+      "date_publication": "2026-09-14T12:39:46.478343+00:00",
+      "source": "@LiveSquawk",
+      "titre": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials",
+      "extrait": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials #OOTT",
+      "url": "https://www.forexfactory.com/news/1418092-a-crucial-saudi-oil-pipeline-hit-in-strikes",
+      "impact": "high",
+      "ignore": false,
+      "date_recuperation": "2026-09-14T12:40:46.478343+00:00"
+    },
+    {
       "source": "statcan.gc.ca",
       "extrait": "Following five consecutive monthly increases, total manufacturing sales were down 0.4% to $78.7 billion in July. Sales fell in 8 of the 21 subsectors, led by the chemical (-6.6%) and food (-1.4%) subsectors. The declines were partially offset by a 1.9% increase in petroleum and coal product sales. Despite the overall monthly decline, total manufacturing ...",
       "titre": "Canada Monthly Survey of Manufacturing, July 2026",
