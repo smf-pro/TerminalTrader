@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-14T16:26:30.261186+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T17:33:12.537236+00:00"
+    "il_articles": "2026-09-14T17:53:51.033254+00:00"
   },
   "ff_news": [
     {
@@ -214,6 +214,18 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/news/trump-ai-will-be-the-greatest-economic-development-engine-in-history/",
+      "contenu": "The president pushes back against AI regulation and warns that difficult US permitting could drive major investment overseas\n\nUSPresident Donald Trump postedthe following comments on artificial intelligence:\n\nSays AI and data centers will be “the Greatest Economic Development Engine in History — Bigger than Oil, Gold, Diamonds, or even the Internet”\n\nSays the development of AI “will not be stopped”\n\nSays he is unhappy that Google reportedly wants to build a massive plant in Finland because permitting has become too difficult in the United States\n\nSays China’s President Xi has announced that China will do nothing to stand in the way of AI or its future\n\nCalls fears that AI will take over the world or destroy humanity a “HOAX”\n\nQuestions why industry leaders are calling for regulations that, if strongly implemented, could drive them “into oblivion and bankruptcy”\n\nTrump is sending a clear message that his administration intends to prioritize rapid AI and data-center development while limiting regulatory and permitting barriers.\n\nThe comments are broadly supportive of the AI investment theme, including semiconductor companies, data-center operators, electricity producers and businesses involved in expanding the power grid. However, Trump’s criticism of industry leaders seeking regulation could create uncertainty over how the administration will balance rapid development against concerns about safety, energy demand and national security.\n\nOf course, if Trump says it is a \"HOAX\", I am not sure the odds favoring that it is in reality a hoax.\n\nNevertheless, the Nasdaq is nearly back to unchanged at -9 points or 0.04%. The S&P is down -15 points or 0.20%. The NASDAQ 100 is still down -96 points or -0.33% so they are not buying into the comments as much .\n\nTechnically for the NASDAQ composite Index, it is back testing its 100 hour moving average at 26296.40. The 200 hour moving averages at 26386.66. The current price is trading at 26325 in between those 2 moving averages. Getting above the 200 hour moving average will be more bullish. Right now the biases shifting more to neutral after bouncing off its 100 day moving average at the start of the trading day.",
+      "titre": "Trump: AI will be the greatest economic development engine in history",
+      "date_publication": "2026-09-14T17:53:51.033254+00:00",
+      "ignore": false,
+      "categorie": "news",
+      "date_recuperation": "2026-09-14T17:55:42.107835+00:00",
+      "tags": [
+        "USD"
+      ]
+    },
     {
       "date_recuperation": "2026-09-14T17:35:23.208902+00:00",
       "titre": "USDJPY buyers had their shot today—and ran into the targeted resistance.",
