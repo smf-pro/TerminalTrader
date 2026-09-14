@@ -1,11 +1,21 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T16:15:29.300249+00:00",
+    "ff_news": "2026-09-14T16:26:30.261186+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T16:14:29.303948+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "Oil is flowing through the Hormuz Strait. The Countries of the World, which have been no help to us whatsoever, should, and will, reimburse the United States of America when this SCAM Confligration is all over. We are doing it much more for others, than we are for ourselves, and we have been for Generations! President DONALD J. TRUMP",
+      "ignore": false,
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-14T16:27:30.261186+00:00",
+      "url": "https://www.forexfactory.com/news/1418163-trump-oil-is-flowing-through-the-hormuz-strait",
+      "titre": "Trump: Oil is flowing through the Hormuz Strait. The Countries of the World, should, and will, reimburse the US",
+      "impact": "low",
+      "date_publication": "2026-09-14T16:26:30.261186+00:00"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418156-ukraines-president-zelenskiy-ukraine-would-agree-on-energy",
       "extrait": "Ukraines President Zelenskiy: Ukraine would agree on energy truce if Russia does.Ukraines President Zelenskiy: Ukraine proposed that its partners secure an agreement with Russia that would stop the destruction of critical infrastructure.Ukraines President Zelenskiy: Ukraine is not convinced that Russia is willing to abide by any agreement.",
