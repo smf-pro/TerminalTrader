@@ -1,11 +1,31 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T07:55:26.926898+00:00",
+    "ff_news": "2026-09-14T08:04:21.570907+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T07:32:04.357544+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-14T08:04:21.570907+00:00",
+      "url": "https://www.forexfactory.com/news/1418052-ecbs-kazimir-says-they-will-consider-all-options",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-14T08:05:21.570907+00:00",
+      "extrait": "Ecb's Kazimir Says They Will Consider All Options For The Next Decision But Will Take Action If Necessary.",
+      "ignore": false,
+      "titre": "ECB's Kazimir Says They Will Consider All Options For The Next Decision But Will Take Action If Necessary",
+      "impact": "low"
+    },
+    {
+      "date_publication": "2026-09-14T08:03:27.069908+00:00",
+      "url": "https://www.forexfactory.com/news/1418051-yemens-houthis-say-they-attacked-saudis-khamis-mushait",
+      "source": "@financialjuice",
+      "extrait": "Yemen's Houthis say they attacked Saudi's Khamis Mushait air base.",
+      "date_recuperation": "2026-09-14T08:04:27.069908+00:00",
+      "ignore": false,
+      "titre": "Yemen's Houthis say they attacked Saudi's Khamis Mushait air base",
+      "impact": "low"
+    },
     {
       "extrait": "Ecb's Simkus: December Is Natural Time To Assess Sitaution MoreSimkus: Ecb Must Also Look At Energy Prices Before Oct. Meeting",
       "impact": "low",
