@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-14T16:26:30.261186+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T16:14:29.303948+00:00"
+    "il_articles": "2026-09-14T16:36:35.082935+00:00"
   },
   "ff_news": [
     {
@@ -214,6 +214,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Trump tweeting non-stop today\n\nI'm starting to get the sense that Trump saw some bad polls this morning.\n\nHe has been playing the \"Iran war will be over soon\" card for many months now so I doubt this lands. But last week he said the war would extend until after the midterms and that gave a green light to oil markets to rocket higher. He's trying to put the genie back in the bottle. On the other side, it seems as though Iran is happy to wait and watch oil prices rise daily. They continue to insist on the full MOU, which would include Israel leaving Lebanon, and there are no signs that's coming. There are no signs of any real talks right now but we've seen throughout this conflict that talks can happen behind closed doors and/or come together relatively quick. We've also seen that deals don't stick.\n\nWTI crude was last up $2.76 to $102.75, down more than $2 from the highs of the day.",
+      "tags": [
+        "Politics"
+      ],
+      "date_recuperation": "2026-09-14T16:40:30.538359+00:00",
+      "date_publication": "2026-09-14T16:36:35.082935+00:00",
+      "titre": "Trump: Military conflict with Iran \"will not be long\"",
+      "categorie": "news",
+      "url": "https://investinglive.com/news/trump-military-conflict-with-iran-will-not-be-long/",
+      "ignore": false
+    },
     {
       "titre": "Zelensky says Trump's deal to stop energy strikes is just a proposal",
       "tags": [
