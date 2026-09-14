@@ -3,6 +3,16 @@
   "ff_news": [
     {
       "ignore": false,
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418120-the-conference-board-leading-economic-index-lei-for",
+      "titre": "The Conference Board Leading Economic Index (LEI) for the UK Ticked Down in July",
+      "date_recuperation": "2026-09-14T13:31:22.870240+00:00",
+      "extrait": "The Conference Board Leading Economic Index® (LEI) for the United Kingdom ticked down by 0.1% in July 2026 to 74.8 (2016=100), after also decreasing by 0.1% in June. As a result, the UK LEI contracted by 1.2% over the six-month period from January to July 2026, slightly greater than the rate of decline of 0.8% observed over the previous six-month period ...",
+      "date_publication": "2026-09-14T13:30:22.870240+00:00",
+      "source": "conference-board.org"
+    },
+    {
+      "ignore": false,
       "extrait": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials #OOTT",
       "date_recuperation": "2026-09-14T12:40:46.478343+00:00",
       "titre": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials",
