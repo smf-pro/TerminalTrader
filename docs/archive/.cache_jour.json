@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "date_publication": "2026-09-14T12:39:46.478343+00:00",
-      "source": "@LiveSquawk",
-      "titre": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials",
-      "extrait": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials #OOTT",
-      "url": "https://www.forexfactory.com/news/1418092-a-crucial-saudi-oil-pipeline-hit-in-strikes",
-      "impact": "high",
       "ignore": false,
-      "date_recuperation": "2026-09-14T12:40:46.478343+00:00"
+      "extrait": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials #OOTT",
+      "date_recuperation": "2026-09-14T12:40:46.478343+00:00",
+      "titre": "A Crucial Saudi Oil Pipeline Hit In Strikes Will Be Mostly Out Of Service For Several Weeks For Repairs AP Cites Officials",
+      "impact": "high",
+      "source": "@LiveSquawk",
+      "url": "https://www.forexfactory.com/news/1418092-a-crucial-saudi-oil-pipeline-hit-in-strikes",
+      "date_publication": "2026-09-14T12:39:46.478343+00:00"
     },
     {
       "source": "statcan.gc.ca",
