@@ -1,11 +1,21 @@
 {
   "date": "2026-09-14",
   "curseurs": {
-    "ff_news": "2026-09-14T13:30:22.870240+00:00",
+    "ff_news": "2026-09-14T15:06:24.524721+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
     "il_articles": "2026-09-14T14:24:11.959378+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "impact": "high",
+      "titre": "Trump: Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise!",
+      "url": "https://www.forexfactory.com/news/1418137-trump-ukraine-has-agreed-not-to-hit-russian",
+      "extrait": "Ukraine has agreed not to hit Russian Energy targets. Russia has agreed to do, likewise! The World’s Diesel price rise is mostly caused by the Russia/Ukraine War, not Iran. President DJT",
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-14T15:07:24.524721+00:00",
+      "date_publication": "2026-09-14T15:06:24.524721+00:00"
+    },
     {
       "ignore": false,
       "impact": "low",
