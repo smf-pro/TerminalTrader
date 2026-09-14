@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-14T13:30:22.870240+00:00",
     "cb_articles": "2026-09-14T06:02:25.462204+00:00",
-    "il_articles": "2026-09-14T14:09:11.968318+00:00"
+    "il_articles": "2026-09-14T14:24:11.959378+00:00"
   },
   "ff_news": [
     {
@@ -154,6 +154,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "contenu": "The 10-year cracks the big figure\n\nI thought 10-year buyers might hold the line until after the FOMC. There were a couple of strong auctions last week but it didn't matter with oil up $4 today and talk of longer shutdowns in the Saudi east-west pipeline.\n\n5% is big but 5.02% is equally important as cracking it would get yields back to financial crisis levels.",
+      "tags": [
+        "Bonds"
+      ],
+      "url": "https://investinglive.com/forex/us-10-year-yield-hits-5-for-the-first-time-since-2023/",
+      "date_publication": "2026-09-14T14:24:11.959378+00:00",
+      "date_recuperation": "2026-09-14T14:25:25.096357+00:00",
+      "titre": "US 10-year yield hits 5% for the first time since 2023",
+      "categorie": "forex"
+    },
     {
       "date_publication": "2026-09-14T14:09:11.968318+00:00",
       "categorie": "forex",
