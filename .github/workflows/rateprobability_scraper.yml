@@ -1,0 +1,67 @@
+name: Rate Probability Scraper
+
+on:
+  schedule:
+    # Toutes les 2 heures. Le site source (rateprobability.com, version
+    # gratuite) n'actualise ses donnees que 3x/jour : interroger plus
+    # souvent ne ramenerait rien de neuf la plupart du temps, et
+    # multiplierait les requetes pour rien (risque de detection anti-bot
+    # accru en plus du gaspillage). A ajuster si besoin.
+    - cron: "0 */2 * * *"
+  workflow_dispatch: {}  # permet aussi de le lancer manuellement depuis l'onglet Actions
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Lancer le script d'extraction
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: service_account.json
+        run: python rateprobability_cloud.py
+
+      - name: Commit et push docs/ + data/rateprobability/ (avec retry en cas de conflit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git add data/rateprobability/
+          git diff --staged --quiet && exit 0
+          git commit -m "Update rate probabilities [skip ci]"
+
+          # Meme raison que dans les autres workflows : plusieurs scrapers
+          # tournent en parallele et peuvent pousser entre notre "merge"
+          # et notre "push". On reessaie avec un nouveau fetch/merge a
+          # chaque tentative, au lieu d'abandonner directement.
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
+            if git push; then
+              echo "Push reussi (tentative $i)."
+              exit 0
+            fi
+            echo "Push refuse (tentative $i), nouvel essai dans $((i*3))s..."
+            sleep $((i*3))
+          done
+
+          echo "Echec du push apres plusieurs tentatives."
+          exit 1
