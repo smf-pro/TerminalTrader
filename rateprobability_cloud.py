@@ -15,24 +15,31 @@ la logique de cache/diff de data-usd.py (qui existe pour eviter des
 milliers d'ecritures inutiles sur des lignes d'historique) : 6 ecritures/
 cycle restent tres loin du quota Firestore meme a cadence 5 min.
 
-Particularite technique : contrairement aux autres sources (requests +
-BeautifulSoup), les valeurs affichees sur rateprobability.com sont
-injectees en JavaScript APRES le chargement initial (verifie : absentes
-du HTML brut renvoye par le serveur). Il faut donc un vrai navigateur
-(Selenium + Chrome headless) pour recuperer les valeurs reelles. Chrome
-est present sur les runners GitHub Actions standards (contrairement au
-poste local ou le telechargement automatique du driver etait bloque par
-le reseau) - voir l'etape setup-chrome du workflow associe.
+DEUX SOURCES COMPLEMENTAIRES, toutes deux lues comme des TABLEAUX HTML
+(pas de regex sur du texte libre, qui s'etait revelee trop fragile) :
+
+1. Page d'accueil (/) - tableau "UPCOMING MEETINGS" : une ligne par
+   banque, avec date de prochaine reunion, taux directeur, probabilite,
+   hike/cut, delta vs actuel, outcome implicite, outlook 12 mois. C'est
+   la source des champs de synthese.
+2. Pages par banque (/fed, /ecb, ...) - tableau "PATH OF ... : MARKET
+   EXPECTATION" : le detail meeting par meeting (taux implique,
+   probabilite, nb de hikes/cuts, delta), stocke dans tableau_meetings.
+
+Particularite technique : les valeurs affichees sur rateprobability.com
+sont injectees en JavaScript APRES le chargement initial (absentes du
+HTML brut renvoye par le serveur). Il faut donc un vrai navigateur
+(Selenium + Chrome headless) plutot que requests + BeautifulSoup comme
+les autres sources. Chrome est fourni sur les runners GitHub Actions via
+l'etape setup-chrome du workflow associe.
 
 Capture d'ecran : en plus des donnees structurees, une capture pleine
-page par banque est sauvegardee dans data/rateprobability/{banque}.png,
-ECRASEE a chaque cycle (pas d'historique horodate ici, pour eviter de
-faire grossir le depot indefiniment a raison d'une capture toutes les
-5 minutes).
+page est sauvegardee dans data/rateprobability/{code}.png (+ accueil.png),
+ECRASEE a chaque cycle (pas d'historique horodate, pour eviter de faire
+grossir le depot indefiniment).
 """
 
 import os
-import re
 import time
 import base64
 from datetime import datetime, timezone
@@ -46,6 +53,9 @@ from google.api_core.exceptions import ResourceExhausted
 from site_generator import generer_json
 
 # ---------- CONFIGURATION ----------
+URL_ACCUEIL = "https://rateprobability.com/"
+
+# code interne -> (nom affiche cote site MERIDIAN, url de la page detail)
 BANQUES = {
     "fed": ("Federal Reserve", "https://rateprobability.com/fed"),
     "ecb": ("Banque Centrale Europeenne", "https://rateprobability.com/ecb"),
@@ -53,6 +63,18 @@ BANQUES = {
     "boc": ("Bank of Canada", "https://rateprobability.com/boc"),
     "boj": ("Bank of Japan", "https://rateprobability.com/boj"),
     "rba": ("Reserve Bank of Australia", "https://rateprobability.com/rba"),
+}
+
+# Nom de banque tel qu'ecrit dans le tableau de la page d'accueil -> code
+# interne. Permet de rattacher chaque ligne du tableau recapitulatif au
+# bon document Firestore sans dependre de l'ordre des lignes.
+NOMS_VERS_CODE = {
+    "federal reserve": "fed",
+    "european central bank": "ecb",
+    "bank of england": "boe",
+    "bank of canada": "boc",
+    "bank of japan": "boj",
+    "reserve bank of australia": "rba",
 }
 
 COLLECTION = "rate_probabilities"
@@ -82,7 +104,7 @@ def enregistrer_statut_pipeline(db, statut, liens_vus=0, articles_nouveaux=0, er
     db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
-# ---------- NAVIGATEUR (repris du script local copier_page.py) ----------
+# ---------- NAVIGATEUR ----------
 def _creer_navigateur():
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
@@ -129,6 +151,8 @@ def _accepter_cookies(driver, timeout=5):
 
 
 def _attendre_page_stable(driver, timeout=20, pause=0.5, stabilite=1.0):
+    """Attend que le DOM soit charge ET que le texte arrete de changer :
+    les valeurs de ce site sont injectees en JS apres le rendu initial."""
     fin = time.time() + timeout
     derniere_taille = -1
     stable_depuis = time.time()
@@ -150,6 +174,8 @@ def _attendre_page_stable(driver, timeout=20, pause=0.5, stabilite=1.0):
 
 
 def _masquer_publicites(driver):
+    """Masque les bannieres pub flottantes (widget 'Grow' notamment) qui
+    recouvrent le contenu sur les captures d'ecran."""
     script = """
         const motsCles = ['ad-banner','advertisement','sticky-ad','ad-container',
                            'adsbygoogle','taboola','outbrain','criteo','mediavine',
@@ -190,6 +216,7 @@ def _masquer_publicites(driver):
 
 
 def _masquer_publicites_avec_attente(driver, essais=3, delai=1.5):
+    """Le widget pub se charge en differe : on repasse plusieurs fois."""
     for _ in range(essais):
         _masquer_publicites(driver)
         time.sleep(delai)
@@ -197,174 +224,198 @@ def _masquer_publicites_avec_attente(driver, essais=3, delai=1.5):
 
 
 def _capture_ecran(driver, fichier):
+    """Capture pleine page via CDP (pas de redimensionnement de fenetre,
+    qui declenchait une reorganisation de la page et un rendu duplique)."""
     metrics = driver.execute_cdp_cmd("Page.getLayoutMetrics", {})
     content_size = metrics["cssContentSize"]
     resultat = driver.execute_cdp_cmd("Page.captureScreenshot", {
         "format": "png",
         "captureBeyondViewport": True,
-        "clip": {"x": 0, "y": 0, "width": content_size["width"], "height": content_size["height"], "scale": 1},
+        "clip": {
+            "x": 0, "y": 0,
+            "width": content_size["width"],
+            "height": content_size["height"],
+            "scale": 1,
+        },
     })
     os.makedirs(os.path.dirname(fichier), exist_ok=True)
     with open(fichier, "wb") as f:
         f.write(base64.b64decode(resultat["data"]))
 
 
-# ---------- EXTRACTION DES DONNEES ----------
-def _valeur_apres_label(texte, label, motif_valeur, fenetre=120):
-    """Cherche `label` (insensible a la casse) dans `texte`, puis applique
-    `motif_valeur` (regex) sur les `fenetre` caracteres qui suivent.
-    Renvoie le 1er groupe capture, ou None si label/motif introuvable.
-    Approche volontairement robuste au HTML/CSS exact (pas de dependance
-    a une classe ou un id precis), dans l'esprit de trouver_table_history()
-    dans data-usd.py."""
-    m_label = re.search(re.escape(label), texte, re.IGNORECASE)
-    if not m_label:
-        return None
-    zone = texte[m_label.end():m_label.end() + fenetre]
-    m_valeur = re.search(motif_valeur, zone, re.IGNORECASE | re.DOTALL)
-    return m_valeur.group(1).strip() if m_valeur else None
-
-
-def extraire_tableau_meetings(driver):
-    """Repere le <table> dont l'en-tete contient 'Meeting' et 'Implied
-    Rate', et renvoie ses lignes sous forme de liste de dicts. Robuste
-    aux classes CSS (recherche par texte d'en-tete, comme
-    trouver_table_history dans data-usd.py)."""
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-
-    table_cible = None
-    for table in soup.find_all("table"):
-        entete = table.find("tr")
-        if not entete:
-            continue
-        texte_entete = entete.get_text(" ", strip=True).lower()
-        if "meeting" in texte_entete and "implied" in texte_entete:
-            table_cible = table
-            break
-
-    if table_cible is None:
-        return []
-
-    lignes = table_cible.find_all("tr")
-    resultats = []
-    for ligne in lignes[1:]:
-        cellules = ligne.find_all(["td", "th"])
-        if len(cellules) < 4:
-            continue
-        valeurs = [c.get_text(strip=True) for c in cellules]
-        resultats.append({
-            "meeting": valeurs[0] if len(valeurs) > 0 else "",
-            "taux_implique": valeurs[1] if len(valeurs) > 1 else "",
-            "probabilite": valeurs[2] if len(valeurs) > 2 else "",
-            "nb_hikes_cuts": valeurs[3] if len(valeurs) > 3 else "",
-            "delta_vs_actuel_bps": valeurs[4] if len(valeurs) > 4 else "",
-        })
-    return resultats
-
-
-def extraire_donnees_banque(driver):
-    """Extrait les champs cles de la page (taux actuel, pricing de la
-    prochaine decision, outlook 12 mois) par recherche de libelle dans le
-    texte visible de la page (document.body.innerText), plus le tableau
-    meeting-par-meeting via le DOM. Un champ non trouve reste None plutot
-    que de faire planter tout le cycle pour cette banque."""
-    texte = driver.execute_script("return document.body.innerText")
-
-    taux_actuel = _valeur_apres_label(texte, "Current Rate", r"([\d.]+%)")
-    as_of = _valeur_apres_label(texte, "As of:", r"([\d:]{3,5}\s+[\d/]{6,10})")
-    target_band = _valeur_apres_label(texte, "Target Band:", r"([\d.]+[\-–][\d.]+%)")
-
-    prochaine_decision_date = _valeur_apres_label(
-        texte, "Next decision in", r"\n\s*([A-Za-z]{3,9}\s+\d{1,2},\s+\d{4}[^\n]*)", fenetre=200
-    )
-    prochaine_decision_pricing = _valeur_apres_label(
-        texte, "Next meeting pricing", r"(\d+%\s*(?:HIKE|CUT|HOLD))"
-    )
-    prochaine_decision_bps = _valeur_apres_label(
-        texte, "Next meeting pricing", r"HIKE|CUT|HOLD\)?\s*\n?\s*([+\-][\d.]+\s*bps)", fenetre=60
-    )
-
-    outlook_12m_bps = _valeur_apres_label(texte, "12-Month", r"([+\-][\d.]+\s*bps)")
-    outlook_12m_texte = _valeur_apres_label(texte, "12-Month", r"(\d+\s*(?:or\s*\d+\s*)?(?:hikes?|cuts?))")
-
-    tableau_meetings = extraire_tableau_meetings(driver)
-
-    return {
-        "taux_actuel": taux_actuel,
-        "target_band": target_band,
-        "as_of_texte": as_of,
-        "prochaine_decision_date": prochaine_decision_date,
-        "prochaine_decision_pricing": prochaine_decision_pricing,
-        "prochaine_decision_bps": prochaine_decision_bps,
-        "outlook_12m_bps": outlook_12m_bps,
-        "outlook_12m_texte": outlook_12m_texte,
-        "tableau_meetings": tableau_meetings,
-    }
-
-
-def traiter_banque(driver, code, nom, url):
+def _preparer_page(driver, url):
+    """Charge une page et la met en etat d'etre lue (cookies acceptes,
+    JS termine, pubs masquees)."""
     driver.get(url)
     _accepter_cookies(driver)
     _attendre_page_stable(driver, timeout=20)
     _masquer_publicites_avec_attente(driver)
 
-    donnees = extraire_donnees_banque(driver)
 
-    fichier_capture = os.path.join(DOSSIER_CAPTURES, f"{code}.png")
-    try:
-        _capture_ecran(driver, fichier_capture)
-    except Exception as e:
-        print(f"  capture d'ecran echouee pour {nom} : {e}")
+# ---------- LECTURE DES TABLEAUX ----------
+def _trouver_table(soup, mots_cles_entete):
+    """Renvoie le premier <table> dont la ligne d'en-tete contient TOUS
+    les mots-cles donnes (insensible a la casse), ou None.
 
-    return donnees
+    Recherche par CONTENU d'en-tete plutot que par classe/id CSS : c'est
+    ce qui rend l'extraction robuste aux changements de theme du site
+    (meme esprit que trouver_table_history() dans data-usd.py)."""
+    for table in soup.find_all("table"):
+        entete = table.find("tr")
+        if not entete:
+            continue
+        texte_entete = entete.get_text(" ", strip=True).lower()
+        if all(mot in texte_entete for mot in mots_cles_entete):
+            return table
+    return None
+
+
+def _lignes_table(table, nb_colonnes_min):
+    """Renvoie les lignes de donnees (hors en-tete) sous forme de listes
+    de chaines, en ignorant les lignes trop courtes (separateurs, lignes
+    de mise en page)."""
+    lignes = []
+    for ligne in table.find_all("tr")[1:]:
+        cellules = ligne.find_all(["td", "th"])
+        if len(cellules) < nb_colonnes_min:
+            continue
+        lignes.append([c.get_text(strip=True) for c in cellules])
+    return lignes
+
+
+def extraire_synthese_accueil(driver):
+    """Lit le tableau recapitulatif de la page d'accueil (une ligne par
+    banque) et renvoie {code_banque: {champs de synthese}}.
+
+    Colonnes attendues : Next Meeting | Bank | Policy Rate | Probability |
+    Hike/Cut | delta vs Current (bps) | Implied Outcome | 12-Month
+    Outlook (bps)."""
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    table = _trouver_table(soup, ["next meeting", "bank"])
+    if table is None:
+        return {}
+
+    syntheses = {}
+    for valeurs in _lignes_table(table, nb_colonnes_min=6):
+        nom_banque = valeurs[1].strip().lower()
+        code = NOMS_VERS_CODE.get(nom_banque)
+        if code is None:
+            continue  # banque presente sur le site mais hors de notre perimetre
+        syntheses[code] = {
+            "prochaine_decision_date": valeurs[0],
+            "nom_banque_source": valeurs[1],
+            "taux_actuel": valeurs[2],
+            "probabilite": valeurs[3],
+            "sens_mouvement": valeurs[4],
+            "delta_vs_actuel_bps": valeurs[5],
+            "outcome_implicite": valeurs[6] if len(valeurs) > 6 else "",
+            "outlook_12m_bps": valeurs[7] if len(valeurs) > 7 else "",
+        }
+    return syntheses
+
+
+def extraire_tableau_meetings(driver):
+    """Lit le tableau detaille d'une page banque ("PATH OF ... : MARKET
+    EXPECTATION") : une ligne par reunion a venir.
+
+    Colonnes attendues : Meeting | Implied Rate (Post-Meeting) |
+    Probability of Hike(Cut) | # of Hikes(Cuts) | delta vs Current (bps)."""
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    table = _trouver_table(soup, ["meeting", "implied"])
+    if table is None:
+        return []
+
+    meetings = []
+    for valeurs in _lignes_table(table, nb_colonnes_min=4):
+        meetings.append({
+            "meeting": valeurs[0],
+            "taux_implique": valeurs[1],
+            "probabilite": valeurs[2],
+            "nb_hikes_cuts": valeurs[3],
+            "delta_vs_actuel_bps": valeurs[4] if len(valeurs) > 4 else "",
+        })
+    return meetings
 
 
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
 def cycle():
+    """Chaque page (accueil + 6 pages banque) est visitee avec sa PROPRE
+    session de navigateur (creation + fermeture independantes), plutot
+    qu'une session unique reutilisee pour naviguer d'une page a l'autre.
+
+    Verifie empiriquement (voir tests) : une session qui enchaine
+    plusieurs pages differentes d'affilee declenche la verification
+    anti-bot Cloudflare sur les pages /fed, /ecb, etc. (page bloquee sur
+    "Just a moment..."), meme avec toutes les autres mesures
+    anti-detection deja en place (user-agent, navigator.webdriver masque,
+    etc.). Une session fraiche par page passe sans probleme."""
     db = init_firestore()
     maintenant = datetime.now(timezone.utc)
+    banques_ecrites = 0
 
+    # --- 1. Page d'accueil : synthese des 6 banques en un seul tableau ---
+    syntheses = {}
     driver = None
-    banques_traitees = 0
     try:
         driver = _creer_navigateur()
-
-        for code, (nom, url) in BANQUES.items():
-            try:
-                donnees = traiter_banque(driver, code, nom, url)
-
-                doc = dict(donnees)
-                doc.update({
-                    "banque": nom,
-                    "code_banque": code,
-                    "source_url": url,
-                    "date_recuperation": maintenant,
-                })
-                db.collection(COLLECTION).document(code).set(doc, merge=True)
-                banques_traitees += 1
-                print(f"OK : {nom} -> taux actuel {donnees.get('taux_actuel')}, "
-                      f"prochaine decision {donnees.get('prochaine_decision_pricing')}")
-
-            except ResourceExhausted as e:
-                print(f"Quota Firestore depasse sur {nom}, arret du cycle : {e}")
-                enregistrer_statut_pipeline(
-                    db, statut="erreur", liens_vus=len(BANQUES),
-                    articles_nouveaux=banques_traitees,
-                    erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
-                )
-                return
-            except Exception as e:
-                print(f"Erreur sur {nom} ({url}) : {e}")
-
+        _preparer_page(driver, URL_ACCUEIL)
+        syntheses = extraire_synthese_accueil(driver)
+        print(f"Synthese accueil : {len(syntheses)} banque(s) lue(s).")
+        try:
+            _capture_ecran(driver, os.path.join(DOSSIER_CAPTURES, "accueil.png"))
+        except Exception as e:
+            print(f"  capture accueil echouee : {e}")
     except Exception as e:
-        print(f"Erreur navigateur : {e}")
-        enregistrer_statut_pipeline(db, statut="erreur", erreur=e)
-        return
+        # Non bloquant : on peut encore recuperer le detail par banque.
+        print(f"Erreur lecture page d'accueil : {e}")
     finally:
         if driver is not None:
             driver.quit()
 
-    print(f"\nTermine. {banques_traitees}/{len(BANQUES)} banque(s) mise(s) a jour dans Firestore.")
+    # --- 2. Pages par banque : detail meeting par meeting ---
+    for code, (nom, url) in BANQUES.items():
+        driver = None
+        try:
+            driver = _creer_navigateur()
+            _preparer_page(driver, url)
+            meetings = extraire_tableau_meetings(driver)
+
+            try:
+                _capture_ecran(driver, os.path.join(DOSSIER_CAPTURES, f"{code}.png"))
+            except Exception as e:
+                print(f"  capture {code} echouee : {e}")
+
+            doc = dict(syntheses.get(code, {}))
+            doc.update({
+                "banque": nom,
+                "code_banque": code,
+                "source_url": url,
+                "tableau_meetings": meetings,
+                "date_recuperation": maintenant,
+            })
+
+            db.collection(COLLECTION).document(code).set(doc, merge=True)
+            banques_ecrites += 1
+            print(f"OK : {nom} -> taux {doc.get('taux_actuel')}, "
+                  f"prochaine decision {doc.get('prochaine_decision_date')} "
+                  f"({doc.get('probabilite')} {doc.get('outcome_implicite')}), "
+                  f"{len(meetings)} reunion(s) a venir")
+
+        except ResourceExhausted as e:
+            print(f"Quota Firestore depasse sur {nom}, arret du cycle : {e}")
+            enregistrer_statut_pipeline(
+                db, statut="erreur", liens_vus=len(BANQUES),
+                articles_nouveaux=banques_ecrites,
+                erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
+            )
+            return
+        except Exception as e:
+            print(f"Erreur sur {nom} ({url}) : {e}")
+        finally:
+            if driver is not None:
+                driver.quit()
+
+    print(f"\nTermine. {banques_ecrites}/{len(BANQUES)} banque(s) mise(s) a jour dans Firestore.")
 
     try:
         generer_json(db)
@@ -372,12 +423,14 @@ def cycle():
         print(f"Quota Firestore depasse pendant generer_json() : {e}")
         enregistrer_statut_pipeline(
             db, statut="erreur", liens_vus=len(BANQUES),
-            articles_nouveaux=banques_traitees,
+            articles_nouveaux=banques_ecrites,
             erreur="Quota Firestore depasse pendant la generation du JSON",
         )
         return
 
-    enregistrer_statut_pipeline(db, statut="ok", liens_vus=len(BANQUES), articles_nouveaux=banques_traitees)
+    enregistrer_statut_pipeline(
+        db, statut="ok", liens_vus=len(BANQUES), articles_nouveaux=banques_ecrites
+    )
 
 
 if __name__ == "__main__":
