@@ -150,6 +150,18 @@
   ],
   "il_articles": [
     {
+      "date_publication": "2026-09-14T14:09:11.968318+00:00",
+      "categorie": "forex",
+      "titre": "The 'house' is losing, USD/JPY rises over 155.00",
+      "date_recuperation": "2026-09-14T14:10:27.718231+00:00",
+      "tags": [
+        "JPY"
+      ],
+      "contenu": "The rebound in USD/JPY continues\n\nUS Treasury Secretary Scott Bessent dared the market to short him, said he had aysmmetric information and that he was the \"house\" now.\n\nThe problem is that he's only running the US side of the equation, and even then he has little control over the long end. The fiscal side has been out of control for years but the bigger problem is the military side. Trump is now pleading with Ukraine not to strike Russian refineries and Iran-backed groups have strangled the Middle Eastern oil market and shut down US bases in the region.\n\nWith that, the house is largely powerless to halt the swings in the market.\n\nToday, USD/JPY is up 134 pips and briefly rose above 155.00 as the retracement from the latest round of intervention and short-covering unwinds. The latest positioning data also showed the yen shorts have largely cleared out, so there is little left to squeeze.",
+      "ignore": false,
+      "url": "https://investinglive.com/forex/the-house-is-losing-usd-jpy-rises-over-155-00/"
+    },
+    {
       "categorie": "technical-analysis",
       "tags": [
         "Oil",
