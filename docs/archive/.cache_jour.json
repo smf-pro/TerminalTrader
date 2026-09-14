@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "date_recuperation": "2026-09-14T10:02:25.429079+00:00",
+      "ignore": false,
       "titre": "Ecbs Schnabel: Recent Energy Price Developments Are Quite Concerning",
+      "date_publication": "2026-09-14T10:01:25.429079+00:00",
       "impact": "low",
       "extrait": "Ecbs Schnabel: Recent Energy Price Developments Are Quite Concerning",
-      "date_publication": "2026-09-14T10:01:25.429079+00:00",
-      "source": "@FirstSquawk",
       "url": "https://www.forexfactory.com/news/1418069-ecbs-schnabel-recent-energy-price-developments-are-quite",
-      "ignore": false
+      "date_recuperation": "2026-09-14T10:02:25.429079+00:00",
+      "source": "@FirstSquawk"
     },
     {
       "date_recuperation": "2026-09-14T09:16:27.312153+00:00",
