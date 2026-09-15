@@ -2,6 +2,16 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "impact": "low",
+      "titre": "US, Israeli, Arab Military Chiefs Held Secret Meeting On Iran - Axios",
+      "source": "@FirstSquawk",
+      "date_publication": "2026-09-15T16:26:43.189641+00:00",
+      "date_recuperation": "2026-09-15T16:28:43.189641+00:00",
+      "url": "https://www.forexfactory.com/news/1418364-us-israeli-arab-military-chiefs-held-secret-meeting",
+      "ignore": false,
+      "extrait": "Us, Israeli, Arab Military Chiefs Held Secret Meeting On Iran - Axios"
+    },
+    {
       "extrait": "US Treasury's Bessent: Stronger yen is better for US exporters.Bessent: We Had Been In Constant Dialog On Japan Interventions Bessent: Us Used 'nominal Amount' For Yen InterventionUS Treasury Secretary Bessent: US made tens of mlns of dollars on yen intervention.",
       "url": "https://www.forexfactory.com/news/1418359-us-treasurys-bessent-stronger-yen-is-better-for",
       "ignore": false,
