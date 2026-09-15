@@ -3,11 +3,25 @@
   "curseurs": {
     "ff_news": "2026-09-15T00:00:00+00:00",
     "cb_articles": "2026-09-15T00:00:00+00:00",
-    "il_articles": "2026-09-15T00:33:53.699386+00:00"
+    "il_articles": "2026-09-15T01:15:22.374234+00:00"
   },
   "ff_news": [],
   "cb_articles": [],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/forex/pboc-sets-usd-cny-central-rate-at-6-7-vs-estimate-at-6-7051/",
+      "contenu": "PBOC CNY reference rate setting for the trading session ahead.\n\nThe PBOC allows the yuan to fluctuate within a +/- 2% range, around this reference rate.More here on this.\n\nmore to come",
+      "tags": [
+        "CNY",
+        "CNH",
+        "pboc"
+      ],
+      "categorie": "forex",
+      "date_publication": "2026-09-15T01:15:22.374234+00:00",
+      "date_recuperation": "2026-09-15T01:15:29.359077+00:00",
+      "ignore": false,
+      "titre": "PBOC sets USD/ CNY central rate at 6.7670 (vs. estimate at 6.7051)"
+    },
     {
       "date_publication": "2026-09-15T00:33:53.699386+00:00",
       "categorie": "forex",
