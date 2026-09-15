@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T06:05:26.621540+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
-    "il_articles": "2026-09-15T05:40:47.522642+00:00"
+    "il_articles": "2026-09-15T06:20:14.803297+00:00"
   },
   "ff_news": [
     {
@@ -82,6 +82,30 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "What are the main events for today?",
+      "date_recuperation": "2026-09-15T06:20:40.175249+00:00",
+      "contenu": "The Clarity Act cloture vote is the only highlight\n\nEUROPEAN SESSION\n\nIn the European session, the main highlight was the UK employment report. The data was basically in-line with expectations across the board and didn't change much in terms of BoE interest rate expectations. As a reminder, the market is pricing in 50 bps of tightening by year-end, with the first rate hike coming in November.\n\nLooking ahead, we don't have much on the agenda other than a few low-tier releases like French and Spanish final CPI data, the Italian and Eurozone trade balance and the German ZEW. None of the data is going to change anything for the ECB, so the market reaction will likely be muted.\n\nAMERICAN SESSION\n\nIn the American session, the only highlight is the Clarity Act cloture vote at 18:15 GMT/14:15 ET. This is a crypto-specific event. The CLARITY Act is designed to establish a clearer regulatory framework for digital assets in the US. Among its key objectives is drawing a clearer line between the jurisdictions of the SEC and CFTC. The legislation also aims to establish regulatory requirements for crypto exchanges, brokers and dealers.\n\nThe potential benefit for the broader crypto market is regulatory certainty which could ultimately support greater institutional participation, deeper liquidity and more capital flowing into digital assets. Cloture requires 60 votes just to open debate on the legislation. If the vote fails, it could effectively close the legislative window for crypto market structure this year, given the November midterms, and that could trigger a selloff in Bitcoin. Even if the vote is successful, I’m afraid we could see a “sell the fact” reaction, with Bitcoin falling as the focus will quickly turn to the FOMC decision tomorrow.\n\nCENTRAL BANK SPEAKERS\n\n14:00 GMT/10:00 ET - ECB's Cipollone (neutral - voter)",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-42/",
+      "tags": [
+        "market overview"
+      ],
+      "date_publication": "2026-09-15T06:20:14.803297+00:00",
+      "ignore": false,
+      "categorie": "news"
+    },
+    {
+      "titre": "UK labour market cools further as payrolls fall and wage growth slows",
+      "date_recuperation": "2026-09-15T06:20:40.175249+00:00",
+      "contenu": "UK payrolls dropped again in August while wage growth in the three months to July eased\n\nJuly ILO unemployment rate 4.9% vs 5.0% expected\n\nPrior 4.9%\n\nJuly employment change 67k vs 67k expected\n\nPrior 83k\n\nJuly average weekly earnings +3.9% vs +3.9% 3m/y expected\n\nPrior +4.1%; revised to +4.2%\n\nJuly average weekly earnings (ex bonus) +3.5% vs +3.5% 3m/y expected\n\nPrior +3.5%\n\nAugust payrolls change -26k\n\nPrior -13k; revised to -19k\n\nThe UK labour market continues to show signs of cooling, although there isn't anything here that dramatically changes the picture for the BOE ahead of their Thursday decision.\n\nThe jobless rate remains unchanged from the previous quarter while the employment rate also held broadly steady at 75.1%.\n\nBut perhaps the more timely payrolls number has a bit more to offer.\n\nAccording to the preliminary estimate, payrolled employment fell by 26,000 in August with the total now sitting at 30.2 million. Compared with a year ago, payrolls are down by 145,000.\n\nONS is highlighting that the number of payrolled employees has generally been declining over the past two years. So, this is mainly continuing the broader trend.\n\nBesides that, wages are also cooling as well with total earnings growth slowing to 3.9% in the three months to July - the softest reading since late 2020.\n\nPutting all of that together, it points to a labour market that is gradually losing heat.\n\nNormally, softer hiring and moderating wage pressures would be welcome news for the BOE. However, the problem for the central bank right now is that the inflation story has shifted elsewhere.\n\nHigher oil and energy prices have pushed inflation risks back up the agenda, with markets increasingly pricing further BOE tightening despite signs of weaker labour demand. But for this week, markets are widely expecting the BOE to keep the bank rate unchanged at 3.75% but pressure is building for another rate hike later this year.",
+      "url": "https://investinglive.com/news/uk-labour-market-cools-further-as-payrolls-fall-and-wage-growth-slows/",
+      "tags": [
+        "GBP"
+      ],
+      "date_publication": "2026-09-15T06:19:26.592965+00:00",
+      "ignore": false,
+      "categorie": "news"
+    },
     {
       "tags": [
         "Oil",
