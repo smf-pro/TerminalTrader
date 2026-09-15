@@ -337,6 +337,34 @@ def extraire_tableau_meetings(driver):
     return meetings
 
 
+def enregistrer_point_historique(db, code, doc, maintenant):
+    """Ajoute un point dans rate_probabilities/{code}/historique/{...},
+    SANS jamais ecraser les points precedents (contrairement au document
+    principal, qui est un instantane mis a jour). L'historique s'allonge
+    tout seul, un point par cycle - c'est ce qui permet aux graphiques
+    d'evolution du site de se remplir progressivement avec de vraies
+    donnees au fil du temps, au lieu des valeurs generees aleatoirement
+    utilisees avant.
+
+    Champs suivis : uniquement ceux qu'on peut reellement mesurer a
+    chaque cycle (probabilite/sens de la prochaine reunion, et les 2
+    mouvements implicites en pb). Le site source ne donne qu'UNE
+    probabilite (pas de decomposition cut/hold/hike separee), donc le
+    graphique correspondant sera une seule courbe, pas 3."""
+    id_point = maintenant.strftime("%Y%m%dT%H%M%SZ")
+    point = {
+        "date_recuperation": maintenant,
+        "probabilite": doc.get("probabilite"),
+        "sens_mouvement": doc.get("sens_mouvement"),
+        "outcome_implicite": doc.get("outcome_implicite"),
+        "delta_vs_actuel_bps": doc.get("delta_vs_actuel_bps"),
+        "outlook_12m_bps": doc.get("outlook_12m_bps"),
+    }
+    (db.collection(COLLECTION).document(code)
+       .collection("historique").document(id_point)
+       .set(point))
+
+
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
 def cycle():
     """Chaque page (accueil + 6 pages banque) est visitee avec sa PROPRE
@@ -395,6 +423,7 @@ def cycle():
             })
 
             db.collection(COLLECTION).document(code).set(doc, merge=True)
+            enregistrer_point_historique(db, code, doc, maintenant)
             banques_ecrites += 1
             print(f"OK : {nom} -> taux {doc.get('taux_actuel')}, "
                   f"prochaine decision {doc.get('prochaine_decision_date')} "
