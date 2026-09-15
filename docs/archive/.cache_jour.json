@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T12:55:21.148996+00:00",
+    "ff_news": "2026-09-15T13:37:25.679551+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T13:29:46.065868+00:00"
   },
   "ff_news": [
+    {
+      "impact": "medium",
+      "date_recuperation": "2026-09-15T13:38:25.679551+00:00",
+      "source": "@finsquawk_",
+      "extrait": "Saudi Arabia Is Informing Some European Oil Refiners That Their September-loading Crude Cargoes Are Cancelled After The East-west Pipeline Closure - Three Trade Sources #oott",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418334-saudi-arabia-is-informing-some-european-oil-refiners",
+      "date_publication": "2026-09-15T13:37:25.679551+00:00",
+      "titre": "Saudi Arabia Is Informing Some European Oil Refiners That Their September-Loading Crude Cargoes Are Cancelled After The East-West Pipeline Closure"
+    },
     {
       "impact": "medium",
       "titre": "Oman, US Discuss Efforts To De-Escalate Regional Tensions - Oman News Agency",
