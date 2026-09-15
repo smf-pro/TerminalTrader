@@ -2,6 +2,16 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "titre": "The German ZEW Indicator of Economic Sentiment Stands at plus 34.7 Points",
+      "extrait": "“The ZEW indicator of economic sentiment remains stable. Experts are cautiously optimistic about a recovery of the economy. The growth continues to be driven by fiscal measures and is further bolstered by export momentum. Nevertheless, the risks are considerable: Persistent high energy prices resulting from a continued war in Iran and the additional ...",
+      "impact": "low",
+      "date_recuperation": "2026-09-15T09:13:26.007184+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418263-the-german-zew-indicator-of-economic-sentiment-stands",
+      "date_publication": "2026-09-15T09:12:26.007184+00:00",
+      "source": "zew.de"
+    },
+    {
       "date_publication": "2026-09-15T09:02:47.851844+00:00",
       "ignore": false,
       "source": "ec.europa.eu",
