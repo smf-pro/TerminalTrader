@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T16:26:43.189641+00:00",
     "cb_articles": "2026-09-15T15:26:36.278221+00:00",
-    "il_articles": "2026-09-15T17:11:33.568013+00:00"
+    "il_articles": "2026-09-15T17:27:34.174047+00:00"
   },
   "ff_news": [
     {
@@ -263,6 +263,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "Oil"
+      ],
+      "titre": "The news in the oil market keeps getting worse as WTI hits $106",
+      "ignore": false,
+      "date_publication": "2026-09-15T17:27:34.174047+00:00",
+      "date_recuperation": "2026-09-15T17:30:31.215357+00:00",
+      "categorie": "commodities",
+      "url": "https://investinglive.com/commodities/the-news-in-the-oil-market-keeps-getting-worse-as-wti-hits-106/",
+      "contenu": "No end in sight to the war and Saudi Arabia's backup pipeline is offline\n\nThe oil market increasingly looks like it wants to have a look at the US-Iran war highs from early in the conflict.\n\nWTI is up $4.93 to $106.31 today and at the highest since May. The May high of $109.24 is the next notable resistance level but oil is now higher in 11 of the past 12 days in a true sign of a supply squeeze. Chevron CEO ‌Mike Wirth said on Friday that oil buffers that limited crude price increases earlier in the Iran war have been depleted and that's looking like the case.\n\nIt's particularly bad in refined products where diesel is already at a record high and climbing fast. The US Republican Senate leader today said he would consider limiting US diesel exports in a move that could break the global oil order.\n\nThe US SPR releases are winding down now and are scheduled to reverse later in the year, though I doubt that happens if the war continues. For now, there is no progress towards peace and Iran is surely pleased with the progress of the Houthis, who knocked out Saudi Arabia's east-west pipeline. It now looks like that will take 3-6 weeks to repair (or perhaps longer) and loadings have been suspended at their Red Sea port. To compound things, Libya closed some fields today due to protests.\n\nAt the moment, it looks like all the slack is gone from the system. What was supposed to be a 4-6 week war is in its seventh month.\n\nThe pair is spilling over to global bond markets, where yields are at multi-year highs. US 10-year yields touched 5.04% today, which is the highest since 2007. It's similarly dire in Germany, Japan and elsewhere. Treasury Secretary Scott Bessent said the US bond market was the best-performing in the world this year but that's hardly a brag given that it's the best of a bad bunch. Tomorrow we will get a major test of Fed credibility as they're tasked with hiking rates to reign in inflation, which is running in excess of 3%.\n\nThe political blowback is ramping up now with odds strongly showing Republicans losing the House (at about 85%) and have now tilted for the Senate as well (53%) as polls show fatigue with Trump. Given the speed of this rally and the lack of any signs of peace, this could get out of hand quickly and painfully."
+    },
     {
       "categorie": "forex",
       "date_recuperation": "2026-09-15T17:15:24.505169+00:00",
