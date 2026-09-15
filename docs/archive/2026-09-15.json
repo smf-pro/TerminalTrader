@@ -1,6 +1,17 @@
 {
   "date": "2026-09-15",
-  "ff_news": [],
+  "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-15T02:02:43.313848+00:00",
+      "impact": "low",
+      "extrait": "In August, under the strong leadership of the Central Committee of the Communist Party of China (CPC) with Comrade Xi Jinping at its core, all regions and departments fully implemented the decisions and arrangements made by the CPC Central Committee and the State Council, adhered to the general principle of pursuing progress while ensuring stability, ...",
+      "date_recuperation": "2026-09-15T02:03:43.313848+00:00",
+      "source": "stats.gov.cn",
+      "titre": "China: National Economy Remained Steady with Innovation-Led and High-Quality Development in August",
+      "url": "https://www.forexfactory.com/news/1418220-china-national-economy-remained-steady-with-innovation-led-and"
+    }
+  ],
   "cb_articles": [],
   "il_articles": [
     {
