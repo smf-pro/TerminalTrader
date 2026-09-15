@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T14:08:29.174018+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
-    "il_articles": "2026-09-15T14:00:04.970305+00:00"
+    "il_articles": "2026-09-15T14:37:08.629147+00:00"
   },
   "ff_news": [
     {
@@ -212,6 +212,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "There it is\n\nThe Republicans are getting desperate with midterm polls for Trump cratering, in large part due to inflation from the Iran war. The atomic bomb in the world economy would be the US restricting diesel exports. That would break the free-market system and sew generational mistrust of US industry, leading to future stockpiling and global redundancies. It's a move that would ultimately weaken US refining as others build capacity or look to reliable partners.\n\nThune and others would try to explain it as a short-term move through the midterms but he would be walking a fine line and would invite retaliation by partners. The US oil industry would obviously push back as well, as it would curb profits.\n\nThe US national diesel price is at a record $6.285, up from $5.967 a week ago and at a record.",
+      "date_recuperation": "2026-09-15T14:40:26.383895+00:00",
+      "url": "https://investinglive.com/commodities/senate-leader-thune-i-am-open-to-considering-an-export-ban-on-diesel/",
+      "categorie": "commodities",
+      "titre": "Senate leader Thune: I am open to considering an export ban on diesel",
+      "date_publication": "2026-09-15T14:37:08.629147+00:00",
+      "tags": [
+        "Oil"
+      ],
+      "ignore": false
+    },
     {
       "titre": "Oil jumps after Libya says may declare force majure as protests suspend production",
       "ignore": false,
