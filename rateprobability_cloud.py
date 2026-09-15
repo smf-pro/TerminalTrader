@@ -319,22 +319,51 @@ def extraire_tableau_meetings(driver):
     EXPECTATION") : une ligne par reunion a venir.
 
     Colonnes attendues : Meeting | Implied Rate (Post-Meeting) |
-    Probability of Hike(Cut) | # of Hikes(Cuts) | delta vs Current (bps)."""
+    Probability of Hike(Cut) | # of Hikes(Cuts) | delta vs Current (bps).
+
+    DEDUP PAR DATE DE REUNION : le site rafraichit ses donnees en direct
+    via son propre JS, et semble parfois AJOUTER une nouvelle ligne pour
+    une reunion au lieu de remplacer l'ancienne (constate : la meme date
+    apparaissant deux fois avec des valeurs incoherentes entre elles, ex.
+    "100% hike" et "54% cut" pour la meme reunion). Si ca se produit
+    pendant notre passage sur la page (le temps qu'on y reste pour
+    laisser le JS charger + masquer les pubs), on recupere alors les deux
+    versions. On ne garde que la DERNIERE occurrence de chaque date dans
+    l'ordre du tableau (la plus recemment ajoutee au DOM, donc
+    presumee la plus a jour)."""
     soup = BeautifulSoup(driver.page_source, "html.parser")
     table = _trouver_table(soup, ["meeting", "implied"])
     if table is None:
         return []
 
-    meetings = []
+    par_date = {}  # date -> dernieres valeurs vues pour cette date, ordre d'insertion = ordre du tableau
     for valeurs in _lignes_table(table, nb_colonnes_min=4):
-        meetings.append({
-            "meeting": valeurs[0],
+        date_reunion = valeurs[0]
+        par_date[date_reunion] = {
+            "meeting": date_reunion,
             "taux_implique": valeurs[1],
             "probabilite": valeurs[2],
             "nb_hikes_cuts": valeurs[3],
             "delta_vs_actuel_bps": valeurs[4] if len(valeurs) > 4 else "",
-        })
+        }
+    # Un dict Python garde l'ordre d'insertion : reecrire une cle existante
+    # (date deja vue) met a jour sa VALEUR mais ne deplace pas sa position.
+    # On trie explicitement par date pour etre certain du resultat, plutot
+    # que de compter sur cet ordre implicite.
+    meetings = list(par_date.values())
+    meetings.sort(key=lambda m: _date_ou_infini(m["meeting"]))
     return meetings
+
+
+def _date_ou_infini(texte_date):
+    """Convertit une date texte du style 'Sep 16, 2026' en objet triable ;
+    renvoie une valeur "infinie" si illisible, pour l'envoyer en fin de
+    liste plutot que de faire planter le tri."""
+    from datetime import datetime as _dt
+    try:
+        return _dt.strptime(texte_date.strip(), "%b %d, %Y")
+    except (ValueError, AttributeError):
+        return _dt.max
 
 
 def enregistrer_point_historique(db, code, doc, maintenant):
