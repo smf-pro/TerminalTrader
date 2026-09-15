@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T12:32:27.782904+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
-    "il_articles": "2026-09-15T12:13:57.642550+00:00"
+    "il_articles": "2026-09-15T12:34:38.644717+00:00"
   },
   "ff_news": [
     {
@@ -182,6 +182,42 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "CAD"
+      ],
+      "categorie": "news",
+      "ignore": false,
+      "contenu": "Canadian wholesale sales rose 0.3% in July, beating expectations, although inflation-adjusted sales volumes declined.\n\nWholesale sales MoM: +0.3% vs -0.5% expected. Prior +2.8%\n\nWholesale sales YoY: +7.9%\n\nWholesale sales volumes MoM: -0.6%\n\nWholesale inventories: Essentially unchanged at C$140.6 billion\n\nInventory-to-sales ratio: 1.51 vs 1.52 in June\n\nCanadian wholesale sales increased0.3% to C$93.1 billionin July, according toStatistics Canada. That was stronger than the0.5% decline expected, although growth slowed sharply from June’s2.8% increase.\n\nSales increased in three of seven subsectors. Building materials and supplies led the gains, rising3.5%, helped by a10.3% increaseat metal service centres. Food, beverage and tobacco sales increased1.7%.\n\nThe details were more mixed than the headline. When adjusted for price changes, wholesale sales volumes declined0.6%. That suggests higher prices—including steel prices—accounted for at least part of the increase in the dollar value of sales.\n\nQuick analysis:The headline was stronger than expected and may provide modest support for the Canadian dollar, which would normally pressure USDCAD lower. However, the decline in sales volumes softens the result and suggests underlying demand was not as strong as the headline implies. On balance, this report alone is unlikely to materially change expectations for the Bank of Canada.\n\nWhat this report measures:Wholesale sales track the value of goods sold by Canadian wholesalers to retailers, businesses and other customers. Traders monitor the monthly report for clues about business demand, inventories and future economic activity. The volume measure adjusts for price changes, making it useful for determining whether businesses sold more goods or simply collected more because prices increased.",
+      "date_publication": "2026-09-15T12:34:38.644717+00:00",
+      "url": "https://investinglive.com/news/canada-wholesale-trade-for-the-month-of-july-0-3-versus-0-5-estimate/",
+      "date_recuperation": "2026-09-15T12:35:24.955144+00:00",
+      "titre": "Canada wholesale trade for the month of July 0.3% versus -0.5% estimate"
+    },
+    {
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "ignore": false,
+      "contenu": "Some of the last data before Fed day\n\nPrior was +20.6",
+      "date_publication": "2026-09-15T12:31:22.873757+00:00",
+      "url": "https://investinglive.com/news/september-us-empire-fed-manufacturing-7-6-vs-15-0-expected/",
+      "date_recuperation": "2026-09-15T12:35:24.955144+00:00",
+      "titre": "September US Empire Fed manufacturing +7.6 vs +15.0 expected"
+    },
+    {
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "ignore": false,
+      "contenu": "The ADP weekly employment report rises in the current week.\n\nWeekly private employment change: +16,250 vs +12,000 expected. Prior +12,250\n\nFour-week moving average, seasonally adjusted\n\nU.S. private employers added an average of16,250 jobs per weekduring the four weeks ending August 29, according toADP Research.\n\nThe result was stronger than the12,000 estimateand increased from12,250 previously. ADP said hiring increased for the second consecutive week, although the preliminary figures may change as additional data becomes available.\n\nQuick analysis:The report points to some improvement in private-sector hiring after relatively subdued gains during the preceding weeks. That is modestly supportive for the USD and Treasury yields, but the NER Pulse is still a preliminary four-week moving average—not a replacement for the monthly ADP report or the government’s nonfarm payroll data. With the Federal Reserve decision tomorrow, its immediate market influence may be limited.\n\nTheADP Weekly NER Pulseis a high-frequency estimate of changes in U.S. private-sector employment. “NER” stands forNational Employment Report.\n\nThe estimatedweek-to-week change in private payroll employment\n\nReported as afour-week moving average\n\nSeasonally adjusted\n\nPublished with atwo-week lagso ADP can collect more complete payroll information\n\nReleased most Tuesdays at8:15 a.m. ET\n\nIt differs from the monthly ADP employment report. The weekly Pulse is designed to provide a timelier view of the direction of hiring, but it ispreliminary and subject to revisionas additional data arrives.\n\nFor example, a reading of+16,250means private employers added an estimated average of16,250 jobs per week over the latest four-week period. It doesnotmean 16,250 jobs were added during the entire month.\n\nFor traders, it offers an early indication of labor-market momentum. A stronger-than-expected reading can normally support the USD and Treasury yields, while a weaker reading can pressure them. However, it is generally less market-moving than monthly ADP employment or the government’s nonfarm payroll report.",
+      "date_publication": "2026-09-15T12:28:28.914727+00:00",
+      "url": "https://investinglive.com/news/us-adp-weekly-employment-estimate-rises-to-16-250-vs-12-000-expected/",
+      "date_recuperation": "2026-09-15T12:35:24.955144+00:00",
+      "titre": "US ADP weekly employment estimate rises to 16,250 vs 12,000 expected"
+    },
     {
       "categorie": "technical-analysis",
       "titre": "Morning Kickstart: USD higher as markets await tomorrow’s expected Fed rate hike",
