@@ -2,7 +2,7 @@
   "date": "2026-09-15",
   "curseurs": {
     "ff_news": "2026-09-15T14:08:29.174018+00:00",
-    "cb_articles": "2026-09-15T02:28:36.634088+00:00",
+    "cb_articles": "2026-09-15T15:26:36.278221+00:00",
     "il_articles": "2026-09-15T14:37:08.629147+00:00"
   },
   "ff_news": [
@@ -198,6 +198,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "date_publication": "2026-09-15T15:26:36.278221+00:00",
+      "titre": "The Fed battleground is no longer Wednesday's meeting, but the ones afterwards",
+      "tags": [
+        "Fed"
+      ],
+      "ignore": false,
+      "contenu": "Economists are now lined up for a hike this week, but what next?\n\nThe market is increasingly comfortable betting on a Fed rate hike on Wednesday. In the Fed funds futures market, the odds are now up to 91% and failing to deliver at that number would put a massive strain on Fed credibility that would be tough to overcome in Warsh's term.\n\nIncreasingly, the market reaction will depend on what's signalled next. The long history of Fed moves suggests that one-and-done moves are rare and rising oil prices are certainly adding a fresh upside risk to inflation. That has economists and the market leaning towards a rate hiking cycle.\n\nHere is a look at what some of the largest firms are now forecasting.\n\nIn terms of the market, there are 52.4 bps priced in for December which suggests another hike this year and a 10% chance of a hike at each of the three remaining meetings. That's what I expect to swing on Wednesday, particularly in Warsh's press conference.\n\nMy inclination is to lean hawkish. Warsh has tried to establish hawkish credentials and credibility on inflation. He has talked tough but hasn't delivered yet. If if hikes once and indicates that might be enough or dials back the rhetoric around \"we will get inflation to target\" then Wednesday's move could backfire in the long end. Of course, he's going to be graded on a curve because his oft-repeated bias is to avoid precommiting.\n\nSo the overall message he will try to convey is \"we don't know what we're going to do next, we will keep and open mind, but we will get inflation back to our 2% target\". I think that reads as hawkish but it will depend on how well the tone stacks up to his previous messages, which tilted towards being adamant and insisten.\n\nWith that, I would expect the USD to strengthen on Wednesday. From there, we will go where energy markets and AI take us.",
+      "url": "https://investinglive.com/central-banks/the-fed-battleground-is-no-longer-wednesday-s-meeting-but-the-ones-afterwards/",
+      "date_recuperation": "2026-09-15T15:27:34.473616+00:00"
+    },
     {
       "titre": "BoE decision preview: Goldman sees hold, but watches for hawkish hints",
       "ignore": false,
