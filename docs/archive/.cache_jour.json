@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T06:05:26.621540+00:00",
+    "ff_news": "2026-09-15T06:49:21.314067+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T06:20:14.803297+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_recuperation": "2026-09-15T06:50:21.314067+00:00",
+      "source": "insee.fr",
+      "titre": "In August 2026, French consumer prices increased by 2.4% year-on-year",
+      "impact": "low",
+      "date_publication": "2026-09-15T06:49:21.314067+00:00",
+      "extrait": "In August 2026, the Consumer Price Index (CPI) rose by 0.7% month-on-month, following a 0.6% increase in July. This further increase was due to the seasonal rebound in manufactured goods prices (up 1.6% after -2.0%), particularly clothing and footwear (up 7.3% after -9.8%), following the July decline linked to summer sales. Energy prices rose again (up 3.4% ...",
+      "url": "https://www.forexfactory.com/news/1418245-in-august-2026-french-consumer-prices-increased-by"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418241-german-wholesale-prices-in-august-2026-68-on",
       "impact": "low",
