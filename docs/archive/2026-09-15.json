@@ -259,6 +259,18 @@
   ],
   "il_articles": [
     {
+      "categorie": "forex",
+      "date_recuperation": "2026-09-15T17:15:24.505169+00:00",
+      "ignore": false,
+      "contenu": "Yields higher after the auction\n\nUS 20s sell at 5.420% vs 5.400% WI\n\nBid to cover at 2.57x vs 2.65x six-auction average\n\nDirects at 30.7% vs 21.4% six-auction average\n\nThe bond market isn't in a good place as oil continues to surge. WTI is up $4.59 to $105.97.",
+      "date_publication": "2026-09-15T17:11:33.568013+00:00",
+      "tags": [
+        "USD"
+      ],
+      "url": "https://investinglive.com/forex/us-20-year-bond-auction-tails-by-2-bps/",
+      "titre": "US 20-year bond auction tails by 2 bps"
+    },
+    {
       "titre": "Global bond yields surge toward multiyear highs. It is not just a U.S. story",
       "date_publication": "2026-09-15T16:36:30.729419+00:00",
       "categorie": "education",
