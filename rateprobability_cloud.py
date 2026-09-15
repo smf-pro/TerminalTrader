@@ -1,73 +1,27 @@
 # -*- coding: utf-8 -*-
 """
-rateprobability_cloud.py - Probabilites de taux des banques centrales
-(rateprobability.com), version cloud, patron TerminalTrader
-------------------------------------------------------------------------------
-Contrairement aux 3 autres sources (articles), les donnees ici sont un
-INSTANTANE par banque centrale (taux actuel, pricing de la prochaine
-decision, tableau meeting-par-meeting) qui se met a jour en continu sur le
-site source - pas d'articles individuels a dedupliquer par URL.
+test_rateprobability.py - Test d'extraction isole, SANS Firestore.
 
-Modele de donnees : UN document Firestore par banque centrale (ID fixe :
-"fed", "ecb", "boe", "boc", "boj", "rba"), mis a jour (upsert,
-set(merge=True)) a CHAQUE cycle. Avec seulement 6 documents, pas besoin de
-la logique de cache/diff de data-usd.py (qui existe pour eviter des
-milliers d'ecritures inutiles sur des lignes d'historique) : 6 ecritures/
-cycle restent tres loin du quota Firestore meme a cadence 5 min.
+But : verifier que le parsing des deux tableaux (page d'accueil +
+page detail d'une banque) fonctionne sur le vrai site, avant de brancher
+quoi que ce soit sur Firestore/le cron.
+N'ecrit rien nulle part a part des fichiers de debug locaux.
 
-DEUX SOURCES COMPLEMENTAIRES, toutes deux lues comme des TABLEAUX HTML
-(pas de regex sur du texte libre, qui s'etait revelee trop fragile) :
-
-1. Page d'accueil (/) - tableau "UPCOMING MEETINGS" : une ligne par
-   banque, avec date de prochaine reunion, taux directeur, probabilite,
-   hike/cut, delta vs actuel, outcome implicite, outlook 12 mois. C'est
-   la source des champs de synthese.
-2. Pages par banque (/fed, /ecb, ...) - tableau "PATH OF ... : MARKET
-   EXPECTATION" : le detail meeting par meeting (taux implique,
-   probabilite, nb de hikes/cuts, delta), stocke dans tableau_meetings.
-
-Particularite technique : les valeurs affichees sur rateprobability.com
-sont injectees en JavaScript APRES le chargement initial (absentes du
-HTML brut renvoye par le serveur). Il faut donc un vrai navigateur
-(Selenium + Chrome headless) plutot que requests + BeautifulSoup comme
-les autres sources. Chrome est fourni sur les runners GitHub Actions via
-l'etape setup-chrome du workflow associe.
-
-Capture d'ecran : en plus des donnees structurees, une capture pleine
-page est sauvegardee dans data/rateprobability/{code}.png (+ accueil.png),
-ECRASEE a chaque cycle (pas d'historique horodate, pour eviter de faire
-grossir le depot indefiniment).
+Usage (GitHub Actions ou local) :
+    pip install selenium beautifulsoup4
+    python test_rateprobability.py
 """
 
 import os
 import time
 import base64
-from datetime import datetime, timezone
+import json
 
 from bs4 import BeautifulSoup
 
-import firebase_admin
-from firebase_admin import credentials, firestore
-from google.api_core.exceptions import ResourceExhausted
-
-from site_generator import generer_json
-
-# ---------- CONFIGURATION ----------
 URL_ACCUEIL = "https://rateprobability.com/"
+URL_DETAIL_TEST = "https://rateprobability.com/fed"
 
-# code interne -> (nom affiche cote site MERIDIAN, url de la page detail)
-BANQUES = {
-    "fed": ("Federal Reserve", "https://rateprobability.com/fed"),
-    "ecb": ("Banque Centrale Europeenne", "https://rateprobability.com/ecb"),
-    "boe": ("Bank of England", "https://rateprobability.com/boe"),
-    "boc": ("Bank of Canada", "https://rateprobability.com/boc"),
-    "boj": ("Bank of Japan", "https://rateprobability.com/boj"),
-    "rba": ("Reserve Bank of Australia", "https://rateprobability.com/rba"),
-}
-
-# Nom de banque tel qu'ecrit dans le tableau de la page d'accueil -> code
-# interne. Permet de rattacher chaque ligne du tableau recapitulatif au
-# bon document Firestore sans dependre de l'ordre des lignes.
 NOMS_VERS_CODE = {
     "federal reserve": "fed",
     "european central bank": "ecb",
@@ -76,32 +30,6 @@ NOMS_VERS_CODE = {
     "bank of japan": "boj",
     "reserve bank of australia": "rba",
 }
-
-COLLECTION = "rate_probabilities"
-NOM_SOURCE = "rateprobability"
-DOSSIER_CAPTURES = "data/rateprobability"
-
-
-# ---------- INITIALISATION FIREBASE (identique aux autres scripts) ----------
-def init_firestore():
-    if not firebase_admin._apps:
-        chemin_credentials = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", "service_account.json")
-        cred = credentials.Certificate(chemin_credentials)
-        firebase_admin.initialize_app(cred)
-    return firestore.client()
-
-
-def enregistrer_statut_pipeline(db, statut, liens_vus=0, articles_nouveaux=0, erreur=None):
-    """Battement de coeur dans 'pipeline_status', a CHAQUE cycle."""
-    doc = {
-        "derniere_execution": firestore.SERVER_TIMESTAMP,
-        "liens_vus": liens_vus,
-        "articles_nouveaux": articles_nouveaux,
-        "statut": statut,
-    }
-    if erreur:
-        doc["derniere_erreur"] = str(erreur)[:300]
-    db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
 # ---------- NAVIGATEUR ----------
@@ -117,7 +45,7 @@ def _creer_navigateur():
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     )
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--no-sandbox")  # necessaire sur les runners GitHub Actions
+    options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
@@ -151,8 +79,6 @@ def _accepter_cookies(driver, timeout=5):
 
 
 def _attendre_page_stable(driver, timeout=20, pause=0.5, stabilite=1.0):
-    """Attend que le DOM soit charge ET que le texte arrete de changer :
-    les valeurs de ce site sont injectees en JS apres le rendu initial."""
     fin = time.time() + timeout
     derniere_taille = -1
     stable_depuis = time.time()
@@ -174,8 +100,6 @@ def _attendre_page_stable(driver, timeout=20, pause=0.5, stabilite=1.0):
 
 
 def _masquer_publicites(driver):
-    """Masque les bannieres pub flottantes (widget 'Grow' notamment) qui
-    recouvrent le contenu sur les captures d'ecran."""
     script = """
         const motsCles = ['ad-banner','advertisement','sticky-ad','ad-container',
                            'adsbygoogle','taboola','outbrain','criteo','mediavine',
@@ -216,7 +140,6 @@ def _masquer_publicites(driver):
 
 
 def _masquer_publicites_avec_attente(driver, essais=3, delai=1.5):
-    """Le widget pub se charge en differe : on repasse plusieurs fois."""
     for _ in range(essais):
         _masquer_publicites(driver)
         time.sleep(delai)
@@ -224,29 +147,44 @@ def _masquer_publicites_avec_attente(driver, essais=3, delai=1.5):
 
 
 def _capture_ecran(driver, fichier):
-    """Capture pleine page via CDP (pas de redimensionnement de fenetre,
-    qui declenchait une reorganisation de la page et un rendu duplique)."""
     metrics = driver.execute_cdp_cmd("Page.getLayoutMetrics", {})
     content_size = metrics["cssContentSize"]
     resultat = driver.execute_cdp_cmd("Page.captureScreenshot", {
         "format": "png",
         "captureBeyondViewport": True,
-        "clip": {
-            "x": 0, "y": 0,
-            "width": content_size["width"],
-            "height": content_size["height"],
-            "scale": 1,
-        },
+        "clip": {"x": 0, "y": 0, "width": content_size["width"],
+                 "height": content_size["height"], "scale": 1},
     })
-    os.makedirs(os.path.dirname(fichier), exist_ok=True)
+    dossier = os.path.dirname(fichier)
+    if dossier:
+        os.makedirs(dossier, exist_ok=True)
     with open(fichier, "wb") as f:
         f.write(base64.b64decode(resultat["data"]))
 
 
+def _attendre_verification_cloudflare(driver, timeout=25):
+    """Certaines pages du site passent par une page de verification
+    Cloudflare ('Just a moment...') avant d'afficher le vrai contenu.
+    Elle se resout generalement seule au bout de quelques secondes une
+    fois le JS execute - on attend explicitement qu'elle disparaisse
+    plutot que de la prendre pour la page finale (son texte est court et
+    stable, ce qui faisait sortir _attendre_page_stable() trop tot)."""
+    marqueurs = ["just a moment", "performing security verification", "checking your browser"]
+    fin = time.time() + timeout
+    while time.time() < fin:
+        try:
+            texte = driver.execute_script("return document.body.innerText").lower()
+        except Exception:
+            texte = ""
+        if not any(m in texte for m in marqueurs):
+            return True
+        time.sleep(1)
+    return False  # toujours bloque a l'expiration du delai
+
+
 def _preparer_page(driver, url):
-    """Charge une page et la met en etat d'etre lue (cookies acceptes,
-    JS termine, pubs masquees)."""
     driver.get(url)
+    _attendre_verification_cloudflare(driver, timeout=25)
     _accepter_cookies(driver)
     _attendre_page_stable(driver, timeout=20)
     _masquer_publicites_avec_attente(driver)
@@ -254,12 +192,6 @@ def _preparer_page(driver, url):
 
 # ---------- LECTURE DES TABLEAUX ----------
 def _trouver_table(soup, mots_cles_entete):
-    """Renvoie le premier <table> dont la ligne d'en-tete contient TOUS
-    les mots-cles donnes (insensible a la casse), ou None.
-
-    Recherche par CONTENU d'en-tete plutot que par classe/id CSS : c'est
-    ce qui rend l'extraction robuste aux changements de theme du site
-    (meme esprit que trouver_table_history() dans data-usd.py)."""
     for table in soup.find_all("table"):
         entete = table.find("tr")
         if not entete:
@@ -271,9 +203,6 @@ def _trouver_table(soup, mots_cles_entete):
 
 
 def _lignes_table(table, nb_colonnes_min):
-    """Renvoie les lignes de donnees (hors en-tete) sous forme de listes
-    de chaines, en ignorant les lignes trop courtes (separateurs, lignes
-    de mise en page)."""
     lignes = []
     for ligne in table.find_all("tr")[1:]:
         cellules = ligne.find_all(["td", "th"])
@@ -284,12 +213,6 @@ def _lignes_table(table, nb_colonnes_min):
 
 
 def extraire_synthese_accueil(driver):
-    """Lit le tableau recapitulatif de la page d'accueil (une ligne par
-    banque) et renvoie {code_banque: {champs de synthese}}.
-
-    Colonnes attendues : Next Meeting | Bank | Policy Rate | Probability |
-    Hike/Cut | delta vs Current (bps) | Implied Outcome | 12-Month
-    Outlook (bps)."""
     soup = BeautifulSoup(driver.page_source, "html.parser")
     table = _trouver_table(soup, ["next meeting", "bank"])
     if table is None:
@@ -300,7 +223,7 @@ def extraire_synthese_accueil(driver):
         nom_banque = valeurs[1].strip().lower()
         code = NOMS_VERS_CODE.get(nom_banque)
         if code is None:
-            continue  # banque presente sur le site mais hors de notre perimetre
+            continue
         syntheses[code] = {
             "prochaine_decision_date": valeurs[0],
             "nom_banque_source": valeurs[1],
@@ -315,181 +238,130 @@ def extraire_synthese_accueil(driver):
 
 
 def extraire_tableau_meetings(driver):
-    """Lit le tableau detaille d'une page banque ("PATH OF ... : MARKET
-    EXPECTATION") : une ligne par reunion a venir.
-
-    Colonnes attendues : Meeting | Implied Rate (Post-Meeting) |
-    Probability of Hike(Cut) | # of Hikes(Cuts) | delta vs Current (bps).
-
-    DEDUP PAR DATE DE REUNION : le site rafraichit ses donnees en direct
-    via son propre JS, et semble parfois AJOUTER une nouvelle ligne pour
-    une reunion au lieu de remplacer l'ancienne (constate : la meme date
-    apparaissant deux fois avec des valeurs incoherentes entre elles, ex.
-    "100% hike" et "54% cut" pour la meme reunion). Si ca se produit
-    pendant notre passage sur la page (le temps qu'on y reste pour
-    laisser le JS charger + masquer les pubs), on recupere alors les deux
-    versions. On ne garde que la DERNIERE occurrence de chaque date dans
-    l'ordre du tableau (la plus recemment ajoutee au DOM, donc
-    presumee la plus a jour)."""
     soup = BeautifulSoup(driver.page_source, "html.parser")
     table = _trouver_table(soup, ["meeting", "implied"])
     if table is None:
         return []
 
-    par_date = {}  # date -> dernieres valeurs vues pour cette date, ordre d'insertion = ordre du tableau
-    for valeurs in _lignes_table(table, nb_colonnes_min=4):
-        date_reunion = valeurs[0]
-        par_date[date_reunion] = {
-            "meeting": date_reunion,
+    # Sauvegarde TOUJOURS le HTML brut du tableau (avec ses attributs,
+    # pas juste le texte visible) : si des lignes dupliquees ont un
+    # attribut distinctif (data-step, data-scenario, timestamp cache...),
+    # ce sera visible ici alors que le texte des cellules seul ne le
+    # montre pas.
+    with open("tableau_fed_brut.html", "w", encoding="utf-8") as f:
+        f.write(table.prettify())
+
+    meetings = []
+    for ligne in table.find_all("tr")[1:]:
+        cellules = ligne.find_all(["td", "th"])
+        if len(cellules) < 4:
+            continue
+        valeurs = [c.get_text(strip=True) for c in cellules]
+        meetings.append({
+            "meeting": valeurs[0],
             "taux_implique": valeurs[1],
             "probabilite": valeurs[2],
             "nb_hikes_cuts": valeurs[3],
             "delta_vs_actuel_bps": valeurs[4] if len(valeurs) > 4 else "",
-        }
-    # Un dict Python garde l'ordre d'insertion : reecrire une cle existante
-    # (date deja vue) met a jour sa VALEUR mais ne deplace pas sa position.
-    # On trie explicitement par date pour etre certain du resultat, plutot
-    # que de compter sur cet ordre implicite.
-    meetings = list(par_date.values())
-    meetings.sort(key=lambda m: _date_ou_infini(m["meeting"]))
+            # attributs bruts de la ligne, pour reperer ce qui distingue
+            # deux lignes affichant la meme date
+            "_attrs_ligne": dict(ligne.attrs),
+            "_attrs_cellules": [dict(c.attrs) for c in cellules],
+        })
     return meetings
 
 
-def _date_ou_infini(texte_date):
-    """Convertit une date texte du style 'Sep 16, 2026' en objet triable ;
-    renvoie une valeur "infinie" si illisible, pour l'envoyer en fin de
-    liste plutot que de faire planter le tri."""
-    from datetime import datetime as _dt
-    try:
-        return _dt.strptime(texte_date.strip(), "%b %d, %Y")
-    except (ValueError, AttributeError):
-        return _dt.max
+def _lister_tables(driver, etiquette):
+    """En cas d'echec, liste les en-tetes de TOUS les tableaux trouves :
+    permet de voir tout de suite si le tableau existe sous un autre
+    libelle, sans avoir a fouiller le HTML complet."""
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    tables = soup.find_all("table")
+    print(f"  [debug] {len(tables)} tableau(x) trouve(s) sur la page {etiquette} :")
+    for i, table in enumerate(tables):
+        entete = table.find("tr")
+        texte = entete.get_text(" | ", strip=True)[:150] if entete else "(pas de <tr>)"
+        print(f"    #{i} : {texte}")
 
 
-def enregistrer_point_historique(db, code, doc, maintenant):
-    """Ajoute un point dans rate_probabilities/{code}/historique/{...},
-    SANS jamais ecraser les points precedents (contrairement au document
-    principal, qui est un instantane mis a jour). L'historique s'allonge
-    tout seul, un point par cycle - c'est ce qui permet aux graphiques
-    d'evolution du site de se remplir progressivement avec de vraies
-    donnees au fil du temps, au lieu des valeurs generees aleatoirement
-    utilisees avant.
+def main():
+    # IMPORTANT : chaque page utilise sa PROPRE session de navigateur
+    # (creation + fermeture independantes), plutot qu'une seule session
+    # reutilisee pour naviguer d'une page a l'autre. C'est exactement ce
+    # que fait copier_page.py (qui, lui, passe sans probleme sur GitHub
+    # Actions) : une session fraiche qui arrive directement sur une page
+    # ressemble moins a un bot qu'une session qui enchaine plusieurs
+    # pages differentes d'affilee - probablement ce qui declenchait la
+    # verification Cloudflare dans les runs precedents.
 
-    Champs suivis : uniquement ceux qu'on peut reellement mesurer a
-    chaque cycle (probabilite/sens de la prochaine reunion, et les 2
-    mouvements implicites en pb). Le site source ne donne qu'UNE
-    probabilite (pas de decomposition cut/hold/hike separee), donc le
-    graphique correspondant sera une seule courbe, pas 3."""
-    id_point = maintenant.strftime("%Y%m%dT%H%M%SZ")
-    point = {
-        "date_recuperation": maintenant,
-        "probabilite": doc.get("probabilite"),
-        "sens_mouvement": doc.get("sens_mouvement"),
-        "outcome_implicite": doc.get("outcome_implicite"),
-        "delta_vs_actuel_bps": doc.get("delta_vs_actuel_bps"),
-        "outlook_12m_bps": doc.get("outlook_12m_bps"),
-    }
-    (db.collection(COLLECTION).document(code)
-       .collection("historique").document(id_point)
-       .set(point))
-
-
-# ---------- PROGRAMME PRINCIPAL (single-pass) ----------
-def cycle():
-    """Chaque page (accueil + 6 pages banque) est visitee avec sa PROPRE
-    session de navigateur (creation + fermeture independantes), plutot
-    qu'une session unique reutilisee pour naviguer d'une page a l'autre.
-
-    Verifie empiriquement (voir tests) : une session qui enchaine
-    plusieurs pages differentes d'affilee declenche la verification
-    anti-bot Cloudflare sur les pages /fed, /ecb, etc. (page bloquee sur
-    "Just a moment..."), meme avec toutes les autres mesures
-    anti-detection deja en place (user-agent, navigator.webdriver masque,
-    etc.). Une session fraiche par page passe sans probleme."""
-    db = init_firestore()
-    maintenant = datetime.now(timezone.utc)
-    banques_ecrites = 0
-
-    # --- 1. Page d'accueil : synthese des 6 banques en un seul tableau ---
+    # ---------- 1. PAGE D'ACCUEIL ----------
+    print("=" * 70)
+    print(f"TEST 1 : tableau de synthese - {URL_ACCUEIL}")
+    print("=" * 70)
     syntheses = {}
-    driver = None
+    driver = _creer_navigateur()
     try:
-        driver = _creer_navigateur()
         _preparer_page(driver, URL_ACCUEIL)
+        _capture_ecran(driver, "test_accueil.png")
         syntheses = extraire_synthese_accueil(driver)
-        print(f"Synthese accueil : {len(syntheses)} banque(s) lue(s).")
-        try:
-            _capture_ecran(driver, os.path.join(DOSSIER_CAPTURES, "accueil.png"))
-        except Exception as e:
-            print(f"  capture accueil echouee : {e}")
-    except Exception as e:
-        # Non bloquant : on peut encore recuperer le detail par banque.
-        print(f"Erreur lecture page d'accueil : {e}")
+        if syntheses:
+            print(f"  [OK] {len(syntheses)}/6 banque(s) extraite(s) :\n")
+            for code, donnees in syntheses.items():
+                print(f"    {code.upper():5} {donnees['nom_banque_source']}")
+                print(f"          prochaine decision : {donnees['prochaine_decision_date']}")
+                print(f"          taux {donnees['taux_actuel']} | proba {donnees['probabilite']} "
+                      f"{donnees['sens_mouvement']} | outcome {donnees['outcome_implicite']}")
+                print(f"          delta {donnees['delta_vs_actuel_bps']} bps | "
+                      f"outlook 12m {donnees['outlook_12m_bps']} bps")
+        else:
+            print("  [ECHEC] tableau de synthese introuvable.")
+            _lister_tables(driver, "d'accueil")
     finally:
-        if driver is not None:
-            driver.quit()
+        driver.quit()
 
-    # --- 2. Pages par banque : detail meeting par meeting ---
-    for code, (nom, url) in BANQUES.items():
-        driver = None
-        try:
-            driver = _creer_navigateur()
-            _preparer_page(driver, url)
-            meetings = extraire_tableau_meetings(driver)
-
-            try:
-                _capture_ecran(driver, os.path.join(DOSSIER_CAPTURES, f"{code}.png"))
-            except Exception as e:
-                print(f"  capture {code} echouee : {e}")
-
-            doc = dict(syntheses.get(code, {}))
-            doc.update({
-                "banque": nom,
-                "code_banque": code,
-                "source_url": url,
-                "tableau_meetings": meetings,
-                "date_recuperation": maintenant,
-            })
-
-            db.collection(COLLECTION).document(code).set(doc, merge=True)
-            enregistrer_point_historique(db, code, doc, maintenant)
-            banques_ecrites += 1
-            print(f"OK : {nom} -> taux {doc.get('taux_actuel')}, "
-                  f"prochaine decision {doc.get('prochaine_decision_date')} "
-                  f"({doc.get('probabilite')} {doc.get('outcome_implicite')}), "
-                  f"{len(meetings)} reunion(s) a venir")
-
-        except ResourceExhausted as e:
-            print(f"Quota Firestore depasse sur {nom}, arret du cycle : {e}")
-            enregistrer_statut_pipeline(
-                db, statut="erreur", liens_vus=len(BANQUES),
-                articles_nouveaux=banques_ecrites,
-                erreur="Quota Firestore depasse (ResourceExhausted), cycle interrompu",
-            )
-            return
-        except Exception as e:
-            print(f"Erreur sur {nom} ({url}) : {e}")
-        finally:
-            if driver is not None:
-                driver.quit()
-
-    print(f"\nTermine. {banques_ecrites}/{len(BANQUES)} banque(s) mise(s) a jour dans Firestore.")
-
+    # ---------- 2. PAGE DETAIL (nouvelle session, independante) ----------
+    print()
+    print("=" * 70)
+    print(f"TEST 2 : tableau detaille - {URL_DETAIL_TEST}")
+    print("=" * 70)
+    meetings = []
+    driver = _creer_navigateur()
     try:
-        generer_json(db)
-    except ResourceExhausted as e:
-        print(f"Quota Firestore depasse pendant generer_json() : {e}")
-        enregistrer_statut_pipeline(
-            db, statut="erreur", liens_vus=len(BANQUES),
-            articles_nouveaux=banques_ecrites,
-            erreur="Quota Firestore depasse pendant la generation du JSON",
-        )
-        return
+        _preparer_page(driver, URL_DETAIL_TEST)
+        _capture_ecran(driver, "test_detail_fed.png")
 
-    enregistrer_statut_pipeline(
-        db, statut="ok", liens_vus=len(BANQUES), articles_nouveaux=banques_ecrites
-    )
+        meetings = extraire_tableau_meetings(driver)
+        if meetings:
+            print(f"  [OK] {len(meetings)} reunion(s) extraite(s) :\n")
+            for m in meetings:
+                print(f"    {m['meeting']:16} taux implique {m['taux_implique']:8} "
+                      f"proba {m['probabilite']:8} nb {m['nb_hikes_cuts']:6} "
+                      f"delta {m['delta_vs_actuel_bps']}")
+        else:
+            print("  [ECHEC] tableau detaille introuvable.")
+            texte_page = driver.execute_script("return document.body.innerText")
+            if "just a moment" in texte_page.lower() or "security verification" in texte_page.lower():
+                print("  [debug] BLOQUE PAR CLOUDFLARE : la page de verification anti-bot")
+                print("          ne s'est pas resolue meme apres l'attente supplementaire.")
+            _lister_tables(driver, "detail Fed")
+            with open("page_source_fed.html", "w", encoding="utf-8") as f:
+                f.write(driver.page_source)
+            print("  [debug] HTML complet sauvegarde dans page_source_fed.html")
+    finally:
+        driver.quit()
+
+    # ---------- 3. SAUVEGARDE POUR INSPECTION ----------
+    resultat = {"synthese_accueil": syntheses, "meetings_fed": meetings}
+    with open("resultat_test.json", "w", encoding="utf-8") as f:
+        json.dump(resultat, f, ensure_ascii=False, indent=2)
+
+    print()
+    print("=" * 70)
+    print("Fichiers generes : resultat_test.json, test_accueil.png, test_detail_fed.png")
+    succes = bool(syntheses) and bool(meetings)
+    print("RESULTAT GLOBAL :", "OK - pret pour Firestore" if succes else "ECHEC - voir [debug] ci-dessus")
+    print("=" * 70)
 
 
 if __name__ == "__main__":
-    cycle()
+    main()
