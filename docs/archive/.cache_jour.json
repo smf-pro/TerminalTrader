@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T02:27:27.590034+00:00",
+    "ff_news": "2026-09-15T04:44:29.414523+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T03:58:09.601203+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418234-japan-indices-of-tertiary-industry-activity-ita-for",
+      "date_publication": "2026-09-15T04:44:29.414523+00:00",
+      "ignore": false,
+      "source": "meti.go.jp",
+      "date_recuperation": "2026-09-15T04:45:29.414523+00:00",
+      "extrait": "tables",
+      "impact": "low",
+      "titre": "Japan Indices of Tertiary Industry Activity (ITA) for July, 2026"
+    },
     {
       "titre": "China Stats Bureau: Economy demonstrates robust resilience and vitality despite challenging external environment",
       "ignore": false,
