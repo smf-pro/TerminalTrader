@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T06:02:25.256178+00:00",
+    "ff_news": "2026-09-15T06:05:26.621540+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T05:40:47.522642+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "The selling prices in wholesale trade were 6.8% higher in August 2026 than in August 2025. Compared with the same month a year earlier, the rate of change was +5.3% in July 2026, and +4.9% in June 2026. A higher price increase than that in August 2026 was last recorded in February 2023 (+9.5% on February 2022). As in previous months, the price increase ...",
+      "source": "destatis.de",
+      "date_recuperation": "2026-09-15T06:06:26.621540+00:00",
+      "titre": "German wholesale prices in August 2026: +6.8% on August 2025",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418241-german-wholesale-prices-in-august-2026-68-on",
+      "date_publication": "2026-09-15T06:05:26.621540+00:00",
+      "ignore": false
+    },
     {
       "extrait": "Estimates for payrolled employees in the UK fell by 101,000 (0.3%) between July 2025 and July 2026, and decreased by 19,000 (0.1%) between June and July 2026. This is based on administrative data from HM Revenue and Customs (HMRC). When looking at May to July 2026, the period comparable with our Labour Force Survey (LFS) estimates, the number of payrolled ...",
       "ignore": false,
