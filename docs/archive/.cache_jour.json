@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T09:12:26.007184+00:00",
+    "ff_news": "2026-09-15T12:17:30.527532+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T12:13:57.642550+00:00"
   },
   "ff_news": [
+    {
+      "titre": "US ADP National Employment Report Preliminary Estimate for August 29, 2026",
+      "extrait": "For the four weeks ending August 29, 2026, U.S. private employers added an average of 16,250 jobs per week, according to the NER Pulse, a weekly update of the monthly ADP National Employment Report (NER). Hiring increased for the second week. These numbers are preliminary and could change as new data is added.tableThe NER Pulse is an estimate of the ...",
+      "source": "prnewswire.com",
+      "impact": "low",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418302-us-adp-national-employment-report-preliminary-estimate-for",
+      "date_recuperation": "2026-09-15T12:18:30.527532+00:00",
+      "date_publication": "2026-09-15T12:17:30.527532+00:00"
+    },
     {
       "date_publication": "2026-09-15T09:12:26.007184+00:00",
       "date_recuperation": "2026-09-15T09:13:26.007184+00:00",
