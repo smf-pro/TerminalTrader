@@ -1,11 +1,31 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T22:46:32.914819+00:00",
+    "ff_news": "2026-09-15T23:51:29.072612+00:00",
     "cb_articles": "2026-09-15T15:26:36.278221+00:00",
     "il_articles": "2026-09-15T23:39:14.013496+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418407-japan-trade-balance-total-seasonally-adjusted",
+      "extrait": "table",
+      "date_recuperation": "2026-09-15T23:52:29.072612+00:00",
+      "impact": "low",
+      "date_publication": "2026-09-15T23:51:29.072612+00:00",
+      "titre": "Japan Trade Balance Total (Seasonally Adjusted)",
+      "ignore": false,
+      "source": "customs.go.jp"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1418406-japan-machinery-orders-in-july-2026",
+      "extrait": "The total value of machinery orders received by 280 manufacturers operating in Japan decreased by 5.5% in July from the previous month on a seasonally adjusted basis. Private-sector machinery orders, excluding volatile ones for ships and those from electric power companies, decreased a seasonally adjusted by 3.7% in July.tables",
+      "date_recuperation": "2026-09-15T23:52:29.072612+00:00",
+      "impact": "low",
+      "date_publication": "2026-09-15T23:51:29.072612+00:00",
+      "titre": "Japan Machinery Orders in July, 2026",
+      "ignore": false,
+      "source": "cao.go.jp"
+    },
     {
       "extrait": "Figures compare the June 2026 quarter with the March 2026 quarter (unless otherwise stated). New Zealand’s seasonally adjusted current account deficit was $3.8 billion. The current account deficit for the year ended June 2026 narrowed to $14.6 billion (3.2 percent of gross domestic product (GDP)) compared with a $15.8 billion deficit for the year ended June ...",
       "date_publication": "2026-09-15T22:46:32.914819+00:00",
