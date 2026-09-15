@@ -1150,5 +1150,11 @@
     "forecast": null,
     "previous": "0.9%",
     "actual": null
+  },
+  "f6704695ed46a1a05d5139c4b889d2c0a5e466bce8382b0edbe017b0d31c1a8a": {
+    "date_evenement": "2026-09-15T17:04:00-04:00",
+    "forecast": null,
+    "previous": "80.4",
+    "actual": null
   }
 }
