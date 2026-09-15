@@ -2,6 +2,26 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "source": "@NodeWire",
+      "date_recuperation": "2026-09-15T22:09:29.071269+00:00",
+      "url": "https://www.forexfactory.com/news/1418398-several-explosions-heard-on-irans-qeshm-island",
+      "extrait": "Several Explosions Heard On Iran's Qeshm Island -irna Citing Local Sources As Saying",
+      "titre": "Several Explosions Heard On Iran's Qeshm Island - IRNA Citing Local Sources As Saying",
+      "impact": "low",
+      "ignore": false,
+      "date_publication": "2026-09-15T22:07:29.071269+00:00"
+    },
+    {
+      "source": "@NodeWire",
+      "date_recuperation": "2026-09-15T22:08:24.461755+00:00",
+      "url": "https://www.forexfactory.com/news/1418398-several-explosions-heard-on-irans-qeshm-island-irna",
+      "extrait": "Several Explosions Heard On Iran's Qeshm Island -irna Citing Local Sources As Saying",
+      "titre": "Several Explosions Heard On Iran's Qeshm Island -irna Citing Local Sources As Saying",
+      "impact": "low",
+      "date_publication": "2026-09-15T22:07:24.461755+00:00",
+      "ignore": false
+    },
+    {
       "date_recuperation": "2026-09-15T20:49:26.922491+00:00",
       "ignore": false,
       "source": "@captgirish1",
