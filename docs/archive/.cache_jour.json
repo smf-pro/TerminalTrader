@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T19:47:29.631316+00:00",
+    "ff_news": "2026-09-15T20:48:26.922491+00:00",
     "cb_articles": "2026-09-15T15:26:36.278221+00:00",
     "il_articles": "2026-09-15T19:19:39.782319+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-15T20:49:26.922491+00:00",
+      "source": "@captgirish1",
+      "titre": "API: Crude: +7.1M, Gasoline: +1.5M, Distillates: +1.6M",
+      "date_publication": "2026-09-15T20:48:26.922491+00:00",
+      "impact": "low",
+      "extrait": "API: Crude: +7.1M Gasoline: +1.5M Distillates: +1.6M",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418396-api-crude-71m-gasoline-15m-distillates-16m"
+    },
     {
       "source": "@NodeWire",
       "extrait": "Us Vp Vance Agrees That The War Will End After The Midterms - Ny Post. ...Us Vp Vance To Nyp: Iran Is Occasionally Shooting At Commercial Shipping. ...",
