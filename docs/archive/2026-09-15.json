@@ -2,6 +2,16 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "titre": "Balance of payments and international investment position: June 2026 quarter",
+      "url": "https://www.forexfactory.com/news/1418400-balance-of-payments-and-international-investment-position-june",
+      "date_publication": "2026-09-15T22:46:32.914819+00:00",
+      "impact": "low",
+      "ignore": false,
+      "extrait": "Figures compare the June 2026 quarter with the March 2026 quarter (unless otherwise stated). New Zealand’s seasonally adjusted current account deficit was $3.8 billion. The current account deficit for the year ended June 2026 narrowed to $14.6 billion (3.2 percent of gross domestic product (GDP)) compared with a $15.8 billion deficit for the year ended June ...",
+      "source": "stats.govt.nz",
+      "date_recuperation": "2026-09-15T22:47:32.914819+00:00"
+    },
+    {
       "source": "@NodeWire",
       "date_recuperation": "2026-09-15T22:09:29.071269+00:00",
       "url": "https://www.forexfactory.com/news/1418398-several-explosions-heard-on-irans-qeshm-island",
