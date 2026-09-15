@@ -2,6 +2,16 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "ignore": false,
+      "impact": "medium",
+      "source": "@finsquawk_",
+      "date_publication": "2026-09-15T13:37:25.679551+00:00",
+      "url": "https://www.forexfactory.com/news/1418334-saudi-arabia-is-informing-some-european-oil-refiners",
+      "date_recuperation": "2026-09-15T13:38:25.679551+00:00",
+      "titre": "Saudi Arabia Is Informing Some European Oil Refiners That Their September-Loading Crude Cargoes Are Cancelled After The East-West Pipeline Closure",
+      "extrait": "Saudi Arabia Is Informing Some European Oil Refiners That Their September-loading Crude Cargoes Are Cancelled After The East-west Pipeline Closure - Three Trade Sources #oott"
+    },
+    {
       "impact": "medium",
       "date_recuperation": "2026-09-15T13:38:25.679551+00:00",
       "source": "@finsquawk_",
