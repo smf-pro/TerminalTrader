@@ -2,6 +2,26 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "impact": "low",
+      "titre": "Japan's Finance Minister Katayama Will Evaluate Tax Income, Examine Spending, And Strive To Reduce The Debt-to-GDP Ratio In The Next Budget Process",
+      "url": "https://www.forexfactory.com/news/1418258-japans-finance-minister-katayama-will-evaluate-tax-income",
+      "date_publication": "2026-09-15T07:53:25.785671+00:00",
+      "extrait": "Japan's Finance Minister Katayama Will Evaluate Tax Income, Examine Spending, And Strive To Reduce The Debt-to-gdp Ratio In The Next Budget Process.Japan Finmin Katayama: In Upcoming Budgeting Process, Will Assess Tax Revenue, Review Spending And Aim To Lower Debt-to-gdp Ratio",
+      "ignore": false,
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-15T07:54:25.785671+00:00"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1418257-iran-govt-jet-enters-saudi-airspace-kan",
+      "titre": "Iran Govt Jet Enters Saudi Airspace - Kan News",
+      "impact": "low",
+      "date_publication": "2026-09-15T07:51:24.872680+00:00",
+      "source": "@FirstSquawk",
+      "ignore": false,
+      "extrait": "Iran Govt Jet Enters Saudi Airspace - Kan News",
+      "date_recuperation": "2026-09-15T07:52:24.872680+00:00"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1418252-irans-irgc-claims-to-have-taken-down-a",
       "source": "@FirstSquawk",
       "date_publication": "2026-09-15T07:27:25.910996+00:00",
