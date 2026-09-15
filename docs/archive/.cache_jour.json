@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T02:27:27.590034+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
-    "il_articles": "2026-09-15T02:28:36.634088+00:00"
+    "il_articles": "2026-09-15T03:23:26.641654+00:00"
   },
   "ff_news": [
     {
@@ -42,6 +42,19 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "Nikkei",
+        "KRW"
+      ],
+      "ignore": false,
+      "date_recuperation": "2026-09-15T03:25:24.104412+00:00",
+      "titre": "Nikkei rebounds as Kospi slips, AI capex jitters split Asian markets",
+      "categorie": "stock-market-update",
+      "date_publication": "2026-09-15T03:23:26.641654+00:00",
+      "url": "https://investinglive.com/stock-market-update/nikkei-rebounds-as-kospi-slips-ai-capex-jitters-split-asian-markets/",
+      "contenu": "Japan's Nikkei rebounded as SoftBank recouped part of the prior session's steep loss, while South Korea's Kospi fell as Samsung and SK Hynix extended declines. Both markets remain caught between AI capex jitters, rising oil prices and this week's central bank meetings.\n\nThe divergence highlights how unevenly the AI-linked selloff is unwinding across the region, with Tokyo's rebound concentrated in a handful of large-cap names like SoftBank rather than reflecting a broad shift in sentiment, while Seoul's chip heavyweights remain under pressure from the same overnight weakness in Nvidia, Intel and Micron. Rising oil prices, with Brent above $105 a barrel on escalating Middle East tensions, add a separate inflation-linked headwind for both export-dependent economies, particularly ahead of a heavy week of central bank decisions from theFederal Reserve,Bank of JapanandBank of England. Until investors get more clarity on the durability of AI capital spending from major hyperscalers, this kind of stock-specific, index-level divergence is likely to persist rather than resolve into a clean regional trend.\n\nTokyo and Seoul split sharply on the same AI worries, with SoftBank powering a Nikkei rebound while Samsung and SK Hynix kept the Kospi under pressure.\n\nJapan's Nikkei rose roughly 1% to 64,082.36 by the midday break, recovering early losses as SoftBank shares surged over 9%.\n\nSoftBank's rebound recouped part of the previous session's steep decline, which had followed warnings from AI industry leaders about risks tied to the technology.\n\nThe broader Topix was little changed near 4,057, as renewed buying in AI-linked shares curbed demand for value stocks elsewhere in the index.\n\nSouth Korea's Kospi opened down around 1% and remained lower through the session, pressured by declines in Samsung Electronics and SK Hynix, according to TradingKey.\n\nThe Kospi's weakness tracked overnight losses in US chip names including Nvidia, Intel and Micron amid renewed concerns over AI capital expenditure returns.\n\nBrent crude trading above $105 a barrel on escalating Middle East tensions, along with this week's Federal Reserve, Bank of Japan and Bank of England meetings, added to a cautious tone across both markets.\n\nJapan's Nikkei and South Korea's Kospi moved in opposite directions in Monday trading, as investors reassessed the fallout from warnings by artificial intelligence industry leaders about risks tied to the technology's rapid buildout. The Nikkei recouped early losses to rise roughly 1% to 64,082.36 by the midday break, while the Kospi, according to TradingKey, opened down about 1% and stayed under pressure through the session.\n\nThe split centred on the same theme playing out differently in each market. In Tokyo, SoftBank Group surged more than 9%, recouping part of the previous session's steep decline, which had come after Japan became the first market hit by the AI warnings. Investors appeared to conclude it was too early to judge the pace of AI investment by major hyperscalers, supporting a rebound in AI-linked names. The broader Topix was little changed near 4,057, as renewed demand for AI-related shares curbed appetite for the value stocks that had otherwise supported the index.\n\nIn Seoul, the reaction ran the other way. Samsung Electronics and SK Hynix extended losses, dragging the Kospi lower and tracking overnight weakness in US chipmakers Nvidia, Intel and Micron amid the same concerns over AI capital expenditure returns. Both the Nikkei and Kospi are heavily weighted toward the same global semiconductor and technology supply chain, which explains why a common catalyst produced opposite index-level outcomes depending on which large-cap names happened to lead each market on the day.\n\nAdding to the cautious backdrop, Brent crude traded above $105 a barrel as tensions in the Middle East continued to escalate, feeding into inflation concerns for both economies. Investors are also weighing a heavy run of central bank decisions this week, with the Federal Reserve, Bank of Japan and Bank of England all due to meet, keeping broader risk appetite in check even as individual stocks moved sharply in both directions.\n\nWith AI capital spending sentiment still unsettled and a full slate of central bank meetings ahead, further stock-specific divergence between Tokyo and Seoul looks more likely than a clean, unified regional trend in the sessions ahead."
+    },
     {
       "titre": "BoE decision preview: Goldman sees hold, but watches for hawkish hints",
       "url": "https://investinglive.com/central-banks/boe-decision-preview-goldman-sees-hold-but-watches-for-hawkish-hints/",
