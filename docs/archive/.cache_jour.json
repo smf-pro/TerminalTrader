@@ -3,28 +3,28 @@
   "curseurs": {
     "ff_news": "2026-09-15T20:48:26.922491+00:00",
     "cb_articles": "2026-09-15T15:26:36.278221+00:00",
-    "il_articles": "2026-09-15T19:19:39.782319+00:00"
+    "il_articles": "2026-09-15T20:50:15.957547+00:00"
   },
   "ff_news": [
     {
       "date_recuperation": "2026-09-15T20:49:26.922491+00:00",
-      "extrait": "API: Crude: +7.1M Gasoline: +1.5M Distillates: +1.6M",
-      "date_publication": "2026-09-15T20:48:26.922491+00:00",
       "ignore": false,
       "source": "@captgirish1",
-      "titre": "API: Crude: +7.1M, Gasoline: +1.5M, Distillates: +1.6M",
       "impact": "low",
-      "url": "https://www.forexfactory.com/news/1418396-api-crude-71m-gasoline-15m-distillates-16m"
+      "url": "https://www.forexfactory.com/news/1418396-api-crude-71m-gasoline-15m-distillates-16m",
+      "titre": "API: Crude: +7.1M, Gasoline: +1.5M, Distillates: +1.6M",
+      "extrait": "API: Crude: +7.1M Gasoline: +1.5M Distillates: +1.6M",
+      "date_publication": "2026-09-15T20:48:26.922491+00:00"
     },
     {
       "date_recuperation": "2026-09-15T20:50:26.766582+00:00",
-      "extrait": "API: Crude: +7.14M Cushing: -0.246M Gasoline: +1.46M Distillates: +1.61M",
-      "date_publication": "2026-09-15T20:48:26.766582+00:00",
       "ignore": false,
       "source": "@captgirish1",
       "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418396-api-crude-714m-cushing-0246m-gasoline-146m",
       "titre": "API:  Crude: +7.14M, Cushing: -0.246M, Gasoline: +1.46M,  Distillates: +1.61M",
-      "url": "https://www.forexfactory.com/news/1418396-api-crude-714m-cushing-0246m-gasoline-146m"
+      "date_publication": "2026-09-15T20:48:26.766582+00:00",
+      "extrait": "API: Crude: +7.14M Cushing: -0.246M Gasoline: +1.46M Distillates: +1.61M"
     },
     {
       "source": "@NodeWire",
@@ -293,6 +293,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-15T20:50:26.623605+00:00",
+      "ignore": false,
+      "categorie": "commodities",
+      "tags": [
+        "Oil"
+      ],
+      "date_publication": "2026-09-15T20:50:15.957547+00:00",
+      "url": "https://investinglive.com/commodities/oil-private-survey-of-inventory-shows-a-headline-crude-oil-build-vs-draw-expected/",
+      "titre": "Oil: Private survey of inventory shows a headline crude oil build vs. draw expected",
+      "contenu": "This is from the privately surveyed oil stock data ahead of official government data due in the US on Wednesday.\n\nAPI report headline crude, gasoline and distillate builds\n\nmore to come"
+    },
     {
       "contenu": "Several regions report explosions and early warning systems\n\nPerhaps the big takeaway from the attacks on Saudi Arabia's east-west pipeline wasn't so much that it happened, but that militias in Iraq were capable of the strikes and Saudi Arabia was incapable of defending against them.\n\nThe timeline to repair the damage is 3-6 weeks, according to reports but if they can be struck again, then the timeline is indefinite. Saudi Arabia is clearly being dragged further into this conflict by Houthis and Iran looks to gain leverage for a comprehensive peace. So far, the Houthi fighters are showing some suprising tactics, as they've taken the coast and islands, including Mocha.",
       "ignore": false,
