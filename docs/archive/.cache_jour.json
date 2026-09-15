@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T08:13:27.274452+00:00",
+    "ff_news": "2026-09-15T09:02:47.851844+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T08:32:33.807132+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-15T09:04:47.851844+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418262-euro-area-international-trade-in-goods-surplus-142",
+      "extrait": "The first estimates of euro area balance showed a €14.2 bn surplus in trade in goods with the rest of the world in July 2026, compared with + €10.7 bn in July 2025. The euro area exports of goods to the rest of the world in July 2026 were €276.0 billion, an increase of 9.0% compared with July 2025 (€253.3 bn). Imports from the rest of the world stood at ...",
+      "titre": "Euro area international trade in goods surplus €14.2 bn",
+      "date_publication": "2026-09-15T09:02:47.851844+00:00",
+      "ignore": false,
+      "source": "ec.europa.eu"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418259-italian-foreign-trade-and-import-prices-july",
       "extrait": "In July 2026, seasonally adjusted data increased for exports (+0.3%) and declined for imports (-1.2%). Exports to EU countries decreased by 5.6%, whilst those to non-EU countries rose by 6.9%. Imports from EU countries increased by 0.8%, whilst those from non-EU countries fell by 3.6%. Over the last quarter, compared with the previous one, seasonally ...",
