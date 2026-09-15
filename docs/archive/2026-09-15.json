@@ -2,6 +2,26 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418310-empire-state-manufacturing-survey",
+      "extrait": "After growing strongly last month, business activity increased modestly in New York State in September, according to firms responding to the Empire State Manufacturing Survey. The headline general business conditions index fell thirteen points but remained positive at 7.6. New orders edged up while shipments declined slightly. Unfilled orders increased, and ...",
+      "date_publication": "2026-09-15T12:32:27.782904+00:00",
+      "ignore": false,
+      "titre": "Empire State Manufacturing Survey",
+      "date_recuperation": "2026-09-15T12:33:27.782904+00:00",
+      "impact": "low",
+      "source": "newyorkfed.org"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1418309-canada-wholesale-trade-july-2026",
+      "extrait": "Wholesale sales (excluding petroleum, petroleum products, and other hydrocarbons and excluding oilseed and grain) increased 0.3% to $93.1 billion in July. Sales increased in three of the seven subsectors, representing about 50% of total wholesale sales. The largest increases came from the building material and supplies subsector (+3.5% to $13.8 billion) and ...",
+      "date_publication": "2026-09-15T12:30:30.526394+00:00",
+      "ignore": false,
+      "titre": "Canada wholesale trade, July 2026",
+      "date_recuperation": "2026-09-15T12:31:30.526394+00:00",
+      "impact": "low",
+      "source": "statcan.gc.ca"
+    },
+    {
       "titre": "US ADP National Employment Report Preliminary Estimate for August 29, 2026",
       "extrait": "For the four weeks ending August 29, 2026, U.S. private employers added an average of 16,250 jobs per week, according to the NER Pulse, a weekly update of the monthly ADP National Employment Report (NER). Hiring increased for the second week. These numbers are preliminary and could change as new data is added.tableThe NER Pulse is an estimate of the ...",
       "source": "prnewswire.com",
