@@ -48,6 +48,20 @@
   ],
   "il_articles": [
     {
+      "date_recuperation": "2026-09-15T05:25:27.453073+00:00",
+      "tags": [
+        "Bonds",
+        "USD",
+        "yield"
+      ],
+      "date_publication": "2026-09-15T05:22:54.519787+00:00",
+      "ignore": false,
+      "categorie": "news",
+      "contenu": "Treasury yields are pushing into territory last seen all the way back in 2007, raising the stakes for the Fed and markets\n\nIf there's one thing to note from the way we are starting off the week, it is that the bond market isn't waiting around for the Fed.\n\n10-year Treasury yields have now pushed up to 5.02%, continuing what has been a relentless climb in recent weeks on the back of stubborn inflation, higher oil prices, and the prospect of a more hawkish Fed.\n\nWe're now bordering on breaking the highs last seen in October 2023 with a firmer push above 5.02% set to take yields into territory not properly explored since before the global financial crisis.\n\nWe have already seen the kind of damage that it can do to stocks. There is nothing inherently magical about yields moving back up above 5% in itself. But after more than a decade in which investors have become accustomed to much lower borrowing costs, a 5% risk-free yield changes the calculation across almost every major asset class - even more so for richly valued growth and technology stocks.\n\nHowever, the bigger issue isn't so much where yields are trading now.\n\nEven if the Fed delivers the expected rate hike this week, there is no guarantee that longer-term yields will come back down. I mean if investors come away thinking inflation will stay higher for longer, or that the Fed still has more work to do, 5% may stop looking like the ceiling.\n\nAnd once that happens, the next question for markets perhaps becomes even more uncomfortable. That beingjust how high do yields need to go before something starts to break?\n\nOn a break of 5.02%, the next key levels to the topside are the 2006 and 2007 highs at the 5.25% to 5.28% region. And given how geopolitical, fiscal, and economic dynamics are shaping up to be, those levels don't quite look as distant as they once did in the past.",
+      "titre": "10-year Treasury yields hit 5.02% as bond market sends a warning ahead of the Fed",
+      "url": "https://investinglive.com/news/10-year-treasury-yields-hit-5-02-as-bond-market-sends-a-warning-ahead-of-the-fed/"
+    },
+    {
       "categorie": "commodities",
       "date_recuperation": "2026-09-15T04:00:26.475818+00:00",
       "tags": [
