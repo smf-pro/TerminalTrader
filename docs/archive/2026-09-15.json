@@ -2,6 +2,16 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418340-us-treasury-secretary-bessent-we-have-set-the",
+      "titre": "US Treasury Secretary Bessent: We have set the table for a robust economy",
+      "ignore": false,
+      "date_recuperation": "2026-09-15T14:10:29.174018+00:00",
+      "impact": "low",
+      "extrait": "US Treasury Secretary Bessent: We have set the table for a robust economy.US Treasury Secretary Bessent asked on 10-Yr yields, blames oil price rise.",
+      "date_publication": "2026-09-15T14:08:29.174018+00:00",
+      "source": "@financialjuice"
+    },
+    {
       "titre": "Saudi Arabia Is Informing Some European Oil Refiners That Their September-Loading Crude Cargoes Are Cancelled After The East-West Pipeline Closure",
       "impact": "medium",
       "date_publication": "2026-09-15T13:37:25.679551+00:00",
