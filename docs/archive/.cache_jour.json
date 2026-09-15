@@ -1,11 +1,22 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T00:00:00+00:00",
+    "ff_news": "2026-09-15T02:02:43.313848+00:00",
     "cb_articles": "2026-09-15T00:00:00+00:00",
     "il_articles": "2026-09-15T01:55:48.907459+00:00"
   },
-  "ff_news": [],
+  "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418220-china-national-economy-remained-steady-with-innovation-led-and",
+      "date_recuperation": "2026-09-15T02:03:43.313848+00:00",
+      "ignore": false,
+      "impact": "low",
+      "source": "stats.gov.cn",
+      "titre": "China: National Economy Remained Steady with Innovation-Led and High-Quality Development in August",
+      "date_publication": "2026-09-15T02:02:43.313848+00:00",
+      "extrait": "In August, under the strong leadership of the Central Committee of the Communist Party of China (CPC) with Comrade Xi Jinping at its core, all regions and departments fully implemented the decisions and arrangements made by the CPC Central Committee and the State Council, adhered to the general principle of pursuing progress while ensuring stability, ..."
+    }
+  ],
   "cb_articles": [],
   "il_articles": [
     {
