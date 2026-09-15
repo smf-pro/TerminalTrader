@@ -7,24 +7,24 @@
   },
   "ff_news": [
     {
-      "date_publication": "2026-09-15T06:02:25.256178+00:00",
-      "impact": "low",
-      "source": "ons.gov.uk",
-      "date_recuperation": "2026-09-15T06:03:25.256178+00:00",
-      "titre": "Labour market overview, UK: September 2026",
-      "url": "https://www.forexfactory.com/news/1418240-labour-market-overview-uk-september-2026",
       "extrait": "Estimates for payrolled employees in the UK fell by 101,000 (0.3%) between July 2025 and July 2026, and decreased by 19,000 (0.1%) between June and July 2026. This is based on administrative data from HM Revenue and Customs (HMRC). When looking at May to July 2026, the period comparable with our Labour Force Survey (LFS) estimates, the number of payrolled ...",
-      "ignore": false
+      "ignore": false,
+      "date_publication": "2026-09-15T06:02:25.256178+00:00",
+      "url": "https://www.forexfactory.com/news/1418240-labour-market-overview-uk-september-2026",
+      "date_recuperation": "2026-09-15T06:03:25.256178+00:00",
+      "impact": "low",
+      "titre": "Labour market overview, UK: September 2026",
+      "source": "ons.gov.uk"
     },
     {
-      "date_publication": "2026-09-15T06:00:24.154233+00:00",
-      "impact": "low",
-      "source": "@financialjuice",
       "extrait": "Japan's Fin. Min. Katayama: We will not rely on deficit-covering bonds to fund the tax cut",
-      "titre": "Japan's Fin. Min. Katayama: We will not rely on deficit-covering bonds to fund the tax cut",
+      "ignore": false,
+      "date_publication": "2026-09-15T06:00:24.154233+00:00",
       "url": "https://www.forexfactory.com/news/1418239-japans-fin-min-katayama-we-will-not-rely",
       "date_recuperation": "2026-09-15T06:01:24.154233+00:00",
-      "ignore": false
+      "impact": "low",
+      "titre": "Japan's Fin. Min. Katayama: We will not rely on deficit-covering bonds to fund the tax cut",
+      "source": "@financialjuice"
     },
     {
       "url": "https://www.forexfactory.com/news/1418234-japan-indices-of-tertiary-industry-activity-ita-for",
