@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T06:49:21.314067+00:00",
+    "ff_news": "2026-09-15T07:27:25.910996+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T06:20:14.803297+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418252-irans-irgc-claims-to-have-taken-down-a",
+      "source": "@FirstSquawk",
+      "date_publication": "2026-09-15T07:27:25.910996+00:00",
+      "date_recuperation": "2026-09-15T07:29:25.910996+00:00",
+      "ignore": false,
+      "extrait": "Iran's Irgc Claims To Have Taken Down A Fourth Mq-1 Drone In Four Days Near The Strait Of Hormuz Using A New Air Defense System.",
+      "impact": "low",
+      "titre": "Iran's IRGC Claims To Have Taken Down A Fourth MQ-1 Drone In Four Days Near The Strait Of Hormuz Using A New Air Defense System"
+    },
     {
       "impact": "low",
       "date_publication": "2026-09-15T06:49:21.314067+00:00",
