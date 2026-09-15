@@ -1,11 +1,21 @@
 {
   "date": "2026-09-15",
   "curseurs": {
-    "ff_news": "2026-09-15T07:53:25.785671+00:00",
+    "ff_news": "2026-09-15T08:13:27.274452+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
     "il_articles": "2026-09-15T06:20:14.803297+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418259-italian-foreign-trade-and-import-prices-july",
+      "extrait": "In July 2026, seasonally adjusted data increased for exports (+0.3%) and declined for imports (-1.2%). Exports to EU countries decreased by 5.6%, whilst those to non-EU countries rose by 6.9%. Imports from EU countries increased by 0.8%, whilst those from non-EU countries fell by 3.6%. Over the last quarter, compared with the previous one, seasonally ...",
+      "source": "istat.it",
+      "date_recuperation": "2026-09-15T08:14:27.274452+00:00",
+      "impact": "low",
+      "ignore": false,
+      "date_publication": "2026-09-15T08:13:27.274452+00:00",
+      "titre": "Italian foreign trade and import prices - July 2026"
+    },
     {
       "extrait": "Japan's Finance Minister Katayama Will Evaluate Tax Income, Examine Spending, And Strive To Reduce The Debt-to-gdp Ratio In The Next Budget Process.Japan Finmin Katayama: In Upcoming Budgeting Process, Will Assess Tax Revenue, Review Spending And Aim To Lower Debt-to-gdp Ratio",
       "date_publication": "2026-09-15T07:53:25.785671+00:00",
