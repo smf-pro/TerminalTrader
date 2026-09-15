@@ -2,6 +2,26 @@
   "date": "2026-09-15",
   "ff_news": [
     {
+      "extrait": "US Treasury's Bessent: Stronger yen is better for US exporters.Bessent: We Had Been In Constant Dialog On Japan Interventions Bessent: Us Used 'nominal Amount' For Yen InterventionUS Treasury Secretary Bessent: US made tens of mlns of dollars on yen intervention.",
+      "url": "https://www.forexfactory.com/news/1418359-us-treasurys-bessent-stronger-yen-is-better-for",
+      "ignore": false,
+      "date_recuperation": "2026-09-15T15:52:34.583531+00:00",
+      "source": "@financialjuice",
+      "impact": "low",
+      "date_publication": "2026-09-15T15:51:34.583531+00:00",
+      "titre": "US Treasury's Bessent: Stronger yen is better for US exporters"
+    },
+    {
+      "ignore": false,
+      "extrait": "US Treasury's Bessent: Stronger yen is better for US exporters.Bessent: We Had Been In Constant Dialog On Japan Interventions Bessent: Us Used 'nominal Amount' For Yen InterventionUS Treasury Secretary Bessent: US made tens of mlns of dollars on yen intervention.",
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1418359-us-treasurys-bessent-stronger-yen-is-better-for",
+      "titre": "US Treasury's Bessent: Stronger yen is better for US exporters",
+      "date_publication": "2026-09-15T15:51:34.583531+00:00",
+      "date_recuperation": "2026-09-15T15:52:34.583531+00:00",
+      "impact": "low"
+    },
+    {
       "ignore": false,
       "date_recuperation": "2026-09-15T14:10:29.174018+00:00",
       "titre": "US Treasury Secretary Bessent: We have set the table for a robust economy",
