@@ -1536,49 +1536,49 @@
     "forecast": "",
     "previous": "10.0K",
     "previous_revise": false,
-    "position": 0
+    "position": 1
   },
   "2a1f54f826bc83accd463a0b78dfd525b573bab30f0a0592a25328565db6cf34": {
     "actual": "10.0K",
     "forecast": "",
     "previous": "11.8K",
     "previous_revise": false,
-    "position": 1
+    "position": 2
   },
   "ad32cce5a46d3e3547b192892212e09419327d6c5bcf0e629af2b5bedad818b0": {
     "actual": "11.8K",
     "forecast": "",
     "previous": "9.5K",
     "previous_revise": false,
-    "position": 2
+    "position": 3
   },
   "9ee6d0d62ea1822f394588d21f7a07aac1854763e56b30e1ab309be77aaf6858": {
     "actual": "9.5K",
     "forecast": "",
     "previous": "8.3K",
     "previous_revise": false,
-    "position": 3
+    "position": 4
   },
   "845c67390fbe5271ca0b70eb68794e68df669143ebd1f88efcd3b28ee7dc8627": {
     "actual": "8.3K",
     "forecast": "",
     "previous": "11.0K",
     "previous_revise": false,
-    "position": 4
+    "position": 5
   },
   "a78fedcbfc038f1808127181fd6e6eeb288890f90ead8c8e462403b2d5e1d21e": {
     "actual": "11.0K",
     "forecast": "",
     "previous": "14.5K",
     "previous_revise": true,
-    "position": 5
+    "position": 6
   },
   "ebebd857d615a112c55e1addd46eca992d34c8cfb7e8b20e3a534ee300b46963": {
     "actual": "15.0K",
     "forecast": "",
     "previous": "16.3K",
     "previous_revise": true,
-    "position": 6
+    "position": 7
   },
   "312276478411c0a86471cbb969069234d4ebf246430afce57837bfee140bac53": {
     "actual": "16.5K",
@@ -2530,6 +2530,13 @@
     "forecast": "0.2%",
     "previous": "0.2%",
     "previous_revise": false,
+    "position": 0
+  },
+  "4f71fc3334893f7be9f2e0be348766b3701364c13cfff1aea75e2555d2ff3650": {
+    "actual": "16.3K",
+    "forecast": "",
+    "previous": "12.3K",
+    "previous_revise": true,
     "position": 0
   }
 }
