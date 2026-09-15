@@ -321,36 +321,35 @@ def extraire_tableau_meetings(driver):
     Colonnes attendues : Meeting | Implied Rate (Post-Meeting) |
     Probability of Hike(Cut) | # of Hikes(Cuts) | delta vs Current (bps).
 
-    DEDUP PAR DATE DE REUNION : le site rafraichit ses donnees en direct
-    via son propre JS, et semble parfois AJOUTER une nouvelle ligne pour
-    une reunion au lieu de remplacer l'ancienne (constate : la meme date
-    apparaissant deux fois avec des valeurs incoherentes entre elles, ex.
-    "100% hike" et "54% cut" pour la meme reunion). Si ca se produit
-    pendant notre passage sur la page (le temps qu'on y reste pour
-    laisser le JS charger + masquer les pubs), on recupere alors les deux
-    versions. On ne garde que la DERNIERE occurrence de chaque date dans
-    l'ordre du tableau (la plus recemment ajoutee au DOM, donc
-    presumee la plus a jour)."""
+    FILTRE data-meeting : verifie empiriquement (voir tests) que les
+    VRAIES lignes de reunion portent l'attribut data-meeting="..." sur
+    le <tr> lui-meme. Le site affiche aussi, sous certaines reunions, une
+    ligne technique SANS cet attribut et aux valeurs entre parentheses
+    (notation negative) - ce n'est pas une reunion distincte, on l'ignore
+    explicitement plutot que de deviner via un dedup par date (une
+    premiere tentative de dedup "derniere occurrence" s'est averee
+    garder la mauvaise ligne - cette version-ci est basee sur une preuve
+    concrete, pas une hypothese)."""
     soup = BeautifulSoup(driver.page_source, "html.parser")
     table = _trouver_table(soup, ["meeting", "implied"])
     if table is None:
         return []
 
-    par_date = {}  # date -> dernieres valeurs vues pour cette date, ordre d'insertion = ordre du tableau
-    for valeurs in _lignes_table(table, nb_colonnes_min=4):
-        date_reunion = valeurs[0]
-        par_date[date_reunion] = {
-            "meeting": date_reunion,
+    meetings = []
+    for ligne in table.find_all("tr")[1:]:
+        if not ligne.has_attr("data-meeting"):
+            continue
+        cellules = ligne.find_all(["td", "th"])
+        if len(cellules) < 4:
+            continue
+        valeurs = [c.get_text(strip=True) for c in cellules]
+        meetings.append({
+            "meeting": valeurs[0],
             "taux_implique": valeurs[1],
             "probabilite": valeurs[2],
             "nb_hikes_cuts": valeurs[3],
             "delta_vs_actuel_bps": valeurs[4] if len(valeurs) > 4 else "",
-        }
-    # Un dict Python garde l'ordre d'insertion : reecrire une cle existante
-    # (date deja vue) met a jour sa VALEUR mais ne deplace pas sa position.
-    # On trie explicitement par date pour etre certain du resultat, plutot
-    # que de compter sur cet ordre implicite.
-    meetings = list(par_date.values())
+        })
     meetings.sort(key=lambda m: _date_ou_infini(m["meeting"]))
     return meetings
 
