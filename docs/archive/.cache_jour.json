@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-15T12:55:21.148996+00:00",
     "cb_articles": "2026-09-15T02:28:36.634088+00:00",
-    "il_articles": "2026-09-15T12:45:08.928452+00:00"
+    "il_articles": "2026-09-15T13:29:46.065868+00:00"
   },
   "ff_news": [
     {
@@ -192,6 +192,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-15T13:29:46.065868+00:00",
+      "tags": [
+        "Politics"
+      ],
+      "date_recuperation": "2026-09-15T13:30:24.643219+00:00",
+      "contenu": "That's a notable change in Canada's tax code\n\nThe Canadain dollar is down for the fifth consecutive day as USD rises across the board on an expected Fed rate hike.\n\nBelow the surface, Prime Minister Mark Carney is trying to lay the groundwork for an investment boom. He's hosting an investment summit in Canada this week and that's included a series of announcements on spending, including one on a data centre yesterday.\n\nToday's announcement is a nice carrot for companies thinking of putting money to work and mirrors what the Trump administration did in the Big, Beautiful Bill. Allowing immediate expensing on a longer-term investment gets the deductions back into corporate coffers more quickly, compounding on the time value of money. That said, Canada put in immediate expensing for machinery in 2018 and last year added building materials and clean energy equipment. There is also some accelerated depreciation that's allowed.\n\nSo the actual impacts here are going to depend on company specifics but it's strong signaling.\n\nThe bigger problem facing Canada and much of the world is inflation in light of the war in Iran. The market is pricing in five BOC rate hikes through 2027 and that's going to be a big headwind for a struggling housing sector and corporate borrowing.",
+      "url": "https://investinglive.com/news/carney-canada-to-allow-immediate-expensing-for-most-new-capital-investment/",
+      "titre": "Carney: Canada to allow immediate expensing for most new capital investment",
+      "ignore": false,
+      "categorie": "news"
+    },
     {
       "titre": "Stock market earnings sentiment today at investingLive.com",
       "tags": [
