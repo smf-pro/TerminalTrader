@@ -1,11 +1,21 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T07:54:24.430362+00:00",
+    "ff_news": "2026-09-16T08:14:24.790359+00:00",
     "cb_articles": "2026-09-16T08:03:33.193550+00:00",
     "il_articles": "2026-09-16T06:30:11.994701+00:00"
   },
   "ff_news": [
+    {
+      "titre": "ECB wage tracker at 2.7% in H1 2027, pointing to a modest uptick in negotiated wage growth",
+      "url": "https://www.forexfactory.com/news/1418449-ecb-wage-tracker-at-27-in-h1-2027",
+      "date_recuperation": "2026-09-16T08:15:24.790359+00:00",
+      "date_publication": "2026-09-16T08:14:24.790359+00:00",
+      "ignore": false,
+      "extrait": "The European Central Bank (ECB) wage tracker, which covers active collective bargaining agreements, indicates negotiated wage pressures with smoothed one-off payments of 2.2% in 2026 (based on a coverage of 46.9% of employees in participating countries). The headline wage tracker indicator stands at 2.7% in the first quarter of 2027 (based on a coverage of ...",
+      "source": "ecb.europa.eu",
+      "impact": "low"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418448-von-der-leyen-we-want-to-open-the",
       "date_publication": "2026-09-16T07:54:24.430362+00:00",
