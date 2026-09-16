@@ -154,15 +154,15 @@
   ],
   "cb_articles": [
     {
+      "url": "https://investinglive.com/central-banks/atlanta-fed-gdpnow-estimate-for-q3-growth-jumps-to-5-1-from-4-4/",
+      "date_recuperation": "2026-09-16T16:38:26.603382+00:00",
+      "date_publication": "2026-09-16T16:38:07.487638+00:00",
+      "contenu": "TheAtlanta Fed’s GDPNow modelraised its estimate for third-quarter real GDP growth to an annualized5.1%, up sharply from4.4%on September 10.\n\nThe timing is important. The update shows the US economy growing at a strong pace heading into today’s FOMC rate decision, when the Federal Reserve is widely expected to raise its target rate by25 basis points. Markets are pricing a roughly90% probabilityof that outcome.\n\nQuick analysis:Strong growth by itself is generally good news. However, for the Federal Reserve, an economy growing at an estimated5.1% annualized pace—supported by accelerating consumer spending—may also create additional inflation pressure.\n\nThat gives the Fed little reason to provide policy support. Instead, the strength in growth adds to the argument for today’s expected rate hike and could keep policymakers cautious about signaling when the tightening cycle might end.\n\nThe rate decision may be largely priced in. The bigger market-moving questions will involve the Fed’s updated economic projections, the dot plot and Chair Kevin Warsh’s guidance on whether additional rate hikes may be needed.\n\nFor markets, a more hawkish outlook would normally support US Treasury yields and the US dollar while creating a potential headwind for stocks. A less-hawkish message—particularly one suggesting the Fed may pause after today—could produce the opposite reaction.\n\nTraders should still remember that GDPNow is a model estimate, not the official GDP report. The estimate can change as new information is released, with the next update scheduled for Thursday.",
       "tags": [
         "USD"
       ],
-      "date_publication": "2026-09-16T16:38:07.487638+00:00",
-      "contenu": "TheAtlanta Fed’s GDPNow modelraised its estimate for third-quarter real GDP growth to an annualized5.1%, up sharply from4.4%on September 10.\n\nThe timing is important. The update shows the US economy growing at a strong pace heading into today’s FOMC rate decision, when the Federal Reserve is widely expected to raise its target rate by25 basis points. Markets are pricing a roughly90% probabilityof that outcome.\n\nQuick analysis:Strong growth by itself is generally good news. However, for the Federal Reserve, an economy growing at an estimated5.1% annualized pace—supported by accelerating consumer spending—may also create additional inflation pressure.\n\nThat gives the Fed little reason to provide policy support. Instead, the strength in growth adds to the argument for today’s expected rate hike and could keep policymakers cautious about signaling when the tightening cycle might end.\n\nThe rate decision may be largely priced in. The bigger market-moving questions will involve the Fed’s updated economic projections, the dot plot and Chair Kevin Warsh’s guidance on whether additional rate hikes may be needed.\n\nFor markets, a more hawkish outlook would normally support US Treasury yields and the US dollar while creating a potential headwind for stocks. A less-hawkish message—particularly one suggesting the Fed may pause after today—could produce the opposite reaction.\n\nTraders should still remember that GDPNow is a model estimate, not the official GDP report. The estimate can change as new information is released, with the next update scheduled for Thursday.",
       "titre": "Atlanta Fed GDPNow estimate for Q3 growth jumps to 5.1% from 4.4%",
-      "url": "https://investinglive.com/central-banks/atlanta-fed-gdpnow-estimate-for-q3-growth-jumps-to-5-1-from-4-4/",
-      "ignore": false,
-      "date_recuperation": "2026-09-16T16:38:26.603382+00:00"
+      "ignore": false
     },
     {
       "date_recuperation": "2026-09-16T14:24:21.941007+00:00",
@@ -230,6 +230,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-16T16:40:30.980944+00:00",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "titre": "Atlanta Fed GDPNow estimate for Q3 growth jumps to 5.1% from 4.4%",
+      "url": "https://investinglive.com/central-banks/atlanta-fed-gdpnow-estimate-for-q3-growth-jumps-to-5-1-from-4-4/",
+      "categorie": "central-banks",
+      "date_publication": "2026-09-16T16:38:07.487638+00:00",
+      "contenu": "TheAtlanta Fed’s GDPNow modelraised its estimate for third-quarter real GDP growth to an annualized5.1%, up sharply from4.4%on September 10.\n\nThe timing is important. The update shows the US economy growing at a strong pace heading into today’s FOMC rate decision, when the Federal Reserve is widely expected to raise its target rate by25 basis points. Markets are pricing a roughly90% probabilityof that outcome.\n\nQuick analysis:Strong growth by itself is generally good news. However, for the Federal Reserve, an economy growing at an estimated5.1% annualized pace—supported by accelerating consumer spending—may also create additional inflation pressure.\n\nThat gives the Fed little reason to provide policy support. Instead, the strength in growth adds to the argument for today’s expected rate hike and could keep policymakers cautious about signaling when the tightening cycle might end.\n\nThe rate decision may be largely priced in. The bigger market-moving questions will involve the Fed’s updated economic projections, the dot plot and Chair Kevin Warsh’s guidance on whether additional rate hikes may be needed.\n\nFor markets, a more hawkish outlook would normally support US Treasury yields and the US dollar while creating a potential headwind for stocks. A less-hawkish message—particularly one suggesting the Fed may pause after today—could produce the opposite reaction.\n\nTraders should still remember that GDPNow is a model estimate, not the official GDP report. The estimate can change as new information is released, with the next update scheduled for Thursday."
+    },
     {
       "titre": "AUDUSD holds key support ahead of the FOMC. What must buyers and sellers do next?",
       "date_publication": "2026-09-16T14:12:17.375938+00:00",
