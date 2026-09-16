@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418517-attack-last-week-damaged-2-pumping-stations-on",
+      "impact": "low",
+      "date_recuperation": "2026-09-16T15:10:29.352883+00:00",
+      "titre": "Attack last week damaged 2 pumping stations on Saudi Arabia's east-west oil pipeline - sources",
+      "date_publication": "2026-09-16T15:09:29.352883+00:00",
+      "extrait": "Attack last week damaged 2 pumping stations on Saudi Arabia's east-west oil pipeline - sources",
+      "source": "@MarketsCapApp",
+      "ignore": false
+    },
+    {
       "titre": "US business inventories up by 0.8% in July",
       "date_recuperation": "2026-09-16T14:04:38.705681+00:00",
       "extrait": "Inventories in the manufacturing and trade sectors in the United States rose by 0.8% in July, on a monthly basis, standing at $2.76 trillion, the US Census Bureau shared in a report on Tuesday. On an annual basis, the figure jumped 8.9%.",
