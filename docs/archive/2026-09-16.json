@@ -2,6 +2,36 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "extrait": "Retail and food services sales in the United States advanced by 1.2% in August compared to last month's figures, landing at $773.9 billion, the US Census Bureau revealed in its report published on Wednesday. More to come...",
+      "date_recuperation": "2026-09-16T12:33:26.944191+00:00",
+      "source": "breakingthenews.net",
+      "ignore": false,
+      "impact": "high",
+      "url": "https://www.forexfactory.com/news/1418497-us-retail-sales-up-12-in-august",
+      "titre": "US retail sales up 1.2% in August",
+      "date_publication": "2026-09-16T12:32:26.944191+00:00"
+    },
+    {
+      "extrait": "BREAKING",
+      "date_recuperation": "2026-09-16T12:32:23.706039+00:00",
+      "source": "bls.gov",
+      "ignore": false,
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418495-us-import-and-export-price-indexes-august",
+      "titre": "US Import and Export Price Indexes - August 2026",
+      "date_publication": "2026-09-16T12:31:23.706039+00:00"
+    },
+    {
+      "extrait": "BREAKING",
+      "date_recuperation": "2026-09-16T12:32:23.706039+00:00",
+      "source": "statcan.gc.ca",
+      "ignore": false,
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418494-canada-building-permits-july-2026",
+      "titre": "Canada building permits, July 2026",
+      "date_publication": "2026-09-16T12:31:23.706039+00:00"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1418496-canada-housing-starts-and-construction-data-for-august",
       "impact": "low",
       "date_recuperation": "2026-09-16T12:17:24.380170+00:00",
