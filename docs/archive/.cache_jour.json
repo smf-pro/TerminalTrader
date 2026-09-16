@@ -1,11 +1,21 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T15:09:29.352883+00:00",
+    "ff_news": "2026-09-16T15:48:25.398608+00:00",
     "cb_articles": "2026-09-16T14:23:04.114949+00:00",
     "il_articles": "2026-09-16T14:12:17.375938+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "*saudis Seek To Resume Half Of Key Oil Pipeline Within Days",
+      "date_publication": "2026-09-16T15:48:25.398608+00:00",
+      "ignore": false,
+      "source": "@diegobloomberg",
+      "date_recuperation": "2026-09-16T15:49:25.398608+00:00",
+      "impact": "medium",
+      "titre": "Saudis Seek To Resume Half Of Key Oil Pipeline Within Days",
+      "url": "https://www.forexfactory.com/news/1418526-saudis-seek-to-resume-half-of-key-oil"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418517-attack-last-week-damaged-2-pumping-stations-on",
       "impact": "low",
