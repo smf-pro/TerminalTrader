@@ -1,11 +1,21 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T15:48:25.398608+00:00",
-    "cb_articles": "2026-09-16T17:27:17.824690+00:00",
+    "ff_news": "2026-09-16T17:31:26.697365+00:00",
+    "cb_articles": "2026-09-16T17:32:48.949120+00:00",
     "il_articles": "2026-09-16T16:38:07.487638+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "titre": "BoC Summary of Governing Council deliberations: Fixed announcement date of September 2, 2026",
+      "date_publication": "2026-09-16T17:31:26.697365+00:00",
+      "ignore": false,
+      "source": "bankofcanada.ca",
+      "extrait": "Governing Council members began their deliberations by discussing how the global economy was adapting to higher oil prices. The war in the Middle East continued, marked by intermittent flare-ups. With shipments through the Strait of Hormuz curtailed, energy prices remained elevated. Refinery margins were also unusually high owing to disruptions to both ...",
+      "url": "https://www.forexfactory.com/news/1418538-boc-summary-of-governing-council-deliberations-fixed-announcement",
+      "date_recuperation": "2026-09-16T17:32:26.697365+00:00"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418526-saudis-seek-to-resume-half-of-key-oil",
       "impact": "medium",
@@ -158,6 +168,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "ignore": false,
+      "titre": "BOC summary of deliberations: Governing Council agreed near-term inflation likely to stay elevated",
+      "date_publication": "2026-09-16T17:32:48.949120+00:00",
+      "tags": [
+        "BOC"
+      ],
+      "url": "https://investinglive.com/central-banks/boc-summary-of-deliberations-governing-council-agreed-near-term-inflation-likely-to-stay-elevated/",
+      "date_recuperation": "2026-09-16T17:33:28.840750+00:00",
+      "contenu": "Comments in the summary\n\nCited persistent high energy prices and Middle East conflict as reason market expectations for inflation had risen\n\nMembers saw higher risk of inflation spreading to non-energy goods and services\n\nMembers felt risks to July forecasts had become more acute\n\nFelt trade uncertainty had made growth prospects more uncertain\n\nThe Bank of Canada held rates in September but the market is pricing in more than 100 bps in hikes in the coming year."
+    },
     {
       "date_publication": "2026-09-16T17:27:17.824690+00:00",
       "contenu": "It's always good to have a read of the prior statement\n\nKevin Warsh is deliberately trying to signal less in the FOMC statement so the small details likely matter less. That said, it's always good practice to have one final read of the statement before a new one is released. Note that with a 9-3 vote, it wil only take two changes to get a rate hike. That said, if this comes out 5-4 in either direction, it will be trouble for markets.",
