@@ -3,18 +3,18 @@
   "curseurs": {
     "ff_news": "2026-09-16T22:46:25.232186+00:00",
     "cb_articles": "2026-09-16T21:07:32.012369+00:00",
-    "il_articles": "2026-09-16T22:41:47.866322+00:00"
+    "il_articles": "2026-09-16T22:49:14.699917+00:00"
   },
   "ff_news": [
     {
-      "ignore": false,
-      "impact": "high",
-      "extrait": "Gross domestic product (GDP) provides a snapshot of the performance of the economy. GDP is New Zealand’s official measure of economic growth.tablesAll movements are in seasonally adjusted chain-volume terms (adjusted for price inflation) unless otherwise stated. In the June 2026 quarter, compared with the March 2026 quarter: GDP rose 0.2 percent ...",
-      "source": "stats.govt.nz",
-      "url": "https://www.forexfactory.com/news/1418583-nz-gross-domestic-product-june-2026-quarter",
       "titre": "NZ Gross Domestic Product: June 2026 Quarter",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418583-nz-gross-domestic-product-june-2026-quarter",
+      "extrait": "Gross domestic product (GDP) provides a snapshot of the performance of the economy. GDP is New Zealand’s official measure of economic growth.tablesAll movements are in seasonally adjusted chain-volume terms (adjusted for price inflation) unless otherwise stated. In the June 2026 quarter, compared with the March 2026 quarter: GDP rose 0.2 percent ...",
       "date_recuperation": "2026-09-16T22:47:25.232186+00:00",
-      "date_publication": "2026-09-16T22:46:25.232186+00:00"
+      "date_publication": "2026-09-16T22:46:25.232186+00:00",
+      "source": "stats.govt.nz",
+      "impact": "high"
     },
     {
       "titre": "Trump: Still Have Confidence In Fed Chair Warsh",
@@ -453,6 +453,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "New Zealand dollar pops a little on better than expected GDP data",
+      "categorie": "news",
+      "ignore": false,
+      "url": "https://investinglive.com/news/new-zealand-dollar-pops-a-little-on-better-than-expected-gdp-data/",
+      "tags": [
+        "NZD"
+      ],
+      "date_recuperation": "2026-09-16T22:50:27.821163+00:00",
+      "date_publication": "2026-09-16T22:49:14.699917+00:00",
+      "contenu": "Q2 2026 economic growth data beat (better than expected)\n\nNew Zealand Q2 GDP +2.6% y/y\n\nexpected +2.3%, prior +1.7%\n\n+0.2% q/q\n\nexpected +0.1%, prior +0.9%\n\nI'll have more to come on this separately"
+    },
     {
       "titre": "Xi-Trump summit set for September 24, but Taiwan arms sale threat looms over it",
       "ignore": false,
