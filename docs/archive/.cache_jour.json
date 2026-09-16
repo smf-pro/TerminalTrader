@@ -2,7 +2,7 @@
   "date": "2026-09-16",
   "curseurs": {
     "ff_news": "2026-09-16T09:01:28.510028+00:00",
-    "cb_articles": "2026-09-16T08:03:33.193550+00:00",
+    "cb_articles": "2026-09-16T10:21:55.176181+00:00",
     "il_articles": "2026-09-16T08:46:47.573854+00:00"
   },
   "ff_news": [
@@ -78,6 +78,19 @@
     }
   ],
   "cb_articles": [
+    {
+      "date_recuperation": "2026-09-16T10:23:26.401937+00:00",
+      "date_publication": "2026-09-16T10:21:55.176181+00:00",
+      "contenu": "Warsh’s first major policy test is about more than just rates, it is defining what his Fed stands for\n\nThere is a lot riding on the Fed decision today, but perhaps nobody has more at stake than Kevin Warsh.\n\nHe has only taken up the job for a few months now, but the Fed chair is already facing the kind of credibility test that can define a tenure.\n\nMarkets are heavily pricing in a 25 bps rate hike today, with inflation still running too hot for comfort and the bond market having already done plenty of tightening on the Fed's behalf. It is now up to Warsh to do his part.\n\nThe awkward part in all of this is that Warsh has deliberately tried to move away from the idea that the Fed should spoon-feed markets with forward guidance. He specifically outlined it as being a \"hall-of-mirrors\" problem, warning that when markets read the Fed and vice versa after, it reinforces the wrong narrative that is actually taking place. His message was essentially that the Fed should be guided by its mandate and the data, not by what traders want it to do next.\n\nThat sounds relatively straightforward, at least until you arrive at a meeting like this one.\n\nIf the Fed does hike rates today, Warsh will reinforce the message that getting inflation sustainably back toward 2% remains the priority. That would sit well with his own standard at least.\n\nBut there is more to it than meets the eye. Even with such a decision, it is probable that Warsh does not want his first major move to look like the Fed is simply validating the bond market pricing either.\n\nBesides that, the political backdrop also cannot be completely ignored. US president Trump has been vocal in his push to lower interest rates and Warsh was supposed to be the man to steer the ship in that direction. So, that will just continue to put Warsh under scrutiny over the Fed's independence as well as its inflation credentials regardless.\n\nAnd this is where his press conference will arguably matter much more than the rate decision itself.\n\nWarsh has put a lot on his opening gambit in arguing for less dependence on forward guidance and more policy discipline. But today is when that philosophy has to face up against reality.\n\nThe credibility tightrope is showing markets that the Fed is prepared to act when the data demands it, without allowing either market pricing or political pressure to dictate what happens next.\n\nNeedless to say, it's going to be a tough balancing act for the Fed chair.\n\nFor markets, the key will be whether Warsh frames a rate hike as being a necessary response to the inflation data or the beginning of a more sustained tightening cycle. That distinction could matter considerably more for bonds, the dollar and equities than just the 25 bps rate hike in itself.",
+      "tags": [
+        "Fed",
+        "USD",
+        "market overview"
+      ],
+      "ignore": false,
+      "titre": "Fed rate decision: Warsh walks credibility tightrope as markets brace for rate hike",
+      "url": "https://investinglive.com/central-banks/fed-rate-decision-warsh-walks-credibility-tightrope-as-markets-brace-for-rate-hike/"
+    },
     {
       "date_recuperation": "2026-09-16T08:04:26.205258+00:00",
       "date_publication": "2026-09-16T08:03:33.193550+00:00",
