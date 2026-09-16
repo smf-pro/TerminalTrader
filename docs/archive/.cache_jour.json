@@ -1,11 +1,21 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T22:27:26.148167+00:00",
+    "ff_news": "2026-09-16T22:46:25.232186+00:00",
     "cb_articles": "2026-09-16T21:07:32.012369+00:00",
     "il_articles": "2026-09-16T22:41:47.866322+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "impact": "high",
+      "extrait": "Gross domestic product (GDP) provides a snapshot of the performance of the economy. GDP is New Zealand’s official measure of economic growth.tablesAll movements are in seasonally adjusted chain-volume terms (adjusted for price inflation) unless otherwise stated. In the June 2026 quarter, compared with the March 2026 quarter: GDP rose 0.2 percent ...",
+      "source": "stats.govt.nz",
+      "url": "https://www.forexfactory.com/news/1418583-nz-gross-domestic-product-june-2026-quarter",
+      "titre": "NZ Gross Domestic Product: June 2026 Quarter",
+      "date_recuperation": "2026-09-16T22:47:25.232186+00:00",
+      "date_publication": "2026-09-16T22:46:25.232186+00:00"
+    },
     {
       "titre": "Trump: Still Have Confidence In Fed Chair Warsh",
       "url": "https://www.forexfactory.com/news/1418589-trump-still-have-confidence-in-fed-chair-warsh",
