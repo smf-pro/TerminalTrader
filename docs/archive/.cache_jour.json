@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T08:32:29.367604+00:00",
     "cb_articles": "2026-09-16T08:03:33.193550+00:00",
-    "il_articles": "2026-09-16T06:30:11.994701+00:00"
+    "il_articles": "2026-09-16T08:45:38.424859+00:00"
   },
   "ff_news": [
     {
@@ -110,6 +110,22 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Canada could become the first 'associate member' of the EU, says EU chief von der Leyen",
+      "ignore": false,
+      "date_recuperation": "2026-09-16T08:45:25.274846+00:00",
+      "date_publication": "2026-09-16T08:45:38.424859+00:00",
+      "tags": [
+        "Politics",
+        "CAD",
+        "EUR",
+        "europe",
+        "canada"
+      ],
+      "categorie": "news",
+      "contenu": "Both sides had claimed that they want a closer alliance and this new partnership definitely raises some eyebrows\n\nThis is a rather bold proposal coming from European Commission president, Ursula von der Leyen, in her her annual state of the European Union address in Strasbourg.\n\nShe has opened the door for Canada to become the first \"associate member\" of the EU, backing Canadian prime minister, Mark Carney's pitch for a more \"unique security and economic alliance\" with Europe.\n\nCarney was of course in the audience for this, and has been coy about the whole situation in the run up to von der Leyen's speech today. Just yesterday, he even said that Canada is not seeking to be an official member of the EU. But with this latest news, it seems that being an \"associate member\" - whatever that might end up entailing - is very much on the table.\n\nFor some context, the EU does not have any framework for an \"associate membership\". That means von der Leyen will have to require unanimous approval from the bloc’s 27 member states in order to push through this proposal. And with that, there is still no details on what being an \"associate member\" would mean for Canada in this instance. However, it is likely that it could involve a trade or security pact at the very least.\n\nThere will likely be some pushback from some member states, worried about Canada being given preferential treatment beyond the existing trade and investment partnerships. However, the person most likely to be unhappy over this situation and voice out his immense displeasure will be US president Trump.\n\nHis trade war with both the EU and Canada is pretty much one of the major reasons pushing both sides together now. Trump called Canada \"the worst country to deal with\" and one can imagine that he might be readying up more tariffs in response to this special partnership.",
+      "url": "https://investinglive.com/news/canada-could-become-the-first-associate-member-of-the-eu-says-eu-chief-von-der-leyen/"
+    },
     {
       "contenu": "The highlights include US Retail Sales and FOMC rate decision\n\nEUROPEAN SESSION\n\nIn the European session, the main highlight was theUK CPI report. The data came mostly in line with expectations, with a slight miss on Services CPI measure. For now, the BoE has enough reasons to keep rates steady and maintain a tightening bias given the soft employment data and limited inflation spillover.\n\nThe market is pricing in around 80% chance of no change in rates at tomorrow's meeting and a total of 45 bps of tigthening by year-end. The market is still betting on rate hikes due to elevated energy prices.\n\nAMERICAN SESSION\n\nIn the American session, we have the US Retail Sales, the BoC meeting minutes and the FOMC rate decision. It goes without saying that the focus is going to be solely on the FOMC decision. The Fed is expected to hike rates by 25 bps, bringing the FFR to 3.75-4.00%.\n\nThe focus will be mainly on the dot plot where the median projection is expected to show rates peaking 75 bps higher (two rate hikes in 2026 and one in 2027). Warsh is again not expected to offer forward guidance but to repeat his hawkish Jackson Hole message.\n\nCENTRAL BANK SPEAKERS\n\n12:15 GMT/08:15 ET - ECB's Vujcic (neutral - voter)",
       "url": "https://investinglive.com/news/what-are-the-main-events-for-today-43/",
