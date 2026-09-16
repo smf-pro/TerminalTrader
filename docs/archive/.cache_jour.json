@@ -3,11 +3,25 @@
   "curseurs": {
     "ff_news": "2026-09-16T00:00:00+00:00",
     "cb_articles": "2026-09-16T00:00:00+00:00",
-    "il_articles": "2026-09-16T00:52:18.045030+00:00"
+    "il_articles": "2026-09-16T01:17:58.950607+00:00"
   },
   "ff_news": [],
   "cb_articles": [],
   "il_articles": [
+    {
+      "contenu": "PBOC CNY reference rate setting for the trading session ahead. Strongest for CNY since 3 February 2023.\n\nThe PBOC allows the yuan to fluctuate within a +/- 2% range, around this reference rate.More here on this.\n\nmore to come",
+      "categorie": "forex",
+      "date_publication": "2026-09-16T01:17:58.950607+00:00",
+      "url": "https://investinglive.com/forex/pboc-sets-usd-cny-central-rate-at-6-7-vs-estimate-at-6-7148/",
+      "date_recuperation": "2026-09-16T01:20:27.052168+00:00",
+      "ignore": false,
+      "titre": "PBOC sets USD/ CNY central rate at 6.7628 (vs. estimate at 6.7148)",
+      "tags": [
+        "CNY",
+        "CNH",
+        "pboc"
+      ]
+    },
     {
       "ignore": false,
       "titre": "Australia: Westpac leading index signals softer but improving growth as RBA holds firm",
