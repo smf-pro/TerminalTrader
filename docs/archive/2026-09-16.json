@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418526-saudis-seek-to-resume-half-of-key-oil",
+      "impact": "medium",
+      "extrait": "*saudis Seek To Resume Half Of Key Oil Pipeline Within Days",
+      "titre": "Saudis Seek To Resume Half Of Key Oil Pipeline Within Days",
+      "ignore": false,
+      "date_publication": "2026-09-16T15:48:25.398608+00:00",
+      "source": "@diegobloomberg",
+      "date_recuperation": "2026-09-16T15:49:25.398608+00:00"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1418517-attack-last-week-damaged-2-pumping-stations-on",
       "impact": "low",
       "date_recuperation": "2026-09-16T15:10:29.352883+00:00",
