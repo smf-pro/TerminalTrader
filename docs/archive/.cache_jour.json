@@ -8,13 +8,13 @@
   "ff_news": [
     {
       "source": "@axios",
-      "ignore": false,
+      "extrait": "SCOOP: U.S. open to discussing AI \"shared risks\" with China, Bessent says https://t.co/n9aVu3H1US'There will be multi-hour meetings in New York City, focused on AI, trade, rare earths, and other economic issues, building on previous discussions held in cities around the worl'",
       "url": "https://www.forexfactory.com/news/1418540-us-open-to-discussing-ai-shared-risks-with",
-      "date_recuperation": "2026-09-16T17:43:24.880988+00:00",
-      "titre": "U.S. open to discussing AI \"shared risks\" with China, Bessent says",
       "date_publication": "2026-09-16T17:41:24.880988+00:00",
-      "impact": "low",
-      "extrait": "SCOOP: U.S. open to discussing AI \"shared risks\" with China, Bessent says https://t.co/n9aVu3H1US'There will be multi-hour meetings in New York City, focused on AI, trade, rare earths, and other economic issues, building on previous discussions held in cities around the worl'"
+      "date_recuperation": "2026-09-16T17:43:24.880988+00:00",
+      "ignore": false,
+      "titre": "U.S. open to discussing AI \"shared risks\" with China, Bessent says",
+      "impact": "low"
     },
     {
       "impact": "low",
