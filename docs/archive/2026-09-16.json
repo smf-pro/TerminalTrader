@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "ignore": false,
+      "source": "@axios",
+      "titre": "U.S. open to discussing AI \"shared risks\" with China, Bessent says",
+      "extrait": "SCOOP: U.S. open to discussing AI \"shared risks\" with China, Bessent says https://t.co/n9aVu3H1US'There will be multi-hour meetings in New York City, focused on AI, trade, rare earths, and other economic issues, building on previous discussions held in cities around the worl'",
+      "date_recuperation": "2026-09-16T17:43:24.880988+00:00",
+      "url": "https://www.forexfactory.com/news/1418540-us-open-to-discussing-ai-shared-risks-with",
+      "impact": "low",
+      "date_publication": "2026-09-16T17:41:24.880988+00:00"
+    },
+    {
       "impact": "low",
       "titre": "BoC Summary of Governing Council deliberations: Fixed announcement date of September 2, 2026",
       "date_publication": "2026-09-16T17:31:26.697365+00:00",
