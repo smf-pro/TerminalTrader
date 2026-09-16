@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T12:32:26.944191+00:00",
     "cb_articles": "2026-09-16T10:21:55.176181+00:00",
-    "il_articles": "2026-09-16T12:30:35.168052+00:00"
+    "il_articles": "2026-09-16T13:19:39.696522+00:00"
   },
   "ff_news": [
     {
@@ -173,6 +173,18 @@
     }
   ],
   "il_articles": [
+    {
+      "categorie": "technical-analysis",
+      "tags": [
+        "CAD"
+      ],
+      "ignore": false,
+      "url": "https://investinglive.com/technical-analysis/usdcad-breaks-above-a-key-confluence-area-can-buyers-stay-above-it-through-the-fomc-decision-today/",
+      "date_publication": "2026-09-16T13:19:39.696522+00:00",
+      "contenu": "The pair has moved above the 38.2% retracement at 1.39308 and the 100-day moving average at 1.39350. That area will be a key barometer into the FOMC rate decision\n\nThe USDCAD has continued its move to the upside and has broken above a key confluence area that should help determine whether buyers can take more control or whether sellers can force a failed break.\n\nThe confluence area is defined by the 38.2% retracement of the 2026 trading range at 1.39308 and the 100-day moving average at 1.39350. With those two levels separated by only about four pips, the zone takes on added technical importance.\n\nThe high reached 1.39432, taking the price above both levels. That gives buyers a short-term victory, but the break still needs to hold. The area between 1.39308 and 1.39350 is now the immediate risk-defining support zone.\n\nWhat buyers need to do\n\nBuyers now need to stay above the 100-day moving average at 1.39350 and the 38.2% retracement at 1.39308. Holding the cluster would give buyers more control and open the door toward:\n\n1.3948 to 1.39663, the next resistance level defined by swing highs and swing lows going back to the end of March 2026\n\n1.3948 to 1.39663, the next resistance level defined by swing highs and swing lows going back to the end of March 2026\n\n1.39901 to 1.40031, including the 50% retracement at 1.39915\n\n1.39901 to 1.40031, including the 50% retracement at 1.39915\n\n1.40557, near the 61.8% retracement at 1.40522\n\n1.40557, near the 61.8% retracement at 1.40522\n\nThose are targets, but they are also potential decision areas where sellers may try to lean with risk defined and limited.\n\nWhat sellers need to do\n\nSellers need to push the price back below the 100-day moving average at 1.39350 and then below the 38.2% retracement at 1.39308. A move below both levels would show that the breakout has failed, and more neutralize the shorter term bias after the failed break. .\n\nA move back below that level would shift the focus toward the 200-bar moving average on the 4-hour chart at 1.38892. That level was broken earlier this week and then tested and based before moving back to the upside. Traders are paying attention.  Below that, the next downside targets are the 100-bar moving average on the 4-hour chart at 1.38543 and the 200-day moving average at 1.38330.\n\nTrading education: The break is only the first step\n\nIn my bookAttacking Currency Trends, I stress that moving through a technical level is only part of the process. The price also needs to stay beyond that level to confirm that buyers or sellers are retaining control.\n\nFor USDCAD, the move above both 1.39308 and 1.39350 gave buyers a short-term victory. Staying above the two levels would provide stronger confirmation. If the price falls back below both, the failed break would give sellers more confidence.\n\nThe roadmap is straightforward: stay above 1.39350 and 1.39308 and the buyers remain in control, with 1.39663 as the next target. Move back below both levels and the bullish picture weakens. The price action will provide the next clue.",
+      "titre": "USDCAD breaks above a key confluence area. Can buyers stay above it through the FOMC decision today?",
+      "date_recuperation": "2026-09-16T13:20:26.472710+00:00"
+    },
     {
       "date_publication": "2026-09-16T12:30:35.168052+00:00",
       "titre": "Canada Building permits for the month of July -17.3 vs -6.4% estimate",
