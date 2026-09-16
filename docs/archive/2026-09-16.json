@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "source": "home.treasury.gov",
+      "impact": "low",
+      "date_recuperation": "2026-09-16T20:13:22.986670+00:00",
+      "extrait": "The U.S. Department of the Treasury today released Treasury International Capital (TIC) data for July 2026. The next release, which will report on data for August 2026, is scheduled for October 16, 2026. The sum total in July of all net foreign acquisitions of long-term securities, short-term U.S. securities, and banking flows was a net TIC inflow of $83.7 ...",
+      "ignore": false,
+      "titre": "Treasury International Capital Data for July",
+      "url": "https://www.forexfactory.com/news/1418565-treasury-international-capital-data-for-july",
+      "date_publication": "2026-09-16T20:12:22.986670+00:00"
+    },
+    {
       "titre": "Warsh: We took action to achieve a \"timelier return\" to price stability",
       "date_recuperation": "2026-09-16T18:56:32.653906+00:00",
       "ignore": false,
