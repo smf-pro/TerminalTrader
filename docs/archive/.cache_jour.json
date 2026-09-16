@@ -2,7 +2,7 @@
   "date": "2026-09-16",
   "curseurs": {
     "ff_news": "2026-09-16T17:41:24.880988+00:00",
-    "cb_articles": "2026-09-16T17:32:48.949120+00:00",
+    "cb_articles": "2026-09-16T18:00:05.379854+00:00",
     "il_articles": "2026-09-16T16:38:07.487638+00:00"
   },
   "ff_news": [
@@ -178,6 +178,28 @@
     }
   ],
   "cb_articles": [
+    {
+      "date_recuperation": "2026-09-16T18:00:25.780714+00:00",
+      "titre": "FOMC rate decision: Fed hikes for the first time in three years",
+      "ignore": false,
+      "contenu": "Highlights of the September 16, 2026 Federal Reserve rate decision\n\nPrior was 3.50%-3.75%\n\nThe market was pricing in a 90% chance of a rate hike today.",
+      "url": "https://investinglive.com/central-banks/fomc-rate-decision-fed-hikes-for-the-first-time-in-three-years/",
+      "tags": [
+        "Fed"
+      ],
+      "date_publication": "2026-09-16T18:00:05.379854+00:00"
+    },
+    {
+      "ignore": false,
+      "titre": "FOMC rate decision: Fed hikes for the first time in three years",
+      "tags": [
+        "Fed"
+      ],
+      "date_recuperation": "2026-09-16T18:00:25.780714+00:00",
+      "url": "https://investinglive.com/central-banks/fomc-rate-decision-fed-hikes-for-the-first-time-in-three-years/",
+      "contenu": "Highlights of the September 16, 2026 Federal Reserve rate decision\n\nPrior was 3.50%-3.75%\n\nThe market was pricing in a 90% chance of a rate hike today.",
+      "date_publication": "2026-09-16T18:00:05.379854+00:00"
+    },
     {
       "ignore": false,
       "titre": "BOC summary of deliberations: Governing Council agreed near-term inflation likely to stay elevated",
