@@ -40,6 +40,7 @@ grossir le depot indefiniment).
 """
 
 import os
+import re
 import time
 import base64
 from datetime import datetime, timezone
@@ -393,6 +394,44 @@ def enregistrer_point_historique(db, code, doc, maintenant):
        .set(point))
 
 
+def _slug_date(texte_date):
+    """Convertit une date texte ('Jan 27, 2027') en identifiant de
+    document Firestore stable ('2027-01-27'). Repli sur le texte
+    nettoye si la date est illisible, plutot que de faire planter
+    l'ecriture."""
+    d = _date_ou_infini(texte_date)
+    if d == datetime.max:
+        return re.sub(r"[^a-zA-Z0-9_-]", "-", (texte_date or "inconnue").strip()) or "inconnue"
+    return d.strftime("%Y-%m-%d")
+
+
+def enregistrer_historique_reunions(db, code, meetings, maintenant):
+    """Ajoute un point d'historique pour CHAQUE reunion individuelle
+    (pas seulement la prochaine), pour que le site puisse afficher un
+    graphique d'evolution meme quand on selectionne une reunion lointaine
+    plutot que la plus proche.
+
+    Sous-collection : rate_probabilities/{code}/reunions/{slug_date}/historique/{horodatage}.
+    Meme principe que enregistrer_point_historique (jamais ecrase, un
+    point de plus par cycle), mais un fil d'historique separe par date de
+    reunion plutot qu'un seul fil global par banque."""
+    id_point = maintenant.strftime("%Y%m%dT%H%M%SZ")
+    for m in meetings:
+        slug = _slug_date(m.get("meeting"))
+        point = {
+            "date_recuperation": maintenant,
+            "meeting": m.get("meeting"),
+            "taux_implique": m.get("taux_implique"),
+            "probabilite": m.get("probabilite"),
+            "nb_hikes_cuts": m.get("nb_hikes_cuts"),
+            "delta_vs_actuel_bps": m.get("delta_vs_actuel_bps"),
+        }
+        (db.collection(COLLECTION).document(code)
+           .collection("reunions").document(slug)
+           .collection("historique").document(id_point)
+           .set(point))
+
+
 # ---------- PROGRAMME PRINCIPAL (single-pass) ----------
 def cycle():
     """Chaque page (accueil + 6 pages banque) est visitee avec sa PROPRE
@@ -452,6 +491,7 @@ def cycle():
 
             db.collection(COLLECTION).document(code).set(doc, merge=True)
             enregistrer_point_historique(db, code, doc, maintenant)
+            enregistrer_historique_reunions(db, code, meetings, maintenant)
             banques_ecrites += 1
             print(f"OK : {nom} -> taux {doc.get('taux_actuel')}, "
                   f"prochaine decision {doc.get('prochaine_decision_date')} "
