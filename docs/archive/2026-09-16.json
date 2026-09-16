@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "ignore": false,
+      "source": "ec.europa.eu",
+      "date_recuperation": "2026-09-16T09:02:28.510028+00:00",
+      "extrait": "In July 2026, compared with June 2026, seasonally adjusted industrial production decreased by 0.1% in the euro area and by 0.3% in the EU, according to first estimates from Eurostat, the statistical office of the European Union. In June 2026, industrial production fell by 0.1% in both the euro area and the EU. In July 2026, compared with July 2025, ...",
+      "url": "https://www.forexfactory.com/news/1418457-industrial-production-down-by-01-in-the-euro",
+      "date_publication": "2026-09-16T09:01:28.510028+00:00",
+      "titre": "Industrial production down by 0.1% in the euro area and by 0.3% in the EU",
+      "impact": "low"
+    },
+    {
       "source": "gov.uk",
       "impact": "low",
       "titre": "UK House Price Index for July 2026",
