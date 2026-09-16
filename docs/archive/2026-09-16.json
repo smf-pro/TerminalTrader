@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418448-von-der-leyen-we-want-to-open-the",
+      "date_publication": "2026-09-16T07:54:24.430362+00:00",
+      "impact": "low",
+      "extrait": "EC Pres. von der Leyen: We want to open the door for Canada to the first associate member of the EU.Von Der Leyen: We Will Move From A Trade Agreement With Canada To An Alliance For The Future || Eu, Canada To Create Common Prosperity And Economic Security Space For Manufacturing, Tech, Energy, Ai, Defence And The Arctic",
+      "date_recuperation": "2026-09-16T07:55:24.430362+00:00",
+      "ignore": false,
+      "titre": "Von der Leyen: We want to open the door for Canada to the first associate member of the EU",
+      "source": "@financialjuice"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1418447-eus-von-der-leyen-clear-fiscal-choices-will",
       "impact": "low",
       "titre": "EU's Von Der Leyen: Clear Fiscal Choices Will Have To Be Made To Ensure Fiscal Sustainability; Trade Deficit With China Has Reached A Tipping Point",
