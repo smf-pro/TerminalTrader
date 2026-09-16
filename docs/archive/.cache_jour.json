@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T22:46:25.232186+00:00",
     "cb_articles": "2026-09-16T23:39:47.378054+00:00",
-    "il_articles": "2026-09-16T23:32:19.434387+00:00"
+    "il_articles": "2026-09-16T23:50:41.871375+00:00"
   },
   "ff_news": [
     {
@@ -478,6 +478,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-16T23:50:41.871375+00:00",
+      "titre": "Trump to meet Gulf leaders on Iran war \"endgame\" at UN next week",
+      "categorie": "commodities",
+      "url": "https://investinglive.com/commodities/trump-to-meet-gulf-leaders-on-iran-war-endgame-at-un-next-week/",
+      "date_recuperation": "2026-09-16T23:55:23.278993+00:00",
+      "tags": [
+        "Oil"
+      ],
+      "contenu": "Trump is expected to meet Gulf Cooperation Council leaders at the UN General Assembly in New York next Tuesday to discuss a postwar Iran strategy, sources tell Axios, as he says the war is hopefully nearing its end and claims Iran wants a deal.\n\nThe signal for oil markets is the framing itself: a shift from wartime crisis management toward a postwar strategy suggests Washington sees an eventual endpoint to the conflict, which would be read as a bearish input for the geopolitical risk premium currently built into crude prices. That said, Trump's own comment that the war is only \"hopefully\" nearing its end, combined with a day after plan not due to be finalized until after the midterms, points to a drawn out timeline rather than an imminent resolution, so any relief in oil prices is likely to stay tentative until a firmer plan or ceasefire framework emerges. Continued disruption to Gulf oil and gas exports remains the more immediate price driver in the meantime, and any escalation between now and the Tuesday meeting would quickly override the diplomatic signal.\n\n---Trump is already planning for the day after the Iran war, starting with a Gulf leaders meeting at the UN next week.\n\nTrump is expected to meet Gulf Cooperation Council leaders or foreign ministers at the UN General Assembly in New York next Tuesday\n\nThe talks will focus on a US postwar Iran strategy, with a full day after plan expected to be finalized after the midterms\n\nAttendees are expected from Saudi Arabia, the UAE, Qatar, Bahrain, Kuwait and Oman; the meeting could expand to other Arab and Muslim leaders\n\nNetanyahu also wants a meeting with Trump in New York, but none has been scheduled\n\nThe approach mirrors last year's UN sequence, when Trump met Arab and Muslim leaders before unveiling his Gaza peace plan a week later\n\nTrump said Wednesday the war is \"hopefully\" nearing its end and again claimed Iran wants a deal, said to have come directly from Tehran\n\nPresident Trump is expected to meet Gulf leaders on the sidelines of the UN General Assembly in New York next Tuesday to discuss next steps in the war with Iran, three sources with direct knowledge toldAxios. The meeting is expected to focus on US ideas for a postwar strategy as Trump and his senior team work on a day after plan that is expected to be finalized only after the midterm elections.\n\nAccording to the sources, Trump will meet with leaders or foreign ministers from the six Gulf Cooperation Council countries, Saudi Arabia, the United Arab Emirates, Qatar, Bahrain, Kuwait and Oman. One source said the meeting could expand to include other Arab and Muslim leaders. The State Department sent out initial invitations on Wednesday, and the White House declined to comment on the plans.\n\nIsraeli Prime Minister Benjamin Netanyahu also wants to meet Trump while he is in New York, an Israeli source said, though no such meeting has yet been scheduled.\n\nThe timing echoes last year's UN General Assembly, when Trump met with leaders from eight Arab and Muslim countries and presented them with his draft Gaza peace plan. He unveiled that plan publicly a week later, and a deal to end that war was reached shortly afterward. The Gulf states now central to the Iran discussions have a direct stake in how the war ends. Several host US military bases and suffered significant Iranian attacks during the conflict, on top of major economic losses tied to disruptions in their oil and natural gas exports.\n\nTrump said on Wednesday that he believes the war is hopefully towards its end, repeating his claim that Iran wants to reach a deal and that the US has heard as much directly from Tehran. The planned Gulf meeting suggests Washington is now shifting its focus from the immediate conduct of the war toward shaping what comes after it, following a similar sequence, private diplomacy with regional leaders ahead of a public unveiling, to the one that preceded last year's Gaza agreement."
+    },
     {
       "url": "https://investinglive.com/central-banks/fed-dot-plot-backs-hawks-as-warsh-tone-rattles-markets-more-than-the-hike/",
       "tags": [
