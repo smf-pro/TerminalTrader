@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T06:05:27.048541+00:00",
     "cb_articles": "2026-09-16T05:44:09.983212+00:00",
-    "il_articles": "2026-09-16T06:00:12.408151+00:00"
+    "il_articles": "2026-09-16T06:30:11.994701+00:00"
   },
   "ff_news": [
     {
@@ -59,6 +59,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "The highlights include US Retail Sales and FOMC rate decision\n\nEUROPEAN SESSION\n\nIn the European session, the main highlight was theUK CPI report. The data came mostly in line with expectations, with a slight miss on Services CPI measure. For now, the BoE has enough reasons to keep rates steady and maintain a tightening bias given the soft employment data and limited inflation spillover.\n\nThe market is pricing in around 80% chance of no change in rates at tomorrow's meeting and a total of 45 bps of tigthening by year-end. The market is still betting on rate hikes due to elevated energy prices.\n\nAMERICAN SESSION\n\nIn the American session, we have the US Retail Sales, the BoC meeting minutes and the FOMC rate decision. It goes without saying that the focus is going to be solely on the FOMC decision. The Fed is expected to hike rates by 25 bps, bringing the FFR to 3.75-4.00%.\n\nThe focus will be mainly on the dot plot where the median projection is expected to show rates peaking 75 bps higher (two rate hikes in 2026 and one in 2027). Warsh is again not expected to offer forward guidance but to repeat his hawkish Jackson Hole message.\n\nCENTRAL BANK SPEAKERS\n\n12:15 GMT/08:15 ET - ECB's Vujcic (neutral - voter)",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-43/",
+      "tags": [
+        "market overview"
+      ],
+      "titre": "What are the main events for today?",
+      "ignore": false,
+      "date_publication": "2026-09-16T06:30:11.994701+00:00",
+      "categorie": "news",
+      "date_recuperation": "2026-09-16T06:30:26.180628+00:00"
+    },
     {
       "titre": "UK August CPI +3.1% vs +3.1% y/y expected",
       "date_recuperation": "2026-09-16T06:00:26.567101+00:00",
