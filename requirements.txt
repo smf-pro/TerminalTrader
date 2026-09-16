@@ -6,3 +6,4 @@ pandas
 numpy
 websocket-client
 selenium
+deep-translator
