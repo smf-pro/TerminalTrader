@@ -7,24 +7,24 @@
   },
   "ff_news": [
     {
-      "date_recuperation": "2026-09-16T18:36:24.370561+00:00",
-      "date_publication": "2026-09-16T18:35:24.370561+00:00",
+      "impact": "high",
       "extrait": "*warsh: Inflation Is Too High And Has Been For Too LongFed's Chair Warsh: The summer data does not tell me that the inflation situation has improved.Fed's Chair Warsh: The predominant focus of the Fed is on price stability.",
-      "titre": "Warsh: Inflation Is Too High And Has Been For Too Long",
       "source": "@DeItaone",
       "url": "https://www.forexfactory.com/news/1418553-warsh-inflation-is-too-high-and-has-been",
-      "impact": "high",
-      "ignore": false
+      "ignore": false,
+      "date_publication": "2026-09-16T18:35:24.370561+00:00",
+      "date_recuperation": "2026-09-16T18:36:24.370561+00:00",
+      "titre": "Warsh: Inflation Is Too High And Has Been For Too Long"
     },
     {
-      "date_publication": "2026-09-16T18:33:30.575910+00:00",
-      "date_recuperation": "2026-09-16T18:34:30.575910+00:00",
+      "impact": "high",
       "extrait": "Fed's Warsh: Inflation remains elevated.Warsh: The economy appears to be strengthening as this decision comesFed's Warsh: Key markers have improved in the recent months.Fed's Chair Warsh: I am hard-pressed to call financial conditions restrictive. The view that conditions are not restrictive was widely shared by the FOMC.",
-      "titre": "Warsh: Inflation remains elevated",
       "source": "@financialjuice",
       "url": "https://www.forexfactory.com/news/1418552-warsh-inflation-remains-elevated",
-      "impact": "high",
-      "ignore": false
+      "ignore": false,
+      "date_publication": "2026-09-16T18:33:30.575910+00:00",
+      "titre": "Warsh: Inflation remains elevated",
+      "date_recuperation": "2026-09-16T18:34:30.575910+00:00"
     },
     {
       "date_publication": "2026-09-16T18:00:29.776488+00:00",
