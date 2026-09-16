@@ -2,6 +2,16 @@
   "date": "2026-09-16",
   "ff_news": [
     {
+      "source": "gov.uk",
+      "impact": "low",
+      "titre": "UK House Price Index for July 2026",
+      "extrait": "In England, the Data shows on average, house prices rose by 0.7% since June 2026 . The annual price increase of 1.1% takes the average property value to £293,000 The regional data for England indicates that: The East Midlands experienced the most significant monthly increase with a movement of 1.7% South West saw the biggest monthly price fall, with a ...",
+      "date_recuperation": "2026-09-16T08:33:29.367604+00:00",
+      "date_publication": "2026-09-16T08:32:29.367604+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418450-uk-house-price-index-for-july-2026"
+    },
+    {
       "titre": "ECB wage tracker at 2.7% in H1 2027, pointing to a modest uptick in negotiated wage growth",
       "url": "https://www.forexfactory.com/news/1418449-ecb-wage-tracker-at-27-in-h1-2027",
       "date_recuperation": "2026-09-16T08:15:24.790359+00:00",
