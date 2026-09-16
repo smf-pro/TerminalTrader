@@ -26,23 +26,42 @@ cache "deja vu" comme cache_dedup.py :
   Firestore raisonnables ; le retard se rattrape progressivement sur
   plusieurs runs successifs (cron), pas en un seul passage.
 
-Moteur de traduction : deep_translator.GoogleTranslator (gratuit), avec
-plusieurs ameliorations par rapport a l'ancien usage du pipeline :
-- Decoupage du texte en morceaux sous la limite de caracteres de l'API
-  (evite les troncatures silencieuses sur les articles longs).
+Moteur de traduction : API officielle DeepL (offre gratuite, 500 000
+caracteres/mois), appelee directement via `requests` (comme le reste du
+pipeline, pas de SDK dedie) plutot que via deep_translator.DeeplTranslator
+- ce dernier envoie litteralement source_lang="auto" a l'API DeepL, qui
+ne l'accepte pas (elle attend l'ABSENCE du parametre pour la detection
+automatique) ; l'appel direct evite ce bug et reste plus proche des
+conventions du projet.
+
+Remplace un premier essai avec deep_translator.GoogleTranslator (gratuit,
+non-officiel) : les runners GitHub Actions, dont l'IP est partagee entre
+des milliers de jobs, se heurtaient systematiquement au blocage anti-abus
+de Google des le premier appel ("too many requests"), independamment du
+rythme d'appel du script. L'API DeepL, avec une cle dediee, n'a pas ce
+probleme.
+
+Ameliorations conservees par rapport a l'usage historique du pipeline :
+- Decoupage du texte en morceaux sous la limite de caracteres retenue
+  (evite les eventuelles erreurs sur les articles tres longs).
 - Traduction paragraphe par paragraphe (separateur "\n\n" deja utilise
   par centralbanks_cloud.py pour structurer le contenu), pour garder la
   mise en forme d'origine.
-- Retries avec pause croissante en cas d'erreur reseau/quota cote Google
-  Translate.
+- Retries avec pause croissante en cas d'erreur reseau ou HTTP transitoire.
 - Un document n'est ECRIT dans Firestore que si TOUTES ses traductions
   ont reussi (jamais de traduction partielle enregistree) ; en cas
   d'echec, le curseur n'avance pas au-dela de ce document, il sera
   retente au prochain run.
+- Si le quota mensuel gratuit DeepL est atteint (HTTP 456), le cycle
+  s'arrete proprement immediatement (inutile d'epuiser les tentatives
+  document par document, ca ne passera pas avant le mois prochain).
 
 Champs deja traduits (ex: vieux documents qui avaient encore titre_fr
 d'avant septembre) ne sont PAS retraduits : si le champ destination est
 deja non vide, il est laisse tel quel.
+
+Necessite le secret GitHub Actions DEEPL_API_KEY (cle API DeepL "Free"),
+transmis au job via la variable d'environnement du meme nom.
 """
 
 import os
@@ -50,7 +69,7 @@ import re
 import time
 from datetime import datetime
 
-from deep_translator import GoogleTranslator
+import requests
 
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -73,17 +92,32 @@ COLLECTIONS_CONFIG = {
 # successifs (cron) plutot qu'en un seul passage tres long.
 TAILLE_LOT = 40
 
-# Limite de caracteres par appel a Google Translate (marge de securite
-# sous la limite reelle de l'API, ~5000 caracteres).
-LIMITE_CARACTERES = 4500
+# Endpoint DeepL "Free" (distinct de l'endpoint Pro, api.deepl.com).
+DEEPL_API_URL = "https://api-free.deepl.com/v2/translate"
+DEEPL_API_KEY_ENV = "DEEPL_API_KEY"
 
-# Pause entre deux appels de traduction, pour ne pas se faire bloquer par
-# Google Translate en cas d'usage intensif (rattrapage de gros backlog).
-DELAI_ENTRE_APPELS = 0.6
+# Limite de caracteres par appel, tres large marge sous la limite reelle
+# de l'API DeepL (taille de requete totale : 128 Kio) : sert surtout a
+# garder une traduction paragraphe par paragraphe lisible, pas a eviter
+# une erreur d'API comme c'etait le cas avec l'ancien moteur.
+LIMITE_CARACTERES = 20000
+
+# Pause entre deux appels de traduction (usage raisonnable de l'API,
+# marge de securite meme si DeepL n'impose pas de limite stricte par
+# seconde documentee pour l'offre gratuite).
+DELAI_ENTRE_APPELS = 0.3
 
 # Nombre de tentatives avant d'abandonner la traduction d'un morceau de
 # texte (pause croissante entre chaque tentative).
 TENTATIVES_MAX = 3
+
+
+class QuotaDeepLDepassee(Exception):
+    """Leve quand l'API DeepL repond 456 (Quota Exceeded) : le quota
+    mensuel gratuit (500 000 caracteres) est atteint. Inutile de
+    reessayer document par document, ca ne passera pas avant le
+    renouvellement du quota - on remonte l'exception pour arreter le
+    cycle proprement des la premiere occurrence."""
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -150,15 +184,42 @@ def _nettoyer(texte):
 
 
 def _traduire_un_morceau(texte):
+    api_key = os.environ.get(DEEPL_API_KEY_ENV)
+    if not api_key:
+        raise RuntimeError(
+            f"Variable d'environnement {DEEPL_API_KEY_ENV} manquante "
+            "(secret GitHub Actions non transmis au job)."
+        )
+
     dernier_erreur = None
     for essai in range(TENTATIVES_MAX):
         try:
-            resultat = GoogleTranslator(source="auto", target="fr").translate(texte)
-            if resultat:
-                return resultat
-        except Exception as e:
-            dernier_erreur = e
+            reponse = requests.post(
+                DEEPL_API_URL,
+                headers={"Authorization": f"DeepL-Auth-Key {api_key}"},
+                # Pas de "source_lang" : on laisse DeepL detecter la langue
+                # d'origine automatiquement (le parametre n'accepte pas de
+                # valeur "auto" explicite, il doit etre absent).
+                data={"text": texte, "target_lang": "FR"},
+                timeout=20,
+            )
+        except requests.exceptions.RequestException as e:
+            dernier_erreur = str(e)
             time.sleep(2 * (essai + 1))
+            continue
+
+        if reponse.status_code == 200:
+            traductions = reponse.json().get("translations") or []
+            if traductions:
+                return traductions[0]["text"]
+            dernier_erreur = "Reponse DeepL sans traduction"
+        elif reponse.status_code == 456:
+            raise QuotaDeepLDepassee("Quota mensuel DeepL atteint (456 Quota Exceeded)")
+        else:
+            dernier_erreur = f"HTTP {reponse.status_code} : {reponse.text[:200]}"
+
+        time.sleep(2 * (essai + 1))
+
     print(f"Echec de traduction d'un morceau de texte apres {TENTATIVES_MAX} tentative(s) : {dernier_erreur}")
     return None
 
@@ -270,6 +331,10 @@ def cycle():
             vus, traduits = traiter_collection(db, collection, champs, progression)
             total_vus += vus
             total_traduits += traduits
+        except QuotaDeepLDepassee as e:
+            print(f"Quota DeepL atteint, arret du cycle (le quota est global au compte, inutile d'essayer les autres collections) : {e}")
+            erreur_globale = e
+            break
         except ResourceExhausted as e:
             print(f"Quota Firestore depasse en lecture sur {collection} : {e}")
             erreur_globale = e
