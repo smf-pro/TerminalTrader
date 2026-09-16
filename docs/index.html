@@ -3644,19 +3644,29 @@ function ecouterRateProbabilities(){
   });
 }
 
-// Serie numerique (un champ donne) extraite d'un tableau de points deja
-// charge, triee du plus ancien au plus recent. Renvoie null s'il n'y a
-// encore aucun point exploitable ; duplique l'unique point si un seul
-// existe, pour eviter une division par zero dans les fonctions de dessin
-// (qui font i/(n-1)).
-function serieDepuisPoints(points, champ){
-  const brut = (points || []).map(p => p[champ]).filter(v => v != null);
+// Points {date, valeur} extraits d'un tableau de points bruts deja
+// charge, triee du plus ancien au plus recent (garde la vraie date de
+// chaque point, pour calculer de vrais reperes temporels sur l'axe des
+// graphiques - pas un simple compteur "points-N"). Renvoie null s'il n'y
+// a encore aucun point exploitable ; duplique l'unique point si un seul
+// existe, pour eviter une division par zero dans les fonctions de dessin.
+function pointsAvecDates(points, champ){
+  const brut = (points || [])
+    .filter(p => p[champ] != null && p.date)
+    .map(p => ({date: p.date, valeur: p[champ]}));
   if(!brut.length) return null;
-  return brut.length === 1 ? [brut[0], brut[0]] : brut;
+  return brut.length === 1 ? [brut[0], {...brut[0]}] : brut;
 }
 
-function historiqueSerie(banque, champ){
-  return serieDepuisPoints(banque.historique, champ);
+// Libellé court et réel pour un point de l'axe temporel : heure si le
+// point date d'aujourd'hui, date courte (JJ/MM) sinon.
+function libelleAxeTemps(date){
+  if(!date) return '';
+  const maintenant = new Date();
+  if(date.toDateString() === maintenant.toDateString()){
+    return String(date.getHours()).padStart(2,'0') + 'h' + String(date.getMinutes()).padStart(2,'0');
+  }
+  return String(date.getDate()).padStart(2,'0') + '/' + String(date.getMonth()+1).padStart(2,'0');
 }
 
 // Convertit une date texte ('Jan 27, 2027') en identifiant de document
@@ -3775,7 +3785,7 @@ function dessinerMessageVide(canvas, texte){
 
 // Trace l'évolution d'UNE probabilité (0-100%) dans le temps — remplace
 // l'ancien graphique à 3 courbes cut/hold/hike (données qu'on n'a pas).
-function drawTauxEvolution(serie){
+function drawTauxEvolution(points){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
   const rect = canvas.parentElement.getBoundingClientRect();
@@ -3787,7 +3797,8 @@ function drawTauxEvolution(serie){
   ctx.clearRect(0,0,w,h);
   const padL=36, padB=20, padT=20, padR=12;
   const plotW = w-padL-padR, plotH = h-padB-padT;
-  const n = serie.length;
+  const n = points.length;
+  const serie = points.map(p=>p.valeur);
   const xFor = i => padL + (i/(n-1))*plotW;
   const yFor = v => padT + plotH*(1-v/100);
 
@@ -3798,9 +3809,9 @@ function drawTauxEvolution(serie){
     ctx.fillText(v+'%', 2, y+3);
   });
   const step = Math.max(1, Math.round(n/6));
-  serie.forEach((_,i)=>{
+  points.forEach((p,i)=>{
     if(i%step===0 || i===n-1){
-      const label = i===n-1 ? 'Auj.' : `pts-${n-1-i}`;
+      const label = i===n-1 ? 'Auj.' : libelleAxeTemps(p.date);
       ctx.fillText(label, xFor(i)-10, h-4);
     }
   });
@@ -3855,8 +3866,7 @@ function niceAxisRange(values){
 
 // Trace l'évolution d'UNE série en pb dans le temps (prochaine réunion OU
 // 12 mois, selon ce qu'on lui passe) pour la banque sélectionnée.
-function drawTauxBpsEvolution(bpsHistory, labelPrefix){
-  labelPrefix = labelPrefix || 'pts-';
+function drawTauxBpsEvolution(points){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
   const rect = canvas.parentElement.getBoundingClientRect();
@@ -3868,7 +3878,8 @@ function drawTauxBpsEvolution(bpsHistory, labelPrefix){
   ctx.clearRect(0,0,w,h);
   const padL=46, padB=20, padT=20, padR=12;
   const plotW = w-padL-padR, plotH = h-padB-padT;
-  const n = bpsHistory.length;
+  const n = points.length;
+  const bpsHistory = points.map(p=>p.valeur);
 
   const {lo, hi, step: gridStep} = niceAxisRange(bpsHistory);
   const xFor = i => padL + (i/(n-1))*plotW;
@@ -3885,9 +3896,9 @@ function drawTauxBpsEvolution(bpsHistory, labelPrefix){
   }
 
   const step = Math.max(1, Math.round(n/6));
-  bpsHistory.forEach((_,i)=>{
+  points.forEach((p,i)=>{
     if(i%step===0 || i===n-1){
-      const label = i===n-1 ? 'Auj.' : `${labelPrefix}${n-1-i}`;
+      const label = i===n-1 ? 'Auj.' : libelleAxeTemps(p.date);
       ctx.fillText(label, xFor(i)-10, h-4);
     }
   });
@@ -3906,13 +3917,12 @@ function drawTauxBpsEvolution(bpsHistory, labelPrefix){
 
 // Vue par défaut : superpose, pour chaque banque, l'évolution de sa
 // "prochaine réunion" en pb sur un même graphique.
-function drawTauxBpsEvolutionMulti(banques, champ, labelPrefix){
-  labelPrefix = labelPrefix || 'J-';
+function drawTauxBpsEvolutionMulti(banques, champ){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
 
   const series = banques
-    .map(b => ({code:b.code, ccy:b.ccy, data: historiqueSerie(b, champ)}))
+    .map(b => ({code:b.code, ccy:b.ccy, data: pointsAvecDates(b.historique, champ)}))
     .filter(s => s.data && s.data.length >= 2);
 
   if(!series.length){
@@ -3931,10 +3941,13 @@ function drawTauxBpsEvolutionMulti(banques, champ, labelPrefix){
   const plotW = w-padL-padR, plotH = h-padB-padT;
   const n = Math.min(...series.map(s=>s.data.length));
 
-  const allValues = series.flatMap(s=>s.data.slice(-n));
+  const allValues = series.flatMap(s=>s.data.slice(-n).map(p=>p.valeur));
   const {lo, hi, step: gridStep} = niceAxisRange(allValues);
   const xFor = i => padL + (i/(n-1))*plotW;
   const yFor = v => padT + plotH*(1 - (v-lo)/(hi-lo));
+  // Repères temporels : dates de la série la plus longue (la plus fiable),
+  // alignées sur les n derniers points communs à toutes les banques.
+  const serieReference = series.reduce((a,b)=> a.data.length>=b.data.length?a:b).data.slice(-n);
 
   ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
   const firstTick = Math.ceil(lo/gridStep)*gridStep;
@@ -3949,14 +3962,14 @@ function drawTauxBpsEvolutionMulti(banques, champ, labelPrefix){
   const step = Math.max(1, Math.round(n/6));
   for(let i=0;i<n;i++){
     if(i%step===0 || i===n-1){
-      const label = i===n-1 ? 'Auj.' : `${labelPrefix}${n-1-i}`;
+      const label = i===n-1 ? 'Auj.' : libelleAxeTemps(serieReference[i] && serieReference[i].date);
       ctx.fillText(label, xFor(i)-10, h-4);
     }
   }
 
   series.forEach(s=>{
     const color = BANK_LINE_COLORS[s.code] || '#8f9bb0';
-    const data = s.data.slice(-n);
+    const data = s.data.slice(-n).map(p=>p.valeur);
     ctx.strokeStyle = color; ctx.lineWidth = 1.75; ctx.beginPath();
     data.forEach((v,i)=>{ const x=xFor(i), y=yFor(v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
     ctx.stroke();
@@ -4020,19 +4033,19 @@ function renderTaux(){
       dessinerMessageVide(canvas, 'Chargement…');
     } else {
       const champ = tauxChartMode === 'pct' ? 'probabilite' : 'delta_vs_actuel_bps';
-      const serie = serieDepuisPoints(historiqueReunionActif, champ);
+      const serie = pointsAvecDates(historiqueReunionActif, champ);
       if(!serie){
         dessinerMessageVide(canvas, 'Historique en cours de constitution…');
       } else if(champ === 'probabilite'){
         drawTauxEvolution(serie);
       } else {
-        drawTauxBpsEvolution(serie, 'pts-');
+        drawTauxBpsEvolution(serie);
       }
     }
   } else if(showAllBanks){
     document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — PROCHAINE RÉUNION, TOUTES BANQUES';
     document.getElementById('tauxChartSub').textContent = 'Cliquez une banque pour l\'isoler';
-    drawTauxBpsEvolutionMulti(toutesBanques, 'delta_vs_actuel_bps', 'J-');
+    drawTauxBpsEvolutionMulti(toutesBanques, 'delta_vs_actuel_bps');
   } else {
     const banque = banqueActive || meetingBanque || toutesBanques[0];
     if(!banque){
@@ -4041,18 +4054,18 @@ function renderTaux(){
       const bps12m = banque.outlook_12m_bps;
       document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — ' + banque.bank.toUpperCase();
       document.getElementById('tauxChartSub').textContent = bps12m!=null ? 'Sur 12 mois : ' + (bps12m>0?'+':'') + bps12m + ' pb' : '';
-      const serie = historiqueSerie(banque, 'outlook_12m_bps');
-      serie ? drawTauxBpsEvolution(serie, 'pts-') : dessinerMessageVide(canvas, 'Historique en cours de constitution…');
+      const serie = pointsAvecDates(banque.historique, 'outlook_12m_bps');
+      serie ? drawTauxBpsEvolution(serie) : dessinerMessageVide(canvas, 'Historique en cours de constitution…');
     } else if(tauxChartMode === 'bps_next'){
       const bpsNext = banque.delta_vs_actuel_bps;
       document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — ' + banque.bank.toUpperCase();
       document.getElementById('tauxChartSub').textContent = bpsNext!=null ? 'Prochaine réunion (' + (banque.prochaine_decision_date||'') + ') : ' + (bpsNext>0?'+':'') + bpsNext + ' pb' : '';
-      const serie = historiqueSerie(banque, 'delta_vs_actuel_bps');
-      serie ? drawTauxBpsEvolution(serie, 'pts-') : dessinerMessageVide(canvas, 'Historique en cours de constitution…');
+      const serie = pointsAvecDates(banque.historique, 'delta_vs_actuel_bps');
+      serie ? drawTauxBpsEvolution(serie) : dessinerMessageVide(canvas, 'Historique en cours de constitution…');
     } else {
       document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DE LA PROBABILITÉ — ' + banque.bank.toUpperCase();
       document.getElementById('tauxChartSub').textContent = 'Prochaine réunion : ' + (banque.prochaine_decision_date||'');
-      const serie = historiqueSerie(banque, 'probabilite');
+      const serie = pointsAvecDates(banque.historique, 'probabilite');
       serie ? drawTauxEvolution(serie) : dessinerMessageVide(canvas, 'Historique en cours de constitution…');
     }
   }
