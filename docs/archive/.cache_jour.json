@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T14:03:38.705681+00:00",
     "cb_articles": "2026-09-16T10:21:55.176181+00:00",
-    "il_articles": "2026-09-16T14:00:54.694930+00:00"
+    "il_articles": "2026-09-16T14:12:17.375938+00:00"
   },
   "ff_news": [
     {
@@ -193,6 +193,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-16T14:15:14.023351+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/technical-analysis/audusd-holds-key-support-ahead-of-the-fomc-what-must-buyers-and-sellers-do-next/",
+      "tags": [
+        "AUD"
+      ],
+      "categorie": "technical-analysis",
+      "titre": "AUDUSD holds key support ahead of the FOMC. What must buyers and sellers do next?",
+      "date_publication": "2026-09-16T14:12:17.375938+00:00",
+      "contenu": "The 0.7117 to 0.71324 swing area and the four-hour 200-bar moving average define the immediate technical battle.\n\nThe AUDUSD is trading lower this week after breaking below a rising trendline, but sellers have not yet been able to extend the move through a key support area.\n\nThat leaves the pair caught between support and resistance as traders prepare for the FOMC rate decision. The Fed decision will likely determine the next directional push, but the technical levels give traders a roadmap for judging whether buyers or sellers are taking control.\n\nSellers tested support but could not stay below\n\nThe downside move carried the AUDUSD into a swing area between 0.7117 and 0.71324. The four-hour 200-bar moving average is also in that area, adding to its technical importance.\n\nThe price briefly moved below the swing area and the moving average, but sellers could not sustain the momentum. The price has since moved back into the support zone.\n\nThat failure to stay below is important. Sellers had their shot, but they still need a move below 0.7117 and the four-hour 200-bar moving average, followed by the ability to stay below, to increase the bearish bias.\n\n0.70950, the 38.2% retracement of the move up from the late-June low\n\n0.70789, the 100-day moving average\n\nThose levels would become the next decision areas for buyers and sellers.\n\nWhat buyers need to do\n\nHolding the current support zone gives buyers something to work with, but they have more to prove.\n\nThe first upside target is 0.71492. That level acted as support late last week and then became resistance early this week before the price moved lower.\n\nA move above 0.71492, followed by the ability to stay above it, would give buyers more control. The next targets would then become the four-hour 100-bar moving average and the underside of the broken trendline.\n\nTrading education: A break is not enough\n\nOne of the lessons from this setup is the difference between breaking a technical level and confirming the break.\n\nAUDUSD moved below the swing area and the four-hour 200-bar moving average, but it could not stay below. That lack of follow-through weakened the bearish signal.\n\nIn my bookAttacking Currency Trends, I emphasize that moving through a level is only the first step. Staying through the level is what gives traders greater confidence that control is shifting. It also gives traders a level where risk can be defined and limited.\n\nThe roadmap ahead of the FOMC\n\nAbove 0.71492, buyers begin to take more control and can look toward the four-hour 100-bar moving average and the broken trendline.\n\nBetween 0.7117 and 0.71492, the pair remains in a decision area where neither side has confirmed full control.\n\nBelow 0.7117, with the price staying below, sellers gain more control and bring 0.70950 and 0.70789 into focus.\n\nThe FOMC decision may provide the catalyst, but the price action around these levels will provide the next clue."
+    },
     {
       "titre": "US July business inventories +0.8% vs +0.3% expected",
       "categorie": "news",
