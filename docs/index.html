@@ -440,6 +440,7 @@
   .prob-table thead th{ text-align:left; font-size:10px; color:var(--text-low); padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); }
   .prob-table tbody td{ padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
   .prob-bar-wrap{ display:flex; align-items:center; gap:8px; }
+  .bps-gauge-wrap{ display:flex; align-items:center; gap:8px; }
   .prob-bar{ flex:1; height:6px; background:var(--bg-2); border-radius:3px; overflow:hidden; display:flex; }
   .prob-bar .seg-cut{ background:var(--green); height:100%; }
   .prob-bar .seg-hold{ background:var(--text-low); height:100%; }
@@ -462,6 +463,13 @@
   .bps-combo-fill-next{ position:absolute; left:0; top:2px; height:7px; border-radius:3px; }
   .bps-combo-fill-12m.cut, .bps-combo-fill-next.cut{ background:var(--green); }
   .bps-combo-fill-12m.hike, .bps-combo-fill-next.hike{ background:var(--red); }
+  .bps-gauge{ position:relative; width:100%; height:6px; background:var(--bg-2); border-radius:3px; overflow:hidden; }
+  .bps-gauge-center{ position:absolute; left:50%; top:0; bottom:0; width:1px; background:var(--line); z-index:1; }
+  .bps-gauge-fill{ position:absolute; top:0; bottom:0; border-radius:3px; min-width:2px; background:#0005ff; }
+  /* Barre de probabilité + jauge 12 mois collées l'une à l'autre (panneau
+     IMPLICITE EN PB) : coins carrés à la jonction, arrondis ailleurs. */
+  .bank-group .prob-bar{ border-radius:3px 3px 0 0; }
+  .bps-gauge-collee{ border-radius:0 0 3px 3px; }
 
   /* regroupement par banque centrale : 2 diagrammes (prochaine réunion / sur 12 mois),
      structurés comme PROCHAINES RÉUNIONS (label+valeur au-dessus, barre pleine largeur en dessous) */
@@ -885,6 +893,9 @@
       </div>
       <div class="taux-col">
         <div class="panel-head"><span>PROCHAINES RÉUNIONS</span></div>
+        <div style="padding:6px 12px 0; font-size:10px; color:var(--text-low); line-height:1.4;">
+          Mouvement implicite propre à <b>chaque réunion</b> (calculé par différence entre réunions successives), pas le cumulé depuis aujourd'hui.
+        </div>
         <div class="panel-body" id="probBody"></div>
       </div>
     </div>
@@ -3633,15 +3644,67 @@ function ecouterRateProbabilities(){
   });
 }
 
-// Serie numerique (un champ donne) extraite de l'historique d'une banque,
-// triee du plus ancien au plus recent. Renvoie null s'il n'y a encore
-// aucun point exploitable ; duplique l'unique point si un seul existe,
-// pour eviter une division par zero dans les fonctions de dessin (qui
-// font i/(n-1)).
-function historiqueSerie(banque, champ){
-  const brut = (banque.historique || []).map(p => p[champ]).filter(v => v != null);
+// Serie numerique (un champ donne) extraite d'un tableau de points deja
+// charge, triee du plus ancien au plus recent. Renvoie null s'il n'y a
+// encore aucun point exploitable ; duplique l'unique point si un seul
+// existe, pour eviter une division par zero dans les fonctions de dessin
+// (qui font i/(n-1)).
+function serieDepuisPoints(points, champ){
+  const brut = (points || []).map(p => p[champ]).filter(v => v != null);
   if(!brut.length) return null;
   return brut.length === 1 ? [brut[0], brut[0]] : brut;
+}
+
+function historiqueSerie(banque, champ){
+  return serieDepuisPoints(banque.historique, champ);
+}
+
+// Convertit une date texte ('Jan 27, 2027') en identifiant de document
+// Firestore ('2027-01-27'), identique a _slug_date() cote script Python
+// (voir rateprobability_cloud.py) - les deux DOIVENT rester synchronises,
+// sinon le site cherche un document qui n'existe pas sous ce nom.
+function slugDateReunion(texte){
+  const d = new Date(texte);
+  if(!isNaN(d)){
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  return (texte || 'inconnue').replace(/[^a-zA-Z0-9_-]/g, '-') || 'inconnue';
+}
+
+// Historique d'UNE reunion precise, charge a la demande (pas au chargement
+// de la page : ca ferait des dizaines d'ecouteurs simultanes pour rien).
+// Un seul abonnement actif a la fois - le precedent est coupe avant d'en
+// ouvrir un nouveau.
+let desabonnerHistoriqueReunion = null;
+let historiqueReunionActif = null; // null = en cours de chargement, [] = charge mais vide
+
+function ecouterHistoriqueReunion(code, meetingTexte){
+  if(desabonnerHistoriqueReunion){ desabonnerHistoriqueReunion(); desabonnerHistoriqueReunion = null; }
+  historiqueReunionActif = null;
+  const slug = slugDateReunion(meetingTexte);
+  desabonnerHistoriqueReunion = dbFirestore.collection('rate_probabilities').doc(code)
+    .collection('reunions').doc(slug).collection('historique')
+    .orderBy('date_recuperation', 'asc')
+    .limit(500)
+    .onSnapshot(snapshot => {
+      historiqueReunionActif = snapshot.docs.map(doc => {
+        const d = doc.data();
+        return {
+          date: versDate(d.date_recuperation),
+          probabilite: nombreDepuisTexte(d.probabilite),
+          delta_vs_actuel_bps: nombreDepuisTexte(d.delta_vs_actuel_bps),
+        };
+      });
+      renderTaux();
+    }, erreur => console.error('Erreur écoute historique réunion', code, meetingTexte, erreur));
+}
+
+function detacherEcouteReunion(){
+  if(desabonnerHistoriqueReunion){ desabonnerHistoriqueReunion(); desabonnerHistoriqueReunion = null; }
+  historiqueReunionActif = null;
 }
 
 // Devine le sens (hike/cut/hold) d'une ligne du tableau detaille
@@ -3656,23 +3719,27 @@ function sensDepuisTableauMeeting(m){
   return 'hold';
 }
 
-// Repartit une probabilite unique (0-100) sur les 3 segments CSS
-// existants (.seg-cut vert / .seg-hold gris / .seg-hike rouge), au lieu
-// des 3 probabilites separees du mock : un seul segment est rempli
-// (celui du sens annonce), le reste en gris neutre.
-function segmentsProbabilite(probPct, sens){
+// Barre de probabilité (0-100%) : le segment coloré démarre toujours à 0
+// (jamais poussé au milieu/à la fin), vert si le mouvement associé est
+// positif (bps >= 0), rouge si négatif — couleur basée sur le SIGNE réel,
+// pas sur le libellé hike/cut du site.
+function barreProbabiliteHtml(probPct, positif){
   const p = probPct == null ? 0 : Math.max(0, Math.min(100, probPct));
-  const reste = 100 - p;
-  if(sens === 'cut') return {cut:p, hold:reste, hike:0};
-  if(sens === 'hike') return {cut:0, hold:reste, hike:p};
-  return {cut:0, hold:100, hike:0};
+  const classeCouleur = positif ? 'seg-cut' : 'seg-hike'; // classes CSS existantes (vert/rouge), réutilisées
+  return `<div class="prob-bar">
+      <div class="${classeCouleur}" style="width:${p}%"></div>
+      <div class="seg-hold" style="width:${100-p}%"></div>
+    </div>`;
 }
 
 function ligneReunionHtml(banque, m, estLigneResume){
   const probPct = nombreDepuisTexte(m.probabilite);
   const sens = (m.sens || sensDepuisTableauMeeting(m) || '').toLowerCase();
-  const bps = nombreDepuisTexte(m.delta_vs_actuel_bps);
-  const seg = segmentsProbabilite(probPct, sens);
+  // m.bps_reunion (calculé plus haut) = mouvement propre à CETTE réunion.
+  // Absent uniquement pour la ligne résumé (une seule réunion, donc son
+  // cumulé = son propre mouvement, rien à soustraire) : on retombe alors
+  // sur delta_vs_actuel_bps tel quel.
+  const bps = m.bps_reunion !== undefined ? m.bps_reunion : nombreDepuisTexte(m.delta_vs_actuel_bps);
   const key = banque.code + '||' + (m.meeting || '');
   const isActive = banque.code === tauxActiveBank;
   return `
@@ -3682,11 +3749,7 @@ function ligneReunionHtml(banque, m, estLigneResume){
         <span class="pm-date">${m.meeting || '—'}</span>
       </div>
       <div class="prob-bar-wrap">
-        <div class="prob-bar">
-          <div class="seg-cut" style="width:${seg.cut}%"></div>
-          <div class="seg-hold" style="width:${seg.hold}%"></div>
-          <div class="seg-hike" style="width:${seg.hike}%"></div>
-        </div>
+        ${barreProbabiliteHtml(probPct, bps==null || bps>=0)}
         <span style="font-family:var(--mono); font-size:10.5px; color:var(--text-mid); white-space:nowrap;">
           ${probPct != null ? probPct + '% ' + (sens || '') : '—'}
           ${bps != null ? `<b class="${bps>=0?'up':'down'}" style="margin-left:6px;">${bps>0?'+':''}${bps} pb</b>` : ''}
@@ -3914,6 +3977,8 @@ function drawTauxBpsEvolutionMulti(banques, champ, labelPrefix){
 let tauxFilterCcy = 'all'; // filtre par devise : présent mais jamais activé dans l'UI actuelle (voir note historique), gardé pour compat
 let tauxSelectedBank = null; // code de banque dont on affiche toutes les réunions (tableau_meetings déplié)
 let tauxActiveBank = null;   // code de banque choisi pour le graphique central (null = vue par défaut)
+let tauxActiveMeetingBank = null; // code banque de la réunion précise sélectionnée (panneau de droite)
+let tauxActiveMeetingDate = null; // texte de cette réunion (ex: "Jan 27, 2027"), null = pas de réunion précise choisie
 let tauxChartMode = 'bps_next';
 
 function renderTauxFilters(){
@@ -3940,15 +4005,36 @@ function renderTaux(){
 
   // ---------- Graphique central ----------
   const banqueActive = tauxActiveBank ? toutesBanques.find(b=>b.code===tauxActiveBank) : null;
-  const showAllBanks = !banqueActive && tauxChartMode === 'bps_next';
+  const meetingBanque = tauxActiveMeetingDate ? toutesBanques.find(b=>b.code===tauxActiveMeetingBank) : null;
+  const showAllBanks = !banqueActive && !meetingBanque && tauxChartMode === 'bps_next';
   const canvas = document.getElementById('tauxEvolCanvas');
 
-  if(showAllBanks){
+  if(meetingBanque && tauxChartMode !== 'bps_1y'){
+    // Réunion précise sélectionnée (panneau de droite) : l'outlook 12 mois
+    // n'a pas de sens par réunion individuelle, donc ce cas ignore le mode
+    // 'bps_1y' et retombe sur le comportement par banque ci-dessous.
+    const libelleMode = tauxChartMode === 'pct' ? 'ÉVOLUTION DE LA PROBABILITÉ' : 'ÉVOLUTION DU TAUX IMPLICITE (PB)';
+    document.getElementById('tauxChartTitle').textContent = libelleMode + ' — ' + meetingBanque.bank.toUpperCase() + ' · ' + tauxActiveMeetingDate;
+    document.getElementById('tauxChartSub').textContent = 'Réunion du ' + tauxActiveMeetingDate;
+    if(historiqueReunionActif === null){
+      dessinerMessageVide(canvas, 'Chargement…');
+    } else {
+      const champ = tauxChartMode === 'pct' ? 'probabilite' : 'delta_vs_actuel_bps';
+      const serie = serieDepuisPoints(historiqueReunionActif, champ);
+      if(!serie){
+        dessinerMessageVide(canvas, 'Historique en cours de constitution…');
+      } else if(champ === 'probabilite'){
+        drawTauxEvolution(serie);
+      } else {
+        drawTauxBpsEvolution(serie, 'pts-');
+      }
+    }
+  } else if(showAllBanks){
     document.getElementById('tauxChartTitle').textContent = 'ÉVOLUTION DU TAUX IMPLICITE (PB) — PROCHAINE RÉUNION, TOUTES BANQUES';
     document.getElementById('tauxChartSub').textContent = 'Cliquez une banque pour l\'isoler';
     drawTauxBpsEvolutionMulti(toutesBanques, 'delta_vs_actuel_bps', 'J-');
   } else {
-    const banque = banqueActive || toutesBanques[0];
+    const banque = banqueActive || meetingBanque || toutesBanques[0];
     if(!banque){
       dessinerMessageVide(canvas, 'En attente des premières données…');
     } else if(tauxChartMode === 'bps_1y'){
@@ -3972,11 +4058,19 @@ function renderTaux(){
   }
 
   // ---------- Bloc "Implicite en pb — par banque centrale" ----------
+  // Echelle commune pour la jauge comparative des 12 mois : la plus
+  // grande amplitude (en valeur absolue) parmi les banques affichées
+  // sert de reference a 100%, pour que toutes les barres soient
+  // comparables entre elles sur le meme graphique.
+  const max12m = Math.max(1, ...banquesFiltrees.map(b => b.outlook_12m_bps || 0));
+
   document.getElementById('bpsList').innerHTML = banquesFiltrees.map(b=>{
     const bpsNext = b.delta_vs_actuel_bps;
     const bps12m = b.outlook_12m_bps;
-    const isPositive = (bps12m ?? 0) >= 0;
-    const pctNext = bps12m ? Math.min(100, Math.abs(bpsNext||0) / Math.abs(bps12m) * 100) : 0;
+    const probPct = b.probabilite;
+    const isNextPositive = (bpsNext ?? 0) >= 0;
+    const is12mPositive = (bps12m ?? 0) >= 0;
+    const pctGauge = Math.max(0, Math.min(100, (bps12m||0) / max12m * 100));
     const isActiveBank = b.code === tauxSelectedBank;
     return `<div class="bank-group ${isActiveBank?'bank-group-active':''}" data-bank="${b.code}">
       <div class="bank-group-head">
@@ -3984,12 +4078,18 @@ function renderTaux(){
         <span class="bgh-date">${b.prochaine_decision_date || '—'}</span>
       </div>
       <div class="bps-combo-labels">
-        <span>Prochaine<b class="${(bpsNext||0)>=0?'up':'down'}">${bpsNext!=null ? (bpsNext>0?'+':'')+bpsNext+' pb' : '—'}</b></span>
-        <span>Sur 12 mois<b class="${(bps12m||0)>=0?'up':'down'}">${bps12m!=null ? (bps12m>0?'+':'')+bps12m+' pb' : '—'}</b></span>
+        <span>Prochaine<b class="${isNextPositive?'up':'down'}">${bpsNext!=null ? (bpsNext>0?'+':'')+bpsNext+' pb' : '—'}</b></span>
+        <span>Sur 12 mois<b class="${is12mPositive?'up':'down'}">${bps12m!=null ? (bps12m>0?'+':'')+bps12m+' pb' : '—'}</b></span>
       </div>
-      <div class="bps-combo-bar">
-        <div class="bps-combo-fill-12m ${isPositive?'cut':'hike'}" style="width:100%;"></div>
-        <div class="bps-combo-fill-next ${isPositive?'cut':'hike'}" style="width:${pctNext}%;"></div>
+      <div class="prob-bar-wrap" style="margin-bottom:0;">
+        ${barreProbabiliteHtml(probPct, isNextPositive)}
+        <span style="font-family:var(--mono); font-size:10px; color:var(--text-mid); white-space:nowrap; min-width:52px; text-align:right;">${probPct!=null?probPct+'%':'—'}</span>
+      </div>
+      <div class="bps-gauge-wrap">
+        <div class="bps-gauge bps-gauge-collee" title="Sur 12 mois : ${bps12m!=null ? (bps12m>0?'+':'')+bps12m+' pb' : '—'} (échelle 0 → banque la plus haute)">
+          <div class="bps-gauge-fill" style="left:0; width:${pctGauge}%;"></div>
+        </div>
+        <span style="font-family:var(--mono); font-size:10px; color:var(--text-mid); white-space:nowrap; min-width:52px; text-align:right;">${bps12m!=null ? (bps12m>0?'+':'')+bps12m+' pb' : '—'}</span>
       </div>
     </div>`;
   }).join('');
@@ -4002,12 +4102,34 @@ function renderTaux(){
   let rowsHtml, headerHtml = '';
   if(tauxSelectedBank){
     const banque = banquesFiltrees.find(b=>b.code===tauxSelectedBank);
-    // Le site source liste aussi les réunions déjà passées (visibles en
-    // grisé sur rateprobability.com) : on ne garde que celles à venir.
+    // Dédup défensive par date, en attendant que le prochain cycle du
+    // script cloud réécrive des données propres (voir le filtre
+    // data-meeting ajouté côté script, qui élimine la vraie cause :
+    // des lignes techniques du site sans rapport avec une réunion).
+    // Garde la PREMIÈRE occurrence de chaque date telle qu'elle arrive
+    // de Firestore : dans les documents encore mal formés (écrits avant
+    // ce correctif), c'est la ligne réelle qui apparaissait en premier
+    // dans le tableau du site, la ligne fantôme venant toujours après.
     const aujourdhui = new Date(); aujourdhui.setHours(0,0,0,0);
-    const liste = banque ? [...(banque.tableau_meetings||[])]
+    const parDate = new Map();
+    (banque ? banque.tableau_meetings||[] : []).forEach(m => { if(!parDate.has(m.meeting)) parDate.set(m.meeting, m); });
+    const liste = [...parDate.values()]
       .filter(m => { const d = new Date(m.meeting); return isNaN(d) || d >= aujourdhui; })
-      .sort((a,b)=> new Date(a.meeting) - new Date(b.meeting)) : [];
+      .sort((a,b)=> new Date(a.meeting) - new Date(b.meeting));
+
+    // Le site ne donne que le mouvement CUMULÉ depuis aujourd'hui jusqu'à
+    // chaque réunion (colonne "Δ vs Current"), pas le mouvement propre à
+    // chaque réunion prise isolément. On calcule ce dernier par différence
+    // entre le cumulé d'une réunion et celui de la précédente (la toute
+    // première réunion à venir garde son cumulé tel quel, puisqu'il n'y a
+    // rien avant elle à soustraire).
+    let cumulPrecedent = 0;
+    liste.forEach(m => {
+      const cumul = nombreDepuisTexte(m.delta_vs_actuel_bps);
+      m.bps_reunion = cumul != null ? +(cumul - cumulPrecedent).toFixed(1) : null;
+      if(cumul != null) cumulPrecedent = cumul;
+    });
+
     headerHtml = banque ? `<div class="pm-back" data-action="back">&larr; ${flagFor(banque.ccy)} ${banque.bank} — toutes les réunions</div>` : '';
     rowsHtml = liste.map(m => ligneReunionHtml(banque, m, false)).join('');
   } else {
@@ -4035,7 +4157,8 @@ document.getElementById('tauxChartToggle').addEventListener('click', e=>{
 
 // Panneau de gauche : cliquer sur une banque déplie ses prochaines réunions
 // (tableau_meetings complet) dans le panneau de droite, et sélectionne
-// cette banque pour le graphique central.
+// cette banque pour le graphique central (vue d'ensemble, pas une réunion
+// précise - on efface donc une éventuelle sélection de réunion en cours).
 document.getElementById('bpsList').addEventListener('click', e=>{
   const group = e.target.closest('.bank-group');
   if(!group) return;
@@ -4043,22 +4166,37 @@ document.getElementById('bpsList').addEventListener('click', e=>{
   const wasSelected = tauxSelectedBank === code;
   tauxSelectedBank = wasSelected ? null : code;
   tauxActiveBank = wasSelected ? null : code;
+  tauxActiveMeetingBank = null;
+  tauxActiveMeetingDate = null;
+  detacherEcouteReunion();
   renderTaux();
 });
 
-// Panneau de droite : cliquer sur une réunion sélectionne sa banque pour le
-// graphique (l'historique n'existe qu'au niveau banque, pas par réunion
-// individuelle future - donnée qu'on ne suit pas dans le temps).
+// Panneau de droite : cliquer sur une réunion (résumé ou dépliée) charge
+// et affiche SON PROPRE historique (rate_probabilities/{code}/reunions/...),
+// suivi individuellement depuis ce correctif - pas seulement celui de la
+// banque dans son ensemble.
 document.getElementById('probBody').addEventListener('click', e=>{
   const back = e.target.closest('[data-action="back"]');
   if(back){
     tauxSelectedBank = null;
+    tauxActiveMeetingBank = null;
+    tauxActiveMeetingDate = null;
+    detacherEcouteReunion();
     renderTaux();
     return;
   }
   const row = e.target.closest('.pm-row');
   if(!row) return;
-  tauxActiveBank = row.dataset.bank;
+  const [code, meetingTexte] = row.dataset.meetingKey.split('||');
+  tauxActiveBank = code;
+  tauxActiveMeetingBank = code;
+  tauxActiveMeetingDate = meetingTexte || null;
+  if(tauxActiveMeetingDate){
+    ecouterHistoriqueReunion(code, tauxActiveMeetingDate);
+  } else {
+    detacherEcouteReunion();
+  }
   renderTaux();
 });
 
