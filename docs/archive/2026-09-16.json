@@ -2,14 +2,14 @@
   "date": "2026-09-16",
   "ff_news": [
     {
-      "impact": "high",
       "titre": "Warsh: We took action to achieve a \"timelier return\" to price stability",
-      "url": "https://www.forexfactory.com/news/1418556-warsh-we-took-action-to-achieve-a-timelier",
-      "ignore": false,
       "date_recuperation": "2026-09-16T18:56:32.653906+00:00",
-      "extrait": "Warsh: We took action to achieve a \"timelier return\" to price stabilityFed's Warsh Says Stable Prices Can Help Workers Gain Real Take-home Pay, Adding That Other Advanced Economies Are Also Facing Price Pressures.Fed's Chair Warsh: See 3 Reasons Bond Yields Have Risen - First Is Economic Strength - Second Is Competition For Capital; Surge In Capex Is Real - Third Is Geopolitics",
+      "ignore": false,
       "date_publication": "2026-09-16T18:55:32.653906+00:00",
-      "source": "@investingLive_"
+      "source": "@investingLive_",
+      "extrait": "Warsh: We took action to achieve a \"timelier return\" to price stabilityFed's Warsh Says Stable Prices Can Help Workers Gain Real Take-home Pay, Adding That Other Advanced Economies Are Also Facing Price Pressures.Fed's Chair Warsh: See 3 Reasons Bond Yields Have Risen - First Is Economic Strength - Second Is Competition For Capital; Surge In Capex Is Real - Third Is Geopolitics",
+      "impact": "high",
+      "url": "https://www.forexfactory.com/news/1418556-warsh-we-took-action-to-achieve-a-timelier"
     },
     {
       "titre": "Warsh: Inflation trends were not passing the test, and I have seen little to change that.",
