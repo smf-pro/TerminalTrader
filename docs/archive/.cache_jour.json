@@ -1,11 +1,21 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T14:03:38.705681+00:00",
+    "ff_news": "2026-09-16T15:09:29.352883+00:00",
     "cb_articles": "2026-09-16T14:23:04.114949+00:00",
     "il_articles": "2026-09-16T14:12:17.375938+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-16T15:09:29.352883+00:00",
+      "impact": "low",
+      "ignore": false,
+      "titre": "Attack last week damaged 2 pumping stations on Saudi Arabia's east-west oil pipeline - sources",
+      "date_recuperation": "2026-09-16T15:10:29.352883+00:00",
+      "url": "https://www.forexfactory.com/news/1418517-attack-last-week-damaged-2-pumping-stations-on",
+      "extrait": "Attack last week damaged 2 pumping stations on Saudi Arabia's east-west oil pipeline - sources",
+      "source": "@MarketsCapApp"
+    },
     {
       "titre": "US business inventories up by 0.8% in July",
       "date_recuperation": "2026-09-16T14:04:38.705681+00:00",
