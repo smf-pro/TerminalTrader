@@ -1,11 +1,31 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T12:32:26.944191+00:00",
+    "ff_news": "2026-09-16T14:03:38.705681+00:00",
     "cb_articles": "2026-09-16T10:21:55.176181+00:00",
     "il_articles": "2026-09-16T14:00:08.136419+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-16T14:03:38.705681+00:00",
+      "titre": "US business inventories up by 0.8% in July",
+      "source": "breakingthenews.net",
+      "impact": "low",
+      "extrait": "Inventories in the manufacturing and trade sectors in the United States rose by 0.8% in July, on a monthly basis, standing at $2.76 trillion, the US Census Bureau shared in a report on Tuesday. On an annual basis, the figure jumped 8.9%.",
+      "url": "https://www.forexfactory.com/news/1418502-us-business-inventories-up-by-08-in-july",
+      "ignore": false,
+      "date_recuperation": "2026-09-16T14:04:38.705681+00:00"
+    },
+    {
+      "date_publication": "2026-09-16T14:01:24.762284+00:00",
+      "titre": "Builder Sentiment Falls on Higher Interest Rates and Costs",
+      "source": "nahb.org",
+      "impact": "low",
+      "extrait": "Higher mortgage rates, worsening labor shortages and rising material costs are weighing on builder sentiment. Builder confidence in the market for newly built single-family homes fell three points to 32 in September, according to the National Association of Home Builders (NAHB)/Wells Fargo Housing Market Index (HMI) released today. “Buyer traffic has ...",
+      "url": "https://www.forexfactory.com/news/1418501-builder-sentiment-falls-on-higher-interest-rates-and",
+      "ignore": false,
+      "date_recuperation": "2026-09-16T14:02:24.762284+00:00"
+    },
     {
       "extrait": "Retail and food services sales in the United States advanced by 1.2% in August compared to last month's figures, landing at $773.9 billion, the US Census Bureau revealed in its report published on Wednesday. More to come...",
       "date_publication": "2026-09-16T12:32:26.944191+00:00",
