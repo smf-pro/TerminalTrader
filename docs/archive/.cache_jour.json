@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T09:01:28.510028+00:00",
     "cb_articles": "2026-09-16T10:21:55.176181+00:00",
-    "il_articles": "2026-09-16T10:21:55.176181+00:00"
+    "il_articles": "2026-09-16T11:36:06.572720+00:00"
   },
   "ff_news": [
     {
@@ -133,6 +133,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "contenu": "US officials reportedly held talks with Yemen's Houthis in Oman over the weekend, with the group saying it will avoid attacks on US, Israeli and most commercial vessels, except those belonging to Saudi Arabia.\n\nUS officials held  talks with Yemen's Iran-backed Houthis in Oman over the weekend,according to five sources familiar with the matter cited by Reuters. The meeting comes as the Houthis have expanded their control along Yemen's Red Sea coast, increasing the strategic importance of the Bab el-Mandeb Strait and putting further pressure on Saudi Arabia.\n\nThe talks were reportedly held at the US Embassy in Muscat, with Oman helping to arrange the meeting. While the US State Department did not confirm that the meeting took place, it said that protecting freedom of navigation in the Red Sea and preventing the spread of terrorism from the Middle East remain core US interests.\n\nAccording to two sources, Houthi representatives told US officials that they had no intention of attacking American vessels and remained committed to the ceasefire reached with Washington in 2025. One Yemeni source said the Houthis also indicated that they would not attack Israeli ships or commercial vessels, with the exception of vessels belonging to Saudi Arabia. The exemption for Saudi vessels leaves an important risk in place for markets.\n\nSaudi Crown Prince Mohammed bin Salman reportedly spoke with Trump last week to seek US military support following the Houthi advances. Reuters reported separately that Washington told Riyadh it would not become directly involved in the conflict. For markets, the key question is whether the latest diplomatic contacts can prevent the conflict from spreading further into regional shipping and energy infrastructure.\n\nI would be keep a close eye on these diplomatic efforts as a de-escalation in the Houthi-Saudi tensions could lower oil prices in the short-term, ease concerns a bit and lead to a dovish repricing. That could in turn trigger a relief rally in risk assets, giving stocks, gold and bitcoin a boost.",
+      "url": "https://investinglive.com/news/us-and-houthis-held-secret-oman-talks-over-the-weekend-as-yemen-conflict-escalates/",
+      "date_publication": "2026-09-16T11:36:06.572720+00:00",
+      "tags": [
+        "Oil"
+      ],
+      "date_recuperation": "2026-09-16T11:40:29.316745+00:00",
+      "titre": "US and Houthis held secret Oman talks over the weekend as Yemen conflict escalates",
+      "categorie": "news"
+    },
     {
       "categorie": "central-banks",
       "titre": "Fed rate decision: Warsh walks credibility tightrope as markets brace for rate hike",
