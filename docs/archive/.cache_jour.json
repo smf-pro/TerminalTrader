@@ -1,11 +1,31 @@
 {
   "date": "2026-09-16",
   "curseurs": {
-    "ff_news": "2026-09-16T17:41:24.880988+00:00",
-    "cb_articles": "2026-09-16T18:00:05.379854+00:00",
+    "ff_news": "2026-09-16T18:00:29.776488+00:00",
+    "cb_articles": "2026-09-16T18:01:10.439508+00:00",
     "il_articles": "2026-09-16T16:38:07.487638+00:00"
   },
   "ff_news": [
+    {
+      "titre": "FOMC Summary of Economic Projections",
+      "impact": "high",
+      "ignore": false,
+      "date_publication": "2026-09-16T18:00:29.776488+00:00",
+      "extrait": "In conjunction with the Federal Open Market Committee (FOMC) meeting held on September 15–16, 2026, meeting participants submitted their projections of the most likely outcomes for real gross domestic product (GDP) growth, the unemployment rate, and inflation for each year from 2026 to 2029 and over the longer run. Each participant’s projections were based ...",
+      "date_recuperation": "2026-09-16T18:01:29.776488+00:00",
+      "url": "https://www.forexfactory.com/news/1418532-fomc-summary-of-economic-projections",
+      "source": "federalreserve.gov"
+    },
+    {
+      "titre": "Federal Reserve issues FOMC statement",
+      "impact": "high",
+      "ignore": false,
+      "date_publication": "2026-09-16T18:00:29.776488+00:00",
+      "extrait": "The Federal Open Market Committee approved the following statement for release by a 12 – 0 vote: The Committee decided to raise the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent, in support of the Federal Reserve's dual mandate. The Committee is continuing its policy of maintaining ample reserves in the banking system. Economic activity is expanding at a solid pace. While uncertainty remains elevated owing, in part, to geopolitical developments, domestic spending has been resilient. Productivity growth is strong, and capital investment is robust. Job gains have kept pace with the workforce, and the unemployment rate has changed little. Inflation remains elevated. Today's policy action will support a timelier return to the Committee's 2 percent goal. The Committee will deliver price stability.The Fed voted to raise rates by 25 bps unanimously. Most officials penciled in one more hike this year.",
+      "date_recuperation": "2026-09-16T18:01:29.776488+00:00",
+      "url": "https://www.forexfactory.com/news/1418531-federal-reserve-issues-fomc-statement",
+      "source": "federalreserve.gov"
+    },
     {
       "ignore": false,
       "source": "@axios",
@@ -178,6 +198,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-16T18:01:10.439508+00:00",
+      "titre": "The full statement from the Federal Reserve Board for September 2026",
+      "contenu": "The Federal Reserve raises rates by 25 basis points.\n\nThe Federal Open Market Committee approved the following statement for release by a 12 – 0 vote:\n\nThe Committee decided to raise the target range for the federal funds rate by 1/4 percentage pointto 3-3/4to 4 percent, in support of the Federal Reserve's dual mandate. The Committee is continuing its policy of maintaining ample reserves in the banking system.\n\nEconomic activity is expanding at a solid pace. While uncertainty remains elevated owing, in part, to geopolitical developments,domestic spending has been resilient. Productivity growth is strong, and capital investment is robust. Job gains have kept pace with the workforce, and the unemployment rate has changed little.\n\nInflation remains elevated. Today's policy action will support a timelier return to the Committee's 2 percent goal. The Committee will deliver price stability.",
+      "date_recuperation": "2026-09-16T18:01:25.069388+00:00",
+      "url": "https://investinglive.com/central-banks/the-full-statement-from-the-federal-reserve-board-for-september-2026/",
+      "tags": [
+        "Fed"
+      ]
+    },
     {
       "titre": "FOMC rate decision: Fed hikes for the first time in three years",
       "date_publication": "2026-09-16T18:00:05.379854+00:00",
