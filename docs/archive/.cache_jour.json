@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-16T20:12:22.986670+00:00",
     "cb_articles": "2026-09-16T18:32:26.703793+00:00",
-    "il_articles": "2026-09-16T19:05:18.117556+00:00"
+    "il_articles": "2026-09-16T20:20:02.217904+00:00"
   },
   "ff_news": [
     {
@@ -412,6 +412,19 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-16T20:20:26.759247+00:00",
+      "date_publication": "2026-09-16T20:20:02.217904+00:00",
+      "titre": "New Zealand Q2 GDP preview as RBNZ weighs timing of its next rate hike",
+      "contenu": "New Zealand's Q2 GDP preview is due Thursday 10:45am NZT (2245 GMT Wed, 6:45pm ET Wed). RBNZ forecasts a flat 0.0% q/q print, ANZ sees 0.1% growth, both above Q1's 1.5% annual pace, as RBNZ weighs holding rates until its December review.\n\nNZD/USD reaction is likely to hinge less on the more upbeat bank forecasts and more on how far the actual print diverges from the RBNZ's own flat, 0.0% q/q baseline, since that is the figure underpinning the central bank's current policy guidance.\n\nA print in line with or above that flat forecast would likely be read as mildly reassuring for the recovery without materially shifting rate expectations, given the RBNZ has already signalled room to defer its next OCR move until December.\n\nA downside miss would revive the softer growth narrative and add weight to that easing timeline.\n\nWith more top tier data, particularly inflation, still to come before the October OCR review, this print alone is unlikely to be the deciding input for the Kiwi's near term direction.\n\nNew Zealand's economy is expected to have barely grown last quarter, leaving the Reserve Bank little reason to rush its next move on rates.\n\nQ2 GDP preview due Thursday 10:45am NZT (2245 GMT Wednesday, 6:45pm ET Wednesday)\n\nRBNZ's own forecast is for flat growth, 0.0% q/q; ANZ's house estimate is slightly firmer at 0.1% q/q\n\nAnnual growth expected to firm to around 2.1% to 2.2%, up from 1.5% in Q1, when the economy grew 0.8% q/q\n\nHigher fuel prices are seen weighing on discretionary spending, while construction and business facing services are expected to offset the drag\n\nBalance of payments data, due a day earlier, is expected to show the annual current account deficit widening to 3.9% of GDP on higher fuel import costs\n\nRBNZ has signalled it can defer its next OCR move until December, with inflation data due before the October review seen as more decisive\n\nNew Zealand's Q2 GDP preview points to a stalling but not shrinking economy, with the release due Thursday at 10:45am NZT (2245 GMT Wednesday, 6:45pm ET Wednesday). The Reserve Bank of New Zealand's own September Monetary Policy Statement forecast has growth flat at 0.0% quarter on quarter, while ANZ Research expects a slightly firmer 0.1% q/q print, an upward revision from its earlier estimate of a 0.2% contraction. Both estimates would leave annual growth firming to around 2.1% to 2.2%, up from 1.5% in the year to Q1, when the economy grew 0.8% q/q.\n\nThe expected softening in the quarterly pace reflects higher fuel prices, which analysts say weighed on discretionary spending and broader consumer confidence through the June quarter. Sectors exposed to that discretionary pullback, including transport and tourism, are tipped to have gone backwards. Offsetting that drag, ANZ points to a pickup in construction activity off recent lows and continued growth in several business facing services industries, among them wholesale trade, which together are expected to keep headline GDP from falling outright.\n\nBalance of payments data, due a day ahead of the GDP release, is expected to show the annual current account deficit widening by around 0.3 percentage points to 3.9% of GDP, with higher fuel import costs cited as the main driver.\n\nFor the Reserve Bank, the print carries limited near term policy weight. The central bank has signalled it can defer its next Official Cash Rate move until December, while stressing that the rate path is not on a preset course given ongoing uncertainty. A result in line with or modestly above the RBNZ's flat forecast would likely be read as mildly reassuring for the recovery, without being a strong enough surprise to shift the central bank's thinking on its own. More data, particularly on inflation, is due before the October OCR review and is expected to carry more weight in that decision.\n\nCurrency traders are likely to focus less on the more upbeat bank forecasts and more on how far the actual print diverges from the RBNZ's own flat baseline, given that figure is the one underpinning the central bank's current policy guidance.",
+      "tags": [
+        "NZD",
+        "RBNZ"
+      ],
+      "ignore": false,
+      "url": "https://investinglive.com/news/new-zealand-q2-gdp-preview-as-rbnz-weighs-timing-of-its-next-rate-hike/",
+      "categorie": "news"
+    },
     {
       "date_recuperation": "2026-09-16T19:05:37.276741+00:00",
       "titre": "The technical levels in play for the EURUSD, USDJPY, GBPUSD and USDCAD following the Fed hike",
