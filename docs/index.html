@@ -3585,9 +3585,14 @@ const RATEPROB_BANQUES = [
   {code:'boe', ccy:'GBP', bank:"Banque d'Angleterre (BoE)"},
   {code:'boj', ccy:'JPY', bank:'Banque du Japon (BoJ)'},
   {code:'rba', ccy:'AUD', bank:'Reserve Bank of Australia (RBA)'},
+  {code:'snb', ccy:'CHF', bank:'Banque Nationale Suisse (SNB)'},
+  {code:'rbnz', ccy:'NZD', bank:'Reserve Bank of New Zealand (RBNZ)'},
 ];
 const BANK_SORT_ORDER_CODES = RATEPROB_BANQUES.map(b=>b.code);
-const BANK_LINE_COLORS = { fed:'#5b90ff', boc:'#22c48d', ecb:'#c9a15a', boe:'#ef4a5a', boj:'#e3aa54', rba:'#2dd4bf' };
+const BANK_LINE_COLORS = {
+  fed:'#5b90ff', boc:'#22c48d', ecb:'#c9a15a', boe:'#ef4a5a', boj:'#e3aa54', rba:'#2dd4bf',
+  snb:'#f472b6', rbnz:'#a78bfa',
+};
 
 // Donnees vivantes, tenues a jour par ecouterRateProbabilities() ci-dessous.
 // Cle = code banque ('fed','ecb',...).
