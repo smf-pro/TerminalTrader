@@ -3,13 +3,13 @@
   "ff_news": [
     {
       "ignore": false,
-      "extrait": "Ecbs Rehn: Inflation Outlook Is Somewhat Mixed",
-      "impact": "low",
       "date_recuperation": "2026-09-17T10:28:26.250944+00:00",
-      "url": "https://www.forexfactory.com/news/1418670-ecbs-rehn-inflation-outlook-is-somewhat-mixed",
-      "date_publication": "2026-09-17T10:27:26.250944+00:00",
       "titre": "ECBs Rehn: Inflation Outlook Is Somewhat Mixed",
-      "source": "@FirstSquawk"
+      "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1418670-ecbs-rehn-inflation-outlook-is-somewhat-mixed",
+      "impact": "low",
+      "extrait": "Ecbs Rehn: Inflation Outlook Is Somewhat Mixed",
+      "date_publication": "2026-09-17T10:27:26.250944+00:00"
     },
     {
       "date_recuperation": "2026-09-17T09:59:26.315660+00:00",
