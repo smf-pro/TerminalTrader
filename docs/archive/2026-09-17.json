@@ -2,6 +2,16 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "impact": "low",
+      "extrait": "Katayama: BOJ expected to coordinate closely with the government and take appropriate monetary policy steps toward its 2% price target.",
+      "source": "@FirstSquawk",
+      "titre": "Katayama: BOJ expected to coordinate closely with gov and take appropriate monetary policy steps toward its 2% price target",
+      "ignore": false,
+      "date_publication": "2026-09-17T03:44:27.695544+00:00",
+      "url": "https://www.forexfactory.com/news/1418621-katayama-boj-expected-to-coordinate-closely-with-gov",
+      "date_recuperation": "2026-09-17T03:45:27.695544+00:00"
+    },
+    {
       "extrait": "Trump Says Iran Is Not Ready For A Deal, But War With Iran Will End Very SoonTrump: we're very close to an agreement with Mexico",
       "titre": "Trump: Iran Is Not Ready For A Deal, But War With Iran Will End Very Soon",
       "date_publication": "2026-09-17T00:08:26.994829+00:00",
