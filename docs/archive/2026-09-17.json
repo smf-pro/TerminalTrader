@@ -2,6 +2,16 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1418800-rba-gov-bullock-various-indicators-indicate-labor-market",
+      "titre": "RBA Gov Bullock: Various indicators indicate labor market conditions stay near, but slightly tighter than, full employment",
+      "date_publication": "2026-09-17T23:37:29.712276+00:00",
+      "impact": "low",
+      "ignore": false,
+      "extrait": "RBA Governor Bullock: various indicators indicate labor market conditions stay near, but slightly tighter than, full employmentRBA Governor Bullock: developments since then indicate that while growth in the Australian economy is slowing, some upside risks to inflation seem to be materializing",
+      "date_recuperation": "2026-09-17T23:38:29.712276+00:00",
+      "source": "@financialjuice"
+    },
+    {
       "source": "stats.govt.nz",
       "ignore": false,
       "titre": "NZ Overseas merchandise trade: August 2026",
