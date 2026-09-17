@@ -2,6 +2,16 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-17T09:59:26.315660+00:00",
+      "extrait": "Canada's PM Carney: Canada and the EU hold common values as base of partnershipCanada's PM Carney: We are not fair-weather allies, we do not pursue zero-sum deals",
+      "date_publication": "2026-09-17T09:58:26.315660+00:00",
+      "url": "https://www.forexfactory.com/news/1418667-canadas-pm-carney-canada-and-the-eu-hold",
+      "titre": "Canada's PM Carney: Canada and the EU hold common values as base of partnership",
+      "impact": "low",
+      "source": "@financialjuice",
+      "ignore": false
+    },
+    {
       "source": "@FirstSquawk",
       "date_publication": "2026-09-17T09:41:25.649626+00:00",
       "date_recuperation": "2026-09-17T09:42:25.649626+00:00",
