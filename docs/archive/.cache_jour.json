@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-17T22:46:26.599420+00:00",
     "cb_articles": "2026-09-17T22:31:46.386907+00:00",
-    "il_articles": "2026-09-17T22:56:07.524844+00:00"
+    "il_articles": "2026-09-17T23:30:22.504357+00:00"
   },
   "ff_news": [
     {
@@ -475,6 +475,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-17T23:30:25.142779+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/news/japan-august-inflation-headline-cpi-y-y-expected-2/",
+      "categorie": "news",
+      "titre": "Japan August inflation: Headline CPI 1.9% y/y (expected 2%)",
+      "tags": [
+        "JPY"
+      ],
+      "date_publication": "2026-09-17T23:30:22.504357+00:00",
+      "contenu": "Just the data this post.\n\nJust the data here, I'll have more to come on this separately.\n\nmore to come"
+    },
     {
       "ignore": false,
       "date_recuperation": "2026-09-17T23:00:24.414584+00:00",
