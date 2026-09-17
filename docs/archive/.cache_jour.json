@@ -1,11 +1,31 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T14:01:28.991767+00:00",
+    "ff_news": "2026-09-17T14:34:27.823041+00:00",
     "cb_articles": "2026-09-17T13:32:20.233701+00:00",
     "il_articles": "2026-09-17T14:01:38.608926+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "ignore": false,
+      "source": "breakingthenews.net",
+      "date_publication": "2026-09-17T14:34:27.823041+00:00",
+      "url": "https://www.forexfactory.com/news/1418732-eia-us-gas-inventories-up-by-44-billion",
+      "extrait": "Working gas in storage across the United States stood at 3,298 billion cubic feet in the week ending September 11, the Energy Information Administration (EIA) shared in a report on Thursday. The reading marks a net increase of 44 billion cubic feet compared to the previous week. In comparison to the same period in 2025, gas stocks fell by 122 billion cubic ...",
+      "titre": "EIA: US gas inventories up by 44 billion cubic feet",
+      "date_recuperation": "2026-09-17T14:35:27.823041+00:00"
+    },
+    {
+      "impact": "low",
+      "ignore": false,
+      "source": "conference-board.org",
+      "url": "https://www.forexfactory.com/news/1418731-the-conference-board-leading-economic-index-lei-for",
+      "date_publication": "2026-09-17T14:31:24.366279+00:00",
+      "titre": "The Conference Board Leading Economic Index (LEI) for Australia Increased Again in June",
+      "extrait": "The Conference Board Leading Economic Index® (LEI) for Australia increased by 0.3% in June 2026 to 117.5 (2016=100), after a 0.3% increase in May. Over the first half of 2026, the LEI for Australia increased by 1.1%, moderating from a growth rate of 2.0% recorded during the second half of 2025. The Conference Board Coincident Economic Index® (CEI) for ...",
+      "date_recuperation": "2026-09-17T14:32:24.366279+00:00"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418728-us-nar-pending-home-sales-report-shows-03",
       "extrait": "Pending home sales in August increased by 0.3% month-over-month and decreased 4.7% year-over-year, according to the National Association of REALTORS® Pending Home Sales report. The report helps the real estate ecosystem—including agents, homebuyers and sellers—better understand the housing market by providing data on the level of home sales under contract. ...",
