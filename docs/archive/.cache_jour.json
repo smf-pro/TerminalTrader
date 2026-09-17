@@ -1,11 +1,21 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T14:34:27.823041+00:00",
+    "ff_news": "2026-09-17T15:52:25.757986+00:00",
     "cb_articles": "2026-09-17T15:14:12.220523+00:00",
     "il_articles": "2026-09-17T14:47:06.735749+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "titre": "ECB's Zigman: Market bets don't determine the ECBs next steps",
+      "impact": "low",
+      "date_recuperation": "2026-09-17T15:53:25.757986+00:00",
+      "extrait": "ECB's Zigman: Market bets don't determine the ECBs next steps.ECBs Zigman: Growth is at risk if inflation isnt tackled.ECB's Zigman: We dont see any major second-round effects.ECB's Zigman: Theres a lot of optimism for growth.",
+      "date_publication": "2026-09-17T15:52:25.757986+00:00",
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1418748-ecbs-zigman-market-bets-dont-determine-the-ecbs"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418732-eia-us-gas-inventories-up-by-44-billion",
       "ignore": false,
