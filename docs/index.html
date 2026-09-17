@@ -4027,6 +4027,25 @@ function renderTaux(){
   const showAllBanks = !banqueActive && !meetingBanque && tauxChartMode === 'bps_next';
   const canvas = document.getElementById('tauxEvolCanvas');
 
+// Mouvement (pb) de la réunion précédant immédiatement `meetingDate`
+// (celle du même classement chronologique que dans le panneau
+// "PROCHAINES RÉUNIONS"), tel qu'il est ACTUELLEMENT connu — sert de
+// référence à soustraire du cumulé pour isoler le mouvement propre à
+// une réunion. 0 si c'est la toute première réunion à venir (rien à
+// soustraire, comme dans la liste).
+function baselineBpsPrecedent(banque, meetingDate){
+  if(!banque || !banque.tableau_meetings) return 0;
+  const aujourdhui = new Date(); aujourdhui.setHours(0,0,0,0);
+  const parDate = new Map();
+  banque.tableau_meetings.forEach(m => { if(!parDate.has(m.meeting)) parDate.set(m.meeting, m); });
+  const liste = [...parDate.values()]
+    .filter(m => { const d = new Date(m.meeting); return isNaN(d) || d >= aujourdhui; })
+    .sort((a,b)=> new Date(a.meeting) - new Date(b.meeting));
+  const idx = liste.findIndex(m => m.meeting === meetingDate);
+  if(idx <= 0) return 0;
+  return nombreDepuisTexte(liste[idx-1].delta_vs_actuel_bps) || 0;
+}
+
   if(meetingBanque && tauxChartMode !== 'bps_1y'){
     // Réunion précise sélectionnée (panneau de droite) : l'outlook 12 mois
     // n'a pas de sens par réunion individuelle, donc ce cas ignore le mode
@@ -4038,12 +4057,17 @@ function renderTaux(){
       dessinerMessageVide(canvas, 'Chargement…');
     } else {
       const champ = tauxChartMode === 'pct' ? 'probabilite' : 'delta_vs_actuel_bps';
-      const serie = pointsAvecDates(historiqueReunionActif, champ);
-      if(!serie){
+      const serieBrute = pointsAvecDates(historiqueReunionActif, champ);
+      if(!serieBrute){
         dessinerMessageVide(canvas, 'Historique en cours de constitution…');
       } else if(champ === 'probabilite'){
-        drawTauxEvolution(serie);
+        drawTauxEvolution(serieBrute);
       } else {
+        // Le cumulé stocke le mouvement DEPUIS AUJOURD'HUI jusqu'à cette
+        // réunion (même convention que la liste) : on soustrait la
+        // réunion précédente pour isoler le mouvement propre à celle-ci.
+        const baseline = baselineBpsPrecedent(meetingBanque, tauxActiveMeetingDate);
+        const serie = serieBrute.map(p => ({date: p.date, valeur: +(p.valeur - baseline).toFixed(1)}));
         drawTauxBpsEvolution(serie);
       }
     }
