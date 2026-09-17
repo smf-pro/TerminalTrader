@@ -471,6 +471,18 @@
   ],
   "il_articles": [
     {
+      "date_recuperation": "2026-09-17T23:30:25.142779+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/news/japan-august-inflation-headline-cpi-y-y-expected-2/",
+      "categorie": "news",
+      "titre": "Japan August inflation: Headline CPI 1.9% y/y (expected 2%)",
+      "tags": [
+        "JPY"
+      ],
+      "date_publication": "2026-09-17T23:30:22.504357+00:00",
+      "contenu": "Just the data this post.\n\nJust the data here, I'll have more to come on this separately.\n\nmore to come"
+    },
+    {
       "ignore": false,
       "date_recuperation": "2026-09-17T23:00:24.414584+00:00",
       "contenu": "Just a data post\n\nNew Zealand August data.\n\nTrade Balance -1349mn\n\nExpected -1775mn, Prior -2118mn\n\nAnnual Trade Balance -5.44bn\n\nImports 8bn\n\nPrior 9.33bn\n\nExports 6.66bn\n\nPrior 7.22bn\n\nFood Prices (y/y) 1.9%\n\nPrior 1.9%\n\nfor the m/m +0.3%",
