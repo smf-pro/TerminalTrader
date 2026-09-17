@@ -26,20 +26,28 @@ cache "deja vu" comme cache_dedup.py :
   Firestore raisonnables ; le retard se rattrape progressivement sur
   plusieurs runs successifs (cron), pas en un seul passage.
 
-Moteur de traduction : API officielle DeepL (offre gratuite, 500 000
-caracteres/mois), appelee directement via `requests` (comme le reste du
-pipeline, pas de SDK dedie) plutot que via deep_translator.DeeplTranslator
-- ce dernier envoie litteralement source_lang="auto" a l'API DeepL, qui
-ne l'accepte pas (elle attend l'ABSENCE du parametre pour la detection
-automatique) ; l'appel direct evite ce bug et reste plus proche des
-conventions du projet.
+Moteur de traduction : API publique MyMemory (gratuite, sans inscription
+ni cle API - contrairement a DeepL, qui necessite une carte bancaire pour
+verifier le compte meme sur l'offre gratuite, bloquant pour ce projet).
+Quota : 5000 mots/jour de base, releve a 50 000 mots/jour en joignant un
+simple email de contact a chaque requete (parametre "de", pas besoin d'y
+creer de compte). Limite d'environ 500 caracteres par requete (bien plus
+bas que DeepL) : le decoupage en petits morceaux ci-dessous est donc plus
+sollicite ici que ce ne le serait avec un moteur a limite plus large.
 
-Remplace un premier essai avec deep_translator.GoogleTranslator (gratuit,
-non-officiel) : les runners GitHub Actions, dont l'IP est partagee entre
-des milliers de jobs, se heurtaient systematiquement au blocage anti-abus
-de Google des le premier appel ("too many requests"), independamment du
-rythme d'appel du script. L'API DeepL, avec une cle dediee, n'a pas ce
-probleme.
+Historique des deux essais precedents, abandonnes :
+1. deep_translator.GoogleTranslator (gratuit, non-officiel) : bloque des
+   le premier appel par l'anti-abus de Google sur les runners GitHub
+   Actions (IP partagee entre des milliers de jobs, quota deja sature).
+2. API officielle DeepL (gratuite, 500 000 caracteres/mois) : fiable
+   techniquement, mais l'inscription a l'offre gratuite exige une carte
+   bancaire, ce qui n'est pas possible ici.
+
+Hypothese retenue : les sources actuelles (ForexFactory, investingLive)
+publient en anglais -> langue source fixee a SOURCE_LANG ("en") plutot
+que detectee automatiquement (l'API MyMemory ne propose pas de
+detection automatique fiable via ce endpoint). A ajuster si une source
+dans une autre langue est ajoutee un jour.
 
 Ameliorations conservees par rapport a l'usage historique du pipeline :
 - Decoupage du texte en morceaux sous la limite de caracteres retenue
@@ -52,16 +60,19 @@ Ameliorations conservees par rapport a l'usage historique du pipeline :
   ont reussi (jamais de traduction partielle enregistree) ; en cas
   d'echec, le curseur n'avance pas au-dela de ce document, il sera
   retente au prochain run.
-- Si le quota mensuel gratuit DeepL est atteint (HTTP 456), le cycle
-  s'arrete proprement immediatement (inutile d'epuiser les tentatives
-  document par document, ca ne passera pas avant le mois prochain).
+- Si le quota journalier gratuit MyMemory est atteint, le cycle s'arrete
+  proprement immediatement (inutile d'epuiser les tentatives document
+  par document, ca ne passera pas avant le lendemain).
 
 Champs deja traduits (ex: vieux documents qui avaient encore titre_fr
 d'avant septembre) ne sont PAS retraduits : si le champ destination est
 deja non vide, il est laisse tel quel.
 
-Necessite le secret GitHub Actions DEEPL_API_KEY (cle API DeepL "Free"),
-transmis au job via la variable d'environnement du meme nom.
+Email de contact optionnel (recommande) via la variable d'environnement
+MYMEMORY_EMAIL, transmise par le secret GitHub Actions du meme nom : fait
+passer le quota de 5000 a 50 000 mots/jour. Le script fonctionne aussi
+sans (quota plus bas, le retard se rattrape juste plus lentement sur
+plusieurs jours).
 """
 
 import os
@@ -87,37 +98,42 @@ COLLECTIONS_CONFIG = {
     "cb_articles": [("titre", "titre_fr"), ("contenu", "contenu_fr")],
 }
 
-# Nombre maximum de documents traites par collection, a CHAQUE run. Le
-# backlog historique se rattrape progressivement sur plusieurs runs
-# successifs (cron) plutot qu'en un seul passage tres long.
-TAILLE_LOT = 40
+# Nombre maximum de documents traites par collection, a CHAQUE run.
+# Reduit par rapport aux essais precedents : la limite de ~500 caracteres
+# par requete MyMemory (voir plus bas) multiplie le nombre d'appels par
+# document, mieux vaut un lot plus petit pour rester dans un temps
+# d'execution raisonnable. Le retard se rattrape sur plusieurs runs.
+TAILLE_LOT = 15
 
-# Endpoint DeepL "Free" (distinct de l'endpoint Pro, api.deepl.com).
-DEEPL_API_URL = "https://api-free.deepl.com/v2/translate"
-DEEPL_API_KEY_ENV = "DEEPL_API_KEY"
+MYMEMORY_API_URL = "https://api.mymemory.translated.net/get"
+MYMEMORY_EMAIL_ENV = "MYMEMORY_EMAIL"  # optionnel, voir docstring
 
-# Limite de caracteres par appel, tres large marge sous la limite reelle
-# de l'API DeepL (taille de requete totale : 128 Kio) : sert surtout a
-# garder une traduction paragraphe par paragraphe lisible, pas a eviter
-# une erreur d'API comme c'etait le cas avec l'ancien moteur.
-LIMITE_CARACTERES = 20000
+# Langue source fixee (voir hypothese en tete de fichier) : l'API
+# MyMemory (endpoint /get) ne propose pas de detection automatique
+# fiable, contrairement a Google/DeepL.
+SOURCE_LANG = "en"
 
-# Pause entre deux appels de traduction (usage raisonnable de l'API,
-# marge de securite meme si DeepL n'impose pas de limite stricte par
-# seconde documentee pour l'offre gratuite).
-DELAI_ENTRE_APPELS = 0.3
+# Limite de caracteres par requete : l'API MyMemory refuse au-dela
+# d'environ 500 caracteres pour le parametre "q" - marge de securite
+# prise ici, plus stricte que les moteurs precedents.
+LIMITE_CARACTERES = 450
+
+# Pause entre deux appels de traduction (usage raisonnable de l'API
+# publique et gratuite, pas de compte dedie derriere).
+DELAI_ENTRE_APPELS = 0.5
 
 # Nombre de tentatives avant d'abandonner la traduction d'un morceau de
 # texte (pause croissante entre chaque tentative).
 TENTATIVES_MAX = 3
 
 
-class QuotaDeepLDepassee(Exception):
-    """Leve quand l'API DeepL repond 456 (Quota Exceeded) : le quota
-    mensuel gratuit (500 000 caracteres) est atteint. Inutile de
-    reessayer document par document, ca ne passera pas avant le
-    renouvellement du quota - on remonte l'exception pour arreter le
-    cycle proprement des la premiere occurrence."""
+
+class QuotaTraductionDepassee(Exception):
+    """Leve quand l'API MyMemory signale un quota journalier depasse
+    (5000 ou 50 000 mots/jour selon qu'un email de contact est fourni).
+    Inutile de reessayer document par document, ca ne passera pas avant
+    le lendemain - on remonte l'exception pour arreter le cycle
+    proprement des la premiere occurrence."""
 
 
 # ---------- INITIALISATION FIREBASE ----------
@@ -184,37 +200,33 @@ def _nettoyer(texte):
 
 
 def _traduire_un_morceau(texte):
-    api_key = os.environ.get(DEEPL_API_KEY_ENV)
-    if not api_key:
-        raise RuntimeError(
-            f"Variable d'environnement {DEEPL_API_KEY_ENV} manquante "
-            "(secret GitHub Actions non transmis au job)."
-        )
+    params = {"q": texte, "langpair": f"{SOURCE_LANG}|fr"}
+    email = os.environ.get(MYMEMORY_EMAIL_ENV)
+    if email:
+        params["de"] = email  # releve le quota gratuit a 50 000 mots/jour
 
     dernier_erreur = None
     for essai in range(TENTATIVES_MAX):
         try:
-            reponse = requests.post(
-                DEEPL_API_URL,
-                headers={"Authorization": f"DeepL-Auth-Key {api_key}"},
-                # Pas de "source_lang" : on laisse DeepL detecter la langue
-                # d'origine automatiquement (le parametre n'accepte pas de
-                # valeur "auto" explicite, il doit etre absent).
-                data={"text": texte, "target_lang": "FR"},
-                timeout=20,
-            )
+            reponse = requests.get(MYMEMORY_API_URL, params=params, timeout=20)
         except requests.exceptions.RequestException as e:
             dernier_erreur = str(e)
             time.sleep(2 * (essai + 1))
             continue
 
         if reponse.status_code == 200:
-            traductions = reponse.json().get("translations") or []
-            if traductions:
-                return traductions[0]["text"]
-            dernier_erreur = "Reponse DeepL sans traduction"
-        elif reponse.status_code == 456:
-            raise QuotaDeepLDepassee("Quota mensuel DeepL atteint (456 Quota Exceeded)")
+            resultat = reponse.json()
+            texte_traduit = (resultat.get("responseData") or {}).get("translatedText", "")
+            statut = resultat.get("responseStatus")
+            majuscules = texte_traduit.upper()
+
+            if "QUOTA" in majuscules or statut in (403, "403"):
+                raise QuotaTraductionDepassee(f"Quota MyMemory atteint : {texte_traduit[:200]}")
+
+            if texte_traduit and "MYMEMORY WARNING" not in majuscules and statut in (200, "200"):
+                return texte_traduit
+
+            dernier_erreur = f"Reponse MyMemory inattendue (statut={statut}) : {texte_traduit[:200]}"
         else:
             dernier_erreur = f"HTTP {reponse.status_code} : {reponse.text[:200]}"
 
@@ -331,8 +343,8 @@ def cycle():
             vus, traduits = traiter_collection(db, collection, champs, progression)
             total_vus += vus
             total_traduits += traduits
-        except QuotaDeepLDepassee as e:
-            print(f"Quota DeepL atteint, arret du cycle (le quota est global au compte, inutile d'essayer les autres collections) : {e}")
+        except QuotaTraductionDepassee as e:
+            print(f"Quota MyMemory atteint, arret du cycle (le quota est global, inutile d'essayer les autres collections) : {e}")
             erreur_globale = e
             break
         except ResourceExhausted as e:
