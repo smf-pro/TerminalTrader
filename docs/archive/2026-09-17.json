@@ -2,6 +2,16 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-17T06:15:27.669326+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418637-frances-europe-minister-haddad-no-outside-country-has",
+      "extrait": "Frances Europe Minister Haddad: No outside country has the power to block EU-Canada ties.Haddad, on Trumps comments: The US does not determine the EUs geopolitical direction.",
+      "ignore": false,
+      "date_publication": "2026-09-17T06:14:27.669326+00:00",
+      "titre": "France's Europe Minister Haddad: No outside country has the power to block EU-Canada ties"
+    },
+    {
       "impact": "low",
       "extrait": "Katayama: BOJ expected to coordinate closely with the government and take appropriate monetary policy steps toward its 2% price target.",
       "source": "@FirstSquawk",
@@ -112,6 +122,34 @@
     }
   ],
   "il_articles": [
+    {
+      "categorie": "news",
+      "date_recuperation": "2026-09-17T06:45:59.460956+00:00",
+      "url": "https://investinglive.com/news/trump-reaches-for-tariffs-again-as-eu-opens-door-to-canada-associate-membership/",
+      "ignore": false,
+      "date_publication": "2026-09-17T06:42:23.800760+00:00",
+      "titre": "Trump reaches for tariffs again as EU opens door to Canada 'associate membership'",
+      "contenu": "As the EU seeks closer ties with Canada, Trump’s response is a rather familiar one - tariffs\n\nAfterthe EU talked about pulling Canada closer to its orbityesterday, it was only a matter of time before we see Trump respond with his distaste and displeasure over the situation.\n\nAnd you can probably guess what his go-to response was to that. Yes, tariffs. Again.\n\nThe EU opened the door for Canada to become the bloc's first-ever \"associate member\", in an attempt to deepen trade and security cooperation. While the proposal itself is still rather loosely defined, the political message is much easier to understand. And that is Europe and Canada wanting to work more closely together.\n\nBoth sides have had increasingly difficult trade relations with the US, giving Europe and Canada another reason to deepen their existing economic and strategic ties. Of course, Trump was not impressed.\n\nHe called the idea \"laughable\" and said that if he viewed the move as a \"hostile act\", then the US could respond with \"very serious tariffs\" or even stop trading with Europe on certain goods.\n\nIt's funny how there is something almost predictable about how quickly the conversation got back to tariffs. From his perspective, the closer relationship between Europe and Canada is clearly touching a nerve.\n\nNow, we are still a long way from Canada becoming anything resembling an EU member. The details of \"associate membership\" have barely been written. So for now, this is much more of a political signal than a finished institutional arrangement.\n\nAnd while Trump hasn't actually announced any new tariffs over this, markets are already getting a preview of how this issue could quickly become another source of US-EU trade friction.\n\nAnd Washington's preferred bargaining chip is hardly a mystery by now.\n\nTariffs. Surprise, surprise. Not.\n\nFor markets, the immediate issue isn't a tariffs announcement but the reopening of another trade-policy fault line involving the US and Europe - particularly if the rhetoric starts moving toward autos, industrial goods or other politically sensitive sectors.",
+      "tags": [
+        "Politics",
+        "europe",
+        "canada",
+        "usa",
+        "tariffs"
+      ]
+    },
+    {
+      "categorie": "news",
+      "date_recuperation": "2026-09-17T06:35:30.514214+00:00",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-44/",
+      "ignore": false,
+      "date_publication": "2026-09-17T06:33:10.608042+00:00",
+      "contenu": "The highlights include the BoE rate decision and the US Jobless Claims\n\nEUROPEAN SESSION\n\nIn the European session, we have the BoE rate decision. The central bank is expected to keep the Bank Rate unchanged at 3.75% with a 6-3 vote split, while keeping a tigthening bias. The BoE has enough reasons to stay put for now, following a soft UK employment report and benign inflation data. The market is pricing in 42 bps of tightening by year-end and a total of 102 bps by the end of 2027 (four rate hikes).\n\nAMERICAN SESSION\n\nIn the American session, we get the latest US Jobless Claims figures. Initial Claims are expected at 206K vs 206K prior, while Continuing Claims are seen at 1779K vs 1774K prior. We will likely need a significant spike to the upside in initial claims to trigger a market reaction, as the labour market data has been stable for several months.\n\nCENTRAL BANK SPEAKERS\n\n10:00 GMT/06:00 ET - ECB's Rehn (neutral - voter)",
+      "titre": "What are the main events for today?",
+      "tags": [
+        "market overview"
+      ]
+    },
     {
       "tags": [
         "Fed",
