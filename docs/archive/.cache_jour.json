@@ -2,7 +2,7 @@
   "date": "2026-09-17",
   "curseurs": {
     "ff_news": "2026-09-17T18:14:31.198041+00:00",
-    "cb_articles": "2026-09-17T15:14:12.220523+00:00",
+    "cb_articles": "2026-09-17T20:22:11.770483+00:00",
     "il_articles": "2026-09-17T19:35:41.560952+00:00"
   },
   "ff_news": [
@@ -238,6 +238,19 @@
     }
   ],
   "cb_articles": [
+    {
+      "tags": [
+        "BOJ",
+        "economic calendar",
+        "RBA"
+      ],
+      "date_recuperation": "2026-09-17T20:22:28.888206+00:00",
+      "contenu": "A busy event calendar ahead with Reserve Bank of Australia Governor Bullock speaking, Japanese inflation data, the Bank of Japan decision, a rate hike is expected, and a following press confernce with Bank of Japan Governor Ueda.\n\nPlenty of big events to come during the Asian timezone today. I'll get previews posted of all of these separately, just a few brief notes for now.\n\nJapanese inflation data for August. We have already seen Augusy CPI data for the Tokyo area:\n\nTokyo core CPI rose 1.8% y/y in August, beating forecasts of 1.7% and nearing the BOJ's 2% target, with the closely watched core-core measure hitting 2.0%,adding to the case for a September rate hike.\n\nI don't want to overplay the importance of this data from Japan due only hours before the Bank of Japan statement, its not as if the Board is hanging on these numbers. From all we've divined in the past week or so, the rate hike today is agreed to already, just awaiting a rubber stamp of approval:\n\nAs an aside, you'll note the time of the BoJ decision is set at 0300 GMT (2300 US Eastern time) in the calendar screenshot above. This just an approximation. Unlike other developed market central banks the Bank of Japan does not firmly set the time of the Statement release. Its reasonable to expect it in the 0230-0330 GMT time window.\n\nYou will also note the Bank of Japan Governor Ueda will hold a news conference a few hours after the Statement. This is at a set time, 0630 GMT / 0230 US Eastern time.\n\nApart from Japan, the other high impact event is Reserve Bank of Australia Governor Bullock speaking.\n\n9.30am local time for this is 2330 GMT / 1930 US Eastern time. The RBA is in the midst of a rate hike cycle, having raised its casg rate by 25bp at the first three meetings of 2026 (3 February, 17 March, 5 May) and holding twice since (6 June, 11 August). With sticky inflation a further rate hike at its next meeting (28–29 September) priced at around 70-75%.",
+      "date_publication": "2026-09-17T20:22:11.770483+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/central-banks/economic-and-event-calendar-in-asia-friday-september-18-2026-boj-and-rba/",
+      "titre": "Economic and event calendar in Asia Friday, September 18, 2026 - BoJ and RBA"
+    },
     {
       "date_recuperation": "2026-09-17T15:14:28.353737+00:00",
       "contenu": "His first comments since leaving the Fed\n\nHistorically supply shocks hit and resolve quickly but they're lingering longer and it takes time to work its way through, that can feed into expectations\n\nSaid he was pleased that Warsh doubled down on Jackson Hole speech\n\nThe number of families that are being stressed by prices has risen on a consistent basis\n\nIf the Fed doesn't create an environment where people think prices are going to flatten then it's a problem\n\nInflation expectations are solid until they aren't\n\nI don't think it's in our interest to look past wages\n\nThis Fed has been patient over much of 2026\n\nThe patience was in part because of the belief the war would end, or that employment would deteriorate\n\nIt wouldn't surprise me if we saw patience at the October Fed meeting\n\nBostic appeared on CNBC. I don't think there is any strong takeaway here but there was the same relief as in the fixed income market that the Fed is taking the inflation risks seriously.",
