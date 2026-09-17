@@ -3,18 +3,18 @@
   "curseurs": {
     "ff_news": "2026-09-17T14:01:28.991767+00:00",
     "cb_articles": "2026-09-17T13:32:20.233701+00:00",
-    "il_articles": "2026-09-17T12:30:23.139080+00:00"
+    "il_articles": "2026-09-17T14:01:38.608926+00:00"
   },
   "ff_news": [
     {
-      "impact": "low",
-      "titre": "US NAR Pending Home Sales Report Shows 0.3% Increase in August",
-      "date_publication": "2026-09-17T14:01:28.991767+00:00",
-      "ignore": false,
-      "date_recuperation": "2026-09-17T14:02:28.991767+00:00",
-      "source": "nar.realtor",
+      "url": "https://www.forexfactory.com/news/1418728-us-nar-pending-home-sales-report-shows-03",
       "extrait": "Pending home sales in August increased by 0.3% month-over-month and decreased 4.7% year-over-year, according to the National Association of REALTORS® Pending Home Sales report. The report helps the real estate ecosystem—including agents, homebuyers and sellers—better understand the housing market by providing data on the level of home sales under contract. ...",
-      "url": "https://www.forexfactory.com/news/1418728-us-nar-pending-home-sales-report-shows-03"
+      "impact": "low",
+      "date_publication": "2026-09-17T14:01:28.991767+00:00",
+      "date_recuperation": "2026-09-17T14:02:28.991767+00:00",
+      "ignore": false,
+      "source": "nar.realtor",
+      "titre": "US NAR Pending Home Sales Report Shows 0.3% Increase in August"
     },
     {
       "ignore": false,
@@ -324,6 +324,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "US home sales data for August 2026\n\nPrior was -2.3%\n\nIndex at vs 71.2 prior",
+      "url": "https://investinglive.com/news/us-august-pending-home-sales-0-3-vs-0-6-expected/",
+      "date_publication": "2026-09-17T14:01:38.608926+00:00",
+      "date_recuperation": "2026-09-17T14:05:25.810132+00:00",
+      "tags": [
+        "USD"
+      ],
+      "ignore": false,
+      "categorie": "news",
+      "titre": "US August pending home sales +0.3% vs -0.6% expected"
+    },
     {
       "ignore": false,
       "url": "https://investinglive.com/news/us-august-housing-starts-vs-1-309m-expected/",
