@@ -2,7 +2,7 @@
   "date": "2026-09-17",
   "curseurs": {
     "ff_news": "2026-09-17T10:27:26.250944+00:00",
-    "cb_articles": "2026-09-17T08:18:07.568201+00:00",
+    "cb_articles": "2026-09-17T11:00:04.457850+00:00",
     "il_articles": "2026-09-17T10:44:40.049542+00:00"
   },
   "ff_news": [
@@ -88,6 +88,19 @@
     }
   ],
   "cb_articles": [
+    {
+      "url": "https://investinglive.com/central-banks/boe-leaves-bank-rate-unchanged-at-3-75-in-6-3-vote/",
+      "contenu": "The BOE stays on hold in September, but three votes for a hike keep the inflation and rates debate firmly alive\n\nBank rate decision 3.75% as expected\n\nPrior (July) 3.75%\n\nBank rate vote 6-3 vs 6-3 expected\n\nStatement details to follow...\n\nComing into the decision, markets were pricing in a roughly 76% chance of the BOE keeping the bank rate unchanged today. Meanwhile, the odds of a November rate hike were just over 70% before the decision.\n\nBy year-end, markets were looking at around 44 bps worth of rate hikes priced in and roughly 100 bps of rate hikes priced in by June next year.\n\nMore to come..",
+      "tags": [
+        "BOE",
+        "GBP",
+        "interest rates"
+      ],
+      "date_publication": "2026-09-17T11:00:04.457850+00:00",
+      "ignore": false,
+      "date_recuperation": "2026-09-17T11:00:35.823002+00:00",
+      "titre": "BOE leaves bank rate unchanged at 3.75% in 6-3 vote"
+    },
     {
       "url": "https://investinglive.com/central-banks/boe-preview-bank-rate-set-to-stay-at-3-75-as-vote-split-takes-centre-stage/",
       "tags": [
