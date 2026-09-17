@@ -1,11 +1,21 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T06:14:27.669326+00:00",
+    "ff_news": "2026-09-17T07:01:23.291976+00:00",
     "cb_articles": "2026-09-17T05:10:45.449690+00:00",
     "il_articles": "2026-09-17T06:42:23.800760+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418638-spanish-economic-forecast-2026-growth-stronger-than-previously",
+      "source": "seco.admin.ch",
+      "date_publication": "2026-09-17T07:01:23.291976+00:00",
+      "date_recuperation": "2026-09-17T07:02:23.291976+00:00",
+      "impact": "low",
+      "ignore": false,
+      "titre": "Spanish economic forecast: 2026 growth stronger than previously expected",
+      "extrait": "The Federal Government Expert Group on Business Cycles is raising its forecast for economic growth in Switzerland. For 2026, it now expects growth of 1.7% (June forecast: 0.9%), while the forecast for 2027 remains unchanged at 1.6%.1 Swiss GDP has recently grown strongly. However, the Iran conflict, high energy prices and continuing uncertainty over trade ..."
+    },
     {
       "date_recuperation": "2026-09-17T06:15:27.669326+00:00",
       "extrait": "Frances Europe Minister Haddad: No outside country has the power to block EU-Canada ties.Haddad, on Trumps comments: The US does not determine the EUs geopolitical direction.",
