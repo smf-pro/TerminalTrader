@@ -2,7 +2,7 @@
   "date": "2026-09-17",
   "curseurs": {
     "ff_news": "2026-09-17T14:34:27.823041+00:00",
-    "cb_articles": "2026-09-17T13:32:20.233701+00:00",
+    "cb_articles": "2026-09-17T15:05:32.850912+00:00",
     "il_articles": "2026-09-17T14:47:06.735749+00:00"
   },
   "ff_news": [
@@ -208,6 +208,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "contenu": "Before you bet on one-and-done consider the history\n\nWelcome to the new rate-hike cycle.\n\nThe FOMC delivered on the market's expectation for a rate hike yesterday and moved the Fed funds range to 3.75-4.00% from 3.50-3.75%. A hawkish Q&A from Fed Chairman Kevin Warsh left the market thinking there's an even chance of a second hike in October but there are still plenty of doves out there, who think inflation is transitory and will be quickly defeated. Part of the reason for that is that the starting point of this rate hiking cycle is relatively high and that the most rate-sensitive part of the economy -- housing -- is already in a multi-year slump.\n\nLooking out the curve, the market sees three more hikes for a total of four and a terminal top of 4.50%-4.75%.\n\nIf you compare that to history, it would be an outlier. The smallest rate-hike cycle rise was in 1986-87 at 137 basis points in a move to 7.25% from 5.88%. That was followed by 1999-2000 at 1.75% and culminating at 6.50% Fed funds.\n\nDeutsche Bank has a great chart showing the history of hiking cycles.\n\nWhat's also worth focusing on here is the 'End' column because it's absolute, not relative. Even in the intense post-covid inflation regime, the top was 5.375% and that's the dove case for holding rates sooner. Even in that supply crunch, rates at 5.25-5.50% range did the job.\n\nSo the curve topping at 4.50%-4.75%. brings it close, another 3 hikes would be equally severe and right now, that kind of reaction seems unwarranted. Of course, that could change if we get an endless war and $200 oil.\n\nWhat's more likely is that we start to get some US fiscal restraint in a divided Congress and the war ends. With that, I can get behind the market's thinking but be aware that history is not on the side of the curve.",
+      "titre": "The smallest hiking cycle the Fed has ever done is 137 basis points",
+      "ignore": false,
+      "tags": [
+        "Fed"
+      ],
+      "date_publication": "2026-09-17T15:05:32.850912+00:00",
+      "url": "https://investinglive.com/central-banks/the-smallest-hiking-cycle-the-fed-has-ever-done-is-137-basis-points/",
+      "date_recuperation": "2026-09-17T15:07:23.390644+00:00"
+    },
     {
       "date_publication": "2026-09-17T13:32:20.233701+00:00",
       "ignore": false,
