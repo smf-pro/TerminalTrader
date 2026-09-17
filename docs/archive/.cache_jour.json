@@ -2,8 +2,8 @@
   "date": "2026-09-17",
   "curseurs": {
     "ff_news": "2026-09-17T03:44:27.695544+00:00",
-    "cb_articles": "2026-09-17T02:28:52.409661+00:00",
-    "il_articles": "2026-09-17T02:56:28.885715+00:00"
+    "cb_articles": "2026-09-17T05:10:45.449690+00:00",
+    "il_articles": "2026-09-17T05:10:45.449690+00:00"
   },
   "ff_news": [
     {
@@ -28,6 +28,20 @@
     }
   ],
   "cb_articles": [
+    {
+      "tags": [
+        "Fed",
+        "USD",
+        "Inflation",
+        "market overview"
+      ],
+      "titre": "With Fed credibility on the line, Warsh just delivered a hawkish answer",
+      "date_recuperation": "2026-09-17T05:11:32.454065+00:00",
+      "contenu": "Warsh’s first Fed rate hike sends a clear message that inflation credibility is the number one priority\n\nThere was always going to be more riding on this Fed decision than just another 25 bps rate hike.\n\nFor Kevin Warsh, this was also about establishing what his Fed is going to stand for - even this early on in his tenure as Fed chair.\n\nThe central bank finally decided to act after months of stubborn inflation, withincreasingly uncomfortable moves in the bond market arguably also backing policymakers into a corner.\n\nThe decision was ultimately unanimous in raising interest rates to 3.75% - 4.00%, but the more important aspect was everything around it.\n\nIn particular, the latestdot plotprojections show that 16 of 18 policymakers are expecting at least one more hike before year-end. That is not the kind of communique from a central bank that is merely looking to get this over and done with.\n\nAnd Warsh also reinforced that message in his press conference, arguing that financial conditions were difficult to describe as being restrictive. In other words, the Fed does not think that one 25 bps move suddenly puts the brakes on the economy.\n\nIn keeping with his approach, he pushed back on the idea of forward guidance. While he did sound like he was ready to hike rates again, there was no firm pre-commitment on his part. Nonetheless, he came across as being more hawkish even if he still managed to play his political card right in not listing the US fiscal deficit as a key reason why bond yields have risen.\n\nIt was a difficult balance to strike, but Warsh managed to sound hawkish without putting the Fed on a predetermined rate path. And more importantly, he offered a credible answer to the questions surrounding the Fed's resolve on inflation without too much compromise.\n\nThat matters because credibility is not about sounding hawkish for the sake of it. It is more about convincing markets that when the Fed says inflation is unacceptable, policy will eventually follow those words.\n\nUS president Trump certainly wasn't happy with the decision, although his criticism still stopped short of turning directly on Warsh:\n\nAt this juncture, the Fed cannot keep insisting that price stability is paramount while treating persistent inflation as somebody else's problem. At some point, policy has to reflect that reality.\n\nAnd yesterday's decision is one step in that direction at least.\n\nFor markets, they certainly got the message. The dollar strengthened, 2-year Treasury yields jumped and rate markets have moved to price roughly a 90% chance of another hike before year-end.\n\nThe reaction may not be to everyone's liking but it arguably beats the bond market from kicking and screaming if the Fed decided on a different decision path. But that is almost besides the point.\n\nWarsh has repeatedly argued that the Fed needs to restore price stability. And after yesterday's decision, markets now have evidence that those words carry some weight.",
+      "url": "https://investinglive.com/central-banks/with-fed-credibility-on-the-line-warsh-just-delivered-a-hawkish-answer/",
+      "ignore": false,
+      "date_publication": "2026-09-17T05:10:45.449690+00:00"
+    },
     {
       "date_recuperation": "2026-09-17T02:29:27.279296+00:00",
       "date_publication": "2026-09-17T02:28:52.409661+00:00",
@@ -103,6 +117,21 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "Fed",
+        "USD",
+        "Inflation",
+        "market overview"
+      ],
+      "date_recuperation": "2026-09-17T05:10:37.625946+00:00",
+      "categorie": "central-banks",
+      "titre": "With Fed credibility on the line, Warsh just delivered a hawkish answer",
+      "date_publication": "2026-09-17T05:10:45.449690+00:00",
+      "contenu": "Warsh’s first Fed rate hike sends a clear message that inflation credibility is the number one priority\n\nThere was always going to be more riding on this Fed decision than just another 25 bps rate hike.\n\nFor Kevin Warsh, this was also about establishing what his Fed is going to stand for - even this early on in his tenure as Fed chair.\n\nThe central bank finally decided to act after months of stubborn inflation, withincreasingly uncomfortable moves in the bond market arguably also backing policymakers into a corner.\n\nThe decision was ultimately unanimous in raising interest rates to 3.75% - 4.00%, but the more important aspect was everything around it.\n\nIn particular, the latestdot plotprojections show that 16 of 18 policymakers are expecting at least one more hike before year-end. That is not the kind of communique from a central bank that is merely looking to get this over and done with.\n\nAnd Warsh also reinforced that message in his press conference, arguing that financial conditions were difficult to describe as being restrictive. In other words, the Fed does not think that one 25 bps move suddenly puts the brakes on the economy.\n\nIn keeping with his approach, he pushed back on the idea of forward guidance. While he did sound like he was ready to hike rates again, there was no firm pre-commitment on his part. Nonetheless, he came across as being more hawkish even if he still managed to play his political card right in not listing the US fiscal deficit as a key reason why bond yields have risen.\n\nIt was a difficult balance to strike, but Warsh managed to sound hawkish without putting the Fed on a predetermined rate path. And more importantly, he offered a credible answer to the questions surrounding the Fed's resolve on inflation without too much compromise.\n\nThat matters because credibility is not about sounding hawkish for the sake of it. It is more about convincing markets that when the Fed says inflation is unacceptable, policy will eventually follow those words.\n\nUS president Trump certainly wasn't happy with the decision, although his criticism still stopped short of turning directly on Warsh:\n\nAt this juncture, the Fed cannot keep insisting that price stability is paramount while treating persistent inflation as somebody else's problem. At some point, policy has to reflect that reality.\n\nAnd yesterday's decision is one step in that direction at least.\n\nFor markets, they certainly got the message. The dollar strengthened, 2-year Treasury yields jumped and rate markets have moved to price roughly a 90% chance of another hike before year-end.\n\nThe reaction may not be to everyone's liking but it arguably beats the bond market from kicking and screaming if the Fed decided on a different decision path. But that is almost besides the point.\n\nWarsh has repeatedly argued that the Fed needs to restore price stability. And after yesterday's decision, markets now have evidence that those words carry some weight.",
+      "url": "https://investinglive.com/central-banks/with-fed-credibility-on-the-line-warsh-just-delivered-a-hawkish-answer/",
+      "ignore": false
+    },
     {
       "url": "https://investinglive.com/stock-market-update/nikkei-kospi-gain-as-expected-fed-hike-and-lower-oil-ease-market-nerves/",
       "date_publication": "2026-09-17T02:56:28.885715+00:00",
