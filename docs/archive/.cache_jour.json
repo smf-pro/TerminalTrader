@@ -1,11 +1,31 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T10:27:26.250944+00:00",
+    "ff_news": "2026-09-17T11:00:26.220902+00:00",
     "cb_articles": "2026-09-17T11:00:04.457850+00:00",
     "il_articles": "2026-09-17T11:00:04.457850+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418675-bank-rate-maintained-at-375-september-2026",
+      "date_publication": "2026-09-17T11:00:26.220902+00:00",
+      "impact": "high",
+      "date_recuperation": "2026-09-17T11:01:26.220902+00:00",
+      "titre": "Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
+      "ignore": false,
+      "extrait": "At its meeting ending on 16 September 2026, the Monetary Policy Committee (MPC) voted by a majority of 6–3 to maintain Bank Rate at 3.75%. Three members voted to increase Bank Rate by 0.25 percentage points, to 4%. Protracted conflict in the Middle East has contributed to further increases in crude and refined energy prices since the previous meeting, which ...",
+      "source": "bankofengland.co.uk"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1418675-uk-bank-rate-maintained-at-375-september",
+      "date_publication": "2026-09-17T11:00:23.319535+00:00",
+      "impact": "high",
+      "date_recuperation": "2026-09-17T11:02:23.319535+00:00",
+      "titre": "UK Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
+      "ignore": false,
+      "extrait": "At its meeting ending on 16 September 2026, the Monetary Policy Committee (MPC) voted by a majority of 6–3 to maintain Bank Rate at 3.75%. Three members voted to increase Bank Rate by 0.25 percentage points, to 4%. Protracted conflict in the Middle East has contributed to further increases in crude and refined energy prices since the previous meeting, which remain more volatile and higher than pre-conflict. UK CPI inflation increased to 3.1% in August and is likely to rise further over coming quarters. Monetary policy is being set to ensure inflation comes down to 2% sustainably as the economy adjusts to the energy shock. The policy stance required to achieve this will depend on the scale and duration of the shock and how it propagates through the economy. There has been little evidence so far of material second-round effects in price and wage-setting. However, the risk of such effects, against which policy needs to lean, is greater the longer higher energy prices persist or are more volatile. Activity has beeBank Of England Hold Policy Rate 3.75%, As Expected -MPC Vote 6 To Hold, 3 To Hike 25Bps",
+      "source": "bankofengland.co.uk"
+    },
     {
       "ignore": false,
       "date_recuperation": "2026-09-17T10:28:26.250944+00:00",
