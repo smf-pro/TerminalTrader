@@ -19,7 +19,7 @@ jobs:
       - name: Lancer le script de traduction
         env:
           GOOGLE_APPLICATION_CREDENTIALS: service_account.json
-          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
         run: python translate_news.py
       - name: Commit et push cache/ (avec retry en cas de conflit)
         run: |
