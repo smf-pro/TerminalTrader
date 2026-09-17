@@ -2,7 +2,7 @@
   "date": "2026-09-17",
   "curseurs": {
     "ff_news": "2026-09-17T07:01:23.291976+00:00",
-    "cb_articles": "2026-09-17T07:39:48.220037+00:00",
+    "cb_articles": "2026-09-17T08:18:07.568201+00:00",
     "il_articles": "2026-09-17T07:16:37.630334+00:00"
   },
   "ff_news": [
@@ -48,6 +48,18 @@
     }
   ],
   "cb_articles": [
+    {
+      "titre": "BOE preview: Bank rate set to stay at 3.75% as vote split takes centre stage",
+      "date_publication": "2026-09-17T08:18:07.568201+00:00",
+      "url": "https://investinglive.com/central-banks/boe-preview-bank-rate-set-to-stay-at-3-75-as-vote-split-takes-centre-stage/",
+      "ignore": false,
+      "contenu": "The BOE is widely expected to hold rates, but a 5-4 or 6-3 vote split could shape expectations heading into November\n\nBarring a major surprise, there should not be too much suspense over the headline decision from the BOE later today. The central bank is widely expected to keep the bank rate at 3.75%, as markets are also pricing in nearly 80% odds of that outcome.\n\nThe more interesting question is what happens underneath that decision, and in particular whether the bank rate vote stays at 6-3 or narrows to 5-4.\n\nThe consensus is for another 6-3 vote, but the uncertainty centres mainly on which side of the fence Lombardelli decides to sit on. As things stand, she is the only wildcard after having previously highlighted the risk of second-round effects from persistently higher energy prices.\n\nAnd energy prices have only moved higher since then, so the question is whether that has been enough to push her into the hawkish camp alongside Pill, Greene, and Mann.\n\nWhile a 5-4 vote would not automatically tell us that a November rate hike is coming, but it would make the debate much more uncomfortable for the hold camp. That especially as markets are also preparing for it already, with the odds of a move in November priced at near 70% now.\n\nBeyond the bank rate vote itself, I will be looking at whether any member describes the decision as being “finely balanced”. And also whether the collective guidance by the central bank becomes more explicit about the upside risks to inflation.\n\nThat will be measured against the current narrative of the central bank still weighing higher energy-driven inflation against the backdrop of a softer labour market and relatively limited evidence broader second-round effects, at least for now.\n\nAfter the decision itself, Bailey and Lombardelli's individual paragraphs should probably be the first place to look. A 6-3 vote accompanied by largely unchanged language would suggest policymakers are still comfortable in waiting for more evidence before November. But on a 5-4 split, or stronger language about needing to act, would make the current November tightening expectations look better supported.\n\nBesides the above, there is also the QT decision to watch. £50 billion is the clear consensus here for the annual APF rundown and some focus on whether the BOE reduces or ends long-dated gilt sales.\n\nBut for sterling and the front end of the gilt curve, the vote split and the message surrounding November should be doing most of the talking today.",
+      "date_recuperation": "2026-09-17T08:18:27.445513+00:00",
+      "tags": [
+        "BOE",
+        "GBP"
+      ]
+    },
     {
       "ignore": false,
       "url": "https://investinglive.com/central-banks/was-the-fed-really-that-hawkish-or-the-market-just-overreacted-an-objective-overview/",
