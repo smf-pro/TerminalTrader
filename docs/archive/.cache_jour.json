@@ -1,11 +1,21 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T07:01:23.291976+00:00",
+    "ff_news": "2026-09-17T09:01:28.470451+00:00",
     "cb_articles": "2026-09-17T08:18:07.568201+00:00",
     "il_articles": "2026-09-17T09:00:16.055089+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-17T09:01:28.470451+00:00",
+      "source": "ec.europa.eu",
+      "url": "https://www.forexfactory.com/news/1418651-annual-inflation-up-to-32-in-the-euro",
+      "ignore": false,
+      "extrait": "The euro area annual inflation rate was 3.2% in August 2026, up from 2.9% in July. A year earlier, the rate was 2.0%. European Union annual inflation was 3.2% in August 2026, up from 3.0% in July. A year earlier, the rate was 2.4%. These figures are published by Eurostat, the statistical office of the European Union. The lowest annual rates were registered ...",
+      "impact": "low",
+      "date_recuperation": "2026-09-17T09:03:28.470451+00:00",
+      "titre": "Annual inflation up to 3.2% in the euro area"
+    },
     {
       "url": "https://www.forexfactory.com/news/1418638-spanish-economic-forecast-2026-growth-stronger-than-previously",
       "source": "seco.admin.ch",
