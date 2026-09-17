@@ -1,11 +1,31 @@
 {
   "date": "2026-09-17",
   "curseurs": {
-    "ff_news": "2026-09-17T18:14:31.198041+00:00",
+    "ff_news": "2026-09-17T22:46:26.599420+00:00",
     "cb_articles": "2026-09-17T22:31:46.386907+00:00",
     "il_articles": "2026-09-17T22:02:26.429621+00:00"
   },
   "ff_news": [
+    {
+      "source": "stats.govt.nz",
+      "ignore": false,
+      "titre": "NZ Overseas merchandise trade: August 2026",
+      "date_recuperation": "2026-09-17T22:47:26.599420+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418779-nz-overseas-merchandise-trade-august-2026",
+      "date_publication": "2026-09-17T22:46:26.599420+00:00",
+      "extrait": "This release refers to trade in goods only. In August 2026, compared with August 2025: • Goods exports rose by $888 million (15 percent), to $6.7 billion • Goods imports rose by $924 million (13 percent), to $8.0 billion • The monthly trade balance was a deficit of $1.3 billion."
+    },
+    {
+      "source": "stats.govt.nz",
+      "ignore": false,
+      "titre": "NZ selected price indexes: August 2026",
+      "date_recuperation": "2026-09-17T22:47:26.599420+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418778-nz-selected-price-indexes-august-2026",
+      "date_publication": "2026-09-17T22:46:26.599420+00:00",
+      "extrait": "BREAKING"
+    },
     {
       "date_publication": "2026-09-17T18:14:31.198041+00:00",
       "titre": "Trump and Mexican President Sheinbaum close in on a trade deal - Politico",
