@@ -2,6 +2,16 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "impact": "low",
+      "titre": "US NAR Pending Home Sales Report Shows 0.3% Increase in August",
+      "date_publication": "2026-09-17T14:01:28.991767+00:00",
+      "ignore": false,
+      "date_recuperation": "2026-09-17T14:02:28.991767+00:00",
+      "source": "nar.realtor",
+      "extrait": "Pending home sales in August increased by 0.3% month-over-month and decreased 4.7% year-over-year, according to the National Association of REALTORS® Pending Home Sales report. The report helps the real estate ecosystem—including agents, homebuyers and sellers—better understand the housing market by providing data on the level of home sales under contract. ...",
+      "url": "https://www.forexfactory.com/news/1418728-us-nar-pending-home-sales-report-shows-03"
+    },
+    {
       "ignore": false,
       "source": "statcan.gc.ca",
       "impact": "low",
