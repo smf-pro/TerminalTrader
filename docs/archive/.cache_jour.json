@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-17T07:01:23.291976+00:00",
     "cb_articles": "2026-09-17T05:10:45.449690+00:00",
-    "il_articles": "2026-09-17T06:42:23.800760+00:00"
+    "il_articles": "2026-09-17T07:16:37.630334+00:00"
   },
   "ff_news": [
     {
@@ -137,6 +137,21 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/news/long-end-treasury-yields-stay-calm-as-markets-digest-the-fed/",
+      "date_recuperation": "2026-09-17T07:20:26.852501+00:00",
+      "categorie": "news",
+      "contenu": "The relative calm in 10-year Treasury yields may be the most important signal for broader markets right now\n\nThere are plenty of ways to pick apart the market reaction to the Fed, but I think the one that matters most right now is happening in the bond market. More specifically, at the long-end of the curve.\n\n10-year Treasury yields are still hovering just below 5% after the Fed raised interest rates by 25 bps and delivered what was, on balance, a fairly hawkish message. It briefly dipped as low as around 4.94% overnight before moving back toward 5%, while 30-year yields have also backed away slightly from recent highs.\n\nConsidering where markets were heading into the meeting, that is not a bad outcome at all.\n\nThe fear coming into this week was that the Fed would find a way to somehow make things worse. Long-end yields had been pushing relentlessly higher on inflation concerns, higher oil prices, fiscal worries and questions over whether policymakers were doing enough to keep inflation expectations anchored.\n\nA hawkish Fed could have easily triggered another leg higher if markets interpreted the move as being too little, too late. But so far, that hasn't happened yet.\n\nInstead, what we're seeing is that most of the pressure has been concentrated further down the curve. 2-year Treasury yields jumped after the decision as traders moved to price in a greater chance of further rate hikes. Meanwhile, the long-end has been comparatively more well behaved. The curve is flattening rather than simply shifting violently higher.\n\nAnd that distinction matters. Traders and investors are repricing the Fed path, but they aren't demanding a much bigger premium on long-term Treasuries - well at least not yet.\n\nAnd I think that's the more important message for broader markets.\n\nDon't get me wrong. 10-year yields sitting near 5% is still hardly something to be cheering. Borrowing costs are still extremely restrictive, and the level itself is a major headwind for equities and financial conditions more broadly.\n\nHowever, there's a big difference between yields holding around 5% and the bond market losing confidence and sending them racing toward 5.25% or beyond.\n\nFor now, the Fed appears to have bought itself some credibility at the long-end. And if they can continue that, it may prove to be far more important for risk assets than the 25 bps rate hike itself.",
+      "ignore": false,
+      "tags": [
+        "Bonds",
+        "yield",
+        "USD",
+        "Fed"
+      ],
+      "date_publication": "2026-09-17T07:16:37.630334+00:00",
+      "titre": "Long-end Treasury yields stay calm as markets digest the Fed"
+    },
     {
       "categorie": "news",
       "date_recuperation": "2026-09-17T06:45:59.460956+00:00",
