@@ -2,14 +2,14 @@
   "date": "2026-09-17",
   "ff_news": [
     {
+      "impact": "low",
       "date_publication": "2026-09-17T16:59:27.413706+00:00",
-      "ignore": false,
+      "titre": "Trump tells Axios he's approaching major crossroads in Iran war",
       "date_recuperation": "2026-09-17T17:00:27.413706+00:00",
       "url": "https://www.forexfactory.com/news/1418753-trump-tells-axios-hes-approaching-major-crossroads-in",
-      "source": "@financialjuice",
       "extrait": "Trump tells Axios he's approaching major crossroads in Iran war https://t.co/lMpY2EeV2A",
-      "impact": "low",
-      "titre": "Trump tells Axios he's approaching major crossroads in Iran war"
+      "source": "@financialjuice",
+      "ignore": false
     },
     {
       "ignore": false,
