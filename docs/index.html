@@ -24,19 +24,40 @@
     --mono:'IBM Plex Mono', monospace;
     --sans:'IBM Plex Sans', sans-serif;
     --shadow-panel: 0 1px 0 rgba(255,255,255,0.02) inset, 0 8px 20px -12px rgba(0,0,0,0.6);
+    --shadow-soft: 0 1px 0 rgba(255,255,255,0.03) inset, 0 6px 16px -10px rgba(0,0,0,0.7);
+    --shadow-lift: 0 12px 28px -14px rgba(0,0,0,0.65);
+    --ring-gold: 0 0 0 1px rgba(201,161,90,0.35), 0 0 14px -2px rgba(201,161,90,0.35);
+    --radius-sm: 4px;
+    --radius: 6px;
+    --ease: cubic-bezier(.4,0,.2,1);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{
     background:var(--bg-0);
+    background-image:radial-gradient(ellipse 1200px 800px at 50% -10%, rgba(91,144,255,0.05), transparent 60%);
     color:var(--text-hi);
     font-family:var(--sans);
     height:100%;
     overflow:hidden;
     -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:'tnum' 1, 'ss01' 1;
   }
-  ::-webkit-scrollbar{width:8px; height:8px;}
-  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
+  ::selection{ background:rgba(91,144,255,0.32); color:var(--text-hi); }
+  ::-webkit-scrollbar{width:9px; height:9px;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:5px; border:2px solid var(--bg-0); background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:#323b4d; background-clip:padding-box;}
   ::-webkit-scrollbar-track{background:transparent;}
+
+  button, input{ font:inherit; }
+  button:focus-visible, input:focus-visible, [tabindex]:focus-visible{
+    outline:1.5px solid var(--gold);
+    outline-offset:1px;
+    border-radius:2px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
 
   .app{
     display:grid;
@@ -49,37 +70,40 @@
     display:flex;
     align-items:center;
     gap:28px;
-    padding:10px 18px;
+    padding:11px 20px;
     border-bottom:1px solid var(--line);
-    background:var(--bg-1);
+    background:rgba(16,19,26,0.86);
+    backdrop-filter:blur(10px) saturate(1.2);
+    -webkit-backdrop-filter:blur(10px) saturate(1.2);
     position:relative;
-    box-shadow:0 4px 16px -8px rgba(0,0,0,0.5);
+    z-index:5;
+    box-shadow:0 4px 20px -10px rgba(0,0,0,0.6);
   }
   header::after{
     content:'';
     position:absolute; left:0; right:0; bottom:-1px; height:1px;
-    background:linear-gradient(90deg, var(--gold) 0%, transparent 22%);
-    opacity:0.55;
+    background:linear-gradient(90deg, var(--gold) 0%, rgba(201,161,90,0.25) 14%, transparent 34%);
+    opacity:0.7;
   }
   .brand{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:11px;
   }
   .brand .mark{
-    width:28px; height:28px;
+    width:29px; height:29px;
     background:linear-gradient(135deg, var(--gold), var(--blue));
-    border-radius:7px;
+    border-radius:8px;
     display:flex; align-items:center; justify-content:center;
     font-family:var(--mono); font-weight:700; font-size:13px; color:#0a0c11;
-    box-shadow:0 2px 8px -2px rgba(201,161,90,0.45);
+    box-shadow:0 2px 10px -2px rgba(201,161,90,0.5), inset 0 1px 0 rgba(255,255,255,0.35);
     letter-spacing:-0.5px;
   }
   .brand .name{
     font-family:var(--mono);
     font-weight:600;
     font-size:14.5px;
-    letter-spacing:0.6px;
+    letter-spacing:0.8px;
   }
   .brand .name span{ color:var(--text-low); font-weight:400; }
   .status-cluster{ display:flex; align-items:center; gap:22px; font-family:var(--mono); font-size:12px; color:var(--text-mid); }
@@ -108,7 +132,9 @@
     padding:6px 12px;
     width:230px;
     margin-left:auto;
+    transition:border-color .15s var(--ease), box-shadow .15s var(--ease);
   }
+  .search:focus-within{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(91,144,255,0.12); }
   .search input{
     background:none; border:none; outline:none;
     color:var(--text-hi); font-family:var(--mono); font-size:12px; width:100%;
@@ -122,6 +148,8 @@
     overflow:hidden;
     white-space:nowrap;
     padding:8px 0;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
   }
   .tape{
     display:inline-flex;
@@ -149,13 +177,14 @@
     display:flex;
     flex-direction:column;
     overflow:hidden;
+    box-shadow:var(--shadow-soft);
   }
   .panel-head{
     padding:10px 14px;
     border-bottom:1px solid var(--line);
     display:flex; align-items:center; justify-content:space-between;
-    font-size:10.5px; letter-spacing:0.6px; color:var(--text-mid); font-weight:600;
-    background:var(--bg-1);
+    font-size:10.5px; letter-spacing:0.7px; color:var(--text-mid); font-weight:600;
+    background:linear-gradient(180deg, var(--bg-1), rgba(16,19,26,0.7));
     text-transform:uppercase;
   }
   .panel-body{ overflow-y:auto; flex:1; }
@@ -167,7 +196,8 @@
     padding:9px 14px;
     border-bottom:1px solid var(--line);
     cursor:pointer;
-    transition:background 0.12s;
+    transition:background 0.15s var(--ease), border-color 0.15s var(--ease), padding 0.15s var(--ease);
+    border-left:2px solid transparent;
   }
   .wl-row:hover{ background:var(--bg-2); }
   .wl-row.active{ background:var(--bg-2); border-left:2px solid var(--blue); padding-left:12px; }
@@ -190,8 +220,10 @@
   .tf-btn{
     background:none; border:1px solid var(--line); color:var(--text-mid);
     font-family:var(--mono); font-size:11px; padding:5px 10px; border-radius:4px; cursor:pointer;
+    transition:background .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
   }
-  .tf-btn.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); }
+  .tf-btn:hover{ color:var(--text-hi); border-color:#323b4d; }
+  .tf-btn.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:0 0 0 1px rgba(91,144,255,0.18); }
 
   .chart-area{ flex:1; position:relative; padding:12px; }
   canvas{ display:block; width:100%; height:100%; }
@@ -203,8 +235,9 @@
   .book-col{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
   .book-head{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:6px 12px; font-size:10px; color:var(--text-low); border-bottom:1px solid var(--line); font-family:var(--mono); }
   .book-body{ overflow-y:auto; flex:1; font-family:var(--mono); font-size:11.5px; }
-  .book-row{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:2.5px 12px; position:relative; }
-  .book-row .bar{ position:absolute; top:0; bottom:0; right:0; opacity:0.14; z-index:0; }
+  .book-row{ display:grid; grid-template-columns:1fr 1fr 1fr; padding:2.5px 12px; position:relative; transition:background .12s var(--ease); }
+  .book-row:hover{ background:rgba(255,255,255,0.02); }
+  .book-row .bar{ position:absolute; top:0; bottom:0; right:0; opacity:0.14; z-index:0; transition:width .3s var(--ease); }
   .book-row.bid .bar{ background:var(--green); }
   .book-row.ask .bar{ background:var(--red); }
   .book-row > span{ position:relative; z-index:1; }
@@ -218,18 +251,20 @@
   .trade-row .q,.trade-row .tm{ text-align:right; color:var(--text-mid); }
 
   /* ---------- RIGHT PANEL ---------- */
-  .pl-summary{ padding:14px; border-bottom:1px solid var(--line); }
-  .pl-summary .label{ font-size:10.5px; color:var(--text-low); margin-bottom:4px; }
-  .pl-summary .value{ font-family:var(--mono); font-size:22px; font-weight:600; }
-  .pl-sub{ font-family:var(--mono); font-size:12px; margin-top:4px; }
+  .pl-summary{ padding:16px 14px; border-bottom:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent); }
+  .pl-summary .label{ font-size:10.5px; color:var(--text-low); margin-bottom:5px; letter-spacing:0.4px; text-transform:uppercase; }
+  .pl-summary .value{ font-family:var(--mono); font-size:23px; font-weight:600; letter-spacing:-0.3px; }
+  .pl-sub{ font-family:var(--mono); font-size:12px; margin-top:5px; }
 
-  .pos-row{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .pos-row{ padding:10px 14px; border-bottom:1px solid var(--line); transition:background .12s var(--ease); }
+  .pos-row:hover{ background:rgba(255,255,255,0.02); }
   .pos-top{ display:flex; justify-content:space-between; align-items:baseline; }
   .pos-sym{ font-family:var(--mono); font-weight:600; font-size:12.5px; }
   .pos-pl{ font-family:var(--mono); font-size:12.5px; }
   .pos-sub{ display:flex; justify-content:space-between; font-size:10.5px; color:var(--text-low); margin-top:3px; font-family:var(--mono); }
 
-  .news-row{ padding:10px 14px; border-bottom:1px solid var(--line); }
+  .news-row{ padding:10px 14px; border-bottom:1px solid var(--line); transition:background .12s var(--ease); }
+  .news-row:hover{ background:rgba(255,255,255,0.02); }
   .news-time{ font-family:var(--mono); font-size:10px; color:var(--text-low); }
   .news-text{ font-size:12px; margin-top:3px; line-height:1.4; color:var(--text-mid); }
   .news-tag{ display:inline-block; font-family:var(--mono); font-size:9px; padding:1px 6px; border-radius:3px; margin-right:6px; }
@@ -252,6 +287,7 @@
     background:none; border:none; color:var(--text-mid);
     font-family:var(--mono); font-size:11.5px; letter-spacing:0.5px;
     padding:7px 13px; cursor:pointer; border-radius:5px;
+    transition:color .15s var(--ease), background .15s var(--ease);
   }
   nav.main-nav .nav-btn:hover{ color:var(--text-hi); background:var(--bg-2); }
   nav.main-nav .nav-btn.active{ color:var(--text-hi); background:var(--bg-2); box-shadow:inset 0 -2px 0 var(--gold); }
@@ -268,7 +304,8 @@
   .filter-item{
     display:flex; align-items:center; justify-content:space-between;
     padding:9px 14px; font-family:var(--mono); font-size:12px; color:var(--text-mid);
-    cursor:pointer; border-bottom:1px solid var(--line);
+    cursor:pointer; border-bottom:1px solid var(--line); border-left:2px solid transparent;
+    transition:color .15s var(--ease), background .15s var(--ease), padding .15s var(--ease);
   }
   .filter-item:hover{ color:var(--text-hi); }
   .filter-item.active{ color:var(--text-hi); background:var(--bg-2); border-left:2px solid var(--blue); padding-left:12px; }
@@ -277,10 +314,11 @@
   .news-feed{ background:var(--bg-0); overflow-y:auto; }
   .news-card{
     padding:14px 18px; border-bottom:1px solid var(--line);
+    transition:background .15s var(--ease);
   }
   .news-card:hover{ background:var(--bg-1); }
   .news-card .meta{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
-  .news-card .headline{ font-size:14px; font-weight:600; line-height:1.4; margin-bottom:5px; cursor:pointer; }
+  .news-card .headline{ font-size:14px; font-weight:600; line-height:1.45; margin-bottom:5px; cursor:pointer; transition:color .12s var(--ease); }
   .news-card .headline:hover{ color:var(--blue); }
   .news-card.is-open .headline{ color:var(--blue); }
   .news-card .snippet{
@@ -311,6 +349,7 @@
     font-weight:600; padding:8px 12px; border-bottom:1px solid var(--line); font-family:var(--mono);
   }
   .cal-table tbody td{ padding:10px 12px; border-bottom:1px solid var(--line); font-size:12.5px; vertical-align:middle; }
+  .cal-table tbody tr{ transition:background .12s var(--ease); }
   .cal-table tbody tr:hover{ background:var(--bg-1); }
   .cal-time{ font-family:var(--mono); color:var(--text-mid); white-space:nowrap; }
   .cal-country{ font-family:var(--mono); font-size:11px; color:var(--text-mid); background:var(--bg-2); padding:2px 7px; border-radius:3px; }
@@ -345,12 +384,14 @@
   .eco-chip{
     background:var(--bg-1); border:1px solid var(--line); color:var(--text-mid);
     font-family:var(--mono); font-size:11px; padding:5px 11px; border-radius:5px;
-    cursor:pointer; transition:background .12s, border-color .12s, color .12s;
+    cursor:pointer; transition:background .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
   }
-  .eco-chip:hover{ color:var(--text-hi); }
+  .eco-chip:hover{ color:var(--text-hi); border-color:#323b4d; }
   .eco-chip.active{ background:var(--bg-2); color:var(--text-hi); border-color:var(--blue); box-shadow:inset 0 -2px 0 var(--gold); }
   .eco-empty{ padding:32px 14px; text-align:center; color:var(--text-low); font-size:12px; }
-  .eco-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .eco-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:6px; background:transparent; border:none; }
+  @media (max-width:1100px){ .eco-grid{ grid-template-columns:repeat(3, 1fr); } }
+  @media (max-width:700px){ .eco-grid{ grid-template-columns:repeat(2, 1fr); } }
 
   /* ---------- TAUX IMPLICITE : bascule % / pb ---------- */
   .taux-chart-toggle{ display:flex; justify-content:center; gap:8px; padding:10px 14px; border-top:1px solid var(--line); background:var(--bg-1); }
@@ -365,14 +406,20 @@
 
   /* ---------- CESI ---------- */
   .cesi-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .cesi-card{ background:var(--bg-0); padding:14px 16px; }
+  .cesi-card{ background:var(--bg-0); padding:14px 16px; transition:background .15s var(--ease); }
+  .cesi-card:hover{ background:rgba(255,255,255,0.015); }
   .cesi-card-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
   .cesi-ccy{ font-family:var(--mono); font-size:13px; font-weight:600; color:var(--text-hi); }
   .cesi-global{ font-family:var(--mono); font-size:20px; font-weight:700; }
-  .cesi-souscats{ display:flex; flex-direction:column; gap:6px; }
-  .cesi-souscat{ display:flex; justify-content:space-between; align-items:center; font-size:11px; }
+  .cesi-souscats{ display:flex; flex-direction:column; gap:7px; }
+  .cesi-souscat{ display:grid; grid-template-columns:64px 1fr 44px; align-items:center; gap:8px; font-size:11px; }
   .cesi-souscat-label{ color:var(--text-mid); }
-  .cesi-souscat-val{ font-family:var(--mono); font-weight:600; }
+  .cesi-souscat-val{ font-family:var(--mono); font-weight:600; text-align:right; }
+  .cesi-souscat-bar{ position:relative; height:6px; background:rgba(255,255,255,0.07); border-radius:3px; }
+  .cesi-souscat-bar .csb-center{ position:absolute; top:-2px; bottom:-2px; left:50%; width:1px; background:rgba(255,255,255,0.2); }
+  .cesi-souscat-bar .csb-fill{ position:absolute; top:0; bottom:0; border-radius:2px; }
+  .cesi-souscat-bar .csb-fill.pos{ background:#22c48d; }
+  .cesi-souscat-bar .csb-fill.neg{ background:#ef4a5a; }
   .cesi-meta{ margin-top:10px; font-family:var(--mono); font-size:9.5px; color:var(--text-low); }
   .cesi-fort-haussier{ color:var(--green); }
   .cesi-haussier{ color:var(--green); opacity:0.75; }
@@ -391,16 +438,47 @@
   .cesi-mini-label{ font-size:10.5px; color:var(--text-mid); }
   .cesi-mini-val{ font-family:var(--mono); font-size:12px; font-weight:600; }
   .cesi-mini-chart-area{ height:70px; }
-  .cesi-mini-chart-area canvas{ width:100%; height:100%; display:block; }
-  .eco-card{ background:var(--bg-0); padding:10px 14px; }
+  .cesi-mini-chart-area canvas{ width:100%; height:100%; display:block; cursor:crosshair; }
+  .eco-card{
+    background:var(--bg-1);
+    padding:12px 14px 8px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    transition:border-color .15s var(--ease), transform .15s var(--ease);
+  }
+  .eco-card:hover{ border-color:#323b4d; transform:translateY(-1px); }
   .eco-card .line{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
   .eco-card .name{ font-size:11px; color:var(--text-mid); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex:1 1 auto; }
   .eco-card .valgroup{ display:flex; align-items:baseline; gap:6px; white-space:nowrap; flex:0 0 auto; }
   .eco-card .value{ font-family:var(--mono); font-size:15px; font-weight:600; }
   .eco-card .delta{ font-family:var(--mono); font-size:10px; }
   .eco-card canvas{
-    width:calc(100% + 28px); height:88px; margin:6px -14px -6px -14px; display:block;
+    width:calc(100% + 28px); height:112px; margin:6px -14px -6px -14px; display:block;
+    cursor:crosshair;
   }
+  .spark-tooltip{
+    position:fixed;
+    pointer-events:none;
+    z-index:50;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:6px 10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-hi);
+    box-shadow:var(--shadow-lift);
+    white-space:nowrap;
+    display:none;
+  }
+  .spark-tooltip .stt-date{ color:var(--text-low); font-size:9.5px; margin-bottom:3px; letter-spacing:0.3px; }
+  .spark-tooltip .stt-val{ font-weight:600; }
+  .spark-tooltip .stt-line{ display:flex; align-items:center; gap:6px; padding:1px 0; }
+  .spark-tooltip .stt-line .stt-val{ margin-left:auto; padding-left:10px; }
+  .spark-tooltip .stt-dot{ width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .spark-tooltip .stt-label{ color:var(--text-mid); font-weight:400; }
   .revise-dot{ color:var(--amber); font-size:9px; margin-left:6px; cursor:help; }
   .eco-hist-toggle{
     background:none; border:none; color:var(--text-low); font-family:var(--mono);
@@ -416,9 +494,14 @@
 
   /* --- taux implicite --- */
   .curve-area{ padding:14px; height:280px; }
-  .taux-layout{ display:grid; grid-template-columns:1fr 2fr 1fr; gap:1px; background:var(--line); flex:1; overflow:hidden; }
-  .taux-layout .taux-col{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .taux-layout{ display:grid; grid-template-columns:1fr 2fr 1fr; gap:10px; background:transparent; flex:1; overflow:hidden; }
+  .taux-layout .taux-col{
+    background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden;
+    border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-soft);
+  }
+  .taux-layout .taux-col .panel-head{ border-radius:var(--radius) var(--radius) 0 0; }
   .taux-chart-area{ padding:14px; flex:1; min-height:0; }
+  .taux-chart-area canvas{ display:block; width:100%; height:100%; }
   .bps-row{ padding:11px 14px; border-bottom:1px solid var(--line); }
   .bps-row .bps-bank{ font-size:11.5px; color:var(--text-mid); }
   .bps-row .bps-meeting{ font-family:var(--mono); font-size:10px; color:var(--text-low); margin-top:2px; }
@@ -438,6 +521,8 @@
   .pm-back:hover{ background:var(--bg-2); }
   .prob-table{ width:100%; border-collapse:collapse; }
   .prob-table thead th{ text-align:left; font-size:10px; color:var(--text-low); padding:8px 14px; border-bottom:1px solid var(--line); font-family:var(--mono); }
+  .prob-table tbody tr{ transition:background .12s var(--ease); }
+  .prob-table tbody tr:hover{ background:var(--bg-1); }
   .prob-table tbody td{ padding:9px 14px; border-bottom:1px solid var(--line); font-size:12px; }
   .prob-bar-wrap{ display:flex; align-items:center; gap:8px; }
   .bps-gauge-wrap{ display:flex; align-items:center; gap:8px; }
@@ -489,15 +574,19 @@
   .cs-title-sub{ font-family:var(--sans); font-weight:400; font-size:11px; color:var(--text-low); margin-left:10px; }
   .cs-grid{
     display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr);
-    gap:1px; background:var(--line); flex:1; overflow:hidden;
+    gap:10px; background:transparent; flex:1; overflow:hidden; padding:14px;
   }
-  .cs-panel{ background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden; }
+  .cs-panel{
+    background:var(--bg-0); display:flex; flex-direction:column; overflow:hidden;
+    border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-soft);
+  }
   .cs-panel-head{ display:flex; align-items:baseline; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--line); flex-shrink:0; }
   .cs-name{ font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:0.5px; }
   .cs-val{ font-family:var(--mono); font-size:12.5px; color:var(--text-mid); }
   .cs-val.up{ color:var(--green); }
   .cs-val.down{ color:var(--red); }
   .cs-chart-area{ flex:1; padding:8px; min-height:0; position:relative; }
+  .cs-chart-area canvas{ display:block; width:100%; height:100%; }
 
   /* ---------- FX LIVE ---------- */
   .fx-head-row, .fx-row{
@@ -551,8 +640,9 @@
     letter-spacing:0.5px; color:var(--text-mid);
     background:var(--bg-1); border:1px solid var(--line);
     border-radius:3px; padding:5px 12px; cursor:pointer;
+    transition:color .15s var(--ease), border-color .15s var(--ease), background .15s var(--ease);
   }
-  .fx-perf-tab:hover{ color:var(--text-hi); }
+  .fx-perf-tab:hover{ color:var(--text-hi); border-color:#323b4d; }
   .fx-perf-tab.active{
     color:var(--gold); border-color:var(--gold); background:var(--gold-soft);
   }
@@ -610,7 +700,9 @@
     letter-spacing:0.4px; color:var(--text-mid);
     background:var(--bg-1); border:1px solid var(--line);
     border-radius:3px; padding:5px 10px; cursor:pointer;
+    transition:color .15s var(--ease), border-color .15s var(--ease), background .15s var(--ease);
   }
+  .fx-evol-mode-tab:hover, .fx-evol-period-tab:hover, .fx-evol-toggle-btn:hover{ color:var(--text-hi); border-color:#323b4d; }
   .fx-evol-mode-tab.active, .fx-evol-period-tab.active, .fx-evol-toggle-btn.active{
     color:var(--gold); border-color:var(--gold); background:var(--gold-soft);
   }
@@ -657,29 +749,33 @@
   .cesi-val{ font-family:var(--mono); font-weight:600; font-size:12px; }
   .cesi-val.up{ color:var(--green); } .cesi-val.down{ color:var(--red); }
   .cesi-chart-area{ flex:1; padding:10px 14px; min-height:0; }
+  .cesi-chart-area canvas{ cursor:crosshair; display:block; width:100%; height:100%; }
   .btn-archive{
     display:block;
-    margin:16px auto;
-    padding:10px 22px;
+    margin:18px auto;
+    padding:10px 24px;
     background:var(--bg-1);
     color:var(--text-hi);
     border:1px solid var(--line);
-    border-radius:6px;
+    border-radius:var(--radius);
     font-family:var(--mono);
     font-size:11px;
     letter-spacing:.04em;
     text-transform:uppercase;
     cursor:pointer;
-    transition:background .15s ease, border-color .15s ease;
+    box-shadow:var(--shadow-soft);
+    transition:background .15s var(--ease), border-color .15s var(--ease), transform .15s var(--ease);
   }
-  .btn-archive:hover{ background:var(--bg-2); border-color:var(--blue); }
-  .btn-archive:disabled{ opacity:.5; cursor:default; }
+  .btn-archive:hover{ background:var(--bg-2); border-color:var(--blue); transform:translateY(-1px); }
+  .btn-archive:active{ transform:translateY(0); }
+  .btn-archive:disabled{ opacity:.5; cursor:default; transform:none; }
   .lang-switch{
     display:flex; border:1px solid var(--line); border-radius:5px; overflow:hidden;
   }
   .lang-btn{
     font-family:var(--mono); font-size:11px; letter-spacing:.04em; padding:5px 10px;
     background:var(--bg-1); color:var(--text-mid); border:none; cursor:pointer;
+    transition:background .15s var(--ease), color .15s var(--ease);
   }
   .lang-btn + .lang-btn{ border-left:1px solid var(--line); }
   .lang-btn:hover{ color:var(--text-hi); }
@@ -687,6 +783,7 @@
 </style>
 </head>
 <body>
+<div class="spark-tooltip" id="sparkTooltip"></div>
 <div class="app">
 
   <header>
@@ -874,7 +971,7 @@
 
   <!-- ===================== TAUX IMPLICITE ===================== -->
   <div class="page" id="page-taux">
-    <div class="taux-layout" style="margin-top:22px;">
+    <div class="taux-layout" style="margin:18px 22px 22px;">
       <div class="taux-col">
         <div class="panel-head"><span>IMPLICITE EN PB — PAR BANQUE CENTRALE</span></div>
         <div class="panel-body" id="bpsList"></div>
@@ -927,9 +1024,9 @@
   </div>
 
   <!-- ===================== FX TEMPS RÉEL ===================== -->
-  <div class="page" id="page-fx">
-    <div class="panel" style="height:100%;">
-      <div class="panel-head">
+  <div class="page" id="page-fx" style="gap:10px; padding:14px;">
+    <div class="panel" style="flex:1; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
+      <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;">
         <span>FX LIVE<span class="src-status-dot" id="dot-fxforex-page" title=""></span><span class="src-status-time" id="time-fxforex"></span></span>
         <span style="font-weight:400; font-size:10px;">Maj ~1 min · sources : Finnhub (live) + Yahoo Finance (référence)</span>
       </div>
@@ -943,7 +1040,10 @@
       </div>
       <div class="fx-perf-chart" id="fxPerfChart"></div>
       <div class="panel-body" id="fxTable"></div>
+    </div>
 
+    <div class="panel" style="flex-shrink:0; border:1px solid var(--line); border-radius:var(--radius);">
+      <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;"><span>ÉVOLUTION</span></div>
       <div class="fx-evol-head">
         <div class="fx-evol-mode-tabs" id="fxEvolModeTabs">
           <span class="fx-evol-mode-tab active" data-mode="unique">Devise unique</span>
@@ -993,7 +1093,7 @@
         </div>
       </div>
     </div>
-    <div class="taux-layout" style="margin-top:16px; grid-template-columns:1fr 1.4fr;">
+    <div class="taux-layout" style="margin:16px 22px 22px; grid-template-columns:1fr 1.4fr;">
       <div class="taux-col">
         <div class="panel-head"><span>DERNIÈRES VALEURS PAR DEVISE</span></div>
         <div class="panel-body">
@@ -1799,7 +1899,7 @@ function renderCotFiltres(){
 
   const devisesPresentes = ORDRE_CCY_COT.filter(ccy => (cotDonnees[cotReportActif][ccy] || []).length > 0);
   const ccyHtml = (devisesPresentes.length ? devisesPresentes : ORDRE_CCY_COT).map(ccy =>
-    `<button class="eco-chip ${cotDeviseActive===ccy?'active':''}" data-ccy="${ccy}">${flagFor(ccy)} ${ccy}</button>`
+    `<button class="eco-chip ${cotDeviseActive===ccy?'active':''}" data-ccy="${ccy}">${ccy}</button>`
   ).join('');
   document.getElementById('cotFilterCcy').innerHTML = ccyHtml;
 }
@@ -1823,7 +1923,7 @@ function renderCotTable(){
     }
     return `
       <tr style="cursor:pointer; ${ccy===cotDeviseActive?'background:var(--bg-2);':''}" data-ccy="${ccy}">
-        <td>${flagFor(ccy)} ${ccy}</td>
+        <td>${ccy}</td>
         <td style="color:var(--text-low); font-family:var(--mono); font-size:11px;">${dernier.date}</td>
         <td style="text-align:right; font-family:var(--mono);">${formaterNombreCot(dernier.lev_money_net)}</td>
         <td style="text-align:right; font-family:var(--mono);">${formaterNombreCot(dernier.asset_mgr_net)}</td>
@@ -1847,7 +1947,7 @@ function renderCotTable(){
 const COT_COULEURS = { long: '#22c48d', short: '#ef4a5a', net: '#8ab4f8' };
 const COT_LABELS = { long: 'Long', short: 'Short', net: 'Net (Long − Short)' };
 
-function dessinerCotEvolution(canvas, seriesParCle){
+function dessinerCotEvolution(canvas, seriesParCle, hoverIndex){
   const clesAvecDonnees = ['long', 'short', 'net'].filter(cle => (seriesParCle[cle] || []).length >= 2);
   if(clesAvecDonnees.length === 0){ dessinerFxEvolutionVide(canvas); return; }
 
@@ -1904,6 +2004,9 @@ function dessinerCotEvolution(canvas, seriesParCle){
       const d = new Date(p.date + 'T00:00:00Z');
       const label = String(d.getUTCDate()).padStart(2, '0') + '/' + String(d.getUTCMonth() + 1).padStart(2, '0');
       const x = xFor(i);
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h - padB); ctx.stroke();
+      ctx.fillStyle = '#7b869c';
       ctx.fillText(label, Math.min(Math.max(x - 14, padL), w - padR - 28), h - 4);
     }
   });
@@ -1920,6 +2023,35 @@ function dessinerCotEvolution(canvas, seriesParCle){
     const dernier = serie[serie.length - 1];
     ctx.beginPath(); ctx.arc(xFor(serie.length - 1), yFor(dernier.v), 2.8, 0, 2 * Math.PI);
     ctx.fillStyle = COT_COULEURS[cle]; ctx.fill();
+  });
+
+  if(hoverIndex != null && hoverIndex < n){
+    const x = xFor(hoverIndex);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    clesAvecDonnees.forEach(cle => {
+      const p = seriesParCle[cle][hoverIndex];
+      if(!p) return;
+      ctx.beginPath(); ctx.fillStyle = COT_COULEURS[cle]; ctx.arc(x, yFor(p.v), 3, 0, Math.PI*2); ctx.fill();
+      ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1; ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => Array.from({length:n}, (_,i)=>i),
+    xDuPoint: (p,i) => xFor(i),
+    redessiner: idx => dessinerCotEvolution(canvas, seriesParCle, idx),
+    formatInfobulle: (p, idx) => ({
+      date: serieReference[idx] ? (d => String(d.getUTCDate()).padStart(2,'0')+'/'+String(d.getUTCMonth()+1).padStart(2,'0')+'/'+d.getUTCFullYear())(new Date(serieReference[idx].date + 'T00:00:00Z')) : '',
+      lines: clesAvecDonnees.filter(cle => seriesParCle[cle][idx]).map(cle => ({
+        label: COT_LABELS[cle],
+        color: COT_COULEURS[cle],
+        value: seriesParCle[cle][idx].v.toLocaleString('fr-FR'),
+      })),
+    }),
   });
 }
 
@@ -2544,7 +2676,7 @@ function fxFormatAxeTemps(timestamp, spanMs){
 }
 
 function fxPreparerCanvas(canvas){
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = rect.width * devicePixelRatio;
   canvas.height = rect.height * devicePixelRatio;
   canvas.style.width = rect.width + 'px';
@@ -2562,7 +2694,7 @@ function dessinerFxEvolutionVide(canvas){
   ctx.fillText('Pas assez de données pour cette période…', 14, h/2);
 }
 
-function dessinerFxEvolutionUnique(canvas, serie, estIndexee){
+function dessinerFxEvolutionUnique(canvas, serie, estIndexee, hoverIndex){
   if(serie.length < 2){ dessinerFxEvolutionVide(canvas); return; }
   const { ctx, w, h } = fxPreparerCanvas(canvas);
   ctx.clearRect(0, 0, w, h);
@@ -2622,9 +2754,31 @@ function dessinerFxEvolutionUnique(canvas, serie, estIndexee){
   const dernier = serie[serie.length - 1];
   ctx.beginPath(); ctx.arc(xFor(dernier.t), yFor(dernier.v), 3, 0, 2*Math.PI);
   ctx.fillStyle = couleur; ctx.fill();
+
+  if(hoverIndex != null && serie[hoverIndex]){
+    const p = serie[hoverIndex];
+    const x = xFor(p.t), y = yFor(p.v);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.fillStyle = couleur; ctx.arc(x, y, 3.5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => serie,
+    xDuPoint: p => xFor(p.t),
+    redessiner: idx => dessinerFxEvolutionUnique(canvas, serie, estIndexee, idx),
+    formatInfobulle: p => ({
+      date: new Date(p.t).toLocaleString('fr-FR', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}),
+      raw: estIndexee ? `${p.v>=0?'+':''}${p.v.toFixed(2)}%` : p.v.toFixed(5),
+    }),
+  });
 }
 
-function dessinerFxEvolutionMulti(canvas, seriesParDevise){
+function dessinerFxEvolutionMulti(canvas, seriesParDevise, hoverIndex){
   const { ctx, w, h } = fxPreparerCanvas(canvas);
   ctx.clearRect(0, 0, w, h);
 
@@ -2676,6 +2830,38 @@ function dessinerFxEvolutionMulti(canvas, seriesParDevise){
     const dernier = serie[serie.length - 1];
     ctx.beginPath(); ctx.arc(xFor(dernier.t), yFor(dernier.v), 2.5, 0, 2*Math.PI);
     ctx.fillStyle = FX_EVOL_COULEURS[sym]; ctx.fill();
+  });
+
+  // Points de référence pour le survol : les instants de la série la plus
+  // longue (les autres devises n'ont pas forcément le même nombre de
+  // points, mais partagent globalement la même plage de temps).
+  const serieReference = devisesAvecDonnees.reduce((a,b)=> seriesParDevise[a].length>=seriesParDevise[b].length?a:b);
+  const pointsRef = seriesParDevise[serieReference];
+
+  if(hoverIndex != null && pointsRef[hoverIndex]){
+    const x = xFor(pointsRef[hoverIndex].t);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => pointsRef,
+    xDuPoint: p => xFor(p.t),
+    redessiner: idx => dessinerFxEvolutionMulti(canvas, seriesParDevise, idx),
+    formatInfobulle: (p, idx) => ({
+      date: new Date(p.t).toLocaleString('fr-FR', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}),
+      lines: devisesAvecDonnees.map(sym => {
+        // Point le plus proche de cet instant pour chaque devise (les séries
+        // n'ont pas forcément exactement les mêmes timestamps).
+        const serie = seriesParDevise[sym];
+        let meilleur = serie[0];
+        serie.forEach(pt => { if(Math.abs(pt.t - p.t) < Math.abs(meilleur.t - p.t)) meilleur = pt; });
+        return { label: sym, color: FX_EVOL_COULEURS[sym], value: (meilleur.v>=0?'+':'')+meilleur.v.toFixed(2)+'%' };
+      }),
+    }),
   });
 }
 
@@ -3039,7 +3225,12 @@ const flagFor = c => ({
 // parsable (ex: discours sans chiffre) plutot que de fausser l'affichage.
 function parseValeurCal(v){
   if(v === null || v === undefined || v === '') return null;
-  const texte = String(v).trim().replace(/,/g, '');
+  // Certaines banques centrales (ex. BoJ : "<1.00%") publient un taux sous
+  // forme de seuil plutôt qu'une valeur exacte. Sans ce nettoyage,
+  // parseFloat("<1.00") renvoie NaN et la carte perd purement et
+  // simplement son graphique (aucune valeur numérique exploitable), ce qui
+  // n'a rien à voir avec l'échelle du graphique elle-même.
+  const texte = String(v).trim().replace(/,/g, '').replace(/^[<>]\s*/, '');
   const mult = /K$/i.test(texte) ? 1e3 : /M$/i.test(texte) ? 1e6 : /B$/i.test(texte) ? 1e9 : 1;
   const nombre = parseFloat(texte.replace(/[%KMB]/gi, ''));
   return Number.isNaN(nombre) ? null : nombre * mult;
@@ -3196,7 +3387,7 @@ function renderCalendar(){
     const dots = '<span></span><span></span><span></span>';
     html += `<tr>
       <td class="cal-time">${p.timeStr}</td>
-      <td><span class="cal-country">${flagFor(p.country)} ${p.country}</span></td>
+      <td><span class="cal-country">${p.country}</span></td>
       <td>${p.name}</td>
       <td><span class="impact-dots ${p.impact}">${dots}</span></td>
       <td class="cal-num ${p.prevDeduit?'deduit':''}" ${p.prevDeduit?`title="Déduit de Data Éco (dernière valeur connue, pas encore confirmé par le calendrier)"`:''}>${p.prevDisp}</td>
@@ -3220,7 +3411,7 @@ function renderCalendarHome(){
   el.innerHTML = events.map(ev=>`
     <div class="cal-row-compact ${ev.passed?'done':''}" title="${ev.name} — Préc. ${ev.prevDisp}${ev.prevDeduit?' (déduit de Data Éco)':''} · Prév. ${ev.fcstDisp} · Réel ${ev.actualDisp}">
       <span class="cal-time">${ev.timeStr}</span>
-      <span class="cal-country">${flagFor(ev.country)} ${ev.country}</span>
+      <span class="cal-country">${ev.country}</span>
       <span class="impact-dots ${ev.impact}"><span></span><span></span><span></span></span>
       <span class="name">${ev.name}</span>
       <span class="actual-inline ${ev.actualClass}">${ev.actualDisp}</span>
@@ -3235,9 +3426,12 @@ function renderCalendarHome(){
    section ne fait que l'AFFICHAGE (graphique existant de la page Calendrier
    + nouvelle page CESI dédiée). */
 
-function drawCesiChart(canvas, data){
+// meta (optionnel) = {aujourdhui, pasJours} : permet de reconstituer la
+// date de chaque point (voir calculerSerieCesi/ParCategorie) pour
+// l'infobulle de survol. hoverIndex dessine un repère sur le point choisi.
+function drawCesiChart(canvas, data, hoverIndex, meta){
   if(!canvas || data.length < 2) return;
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   const w = rect.width, h = rect.height;
   if(w<=0||h<=0) return;
   canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
@@ -3246,18 +3440,14 @@ function drawCesiChart(canvas, data){
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   c.clearRect(0,0,w,h);
 
-  // Échelle ADAPTATIVE : calée sur les valeurs réellement présentes dans
-  // "data" (+ une marge de 15%), et pas une échelle fixe -100/+100. Cette
-  // échelle fixe écrasait les vraies variations du CESI (qui oscille
-  // plutôt entre -20 et +20 en pratique), donnant des courbes qui
-  // semblaient plates. Le zéro reste toujours inclus dans l'échelle, pour
-  // garder la ligne de référence visuellement cohérente.
-  const valeurMin = Math.min(...data, 0);
-  const valeurMax = Math.max(...data, 0);
-  let etendue = valeurMax - valeurMin;
-  if(etendue < 2) etendue = 2; // évite une échelle absurde si les valeurs sont ~constantes
-  const marge = etendue * 0.15;
-  const min = valeurMin - marge, max = valeurMax + marge;
+  // Échelle "0 -> valeur la plus haute atteinte" (demandé) : le bas du
+  // graphique est toujours 0, pas une valeur adaptative qui pouvait
+  // descendre sous zéro. Ça montre clairement la progression vers le pic
+  // de la période, au prix de ne plus distinguer les creux négatifs entre
+  // eux (ils s'aplatissent tous au niveau 0).
+  const valeurMax = Math.max(...data, 0.1);
+  const marge = valeurMax * 0.15;
+  const min = 0, max = valeurMax + marge;
 
   const yFor = v => h - ((v-min)/(max-min))*h;
   const xFor = i => (i/(data.length-1))*w;
@@ -3280,7 +3470,63 @@ function drawCesiChart(canvas, data){
     c.lineTo(xFor(i+1), yFor(v2));
     c.stroke();
   }
+
+  // Mémorisé sur le canvas pour le gestionnaire de survol délégué
+  // (voir plus bas) : positions X/valeurs, et dates si meta fourni.
+  canvas._cesiData = data;
+  canvas._cesiXFor = xFor;
+  canvas._cesiMeta = meta || null;
+  canvas._cesiDates = (meta && meta.aujourdhui && meta.pasJours)
+    ? data.map((_,j) => new Date(meta.aujourdhui.getTime() - (data.length-1-j)*meta.pasJours*86400000))
+    : null;
+
+  if(hoverIndex != null && data[hoverIndex] != null){
+    const x = xFor(hoverIndex), y = yFor(data[hoverIndex]);
+    c.save();
+    c.strokeStyle = 'rgba(255,255,255,0.28)';
+    c.lineWidth = 1;
+    c.setLineDash([2,2]);
+    c.beginPath(); c.moveTo(x, 0); c.lineTo(x, h); c.stroke();
+    c.setLineDash([]);
+    c.beginPath();
+    c.fillStyle = data[hoverIndex]>=0 ? '#22c48d' : '#ef4a5a';
+    c.arc(x, y, 3.2, 0, Math.PI*2);
+    c.fill();
+    c.strokeStyle = '#0a0c11';
+    c.lineWidth = 1.2;
+    c.stroke();
+    c.restore();
+  }
 }
+
+// Survol de n'importe quel graphique CESI (barre latérale Calendrier ou
+// page CESI dédiée) : délégation sur le document car ces canvas sont
+// régénérés à chaque rafraîchissement de données.
+document.addEventListener('mousemove', e=>{
+  const canvas = e.target.closest && e.target.closest('canvas[id^="cesiCanvas-"], canvas[id^="cesi-mini-canvas-"]');
+  if(!canvas || !canvas._cesiData) return;
+  const rect = canvas.getBoundingClientRect();
+  const xPix = e.clientX - rect.left;
+  const data = canvas._cesiData;
+  const idx = Math.max(0, Math.min(data.length-1, Math.round((xPix/rect.width)*(data.length-1))));
+  if(canvas._hoverIndex !== idx){
+    canvas._hoverIndex = idx;
+    drawCesiChart(canvas, data, idx, canvas._cesiMeta);
+  }
+  const point = {
+    date: canvas._cesiDates ? canvas._cesiDates[idx].toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'}) : '',
+    raw: (data[idx]>=0?'+':'') + data[idx].toFixed(1),
+  };
+  afficherSparkTooltip(e.clientX, e.clientY, point);
+});
+document.addEventListener('mouseout', e=>{
+  const canvas = e.target.closest && e.target.closest('canvas[id^="cesiCanvas-"], canvas[id^="cesi-mini-canvas-"]');
+  if(!canvas || !canvas._cesiData) return;
+  if(canvas.contains(e.relatedTarget)) return;
+  canvas._hoverIndex = null;
+  drawCesiChart(canvas, canvas._cesiData, null, null);
+  masquerSparkTooltip();
+});
 
 function renderCesi(){
   const anyEl = document.getElementById('cesiCanvas-USD');
@@ -3296,7 +3542,7 @@ function renderCesi(){
       valEl.textContent = (dernier>=0?'+':'') + dernier.toFixed(1);
       valEl.className = 'cesi-val ' + (dernier>=0?'up':'down');
     }
-    drawCesiChart(document.getElementById('cesiCanvas-'+ccy), serie);
+    drawCesiChart(document.getElementById('cesiCanvas-'+ccy), serie, null, {aujourdhui, pasJours:3});
   });
 }
 
@@ -3320,17 +3566,32 @@ function renderCesiPage(){
     indicateurs.forEach(ind => { cachePrepare[ind.slug] = preparerIndicateurCesi(ind.slug, aujourdhui); });
     const r = calculerCESIauDate(ccy, aujourdhui, cachePrepare);
 
+    // Barre horizontale divergente (centrée sur 0, qui reste le point de
+    // départ de chaque barre) : plus lisible qu'une simple valeur pour
+    // comparer d'un coup d'œil Emploi/Inflation/Croissance. Échelle
+    // DYNAMIQUE par carte (0 -> la plus grande des 3 valeurs en valeur
+    // absolue), pas un plafond fixe à ±20 : sinon deux valeurs comme
+    // "+2" et "+14" se ressemblaient visuellement (toutes les deux loin
+    // du plafond), sans faire apparaître de vraie progression entre elles.
+    const echelleBarre = Math.max(
+      Math.abs(r.categories.emploi), Math.abs(r.categories.inflation), Math.abs(r.categories.croissance), 0.1
+    );
     const catsHtml = ['emploi','inflation','croissance'].map(cat => {
       const val = r.categories[cat];
+      const largeur = Math.min(50, Math.abs(val)/echelleBarre*50);
       return `<div class="cesi-souscat">
         <span class="cesi-souscat-label">${ecoTypeLabels[cat]}</span>
+        <span class="cesi-souscat-bar">
+          <span class="csb-center"></span>
+          <span class="csb-fill ${val>=0?'pos':'neg'}" style="${val>=0?'left':'right'}:50%; width:${largeur}%;"></span>
+        </span>
         <span class="cesi-souscat-val ${classeSelonScoreCesi(val)}">${val>=0?'+':''}${val.toFixed(1)}</span>
       </div>`;
     }).join('');
 
     return `<div class="cesi-card">
       <div class="cesi-card-head">
-        <span class="cesi-ccy">${flagFor(ccy)} ${ccy}</span>
+        <span class="cesi-ccy">${ccy}</span>
         <span class="cesi-global ${classeSelonScoreCesi(r.cesiGlobal)}">${r.cesiGlobal>=0?'+':''}${r.cesiGlobal.toFixed(1)}</span>
       </div>
       <div class="cesi-souscats">${catsHtml}</div>
@@ -3365,7 +3626,7 @@ function renderCesiDetailGrid(aujourdhui){
     ).join('');
 
     return `<div class="cesi-detail-block">
-      <div class="cesi-detail-block-head">${flagFor(ccy)} ${ccy}</div>
+      <div class="cesi-detail-block-head">${ccy}</div>
       <div class="cesi-detail-charts">${miniHtml}</div>
     </div>`;
   }).join('');
@@ -3381,7 +3642,7 @@ function renderCesiDetailGrid(aujourdhui){
         valEl.textContent = (dernier>=0?'+':'') + dernier.toFixed(1);
         valEl.className = 'cesi-mini-val ' + classeSelonScoreCesi(dernier);
       }
-      drawCesiChart(document.getElementById(`cesi-mini-canvas-${ccy}-${cat}`), valeurs);
+      drawCesiChart(document.getElementById(`cesi-mini-canvas-${ccy}-${cat}`), valeurs, null, {aujourdhui, pasJours:PAS_JOURS});
     });
   });
 }
@@ -3389,7 +3650,7 @@ function renderCesiDetailGrid(aujourdhui){
 // ===================== DATA ÉCONOMIQUE (données réelles, voir plus haut
 // INDICATEURS_SUIVIS / donneesIndicateurs / ecouterIndicateursTempsReel) =====
 const ecoTypeLabels = {
-  croissance:'Croissance', inflation:'Inflation', emploi:'Emploi', taux:'Taux directeur',
+  croissance:'Croissance', inflation:'Inflation', emploi:'Emploi', taux:'Taux',
 };
 // Code pays/zone affiché à côté du drapeau sur chaque carte (distinct du
 // code devise ISO pour certains : zone euro, Royaume-Uni...).
@@ -3407,7 +3668,7 @@ function renderEcoFilters(){
   const typesPresents = [...new Set(INDICATEURS_SUIVIS.map(e=>e.type))];
 
   const ccyHtml = ['all', ...ccysPresentes].map(c=>
-    `<button class="eco-chip ${ecoFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':flagFor(c)+' '+c}</button>`
+    `<button class="eco-chip ${ecoFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':c}</button>`
   ).join('');
   const typeHtml = ['all', ...typesPresents].map(t=>
     `<button class="eco-chip ${ecoFilterType===t?'active':''}" data-type="${t}">${t==='all'?'Tous':ecoTypeLabels[t]||t}</button>`
@@ -3441,7 +3702,7 @@ function renderEcoData(){
 
     if(!lignes.length){
       return `<div class="eco-card">
-        <div class="line"><span class="name">${flagFor(e.ccy)} ${nom}</span></div>
+        <div class="line"><span class="name">${nom}</span></div>
         <div style="color:var(--text-low); font-size:11px; margin-top:4px;">En attente de données…</div>
       </div>`;
     }
@@ -3461,7 +3722,7 @@ function renderEcoData(){
 
     return `<div class="eco-card">
       <div class="line" title="${pays} · ${dernier.date_publication_texte}">
-        <span class="name">${flagFor(e.ccy)} ${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</span>
+        <span class="name">${nom}${aUneRevision?'<span class="revise-dot" title="Valeur(s) révisée(s) par la source">●</span>':''}</span>
         <span class="valgroup">
           <span class="value">${dernier.actual || '—'}</span>
           <span class="delta ${up?'up':'down'}">${deltaTexte}</span>
@@ -3486,8 +3747,10 @@ function renderEcoData(){
   filtered.forEach((e,i)=>{
     const lignes = donneesIndicateurs[e.slug] || [];
     if(lignes.length < 2) return;
-    const trendVals = [...lignes].reverse().map(l => parseValeurCal(l.actual)).filter(v => v !== null);
-    if(trendVals.length>=2) drawSparkline(document.getElementById('eco-spark-'+i), trendVals);
+    const points = [...lignes].reverse()
+      .map(l => ({ value: parseValeurCal(l.actual), date: l.date_publication_texte, raw: l.actual }))
+      .filter(p => p.value !== null);
+    if(points.length>=2) drawSparkline(document.getElementById('eco-spark-'+i), points);
   });
 }
 
@@ -3511,55 +3774,192 @@ document.getElementById('ecoGrid').addEventListener('click', e=>{
 // Style de graphique choisi par l'utilisateur pour TOUTES les cartes
 // DATA ÉCO ('aire' ou 'barres'). Pas de persistance voulue : repart sur
 // 'aire' par défaut à chaque rechargement de page.
-let ecoChartStyle = 'aire';
+let ecoChartStyle = 'barres';
 
-function drawSparkline(canvas, data){
+// data accepte soit un tableau de nombres (rétrocompatibilité), soit un
+// tableau de points {value, date, raw} - nécessaire pour afficher une
+// infobulle avec la date et la valeur exactes au survol. hoverIndex (index
+// dans ce même tableau) dessine un repère (ligne verticale + point) sur le
+// graphique déjà tracé, sans repartir de zéro à chaque déplacement de souris.
+function drawSparkline(canvas, data, hoverIndex){
   if(!canvas) return;
+  const points = data.map(d => typeof d === 'object' ? d : {value:d, date:null, raw:d});
+  const valeurs = points.map(p => p.value);
+  canvas._sparkPoints = points; // mémorisé pour le gestionnaire de survol
   const rect = canvas.getBoundingClientRect();
   // Hauteur fixe plutôt que mesurée : rect.height peut être capturé avant
   // que le CSS (.eco-card canvas{height:64px...}) ait fini de s'appliquer
   // au tout premier rendu, ce qui donnait des barres/courbes tronquées à
   // mi-hauteur. La largeur reste mesurée car elle varie avec la colonne.
-  const w = rect.width || 190, h = 88;
+  const w = rect.width || 190, h = 112;
   canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
   canvas.style.width=w+'px'; canvas.style.height=h+'px';
   const c = canvas.getContext('2d');
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-  const min = Math.min(...data), max = Math.max(...data);
-  const up = data[data.length-1] >= data[0];
+  const min = Math.min(...valeurs), max = Math.max(...valeurs);
+  const plage = max - min;
+  const up = valeurs[valeurs.length-1] >= valeurs[0];
   const couleur = up ? '#22c48d' : '#ef4a5a';
   // Petite marge verticale pour que les pics ne touchent pas les bords.
   const padHaut = 4, padBas = 4;
+  // Position (x,y) de chaque point, calculée dans les deux branches, pour
+  // pouvoir y placer le repère de survol ensuite.
+  const positions = [];
 
   if(ecoChartStyle === 'barres'){
-    const gap = w / data.length;
+    const gap = w / valeurs.length;
     const barW = Math.max(2, gap * 0.6);
+    const rayon = Math.min(2.5, barW/2);
+    // Quand la série est plate (aucune variation sur la période affichée,
+    // ex. un taux directeur resté inchangé), (v-min)/(max-min) valait 0
+    // pour CHAQUE barre - peu importe que la valeur soit 2,25% ou 10% -
+    // ce qui donnait des barres quasi invisibles collées en bas, ce qui
+    // ressemblait à un bug plutôt qu'à une valeur stable. On les affiche
+    // alors à mi-hauteur, comme un plateau, plutôt qu'écrasées à zéro.
     c.fillStyle = couleur;
-    data.forEach((v,i)=>{
-      const barH = padBas + ((v-min)/((max-min)||1))*(h-padHaut-padBas);
+    valeurs.forEach((v,i)=>{
+      const ratio = plage > 0 ? (v-min)/plage : 0.55;
+      const barH = Math.max(1, padBas + ratio*(h-padHaut-padBas));
       const x = i*gap + (gap-barW)/2;
-      c.fillRect(x, h-barH, barW, barH);
+      const y = h-barH;
+      positions.push({x: x+barW/2, y});
+      c.beginPath();
+      if(c.roundRect){ c.roundRect(x, y, barW, barH, [rayon, rayon, 0, 0]); }
+      else { c.rect(x, y, barW, barH); }
+      c.fill();
     });
-    return;
+  } else {
+    // 'aire' (défaut) : ligne pleine largeur/hauteur + remplissage dégradé
+    // léger sous la courbe. Même correctif que les barres : série plate ->
+    // tracé à mi-hauteur plutôt que collé en bas.
+    const pts = valeurs.map((v,i)=>({
+      x: (i/(valeurs.length-1))*w,
+      y: h-padBas - (plage > 0 ? (v-min)/plage : 0.55)*(h-padHaut-padBas),
+    }));
+    pts.forEach(p => positions.push(p));
+    c.beginPath(); c.moveTo(pts[0].x, h);
+    pts.forEach(p=>c.lineTo(p.x,p.y));
+    c.lineTo(pts[pts.length-1].x, h); c.closePath();
+    c.fillStyle = couleur + '26';
+    c.fill();
+    c.strokeStyle = couleur;
+    c.lineWidth = 1.5;
+    c.beginPath();
+    pts.forEach((p,i)=> i===0 ? c.moveTo(p.x,p.y) : c.lineTo(p.x,p.y));
+    c.stroke();
   }
 
-  // 'aire' (défaut) : ligne pleine largeur/hauteur + remplissage dégradé
-  // léger sous la courbe.
-  const pts = data.map((v,i)=>({
-    x: (i/(data.length-1))*w,
-    y: h-padBas - ((v-min)/((max-min)||1))*(h-padHaut-padBas),
-  }));
-  c.beginPath(); c.moveTo(pts[0].x, h);
-  pts.forEach(p=>c.lineTo(p.x,p.y));
-  c.lineTo(pts[pts.length-1].x, h); c.closePath();
-  c.fillStyle = couleur + '26';
-  c.fill();
-  c.strokeStyle = couleur;
-  c.lineWidth = 1.5;
-  c.beginPath();
-  pts.forEach((p,i)=> i===0 ? c.moveTo(p.x,p.y) : c.lineTo(p.x,p.y));
-  c.stroke();
+  // Repère de survol : ligne verticale pointillée + point plein à
+  // l'instant choisi par la souris.
+  if(hoverIndex != null && positions[hoverIndex]){
+    const {x,y} = positions[hoverIndex];
+    c.save();
+    c.strokeStyle = 'rgba(255,255,255,0.28)';
+    c.lineWidth = 1;
+    c.setLineDash([2,2]);
+    c.beginPath(); c.moveTo(x, 0); c.lineTo(x, h); c.stroke();
+    c.setLineDash([]);
+    c.beginPath();
+    c.fillStyle = couleur;
+    c.arc(x, y, 3.2, 0, Math.PI*2);
+    c.fill();
+    c.strokeStyle = '#0a0c11';
+    c.lineWidth = 1.2;
+    c.stroke();
+    c.restore();
+  }
 }
+
+// Affiche/masque l'infobulle partagée par tous les mini-graphiques Data Éco.
+function afficherSparkTooltip(clientX, clientY, point){
+  const tip = document.getElementById('sparkTooltip');
+  if(!tip || !point) return;
+  // "lines" (optionnel) : plusieurs valeurs à la même date, pour les
+  // graphiques multi-séries (COT long/short/net, multi-banques, FX
+  // comparaison). Sinon, une seule valeur ("raw"/"value").
+  const corps = point.lines && point.lines.length
+    ? point.lines.map(l => `<div class="stt-line">${l.color?`<span class="stt-dot" style="background:${l.color}"></span>`:''}${l.label?`<span class="stt-label">${l.label}</span>`:''}<span class="stt-val">${l.value}</span></div>`).join('')
+    : `<div class="stt-val">${point.raw ?? point.value}</div>`;
+  tip.innerHTML = `<div class="stt-date">${point.date || ''}</div>${corps}`;
+  tip.style.display = 'block';
+  // Décalage pour que l'infobulle ne soit pas cachée sous le curseur, avec
+  // une marge de sécurité pour ne pas sortir de l'écran à droite/en bas.
+  const decalX = 14, decalY = 14;
+  let left = clientX + decalX, top = clientY + decalY;
+  const largeurEstimee = tip.offsetWidth || 140, hauteurEstimee = tip.offsetHeight || 40;
+  if(left + largeurEstimee > window.innerWidth) left = clientX - largeurEstimee - decalX;
+  if(top + hauteurEstimee > window.innerHeight) top = clientY - hauteurEstimee - decalY;
+  tip.style.left = left + 'px';
+  tip.style.top = top + 'px';
+}
+function masquerSparkTooltip(){
+  const tip = document.getElementById('sparkTooltip');
+  if(tip) tip.style.display = 'none';
+}
+// Survol générique pour les canvas "fixes" (jamais recréés via
+// innerHTML, contrairement aux mini-graphiques Data Éco/CESI qui ont
+// leur propre délégation plus bas) : Taux Implicite, COT, FX, Force des
+// devises. cfg = { obtenirPoints, xDuPoint, redessiner, formatInfobulle }.
+// "redessiner" est rappelé avec l'index survolé (ou null pour l'état de
+// repos) afin que chaque fonction de dessin trace elle-même son repère,
+// sans dupliquer la logique de tracé ici.
+function attacherSurvolCourbe(canvas, cfg){
+  if(!canvas) return;
+  canvas._survolCfg = cfg; // toujours rafraîchi : les points/le mode changent à chaque rendu
+  if(canvas._survolAttache) return;
+  canvas._survolAttache = true;
+  canvas.style.cursor = 'crosshair';
+  canvas.addEventListener('mousemove', e=>{
+    const c = canvas._survolCfg;
+    if(!c) return;
+    const points = c.obtenirPoints();
+    if(!points || points.length < 2) return;
+    const rect = canvas.getBoundingClientRect();
+    const xPix = e.clientX - rect.left;
+    let meilleurIdx = 0, meilleureDist = Infinity;
+    points.forEach((p,i)=>{
+      const dist = Math.abs(c.xDuPoint(p,i,points) - xPix);
+      if(dist < meilleureDist){ meilleureDist = dist; meilleurIdx = i; }
+    });
+    if(canvas._hoverIndex !== meilleurIdx){
+      canvas._hoverIndex = meilleurIdx;
+      c.redessiner(meilleurIdx);
+    }
+    afficherSparkTooltip(e.clientX, e.clientY, c.formatInfobulle(points[meilleurIdx], meilleurIdx));
+  });
+  canvas.addEventListener('mouseleave', ()=>{
+    const c = canvas._survolCfg;
+    if(!c) return;
+    canvas._hoverIndex = null;
+    c.redessiner(null);
+    masquerSparkTooltip();
+  });
+}
+// Survol d'un mini-graphique Data Éco : délégation sur le conteneur car les
+// cartes (et leurs <canvas>) sont régénérées à chaque renderEcoData().
+document.getElementById('ecoGrid').addEventListener('mousemove', e=>{
+  const canvas = e.target.closest('canvas[id^="eco-spark-"]');
+  if(!canvas || !canvas._sparkPoints){ masquerSparkTooltip(); return; }
+  const points = canvas._sparkPoints;
+  const rect = canvas.getBoundingClientRect();
+  const xPix = e.clientX - rect.left;
+  const idx = Math.max(0, Math.min(points.length-1, Math.floor((xPix / rect.width) * points.length)));
+  if(canvas._hoverIndex !== idx){
+    canvas._hoverIndex = idx;
+    drawSparkline(canvas, points, idx);
+  }
+  afficherSparkTooltip(e.clientX, e.clientY, points[idx]);
+});
+document.getElementById('ecoGrid').addEventListener('mouseout', e=>{
+  const canvas = e.target.closest('canvas[id^="eco-spark-"]');
+  if(!canvas) return;
+  // Ignore les mouseout internes au canvas (aucun enfant de toute façon) -
+  // ne redessine sans repère que quand on quitte vraiment le canvas.
+  if(canvas.contains(e.relatedTarget)) return;
+  canvas._hoverIndex = null;
+  drawSparkline(canvas, canvas._sparkPoints);
+  masquerSparkTooltip();
+});
 
 // ===================== TAUX IMPLICITE (données réelles, rate_probabilities) =====================
 // Remplace l'ancien systeme de mock (meetings/genProbHistory/genBpsHistory,
@@ -3667,11 +4067,20 @@ function pointsAvecDates(points, champ){
 // point date d'aujourd'hui, date courte (JJ/MM) sinon.
 function libelleAxeTemps(date){
   if(!date) return '';
+  // Défense en profondeur : si un Timestamp Firestore brut (objet avec
+  // .toDate()) ou une chaîne arrive ici au lieu d'un objet Date déjà
+  // converti, on le convertit plutôt que de planter sur .toDateString()
+  // (ce qui, plus haut dans la boucle d'axe, faisait disparaître TOUT
+  // l'axe temporel sans erreur visible pour l'utilisateur).
+  let d = date;
+  if(typeof d.toDate === 'function') d = d.toDate();
+  else if(!(d instanceof Date)) d = new Date(d);
+  if(isNaN(d.getTime())) return '';
   const maintenant = new Date();
-  if(date.toDateString() === maintenant.toDateString()){
-    return String(date.getHours()).padStart(2,'0') + 'h' + String(date.getMinutes()).padStart(2,'0');
+  if(d.toDateString() === maintenant.toDateString()){
+    return String(d.getHours()).padStart(2,'0') + 'h' + String(d.getMinutes()).padStart(2,'0');
   }
-  return String(date.getDate()).padStart(2,'0') + '/' + String(date.getMonth()+1).padStart(2,'0');
+  return String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0');
 }
 
 // Convertit une date texte ('Jan 27, 2027') en identifiant de document
@@ -3760,7 +4169,7 @@ function ligneReunionHtml(banque, m, estLigneResume){
   return `
     <div class="pm-row ${isActive && estLigneResume ? 'pm-row-active' : ''}" data-bank="${banque.code}" data-meeting-key="${key}">
       <div class="pm-top">
-        <span class="pm-bank">${flagFor(banque.ccy)} ${banque.bank}</span>
+        <span class="pm-bank">${banque.bank}</span>
         <span class="pm-date">${m.meeting || '—'}</span>
       </div>
       <div class="prob-bar-wrap">
@@ -3777,7 +4186,7 @@ function ligneReunionHtml(banque, m, estLigneResume){
 // assez fourni) plutôt que de tracer un graphique vide ou de planter.
 function dessinerMessageVide(canvas, texte){
   if(!canvas) return;
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -3790,10 +4199,10 @@ function dessinerMessageVide(canvas, texte){
 
 // Trace l'évolution d'UNE probabilité (0-100%) dans le temps — remplace
 // l'ancien graphique à 3 courbes cut/hold/hike (données qu'on n'a pas).
-function drawTauxEvolution(points){
+function drawTauxEvolution(points, hoverIndex){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -3814,10 +4223,14 @@ function drawTauxEvolution(points){
     ctx.fillText(v+'%', 2, y+3);
   });
   const step = Math.max(1, Math.round(n/6));
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
   points.forEach((p,i)=>{
     if(i%step===0 || i===n-1){
+      const x = xFor(i);
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+      ctx.fillStyle = '#7b869c';
       const label = i===n-1 ? 'Auj.' : libelleAxeTemps(p.date);
-      ctx.fillText(label, xFor(i)-10, h-4);
+      ctx.fillText(label, x-10, h-4);
     }
   });
 
@@ -3829,6 +4242,27 @@ function drawTauxEvolution(points){
 
   ctx.fillStyle = '#5b90ff'; ctx.fillRect(padL, 4, 8, 3);
   ctx.fillStyle = '#8f9bb0'; ctx.fillText("Probabilité de l'issue anticipée", padL+12, 10);
+
+  if(hoverIndex != null && points[hoverIndex]){
+    const x = xFor(hoverIndex), y = yFor(serie[hoverIndex]);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.fillStyle = '#5b90ff'; ctx.arc(x, y, 3.5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => points,
+    xDuPoint: (p,i) => xFor(i),
+    redessiner: idx => drawTauxEvolution(points, idx),
+    formatInfobulle: p => ({
+      date: p.date ? p.date.toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'}) : '',
+      raw: p.valeur.toFixed(1) + '%',
+    }),
+  });
 }
 
 // Calcule une plage d'axe [lo, hi] + un pas de grille "propre", ajustée aux
@@ -3871,10 +4305,10 @@ function niceAxisRange(values){
 
 // Trace l'évolution d'UNE série en pb dans le temps (prochaine réunion OU
 // 12 mois, selon ce qu'on lui passe) pour la banque sélectionnée.
-function drawTauxBpsEvolution(points){
+function drawTauxBpsEvolution(points, hoverIndex){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -3901,10 +4335,14 @@ function drawTauxBpsEvolution(points){
   }
 
   const step = Math.max(1, Math.round(n/6));
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
   points.forEach((p,i)=>{
     if(i%step===0 || i===n-1){
+      const x = xFor(i);
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+      ctx.fillStyle = '#7b869c';
       const label = i===n-1 ? 'Auj.' : libelleAxeTemps(p.date);
-      ctx.fillText(label, xFor(i)-10, h-4);
+      ctx.fillText(label, x-10, h-4);
     }
   });
 
@@ -3918,11 +4356,32 @@ function drawTauxBpsEvolution(points){
   ctx.fillStyle = lineColor; ctx.fillRect(padL, 4, 8, 3);
   ctx.fillStyle = '#8f9bb0';
   ctx.fillText(last>=0 ? 'Hausse implicite cumulée' : 'Baisse implicite cumulée', padL+12, 10);
+
+  if(hoverIndex != null && points[hoverIndex]){
+    const x = xFor(hoverIndex), y = yFor(bpsHistory[hoverIndex]);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.fillStyle = lineColor; ctx.arc(x, y, 3.5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => points,
+    xDuPoint: (p,i) => xFor(i),
+    redessiner: idx => drawTauxBpsEvolution(points, idx),
+    formatInfobulle: p => ({
+      date: p.date ? p.date.toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'}) : '',
+      raw: (p.valeur>=0?'+':'') + p.valeur.toFixed(1) + ' pb',
+    }),
+  });
 }
 
 // Vue par défaut : superpose, pour chaque banque, l'évolution de sa
 // "prochaine réunion" en pb sur un même graphique.
-function drawTauxBpsEvolutionMulti(banques, champ){
+function drawTauxBpsEvolutionMulti(banques, champ, hoverIndex){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
 
@@ -3935,7 +4394,7 @@ function drawTauxBpsEvolutionMulti(banques, champ){
     return;
   }
 
-  const rect = canvas.parentElement.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -3965,10 +4424,14 @@ function drawTauxBpsEvolutionMulti(banques, champ){
   }
 
   const step = Math.max(1, Math.round(n/6));
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
   for(let i=0;i<n;i++){
     if(i%step===0 || i===n-1){
+      const x = xFor(i);
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+      ctx.fillStyle = '#7b869c';
       const label = i===n-1 ? 'Auj.' : libelleAxeTemps(serieReference[i] && serieReference[i].date);
-      ctx.fillText(label, xFor(i)-10, h-4);
+      ctx.fillText(label, x-10, h-4);
     }
   }
 
@@ -3990,6 +4453,37 @@ function drawTauxBpsEvolutionMulti(banques, champ){
     ctx.fillStyle = '#8f9bb0'; ctx.fillText(s.ccy, lx+12, ly);
     lx += colW;
   });
+
+  if(hoverIndex != null && hoverIndex < n){
+    const x = xFor(hoverIndex);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    series.forEach(s=>{
+      const color = BANK_LINE_COLORS[s.code] || '#8f9bb0';
+      const v = s.data.slice(-n)[hoverIndex].valeur;
+      ctx.beginPath(); ctx.fillStyle = color; ctx.arc(x, yFor(v), 3.2, 0, Math.PI*2); ctx.fill();
+      ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1; ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => Array.from({length:n}, (_,i)=>i),
+    xDuPoint: (p,i) => xFor(i),
+    redessiner: idx => drawTauxBpsEvolutionMulti(banques, champ, idx),
+    formatInfobulle: (p, idx) => ({
+      date: serieReference[idx] && serieReference[idx].date
+        ? serieReference[idx].date.toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'})
+        : '',
+      lines: series.map(s => ({
+        label: s.ccy,
+        color: BANK_LINE_COLORS[s.code] || '#8f9bb0',
+        value: (v => (v>=0?'+':'')+v.toFixed(1)+' pb')(s.data.slice(-n)[idx].valeur),
+      })),
+    }),
+  });
 }
 
 let tauxFilterCcy = 'all'; // filtre par devise : présent mais jamais activé dans l'UI actuelle (voir note historique), gardé pour compat
@@ -4004,7 +4498,7 @@ function renderTauxFilters(){
   const cible = document.getElementById('tauxFilterCcy');
   if(!cible) return; // filtre non présent dans le DOM actuel, no-op
   cible.innerHTML = ['all', ...ccys].map(c=>
-    `<button class="eco-chip ${tauxFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':flagFor(c)+' '+c}</button>`
+    `<button class="eco-chip ${tauxFilterCcy===c?'active':''}" data-ccy="${c}">${c==='all'?'Toutes':c}</button>`
   ).join('');
 }
 
@@ -4116,7 +4610,7 @@ function baselineBpsPrecedent(banque, meetingDate){
     const isActiveBank = b.code === tauxSelectedBank;
     return `<div class="bank-group ${isActiveBank?'bank-group-active':''}" data-bank="${b.code}">
       <div class="bank-group-head">
-        <span class="bgh-name">${flagFor(b.ccy)} ${b.bank}</span>
+        <span class="bgh-name">${b.bank}</span>
         <span class="bgh-date">${b.prochaine_decision_date || '—'}</span>
       </div>
       <div class="bps-combo-labels">
@@ -4172,7 +4666,7 @@ function baselineBpsPrecedent(banque, meetingDate){
       if(cumul != null) cumulPrecedent = cumul;
     });
 
-    headerHtml = banque ? `<div class="pm-back" data-action="back">&larr; ${flagFor(banque.ccy)} ${banque.bank} — toutes les réunions</div>` : '';
+    headerHtml = banque ? `<div class="pm-back" data-action="back">&larr; ${banque.bank} — toutes les réunions</div>` : '';
     rowsHtml = liste.map(m => ligneReunionHtml(banque, m, false)).join('');
   } else {
     rowsHtml = banquesFiltrees
