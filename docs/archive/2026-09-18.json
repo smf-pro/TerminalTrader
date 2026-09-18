@@ -2,14 +2,14 @@
   "date": "2026-09-18",
   "ff_news": [
     {
-      "ignore": false,
+      "date_recuperation": "2026-09-18T01:14:25.538319+00:00",
       "date_publication": "2026-09-18T01:13:25.538319+00:00",
+      "ignore": false,
       "url": "https://www.forexfactory.com/news/1418814-rba-gov-bullock-risks-to-inflation-are-tilted",
-      "source": "@RedboxWire",
+      "titre": "RBA Gov Bullock: Risks to inflation are tilted higher",
       "extrait": "RBA Governor Bullock: Risks to inflation are tilted higherRba Governor Bullock: Difficult To See Past Ongoing Inflation Shocks ...",
       "impact": "low",
-      "date_recuperation": "2026-09-18T01:14:25.538319+00:00",
-      "titre": "RBA Gov Bullock: Risks to inflation are tilted higher"
+      "source": "@RedboxWire"
     }
   ],
   "cb_articles": [
