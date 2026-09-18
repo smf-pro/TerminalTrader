@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T15:50:26.610559+00:00",
+    "ff_news": "2026-09-18T16:29:24.856498+00:00",
     "cb_articles": "2026-09-18T15:41:24.778610+00:00",
     "il_articles": "2026-09-18T15:41:24.778610+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418959-trump-to-newsnation-us-is-talking-to-the",
+      "impact": "low",
+      "source": "@apewirenews",
+      "titre": "Trump To Newsnation: US Is Talking To The Houthis",
+      "date_recuperation": "2026-09-18T16:30:24.856498+00:00",
+      "extrait": "*trump To Newsnation: Us Is Talking To The HouthisTrump to NewsNation: Houthis would also like to make a deal.",
+      "ignore": false,
+      "date_publication": "2026-09-18T16:29:24.856498+00:00"
+    },
     {
       "source": "@FirstSquawk",
       "url": "https://www.forexfactory.com/news/1418952-boj-likely-conducted-rate-checks-in-currency-market",
