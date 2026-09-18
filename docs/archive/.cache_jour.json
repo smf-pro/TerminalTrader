@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-18T17:20:32.343419+00:00",
     "cb_articles": "2026-09-18T15:41:24.778610+00:00",
-    "il_articles": "2026-09-18T17:01:11.112938+00:00"
+    "il_articles": "2026-09-18T17:52:54.439673+00:00"
   },
   "ff_news": [
     {
@@ -441,6 +441,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Japan conducted an FX rate check earlier - report",
+      "ignore": false,
+      "url": "https://investinglive.com/forex/japan-conducted-an-fx-rate-check-earlier-report/",
+      "date_recuperation": "2026-09-18T17:55:46.244146+00:00",
+      "date_publication": "2026-09-18T17:52:54.439673+00:00",
+      "categorie": "forex",
+      "tags": [
+        "JPY"
+      ],
+      "contenu": "Nikkei report\n\nNikkeireportsthat earlier today the Bank of Japan conducted a 'rate check' on FX rates. The move is often seen as a precursor to intervention but can sometimes be a feint.\n\nThe report hit some time ago and since then, USD/JPY has backed off 158.00.\n\nThe report says the calls were made late on the 18th and into the 19th, Tokyo time. The drop in the pair underscores the hesistancy and market participants remember that earlier this year, there was intervention late in the day on a Friday. We've also seen intervention after BOJ meetings so all the starts are aligned at the moment.\n\nUS Treasury Secretary dared the market to buy USD/JPY when it was trading at 153.75 last week and so far, he's been wrong. He did say that he has asymmetric information though and part of that could be the size of the cash pile that Japan is willing to intervene with."
+    },
     {
       "url": "https://investinglive.com/forex/beware-of-intervention-usdjpy-retraces-earlier-gains-but-is-stalling-at-a-key-retracement-target/",
       "date_publication": "2026-09-18T17:01:11.112938+00:00",
