@@ -1,11 +1,31 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T02:55:27.925068+00:00",
+    "ff_news": "2026-09-18T06:06:23.800718+00:00",
     "cb_articles": "2026-09-18T05:37:12.153373+00:00",
-    "il_articles": "2026-09-18T05:37:12.153373+00:00"
+    "il_articles": "2026-09-18T06:00:41.549979+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "extrait": "The producer prices of industrial products were 4.6% higher in August 2026 than in August 2025. The Federal Statistical Office (Destatis) also reports that producer prices in August 2026 were up 1.1% on July 2026.The increase in producer prices compared with the same month a year earlier is primarily due to higher energy prices (+8.3%). The prices of ...",
+      "date_publication": "2026-09-18T06:06:23.800718+00:00",
+      "source": "destatis.de",
+      "url": "https://www.forexfactory.com/news/1418834-german-producer-prices-in-august-2026-46-on",
+      "ignore": false,
+      "titre": "German producer prices in August 2026: +4.6% on August 2025",
+      "date_recuperation": "2026-09-18T06:07:23.800718+00:00"
+    },
+    {
+      "impact": "low",
+      "date_publication": "2026-09-18T06:02:24.643480+00:00",
+      "extrait": "The quantity of goods bought (volume) in retail sales is estimated to have risen by 0.9% in the three months to August 2026, compared with the three months to May 2026. Non-store retailers' sales volumes rose following a particularly strong June period, while food stores did well across the latest three months. Retail sales volumes are estimated to have ...",
+      "source": "ons.gov.uk",
+      "url": "https://www.forexfactory.com/news/1418832-retail-sales-great-britain-august-2026",
+      "ignore": false,
+      "titre": "Retail sales, Great Britain: August 2026",
+      "date_recuperation": "2026-09-18T06:03:24.643480+00:00"
+    },
     {
       "ignore": false,
       "date_publication": "2026-09-18T02:55:27.925068+00:00",
@@ -117,6 +137,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "GBP"
+      ],
+      "categorie": "news",
+      "date_publication": "2026-09-18T06:00:41.549979+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/news/uk-august-retail-sales-0-5-vs-0-2-m-m-expected/",
+      "titre": "UK August retail sales +0.5% vs -0.2% m/m expected",
+      "date_recuperation": "2026-09-18T06:00:26.121077+00:00",
+      "contenu": "Latest data released by ONS - 18 September 2026\n\nUK August retail sales +0.5% vs -0.2% m/m expected\n\nPrior -0.5%\n\nUK August retail sales +2.4% vs +1.9% y/y expected\n\nPrior +1.6%; revised to +1.2%\n\nUK August retail sales (ex autos, fuel) +0.6% vs -0.2% m/m expected\n\nPrior -0.9%\n\nUK August retail sales (ex autos, fuel) +2.7% vs +1.9% y/y expected\n\nPrior +2.3%; revised to +1.8%"
+    },
     {
       "titre": "BOJ press conference preview: Ueda in focus after dovish dissents on 1.25% rate hike",
       "ignore": false,
