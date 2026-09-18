@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T13:31:27.959999+00:00",
+    "ff_news": "2026-09-18T14:04:23.719314+00:00",
     "cb_articles": "2026-09-18T12:36:44.743220+00:00",
     "il_articles": "2026-09-18T13:20:27.867494+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-18T14:05:23.719314+00:00",
+      "extrait": "The Conference Board Leading Economic Index® (LEI) for the US decreased by 0.1% in August 2026 to 99.5 (2016=100), after an increase of 0.2% in July. As a result, the LEI’s six-month growth was –0.1% between February and August 2026, a much smaller rate of decline compared to –0.6% over the previous six months. “The US LEI receded slightly in August, the ...",
+      "url": "https://www.forexfactory.com/news/1418940-the-conference-board-leading-economic-index-lei-for",
+      "source": "conference-board.org",
+      "ignore": false,
+      "impact": "low",
+      "date_publication": "2026-09-18T14:04:23.719314+00:00",
+      "titre": "The Conference Board Leading Economic Index (LEI) for the US Edged Down in August"
+    },
     {
       "date_recuperation": "2026-09-18T13:32:27.959999+00:00",
       "source": "federalreserve.gov",
