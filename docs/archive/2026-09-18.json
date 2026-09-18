@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "impact": "low",
+      "date_publication": "2026-09-18T13:31:27.959999+00:00",
+      "source": "federalreserve.gov",
+      "titre": "Bowman: Initial Findings from Independent Review of Silicon Valley Bank",
+      "extrait": "Today I am announcing the initial findings of the independent review of the failure of Silicon Valley Bank (SVB). In June 2023, I called for an independent review of SVB's failure to supplement the internal review. After I was confirmed as Vice Chair for Supervision, I engaged the Starling Advisory Group to conduct an independent review. Their report marks a pivotal moment not just in our understanding of what went wrong at SVB, but in our understanding of what went wrong within the Federal Reserve's supervisory process. SVB's collapse in March 2023 was not just the failure of a single institution. It sparked contagion that quickly spread to Signature Bank and First Republic Bank and threatened to spread throughout the banking system, requiring extraordinary government intervention to contain its effects. It fundamentally shook public confidence in the effectiveness of bank supervision. That loss of confidence demands our response. And transparency is where accountability begins. The Starling Advisory Group's report—the first in a series—provides an in-depth, independent examination of the facts surrounding SVB's failure. Its review was structured to be independent from the Federal Reserve System staff and principals. This independence matters. It ensures the integrity and reliability of the review and its findings.Fed Vice Chair for Supervision Bowman does not comment on economic or monetary policy outlook in prepared remarks to event in London.",
+      "url": "https://www.forexfactory.com/news/1418935-bowman-initial-findings-from-independent-review-of-silicon",
+      "date_recuperation": "2026-09-18T13:32:27.959999+00:00",
+      "ignore": false
+    },
+    {
       "date_publication": "2026-09-18T13:19:27.996489+00:00",
       "impact": "low",
       "url": "https://www.forexfactory.com/news/1418932-us-industrial-production-unchanged-in-august",
