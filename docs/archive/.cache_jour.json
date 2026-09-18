@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T14:04:23.719314+00:00",
+    "ff_news": "2026-09-18T15:35:29.453181+00:00",
     "cb_articles": "2026-09-18T12:36:44.743220+00:00",
     "il_articles": "2026-09-18T14:06:12.073883+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-18T15:35:29.453181+00:00",
+      "source": "@financialjuice",
+      "titre": "Fed's Schmid: I supported rate hike, recent data suggest inflation trending above 3%",
+      "date_recuperation": "2026-09-18T15:36:29.453181+00:00",
+      "impact": "low",
+      "ignore": false,
+      "extrait": "Fed's Schmid: I supported rate hike, recent data suggest inflation trending above 3%.Fed's Schmid: Rate hike was a step towards returning to the 2% target.",
+      "url": "https://www.forexfactory.com/news/1418950-feds-schmid-i-supported-rate-hike-recent-data"
+    },
     {
       "source": "conference-board.org",
       "extrait": "The Conference Board Leading Economic Index® (LEI) for the US decreased by 0.1% in August 2026 to 99.5 (2016=100), after an increase of 0.2% in July. As a result, the LEI’s six-month growth was –0.1% between February and August 2026, a much smaller rate of decline compared to –0.6% over the previous six months. “The US LEI receded slightly in August, the ...",
