@@ -114,6 +114,19 @@
   "il_articles": [
     {
       "ignore": false,
+      "date_recuperation": "2026-09-18T05:40:26.223537+00:00",
+      "date_publication": "2026-09-18T05:37:12.153373+00:00",
+      "tags": [
+        "BOJ",
+        "JPY"
+      ],
+      "titre": "BOJ press conference preview: Ueda in focus after dovish dissents on 1.25% rate hike",
+      "url": "https://investinglive.com/central-banks/boj-press-conference-preview-ueda-in-focus-after-dovish-dissents-on-1-25-rate-hike/",
+      "categorie": "central-banks",
+      "contenu": "The rate hike was expected but the two dovish dissents were not entirely, leaving Ueda with some explaining to do\n\nWell, the BOJ delivered the 25 bps rate hike that markets were expecting today in taking its policy rate to a 31-year high of 1.25%. But judging bythe reaction in the Japanese yenso far, that was hardly the most important part of the decision.\n\nThe focus of the conversation has now quickly shifted towards the 7-2 vote and what those two dissenting voices might mean for the path ahead.\n\nBoard members Toichiro Asada and Ayano Sato both voted against the rate hike, introducing a more dovish spin to the BOJ message of gradual policy normalisation today. The fact that both are recent appointees under Japanese prime minister Sanae Takaichi has also drawn some attention, particularly given the government's sensitivity towards higher borrowing costs.\n\nThat puts BOJ governor Kazuo Ueda in a bit of a tight spot ahead of his press conference later today, scheduled for 0630 GMT.\n\nBoth Asada and Sato have laid out their positions relatively clearly. The former continues to argue for more evidence of demand-driven inflation supported by wage growth, especially with core inflation still running below 2%.\n\nSato's position has been somewhat more nuanced. She has stressed the need to distinguish between temporary cost-driven inflation and more durable demand-led price pressures, while arguing that the BOJ needs to consider downside risks to growth alongside upside inflation risks.\n\nAll that being said, just the fact that they were both appointed by Takaichi earlier this year is making the split harder to ignore.\n\nIn looking to Ueda's response later, what I would be watching for first is how he characterises those dissents. Are they simply just differences over timing, or is there a deeper disagreement over how quickly the BOJ should push rates higher?\n\nFor now, the broader statement by the BOJ still carries a tightening bias. The central bank continues to say that it will raise rates further if its economic and inflation outlook is realised. But at 1.25%, the policy rate is already sitting around the central bank's estimate of the neutral rate range i.e. 1.10% to 2.50%. That makes every additional rate hike more consequential.\n\nFor markets, the onus is on Ueda to fill in what the vote did not tell us.\n\nIf he brushes them aside as a case of mainly timing while keeping the door open for a more hawkish lean and further rate hikes, the dovish interpretation of today's decision could fade.\n\nBut if he leans more heavily on caution while still wanting to retain optionality for the most part, then the two dissenting votes suddenly look like they are going to hold more importance."
+    },
+    {
+      "ignore": false,
       "url": "https://investinglive.com/forex/usd-jpy-jumps-to-157-after-boj-rate-hike-as-dovish-dissents-weigh-on-yen/",
       "tags": [
         "JPY",
