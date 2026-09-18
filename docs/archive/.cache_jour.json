@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T10:51:27.217247+00:00",
+    "ff_news": "2026-09-18T11:07:26.297326+00:00",
     "cb_articles": "2026-09-18T10:01:10.494461+00:00",
     "il_articles": "2026-09-18T10:01:10.494461+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "Saudis tell Europe oil refiners theyll get no crude next month.",
+      "ignore": false,
+      "impact": "medium",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-18T11:08:26.297326+00:00",
+      "date_publication": "2026-09-18T11:07:26.297326+00:00",
+      "url": "https://www.forexfactory.com/news/1418885-saudis-tell-europe-oil-refiners-theyll-get-no",
+      "titre": "Saudis tell Europe oil refiners theyll get no crude next month"
+    },
     {
       "source": "@FirstSquawk",
       "date_recuperation": "2026-09-18T10:52:27.217247+00:00",
