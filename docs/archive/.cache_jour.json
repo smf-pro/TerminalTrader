@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T07:15:28.912625+00:00",
+    "ff_news": "2026-09-18T07:21:25.490260+00:00",
     "cb_articles": "2026-09-18T07:11:32.580100+00:00",
     "il_articles": "2026-09-18T07:11:32.580100+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "UKMTO: Tanker Hit By Unknown Projectile In Strait Of Hormuz https://t.co/U5YKbXTWGm",
+      "date_recuperation": "2026-09-18T07:22:25.490260+00:00",
+      "impact": "low",
+      "date_publication": "2026-09-18T07:21:25.490260+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1418847-ukmto-tanker-hit-by-unknown-projectile-in-strait",
+      "titre": "UKMTO: Tanker Hit By Unknown Projectile In Strait Of Hormuz",
+      "source": "@LiveSquawk"
+    },
     {
       "impact": "medium",
       "titre": "BoJ Gov Ueda: Overseas rate hikes could impact Japan through various channels including Forex",
