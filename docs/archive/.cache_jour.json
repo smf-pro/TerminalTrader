@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T20:09:30.037059+00:00",
+    "ff_news": "2026-09-18T21:27:27.084614+00:00",
     "cb_articles": "2026-09-18T15:41:24.778610+00:00",
     "il_articles": "2026-09-18T19:05:21.827891+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "BREAKING NEWS: I am pleased to announce that the United States of America has entered into an Agreement with The Kingdom of Denmark, and Greenland, that gives the United States permanent control over security, and all other needs, in Greenland, completely addressing ALL of our many U.S. concerns. There will be NO COST to the United States! At my direction, we worked with representatives of Denmark and Greenland to guarantee that the United States will FOREVER have the complete ability to do what is necessary in Greenland in order to secure and defend the security of Greenland, and the United States of America. Additionally, from now on, no U.S. adversary can EVER have a base in Greenland, have a military presence in Greenland, or make sensitive investments in Greenland, without our express written approval. For over 100 years, Presidents have known the strategic importance of Greenland, but NONE of them were able to do anything about it. I am proud to be the President that permanently and conclusively addressed this very important situation. This is an “Infinite Life” Agreement, there is no end! We are very honored and proud of what has just taken place, and everything agreed to today will be cherished by the American People. We will immediately begin the process of developing a large Military presence in the appropriate part of Greenland, of which there are many. We will work with the people of Greenland in its development and construction. This solution is a great one for the United States of America, Denmark, Greenland, and all of our Allies. We look forward to working with the wonderful people of Denmark and Greenland toward a magnificent future with respect to this large, and highly strategic, parcel of land. We will be very protective of it! This is a dream come true for the United States of America, one that is very important, historic, and special. Thank you for your attention to this matter! President DONALD J. TRUMP",
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-18T21:28:27.084614+00:00",
+      "url": "https://www.forexfactory.com/news/1419025-trump-the-us-has-an-agreement-with-denmark",
+      "titre": "Trump: The US has an agreement with Denmark and Greenland that gives permanent control over security at NO COST to the US",
+      "impact": "low",
+      "date_publication": "2026-09-18T21:27:27.084614+00:00",
+      "ignore": false
+    },
     {
       "date_recuperation": "2026-09-18T20:10:30.037059+00:00",
       "date_publication": "2026-09-18T20:09:30.037059+00:00",
