@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "titre": "Trump To Newsnation: US Is Talking To The Houthis",
-      "date_recuperation": "2026-09-18T16:30:24.856498+00:00",
       "source": "@apewirenews",
-      "ignore": false,
-      "extrait": "*trump To Newsnation: Us Is Talking To The HouthisTrump to NewsNation: Houthis would also like to make a deal.",
-      "date_publication": "2026-09-18T16:29:24.856498+00:00",
+      "date_recuperation": "2026-09-18T16:30:24.856498+00:00",
       "url": "https://www.forexfactory.com/news/1418959-trump-to-newsnation-us-is-talking-to-the",
-      "impact": "low"
+      "date_publication": "2026-09-18T16:29:24.856498+00:00",
+      "extrait": "*trump To Newsnation: Us Is Talking To The HouthisTrump to NewsNation: Houthis would also like to make a deal.",
+      "impact": "low",
+      "ignore": false,
+      "titre": "Trump To Newsnation: US Is Talking To The Houthis"
     },
     {
       "source": "@FirstSquawk",
