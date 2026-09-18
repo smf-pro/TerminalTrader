@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-18T07:42:26.537775+00:00",
+      "impact": "medium",
+      "url": "https://www.forexfactory.com/news/1418851-boj-governor-ueda-says-it-will-take-time",
+      "ignore": false,
+      "date_publication": "2026-09-18T07:40:26.537775+00:00",
+      "titre": "Boj Governor Ueda Says It Will Take Time To Determine If 2% Inflation Is Sustainable",
+      "extrait": "Boj Governor Ueda Says It Will Take Time To Determine If 2% Inflation Is Sustainable."
+    },
+    {
       "impact": "low",
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1418850-german-fin-min-klingbeil-we-support-canada-being",
