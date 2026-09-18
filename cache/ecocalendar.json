@@ -1,10 +1,4 @@
 {
-  "61606271c686436c79c0a0548d11b25c1c87ea7754576125c988c34434686efb": {
-    "date_evenement": "2026-09-08T15:00:00-04:00",
-    "forecast": "11.9B",
-    "previous": "14.2B",
-    "actual": null
-  },
   "3f22c05d42246f311c89549f0a4f09b1c870945da060fe830a9ece63d78e75d3": {
     "date_evenement": "2026-09-08T19:50:00-04:00",
     "forecast": "2.2%",
