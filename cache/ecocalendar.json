@@ -1,16 +1,4 @@
 {
-  "fd8c1b00d713aeb4aae69fc1f002ec2794c4122e15b6f1d0eb33cee1586efc66": {
-    "date_evenement": "2026-09-08T06:00:00-04:00",
-    "forecast": "99.4",
-    "previous": "99.8",
-    "actual": null
-  },
-  "bbfc38e0f5c03ee11c027618dff94140ebc079a3b2bda66a657b56694f35fdd9": {
-    "date_evenement": "2026-09-08T09:15:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
   "61606271c686436c79c0a0548d11b25c1c87ea7754576125c988c34434686efb": {
     "date_evenement": "2026-09-08T15:00:00-04:00",
     "forecast": "11.9B",
