@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-18T08:37:27.095730+00:00",
     "cb_articles": "2026-09-18T10:01:10.494461+00:00",
-    "il_articles": "2026-09-18T07:30:17.982904+00:00"
+    "il_articles": "2026-09-18T10:01:10.494461+00:00"
   },
   "ff_news": [
     {
@@ -182,14 +182,14 @@
       "url": "https://investinglive.com/central-banks/ecb-president-lagarde-fuels-early-exit-speculation-with-we-ll-see-response/",
       "ignore": false,
       "contenu": "Lagarde does little to silence succession speculation by leaving the door open to an early ECB departure\n\nECB president, Christine Lagarde, continues to give markets a reason to keep an eye on the succession story at the central bank.\n\nHer potential early departure has been a hot topic that started in 2025, amidspeculation of her cutting short her stint at the ECB to leave for the WEF. And earlier this year, that whisper has only grown louder asthe political powers that be also want to have a sayin who might replace Lagarde next.\n\nIn an interview with Irish broadcaster RTE, Lagarde initially said that \"I leave in 2027\" before replying \"we'll see\" when pressed on whether that specifically meant October 2027.\n\nThat is hardly confirmation that she is preparing to leave early. But equally, I don't think it does much to kill off the speculation that has been hanging around for much of this year.\n\nLagarde then added that whenever the time comes, the transition would be handled “in the most professional way as it should be”.\n\nThe timing matters because the succession race is already starting to take shape. Reuters reported earlier this week that France would back former Dutch central bank governor, Klaas Knot, to succeed Lagarde as ECB president.\n\nFrance's backing is said to be part of a broader arrangement in which a French candidate would take over as the central bank's chief economist instead.\n\nNow, there is still plenty of time before Lagarde's mandate formally expires. So, I wouldn't read too much into one carefully worded answer just yet.\n\nBut from a markets perspective, the succession question is slowly starting to become a little harder to ignore. That is because who eventually takes over could influence the tone of ECB policy discussions beyond 2027.\n\nLagarde's latest “we'll see” means that conversation probably isn't going away anytime soon. And it will only start to buzz even more as we get closer to the turn of the year, with it turning more and more into who Europe is positioning to replace her.",
-      "titre": "ECB president Lagarde fuels early exit speculation with 'we'll see' response",
-      "date_publication": "2026-09-18T10:01:10.494461+00:00",
       "date_recuperation": "2026-09-18T10:01:26.768534+00:00",
+      "titre": "ECB president Lagarde fuels early exit speculation with 'we'll see' response",
       "tags": [
         "ECB",
         "europe",
         "EUR"
-      ]
+      ],
+      "date_publication": "2026-09-18T10:01:10.494461+00:00"
     },
     {
       "date_recuperation": "2026-09-18T07:12:29.730875+00:00",
@@ -304,6 +304,20 @@
     }
   ],
   "il_articles": [
+    {
+      "categorie": "central-banks",
+      "ignore": false,
+      "date_recuperation": "2026-09-18T10:05:24.391852+00:00",
+      "contenu": "Lagarde does little to silence succession speculation by leaving the door open to an early ECB departure\n\nECB president, Christine Lagarde, continues to give markets a reason to keep an eye on the succession story at the central bank.\n\nHer potential early departure has been a hot topic that started in 2025, amidspeculation of her cutting short her stint at the ECB to leave for the WEF. And earlier this year, that whisper has only grown louder asthe political powers that be also want to have a sayin who might replace Lagarde next.\n\nIn an interview with Irish broadcaster RTE, Lagarde initially said that \"I leave in 2027\" before replying \"we'll see\" when pressed on whether that specifically meant October 2027.\n\nThat is hardly confirmation that she is preparing to leave early. But equally, I don't think it does much to kill off the speculation that has been hanging around for much of this year.\n\nLagarde then added that whenever the time comes, the transition would be handled “in the most professional way as it should be”.\n\nThe timing matters because the succession race is already starting to take shape. Reuters reported earlier this week that France would back former Dutch central bank governor, Klaas Knot, to succeed Lagarde as ECB president.\n\nFrance's backing is said to be part of a broader arrangement in which a French candidate would take over as the central bank's chief economist instead.\n\nNow, there is still plenty of time before Lagarde's mandate formally expires. So, I wouldn't read too much into one carefully worded answer just yet.\n\nBut from a markets perspective, the succession question is slowly starting to become a little harder to ignore. That is because who eventually takes over could influence the tone of ECB policy discussions beyond 2027.\n\nLagarde's latest “we'll see” means that conversation probably isn't going away anytime soon. And it will only start to buzz even more as we get closer to the turn of the year, with it turning more and more into who Europe is positioning to replace her.",
+      "url": "https://investinglive.com/central-banks/ecb-president-lagarde-fuels-early-exit-speculation-with-we-ll-see-response/",
+      "titre": "ECB president Lagarde fuels early exit speculation with 'we'll see' response",
+      "tags": [
+        "ECB",
+        "europe",
+        "EUR"
+      ],
+      "date_publication": "2026-09-18T10:01:10.494461+00:00"
+    },
     {
       "contenu": "WTI dropped from around $101 to $96 overnight without any fundamental reason. The move was due to the rollover from the October futures contract to November.\n\nWTI crude oil fell from around $101 per barrel to roughly $96 overnight. At first glance, it looks like a $5 selloff in oil prices due to some fundamental reason, but in reality it was just something called futures rollover. The $5 gap is just the difference between two futures contracts rather than a sudden collapse in the value of crude oil.\n\nWhen traders refer to the price of WTI, they are usually looking at a futures contract traded on the NYMEX. But WTI futures are available for multiple delivery months and they have an expiration. For example, there are separate contracts for October 2026, November 2026, December 2026 and so on. These contracts do not necessarily trade at the same price. The October WTI contract was trading around $101.3, while the November contract  around $96.6.\n\nMost retail platforms display a continuous WTI futures contract rather than forcing traders to manually switch between individual contracts. The continuous contract follows the most actively traded futures month. When liquidity migrates from one contract to the next, the platform can switch from one month to another. If your chart was previously displaying October WTI and then switches to November WTI, the chart can suddenly appear to move from $101 to $96. The chart simply changed which contract it was showing.\n\nWhy are different futures contracts priced differently?\n\nThe price of a futures contract reflects not only the current spot value of crude but also expectations and the economics of holding the commodity until that delivery month. One simplified way to think about the relationship is:\n\nFutures price ≈ Spot price + financing/storage costs − convenience yield\n\nFor physical commodities such as oil, factors including inventories, storage availability, transportation costs, interest rates and expectations about future supply and demand can all influence the relationship between different delivery months. This produces what traders call the futures curve.\n\nContango and Backwardation\n\nWhen later contracts trade below earlier contracts, the market is in backwardation. When later contracts trade above earlier contracts, the market is in contango. Contango often occurs when there is plenty of supply relative to immediate demand. Traders are effectively willing to pay more for future delivery. Backwardation often occurs when current physical supply is tight and buyers are willing to pay a premium to obtain the commodity now rather than later. Contango doesn't necessarily mean the market expects prices to rise, and backwardation doesn't necessarily mean the market expects prices to fall.\n\nThe difference between contracts can become especially large when the physical oil market is experiencing significant supply disruptions or uncertainty. WTI has been trading around the $100 level amid disruptions and geopolitical risks. In such an environment, the price of one delivery month can behave very differently from another.\n\nThe futures contract with the greatest liquidity will generally become increasingly important as traders roll their positions forward before expiration. Current contract data shows substantially greater open interest in November WTI than October WTI, which is an indication that trading activity has been migrating toward the November contract.\n\nIf one platform shows WTI at $96 while another major financial source reports WTI around $101, don't immediately assume that one of them is wrong. They may simply be referring to different futures contracts.",
       "url": "https://investinglive.com/education/why-wti-oil-suddenly-gapped-by-5-understanding-futures-contract-rollover/",
