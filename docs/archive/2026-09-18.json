@@ -1,6 +1,17 @@
 {
   "date": "2026-09-18",
-  "ff_news": [],
+  "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-18T01:13:25.538319+00:00",
+      "url": "https://www.forexfactory.com/news/1418814-rba-gov-bullock-risks-to-inflation-are-tilted",
+      "source": "@RedboxWire",
+      "extrait": "RBA Governor Bullock: Risks to inflation are tilted higherRba Governor Bullock: Difficult To See Past Ongoing Inflation Shocks ...",
+      "impact": "low",
+      "date_recuperation": "2026-09-18T01:14:25.538319+00:00",
+      "titre": "RBA Gov Bullock: Risks to inflation are tilted higher"
+    }
+  ],
   "cb_articles": [
     {
       "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7065 – Reuters estimate",
