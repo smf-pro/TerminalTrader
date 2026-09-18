@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1419014-trump-on-iran-war-will-end-soon",
+      "titre": "Trump on Iran: War will end soon.",
+      "date_publication": "2026-09-18T20:09:30.037059+00:00",
+      "impact": "low",
+      "date_recuperation": "2026-09-18T20:10:30.037059+00:00",
+      "ignore": false,
+      "extrait": "Trump on Iran: War will end soon."
+    },
+    {
       "ignore": false,
       "titre": "WH confirms Trump to sign Russia sanctions bill today",
       "impact": "low",
