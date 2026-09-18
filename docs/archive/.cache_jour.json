@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T11:07:26.297326+00:00",
+    "ff_news": "2026-09-18T13:19:27.996489+00:00",
     "cb_articles": "2026-09-18T12:36:44.743220+00:00",
     "il_articles": "2026-09-18T13:20:27.867494+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-18T13:19:27.996489+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418932-us-industrial-production-unchanged-in-august",
+      "date_recuperation": "2026-09-18T13:21:27.996489+00:00",
+      "ignore": false,
+      "source": "breakingthenews.net",
+      "extrait": "Industrial production in the United States remained unchanged in August compared to July, the Federal Reserve revealed in its report posted on Friday. Industrial output was up 1.4% year over year. Manufacturing production edged down 0.3% month on month but was up 0.9% compared to August 2025. Mining gained 0.1% compared to July and saw an annual growth of ...",
+      "titre": "US industrial production unchanged in August"
+    },
     {
       "extrait": "Saudis tell Europe oil refiners theyll get no crude next month.",
       "ignore": false,
