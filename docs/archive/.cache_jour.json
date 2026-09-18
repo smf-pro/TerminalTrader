@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T01:13:25.538319+00:00",
-    "cb_articles": "2026-09-18T01:26:10.144029+00:00",
-    "il_articles": "2026-09-18T01:26:10.144029+00:00"
+    "ff_news": "2026-09-18T02:55:27.925068+00:00",
+    "cb_articles": "2026-09-18T02:54:24.850745+00:00",
+    "il_articles": "2026-09-18T02:54:24.850745+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-18T02:55:27.925068+00:00",
+      "source": "boj.or.jp",
+      "titre": "BOJ Statement on Monetary Policy",
+      "url": "https://www.forexfactory.com/news/1418815-boj-statement-on-monetary-policy",
+      "extrait": "At the Monetary Policy Meeting held today, the Policy Board of the Bank of Japan decided, by a 7-2 majority vote, to set the following guideline for money market operations for the intermeeting period: [Note] The Bank will encourage the uncollateralized overnight call rate to remain at around 1.25 percent. In accordance with the change in the guideline for ...",
+      "date_recuperation": "2026-09-18T02:56:27.925068+00:00",
+      "impact": "high"
+    },
     {
       "date_recuperation": "2026-09-18T01:14:25.538319+00:00",
       "date_publication": "2026-09-18T01:13:25.538319+00:00",
@@ -18,6 +28,18 @@
     }
   ],
   "cb_articles": [
+    {
+      "titre": "Bank of Japan (BOJ) raises policy rate by 25bp, as expected",
+      "url": "https://investinglive.com/central-banks/bank-of-japan-boj-raises-policy-rate-by-25bp-as-expected/",
+      "contenu": "The Bank of Japan's short-term policy interest rate raised to 1.25%, a 31 year high, from 1% (set at the June meeting).\n\nmore to come\n\nBank of Japan Governor Ueda will hold his press confernce at 0630 GMT / 0230 US Eastern time.",
+      "tags": [
+        "BOJ",
+        "JPY"
+      ],
+      "date_publication": "2026-09-18T02:54:24.850745+00:00",
+      "ignore": false,
+      "date_recuperation": "2026-09-18T02:55:27.542252+00:00"
+    },
     {
       "ignore": false,
       "date_recuperation": "2026-09-18T01:26:23.101320+00:00",
@@ -71,6 +93,19 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "The Bank of Japan's short-term policy interest rate raised to 1.25%, a 31 year high, from 1% (set at the June meeting).\n\nmore to come\n\nBank of Japan Governor Ueda will hold his press confernce at 0630 GMT / 0230 US Eastern time.",
+      "ignore": false,
+      "date_publication": "2026-09-18T02:54:24.850745+00:00",
+      "categorie": "central-banks",
+      "titre": "Bank of Japan (BOJ) raises policy rate by 25bp, as expected",
+      "url": "https://investinglive.com/central-banks/bank-of-japan-boj-raises-policy-rate-by-25bp-as-expected/",
+      "tags": [
+        "BOJ",
+        "JPY"
+      ],
+      "date_recuperation": "2026-09-18T02:55:29.526067+00:00"
+    },
     {
       "categorie": "central-banks",
       "url": "https://investinglive.com/central-banks/ubs-sees-two-more-rba-hikes-to-4-85-terminal-rate-after-bullock-s-comments/",
