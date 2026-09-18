@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "ignore": false,
+      "titre": "Saudis tell Europe oil refiners theyll get no crude next month",
+      "extrait": "Saudis tell Europe oil refiners theyll get no crude next month.",
+      "date_publication": "2026-09-18T11:07:26.297326+00:00",
+      "date_recuperation": "2026-09-18T11:08:26.297326+00:00",
+      "source": "@financialjuice",
+      "impact": "medium",
+      "url": "https://www.forexfactory.com/news/1418885-saudis-tell-europe-oil-refiners-theyll-get-no"
+    },
+    {
       "source": "@FirstSquawk",
       "date_recuperation": "2026-09-18T10:52:27.217247+00:00",
       "ignore": false,
