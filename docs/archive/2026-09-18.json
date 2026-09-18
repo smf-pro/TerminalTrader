@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-18T17:21:32.343419+00:00",
+      "titre": "WH confirms Trump to sign Russia sanctions bill today",
+      "extrait": "The White House confirmed for Radio Free Europe/Radio Liberty on Friday that United States President Donald Trump is anticipated to sign a bill on Russian sanctions later today, during a signing ceremony scheduled for 4:30 pm ET. Earlier, the media outlet mentioned that two Republican aides claimed the bill was officially sent to the White House for ...",
+      "date_publication": "2026-09-18T17:20:32.343419+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418964-wh-confirms-trump-to-sign-russia-sanctions-bill",
+      "source": "breakingthenews.net",
+      "ignore": false
+    },
+    {
       "source": "@apewirenews",
       "date_recuperation": "2026-09-18T16:30:24.856498+00:00",
       "url": "https://www.forexfactory.com/news/1418959-trump-to-newsnation-us-is-talking-to-the",
