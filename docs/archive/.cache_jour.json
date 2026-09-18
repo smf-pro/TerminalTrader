@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-18T17:20:32.343419+00:00",
     "cb_articles": "2026-09-18T15:41:24.778610+00:00",
-    "il_articles": "2026-09-18T17:52:54.439673+00:00"
+    "il_articles": "2026-09-18T19:05:21.827891+00:00"
   },
   "ff_news": [
     {
@@ -441,6 +441,18 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/news/oil-finishes-lower-as-the-market-sniffs-out-a-taco/",
+      "titre": "Oil finishes lower as the market sniffs out a TACO",
+      "categorie": "news",
+      "date_publication": "2026-09-18T19:05:21.827891+00:00",
+      "contenu": "There is talk of a Pakistani minister traveling to Tehran next week\n\nWTI crude oil on the November contract is trading down $1.64 to $95.60.\n\nThat's something of a win for the bears, as it finished last week at $95.94. Since then, we've had a mixed series of updates on the pipeline attacks in Saudi Arabia but the latest ones say they're doing bypasses of the damaged pumping stations and could soon have half of the lost supply back online. I'd take those reports with the usual grain of salt but coupled with large transits through Hormuz and there's a plausible case for the bears.\n\nThe x-factor remains Hormuz. Republicans are polling badly and this is a deeply unpopular war so there is every incentive to end it. The is talk of Saudis offering a ceasefire to Houthis but the latter was said to have rejected it. There is also a report that a Pakistani minister will travel to Tehran next week, presumably to restart talks.\n\nThe risk-reward on both sides of the trade isn't great right now. Trump has an amazing ability to weasel his way out of tight situations. This is his biggest test yet because Tehran surely knows the midterm dynamics as well and will be wary of accepting a false peace that's immediately voided after the voting. At the same time, Trump accepting a deal on Iran's terms could be equally damaging to Republicans in November.\n\nThe problem is that the status quo can't hold because there isn't enough oil flowing in the world. As Chevron CEO Mike Wirth said last week, the buffers are exhausted. At some point, China will return more-forcefully to the market and then the dam breaks in the same way it did earlier this month when oil rose in 11 of 12 days.\n\nTechnically, this looks like a good spot for the market to stop and have a think but I don't think it will be particularly patient. We will need to see some real signs of progress next week or the bulls will take over again.",
+      "tags": [
+        "Politics"
+      ],
+      "date_recuperation": "2026-09-18T19:05:53.188963+00:00",
+      "ignore": false
+    },
     {
       "titre": "Japan conducted an FX rate check earlier - report",
       "ignore": false,
