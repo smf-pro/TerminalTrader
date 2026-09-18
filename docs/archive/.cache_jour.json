@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-18T11:07:26.297326+00:00",
     "cb_articles": "2026-09-18T12:36:44.743220+00:00",
-    "il_articles": "2026-09-18T12:36:44.743220+00:00"
+    "il_articles": "2026-09-18T13:15:14.805293+00:00"
   },
   "ff_news": [
     {
@@ -349,6 +349,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-18T13:15:14.805293+00:00",
+      "categorie": "news",
+      "ignore": false,
+      "url": "https://investinglive.com/news/us-industrial-production-0-0-versus-0-3-expected/",
+      "titre": "US industrial production 0.0% versus 0.3% expected",
+      "tags": [
+        "USD"
+      ],
+      "contenu": "Details of the US industrial production and capacity utilization for the month of August\n\nPrior month 0.2%",
+      "date_recuperation": "2026-09-18T13:15:27.460124+00:00"
+    },
     {
       "url": "https://investinglive.com/central-banks/how-have-interest-rate-expectations-changed-after-this-week-s-events-3/",
       "titre": "How have interest rate expectations changed after this week's events?",
