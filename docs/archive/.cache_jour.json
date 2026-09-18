@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T07:40:26.537775+00:00",
+    "ff_news": "2026-09-18T07:56:34.094655+00:00",
     "cb_articles": "2026-09-18T07:11:32.580100+00:00",
     "il_articles": "2026-09-18T07:30:17.982904+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "titre": "EU's Economy Commissioner Dombrovskis: Windfall tax will be touched upon",
+      "source": "@financialjuice",
+      "date_publication": "2026-09-18T07:56:34.094655+00:00",
+      "url": "https://www.forexfactory.com/news/1418852-eus-economy-commissioner-dombrovskis-windfall-tax-will-be",
+      "extrait": "EU's Economy Commissioner Dombrovskis: Windfall tax will be touched upon.Dombrovskis Stresses Importance Of Monitoring Bond Market.EU's Economy Commissioner Dombrovskis: Not at this stage proposing EU-wide windfall tax.",
+      "date_recuperation": "2026-09-18T07:57:34.094655+00:00",
+      "impact": "low"
+    },
     {
       "date_publication": "2026-09-18T07:40:26.537775+00:00",
       "extrait": "Boj Governor Ueda Says It Will Take Time To Determine If 2% Inflation Is Sustainable.",
