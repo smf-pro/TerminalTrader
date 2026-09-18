@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T15:35:29.453181+00:00",
+    "ff_news": "2026-09-18T15:50:26.610559+00:00",
     "cb_articles": "2026-09-18T15:41:24.778610+00:00",
     "il_articles": "2026-09-18T15:41:24.778610+00:00"
   },
   "ff_news": [
+    {
+      "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1418952-boj-likely-conducted-rate-checks-in-currency-market",
+      "date_recuperation": "2026-09-18T15:51:26.610559+00:00",
+      "date_publication": "2026-09-18T15:50:26.610559+00:00",
+      "titre": "BOJ Likely Conducted Rate Checks In Currency Market - Nikkei",
+      "extrait": "Boj Likely Conducted Rate Checks In Currency Market Nikkei",
+      "impact": "low",
+      "ignore": false
+    },
     {
       "impact": "low",
       "ignore": false,
