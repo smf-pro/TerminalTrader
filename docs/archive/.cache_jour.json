@@ -1,11 +1,21 @@
 {
   "date": "2026-09-18",
   "curseurs": {
-    "ff_news": "2026-09-18T08:17:29.216902+00:00",
+    "ff_news": "2026-09-18T08:37:27.095730+00:00",
     "cb_articles": "2026-09-18T07:11:32.580100+00:00",
     "il_articles": "2026-09-18T07:30:17.982904+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1418856-lagarde-ill-leave-as-ecb-president-in-2027",
+      "impact": "low",
+      "date_recuperation": "2026-09-18T08:38:27.095730+00:00",
+      "date_publication": "2026-09-18T08:37:27.095730+00:00",
+      "source": "@CavaggioniMario",
+      "ignore": false,
+      "titre": "Lagarde: I'll Leave As ECB President In 2027",
+      "extrait": "*lagarde: I'll Leave As Ecb President In 2027"
+    },
     {
       "ignore": false,
       "url": "https://www.forexfactory.com/news/1418855-ecb-president-lagarde-well-decide-on-rates-meeting",
