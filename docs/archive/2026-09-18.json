@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "source": "ecb.europa.eu",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1418854-ecb-consumer-expectations-survey-results-august-2026",
+      "extrait": "Compared with July 2026: median consumer perceptions of inflation over the past 12 months were unchanged, while median expectations for inflation increased across all horizons; expectations for nominal income growth over the next 12 months were unchanged, as were expectations for spending growth over the next 12 months; expectations for economic growth over ...",
+      "date_recuperation": "2026-09-18T08:10:30.951443+00:00",
+      "date_publication": "2026-09-18T08:09:30.951443+00:00",
+      "titre": "ECB Consumer Expectations Survey results – August 2026",
+      "ignore": false
+    },
+    {
       "extrait": "Current account recorded €28 billion surplus in July 2026, down from €35 billion in previous month Current account surplus amounted to €282 billion (1.7% of euro area GDP) in the 12 months to July 2026, down from €298 billion (1.9%) one year earlier In financial account, euro area residents' net acquisitions of non-euro area portfolio investment securities ...",
       "date_publication": "2026-09-18T08:03:28.329910+00:00",
       "ignore": false,
