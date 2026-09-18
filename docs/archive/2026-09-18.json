@@ -2,6 +2,16 @@
   "date": "2026-09-18",
   "ff_news": [
     {
+      "ignore": false,
+      "date_recuperation": "2026-09-18T10:52:27.217247+00:00",
+      "date_publication": "2026-09-18T10:51:27.217247+00:00",
+      "titre": "ECB's Lagarde Says Economic Future Is Uncertain",
+      "url": "https://www.forexfactory.com/news/1418880-ecbs-lagarde-says-economic-future-is-uncertain",
+      "source": "@FirstSquawk",
+      "impact": "low",
+      "extrait": "Ecb's Lagarde Says Economic Future Is Uncertain.Lagarde says ECB rates do not move in lockstep with energy prices as growth, consumption and other factors also play a role"
+    },
+    {
       "extrait": "*lagarde: I'll Leave As Ecb President In 2027",
       "ignore": false,
       "date_recuperation": "2026-09-18T08:38:27.095730+00:00",
