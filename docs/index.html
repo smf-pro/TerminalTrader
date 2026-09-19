@@ -611,24 +611,20 @@
   .fx-row .fx-px, .fx-head-row span:not(:first-child){ text-align:right; }
   .fx-pct.na{ color:var(--text-low); }
 
-  /* Le panneau FX empile désormais beaucoup de contenu (onglets +
-     graphique de performance + tableau + courbe d'évolution + ses
-     propres onglets + graphique) — largement plus qu'un seul écran.
-     .panel étant un flex-container avec overflow:hidden (par défaut
-     pour les autres pages, à une seule zone scrollable), Flexbox
-     écrasait (flex-shrink) nos graphiques à hauteur fixe pour faire
-     tenir le tout, alors que le JS continue de dessiner en supposant
-     leur pleine hauteur (280px) — d'où le chevauchement visuel.
-     On rend ce panneau spécifiquement scrollable, et on fige la
-     hauteur de chaque section fixe pour qu'elle ne soit plus écrasée. */
-  #page-fx .panel{ overflow-y:auto; }
+  /* Le panneau FX affiche désormais UNE SEULE vue à la fois — "FX Live"
+     (graphique de performance + tableau) ou "Évolution" (devise unique /
+     comparaison) — choisie via les onglets ci-dessus (voir
+     #fxEvolModeTabs), plutôt que d'empiler les deux en permanence : ça
+     évite qu'elles se disputent la hauteur disponible, et chacune profite
+     de tout l'espace du panneau quand elle est affichée. */
+  #page-fx .panel{ overflow:hidden; }
+  #page-fx .panel-head, #page-fx .fx-evol-head{ flex-shrink:0; }
+  #fxLiveBlock, #fxEvolBlock{ display:flex; flex-direction:column; flex:1; min-height:0; }
   #page-fx .fx-perf-tabs,
   #page-fx .fx-perf-chart,
-  #page-fx .fx-evol-head,
   #page-fx .fx-evol-periods,
   #page-fx .fx-evol-legend,
   #page-fx .fx-evol-chart-area{ flex-shrink:0; }
-  #page-fx #fxTable{ flex:none; }
 
   /* ---------- FX PERFORMANCE (graphique type Finviz) ---------- */
   .fx-perf-tabs{
@@ -1024,32 +1020,19 @@
   </div>
 
   <!-- ===================== FX TEMPS RÉEL ===================== -->
-  <div class="page" id="page-fx" style="gap:10px; padding:14px;">
-    <div class="panel" style="flex:1.4; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
+  <div class="page" id="page-fx" style="padding:14px;">
+    <div class="panel" style="flex:1; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
       <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;">
-        <span>FX LIVE<span class="src-status-dot" id="dot-fxforex-page" title=""></span><span class="src-status-time" id="time-fxforex"></span></span>
+        <span>FX<span class="src-status-dot" id="dot-fxforex-page" title=""></span><span class="src-status-time" id="time-fxforex"></span></span>
         <span style="font-weight:400; font-size:10px;">Maj ~1 min · sources : Finnhub (live) + Yahoo Finance (référence)</span>
       </div>
-      <div class="fx-perf-tabs" id="fxPerfTabs">
-        <span class="fx-perf-tab active" data-periode="pct_24h">24h</span>
-        <span class="fx-perf-tab" data-periode="pct_7d">7j</span>
-        <span class="fx-perf-tab" data-periode="pct_30d">30j</span>
-        <span class="fx-perf-tab" data-periode="pct_jour">Jour</span>
-        <span class="fx-perf-tab" data-periode="pct_semaine">Semaine</span>
-        <span class="fx-perf-tab" data-periode="pct_mois">Mois</span>
-      </div>
-      <div class="fx-perf-chart" id="fxPerfChart"></div>
-      <div class="panel-body" id="fxTable"></div>
-    </div>
-
-    <div class="panel" style="flex:1; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
-      <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;"><span>ÉVOLUTION</span></div>
       <div class="fx-evol-head">
         <div class="fx-evol-mode-tabs" id="fxEvolModeTabs">
-          <span class="fx-evol-mode-tab active" data-mode="unique">Devise unique</span>
+          <span class="fx-evol-mode-tab active" data-mode="live">FX Live</span>
+          <span class="fx-evol-mode-tab" data-mode="unique">Devise unique</span>
           <span class="fx-evol-mode-tab" data-mode="comparaison">Comparaison (indexée à 100)</span>
         </div>
-        <div class="fx-evol-controls" id="fxEvolControls">
+        <div class="fx-evol-controls" id="fxEvolControls" style="display:none;">
           <select class="fx-evol-select" id="fxEvolDeviseSelect">
             <option value="EURUSD">EURUSD</option>
             <option value="GBPUSD">GBPUSD</option>
@@ -1064,17 +1047,25 @@
             <span class="fx-evol-toggle-btn" data-affichage="pct">%</span>
           </div>
         </div>
+        <div class="fx-evol-periods" id="fxPeriodTabs">
+          <span class="fx-evol-period-tab active" data-periode="pct_24h">24h</span>
+          <span class="fx-evol-period-tab" data-periode="pct_7d">7j</span>
+          <span class="fx-evol-period-tab" data-periode="pct_30d">30j</span>
+          <span class="fx-evol-period-tab" data-periode="pct_jour">Jour</span>
+          <span class="fx-evol-period-tab" data-periode="pct_semaine">Semaine</span>
+          <span class="fx-evol-period-tab" data-periode="pct_mois">Mois</span>
+        </div>
       </div>
-      <div class="fx-evol-periods" id="fxEvolPeriods">
-        <span class="fx-evol-period-tab active" data-periode="pct_24h">24h</span>
-        <span class="fx-evol-period-tab" data-periode="pct_7d">7j</span>
-        <span class="fx-evol-period-tab" data-periode="pct_30d">30j</span>
-        <span class="fx-evol-period-tab" data-periode="pct_jour">Jour</span>
-        <span class="fx-evol-period-tab" data-periode="pct_semaine">Semaine</span>
-        <span class="fx-evol-period-tab" data-periode="pct_mois">Mois</span>
+
+      <div id="fxLiveBlock">
+        <div class="fx-perf-chart" id="fxPerfChart"></div>
+        <div class="panel-body" id="fxTable"></div>
       </div>
-      <div class="fx-evol-legend" id="fxEvolLegend"></div>
-      <div class="fx-evol-chart-area"><canvas id="fxEvolCanvas"></canvas></div>
+
+      <div id="fxEvolBlock" style="display:none;">
+        <div class="fx-evol-legend" id="fxEvolLegend"></div>
+        <div class="fx-evol-chart-area"><canvas id="fxEvolCanvas"></canvas></div>
+      </div>
     </div>
   </div>
 
@@ -1093,7 +1084,7 @@
         </div>
       </div>
     </div>
-    <div class="taux-layout" style="margin:16px 22px 22px; grid-template-columns:1fr 1.4fr;">
+    <div class="taux-layout" style="margin:16px 22px 22px; grid-template-columns:1.15fr 2.2fr;">
       <div class="taux-col">
         <div class="panel-head"><span>DERNIÈRES VALEURS PAR DEVISE</span></div>
         <div class="panel-body">
@@ -1773,18 +1764,18 @@ const COLLECTIONS_COT = {
 // "SO AFRICAN RAND" (pas "SOUTH AFRICAN RAND"), "USD INDEX" (pas "U.S.
 // DOLLAR INDEX", cote ICE Futures U.S. et non CME).
 const MARCHES_COT = [
+  {nomBase:'USD INDEX', ccy:'USD'},
+  {nomBase:'CANADIAN DOLLAR', ccy:'CAD'},
   {nomBase:'EURO FX', ccy:'EUR'},
-  {nomBase:'JAPANESE YEN', ccy:'JPY'},
   {nomBase:'BRITISH POUND', ccy:'GBP'},
   {nomBase:'SWISS FRANC', ccy:'CHF'},
-  {nomBase:'CANADIAN DOLLAR', ccy:'CAD'},
+  {nomBase:'JAPANESE YEN', ccy:'JPY'},
   {nomBase:'AUSTRALIAN DOLLAR', ccy:'AUD'},
   {nomBase:'NZ DOLLAR', ccy:'NZD'},
   {nomBase:'MEXICAN PESO', ccy:'MXN'},
+  {nomBase:'SO AFRICAN RAND', ccy:'ZAR'},
   {nomBase:'BRAZILIAN REAL', ccy:'BRL'},
   {nomBase:'RUSSIAN RUBLE', ccy:'RUB'},
-  {nomBase:'SO AFRICAN RAND', ccy:'ZAR'},
-  {nomBase:'USD INDEX', ccy:'USD'},
 ];
 const CCY_PAR_NOM_BASE_COT = Object.fromEntries(MARCHES_COT.map(m => [m.nomBase, m.ccy]));
 const ORDRE_CCY_COT = MARCHES_COT.map(m => m.ccy);
@@ -2370,7 +2361,7 @@ function renderFxTable(){
 }
 
 /* ===================== GRAPHIQUE PERFORMANCE FX (type Finviz) ===================== */
-let fxPeriodeActive = 'pct_24h';
+let fxPeriodeActive = 'pct_24h';   // période partagée par FX Live ET la courbe d'évolution (un seul sélecteur, en haut)
 
 const FX_CHART_H = 280;   // doit correspondre à la hauteur CSS de .fx-perf-chart
 const FX_MARGIN_TB = 34;  // marge haute/basse pour ne pas rogner les libellés
@@ -2541,23 +2532,14 @@ function renderFxPerfChart(){
 }
 
 function initialiserOngletsFxPerf(){
-  const conteneur = document.getElementById('fxPerfTabs');
-  if(!conteneur) return;
-  conteneur.querySelectorAll('.fx-perf-tab').forEach(onglet => {
-    onglet.addEventListener('click', () => {
-      conteneur.querySelectorAll('.fx-perf-tab').forEach(o => o.classList.remove('active'));
-      onglet.classList.add('active');
-      fxPeriodeActive = onglet.dataset.periode;
-      renderFxPerfChart();
-    });
-  });
+  // Les onglets de période sont désormais unifiés (voir #fxPeriodTabs,
+  // géré dans initialiserControlesFxEvolution) : rien à faire ici.
 }
 
 /* ===================== COURBE D'ÉVOLUTION FX ===================== */
-let fxEvolMode = 'unique';         // 'unique' ou 'comparaison'
+let fxEvolMode = 'live';         // 'live', 'unique' ou 'comparaison'
 let fxEvolDevise = 'EURUSD';
 let fxEvolAffichage = 'prix';      // 'prix' ou 'pct'
-let fxEvolPeriode = 'pct_24h';
 let fxArchiveIndexDates = null;    // cache en mémoire, chargé une seule fois
 let fxEvolAppelEnCours = 0;        // évite qu'une réponse lente n'écrase un rendu plus récent
 
@@ -2899,11 +2881,12 @@ function renderFxEvolLegende(seriesParDevise){
 }
 
 async function renderFxEvolution(){
+  if(fxEvolMode === 'live') return; // rien à dessiner : le bloc Évolution est caché
   const idAppel = ++fxEvolAppelEnCours;
   const canvas = document.getElementById('fxEvolCanvas');
   if(!canvas) return;
 
-  const points = await chargerPointsPourPeriode(fxEvolPeriode);
+  const points = await chargerPointsPourPeriode(fxPeriodeActive);
   if(idAppel !== fxEvolAppelEnCours) return; // un changement plus récent a déjà été lancé entre-temps
 
   if(points.length < 2){
@@ -2936,7 +2919,7 @@ function initialiserControlesFxEvolution(){
   const controls = document.getElementById('fxEvolControls');
   const deviseSelect = document.getElementById('fxEvolDeviseSelect');
   const toggle = document.getElementById('fxEvolToggle');
-  const periodTabs = document.getElementById('fxEvolPeriods');
+  const periodTabs = document.getElementById('fxPeriodTabs');
   if(!modeTabs || !periodTabs) return;
 
   modeTabs.querySelectorAll('.fx-evol-mode-tab').forEach(onglet => {
@@ -2944,8 +2927,19 @@ function initialiserControlesFxEvolution(){
       modeTabs.querySelectorAll('.fx-evol-mode-tab').forEach(o => o.classList.remove('active'));
       onglet.classList.add('active');
       fxEvolMode = onglet.dataset.mode;
-      controls.style.display = fxEvolMode === 'comparaison' ? 'none' : 'flex';
-      renderFxEvolution();
+      controls.style.display = fxEvolMode === 'unique' ? 'flex' : 'none';
+      const liveBlock = document.getElementById('fxLiveBlock');
+      const evolBlock = document.getElementById('fxEvolBlock');
+      if(fxEvolMode === 'live'){
+        liveBlock.style.display = '';
+        evolBlock.style.display = 'none';
+        renderFxTable();
+        renderFxPerfChart();
+      } else {
+        liveBlock.style.display = 'none';
+        evolBlock.style.display = '';
+        renderFxEvolution();
+      }
     });
   });
 
@@ -2971,8 +2965,11 @@ function initialiserControlesFxEvolution(){
     onglet.addEventListener('click', () => {
       periodTabs.querySelectorAll('.fx-evol-period-tab').forEach(o => o.classList.remove('active'));
       onglet.classList.add('active');
-      fxEvolPeriode = onglet.dataset.periode;
-      renderFxEvolution();
+      fxPeriodeActive = onglet.dataset.periode;
+      // Un seul sélecteur de période, partagé par les deux vues : on ne
+      // redessine que celle actuellement visible.
+      if(fxEvolMode === 'live') renderFxPerfChart();
+      else renderFxEvolution();
     });
   });
 }
