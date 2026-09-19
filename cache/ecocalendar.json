@@ -1,10 +1,4 @@
 {
-  "3746b09056cbd2e7ca9c9d7c928a603c8692774de64012ff568586b0d7d17308": {
-    "date_evenement": "2026-09-09T16:30:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
   "1c0f4bb8e26cba5b1d86561f95147274e5bcc64a90e82ee222c1a46d096a702c": {
     "date_evenement": "2026-09-09T19:01:00-04:00",
     "forecast": "-30%",
