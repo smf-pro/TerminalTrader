@@ -1025,7 +1025,7 @@
 
   <!-- ===================== FX TEMPS RÉEL ===================== -->
   <div class="page" id="page-fx" style="gap:10px; padding:14px;">
-    <div class="panel" style="flex:1; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
+    <div class="panel" style="flex:1.4; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
       <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;">
         <span>FX LIVE<span class="src-status-dot" id="dot-fxforex-page" title=""></span><span class="src-status-time" id="time-fxforex"></span></span>
         <span style="font-weight:400; font-size:10px;">Maj ~1 min · sources : Finnhub (live) + Yahoo Finance (référence)</span>
@@ -1042,7 +1042,7 @@
       <div class="panel-body" id="fxTable"></div>
     </div>
 
-    <div class="panel" style="flex-shrink:0; border:1px solid var(--line); border-radius:var(--radius);">
+    <div class="panel" style="flex:1; min-height:0; border:1px solid var(--line); border-radius:var(--radius);">
       <div class="panel-head" style="border-radius:var(--radius) var(--radius) 0 0;"><span>ÉVOLUTION</span></div>
       <div class="fx-evol-head">
         <div class="fx-evol-mode-tabs" id="fxEvolModeTabs">
@@ -2675,8 +2675,32 @@ function fxFormatAxeTemps(timestamp, spanMs){
   return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', timeZone: 'UTC' });
 }
 
+// Mesure la zone de dessin utile d'un canvas placé dans un conteneur avec
+// padding — SANS JAMAIS lire canvas.getBoundingClientRect() pour la
+// taille. Pourquoi : si ce canvas est dessiné une première fois pendant
+// que son onglet est encore caché (display:none, donc 0×0 — ce qui arrive
+// dès que Firestore pousse une première donnée avant que l'utilisateur
+// n'ait cliqué sur cet onglet), le code fixait alors un style inline
+// "width:0px;height:0px" sur LE CANVAS LUI-MÊME. Ce style inline prime
+// sur la règle CSS "width:100%;height:100%", donc TOUTES les mesures
+// suivantes de ce même canvas (même une fois l'onglet affiché) retombaient
+// sur ce 0×0 figé pour toujours : le graphique restait vide en
+// permanence, sans erreur JS visible. En mesurant plutôt le PARENT (dont
+// la taille dépend uniquement du flex/grid de la page, jamais de ce
+// qu'on écrit sur son enfant canvas) et en soustrayant son padding, la
+// mesure reste toujours correcte, y compris après un premier dessin à
+// vide.
+function mesurerZoneCanvas(canvas){
+  const parent = canvas.parentElement;
+  const rect = parent.getBoundingClientRect();
+  const cs = getComputedStyle(parent);
+  const padL = parseFloat(cs.paddingLeft) || 0, padR = parseFloat(cs.paddingRight) || 0;
+  const padT = parseFloat(cs.paddingTop) || 0, padB = parseFloat(cs.paddingBottom) || 0;
+  return { width: Math.max(0, rect.width - padL - padR), height: Math.max(0, rect.height - padT - padB) };
+}
+
 function fxPreparerCanvas(canvas){
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   canvas.width = rect.width * devicePixelRatio;
   canvas.height = rect.height * devicePixelRatio;
   canvas.style.width = rect.width + 'px';
@@ -3431,7 +3455,7 @@ function renderCalendarHome(){
 // l'infobulle de survol. hoverIndex dessine un repère sur le point choisi.
 function drawCesiChart(canvas, data, hoverIndex, meta){
   if(!canvas || data.length < 2) return;
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   const w = rect.width, h = rect.height;
   if(w<=0||h<=0) return;
   canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
@@ -3440,14 +3464,17 @@ function drawCesiChart(canvas, data, hoverIndex, meta){
   c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
   c.clearRect(0,0,w,h);
 
-  // Échelle "0 -> valeur la plus haute atteinte" (demandé) : le bas du
-  // graphique est toujours 0, pas une valeur adaptative qui pouvait
-  // descendre sous zéro. Ça montre clairement la progression vers le pic
-  // de la période, au prix de ne plus distinguer les creux négatifs entre
-  // eux (ils s'aplatissent tous au niveau 0).
-  const valeurMax = Math.max(...data, 0.1);
-  const marge = valeurMax * 0.15;
-  const min = 0, max = valeurMax + marge;
+  // Échelle ADAPTATIVE : calée sur les valeurs réellement présentes dans
+  // "data" (+ une marge de 15%), zéro toujours inclus dans la plage pour
+  // garder la ligne de référence visuellement cohérente. Les creux
+  // négatifs (mauvaise surprise) restent visibles, contrairement à une
+  // échelle qui partirait de 0 seul.
+  const valeurMin = Math.min(...data, 0);
+  const valeurMax = Math.max(...data, 0);
+  let etendue = valeurMax - valeurMin;
+  if(etendue < 2) etendue = 2; // évite une échelle absurde si les valeurs sont ~constantes
+  const marge = etendue * 0.15;
+  const min = valeurMin - marge, max = valeurMax + marge;
 
   const yFor = v => h - ((v-min)/(max-min))*h;
   const xFor = i => (i/(data.length-1))*w;
@@ -3786,12 +3813,13 @@ function drawSparkline(canvas, data, hoverIndex){
   const points = data.map(d => typeof d === 'object' ? d : {value:d, date:null, raw:d});
   const valeurs = points.map(p => p.value);
   canvas._sparkPoints = points; // mémorisé pour le gestionnaire de survol
-  const rect = canvas.getBoundingClientRect();
-  // Hauteur fixe plutôt que mesurée : rect.height peut être capturé avant
-  // que le CSS (.eco-card canvas{height:64px...}) ait fini de s'appliquer
-  // au tout premier rendu, ce qui donnait des barres/courbes tronquées à
-  // mi-hauteur. La largeur reste mesurée car elle varie avec la colonne.
-  const w = rect.width || 190, h = 112;
+  // Mesure du PARENT (.eco-card), pas du canvas lui-même : voir le
+  // commentaire de mesurerZoneCanvas plus haut sur le risque de blocage
+  // définitif à une taille figée. +28px pour retrouver le débordement
+  // volontaire jusqu'aux bords de la carte (voir la règle CSS
+  // ".eco-card canvas{width:calc(100% + 28px)...}").
+  const zone = mesurerZoneCanvas(canvas);
+  const w = (zone.width || 190) + 28, h = 112;
   canvas.width = w*devicePixelRatio; canvas.height = h*devicePixelRatio;
   canvas.style.width=w+'px'; canvas.style.height=h+'px';
   const c = canvas.getContext('2d');
@@ -4186,7 +4214,7 @@ function ligneReunionHtml(banque, m, estLigneResume){
 // assez fourni) plutôt que de tracer un graphique vide ou de planter.
 function dessinerMessageVide(canvas, texte){
   if(!canvas) return;
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -4202,7 +4230,7 @@ function dessinerMessageVide(canvas, texte){
 function drawTauxEvolution(points, hoverIndex){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -4308,7 +4336,7 @@ function niceAxisRange(values){
 function drawTauxBpsEvolution(points, hoverIndex){
   const canvas = document.getElementById('tauxEvolCanvas');
   if(!canvas) return;
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
@@ -4394,7 +4422,7 @@ function drawTauxBpsEvolutionMulti(banques, champ, hoverIndex){
     return;
   }
 
-  const rect = canvas.getBoundingClientRect();
+  const rect = mesurerZoneCanvas(canvas);
   canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
   canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
   const ctx = canvas.getContext('2d');
