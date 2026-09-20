@@ -7,13 +7,13 @@
   },
   "ff_news": [
     {
-      "ignore": false,
-      "impact": "low",
-      "extrait": "Greer says US, Chinese teams continue working on board of trade agreementUs Treasury Secretary Bessent: Had A Very Successful Engagement With Chinese On Trade And Ai ...",
-      "source": "@financialjuice",
-      "date_recuperation": "2026-09-20T23:55:27.101551+00:00",
-      "date_publication": "2026-09-20T23:54:27.101551+00:00",
       "titre": "Greer: US, Chinese teams continue working on board of trade agreement",
+      "source": "@financialjuice",
+      "date_publication": "2026-09-20T23:54:27.101551+00:00",
+      "impact": "low",
+      "ignore": false,
+      "extrait": "Greer says US, Chinese teams continue working on board of trade agreementUs Treasury Secretary Bessent: Had A Very Successful Engagement With Chinese On Trade And Ai ...",
+      "date_recuperation": "2026-09-20T23:55:27.101551+00:00",
       "url": "https://www.forexfactory.com/news/1419140-greer-us-chinese-teams-continue-working-on-board"
     },
     {
