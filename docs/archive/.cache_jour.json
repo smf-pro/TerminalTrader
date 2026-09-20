@@ -2,7 +2,7 @@
   "date": "2026-09-20",
   "curseurs": {
     "ff_news": "2026-09-20T15:39:23.396388+00:00",
-    "cb_articles": "2026-09-20T00:00:00+00:00",
+    "cb_articles": "2026-09-20T21:07:13.190929+00:00",
     "il_articles": "2026-09-20T20:54:43.876310+00:00"
   },
   "ff_news": [
@@ -17,7 +17,19 @@
       "date_recuperation": "2026-09-20T15:40:23.396388+00:00"
     }
   ],
-  "cb_articles": [],
+  "cb_articles": [
+    {
+      "date_publication": "2026-09-20T21:07:13.190929+00:00",
+      "tags": [
+        "Fed"
+      ],
+      "url": "https://investinglive.com/central-banks/weeeknd-fed-s-kashkari-says-inflation-still-too-high-across-us-economy-not-just-energy/",
+      "date_recuperation": "2026-09-20T21:08:25.403066+00:00",
+      "ignore": false,
+      "contenu": "Fed's Kashkari says inflation is too high across the US economy, not just energy, after last week's quarter-point hike to 3.75%-4.00%. He says the Fed cannot reopen Hormuz or lower oil prices with rates but has tools for broader price pressures.\n\nRate futures suggest markets still see a tightening Fed, with roughly a two-in-three chance that the policy rate ends 2026 at 4.00% to 4.25% and a strong likelihood of at least another quarter point by mid-2027. That should keep the US dollar supported and leaves rate-sensitive assets exposed, since traders are unlikely to expect the Fed to look through the oil spike. For crude, the direct effect is limited, so prices are likely to keep followingHormuzand Saudi pipeline headlines, though higher borrowing costs colliding with an energy shock raise the risk of weaker demand over time. Kashkari's focus on services also means core and services inflation data may carry as much weight as oil for rate expectations.\n\n---Minneapolis Fed's Kashkari argues oil is only part of the inflation problem, and that with Hormuz beyond the Fed's reach, its job is to tackle the broad price pressure that remains.\n\nMinneapolis Fed President Neel Kashkari said on Sunday, in aFox News interview, that inflation is too high across the US economy, even after stripping out volatile energy and food.\n\nHe said price pressures extend into services and broader consumption, and that there is nothing the Fed can do with interest rates to open the Strait of Hormuz or bring oil prices down, though it has tools for wider inflation.\n\nKashkari supported last week's unanimous vote for a quarter-point hike to 3.75%-4.00%, after dissenting in favour of a hike at the previous meeting, when rates were held.\n\nAll but two Fed policymakers see at least one more quarter-point increase this year, and rate futures price a two-in-three chance of a 4.00% to 4.25% policy rate at the end of 2026.\n\nFed Chairman Kevin Warsh estimated inflation on the Fed's preferred gauge at around 3.6% in August, with the official figure due later this month, and said too many categories are still rising by more than 3% on six-month and 12-month bases.\n\nKashkari called the US economy resilient, citing strong growth and signs of better productivity, and said he hopes disinflation can take over as conflicts fade.\n\nMinneapolis Federal Reserve President Neel Kashkari said on Sunday that inflation is too high across all sectors of the US economy and not only in oil prices, arguing that price pressure has spread into services and broader consumption. Speaking to Fox News' Sunday Morning Futures, he said that even after stripping out energy and food, which he described as volatile categories that still matter a great deal, inflation remains too high given where the economy is heading.\n\nKashkari said he supported last week's unanimous decision to raise the federal funds target range by a quarter percentage point to 3.75%-4.00%. He had been one of three officials who dissented at the previous meeting in favour of a hike, when the majority of the Federal Open Market Committee chose to leave rates unchanged. Projections released with the latest decision showed that all but two policymakers expect at least one more quarter-point increase before the end of this year.\n\nOn the oil shock, Kashkari said the Fed's job is to bring inflation back to its 2% target, and that there is nothing it can do with interest rates that would open the Strait of Hormuz or lower oil prices. Crude has surged after hostilities intensified, with the US and Iran attacking and sinking some tankers in the strait and Saudi Arabia closing its East-West pipeline following aerial attacks in the widening Middle East war. He said the inflation Americans feel every day goes well beyond oil and is widespread in the services sector, and that the Fed has tools to bring it down. He added that he hopes for help from other parts of government and the real economy.\n\nHis view largely echoed remarks by Fed Chairman Kevin Warsh after Wednesday's meeting. Warsh estimated that inflation on the Fed's preferred measure was likely around 3.6% in August, with the official figure not due until later this month, and said too many categories are still rising by more than 3% on both a six-month and 12-month basis.\n\nKashkari also described the US economy as resilient despite the tariff and trade war and the conflicts in Ukraine and Iran, saying growth has been running at a good clip and productivity is showing some signs of improving. He said he hopes that as those conflicts recede into the background, growth can take over and disinflation can follow, which would make the Fed's job easier.",
+      "titre": "Weeeknd - Fed's Kashkari says inflation still too high across US economy, not just energy"
+    }
+  ],
   "il_articles": [
     {
       "tags": [
