@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-20T15:39:23.396388+00:00",
     "cb_articles": "2026-09-20T00:00:00+00:00",
-    "il_articles": "2026-09-20T00:00:00+00:00"
+    "il_articles": "2026-09-20T19:57:44.782888+00:00"
   },
   "ff_news": [
     {
@@ -18,5 +18,18 @@
     }
   ],
   "cb_articles": [],
-  "il_articles": []
+  "il_articles": [
+    {
+      "contenu": "As is usual for a Monday morning, market liquidity is very thin until it improves as more Asian centres come online ... prices are liable to swing around, so take care out there.\n\nEUR/USD 1.1487\n\nUSD/JPY 156.83\n\nGBP/USD 1.3384\n\nAUD/USD 0.7114\n\nUSD/CAD 1.3991\n\nUSD/CHF 0.8225\n\nNZD/USD 0.5723\n\nI'll be back with weekend news soon.",
+      "titre": "Monday open indicative forex prices, September 21, 2026",
+      "date_recuperation": "2026-09-20T20:00:34.978058+00:00",
+      "date_publication": "2026-09-20T19:57:44.782888+00:00",
+      "ignore": false,
+      "categorie": "forex",
+      "url": "https://investinglive.com/forex/monday-open-indicative-forex-prices-september-21-2026/",
+      "tags": [
+        "USD"
+      ]
+    }
+  ]
 }
