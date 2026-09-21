@@ -55,6 +55,8 @@ Sécurité / robustesse :
     Une signature n'est mise à jour qu'APRÈS un commit Firestore réussi.
   - Coût Firestore par cycle : au plus ~1 écriture par actif (+2), soit
     ~2 500/jour pour 100 actifs (quota gratuit : 20 000/jour). Zéro lecture.
+    Les commits sont petits (20 documents / 500 Ko max) et réessayés en cas de
+    504 Deadline Exceeded : indispensable pour le backfill de ~2 500 documents.
 
 Variable d'environnement optionnelle :
   JOURS_HISTORIQUE : nombre de jours à (re)télécharger (défaut 14 ; max 700).
@@ -73,7 +75,10 @@ import yfinance as yf
 
 import firebase_admin
 from firebase_admin import credentials, firestore
-from google.api_core.exceptions import ResourceExhausted
+from google.api_core.exceptions import (
+    ResourceExhausted, DeadlineExceeded, GatewayTimeout, ServiceUnavailable,
+    Aborted, InternalServerError, RetryError,
+)
 
 # ---------- CONFIGURATION ----------
 
@@ -92,8 +97,16 @@ TAILLE_LOT_TICKERS = 25            # tickers par appel yfinance
 PAUSE_ENTRE_LOTS_SECONDES = 2
 NB_TENTATIVES_LOT = 3
 
-TAILLE_MAX_BATCH_OPERATIONS = 400  # limite Firestore : 500 opérations par batch
-TAILLE_MAX_BATCH_OCTETS = 4_000_000  # limite Firestore : ~10 Mio par commit (marge)
+# Batchs volontairement PETITS : chaque point d'un document est indexé champ par champ
+# (4 champs x ~750 points par mois = ~3 000 entrées d'index par document). Des commits
+# de plusieurs Mo faisaient dépasser le délai de Firestore ("504 Deadline Exceeded")
+# lors du backfill. ~500 Ko / 20 documents max par commit passe sans problème.
+TAILLE_MAX_BATCH_OPERATIONS = 20
+TAILLE_MAX_BATCH_OCTETS = 500_000
+TIMEOUT_COMMIT_SECONDES = 120
+NB_TENTATIVES_COMMIT = 4           # l'écriture est idempotente (set merge) : on peut réessayer
+ERREURS_TRANSITOIRES = (DeadlineExceeded, GatewayTimeout, ServiceUnavailable,
+                        Aborted, InternalServerError, RetryError)
 
 DOSSIER_CACHE = "cache"
 FICHIER_SIGNATURES = os.path.join(DOSSIER_CACHE, "actifs_signatures.json")
@@ -413,51 +426,89 @@ def preparer_documents_actif(actif, barres):
     return documents
 
 
+def _commit_avec_retry(batch):
+    """Commit d'un batch avec quelques tentatives sur les erreurs transitoires
+    (504 Deadline Exceeded, 503...). Sans risque : les écritures sont des
+    set(merge=True), donc rejouables à l'identique. ResourceExhausted (quota)
+    n'est JAMAIS réessayé : on remonte tout de suite."""
+    for tentative in range(1, NB_TENTATIVES_COMMIT + 1):
+        try:
+            batch.commit(timeout=TIMEOUT_COMMIT_SECONDES)
+            return
+        except ResourceExhausted:
+            raise
+        except ERREURS_TRANSITOIRES as e:
+            if tentative == NB_TENTATIVES_COMMIT:
+                raise
+            pause = 3 * tentative * tentative
+            print(f"⚠️  Commit Firestore refusé ({type(e).__name__}), "
+                  f"tentative {tentative}/{NB_TENTATIVES_COMMIT}, nouvel essai dans {pause}s...")
+            time.sleep(pause)
+
+
 def ecrire_actifs(db, a_ecrire, signatures, slugs_ecrits, erreurs):
-    """Écrit les documents par batchs bornés (opérations ET octets).
-    `a_ecrire` : liste de (actif, barres, documents). Les signatures d'un actif
-    ne sont mises à jour qu'après le commit réussi du batch qui le contient.
+    """Écrit les documents par petits batchs (opérations ET octets).
+    `a_ecrire` : liste de (actif, barres, documents). Un actif peut être réparti
+    sur PLUSIEURS batchs (backfill : ~24 documents par actif) ; sa signature
+    n'est mise à jour qu'une fois TOUS ses documents commités avec succès.
     `slugs_ecrits` et `erreurs` sont remplis EN PLACE, pour rester exacts même
     si ResourceExhausted interrompt la boucle (levée vers l'appelant)."""
+    operations = []      # (slug, doc_id, donnees, taille_octets)
+    restants = {}        # slug -> nombre de documents pas encore commités
+    derniere_barre = {}
+    for actif, barres, documents in a_ecrire:
+        slug = actif["slug"]
+        restants[slug] = len(documents)
+        derniere_barre[slug] = barres[-1]
+        for doc_id, donnees, taille in documents:
+            operations.append((slug, doc_id, donnees, taille))
+
+    total_docs = len(operations)
+    echecs = set()       # slugs dont au moins un document n'a pas pu être écrit
     batch = db.batch()
-    nb_ops = 0
+    slugs_du_batch = []  # un slug par document du batch courant
     nb_octets = 0
-    en_attente = []  # [(actif, barres)] dans le batch courant
+    docs_ecrits = 0
+    nb_commits = 0
 
     def commit_batch():
-        nonlocal batch, nb_ops, nb_octets, en_attente
-        if nb_ops == 0:
+        nonlocal batch, slugs_du_batch, nb_octets, docs_ecrits, nb_commits
+        if not slugs_du_batch:
             return
         try:
-            batch.commit()
+            _commit_avec_retry(batch)
         except ResourceExhausted:
             raise
         except Exception as e:
-            print(f"❌ Échec du commit Firestore ({len(en_attente)} actifs) : {e}")
-            erreurs.append(str(e)[:200])
+            print(f"❌ Échec du commit Firestore ({len(slugs_du_batch)} documents) : {e}")
+            erreurs.append(f"{type(e).__name__}: {e}"[:200])
+            echecs.update(slugs_du_batch)
         else:
-            for actif, barres in en_attente:
-                signatures[actif["slug"]] = _signature_barre(barres[-1])
-                slugs_ecrits.append(actif["slug"])
+            docs_ecrits += len(slugs_du_batch)
+            nb_commits += 1
+            for slug in slugs_du_batch:
+                restants[slug] -= 1
+                if restants[slug] == 0 and slug not in echecs:
+                    signatures[slug] = _signature_barre(derniere_barre[slug])
+                    slugs_ecrits.append(slug)
+            if nb_commits % 10 == 0:
+                print(f"   … {docs_ecrits}/{total_docs} documents écrits")
         batch = db.batch()
-        nb_ops = 0
+        slugs_du_batch = []
         nb_octets = 0
-        en_attente = []
 
-    for actif, barres, documents in a_ecrire:
-        ops_actif = len(documents)
-        octets_actif = sum(d[2] for d in documents)
-        if nb_ops > 0 and (nb_ops + ops_actif > TAILLE_MAX_BATCH_OPERATIONS
-                           or nb_octets + octets_actif > TAILLE_MAX_BATCH_OCTETS):
+    for slug, doc_id, donnees, taille in operations:
+        if slugs_du_batch and (len(slugs_du_batch) >= TAILLE_MAX_BATCH_OPERATIONS
+                               or nb_octets + taille > TAILLE_MAX_BATCH_OCTETS):
             commit_batch()
-        for doc_id, donnees, _taille in documents:
-            ref = db.collection(COLLECTION_HISTORIQUE).document(doc_id)
-            batch.set(ref, donnees, merge=True)
-        nb_ops += ops_actif
-        nb_octets += octets_actif
-        en_attente.append((actif, barres))
+        ref = db.collection(COLLECTION_HISTORIQUE).document(doc_id)
+        batch.set(ref, donnees, merge=True)
+        slugs_du_batch.append(slug)
+        nb_octets += taille
 
     commit_batch()
+    if total_docs:
+        print(f"{docs_ecrits}/{total_docs} documents écrits en {nb_commits} commits.")
 
 
 def ecrire_derniers_prix(db, actifs_par_slug, barres_par_slug, slugs):
