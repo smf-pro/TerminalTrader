@@ -2,6 +2,16 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-21T07:20:27.276290+00:00",
+      "impact": "low",
+      "source": "@FirstSquawk",
+      "extrait": "Xi, Trump To Have In-depth Exchange Of Views During Visit - GuoChina: Will Work With Us To Manage Differences",
+      "titre": "Xi, Trump To Have In-depth Exchange Of Views During Visit - Guo",
+      "date_publication": "2026-09-21T07:19:27.276290+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419163-xi-trump-to-have-in-depth-exchange-of-views"
+    },
+    {
       "extrait": "Iran's IRGC: Still room for geographical expansion of war",
       "date_publication": "2026-09-21T06:41:23.780387+00:00",
       "impact": "low",
