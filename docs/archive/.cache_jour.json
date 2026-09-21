@@ -1,11 +1,21 @@
 {
   "date": "2026-09-21",
   "curseurs": {
-    "ff_news": "2026-09-21T03:01:27.723048+00:00",
+    "ff_news": "2026-09-21T06:41:23.780387+00:00",
     "cb_articles": "2026-09-21T01:38:11.714091+00:00",
     "il_articles": "2026-09-21T06:35:36.921352+00:00"
   },
   "ff_news": [
+    {
+      "source": "@financialjuice",
+      "extrait": "Iran's IRGC: Still room for geographical expansion of war",
+      "url": "https://www.forexfactory.com/news/1419162-irans-irgc-still-room-for-geographical-expansion-of",
+      "ignore": false,
+      "date_publication": "2026-09-21T06:41:23.780387+00:00",
+      "titre": "Iran's IRGC: Still room for geographical expansion of war",
+      "impact": "low",
+      "date_recuperation": "2026-09-21T06:42:23.780387+00:00"
+    },
     {
       "date_recuperation": "2026-09-21T03:02:27.723048+00:00",
       "ignore": false,
