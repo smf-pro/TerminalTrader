@@ -1,11 +1,21 @@
 {
   "date": "2026-09-21",
   "curseurs": {
-    "ff_news": "2026-09-21T14:49:25.111396+00:00",
+    "ff_news": "2026-09-21T15:06:28.290542+00:00",
     "cb_articles": "2026-09-21T10:48:06.518234+00:00",
     "il_articles": "2026-09-21T13:55:29.100597+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1419328-macklem-navigating-uncertainty-and-adapting-to-change",
+      "extrait": "Good afternoon. It’s a pleasure to be here in Halifax. I’d like to thank the Halifax Partnership for the invitation and all of you for joining us today. In February, I gave a speech about structural change—the profound economic adjustment facing Canada and the world. I highlighted increased trade tensions, rapid advances in artificial intelligence (AI), and demographic changes that were beginning to reshape our economy. Six months later, there’s mounting evidence that Canadian businesses and households are adapting to those forces, and the economy is growing once again. Businesses are adjusting their supply chains, exploring new markets, investing in new technologies and hiring new workers. As a result, the economy began the summer in a stronger position. Exports, investment and growth all picked up, and conditions in the labour market began to improve. But two important developments are shifting the risks to growth and inflation. Trade tensions between Canada and the United States have re-escalated, creating fresh uncertainty for businesses and households. And the conflict in the Middle East has persisted longer than many expected, pushing oil prices up further. Today I want to talk about how businesses and households have been adapting to structural forces and what that has meant for the Canadian economy. Then I’ll discuss recent developments—both their near-term impact on growth and inflation, and the risks to the outlook. Finally, I’ll explain how the Bank of Canada is thinking about these riBoC's Gov. Macklem: If oil prices stay near $100 a barrel, we'd expect inflation to edge up in the coming months.BoC's Gov. Macklem: If new US tariffs remain in place, Q4 growth could be roughly halved to below 1%.BoC's Gov. Macklem: We don't want to raise rates and restrain growth if inflationary pressures are contained.BoC's Gov. Macklem: Nor do we want to be too slow to respond if inflationary pressures are becoming more persistent.",
+      "date_recuperation": "2026-09-21T15:08:28.290542+00:00",
+      "date_publication": "2026-09-21T15:06:28.290542+00:00",
+      "titre": "Macklem: Navigating uncertainty and adapting to change",
+      "impact": "medium",
+      "source": "bankofcanada.ca",
+      "ignore": false
+    },
     {
       "date_publication": "2026-09-21T14:49:25.111396+00:00",
       "date_recuperation": "2026-09-21T14:50:25.111396+00:00",
