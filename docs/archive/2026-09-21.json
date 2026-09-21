@@ -2,6 +2,16 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-21T14:50:25.111396+00:00",
+      "extrait": "The United States is working on a massive Deal with respect to the purchase of Potash from Belarus. The pricing would be for substantially less than we are currently paying to Canada, very good news for our Farmers and Ranchers. Thank you for your attention to this matter! President DONALD J. TRUMP",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419326-trump-us-working-on-a-massive-deal-with",
+      "date_publication": "2026-09-21T14:49:25.111396+00:00",
+      "impact": "low",
+      "titre": "Trump: US working on a massive deal with respect to the purchase of potash from Belarus",
+      "source": "@realDonaldTrump"
+    },
+    {
       "ignore": false,
       "titre": "US proposed extending China trade truce by six months - NYT",
       "date_recuperation": "2026-09-21T14:28:28.217971+00:00",
