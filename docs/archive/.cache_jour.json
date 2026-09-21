@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-21T11:45:28.424156+00:00",
     "cb_articles": "2026-09-21T10:48:06.518234+00:00",
-    "il_articles": "2026-09-21T13:13:41.277976+00:00"
+    "il_articles": "2026-09-21T13:30:54.899702+00:00"
   },
   "ff_news": [
     {
@@ -160,6 +160,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-21T13:35:29.290699+00:00",
+      "tags": [
+        "Politics"
+      ],
+      "categorie": "news",
+      "date_publication": "2026-09-21T13:30:54.899702+00:00",
+      "url": "https://investinglive.com/news/yemen-president-spoke-to-trump-but-trump-made-no-pledge-of-military-support/",
+      "titre": "Yemen President spoke to Trump but Trump made no pledge of military support",
+      "ignore": false,
+      "contenu": "Trump discovers that Middle Eastern wars are unpopular\n\nReuters -- citing two sources -- reports that Yemen's President spoke to US President Donald Trump on Sunday. Yeme's President asked for miliary help but Trump made no pledges.\n\nOil is down $3.38 to $92.77 today on hopes for a new round of diplomacy to find a way for the US and Iran to end hostilities. That move is boosting the entire risk complex."
+    },
     {
       "titre": "USDCAD buyers get a second shot as 1.4000 support comes into focus",
       "categorie": "technical-analysis",
