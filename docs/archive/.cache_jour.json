@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "date_publication": "2026-09-21T14:01:28.755704+00:00",
       "url": "https://www.forexfactory.com/news/1419305-fed-goolsbee-not-viewing-rate-hike-as-taking",
-      "ignore": false,
+      "titre": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 Cuts",
       "extrait": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 CutsFed's Goolsbee: I am worried services inflation may not go away.Fed's Goolsbee: I sense some inflation coming from overheating demand.",
-      "date_recuperation": "2026-09-21T14:02:28.755704+00:00",
-      "impact": "low",
       "source": "@FirstSquawk",
-      "titre": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 Cuts"
+      "ignore": false,
+      "impact": "low",
+      "date_recuperation": "2026-09-21T14:02:28.755704+00:00",
+      "date_publication": "2026-09-21T14:01:28.755704+00:00"
     },
     {
       "titre": "Waltz: Trump Is Always Open To Talk, Iran Has To Come To Table",
