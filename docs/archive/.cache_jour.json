@@ -1,11 +1,21 @@
 {
   "date": "2026-09-21",
   "curseurs": {
-    "ff_news": "2026-09-21T10:07:34.732950+00:00",
+    "ff_news": "2026-09-21T10:32:27.373392+00:00",
     "cb_articles": "2026-09-21T08:28:30.679200+00:00",
     "il_articles": "2026-09-21T10:13:36.837915+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-21T10:32:27.373392+00:00",
+      "extrait": "*feds Goolsbee: Restoring Price Stability Wont Be Painless",
+      "titre": "Feds Goolsbee: Restoring Price Stability Wont Be Painless",
+      "url": "https://www.forexfactory.com/news/1419187-feds-goolsbee-restoring-price-stability-wont-be-painless",
+      "date_recuperation": "2026-09-21T10:33:27.373392+00:00",
+      "impact": "low",
+      "source": "@diegobloomberg"
+    },
     {
       "date_publication": "2026-09-21T10:07:34.732950+00:00",
       "url": "https://www.forexfactory.com/news/1419183-bundesbank-german-inflation-to-stay-high-on-energy",
