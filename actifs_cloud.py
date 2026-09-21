@@ -36,6 +36,16 @@ Stockage Firestore :
   - "pipeline_status/actifs" : heartbeat à chaque cycle (même patron que
     fxforex_cloud.py / centralbanks_cloud.py).
 
+Marchés fermés (week-ends, jours fériés) :
+  Rien n'est inventé : yfinance ne renvoie simplement aucune nouvelle bougie
+  pour un marché fermé, la dernière bougie ne change pas, la signature
+  locale est identique et AUCUNE écriture n'est faite pour cet actif. Comme
+  la fenêtre de téléchargement (14 jours) contient toujours les dernières
+  bougies avant la fermeture, l'actif reste compté comme "récupéré" et le
+  statut reste "ok". Le dernier prix d'un marché fermé garde son horodatage
+  d'origine (champ "ts" de asset_latest) : le site peut ainsi afficher
+  "marché fermé / dernier prix il y a X h" en comparant ts à l'heure actuelle.
+
 Sécurité / robustesse :
   - Si un lot yfinance échoue (limitation de débit fréquente depuis les IP
     partagées de GitHub Actions), rien n'est écrasé : les actifs concernés
@@ -47,8 +57,8 @@ Sécurité / robustesse :
     ~2 500/jour pour 100 actifs (quota gratuit : 20 000/jour). Zéro lecture.
 
 Variable d'environnement optionnelle :
-  JOURS_HISTORIQUE : nombre de jours à (re)télécharger (défaut 7 ; max 700).
-  Au-delà de 7, le script passe en mode "backfill" : il ignore les
+  JOURS_HISTORIQUE : nombre de jours à (re)télécharger (défaut 14 ; max 700).
+  Au-delà de 14, le script passe en mode "backfill" : il ignore les
   signatures et réécrit tout ce qu'il télécharge (idempotent).
 """
 
@@ -72,7 +82,10 @@ COLLECTION_HISTORIQUE = "asset_history"
 COLLECTION_DERNIER = "asset_latest"
 DOC_ID_DERNIER = "all"
 
-JOURS_HISTORIQUE_DEFAUT = 7   # fenêtre d'un run normal (rattrape aussi une courte panne)
+# Fenêtre d'un run normal. 14 jours : couvre les week-ends ET les longs jours fériés
+# (ex: Golden Week chinoise, ~9 jours de fermeture) pour qu'un marché fermé ne soit
+# jamais compté comme 'sans donnée', et rattrape aussi une courte panne du workflow.
+JOURS_HISTORIQUE_DEFAUT = 14
 JOURS_HISTORIQUE_MAX = 700    # Yahoo : le 1h est limité à 730 jours
 
 TAILLE_LOT_TICKERS = 25            # tickers par appel yfinance
