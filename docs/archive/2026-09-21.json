@@ -1,6 +1,17 @@
 {
   "date": "2026-09-21",
-  "ff_news": [],
+  "ff_news": [
+    {
+      "source": "rbnz.govt.nz",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419148-nz-credit-card-summary",
+      "date_recuperation": "2026-09-21T03:02:27.723048+00:00",
+      "impact": "low",
+      "date_publication": "2026-09-21T03:01:27.723048+00:00",
+      "titre": "NZ credit card summary",
+      "extrait": "Seasonally adjusted total billings in New Zealand were $4.6 billion in August-26. Annually, this was an increase of 3.5 percent from August-25. (Figure 1) • Seasonally adjusted domestic billings on New Zealand issued cards were $4.0 billion in August-26, up 0.4 percent from July-26, and up 1.9 percent from August-25. • Overseas billings on New Zealand ..."
+    }
+  ],
   "cb_articles": [
     {
       "url": "https://investinglive.com/central-banks/all-four-major-australian-banks-now-forecast-rba-hike-to-4-60-on-september-29/",
