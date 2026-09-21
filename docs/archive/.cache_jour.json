@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-21T03:01:27.723048+00:00",
     "cb_articles": "2026-09-21T01:38:11.714091+00:00",
-    "il_articles": "2026-09-21T05:04:35.538951+00:00"
+    "il_articles": "2026-09-21T06:35:36.921352+00:00"
   },
   "ff_news": [
     {
@@ -81,6 +81,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "market overview"
+      ],
+      "ignore": false,
+      "categorie": "news",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-46/",
+      "date_recuperation": "2026-09-21T06:36:01.910316+00:00",
+      "date_publication": "2026-09-21T06:35:36.921352+00:00",
+      "contenu": "We don't have anything on the agenda today as markets await the UN General Assembly\n\nEUROPEAN SESSION\n\nIn the European session, we don't have anything on the agenda today as markets will likely remain in rangebound mode ahead of the UN General Assembly tomorrow and Trump-Xi meeting on Thursday.\n\nThe most important one for markets should be the UN General Assembly as Trump is expected to hold a meeting with Gulf leaders to discuss the next steps in the war with Iran. Notably, the Iranian delegation was  allowed to participate at the General Assembly, so Trump should also meet with Iran's President Pezeshkian. Traders will be on the lookout for de-escalatory headlines.\n\nAMERICAN SESSION\n\nIn the American session, we don't have anything either. This week is going to be a bit empty on the data front, with the UN General Assembly and Trump-Xi meeting taking the spotlight.\n\nThe existing US–China tariff truce is due to expire on November 10, so the summit will likely be just an opportunity to extend the status quo or maybe agree on further tariff reductions. Recent talks between Treasury Secretary Bessent and Chinese Vice Premier He Lifeng have specifically focused on tariffs and trade and Bessent called them 'successful'.\n\nCENTRAL BANK SPEAKERS\n\n08:30 GMT/04:30 ET - ECB's Kazimir (hawkish - voter)\n\n10:30 GMT/06:30 ET - Fed's Goolsbee (hawkish - non voter)\n\n15:20 GMT/11:20 ET - BoC Governor Macklem (hawish - voter)\n\n19:00 GMT/15:00 ET - RBA's Hunter (hawkish - voter)",
+      "titre": "What are the main events for today?"
+    },
     {
       "ignore": false,
       "titre": "China holds its ground as markets eye trade truce ahead of Trump-Xi summit",
