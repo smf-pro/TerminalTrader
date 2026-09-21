@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-21T15:06:28.290542+00:00",
     "cb_articles": "2026-09-21T10:48:06.518234+00:00",
-    "il_articles": "2026-09-21T13:55:29.100597+00:00"
+    "il_articles": "2026-09-21T15:10:56.360601+00:00"
   },
   "ff_news": [
     {
@@ -200,6 +200,19 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "The Bank of Canada governor warned about weaker growth while signaling that policymakers will look beyond the initial inflation shock from higher oil prices.\n\nIf new US tariffs remain in place, Q4 growth could be roughly halved to below 1%\n\nIf oil prices stay near $100 a barrel, we'd expect inflation to edge up in coming months\n\nFuel prices have risen more than we'd normally expect, reflecting damage to global refining capacity\n\nRecent gas prices have been more consistent with an oil price almost $40 higher than where it has been\n\nSo far we haven't seen evidence that higher oil prices are spreading to other goods and services\n\nWe don't want to raise rates and restrain growth if inflationary pressures are contained\n\nBank of Canada says new US tariffs could slash fourth-quarter growth\n\nWhen it comes to rate decisions, we need to look beyond the initial shock of higher oil prices\n\nNor do we want to be too slow to respond if inflationary pressures are becoming more persistent\n\nThere is growing evidence that many Canadian businesses have started to adapt to US tariffs\n\nBank expects that growth in labor force will be close to zero over the next few years\n\nAnalysis:Macklem is highlighting the difficult balance facing the Bank of Canada. Tariffs could significantly weaken economic growth, while higher oil and fuel prices could push inflation higher in the coming months. That creates competing risks for monetary policy.\n\nFor now, the message is cautiously neutral. The Bank does not want to raise rates in response to a temporary oil-price shock, particularly with growth already under pressure. However, policymakers will be watching closely for evidence that higher energy costs are spreading into other goods and services. If those second-round inflation pressures begin to appear, the Bank may have to respond despite the weaker growth outlook.",
+      "titre": "Bank of Canada’s Macklem: US tariffs could roughly halve fourth-quarter growth to below 1%",
+      "ignore": false,
+      "url": "https://investinglive.com/news/bank-of-canada-s-macklem-us-tariffs-could-roughly-halve-fourth-quarter-growth-to-below-1/",
+      "categorie": "news",
+      "date_publication": "2026-09-21T15:10:56.360601+00:00",
+      "date_recuperation": "2026-09-21T15:11:00.364836+00:00",
+      "tags": [
+        "USD",
+        "CAD"
+      ]
+    },
     {
       "ignore": false,
       "date_recuperation": "2026-09-21T13:58:27.239449+00:00",
