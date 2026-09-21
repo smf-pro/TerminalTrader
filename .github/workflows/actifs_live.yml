@@ -1,0 +1,49 @@
+name: Actifs Prix Live
+
+on:
+  schedule:
+    # Secours natif GitHub (minimum pratique : 5 minutes). La cadence visee
+    # (toutes les minutes) est assuree par cron-job.org, qui declenche ce
+    # workflow via workflow_dispatch, exactement comme pour fxforex_scraper.yml.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}  # lancement manuel ET declenchement par cron-job.org
+
+# Voie rapide : un run en retard n'a aucun interet (son prix serait deja
+# perime). On annule donc le run en cours plutot que d'empiler une file.
+concurrency:
+  group: actifs-live
+  cancel-in-progress: true
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout du repo (fichiers utiles seulement)
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            actifs_cloud.py
+            actifs_live.py
+            requirements-live.txt
+          sparse-checkout-cone-mode: false
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements-live.txt
+
+      - name: Installer les dependances
+        run: pip install -r requirements-live.txt
+
+      - name: Ecrire la cle de service Firebase
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Recuperer les derniers prix (bougies 1 minute)
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: service_account.json
+        run: python actifs_live.py
