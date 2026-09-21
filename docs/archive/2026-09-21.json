@@ -2,14 +2,14 @@
   "date": "2026-09-21",
   "ff_news": [
     {
-      "url": "https://www.forexfactory.com/news/1419448-trump-i-have-meetings-on-iran-today",
+      "impact": "low",
+      "source": "@NourHammoury",
+      "ignore": false,
+      "titre": "Trump: I Have Meetings On Iran Today",
       "extrait": "*trump: I Have Meetings On Iran Today",
       "date_publication": "2026-09-21T21:33:24.436741+00:00",
-      "source": "@NourHammoury",
-      "titre": "Trump: I Have Meetings On Iran Today",
       "date_recuperation": "2026-09-21T21:34:24.436741+00:00",
-      "ignore": false,
-      "impact": "low"
+      "url": "https://www.forexfactory.com/news/1419448-trump-i-have-meetings-on-iran-today"
     },
     {
       "titre_fr": "Musalem de la Fed : Les taux d'intérêt devraient probablement augmenter davantage pour maîtriser l'inflation qui est à la fois axée sur la demande et l'offre",
