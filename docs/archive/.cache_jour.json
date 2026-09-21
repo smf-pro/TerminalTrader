@@ -2,11 +2,24 @@
   "date": "2026-09-21",
   "curseurs": {
     "ff_news": "2026-09-21T00:00:00+00:00",
-    "cb_articles": "2026-09-21T00:50:16.550288+00:00",
+    "cb_articles": "2026-09-21T01:15:27.842117+00:00",
     "il_articles": "2026-09-21T00:00:00+00:00"
   },
   "ff_news": [],
   "cb_articles": [
+    {
+      "titre": "PBOC sets USD/ CNY reference rate for today at 6.7487 (vs. estimate at 6.6951)",
+      "url": "https://investinglive.com/central-banks/pboc-sets-usd-cny-reference-rate-for-today-at-vs-estimate-at/",
+      "contenu": "PBOC CNY reference rate setting for the trading session ahead.\n\nThe PBOC allows the yuan to fluctuate within a +/- 2% range, around this reference rate.More here on this.\n\nmore to come",
+      "tags": [
+        "CNY",
+        "CNH",
+        "pboc"
+      ],
+      "ignore": false,
+      "date_recuperation": "2026-09-21T01:15:28.890710+00:00",
+      "date_publication": "2026-09-21T01:15:27.842117+00:00"
+    },
     {
       "titre": "ICYMI: BofA keeps call for Fed hikes in October and December as spending runs hot",
       "ignore": false,
