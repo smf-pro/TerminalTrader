@@ -2,6 +2,16 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "date_publication": "2026-09-21T10:07:34.732950+00:00",
+      "url": "https://www.forexfactory.com/news/1419183-bundesbank-german-inflation-to-stay-high-on-energy",
+      "source": "@LiveSquawk",
+      "impact": "low",
+      "date_recuperation": "2026-09-21T10:09:34.732950+00:00",
+      "ignore": false,
+      "extrait": "Bundesbank: German Inflation To Stay High On Energy, Healthcare - Sees German Economy Growing Slightly In Q3, Recovering In Q4",
+      "titre": "Bundesbank: German Inflation To Stay High On Energy, Healthcare \n- Sees German Economy Growing Slightly In Q3, Recovering In Q4"
+    },
+    {
       "date_recuperation": "2026-09-21T07:20:27.276290+00:00",
       "impact": "low",
       "source": "@FirstSquawk",
