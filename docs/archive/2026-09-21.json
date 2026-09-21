@@ -2,6 +2,16 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-21T14:28:28.217971+00:00",
+      "url": "https://www.forexfactory.com/news/1419311-us-proposed-extending-china-trade-truce-by-six",
+      "ignore": false,
+      "extrait": "US proposed extending China trade truce by six months - NYT.",
+      "date_publication": "2026-09-21T14:26:28.217971+00:00",
+      "titre": "US proposed extending China trade truce by six months - NYT",
+      "source": "@financialjuice",
+      "impact": "low"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1419305-fed-goolsbee-not-viewing-rate-hike-as-taking",
       "titre": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 Cuts",
       "extrait": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 CutsFed's Goolsbee: I am worried services inflation may not go away.Fed's Goolsbee: I sense some inflation coming from overheating demand.",

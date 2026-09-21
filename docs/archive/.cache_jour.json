@@ -1,11 +1,21 @@
 {
   "date": "2026-09-21",
   "curseurs": {
-    "ff_news": "2026-09-21T14:01:28.755704+00:00",
+    "ff_news": "2026-09-21T14:26:28.217971+00:00",
     "cb_articles": "2026-09-21T10:48:06.518234+00:00",
     "il_articles": "2026-09-21T13:55:29.100597+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-21T14:28:28.217971+00:00",
+      "url": "https://www.forexfactory.com/news/1419311-us-proposed-extending-china-trade-truce-by-six",
+      "ignore": false,
+      "extrait": "US proposed extending China trade truce by six months - NYT.",
+      "date_publication": "2026-09-21T14:26:28.217971+00:00",
+      "titre": "US proposed extending China trade truce by six months - NYT",
+      "source": "@financialjuice",
+      "impact": "low"
+    },
     {
       "url": "https://www.forexfactory.com/news/1419305-fed-goolsbee-not-viewing-rate-hike-as-taking",
       "titre": "Fed Goolsbee: Not Viewing Rate Hike As Taking Back 2025 Cuts",
