@@ -19,24 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Checkout du repo (fichiers utiles seulement)
+      - name: Checkout du repo
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            actifs_cloud.py
-            actifs_live.py
-            requirements-live.txt
-          sparse-checkout-cone-mode: false
 
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-          cache-dependency-path: requirements-live.txt
+          # requirements.txt existe deja a la racine (autres workflows) : il ne sert
+          # ici que de cle pour le cache pip. Les paquets installes sont ceux
+          # de la ligne ci-dessous, sans dependre d'un fichier supplementaire.
+          cache-dependency-path: requirements.txt
 
       - name: Installer les dependances
-        run: pip install -r requirements-live.txt
+        run: pip install yfinance pandas firebase-admin
 
       - name: Ecrire la cle de service Firebase
         run: echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
