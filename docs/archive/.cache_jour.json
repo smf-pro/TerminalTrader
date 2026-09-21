@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-21T00:00:00+00:00",
     "cb_articles": "2026-09-21T01:38:11.714091+00:00",
-    "il_articles": "2026-09-21T01:38:11.714091+00:00"
+    "il_articles": "2026-09-21T02:31:02.901031+00:00"
   },
   "ff_news": [],
   "cb_articles": [
@@ -70,6 +70,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-21T02:35:24.264995+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/commodities/icymi-jpmorgan-says-middle-east-oil-flows-holding-up-despite-saudi-pipeline-outage/",
+      "tags": [
+        "Oil"
+      ],
+      "date_publication": "2026-09-21T02:31:02.901031+00:00",
+      "contenu": "JPMorgan says Middle East oil flows remain surprisingly strong despite Saudi East-West pipeline disruption, averaging about 17 million bpd, roughly 6 million below the 2025 average, as Saudi shipments through Hormuz rose to around 3 million bpd.\n\nThe message is that the supply hit from the pipeline outage has been smaller than feared, which helps explain why oil fell for three sessions last week even with the Houthi attacks. It does not remove the risk premium, because the rerouting depends on the Strait of Hormuz staying open, which puts the two main chokepoints in the same story. With WTI around $100 and Brent above it, prices already carry a large security premium, so upside from here needs a fresh disruption and downside needs evidence the flows are lasting. Traders will look for weekly shipping and export data to confirm that the recovery is real and not a temporary swing.\n\n---Flows are holding up better than feared, but at about 6 million barrels a day below last year's average, JPMorgan's \"surprisingly strong\" is a relative call.\n\nJPMorgan analysts said in a September 18 note that Middle East oil flows remain surprisingly strong despite the disruption to Saudi Arabia's East-West pipeline.\n\nTotal flows averaged about 17 million barrels per day over the past 10 days, roughly 6 million below the 2025 average.\n\nThe most notable pivot has come from Saudi Arabia, with satellite data showing Saudi oil moving through the Strait of Hormuz at around 3 million barrels per day over the past six days, up from about 700,000 in August.\n\nTotal Saudi exports were about 5 million barrels per day on a 10-day average, according to JPMorgan's Natasha Kaneva.\n\nOil fell for a third session on Friday, with WTI closing around $100 and Brent above it, as the market judged the pipeline outage less disruptive than feared.\n\nRapidan Energy Group says the risk stays skewed toward a larger disruption if the outage extends past September or if Iran, the Houthis or other proxies escalate. Iranian sources say China has asked Iran to rein in the Houthis after a Saudi appeal.\n\nOil flows out of the Middle East are holding up better than expected despite the disruption to Saudi Arabia's East-West pipeline, according to JPMorgan. In a note dated September 18, analysts at the bank said flows remain surprisingly strong. Natasha Kaneva, the bank's head of global commodities strategy, is the author cited in media reports.\n\nJPMorgan estimates that total oil flows from the Middle East averaged about 17 million barrels per day over the past 10 days. That is roughly 6 million below the 2025 average, so the recovery is partial and measured against a shortfall, not a return to normal. The analysts said the most notable shift has come from Saudi Arabia. Satellite data indicated that Saudi oil moving through the Strait of Hormuz averaged around 3 million barrels per day over the past six days, up from about 700,000 in August. Kaneva said the kingdom's total exports were about 5 million barrels per day on a 10-day moving average.\n\nThe pipeline runs from Saudi Arabia's Eastern Province to the Red Sea port of Yanbu and was disrupted by a drone attack last week. The note suggests that rerouting cargoes through Hormuz has offset much of the loss. Oil prices reflected that view on Friday, falling for a third session to finish the week roughly flat, with US crude closing around $100 a barrel and Brent slightly higher. On Monday, Reuters reported that oil slipped as investors assessed the Saudi export recovery, even after the Houthis targeted Riyadh.\n\nThe picture is still fragile. Rapidan Energy Group said in a Thursday note that the risk remains skewed toward a larger disruption if the pipeline outage extends beyond September, or if Iran, the Houthis or other proxy groups escalate their attacks. Separately, three Iranian sources told Reuters that China has asked Iran to help rein in the Houthis after Saudi Arabia appealed to Beijing following the attacks.\n\nThe two stories that have dominated oil this week fit together.US Central Command said over the weekend that shipments through Hormuz reached a six-month high, and JPMorgan's numbers suggest Saudi Arabia is leaning on that same route to replace the pipeline. That makes the strait the single point that matters most, because a disruption there would now hit both the Gulf flows and the Saudi workaround. The comparison with 2025 is also a reminder that \"strong\" here means flows are down by about a quarter on last year's level.",
+      "categorie": "commodities",
+      "titre": "ICYMI: JPMorgan says Middle East oil flows holding up despite Saudi pipeline outage"
+    },
     {
       "tags": [
         "RBA",
