@@ -263,8 +263,9 @@ def enregistrer_statut_pipeline(db, statut, actifs_recuperes=0, actifs_totaux=0,
         "statut": statut,
         "actifs_manquants": (manquants or [])[:30],
     }
-    if erreur:
-        doc["derniere_erreur"] = str(erreur)[:300]
+    # merge=True conserve les anciens champs : sans DELETE_FIELD, un message
+    # d'erreur d'un cycle raté resterait affiché pour toujours après le retour à "ok".
+    doc["derniere_erreur"] = str(erreur)[:300] if erreur else firestore.DELETE_FIELD
     db.collection("pipeline_status").document(NOM_SOURCE).set(doc, merge=True)
 
 
