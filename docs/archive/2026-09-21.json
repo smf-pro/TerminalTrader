@@ -2,6 +2,18 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "titre_fr": "Musalem de la Fed : Les taux d'intérêt devraient probablement augmenter davantage pour maîtriser l'inflation qui est à la fois axée sur la demande et l'offre",
+      "ignore": false,
+      "extrait_fr": "Musalem de la Fed : Les taux d'intérêt devraient probablement augmenter davantage pour maîtriser l'inflation qui est à la fois axée sur la demande et sur l'offre. ... Musalem des Fédéraux : Sans plus de retenue politique, il est plus probable que l'inflation restera nettement supérieure à l'objectif de 2% dans 18 mois. Musalem des Fédéraux : Le choc des produits de base est plus que juste du pétrole, y compris les métaux de base comme le cuivre. ...",
+      "extrait": "Feds' Musalem: Interest Rates Likely Need To Rise Further To Tame Inflation That Is Both Demand And Supply-driven. ...Feds' Musalem: Without further policy restraint it is more likely inflation will remain substantially above 2% target 18 months from now.Feds' Musalem: Commodity Shock Is More Than Just Oil, Includes Base Metals Like Copper. ...",
+      "date_recuperation": "2026-09-21T18:24:25.450833+00:00",
+      "source": "@NodeWire",
+      "url": "https://www.forexfactory.com/news/1419372-feds-musalem-interest-rates-likely-need-to-rise",
+      "date_publication": "2026-09-21T18:23:25.450833+00:00",
+      "impact": "low",
+      "titre": "Feds' Musalem: Interest Rates Likely Need To Rise Further To Tame Inflation That Is Both Demand And Supply-driven"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1419328-macklem-navigating-uncertainty-and-adapting-to-change",
       "extrait": "Good afternoon. It’s a pleasure to be here in Halifax. I’d like to thank the Halifax Partnership for the invitation and all of you for joining us today. In February, I gave a speech about structural change—the profound economic adjustment facing Canada and the world. I highlighted increased trade tensions, rapid advances in artificial intelligence (AI), and demographic changes that were beginning to reshape our economy. Six months later, there’s mounting evidence that Canadian businesses and households are adapting to those forces, and the economy is growing once again. Businesses are adjusting their supply chains, exploring new markets, investing in new technologies and hiring new workers. As a result, the economy began the summer in a stronger position. Exports, investment and growth all picked up, and conditions in the labour market began to improve. But two important developments are shifting the risks to growth and inflation. Trade tensions between Canada and the United States have re-escalated, creating fresh uncertainty for businesses and households. And the conflict in the Middle East has persisted longer than many expected, pushing oil prices up further. Today I want to talk about how businesses and households have been adapting to structural forces and what that has meant for the Canadian economy. Then I’ll discuss recent developments—both their near-term impact on growth and inflation, and the risks to the outlook. Finally, I’ll explain how the Bank of Canada is thinking about these riBoC's Gov. Macklem: If oil prices stay near $100 a barrel, we'd expect inflation to edge up in the coming months.BoC's Gov. Macklem: If new US tariffs remain in place, Q4 growth could be roughly halved to below 1%.BoC's Gov. Macklem: We don't want to raise rates and restrain growth if inflationary pressures are contained.BoC's Gov. Macklem: Nor do we want to be too slow to respond if inflationary pressures are becoming more persistent.",
       "date_recuperation": "2026-09-21T15:08:28.290542+00:00",
@@ -103,6 +115,19 @@
     }
   ],
   "cb_articles": [
+    {
+      "tags": [
+        "USD"
+      ],
+      "titre_fr": "St. Louis Fed's Musalem : Les taux d'intérêt devraient probablement augmenter davantage pour maîtriser l'inflation",
+      "ignore": false,
+      "contenu_fr": "Musalem avertit que les risques d'inflation restent élevés et fait valoir que des hausses de taux progressives plus précoces seraient préférables à des mouvements plus importants plus tard.\n\nSans plus de retenue de la politique, il est plus probable que l'inflation restera nettement supérieure à l'objectif de 2% dans 18 mois.\n\nLes taux d'intérêt doivent probablement augmenter davantage pour maîtriser l'inflation qui est à la fois axée sur la demande et sur l'offre.\n\nLe marché du travail est stable autour du plein emploi et n'est pas une source de pression inflationniste.\n\nLe choc des matières premières est plus qu'un simple choc pétrolier, il comprend des métaux de base comme le cuivre.\n\nMieux vaut que les hausses de taux soient « plus précoces et progressives » plutôt que « plus tard et plus importantes ».\n\nMême en éliminant les facteurs liés à l'offre, l'inflation est toujours « trop élevée », jusqu'à 3 %.\n\nLes contacts d'affaires disent qu'ils prévoient des augmentations de prix « plus proches de 3 % ».\n\nAnalyse :Le message de Musalem est clairement belliciste. Il pense que l'inflation pourrait rester bien au-dessus de l'objectif de 2% de la Fed sans restriction politique supplémentaire, et il préfère agir plus tôt avec des hausses de taux plus faibles plutôt que d'attendre et potentiellement d'avoir à agir plus agressivement plus tard.\n\nPour les traders, la distinction importante est que Musalem ne considère pas l'inflation comme le seul résultat de perturbations temporaires de l'approvisionnement. Il voit la pression à la fois de la demande et de l'offre, tandis que les rapports d'entreprises planifiant des augmentations de prix plus proches de 3% soulèvent des inquiétudes quant au fait que les anticipations d'inflation pourraient rester collantes. Cela maintient la possibilité d'un resserrement supplémentaire de la Fed fermement sur la table.\n\nLe marché évalue à 55 % la probabilité d'une hausse de la Fed en octobre.",
+      "date_recuperation": "2026-09-21T18:24:27.912504+00:00",
+      "url": "https://investinglive.com/central-banks/st-louis-fed-s-musalem-interest-rates-likely-need-to-rise-further-to-tame-inflation/",
+      "date_publication": "2026-09-21T18:23:33.029490+00:00",
+      "contenu": "Musalem warns that inflation risks remain elevated and argues that earlier, incremental rate hikes would be preferable to larger moves later.\n\nWithout further policy restraint, it is more likely inflation will remain substantially above the 2% target 18 months from now.\n\nInterest rates likely need to rise further to tame inflation that is both demand- and supply-driven.\n\nLabor market stable around full employment and not a source of inflation pressure.\n\nCommodity shock is more than just oil, includes base metals like copper.\n\nBetter for rate hikes to be “earlier and incremental” rather than “later and larger.”\n\nEven when stripping out supply-related factors, inflation is still “too high” at up to 3%.\n\nBusiness contacts say they are planning on price increases “closer to 3%.”\n\nAnalysis:The message from Musalem isclearly hawkish.He believes inflation could remain well above the Fed’s 2% target without additional policy restraint, and he favors acting sooner with smaller rate increases rather than waiting and potentially having to move more aggressively later.\n\nFor traders, the important distinction is that Musalem does not view inflation as solely the result of temporary supply disruptions. He sees pressure from both demand and supply, while reports of businesses planning price increases closer to 3% raise concerns that inflation expectations could remain sticky. That keeps the possibility of further Fed tightening firmly on the table.\n\nThe market is pricing in a 55% chance of a Fed hike in October.",
+      "titre": "St. Louis Fed’s Musalem: Interest rates likely need to rise further to tame inflation"
+    },
     {
       "ignore": false,
       "titre": "BOC’s Macklem: It could take some time for higher fuel margins to normalise",
@@ -217,6 +242,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "USD"
+      ],
+      "ignore": false,
+      "categorie": "central-banks",
+      "date_recuperation": "2026-09-21T18:25:31.480538+00:00",
+      "url": "https://investinglive.com/central-banks/st-louis-fed-s-musalem-interest-rates-likely-need-to-rise-further-to-tame-inflation/",
+      "date_publication": "2026-09-21T18:23:33.029490+00:00",
+      "contenu": "Musalem warns that inflation risks remain elevated and argues that earlier, incremental rate hikes would be preferable to larger moves later.\n\nWithout further policy restraint, it is more likely inflation will remain substantially above the 2% target 18 months from now.\n\nInterest rates likely need to rise further to tame inflation that is both demand- and supply-driven.\n\nLabor market stable around full employment and not a source of inflation pressure.\n\nCommodity shock is more than just oil, includes base metals like copper.\n\nBetter for rate hikes to be “earlier and incremental” rather than “later and larger.”\n\nEven when stripping out supply-related factors, inflation is still “too high” at up to 3%.\n\nBusiness contacts say they are planning on price increases “closer to 3%.”\n\nAnalysis:The message from Musalem isclearly hawkish.He believes inflation could remain well above the Fed’s 2% target without additional policy restraint, and he favors acting sooner with smaller rate increases rather than waiting and potentially having to move more aggressively later.\n\nFor traders, the important distinction is that Musalem does not view inflation as solely the result of temporary supply disruptions. He sees pressure from both demand and supply, while reports of businesses planning price increases closer to 3% raise concerns that inflation expectations could remain sticky. That keeps the possibility of further Fed tightening firmly on the table.\n\nThe market is pricing in a 55% chance of a Fed hike in October.",
+      "titre": "St. Louis Fed’s Musalem: Interest rates likely need to rise further to tame inflation"
+    },
     {
       "titre": "Meta shares surge more than 10% as Muse excitement triggers a major technical breakout",
       "url": "https://investinglive.com/stocks/meta-shares-surge-more-than-10-as-muse-excitement-triggers-a-major-technical-breakout/",
