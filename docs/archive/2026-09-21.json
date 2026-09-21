@@ -2,6 +2,16 @@
   "date": "2026-09-21",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-21T22:29:27.970413+00:00",
+      "impact": "low",
+      "titre": "ECB's Lane: EZ Economy Should Continue Growing At Steady But Moderate Pace If Energy Shock Does Not Intensify",
+      "url": "https://www.forexfactory.com/news/1419471-ecbs-lane-ez-economy-should-continue-growing-at",
+      "source": "@LiveSquawk",
+      "extrait": "ECB's Lane: Eurozone Economy Should Continue Growing At Steady But Moderate Pace If Energy Shock Does Not Intensify - Second Wave Of Energy-Price Increases Will Push Inflation Higher Before It Falls Toward Target From Mid-2027",
+      "ignore": false,
+      "date_publication": "2026-09-21T22:28:27.970413+00:00"
+    },
+    {
       "impact": "low",
       "source": "@NourHammoury",
       "ignore": false,
