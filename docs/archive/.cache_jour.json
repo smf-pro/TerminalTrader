@@ -1,11 +1,21 @@
 {
   "date": "2026-09-21",
   "curseurs": {
-    "ff_news": "2026-09-21T10:32:27.373392+00:00",
+    "ff_news": "2026-09-21T11:45:28.424156+00:00",
     "cb_articles": "2026-09-21T10:48:06.518234+00:00",
     "il_articles": "2026-09-21T10:48:06.518234+00:00"
   },
   "ff_news": [
+    {
+      "titre": "Waltz: Trump Is Always Open To Talk, Iran Has To Come To Table",
+      "url": "https://www.forexfactory.com/news/1419208-waltz-trump-is-always-open-to-talk-iran",
+      "extrait": "*waltz: Trump Is Always Open To Talk, Iran Has To Come To TableWaltz: US seeks to stop both sides in war in Ukraine",
+      "impact": "high",
+      "source": "@DeItaone",
+      "date_publication": "2026-09-21T11:45:28.424156+00:00",
+      "date_recuperation": "2026-09-21T11:47:28.424156+00:00",
+      "ignore": false
+    },
     {
       "url": "https://www.forexfactory.com/news/1419187-feds-goolsbee-restoring-price-stability-wont-be-painless",
       "extrait": "*feds Goolsbee: Restoring Price Stability Wont Be Painless",
