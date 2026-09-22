@@ -2,6 +2,16 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "ignore": false,
+      "impact": "medium",
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1419640-several-mediating-countries-in-contact-with-us-and",
+      "titre": "Several mediating countries in contact with US and Iran to arrange a high-level meeting - Regional source involved in negotiations",
+      "date_recuperation": "2026-09-22T14:17:28.324441+00:00",
+      "extrait": "Several mediating countries in contact with US and Iran to arrange a high-level meeting - Regional source involved in negotiations, via Barak Ravid, News 12",
+      "date_publication": "2026-09-22T14:16:28.324441+00:00"
+    },
+    {
       "date_publication": "2026-09-22T14:15:47.939682+00:00",
       "extrait": "Several mediating countries in contact with US and Iran to arrange a high-level meeting - Regional source involved in negotiations, via Barak Ravid, News 12",
       "date_recuperation": "2026-09-22T14:16:47.939682+00:00",
