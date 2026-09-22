@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-22T14:44:29.379906+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
-    "il_articles": "2026-09-22T14:01:45.613555+00:00"
+    "il_articles": "2026-09-22T14:43:30.363514+00:00"
   },
   "ff_news": [
     {
@@ -347,6 +347,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Trump back to highlighting the midterms timeline\n\nTrump at the United Nations repeated that he believes there will be an Iran deal right after the midterm elections. He floated this before and oil hit Q3 high shortly afterwards, in part due to the Saudi pipeline attacks. He later said a deal would come 'soon' and now he's back to the midterms timeline. I don't think there's any real analysis behind this other than him thinking that his enemies conspire around his election chances.\n\nTrump also repeated that he has a decision to make on Iran and that the Iranian regime is weak and desperate.\n\nOn net, I would take the post-election comment as bullish for oil.",
+      "tags": [
+        "Oil"
+      ],
+      "ignore": false,
+      "categorie": "commodities",
+      "titre": "Trump: I believe we will make a deal with Iran right after US election",
+      "url": "https://investinglive.com/commodities/trump-i-believe-we-will-make-a-deal-with-iran-right-after-us-election/",
+      "date_publication": "2026-09-22T14:43:30.363514+00:00",
+      "date_recuperation": "2026-09-22T14:45:29.331637+00:00"
+    },
     {
       "ignore": false,
       "tags": [
