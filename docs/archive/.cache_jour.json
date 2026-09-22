@@ -1,11 +1,31 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T11:13:24.005845+00:00",
+    "ff_news": "2026-09-22T12:14:23.179938+00:00",
     "cb_articles": "2026-09-22T04:33:52.882727+00:00",
     "il_articles": "2026-09-22T11:26:57.132899+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "extrait": "Kremlin: Putin and Saudi Crown Prince discussed Yemen and the Middle East; putin and Saudi Crown Prince call for safe passage through Hormuz",
+      "source": "@financialjuice",
+      "titre": "Kremlin: Putin and Saudi Crown Prince discussed Yemen and the Middle East; putin and Saudi Crown Prince call for safe passage through Hormuz",
+      "url": "https://www.forexfactory.com/news/1419563-kremlin-putin-and-saudi-crown-prince-discussed-yemen",
+      "impact": "low",
+      "date_recuperation": "2026-09-22T12:15:23.179938+00:00",
+      "date_publication": "2026-09-22T12:14:23.179938+00:00"
+    },
+    {
+      "ignore": false,
+      "date_recuperation": "2026-09-22T12:14:24.522967+00:00",
+      "source": "@financialjuice",
+      "titre": "China's Xi unlikely to bring business delegation to meeting with trump - WSJ citing Sources",
+      "url": "https://www.forexfactory.com/news/1419562-chinas-xi-unlikely-to-bring-business-delegation-to",
+      "impact": "low",
+      "extrait": "China's Xi unlikely to bring business delegation to meeting with trump - WSJ citing SourcesTRUMP-XI SUMMIT EXPECTED TO BE LIGHT ON MAJOR DEALS Xi Jinping is unlikely to bring a delegation of Chinese CEOs to Washington this week, according to the WSJ, lowering expectations for major business agreements. Trump and Xi are expected to focus on extending the trade truce, AI and rare earths, with incremental tariff progress possible. Xis visit will be his first to Washington in 11 years.",
+      "date_publication": "2026-09-22T12:13:24.522967+00:00"
+    },
     {
       "impact": "low",
       "titre": "Rubio does not think anything is scheduled on the Trump-Iran president",
