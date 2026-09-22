@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T09:13:35.518041+00:00",
+    "ff_news": "2026-09-22T10:11:29.468003+00:00",
     "cb_articles": "2026-09-22T04:33:52.882727+00:00",
     "il_articles": "2026-09-22T10:07:52.324840+00:00"
   },
   "ff_news": [
+    {
+      "titre": "UK order books strengthen and output decline eases – CBI Industrial Trends",
+      "date_recuperation": "2026-09-22T10:12:29.468003+00:00",
+      "ignore": false,
+      "source": "cbi.org.uk",
+      "url": "https://www.forexfactory.com/news/1419533-uk-order-books-strengthen-and-output-decline-eases",
+      "date_publication": "2026-09-22T10:11:29.468003+00:00",
+      "extrait": "Manufacturing order books improved for the second consecutive month according to the CBI’s latest Industrial Trends Survey (ITS). Total order books were reported as below “normal” to the least extent since July 2023, with both total and export order books standing above their long-run averages. Output volumes fell very slightly in the three months to ...",
+      "impact": "low"
+    },
     {
       "impact": "low",
       "date_publication": "2026-09-22T09:13:35.518041+00:00",
