@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T12:17:27.341199+00:00",
+    "ff_news": "2026-09-22T13:09:29.592858+00:00",
     "cb_articles": "2026-09-22T04:33:52.882727+00:00",
     "il_articles": "2026-09-22T12:42:24.481076+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "Trump Open To Meeting Iran Officials Under Right Conditions: Cnn",
+      "date_recuperation": "2026-09-22T13:10:29.592858+00:00",
+      "date_publication": "2026-09-22T13:09:29.592858+00:00",
+      "titre": "Trump Open To Meeting Iran Officials Under Right Conditions: CNN",
+      "impact": "low",
+      "ignore": false,
+      "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1419587-trump-open-to-meeting-iran-officials-under-right"
+    },
     {
       "source": "prnewswire.com",
       "date_publication": "2026-09-22T12:17:27.341199+00:00",
