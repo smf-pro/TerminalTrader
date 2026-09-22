@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-22T16:52:26.613059+00:00",
     "cb_articles": "2026-09-22T16:57:47.877232+00:00",
-    "il_articles": "2026-09-22T16:03:44.384887+00:00"
+    "il_articles": "2026-09-22T17:03:56.950276+00:00"
   },
   "ff_news": [
     {
@@ -399,6 +399,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "US treasury sells $69 billion of two-year notes at a high yield of 4.787%",
+      "ignore": false,
+      "contenu": "WI level at the time of the auction 4.785%\n\nHigh yield of 4.787%\n\nWI level at the time of the auction 4.785%\n\nTail 0.2 basis points versus average of 0.1 basis point\n\nBid to cover 2.63X average of 2.61X\n\nDirects 13.19% versus average of 28.3%\n\nIndirects 57.79% versus average of 58.6%\n\nDealers 13.19% versus average of 13.1%",
+      "url": "https://investinglive.com/news/us-treasury-sells-69-billion-of-two-year-notes-at-a-high-yield-of-4-787/",
+      "date_recuperation": "2026-09-22T17:05:27.403615+00:00",
+      "categorie": "news",
+      "date_publication": "2026-09-22T17:03:56.950276+00:00",
+      "tags": [
+        "Bonds"
+      ]
+    },
     {
       "tags": [
         "EUR"
