@@ -3,13 +3,13 @@
   "ff_news": [
     {
       "impact": "low",
-      "ignore": false,
-      "date_publication": "2026-09-22T11:13:24.005845+00:00",
-      "source": "@MarketsCapApp",
-      "extrait": "Rubio does not think anything is scheduled on the Trump-Iran presidentTrump open to meeting with anybody, Rubio saysRubio: Open To Iran Meeting At Un -nbc News InterviewRubio: Most ships pass through Hormuz without coming under attack",
       "titre": "Rubio does not think anything is scheduled on the Trump-Iran president",
+      "url": "https://www.forexfactory.com/news/1419549-rubio-does-not-think-anything-is-scheduled-on",
+      "extrait": "Rubio does not think anything is scheduled on the Trump-Iran presidentTrump open to meeting with anybody, Rubio saysRubio: Open To Iran Meeting At Un -nbc News InterviewRubio: Most ships pass through Hormuz without coming under attack",
+      "date_publication": "2026-09-22T11:13:24.005845+00:00",
       "date_recuperation": "2026-09-22T11:15:24.005845+00:00",
-      "url": "https://www.forexfactory.com/news/1419549-rubio-does-not-think-anything-is-scheduled-on"
+      "ignore": false,
+      "source": "@MarketsCapApp"
     },
     {
       "titre": "UK order books strengthen and output decline eases – CBI Industrial Trends",
