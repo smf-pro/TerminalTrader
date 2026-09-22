@@ -2,24 +2,24 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "ignore": false,
+      "impact": "low",
       "source": "economy-finance.ec.europa.eu",
       "titre": "Flash Consumer Confidence Indicator for the EU and Euro Area",
-      "date_recuperation": "2026-09-22T14:04:29.131701+00:00",
-      "date_publication": "2026-09-22T14:03:29.131701+00:00",
-      "url": "https://www.forexfactory.com/news/1419636-flash-consumer-confidence-indicator-for-the-eu-and",
-      "impact": "low",
       "extrait": "In September 2026, DG ECFIN’s flash estimate1 of the consumer confidence indicator2 fell by 0.8 percentage points (pps) in the EU and by 1.0 pps in the euro area. Down to -15.8 (EU) and -16.5 points (euro area), consumer confidence veered away from its long-term average again, after four months of recovery. This month's Flash CCI for the EU aggregate is ...",
-      "ignore": false
+      "date_recuperation": "2026-09-22T14:04:29.131701+00:00",
+      "url": "https://www.forexfactory.com/news/1419636-flash-consumer-confidence-indicator-for-the-eu-and",
+      "date_publication": "2026-09-22T14:03:29.131701+00:00"
     },
     {
+      "ignore": false,
       "source": "richmondfed.org",
+      "impact": "low",
+      "extrait": "Fifth District manufacturing activity edged down in September, according to the most recent survey from the Federal Reserve Bank of Richmond. The composite manufacturing index dropped to -2 from 4 in August. Two of its three component indexes decreased in September: shipments to -5 from 11 and new orders to -6 from 3. Meanwhile, the employment index ...",
       "titre": "US Fifth District Manufacturing Activity Edged Down In September",
       "date_recuperation": "2026-09-22T14:02:34.237432+00:00",
-      "date_publication": "2026-09-22T14:01:34.237432+00:00",
       "url": "https://www.forexfactory.com/news/1419635-us-fifth-district-manufacturing-activity-edged-down-in",
-      "extrait": "Fifth District manufacturing activity edged down in September, according to the most recent survey from the Federal Reserve Bank of Richmond. The composite manufacturing index dropped to -2 from 4 in August. Two of its three component indexes decreased in September: shipments to -5 from 11 and new orders to -6 from 3. Meanwhile, the employment index ...",
-      "impact": "low",
-      "ignore": false
+      "date_publication": "2026-09-22T14:01:34.237432+00:00"
     },
     {
       "extrait": "Trump Says He Wants To Settle The War",
@@ -262,28 +262,28 @@
   ],
   "il_articles": [
     {
-      "titre": "US September Richmond composite index -2 vs +4 prior",
-      "date_recuperation": "2026-09-22T14:05:27.503991+00:00",
-      "date_publication": "2026-09-22T14:01:45.613555+00:00",
-      "categorie": "news",
-      "url": "https://investinglive.com/news/us-september-richmond-composite-index-2-vs-4-prior/",
-      "contenu": "The September composite index from the Richmond Fed\n\nServices index 0 vs -8 prior\n\nComposite index -2 vs +4 prior\n\nManufacturing shipments -5 vs +11 prior\n\nThis is a mixed bag relative to the prior numbers but none of it is good, as all the main indexes are at zero or below.",
+      "ignore": false,
       "tags": [
         "USD"
       ],
-      "ignore": false
+      "titre": "US September Richmond composite index -2 vs +4 prior",
+      "date_recuperation": "2026-09-22T14:05:27.503991+00:00",
+      "contenu": "The September composite index from the Richmond Fed\n\nServices index 0 vs -8 prior\n\nComposite index -2 vs +4 prior\n\nManufacturing shipments -5 vs +11 prior\n\nThis is a mixed bag relative to the prior numbers but none of it is good, as all the main indexes are at zero or below.",
+      "url": "https://investinglive.com/news/us-september-richmond-composite-index-2-vs-4-prior/",
+      "date_publication": "2026-09-22T14:01:45.613555+00:00",
+      "categorie": "news"
     },
     {
-      "titre": "EU Consumer Confidence (flash) for September -16.5 vs -16.0 estimate",
-      "date_recuperation": "2026-09-22T14:05:27.503991+00:00",
-      "date_publication": "2026-09-22T14:00:53.722060+00:00",
-      "categorie": "news",
-      "url": "https://investinglive.com/news/eu-consumer-confidence-flash-for-september-16-5-vs-16-0-estimate/",
-      "contenu": "The details from the Flash September EU Consumer Confidence\n\nPrior -15.5 last month.\n\nEuro area flash consumer confidence: -16.5 vs -16.0 expected. Prior -15.5.\n\nEU flash consumer confidence: -15.8, down 0.8 points from August.\n\nTheEuropean Commission’s Directorate-General for Economic and Financial Affairs (DG ECFIN)reports that euro area consumer confidence fell1.0 pointin September. The decline was slightly larger than expected and ended four months of recovery. Confidence across the broader EU also weakened.\n\nQuick analysis:Consumers had been feeling gradually better, but September’s reading suggests that improvement has stalled. Weaker confidence may weigh on household spending and is a growth consideration for the European Central Bank. The euro could face some pressure from the softer reading, although inflation and other economic data will also shape the bank’s decisions.\n\nWhat this report measures:DG ECFIN’s monthly flash indicator is an early estimate of consumer sentiment in the euro area and the wider EU. Traders watch it for clues about future household spending and economic growth. The flash figures can be revised.",
+      "ignore": false,
       "tags": [
         "EUR"
       ],
-      "ignore": false
+      "titre": "EU Consumer Confidence (flash) for September -16.5 vs -16.0 estimate",
+      "date_recuperation": "2026-09-22T14:05:27.503991+00:00",
+      "contenu": "The details from the Flash September EU Consumer Confidence\n\nPrior -15.5 last month.\n\nEuro area flash consumer confidence: -16.5 vs -16.0 expected. Prior -15.5.\n\nEU flash consumer confidence: -15.8, down 0.8 points from August.\n\nTheEuropean Commission’s Directorate-General for Economic and Financial Affairs (DG ECFIN)reports that euro area consumer confidence fell1.0 pointin September. The decline was slightly larger than expected and ended four months of recovery. Confidence across the broader EU also weakened.\n\nQuick analysis:Consumers had been feeling gradually better, but September’s reading suggests that improvement has stalled. Weaker confidence may weigh on household spending and is a growth consideration for the European Central Bank. The euro could face some pressure from the softer reading, although inflation and other economic data will also shape the bank’s decisions.\n\nWhat this report measures:DG ECFIN’s monthly flash indicator is an early estimate of consumer sentiment in the euro area and the wider EU. Traders watch it for clues about future household spending and economic growth. The flash figures can be revised.",
+      "url": "https://investinglive.com/news/eu-consumer-confidence-flash-for-september-16-5-vs-16-0-estimate/",
+      "date_publication": "2026-09-22T14:00:53.722060+00:00",
+      "categorie": "news"
     },
     {
       "url": "https://investinglive.com/news/philly-fed-nonmanufacturing-survey-22-0-vs-10-6-prior/",
