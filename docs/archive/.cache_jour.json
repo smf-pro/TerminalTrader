@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T19:32:31.502029+00:00",
+    "ff_news": "2026-09-22T19:36:41.388061+00:00",
     "cb_articles": "2026-09-22T17:51:49.242474+00:00",
-    "il_articles": "2026-09-22T19:17:07.662563+00:00"
+    "il_articles": "2026-09-22T19:36:51.749311+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419759-trump-a-lot-of-momentum-for-iran-to",
+      "titre": "Trump: A Lot Of Momentum For Iran To Make A Deal; Expects Iran To Do Something Good",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-22T19:38:41.388061+00:00",
+      "impact": "high",
+      "date_publication": "2026-09-22T19:36:41.388061+00:00",
+      "extrait": "Trump: A Lot Of Momentum For Iran To Make A Deal; Expects Iran To Do Something GoodTrump: I think Witkoff and Kushner will get this thing ended."
+    },
     {
       "source": "bundesbank.de",
       "impact": "low",
@@ -450,6 +460,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "url": "https://investinglive.com/commodities/recap-us-and-iran-meet-in-new-york-on-unga-sidelines-hormuz-conditions-on-the-table/",
+      "titre": "Recap: US and Iran meet in New York on UNGA sidelines, Hormuz conditions on the table",
+      "date_recuperation": "2026-09-22T19:41:31.701133+00:00",
+      "categorie": "commodities",
+      "date_publication": "2026-09-22T19:36:51.749311+00:00",
+      "contenu": "Many headlines about US-Iran talks landing today\n\nIran FM Araghchi met US envoys Witkoff and Kushner at UN headquarters, per NYT citing two Iranian officials\n\nTrump: Witkoff and Kushner met with Iran mediators, \"lots of good thoughts\"\n\nIranian state broadcaster: Tehran accepted Witkoff's meeting request because Iran had announced its conditions for reopening the Strait of Hormuz; \"strict conditions\" were conveyed to the US side\n\nIsrael's Channel 12 (citing US sources): meeting was planned in advance, talks centred on conditions for renewing negotiations and reopening Hormuz, no agreement on most disputes\n\nAl Arabiya source: meeting \"broke the deadlock,\" breakthrough possible but requires multiple steps\n\nFars: the US \"has not left a red line in the region,\" Iran ready for all scenarios (responding to Trump's UNGA remarks)\n\nTrump says he thinks Iran \"will do something good\" and there's lots of momentum\n\nThis is the first direct, high-level contact between the two sides that's been confirmed from both ends, and that alone matters. Trump is talking it up, Iranian outlets are framing it as Washington coming to them on Tehran's terms, and the Israeli read is that the substance is still far apart. All three can be true at once.\n\nThere are all kinds of leaks from many angles but Trump himself sounds upbeat (as usual).\n\n. Iran's state broadcaster is explicitly linked the talks to its conditions for reopening the strait, which tells you Tehran sees the waterway as its main bargaining chip and intends to trade it rather than give it up. \"Strict conditions\" suggests they're not cheap but it could simply be a return to the MOU.\n\nThe Al Arabiya line is probably the most balanced take: the deadlock is broken, but this is a process, not a deal. Meanwhile, the Fars comment is a reminder that the hardline messaging hasn't softened, though that's par for the course when a negotiation is getting underway and neither side wants to look like it blinked.\n\nThere were clearly some substantive talks between the US and Iran today. The headlines point to multiple rounds of talks, disputed conditions, and no agreement on the core issues yet. I'd be careful chasing a sharp drop in oil on the back of a single meeting as the market has been burned by \"breakthrough\" headlines before. The upside is that both sides are now publicly invested in a negotiating track, and that lowers the odds of escalation in the near term.\n\nNow we wait for the next meeting, which Trump said would happen 'soon'.\n\nWTI was last down $2.45 to $89.92.",
+      "tags": [
+        "Oil"
+      ]
+    },
     {
       "url": "https://investinglive.com/education/trader-education-risking-a-little-to-make-more-than-a-little/",
       "tags": [
