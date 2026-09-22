@@ -63,10 +63,18 @@ def charger_cache(nom_source):
         return {}
 
 
-def sauvegarder_cache(nom_source, cache):
-    """Purge les entrees plus vieilles que DUREE_RETENTION_JOURS puis
-    ecrit le fichier sur disque. A appeler en fin de cycle()."""
-    seuil = datetime.now(timezone.utc) - timedelta(days=DUREE_RETENTION_JOURS)
+def sauvegarder_cache(nom_source, cache, retention_jours=DUREE_RETENTION_JOURS):
+    """Purge les entrees plus vieilles que retention_jours puis ecrit le
+    fichier sur disque. A appeler en fin de cycle().
+
+    retention_jours par defaut = DUREE_RETENTION_JOURS (7j, comportement
+    historique inchange pour ff_cloud.py, centralbanks_cloud.py,
+    investinglive_cloud.py). Les sources a tres faible frequence et aux
+    evenements non-repetables (ex: reunions FOMC, une date donnee ne
+    revient jamais) doivent passer une valeur bien plus longue, sans quoi
+    une date deja traitee sortirait du cache puis serait indefiniment
+    re-scrapee et re-ecrite en Firestore a chaque cycle."""
+    seuil = datetime.now(timezone.utc) - timedelta(days=retention_jours)
     cache_purge = {}
     for doc_id, date_iso in cache.items():
         try:
