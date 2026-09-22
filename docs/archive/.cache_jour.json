@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-22T15:59:28.089059+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
-    "il_articles": "2026-09-22T14:43:30.363514+00:00"
+    "il_articles": "2026-09-22T16:03:44.384887+00:00"
   },
   "ff_news": [
     {
@@ -357,6 +357,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "EUR"
+      ],
+      "titre": "Euro falls to the lowest since July",
+      "date_recuperation": "2026-09-22T16:05:30.059345+00:00",
+      "date_publication": "2026-09-22T16:03:44.384887+00:00",
+      "ignore": false,
+      "categorie": "forex",
+      "contenu": "Euro down 30 pips on the day\n\nThe optimism about a break through in Iran is fading after Trump's UN speech.\n\nA report earlier from Kyodo suggested Iran was willing to open the Strait of Hormuz in exchange for the US lifting its blockade but there were denials of the report via FARS and Trump didn't mention anything along those lines in his UN speech. Instead, he said a deal was likely after the midterms.\n\nNaturally, he would be aiming for a dealbeforethe midterms in order to preserve Republican control but it doesn't look like he thinks that's possible. That said, there are credible reports that neigbboring countries are working on the diplomatic side so it can change quickly.\n\nThe market is voting for 'no deal' at the moment though, with WTI up to $91.68 from a low of $89.16. That same sentiment is also leading to US dollar bids, rising yields and a slide in the euro. Today's decline puts the euro at the lowest since July 29 and without much in the way of support until the July low of 1.1350.",
+      "url": "https://investinglive.com/forex/euro-falls-to-the-lowest-since-july/"
+    },
     {
       "contenu": "Trump back to highlighting the midterms timeline\n\nTrump at the United Nations repeated that he believes there will be an Iran deal right after the midterm elections. He floated this before and oil hit Q3 high shortly afterwards, in part due to the Saudi pipeline attacks. He later said a deal would come 'soon' and now he's back to the midterms timeline. I don't think there's any real analysis behind this other than him thinking that his enemies conspire around his election chances.\n\nTrump also repeated that he has a decision to make on Iran and that the Iranian regime is weak and desperate.\n\nOn net, I would take the post-election comment as bullish for oil.",
       "tags": [
