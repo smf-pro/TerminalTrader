@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T14:16:28.324441+00:00",
+    "ff_news": "2026-09-22T14:21:26.873380+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T14:01:45.613555+00:00"
   },
   "ff_news": [
+    {
+      "titre": "Jefferson: Discount Window Modernization and Treasury Market Functioning",
+      "ignore": false,
+      "impact": "low",
+      "date_publication": "2026-09-22T14:21:26.873380+00:00",
+      "extrait": "Thank you for the opportunity to speak at the Treasury Market Conference. Today I will discuss modernization of the Federal Reserve's discount window and some implications of that modernization for Treasury market functioning. As this group knows well, the Federal Reserve's discount window lending program provides liquidity to banks.2 Banks access discount window liquidity overwhelmingly through primary credit borrowing, which is offered on a \"no questions asked\" basis. The discount window is as old as the Federal Reserve itself, which will be 113 years old in December.3 Over its long history, the Federal Reserve has used the discount window to support the liquidity and stability of the banking system and to implement monetary policy. For the discount window to continue to do so, it is important that the discount window evolves with the banking and financial system. That is why the staff at the Board of Governors and at each Federal Reserve Bank have worked diligently over the past several years to enhance discount window operations. The continuing efforts to modernize the discount window ensure a more efficient, accessible source of liquidity that banks can access quickly and without hesitation when needed. Of course, the Treasury market arguably is as old as our country itself, with the origins of federal debt dating back to the Revolutionary War.4 That said, the beginnings of the modern Treasury market are more directly traced to World War I.5 Over the past century, the Treasury market has evolved into one of the deepest and most liquid markets in the world. In the Federal Reserve System, there is an array of resFed's Jefferson does not comment on monetary policy, economy in prepared remarks.Fed's Jefferson: The discount window is shock absorber during market stress, supports functioning of short-term funding markets, treasury liquidity.Fed's Jefferson: Still important work to do to modernize the discount window.",
+      "url": "https://www.forexfactory.com/news/1419643-jefferson-discount-window-modernization-and-treasury-market-functioning",
+      "source": "federalreserve.gov",
+      "date_recuperation": "2026-09-22T14:22:26.873380+00:00"
+    },
     {
       "ignore": false,
       "impact": "medium",
