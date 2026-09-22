@@ -2,6 +2,16 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "impact": "low",
+      "titre": "The leaders of USA, Denmark and Greenland just signed a new security agreement on Greenland",
+      "source": "@visegrad24",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419693-the-leaders-of-usa-denmark-and-greenland-just",
+      "extrait": "BREAKING: The leaders of USA, Denmark and Greenland just signed a new security agreement on Greenland",
+      "date_publication": "2026-09-22T15:59:28.089059+00:00",
+      "date_recuperation": "2026-09-22T16:00:28.089059+00:00"
+    },
+    {
       "extrait": "*trump Urges Nations To Join In Economic Isolation Of Iran*trump: Oil Prices Will Plummet After Iran Conflict Is Over",
       "impact": "medium",
       "titre": "Trump Urges Nations To Join In Economic Isolation Of Iran",
