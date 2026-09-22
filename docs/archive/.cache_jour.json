@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T06:01:30.370835+00:00",
+    "ff_news": "2026-09-22T07:45:26.517783+00:00",
     "cb_articles": "2026-09-22T04:33:52.882727+00:00",
     "il_articles": "2026-09-22T07:22:34.236594+00:00"
   },
   "ff_news": [
+    {
+      "source": "@financialjuice",
+      "impact": "low",
+      "titre": "Russia's Lavrov and Rubio expected to meet September 23rd - TASS",
+      "date_recuperation": "2026-09-22T07:46:26.517783+00:00",
+      "date_publication": "2026-09-22T07:45:26.517783+00:00",
+      "url": "https://www.forexfactory.com/news/1419497-russias-lavrov-and-rubio-expected-to-meet-september",
+      "extrait": "Russia's Lavrov and Rubio expected to meet September 23rd - Tass",
+      "ignore": false
+    },
     {
       "source": "ons.gov.uk",
       "date_recuperation": "2026-09-22T06:03:30.370835+00:00",
