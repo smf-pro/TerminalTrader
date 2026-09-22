@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T16:47:33.458633+00:00",
+    "ff_news": "2026-09-22T16:52:26.613059+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T16:03:44.384887+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "date_publication": "2026-09-22T16:52:26.613059+00:00",
+      "url": "https://www.forexfactory.com/news/1419726-feds-barkin-we-raised-rates-last-week-because",
+      "date_recuperation": "2026-09-22T16:53:26.613059+00:00",
+      "source": "@financialjuice",
+      "titre": "Fed's Barkin: We raised rates last week because risks to inflation outweigh risks to maximum employment",
+      "ignore": false,
+      "extrait": "Fed's Barkin: We raised rates last week because risks to inflation outweigh risks to maximum employment.Fed's Barkin: Economic conditions are, if anything, firming."
+    },
     {
       "impact": "low",
       "source": "@financialjuice",
