@@ -2,7 +2,7 @@
   "date": "2026-09-22",
   "curseurs": {
     "ff_news": "2026-09-22T16:52:26.613059+00:00",
-    "cb_articles": "2026-09-22T14:08:10.412708+00:00",
+    "cb_articles": "2026-09-22T16:57:47.877232+00:00",
     "il_articles": "2026-09-22T16:03:44.384887+00:00"
   },
   "ff_news": [
@@ -268,6 +268,28 @@
     }
   ],
   "cb_articles": [
+    {
+      "date_publication": "2026-09-22T16:57:47.877232+00:00",
+      "url": "https://investinglive.com/central-banks/richmond-fed-s-barkin-says-inflation-risks-outweighed-employment-risks-in-last-week-s-rate-hike-0/",
+      "date_recuperation": "2026-09-22T16:58:26.498148+00:00",
+      "contenu": "Barkin says economic conditions are firming and further hikes may be needed if prices do not stabilize.\n\nThe US central bank raised rates last week because risks to inflation outweigh risks to maximum employment.\n\nLast week’s rate hike will help restore price stability; we’ll see if more hikes are needed.\n\nEconomic conditions are, if anything, firming.\n\n“Passing” shocks like tariffs and energy are not fading; there is a risk that high inflation today will impact future inflation.\n\nAnalysis:Barkin’s message is hawkish. He sees enough strength in the economy to keep the focus on inflation, while leaving the door open to another hike. For traders, the question is whether inflation begins to stabilize after last week’s move. His comments do not commit the Fed to a further increase.",
+      "tags": [
+        "Fed"
+      ],
+      "ignore": false,
+      "titre": "Richmond Fed’s Barkin says inflation risks outweighed employment risks in last week’s rate hike"
+    },
+    {
+      "date_publication": "2026-09-22T16:57:44.920963+00:00",
+      "url": "https://investinglive.com/central-banks/richmond-fed-s-barkin-says-inflation-risks-outweighed-employment-risks-in-last-week-s-rate-hike/",
+      "date_recuperation": "2026-09-22T16:58:26.498148+00:00",
+      "contenu": "Barkin says economic conditions are firming and further hikes may be needed if prices do not stabilize.\n\nThe US central bank raised rates last week because risks to inflation outweigh risks to maximum employment.\n\nLast week’s rate hike will help restore price stability; we’ll see if more hikes are needed.\n\nEconomic conditions are, if anything, firming.\n\n“Passing” shocks like tariffs and energy are not fading; there is a risk that high inflation today will impact future inflation.\n\nAnalysis:Barkin’s message is hawkish. He sees enough strength in the economy to keep the focus on inflation, while leaving the door open to another hike. For traders, the question is whether inflation begins to stabilize after last week’s move. His comments do not commit the Fed to a further increase.",
+      "tags": [
+        "Fed"
+      ],
+      "ignore": false,
+      "titre": "Richmond Fed’s Barkin says inflation risks outweighed employment risks in last week’s rate hike"
+    },
     {
       "titre": "Fed's Williams doesn't comment on monetary policy or economic outlook",
       "url": "https://investinglive.com/central-banks/fed-s-williams-doesn-t-comment-on-monetary-policy-or-economic-outlook/",
