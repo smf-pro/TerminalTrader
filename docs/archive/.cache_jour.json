@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T14:21:26.873380+00:00",
+    "ff_news": "2026-09-22T14:38:28.314523+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T14:01:45.613555+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1419652-trump-says-he-urged-iran-to-negotiate-several",
+      "ignore": false,
+      "date_publication": "2026-09-22T14:38:28.314523+00:00",
+      "extrait": "Trump Says He Urged Iran To Negotiate Several Times",
+      "date_recuperation": "2026-09-22T14:39:28.314523+00:00",
+      "impact": "low",
+      "source": "@FirstSquawk",
+      "titre": "Trump Says He Urged Iran To Negotiate Several Times"
+    },
     {
       "titre": "Jefferson: Discount Window Modernization and Treasury Market Functioning",
       "ignore": false,
