@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T14:03:29.131701+00:00",
-    "cb_articles": "2026-09-22T13:38:54.651334+00:00",
+    "ff_news": "2026-09-22T14:06:31.034823+00:00",
+    "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T14:01:45.613555+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1419638-williams-do-you-remember",
+      "source": "newyorkfed.org",
+      "date_recuperation": "2026-09-22T14:08:31.034823+00:00",
+      "titre": "Williams: Do You Remember?",
+      "ignore": false,
+      "impact": "low",
+      "extrait": "Good morning, everyone. On behalf of the New York Fed, welcome to the 12th annual U.S. Treasury Market Conference. I’d like to thank the distinguished speakers and panelists for participating in today’s event and our staff for putting together an outstanding program. I’m looking forward to diving into the many important topics that will be addressed today. Let me get the standard Fed disclaimer out of the way, which is that the views I express today are mine alone and do not necessarily reflect those of the Federal Open Market Committee (FOMC) or others in the Federal Reserve System. Thinking Past the 21st of September When you looked at the calendar yesterday, I am sure you all had that song stuck in your head. The legendary band Earth, Wind, & Fire asks if you remember the 21st night of September. That should be a fairly easy task this morning. But I’m going to give you a harder assignment and ask you to remember a lot further back. Indeed, for over a decade now, the Joint Member Agencies have co-hosted this annual conference to better understand the U.S. Treasury market, the deepest and most liquid government securities market in the world. This conference has served as a valuable touchpoint to discuss critical and pressing issues. And, it has presented us all with actionable takeaways and a renewed determination to strengthen the resilience and efficiency of this essential market. The success of thisFed's Williams does not comment on monetary policy or the economic outlook.Fed's Williams: There should be no opportunity cost to holding reserves.Fed's Williams: The Fed's rate control system has been very effective.Fed's Williams: The Fed will adjust monetary policy implementation strategy as needed.",
+      "date_publication": "2026-09-22T14:06:31.034823+00:00"
+    },
     {
       "ignore": false,
       "impact": "low",
@@ -168,6 +178,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "titre": "Fed's Williams doesn't comment on monetary policy or economic outlook",
+      "url": "https://investinglive.com/central-banks/fed-s-williams-doesn-t-comment-on-monetary-policy-or-economic-outlook/",
+      "ignore": false,
+      "date_recuperation": "2026-09-22T14:08:21.369880+00:00",
+      "tags": [
+        "Fed"
+      ],
+      "date_publication": "2026-09-22T14:08:10.412708+00:00",
+      "contenu": "Comments from Williams\n\nThere should be no opportunity cost to holding reserves\n\nFed will adjust supply of reserves depending on market conditions\n\nWill adjust mon pol implementation strategy as needed"
+    },
     {
       "tags": [
         "Fed"
