@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-22T08:42:21.370750+00:00",
     "cb_articles": "2026-09-22T04:33:52.882727+00:00",
-    "il_articles": "2026-09-22T08:23:54.320675+00:00"
+    "il_articles": "2026-09-22T08:52:30.147956+00:00"
   },
   "ff_news": [
     {
@@ -155,6 +155,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Iran has offered to reopen the Strait of Hormuz within seven days if the US lifts its blockade of Iranian ports and halts military operations around the strait. The proposal adds to growing de-escalation hopes ahead of Trump’s talks with Gulf leaders and could significantly ease oil supply concerns if an agreement is reached.\n\nIran has offered to reopen the Strait of Hormuz within seven days if the United States takes steps to ease military and economic pressure on Tehran, according to a senior Iranian government official cited byKyodo News. The proposal was reportedly conveyed to Washington through intermediaries as diplomatic efforts intensify around the UN General Assembly in New York.\n\nUnder the proposal, Iran would reopen the strategic waterway if the US lifts its blockade of Iranian ports and announces a plan to halt military operations around the strait. Tehran is also seeking renewed negotiations aimed at reaching a longer-term end to hostilities.\n\nThe offer comes after Iran's Supreme National Security Council Secretary Mohsen Rezaei said on September 19 that Tehran had established seven conditions for restarting negotiations with Washington. Among the demands publicly disclosed were an end to the war, the release of frozen Iranian assets and the lifting of the US naval blockade. The conditions were reportedly communicated to Washington through Qatar.\n\nThe timing of Iran's proposal is particularly important. Trump is meeting Gulf leaders in New York to discuss the conflict, while Qatar and other regional governments are pushing for renewed dialogue with Tehran. Qatar has said it is seeking even a temporary agreement that could restore navigation through Hormuz and create conditions for renewed negotiations.",
+      "titre": "Iran offers to reopen Strait of Hormuz within seven days if US eases blockade",
+      "date_publication": "2026-09-22T08:52:30.147956+00:00",
+      "url": "https://investinglive.com/news/iran-offers-to-reopen-strait-of-hormuz-within-seven-days-if-us-eases-blockade/",
+      "tags": [
+        "Oil"
+      ],
+      "ignore": false,
+      "date_recuperation": "2026-09-22T08:55:27.278212+00:00",
+      "categorie": "news"
+    },
     {
       "tags": [
         "Bonds",
