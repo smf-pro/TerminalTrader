@@ -141,6 +141,21 @@
   ],
   "il_articles": [
     {
+      "tags": [
+        "Bonds",
+        "market overview",
+        "yield",
+        "Stocks"
+      ],
+      "categorie": "news",
+      "ignore": false,
+      "url": "https://investinglive.com/news/10-year-treasury-yields-stay-near-5-what-would-trigger-the-next-break-higher/",
+      "contenu": "Stocks have absorbed 5% Treasury yields surprisingly well so far, but the next catalyst could make that much harder\n\nAfter all the hype and talk about the Fed, somehow stocks are finding some breathing room again.\n\nThe Nasdaq closed at a record high on Monday as AI optimism returned, while the S&P 500 also posted a strong rebound. Lower oil prices and a mild retreat in Treasury yields have helped improve the mood after last week's volatility.\n\nHowever, I don't think broader markets are completely out of the woods just yet.\n\n10-year Treasury yields are continuing to sit uncomfortably close to the 5% mark, having briefly pushed above it last week for the first time since 2023. And as long as yields remain around these levels, there is still an underlying source of tension that makes any relief rally feel slightly more fragile.\n\nI'm not doubting the fact that stocks have absorbed that pressure surprisingly well. AI enthusiasm continues to be a tailwind in allowing investors to offset the impact of higher rates, with equities showing little sign of outright panic even during the recent bond market selloff.\n\nThe bigger question now though is what could trigger the next break higher in yields.\n\nWell, inflation is the obvious starting point. Another jump in oil prices, stronger services inflation or economic data showing that demand is still running hot would reinforce expectations that the Fed may need to tighten further.\n\nThen of course, there is the fiscal side.\n\nHeavy Treasury issuance and concerns about the longer-term trajectory of US debt are increasingly part of the reason investors are demanding more compensation to hold longer-dated government bonds. That fiscal premium has become an increasingly important part ofthe shift in the bond market landscapeover the past month.\n\nAnd that is where things could become more uncomfortable.\n\nA decisive move in 10-year Treasury yields above 5% would raise the discount rate for equities just as valuations are trying to recover. That means corporate borrowing costs would climb further, mortgages and consumer credit would remain expensive, and the dollar could find another rates-driven tailwind. In turn, gold would also face renewed pressure from higher real yields.\n\nI'm not saying that a break of 5% in yields would automatically break the stock market. The latest rebound in equities shows that they can find some way or some reason to live with higher yields - so long as earnings and growth remain solid.\n\nHowever, what a break of 5% would mean though is that the margin for error is getting smaller.\n\nAs long as 10-year yields stay near 5%, broader markets are likely to remain sensitive to every key headline in markets - be it from inflation, the Fed, geopolitics, or oil prices. But if one of those provides the catalyst for another leg higher in yields, then suddenly the relief that is currently showing up could quickly face a much, much tougher test.",
+      "date_publication": "2026-09-22T08:23:54.320675+00:00",
+      "titre": "10-year Treasury yields stay near 5%, what would trigger the next break higher?",
+      "date_recuperation": "2026-09-22T08:25:29.863862+00:00"
+    },
+    {
       "url": "https://investinglive.com/commodities/crude-oil-remains-under-pressure-as-de-escalation-bets-increase-amid-mounting-constraints-for-trump/",
       "date_recuperation": "2026-09-22T07:25:26.022118+00:00",
       "ignore": false,
