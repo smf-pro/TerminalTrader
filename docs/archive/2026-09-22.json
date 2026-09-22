@@ -2,6 +2,26 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "date_publication": "2026-09-22T14:15:47.939682+00:00",
+      "extrait": "Several mediating countries in contact with US and Iran to arrange a high-level meeting - Regional source involved in negotiations, via Barak Ravid, News 12",
+      "date_recuperation": "2026-09-22T14:16:47.939682+00:00",
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1419640-several-mediating-countries-in-contact-with-us-and",
+      "impact": "medium",
+      "titre": "Several mediating countries in contact with US and Iran to arrange a high-level meeting - Regional source involved in negotiations",
+      "ignore": false
+    },
+    {
+      "extrait": "Fed's Collins: Backed Last Week's Rate Hike - Increased Likelihood Of Future Scenarios In Which Inflation Stays Notably Above 2% - While Upside Risks To Inflation Have Increased, Labour Market Conditions Seem A Bit Stronger Overall - With Labour Market On A Better Footing, MonPol Can Focus On Timely Return To Price Stability",
+      "ignore": false,
+      "date_recuperation": "2026-09-22T14:14:26.135899+00:00",
+      "source": "@LiveSquawk",
+      "url": "https://www.forexfactory.com/news/1419639-feds-collins-increased-likelihood-of-future-scenarios-in",
+      "impact": "low",
+      "date_publication": "2026-09-22T14:13:26.135899+00:00",
+      "titre": "Fed's Collins: Increased Likelihood Of Future Scenarios In Which Inflation Stays Notably Above 2%"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1419638-williams-do-you-remember",
       "source": "newyorkfed.org",
       "date_recuperation": "2026-09-22T14:08:31.034823+00:00",
