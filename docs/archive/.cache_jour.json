@@ -2,7 +2,7 @@
   "date": "2026-09-22",
   "curseurs": {
     "ff_news": "2026-09-22T13:09:29.592858+00:00",
-    "cb_articles": "2026-09-22T04:33:52.882727+00:00",
+    "cb_articles": "2026-09-22T13:38:54.651334+00:00",
     "il_articles": "2026-09-22T12:42:24.481076+00:00"
   },
   "ff_news": [
@@ -138,6 +138,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "url": "https://investinglive.com/central-banks/fed-s-collins-with-jobs-market-on-a-better-footing-can-focus-on-price-stability/",
+      "titre": "Fed's Collins: With jobs market on a better footing, can focus on price stability",
+      "ignore": false,
+      "date_recuperation": "2026-09-22T13:39:28.683119+00:00",
+      "contenu": "Comments from the Boston Fed President\n\nWith labor market on a somewhat better footing, mon pol can focus on a timely return to prices stability, especially after five years of too high inflation\n\nWhile the upside risks to inflation have increased, labor market conditions seem a bit stronger\n\nNow see an increased likelihood of future scenarios in which inflation remains notably above 2%\n\nSupported hike last week\n\n\"Somewhat more restrictive\" Fed funds rate will help ensure that inflation durable returns to target\n\nSo that begs the question, what is 'somewhat more restrictive'. The Fed funds curve prices in a bit more than three further rates hikes, basically at the cadence of every second meeting. The October 28 meeting is priced at just over 50%.",
+      "date_publication": "2026-09-22T13:38:54.651334+00:00",
+      "tags": [
+        "Fed"
+      ]
+    },
     {
       "ignore": false,
       "contenu": "Bullock’s latest comments reinforce the case for rates staying higher as domestic demand and global inflation risks collide\n\nRBA governor, Michele Bullock, is offering a few more clues on where the central bank’s thinking is heading today. And the message is becoming increasingly difficult to read as anything other than higher-for-longer. Here are her added comments to the earlier message:\n\nInflation risks are now materialising from both the Middle East and excess demand at home\n\nNeutral rates are rising globally, helping to push real bond yields higher\n\nAustralian dollar performance is broadly reflecting commodity prices and interest-rate differentials\n\nHer point on inflation risks is one to be wary about. The RBA can arguably look through some of the direct impact from an external energy shock. However, it becomes much harder to do that when domestic demand is already adding to inflation pressures and there is a risk of second-round effects developing.\n\nThat keeps the door open to further tightening after the RBA left the cash rate unchanged at 4.35% in August. The next policy meeting and decision will come on 29 September and markets are pricing in around 95% odds of a 25 bps rate hike currently. So, Bullock's comments seem to be a nod in that direction.\n\nThe RBA forecast also reflects that, as the central bank continues to flag that inflation is still running too high. And that they don't expect it to return to the middle of its 2-3% target range until early 2028.\n\nPutting the pieces together, there is little here to encourage expectations of easier policy. The immediate question is whether the RBA needs another rate hike. The bigger one may be how long rates ultimately stay elevated.",
