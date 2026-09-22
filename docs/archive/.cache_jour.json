@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T14:38:28.314523+00:00",
+    "ff_news": "2026-09-22T14:44:29.379906+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T14:01:45.613555+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "*trump Urges Nations To Join In Economic Isolation Of Iran*trump: Oil Prices Will Plummet After Iran Conflict Is Over",
+      "impact": "medium",
+      "titre": "Trump Urges Nations To Join In Economic Isolation Of Iran",
+      "date_publication": "2026-09-22T14:44:29.379906+00:00",
+      "date_recuperation": "2026-09-22T14:45:29.379906+00:00",
+      "source": "@zerohedge",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419661-trump-urges-nations-to-join-in-economic-isolation"
+    },
     {
       "url": "https://www.forexfactory.com/news/1419652-trump-says-he-urged-iran-to-negotiate-several",
       "date_publication": "2026-09-22T14:38:28.314523+00:00",
