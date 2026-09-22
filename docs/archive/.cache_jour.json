@@ -1,11 +1,21 @@
 {
   "date": "2026-09-22",
   "curseurs": {
-    "ff_news": "2026-09-22T15:59:28.089059+00:00",
+    "ff_news": "2026-09-22T16:47:33.458633+00:00",
     "cb_articles": "2026-09-22T14:08:10.412708+00:00",
     "il_articles": "2026-09-22T16:03:44.384887+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-22T16:49:33.458633+00:00",
+      "titre": "UK's PM Burnham Tells Trump: We are ready to play our part in the Middle East.",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1419725-uks-pm-burnham-tells-trump-we-are-ready",
+      "extrait": "UK's PM Burnham Tells Trump: We are ready to play our part in the Middle East.Trump: I Think Burnham Is A Natural Businessperson, He Gets It. ...",
+      "date_publication": "2026-09-22T16:47:33.458633+00:00"
+    },
     {
       "impact": "low",
       "titre": "The leaders of USA, Denmark and Greenland just signed a new security agreement on Greenland",
