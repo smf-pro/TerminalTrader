@@ -2,6 +2,16 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "source": "bundesbank.de",
+      "impact": "low",
+      "date_recuperation": "2026-09-22T19:34:31.502029+00:00",
+      "url": "https://www.forexfactory.com/news/1419758-nagel-has-europe-fully-digested-the-new-geoeconomic",
+      "titre": "Nagel: Has Europe fully digested the new geoeconomic realities – and does it have the energy to cope with them",
+      "ignore": false,
+      "date_publication": "2026-09-22T19:32:31.502029+00:00",
+      "extrait": "Ladies and gentlemen, It is a pleasure to speak to you this evening. The Society of Professional Economists was originally established back in 1953. That was four years before the Bundesbank was created. Much has changed in the global economic landscape since then. Growth and prosperity have risen to unprecedented levels due to globalisation, the ..."
+    },
+    {
       "url": "https://www.forexfactory.com/news/1419757-trump-witkoff-and-kushner-met-with-iran-lots",
       "ignore": false,
       "extrait": "Trump: Witkoff and Kushner met with Iran. Lots of good thoughts.",
