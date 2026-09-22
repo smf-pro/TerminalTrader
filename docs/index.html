@@ -776,6 +776,47 @@
   .lang-btn + .lang-btn{ border-left:1px solid var(--line); }
   .lang-btn:hover{ color:var(--text-hi); }
   .lang-btn.active{ background:var(--blue); color:#fff; }
+
+  /* --- TRADINGVIEW (historique des actifs) --- */
+  .tv-search{ padding:8px 10px; border-bottom:1px solid var(--line); flex-shrink:0; }
+  .tv-search input{
+    width:100%; background:var(--bg-1); border:1px solid var(--line); color:var(--text-hi);
+    font-family:var(--mono); font-size:11px; padding:6px 9px; border-radius:4px;
+  }
+  .tv-search input:focus{ border-color:var(--blue); outline:none; }
+  .tv-list-row{
+    display:grid; grid-template-columns:1fr auto; gap:2px 10px; padding:9px 14px;
+    border-bottom:1px solid var(--line); cursor:pointer; border-left:2px solid transparent;
+    transition:background .15s var(--ease);
+  }
+  .tv-list-row:hover{ background:var(--bg-2); }
+  .tv-list-row.active{ background:var(--bg-2); border-left-color:var(--blue); padding-left:12px; }
+  .tv-sym{ font-family:var(--mono); font-weight:600; font-size:12.5px; }
+  .tv-name{ font-family:var(--mono); font-size:10px; color:var(--text-low); margin-top:2px; }
+  .tv-px{ font-family:var(--mono); font-size:12.5px; text-align:right; }
+  .tv-age{ font-family:var(--mono); font-size:9.5px; color:var(--text-low); text-align:right; margin-top:2px; }
+  .tv-age.ferme{ color:var(--amber); }
+  .tv-head-right{ display:flex; align-items:center; gap:10px; text-transform:none; }
+  .tv-price{ font-family:var(--mono); font-size:15px; font-weight:600; color:var(--text-hi); letter-spacing:0; }
+  .tv-price-wrap{ display:flex; flex-direction:column; align-items:flex-end; gap:1px; }
+  .tv-price-age{ font-family:var(--mono); font-size:9.5px; color:var(--text-low); letter-spacing:.02em; cursor:help; }
+  .tv-price-age.tv-stale{ color:var(--amber); }
+  .tv-bar{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+    padding:8px 14px; border-bottom:1px solid var(--line); flex-shrink:0;
+  }
+  .tv-bar .tv-group{ display:flex; gap:4px; }
+  .tv-left{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; }
+  .tv-grp-wrap{ display:flex; align-items:center; gap:8px; }
+  .tv-lab{ font-family:var(--mono); font-size:9.5px; color:var(--text-low); text-transform:uppercase; letter-spacing:0.6px; }
+  .tv-bar .tv-meta{ font-family:var(--mono); font-size:10px; color:var(--text-low); }
+  .tv-status{
+    display:flex; flex-wrap:wrap; gap:4px 26px; padding:7px 14px; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:10.5px; color:var(--text-mid); flex-shrink:0; min-height:31px;
+  }
+  .tv-status b{ color:var(--text-hi); font-weight:600; }
+  .tv-status .tv-stale, .tv-status b.tv-stale{ color:var(--amber); }
+  #tvStatutMaj{ cursor:help; }
 </style>
 </head>
 <body>
@@ -797,6 +838,7 @@
       <button class="nav-btn" data-page="technique">ANALYSE TECH.</button>
       <button class="nav-btn" data-page="fx">FX<span class="src-status-dot" id="dot-fxforex" title=""></span></button>
       <button class="nav-btn" data-page="cot">COT<span class="src-status-dot" id="dot-cot" title=""></span></button>
+      <button class="nav-btn" data-page="tradingview">TRADINGVIEW<span class="src-status-dot" id="dot-actifs" title=""></span></button>
     </nav>
     <div class="search">
       <span style="color:var(--text-low); font-family:var(--mono); font-size:12px;">⌕</span>
@@ -1111,6 +1153,42 @@
     </div>
   </div>
 
+  <!-- ===================== TRADINGVIEW (HISTORIQUE DES ACTIFS) ===================== -->
+  <div class="page" id="page-tradingview">
+    <div class="page-heading eco-heading" style="padding:16px 22px 0;">
+      <h1>TRADINGVIEW — Historique des actifs<span class="src-status-dot" id="dot-actifs-page" title=""></span><span class="src-status-time" id="time-actifs"></span></h1>
+      <div class="eco-filters" id="tvFilters">
+        <div class="eco-filter-group">
+          <span class="flabel">Catégorie</span>
+          <div id="tvFilterCat"></div>
+        </div>
+      </div>
+    </div>
+    <div class="taux-layout" style="margin:16px 22px 22px; grid-template-columns:1fr 3.2fr;">
+      <div class="taux-col">
+        <div class="panel-head"><span>ACTIFS</span><span id="tvListCount"></span></div>
+        <div class="tv-search"><input type="text" id="tvSearchInput" placeholder="Filtrer (nom, ticker)…" autocomplete="off"></div>
+        <div class="panel-body" id="tvListBody"></div>
+      </div>
+      <div class="taux-col">
+        <div class="panel-head">
+          <span id="tvChartTitre">—</span>
+          <span class="tv-head-right"><span class="tv-price-wrap"><span class="tv-price" id="tvChartPrix"></span><span class="tv-price-age" id="tvChartAge" title="Temps écoulé depuis ce prix"></span></span><span id="tvChartTag"></span></span>
+        </div>
+        <div class="tv-bar">
+          <div class="tv-left">
+            <div class="tv-grp-wrap"><span class="tv-lab">Période</span><div class="tv-group" id="tvPeriodes"></div></div>
+            <div class="tv-grp-wrap"><span class="tv-lab">Bougie</span><div class="tv-group" id="tvIntervalles"></div></div>
+          </div>
+          <div class="tv-meta" id="tvChartMeta"></div>
+          <div class="tv-group" id="tvStyles"></div>
+        </div>
+        <div class="tv-status"><span id="tvStatutBougie"></span><span id="tvStatutMaj"></span></div>
+        <div class="taux-chart-area"><canvas id="tvCanvas"></canvas></div>
+      </div>
+    </div>
+  </div>
+
   <div class="footer-note">
     <span>Données simulées à des fins de démonstration — non des cotations réelles</span>
   </div>
@@ -1295,6 +1373,7 @@ function ecouterStatutPipeline(nomSource){
         liensVus: d.liens_vus || 0,
         articlesNouveaux: d.articles_nouveaux || 0,
         erreur: d.derniere_erreur || null,
+        brut: d,
       } : null;
       mettreAJourHorlogeInfo();
     }, erreur => {
@@ -2103,6 +2182,1022 @@ function initialiserCotFiltres(){
   }
 }
 
+// ===== ACTIFS — onglet TRADINGVIEW (historique des prix horaires) =====
+// Alimenté par actifs_cloud.py :
+//   - asset_history : UN document par actif ET par mois (ID "<SLUG>_<AAAA-MM>"),
+//     champs slug/ticker/nom/categorie/mois + points = { "t<timestamp_unix>": {o,h,l,c} }
+//     (bougies 1h, mois en UTC). Les points s'accumulent SANS LIMITE.
+//   - asset_latest/all : { actifs: { SLUG: {prix, ts, ticker} } } (ts en secondes)
+//   - pipeline_status/actifs : battement de coeur horaire du script.
+//   - asset_latest/live : VOIE RAPIDE (actifs_live.py, ~1 min) = { actifs: { SLUG: {prix, ts} },
+//     derniere_maj, statut, actifs_recuperes, actifs_totaux, duree_s }. ts = horodatage UNIX (s) de la
+//     derniere bougie 1 minute : il donne l'age REEL du prix (Yahoo retarde certaines places de 10-15 min).
+//     Le prix live est fusionne dans la bougie en cours (voir tvFusionnerLive).
+// La liste TV_ACTIFS ci-dessous doit rester ALIGNEE avec _ACTIFS_BRUTS de
+// actifs_cloud.py (memes slugs, memes categories).
+//
+// Lecture Firestore : on n'ecoute l'historique QUE de l'actif affiche, et
+// seulement les mois utiles a la periode choisie (1 document par mois, lu
+// directement par son ID -> aucun index composite). Seule la periode "MAX"
+// utilise where('slug','==',X) (un seul champ d'egalite = index automatique).
+// Aucune lecture d'historique tant que l'onglet n'a pas ete ouvert.
+//
+// Axe X : les bougies sont espacees par INDEX (comme TradingView), donc les
+// week-ends / nuits de marche ferme sont "colles" au lieu de laisser un trou.
+
+const TV_CATEGORIES = [
+  {cle:'forex_majeures', label:'Forex majeures'},
+  {cle:'forex_exotiques', label:'Forex exotiques'},
+  {cle:'indice_dollar', label:'Indice dollar'},
+  {cle:'indices_us', label:'Indices US'},
+  {cle:'indices_europe', label:'Indices Europe'},
+  {cle:'indices_asie', label:'Indices Asie'},
+  {cle:'metaux', label:'Métaux'},
+  {cle:'energie', label:'Énergie'},
+  {cle:'agricoles', label:'Agricoles'},
+  {cle:'cryptos', label:'Cryptos'},
+  {cle:'taux_us', label:'Taux US'},
+  {cle:'futures_obligataires', label:'Futures oblig.'},
+  {cle:'etf', label:'ETF'},
+  {cle:'actions', label:'Actions'},
+];
+
+const TV_ACTIFS = [
+  {slug:"EURUSD", ticker:"EURUSD=X", nom:"EUR/USD", categorie:"forex_majeures"},
+  {slug:"GBPUSD", ticker:"GBPUSD=X", nom:"GBP/USD", categorie:"forex_majeures"},
+  {slug:"USDJPY", ticker:"USDJPY=X", nom:"USD/JPY", categorie:"forex_majeures"},
+  {slug:"USDCHF", ticker:"USDCHF=X", nom:"USD/CHF", categorie:"forex_majeures"},
+  {slug:"USDCAD", ticker:"USDCAD=X", nom:"USD/CAD", categorie:"forex_majeures"},
+  {slug:"AUDUSD", ticker:"AUDUSD=X", nom:"AUD/USD", categorie:"forex_majeures"},
+  {slug:"NZDUSD", ticker:"NZDUSD=X", nom:"NZD/USD", categorie:"forex_majeures"},
+  {slug:"USDMXN", ticker:"USDMXN=X", nom:"USD/MXN", categorie:"forex_exotiques"},
+  {slug:"USDZAR", ticker:"USDZAR=X", nom:"USD/ZAR", categorie:"forex_exotiques"},
+  {slug:"USDTRY", ticker:"USDTRY=X", nom:"USD/TRY", categorie:"forex_exotiques"},
+  {slug:"USDSGD", ticker:"USDSGD=X", nom:"USD/SGD", categorie:"forex_exotiques"},
+  {slug:"USDNOK", ticker:"USDNOK=X", nom:"USD/NOK", categorie:"forex_exotiques"},
+  {slug:"USDSEK", ticker:"USDSEK=X", nom:"USD/SEK", categorie:"forex_exotiques"},
+  {slug:"USDHKD", ticker:"USDHKD=X", nom:"USD/HKD", categorie:"forex_exotiques"},
+  {slug:"USDBRL", ticker:"USDBRL=X", nom:"USD/BRL", categorie:"forex_exotiques"},
+  {slug:"USDCNY", ticker:"CNY=X", nom:"USD/CNY", categorie:"forex_exotiques"},
+  {slug:"USDINR", ticker:"INR=X", nom:"USD/INR", categorie:"forex_exotiques"},
+  {slug:"DXY", ticker:"DX-Y.NYB", nom:"Indice dollar (DXY)", categorie:"indice_dollar"},
+  {slug:"SPX", ticker:"^GSPC", nom:"S&P 500", categorie:"indices_us"},
+  {slug:"DJI", ticker:"^DJI", nom:"Dow Jones", categorie:"indices_us"},
+  {slug:"IXIC", ticker:"^IXIC", nom:"Nasdaq Composite", categorie:"indices_us"},
+  {slug:"NDX", ticker:"^NDX", nom:"Nasdaq 100", categorie:"indices_us"},
+  {slug:"RUT", ticker:"^RUT", nom:"Russell 2000", categorie:"indices_us"},
+  {slug:"VIX", ticker:"^VIX", nom:"VIX", categorie:"indices_us"},
+  {slug:"DAX", ticker:"^GDAXI", nom:"DAX", categorie:"indices_europe"},
+  {slug:"CAC40", ticker:"^FCHI", nom:"CAC 40", categorie:"indices_europe"},
+  {slug:"FTSE100", ticker:"^FTSE", nom:"FTSE 100", categorie:"indices_europe"},
+  {slug:"ESTX50", ticker:"^STOXX50E", nom:"Euro Stoxx 50", categorie:"indices_europe"},
+  {slug:"IBEX35", ticker:"^IBEX", nom:"IBEX 35", categorie:"indices_europe"},
+  {slug:"SMI", ticker:"^SSMI", nom:"SMI", categorie:"indices_europe"},
+  {slug:"AEX", ticker:"^AEX", nom:"AEX", categorie:"indices_europe"},
+  {slug:"N225", ticker:"^N225", nom:"Nikkei 225", categorie:"indices_asie"},
+  {slug:"HSI", ticker:"^HSI", nom:"Hang Seng", categorie:"indices_asie"},
+  {slug:"SSEC", ticker:"000001.SS", nom:"Shanghai Composite", categorie:"indices_asie"},
+  {slug:"KOSPI", ticker:"^KS11", nom:"KOSPI", categorie:"indices_asie"},
+  {slug:"ASX200", ticker:"^AXJO", nom:"ASX 200", categorie:"indices_asie"},
+  {slug:"NIFTY50", ticker:"^NSEI", nom:"Nifty 50", categorie:"indices_asie"},
+  {slug:"SENSEX", ticker:"^BSESN", nom:"Sensex", categorie:"indices_asie"},
+  {slug:"GOLD", ticker:"GC=F", nom:"Or", categorie:"metaux"},
+  {slug:"SILVER", ticker:"SI=F", nom:"Argent", categorie:"metaux"},
+  {slug:"PLATINUM", ticker:"PL=F", nom:"Platine", categorie:"metaux"},
+  {slug:"PALLADIUM", ticker:"PA=F", nom:"Palladium", categorie:"metaux"},
+  {slug:"COPPER", ticker:"HG=F", nom:"Cuivre", categorie:"metaux"},
+  {slug:"WTI", ticker:"CL=F", nom:"Pétrole WTI", categorie:"energie"},
+  {slug:"BRENT", ticker:"BZ=F", nom:"Pétrole Brent", categorie:"energie"},
+  {slug:"NATGAS", ticker:"NG=F", nom:"Gaz naturel", categorie:"energie"},
+  {slug:"HEATOIL", ticker:"HO=F", nom:"Fioul", categorie:"energie"},
+  {slug:"GASOLINE", ticker:"RB=F", nom:"Essence", categorie:"energie"},
+  {slug:"CORN", ticker:"ZC=F", nom:"Maïs", categorie:"agricoles"},
+  {slug:"WHEAT", ticker:"ZW=F", nom:"Blé", categorie:"agricoles"},
+  {slug:"SOYBEAN", ticker:"ZS=F", nom:"Soja", categorie:"agricoles"},
+  {slug:"COFFEE", ticker:"KC=F", nom:"Café", categorie:"agricoles"},
+  {slug:"SUGAR", ticker:"SB=F", nom:"Sucre", categorie:"agricoles"},
+  {slug:"COCOA", ticker:"CC=F", nom:"Cacao", categorie:"agricoles"},
+  {slug:"COTTON", ticker:"CT=F", nom:"Coton", categorie:"agricoles"},
+  {slug:"BTCUSD", ticker:"BTC-USD", nom:"Bitcoin", categorie:"cryptos"},
+  {slug:"ETHUSD", ticker:"ETH-USD", nom:"Ethereum", categorie:"cryptos"},
+  {slug:"BNBUSD", ticker:"BNB-USD", nom:"BNB", categorie:"cryptos"},
+  {slug:"SOLUSD", ticker:"SOL-USD", nom:"Solana", categorie:"cryptos"},
+  {slug:"XRPUSD", ticker:"XRP-USD", nom:"XRP", categorie:"cryptos"},
+  {slug:"ADAUSD", ticker:"ADA-USD", nom:"Cardano", categorie:"cryptos"},
+  {slug:"DOGEUSD", ticker:"DOGE-USD", nom:"Dogecoin", categorie:"cryptos"},
+  {slug:"AVAXUSD", ticker:"AVAX-USD", nom:"Avalanche", categorie:"cryptos"},
+  {slug:"LINKUSD", ticker:"LINK-USD", nom:"Chainlink", categorie:"cryptos"},
+  {slug:"DOTUSD", ticker:"DOT-USD", nom:"Polkadot", categorie:"cryptos"},
+  {slug:"LTCUSD", ticker:"LTC-USD", nom:"Litecoin", categorie:"cryptos"},
+  {slug:"TRXUSD", ticker:"TRX-USD", nom:"TRON", categorie:"cryptos"},
+  {slug:"US10Y", ticker:"^TNX", nom:"Taux US 10 ans", categorie:"taux_us"},
+  {slug:"US5Y", ticker:"^FVX", nom:"Taux US 5 ans", categorie:"taux_us"},
+  {slug:"US30Y", ticker:"^TYX", nom:"Taux US 30 ans", categorie:"taux_us"},
+  {slug:"US13W", ticker:"^IRX", nom:"Taux US 13 semaines", categorie:"taux_us"},
+  {slug:"ZN", ticker:"ZN=F", nom:"Future T-Note 10 ans", categorie:"futures_obligataires"},
+  {slug:"ZB", ticker:"ZB=F", nom:"Future T-Bond 30 ans", categorie:"futures_obligataires"},
+  {slug:"ZF", ticker:"ZF=F", nom:"Future T-Note 5 ans", categorie:"futures_obligataires"},
+  {slug:"ZT", ticker:"ZT=F", nom:"Future T-Note 2 ans", categorie:"futures_obligataires"},
+  {slug:"SPY", ticker:"SPY", nom:"SPDR S&P 500 ETF", categorie:"etf"},
+  {slug:"QQQ", ticker:"QQQ", nom:"Invesco QQQ", categorie:"etf"},
+  {slug:"DIA", ticker:"DIA", nom:"SPDR Dow Jones ETF", categorie:"etf"},
+  {slug:"IWM", ticker:"IWM", nom:"iShares Russell 2000", categorie:"etf"},
+  {slug:"GLD", ticker:"GLD", nom:"SPDR Gold Shares", categorie:"etf"},
+  {slug:"SLV", ticker:"SLV", nom:"iShares Silver Trust", categorie:"etf"},
+  {slug:"USO", ticker:"USO", nom:"United States Oil Fund", categorie:"etf"},
+  {slug:"TLT", ticker:"TLT", nom:"iShares 20+ Year Treasury", categorie:"etf"},
+  {slug:"IEF", ticker:"IEF", nom:"iShares 7-10 Year Treasury", categorie:"etf"},
+  {slug:"HYG", ticker:"HYG", nom:"iShares High Yield Corp Bond", categorie:"etf"},
+  {slug:"LQD", ticker:"LQD", nom:"iShares Investment Grade Corp Bond", categorie:"etf"},
+  {slug:"UUP", ticker:"UUP", nom:"Invesco DB US Dollar Bullish", categorie:"etf"},
+  {slug:"EEM", ticker:"EEM", nom:"iShares MSCI Emerging Markets", categorie:"etf"},
+  {slug:"FXI", ticker:"FXI", nom:"iShares China Large-Cap", categorie:"etf"},
+  {slug:"AAPL", ticker:"AAPL", nom:"Apple", categorie:"actions"},
+  {slug:"MSFT", ticker:"MSFT", nom:"Microsoft", categorie:"actions"},
+  {slug:"NVDA", ticker:"NVDA", nom:"Nvidia", categorie:"actions"},
+  {slug:"AMZN", ticker:"AMZN", nom:"Amazon", categorie:"actions"},
+  {slug:"GOOGL", ticker:"GOOGL", nom:"Alphabet", categorie:"actions"},
+  {slug:"META", ticker:"META", nom:"Meta", categorie:"actions"},
+  {slug:"TSLA", ticker:"TSLA", nom:"Tesla", categorie:"actions"},
+  {slug:"JPM", ticker:"JPM", nom:"JPMorgan Chase", categorie:"actions"},
+  {slug:"MC_PA", ticker:"MC.PA", nom:"LVMH", categorie:"actions"},
+  {slug:"ASML_AS", ticker:"ASML.AS", nom:"ASML", categorie:"actions"},
+  {slug:"SAP_DE", ticker:"SAP.DE", nom:"SAP", categorie:"actions"},
+  {slug:"TTE_PA", ticker:"TTE.PA", nom:"TotalEnergies", categorie:"actions"},
+  {slug:"7203_T", ticker:"7203.T", nom:"Toyota", categorie:"actions"},
+];
+const TV_ACTIF_PAR_SLUG = Object.fromEntries(TV_ACTIFS.map(a => [a.slug, a]));
+
+// PERIODE = fenetre de temps affichee (comptee depuis la DERNIERE bougie, pas
+// depuis "maintenant", pour qu'un marche ferme depuis plusieurs jours reste
+// visible). INTERVALLE = duree d'UNE bougie. Les deux se choisissent
+// independamment (comme sur TradingView). Les donnees brutes sont en 1h : "1H"
+// affiche les bougies telles que stockees, les autres les regroupent.
+// Attention : une longue periode en 1H donne beaucoup de bougies (1A ~ 6 000,
+// MAX davantage) - elles deviennent tres fines, prenez 4H/1J pour la lisibilite.
+const TV_PERIODES = {
+  '1S':  {jours:7},
+  '1M':  {jours:31},
+  '3M':  {jours:92},
+  '6M':  {jours:183},
+  '1A':  {jours:366},
+  'MAX': {jours:null},
+};
+const TV_INTERVALLES = {
+  '1H': {pasMs:3600e3},
+  '4H': {pasMs:4*3600e3},
+  '1J': {pasMs:86400e3},
+  '1S': {pasMs:7*86400e3},
+};
+const TV_STYLES = [
+  {cle:'bougies', label:'Bougies'},
+  {cle:'ligne', label:'Ligne'},
+  {cle:'aire', label:'Aire'},
+];
+const TV_COULEUR_HAUSSE = '#22c48d';
+const TV_COULEUR_BAISSE = '#ef4a5a';
+const TV_COULEUR_LIGNE = '#5b90ff';
+const TV_SEUIL_LIVE_PERIME_MS = 30 * 60e3;  // un prix live plus vieux que ca est signale (Yahoo retarde deja certaines places de 15 min)
+const TV_SEUIL_FERME_SECONDES = 3 * 3600; // derniere bougie plus vieille que ca = marche ferme (ou retard)
+
+let tvLatest = {};                 // slug -> {prix, ts, ticker}   (asset_latest/all, cycle horaire)
+let tvLive = {};                   // slug -> {prix, ts}           (asset_latest/live, voie rapide)
+let tvLiveMeta = null;             // {maj, statut, recuperes, totaux, duree, erreur} du dernier cycle live
+let tvLiveUnsubs = [];             // desabonnements de asset_latest/all + asset_latest/live (actifs seulement pendant que l'onglet est ouvert)
+let tvCategorieActive = 'forex_majeures';
+let tvSlugActif = 'EURUSD';
+let tvPeriodeActive = '1M';
+let tvIntervalleActif = '1H';
+let tvStyleActif = 'bougies';
+let tvRecherche = '';
+let tvHistDocs = {};               // docId -> map de points bruts de l'actif affiche
+let tvMajDocs = {};                // docId -> Date de la derniere ECRITURE du document par le script (champ derniere_maj)
+let tvDocsAttendus = 0;
+let tvDocsVus = {};
+let tvUnsubs = [];
+let tvJeton = 0;                   // invalide les callbacks d'un ancien abonnement
+let tvCleChargee = null;           // 'SLUG|PERIODE' deja charge
+let tvErreurLecture = null;
+let tvBarres = [];
+let tvRenduPlanifie = false;
+
+function tvEchapper(texte){
+  return String(texte).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function tvActifCourant(){ return TV_ACTIF_PAR_SLUG[tvSlugActif]; }
+// Prix affiche pour un actif : le plus RECENT entre le cycle horaire (asset_latest/all)
+// et la voie rapide (asset_latest/live). Retourne {prix, ts (s), source} ou null.
+function tvPrixActuel(slug){
+  const valide = x => x && x.prix !== null && x.prix !== undefined && x.ts;
+  const h = tvLatest[slug], l = tvLive[slug];
+  if(valide(l) && (!valide(h) || l.ts >= h.ts)) return {prix: l.prix, ts: l.ts, source: 'live'};
+  if(valide(h)) return {prix: h.prix, ts: h.ts, source: 'horaire'};
+  return null;
+}
+function tvPageActive(){
+  const page = document.getElementById('page-tradingview');
+  return !!page && page.classList.contains('active');
+}
+
+// ----- formats -----
+function tvDecimales(prix, categorie){
+  const p = Math.abs(prix);
+  if(categorie && categorie.indexOf('forex') === 0) return p >= 20 ? 3 : 5;
+  if(p >= 100) return 2;
+  if(p >= 10) return 3;
+  if(p >= 1) return 4;
+  return 5;
+}
+function tvFormaterPrix(prix, categorie){
+  if(prix === null || prix === undefined || Number.isNaN(prix)) return '—';
+  const d = tvDecimales(prix, categorie);
+  return prix.toLocaleString('fr-FR', {minimumFractionDigits:d, maximumFractionDigits:d});
+}
+function tvDeuxChiffres(n){ return String(n).padStart(2, '0'); }
+// Date complete (infobulle / legende), toujours en UTC.
+function tvFmtDate(tMs, pasMs){
+  const d = new Date(tMs);
+  const jour = tvDeuxChiffres(d.getUTCDate()) + '/' + tvDeuxChiffres(d.getUTCMonth() + 1) + '/' + String(d.getUTCFullYear()).slice(2);
+  if(pasMs < 86400e3) return jour + ' ' + tvDeuxChiffres(d.getUTCHours()) + ':' + tvDeuxChiffres(d.getUTCMinutes());
+  return jour;
+}
+// Libelle court d'axe X, en UTC.
+function tvFmtAxeX(tMs, pasMs, spanJours){
+  const d = new Date(tMs);
+  const jour = tvDeuxChiffres(d.getUTCDate()) + '/' + tvDeuxChiffres(d.getUTCMonth() + 1);
+  if(pasMs < 86400e3) return spanJours > 60 ? jour : jour + ' ' + tvDeuxChiffres(d.getUTCHours()) + 'h';
+  if(spanJours > 200) return MOIS_ABREGES_FR[d.getUTCMonth()] + ' ' + String(d.getUTCFullYear()).slice(2);
+  return jour;
+}
+function tvAgeTexte(tsSecondes){
+  const minutes = (Date.now() / 1000 - tsSecondes) / 60;
+  if(minutes < 90) return Math.max(1, Math.round(minutes)) + ' min';
+  if(minutes < 48 * 60) return Math.round(minutes / 60) + ' h';
+  return Math.round(minutes / 1440) + ' j';
+}
+function tvEstAncien(tsSecondes){
+  return (Date.now() / 1000 - tsSecondes) > TV_SEUIL_FERME_SECONDES;
+}
+
+// Graduations "rondes" pour l'axe des prix (pas de 1, 2, 5 x 10^n).
+function tvTicksNice(min, max, cible){
+  const plage = (max - min) || 1;
+  const brut = plage / cible;
+  const mag = Math.pow(10, Math.floor(Math.log10(brut)));
+  const norm = brut / mag;
+  const pas = (norm < 1.5 ? 1 : norm < 3 ? 2 : norm < 7 ? 5 : 10) * mag;
+  const debut = Math.ceil(min / pas);
+  const ticks = [];
+  for(let k = debut; k * pas <= max + pas * 1e-9; k++) ticks.push(k * pas);
+  return ticks;
+}
+
+// ----- donnees -----
+// Regroupe des bougies 1h (triees) en bougies plus larges. Les semaines
+// commencent le lundi (le 1er janvier 1970, epoque Unix, etait un jeudi).
+function tvAgreger(points, pasMs){
+  const decalage = pasMs === 7 * 86400e3 ? 4 * 86400e3 : 0;
+  const sortie = [];
+  let courante = null;
+  points.forEach(p => {
+    const debut = Math.floor((p.t - decalage) / pasMs) * pasMs + decalage;
+    if(!courante || courante.t !== debut){
+      courante = {t: debut, o: p.o, h: p.h, l: p.l, c: p.c};
+      sortie.push(courante);
+    } else {
+      if(p.h > courante.h) courante.h = p.h;
+      if(p.l < courante.l) courante.l = p.l;
+      courante.c = p.c;
+    }
+  });
+  return sortie;
+}
+
+// Fusionne le dernier prix live dans la DERNIERE bougie 1h (les objets de `bruts`
+// sont des copies : l'historique stocke n'est jamais modifie) :
+//  - ts dans la bougie en cours : cloture = prix live, plus haut / plus bas etendus ;
+//  - ts dans une heure pas encore ecrite par le cycle horaire : bougie ajoutee,
+//    alignee sur la grille des bougies existantes (les actions US sont a :30) ;
+//  - ts plus ancien que la derniere bougie : ignore.
+// Le regroupement 4H/1J/1S se fait ensuite, il en profite donc aussi.
+function tvFusionnerLive(bruts, slug){
+  const live = tvLive[slug];
+  if(!live || !live.ts || live.prix === null || live.prix === undefined || !bruts.length) return;
+  const tMs = live.ts * 1000, prix = live.prix, pas = 3600e3;
+  const derniere = bruts[bruts.length - 1];
+  if(tMs < derniere.t) return;
+  if(tMs < derniere.t + pas){
+    derniere.c = prix;
+    if(prix > derniere.h) derniere.h = prix;
+    if(prix < derniere.l) derniere.l = prix;
+    return;
+  }
+  const k = Math.floor((tMs - derniere.t) / pas);
+  bruts.push({t: derniere.t + k * pas, o: k === 1 ? derniere.c : prix, h: prix, l: prix, c: prix});
+  if(k === 1){
+    const nouvelle = bruts[bruts.length - 1];
+    nouvelle.h = Math.max(derniere.c, prix);
+    nouvelle.l = Math.min(derniere.c, prix);
+  }
+}
+
+function tvCalculerBarres(){
+  const periode = TV_PERIODES[tvPeriodeActive];
+  const bruts = [];
+  Object.values(tvHistDocs).forEach(points => {
+    Object.keys(points || {}).forEach(cle => {
+      const v = points[cle];
+      const ts = parseInt(String(cle).slice(1), 10);
+      if(!v || Number.isNaN(ts) || v.c === null || v.c === undefined) return;
+      bruts.push({
+        t: ts * 1000,
+        o: v.o ?? v.c, h: v.h ?? v.c, l: v.l ?? v.c, c: v.c,
+      });
+    });
+  });
+  bruts.sort((a, b) => a.t - b.t);
+  if(bruts.length === 0) return [];
+  tvFusionnerLive(bruts, tvSlugActif);
+  let retenus = bruts;
+  if(periode.jours){
+    const limite = bruts[bruts.length - 1].t - periode.jours * 86400e3;
+    retenus = bruts.filter(p => p.t >= limite);
+  }
+  return tvAgreger(retenus, TV_INTERVALLES[tvIntervalleActif].pasMs);
+}
+
+function tvMoisRequis(periodeCle){
+  const jours = TV_PERIODES[periodeCle].jours;
+  if(!jours) return null; // MAX : tout l'historique, via une requete par slug
+  const maintenant = new Date();
+  // Marge de 7 jours : la derniere bougie peut dater d'avant "maintenant"
+  // (marche ferme), la fenetre est comptee depuis elle.
+  const debut = new Date(maintenant.getTime() - (jours + 7) * 86400e3);
+  const mois = [];
+  let a = debut.getUTCFullYear(), m = debut.getUTCMonth();
+  const aFin = maintenant.getUTCFullYear(), mFin = maintenant.getUTCMonth();
+  while(a < aFin || (a === aFin && m <= mFin)){
+    mois.push(a + '-' + tvDeuxChiffres(m + 1));
+    m++;
+    if(m > 11){ m = 0; a++; }
+  }
+  return mois;
+}
+
+function tvSeDesabonner(){
+  tvUnsubs.forEach(fn => { try{ fn(); }catch(e){} });
+  tvUnsubs = [];
+}
+
+function tvGererErreurLecture(erreur){
+  console.error('Erreur lecture asset_history :', erreur);
+  tvErreurLecture = (erreur && erreur.code === 'permission-denied')
+    ? 'Accès refusé : publiez les règles Firestore pour asset_history et asset_latest.'
+    : 'Erreur de lecture de l\'historique (voir la console).';
+  tvPlanifierRendu();
+}
+
+function tvChargerHistorique(){
+  tvSeDesabonner();
+  tvJeton++;
+  const jeton = tvJeton;
+  const slug = tvSlugActif;
+  tvHistDocs = {};
+  tvMajDocs = {};
+  tvDocsVus = {};
+  tvErreurLecture = null;
+  tvCleChargee = slug + '|' + tvPeriodeActive;
+  const mois = tvMoisRequis(tvPeriodeActive);
+
+  if(mois){
+    tvDocsAttendus = mois.length;
+    mois.forEach(m => {
+      const docId = slug + '_' + m;
+      const unsub = dbFirestore.collection('asset_history').doc(docId).onSnapshot(doc => {
+        if(jeton !== tvJeton) return;
+        const d = doc.exists ? doc.data() : null;
+        tvHistDocs[docId] = d ? (d.points || {}) : {};
+        if(d && d.derniere_maj) tvMajDocs[docId] = versDate(d.derniere_maj);
+        tvDocsVus[docId] = true;
+        tvPlanifierRendu();
+      }, tvGererErreurLecture);
+      tvUnsubs.push(unsub);
+    });
+  } else {
+    tvDocsAttendus = 1;
+    const unsub = dbFirestore.collection('asset_history').where('slug', '==', slug).onSnapshot(snapshot => {
+      if(jeton !== tvJeton) return;
+      tvHistDocs = {};
+      tvMajDocs = {};
+      snapshot.docs.forEach(doc => {
+        const d = doc.data();
+        tvHistDocs[doc.id] = d.points || {};
+        if(d.derniere_maj) tvMajDocs[doc.id] = versDate(d.derniere_maj);
+      });
+      tvDocsVus = {max: true};
+      tvPlanifierRendu();
+    }, tvGererErreurLecture);
+    tvUnsubs.push(unsub);
+  }
+  tvPlanifierRendu();
+}
+
+function tvHistoriqueCharge(){
+  return Object.keys(tvDocsVus).length >= tvDocsAttendus;
+}
+
+// IMPORTANT (quota de lectures Firestore) : contrairement aux autres sources du
+// site (ecoutees en permanence des le chargement de la page, sur toutes les
+// pages), les prix ne sont ecoutes QUE pendant que l'onglet TRADINGVIEW est
+// ouvert. asset_latest/live change ~toutes les minutes : ecoute en permanence
+// sur CHAQUE page pour CHAQUE visiteur, ca facture 1 lecture par mise a jour
+// et par onglet ouvert, toute la journee, meme pour un visiteur qui ne regarde
+// jamais cet onglet -> ~1440 lectures/jour/visiteur rien que pour ce document.
+// tvDemarrerEcouteLive()/tvArreterEcouteLive() bornent ce cout a la duree reelle
+// de consultation de l'onglet. Seul pipeline_status/actifs (1 petit document,
+// meme cout qu'une pastille de n'importe quelle autre source) reste ecoute en
+// permanence, pour que le point de statut s'affiche dans la barre de nav.
+function tvDemarrerEcouteLive(){
+  if(tvLiveUnsubs.length) return;   // deja actif
+  tvLiveUnsubs.push(dbFirestore.collection('asset_latest').doc('all').onSnapshot(doc => {
+    const d = doc.exists ? doc.data() : null;
+    tvLatest = (d && d.actifs) || {};
+    if(tvPageActive()){ renderTvListe(); renderTvEntete(); }
+  }, erreur => {
+    console.error('Erreur écoute asset_latest :', erreur);
+  }));
+  // Voie rapide : un seul petit document, mis a jour ~ toutes les minutes.
+  tvLiveUnsubs.push(dbFirestore.collection('asset_latest').doc('live').onSnapshot(doc => {
+    const d = doc.exists ? doc.data() : null;
+    tvLive = (d && d.actifs) || {};
+    tvLiveMeta = d ? {
+      maj: d.derniere_maj ? versDate(d.derniere_maj) : null,
+      statut: d.statut || null,
+      recuperes: d.actifs_recuperes,
+      totaux: d.actifs_totaux,
+      duree: d.duree_s,
+      erreur: d.derniere_erreur || null,
+    } : null;
+    if(tvPageActive()){ renderTvListe(); tvPlanifierRendu(); }
+  }, erreur => {
+    console.error('Erreur écoute asset_latest/live :', erreur);
+  }));
+}
+function tvArreterEcouteLive(){
+  tvLiveUnsubs.forEach(fn => { try{ fn(); }catch(e){} });
+  tvLiveUnsubs = [];
+  // On garde les derniers prix affiches en memoire (pas de vidage) : a la
+  // reouverture de l'onglet, l'utilisateur revoit tout de suite le dernier
+  // prix connu au lieu d'un ecran vide le temps d'un nouveau snapshot.
+}
+
+// Pastille de statut du script actifs_cloud.py (meme principe que le COT :
+// hors de SOURCES_PIPELINE car sa cadence -1 h- fausserait le seuil de
+// 15 min de l'horloge globale).
+const SOURCES_ACTIFS = ['actifs'];
+const SEUIL_SILENCE_ACTIFS_MINUTES = 180; // cron horaire + retards possibles de GitHub Actions
+
+function mettreAJourPastilleActifs(){
+  const dotNav = document.getElementById('dot-actifs');
+  const dotPage = document.getElementById('dot-actifs-page');
+  const tempsEl = document.getElementById('time-actifs');
+  if(!dotNav && !dotPage) return;
+
+  const entrees = SOURCES_ACTIFS
+    .map(nom => ({nom, info: statutPipeline[nom]}))
+    .filter(e => e.info && e.info.derniereExecution);
+
+  [dotNav, dotPage].forEach(dot => dot && dot.classList.remove('ok', 'ok_partiel', 'erreur'));
+
+  if(entrees.length === 0){
+    const texte = 'Aucune donnée reçue pour le moment (actifs)';
+    if(dotNav) dotNav.title = texte;
+    if(dotPage) dotPage.title = texte;
+    if(tempsEl) tempsEl.textContent = '';
+    return;
+  }
+
+  const info = entrees[0].info;
+  const minutesEcoulees = (Date.now() - info.derniereExecution.getTime()) / 60000;
+  const silencieux = minutesEcoulees > SEUIL_SILENCE_ACTIFS_MINUTES;
+  const classe = (info.statut === 'erreur' || silencieux) ? 'erreur' : (info.statut === 'ok_partiel' ? 'ok_partiel' : 'ok');
+  [dotNav, dotPage].forEach(dot => dot && dot.classList.add(classe));
+
+  const brut = info.brut || {};
+  const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+  let titre = 'actifs : ' + formaterDateCarte(info.derniereExecution) + ' ' + heure + ' (' + info.statut
+    + ', ' + (brut.actifs_recuperes ?? '?') + '/' + (brut.actifs_totaux ?? '?') + ' actifs récupérés, '
+    + (brut.actifs_ecrits ?? '?') + ' écrits, mode ' + (brut.mode || '?') + ')';
+  if(Array.isArray(brut.actifs_manquants) && brut.actifs_manquants.length){
+    titre += '\nSans donnée : ' + brut.actifs_manquants.join(', ');
+  }
+  if(tvLiveMeta && tvLiveMeta.maj) titre += '\nVoie rapide : ' + formaterDateCarte(tvLiveMeta.maj) + ' ' + tvLiveMeta.maj.toLocaleTimeString('fr-FR', {hour12:false})
+    + ' (' + (tvLiveMeta.statut || '?') + ', ' + (tvLiveMeta.recuperes ?? '?') + '/' + (tvLiveMeta.totaux ?? '?') + ' prix)';
+  if(info.erreur && info.statut !== 'ok') titre += '\n' + info.erreur; // un ancien message resté en base ne doit pas s'afficher une fois rétabli
+  if(silencieux) titre += '\nAucun cycle depuis plus de ' + Math.round(SEUIL_SILENCE_ACTIFS_MINUTES / 60) + ' h';
+  if(dotNav) dotNav.title = titre;
+  if(dotPage) dotPage.title = titre;
+  if(tempsEl) tempsEl.textContent = formaterDateCarte(info.derniereExecution) + ' ' + heure;
+}
+
+// ----- decompte de la bougie + fraicheur des donnees -----
+// "Derniere mise a jour" = derniere ECRITURE de cet actif par le script (champ
+// derniere_maj du document mensuel le plus recent). Le script n'ecrit qu'une
+// fois par cycle (cron horaire) et seulement si la bougie a change : un marche
+// ferme garde donc sa derniere ecriture d'avant la fermeture. Le dernier cycle
+// du script (meme sans ecriture) est dans l'infobulle.
+function tvFmtDuree(ms){
+  const s = Math.max(0, Math.floor(ms / 1000));
+  const j = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600);
+  const m = Math.floor((s % 3600) / 60), sec = s % 60;
+  if(j > 0) return j + ' j ' + tvDeuxChiffres(h) + ' h';
+  if(h > 0) return h + ' h ' + tvDeuxChiffres(m) + ' min';
+  return tvDeuxChiffres(m) + ':' + tvDeuxChiffres(sec);
+}
+function tvFmtAge(ms){
+  const s = Math.max(0, Math.floor(ms / 1000));
+  if(s < 60) return s + ' s';
+  const m = Math.floor(s / 60);
+  if(m < 90) return m + ' min';
+  const h = Math.floor(m / 60);
+  if(h < 48) return h + ' h ' + tvDeuxChiffres(m % 60) + ' min';
+  return Math.floor(h / 24) + ' j';
+}
+function tvFmtHeureUTC(date){
+  return tvDeuxChiffres(date.getUTCHours()) + ':' + tvDeuxChiffres(date.getUTCMinutes()) + ':' + tvDeuxChiffres(date.getUTCSeconds());
+}
+// 'JJ/MM ' si la date n'est pas celle d'aujourd'hui (UTC), sinon chaine vide.
+function tvJourSiDifferent(date, maintenantMs){
+  const a = new Date(maintenantMs);
+  const memeJour = date.getUTCFullYear() === a.getUTCFullYear() && date.getUTCMonth() === a.getUTCMonth() && date.getUTCDate() === a.getUTCDate();
+  return memeJour ? '' : tvDeuxChiffres(date.getUTCDate()) + '/' + tvDeuxChiffres(date.getUTCMonth() + 1) + ' ';
+}
+function tvDerniereMajActif(){
+  let plusRecente = null;
+  Object.values(tvMajDocs).forEach(d => {
+    if(d && !Number.isNaN(d.getTime()) && (!plusRecente || d > plusRecente)) plusRecente = d;
+  });
+  return plusRecente;
+}
+
+// Petit decompte sous le prix, dans l'en-tete (meme principe que le decompte de
+// bougie, mais ici : temps ECOULE entre maintenant et l'horodatage du prix
+// affiche - le plus recent entre asset_latest/live et asset_latest/all).
+// Se met a jour chaque seconde, sans redessiner le canvas.
+function tvMettreAJourAgePrix(){
+  const el = document.getElementById('tvChartAge');
+  if(!el || !tvPageActive()) return;
+  const courant = tvPrixActuel(tvSlugActif);
+  if(!courant){ el.textContent = ''; el.title = ''; return; }
+  const ageMs = Date.now() - courant.ts * 1000;
+  const seuil = courant.source === 'live' ? TV_SEUIL_LIVE_PERIME_MS : 90 * 60e3;
+  const perime = ageMs > seuil;
+  el.textContent = tvFmtDuree(Math.max(0, ageMs));
+  el.classList.toggle('tv-stale', perime);
+  el.title = (courant.source === 'live' ? 'Prix voie rapide' : 'Prix cycle horaire') + ' · ' + tvFmtDate(courant.ts * 1000, 3600e3) + ' UTC';
+}
+
+function tvMettreAJourDecompte(){
+  const elBougie = document.getElementById('tvStatutBougie');
+  const elMaj = document.getElementById('tvStatutMaj');
+  if(!elBougie || !elMaj || !tvPageActive()) return;
+  if(!tvBarres.length){
+    elBougie.innerHTML = '';
+    elMaj.innerHTML = '';
+    return;
+  }
+  const pasMs = TV_INTERVALLES[tvIntervalleActif].pasMs;
+  const derniere = tvBarres[tvBarres.length - 1];
+  const maintenant = Date.now();
+  const finBougie = derniere.t + pasMs;
+  const debutTexte = pasMs < 86400e3
+    ? tvDeuxChiffres(new Date(derniere.t).getUTCHours()) + ':' + tvDeuxChiffres(new Date(derniere.t).getUTCMinutes()) + ' UTC'
+    : tvFmtDate(derniere.t, pasMs);
+
+  if(maintenant < finBougie){
+    elBougie.innerHTML = 'Bougie ' + tvIntervalleActif + ' de <b>' + debutTexte + '</b> · clôture dans <b>' + tvFmtDuree(finBougie - maintenant) + '</b>';
+  } else {
+    elBougie.innerHTML = '<span class="tv-stale">Dernière bougie ' + tvFmtDate(derniere.t, pasMs) + (pasMs < 86400e3 ? ' UTC' : '')
+      + ' · clôturée depuis ' + tvFmtAge(maintenant - finBougie) + '</span>';
+  }
+
+  const cible = tvPrixActuel(tvSlugActif);
+  const maj = tvDerniereMajActif();
+  const cycle = statutPipeline['actifs'];
+  let titre = '';
+
+  if(cible && cible.source === 'live'){
+    // Prix de la voie rapide : on affiche l'age REEL du prix (horodatage de la bougie 1 minute).
+    const dateTs = new Date(cible.ts * 1000);
+    const age = maintenant - dateTs.getTime();
+    const perime = age > TV_SEUIL_LIVE_PERIME_MS;
+    elMaj.innerHTML = 'Dernier prix (live) : <b class="' + (perime ? 'tv-stale' : '') + '">' + tvJourSiDifferent(dateTs, maintenant)
+      + tvFmtHeureUTC(dateTs) + ' UTC</b> · il y a ' + tvFmtAge(age);
+    titre = 'Prix de la voie rapide (bougies 1 minute). Cet horodatage est celui du prix lui-même : Yahoo retarde certaines places '
+      + 'de 10 à 15 minutes, et un marché fermé garde son dernier prix d\'avant la fermeture.';
+  } else if(maj){
+    const age = maintenant - maj.getTime();
+    const perime = age > 90 * 60e3;
+    elMaj.innerHTML = 'Dernière mise à jour : <b class="' + (perime ? 'tv-stale' : '') + '">' + tvJourSiDifferent(maj, maintenant)
+      + tvFmtHeureUTC(maj) + ' UTC</b> · il y a ' + tvFmtAge(age);
+    titre = 'Le script écrit les bougies une fois par cycle horaire ; le prix affiché est celui de la dernière mise à jour. '
+      + 'La voie rapide (prix toutes les minutes) n\'a pas de prix récent pour cet actif.';
+  } else {
+    elMaj.innerHTML = 'Dernière mise à jour : —';
+    elMaj.title = '';
+    return;
+  }
+
+  if(tvLiveMeta && tvLiveMeta.maj){
+    titre += '\nVoie rapide : dernier cycle ' + tvFmtHeureUTC(tvLiveMeta.maj) + ' UTC (' + (tvLiveMeta.statut || '?') + ', '
+      + (tvLiveMeta.recuperes ?? '?') + '/' + (tvLiveMeta.totaux ?? '?') + ' prix' + (tvLiveMeta.duree ? ', ' + tvLiveMeta.duree + ' s' : '')
+      + ') — il y a ' + tvFmtAge(maintenant - tvLiveMeta.maj.getTime());
+  }
+  if(cycle && cycle.derniereExecution){
+    titre += '\nCycle horaire (historique) : ' + tvFmtHeureUTC(cycle.derniereExecution) + ' UTC (' + cycle.statut + ')'
+      + ' — il y a ' + tvFmtAge(maintenant - cycle.derniereExecution.getTime());
+  }
+  elMaj.title = titre;
+}
+
+// ----- affichage : filtres, liste, entete -----
+function renderTvFiltres(){
+  const zoneCat = document.getElementById('tvFilterCat');
+  if(zoneCat){
+    zoneCat.innerHTML = TV_CATEGORIES.map(c =>
+      `<button class="eco-chip ${(!tvRecherche && tvCategorieActive === c.cle) ? 'active' : ''}" data-cat="${c.cle}">${c.label}</button>`
+    ).join('');
+  }
+  const zonePeriodes = document.getElementById('tvPeriodes');
+  if(zonePeriodes){
+    zonePeriodes.innerHTML = Object.keys(TV_PERIODES).map(cle =>
+      `<button class="fx-perf-tab ${tvPeriodeActive === cle ? 'active' : ''}" data-periode="${cle}">${cle}</button>`
+    ).join('');
+  }
+  const zoneIntervalles = document.getElementById('tvIntervalles');
+  if(zoneIntervalles){
+    zoneIntervalles.innerHTML = Object.keys(TV_INTERVALLES).map(cle =>
+      `<button class="fx-perf-tab ${tvIntervalleActif === cle ? 'active' : ''}" data-intervalle="${cle}">${cle}</button>`
+    ).join('');
+  }
+  const zoneStyles = document.getElementById('tvStyles');
+  if(zoneStyles){
+    zoneStyles.innerHTML = TV_STYLES.map(s =>
+      `<button class="fx-perf-tab ${tvStyleActif === s.cle ? 'active' : ''}" data-style="${s.cle}">${s.label}</button>`
+    ).join('');
+  }
+}
+
+function tvActifsAffiches(){
+  const q = tvRecherche.trim().toLowerCase();
+  if(q){
+    return TV_ACTIFS.filter(a =>
+      a.nom.toLowerCase().includes(q) || a.ticker.toLowerCase().includes(q) || a.slug.toLowerCase().includes(q));
+  }
+  return TV_ACTIFS.filter(a => a.categorie === tvCategorieActive);
+}
+
+function renderTvListe(){
+  const corps = document.getElementById('tvListBody');
+  if(!corps) return;
+  const actifs = tvActifsAffiches();
+  const compteur = document.getElementById('tvListCount');
+  if(compteur) compteur.textContent = actifs.length;
+  if(!actifs.length){
+    corps.innerHTML = '<div class="eco-empty">Aucun actif trouvé.</div>';
+    return;
+  }
+  corps.innerHTML = actifs.map(a => {
+    const courant = tvPrixActuel(a.slug);
+    const prix = courant ? tvFormaterPrix(courant.prix, a.categorie) : '—';
+    const ancien = courant && tvEstAncien(courant.ts);
+    const age = ancien ? `<div class="tv-age ferme">il y a ${tvAgeTexte(courant.ts)}</div>` : '';
+    return `<div class="tv-list-row ${a.slug === tvSlugActif ? 'active' : ''}" data-slug="${a.slug}">
+      <div><div class="tv-sym">${tvEchapper(a.nom)}</div><div class="tv-name">${tvEchapper(a.ticker)}</div></div>
+      <div><div class="tv-px">${prix}</div>${age}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderTvEntete(){
+  const a = tvActifCourant();
+  if(!a) return;
+  const titre = document.getElementById('tvChartTitre');
+  const prixEl = document.getElementById('tvChartPrix');
+  const tagEl = document.getElementById('tvChartTag');
+  const metaEl = document.getElementById('tvChartMeta');
+  if(titre) titre.textContent = a.nom + ' · ' + a.ticker;
+
+  const courant = tvPrixActuel(a.slug);
+  let prix = courant ? courant.prix : null;
+  let tsSecondes = courant ? courant.ts : null;
+  if(prix === null && tvBarres.length){
+    const derniere = tvBarres[tvBarres.length - 1];
+    prix = derniere.c; tsSecondes = Math.floor(derniere.t / 1000);
+  }
+  if(prixEl) prixEl.textContent = tvFormaterPrix(prix, a.categorie);
+  tvMettreAJourAgePrix();
+  if(tagEl){
+    if(tsSecondes && tvEstAncien(tsSecondes)){
+      const libelle = a.categorie === 'cryptos' ? 'EN RETARD' : 'MARCHÉ FERMÉ';
+      const titreTag = 'Dernier prix il y a ' + tvAgeTexte(tsSecondes)
+        + (a.categorie === 'cryptos' ? ' : un marché crypto ne ferme jamais, le pipeline a peut-être du retard.' : ' (marché fermé, week-end ou jour férié).');
+      tagEl.innerHTML = `<span class="news-tag med" title="${tvEchapper(titreTag)}">${libelle}</span>`;
+    } else {
+      tagEl.innerHTML = '';
+    }
+  }
+  if(metaEl){
+    metaEl.textContent = 'Bougies ' + tvIntervalleActif + ' · heures UTC'
+      + (tsSecondes ? ' · dernier prix ' + tvFmtDate(tsSecondes * 1000, 3600e3) : '');
+  }
+}
+
+// ----- graphique (canvas) -----
+function tvEtiquetteY(ctx, texte, y, x, largeur, fond, couleurTexte){
+  ctx.fillStyle = fond;
+  ctx.fillRect(x, y - 9, largeur, 18);
+  ctx.fillStyle = couleurTexte;
+  ctx.fillText(texte, x + 6, y + 4);
+}
+
+function dessinerTvGraphique(canvas, barres, style, hover){
+  const { ctx, w, h } = fxPreparerCanvas(canvas);
+  ctx.clearRect(0, 0, w, h);
+  const n = barres.length;
+  if(n === 0 || w < 140 || h < 90) return;
+
+  const actif = tvActifCourant();
+  const categorie = actif ? actif.categorie : '';
+  const pasMs = TV_INTERVALLES[tvIntervalleActif].pasMs;
+  const padL = 8, padR = 74, padT = 28, padB = 24;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const pas = plotW / n;
+  const avecMeches = style === 'bougies';
+
+  let vMin = Infinity, vMax = -Infinity;
+  barres.forEach(b => {
+    const bas = avecMeches ? b.l : b.c, haut = avecMeches ? b.h : b.c;
+    if(bas < vMin) vMin = bas;
+    if(haut > vMax) vMax = haut;
+  });
+  if(vMin === vMax){
+    const ecart = Math.abs(vMin) * 0.001 || 1;
+    vMin -= ecart; vMax += ecart;
+  }
+  const marge = (vMax - vMin) * 0.06;
+  vMin -= marge; vMax += marge;
+
+  const yFor = v => padT + plotH * (1 - (v - vMin) / (vMax - vMin));
+  const xFor = i => padL + (i + 0.5) * pas;
+  const dec = tvDecimales(barres[n - 1].c, categorie);
+  const fmt = v => v.toLocaleString('fr-FR', {minimumFractionDigits: dec, maximumFractionDigits: dec});
+
+  canvas._tvLayout = {padL, padT, plotW, plotH, n, pas, vMin, vMax};
+
+  // Grille horizontale + prix a droite (comme TradingView)
+  ctx.font = '10px IBM Plex Mono';
+  ctx.lineWidth = 1;
+  tvTicksNice(vMin, vMax, 6).forEach(v => {
+    const y = yFor(v);
+    ctx.strokeStyle = '#1c212c';
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + plotW, y); ctx.stroke();
+    ctx.fillStyle = '#7b869c';
+    ctx.fillText(fmt(v), padL + plotW + 8, y + 3);
+  });
+
+  // Libelles de l'axe X (dates UTC) + grille verticale legere
+  const spanJours = (barres[n - 1].t - barres[0].t) / 86400e3;
+  const nbLibelles = Math.max(2, Math.floor(plotW / 95));
+  const pasLibelle = Math.max(1, Math.round(n / nbLibelles));
+  ctx.textAlign = 'center';
+  for(let i = Math.floor(pasLibelle / 2); i < n; i += pasLibelle){
+    const x = xFor(i);
+    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + plotH); ctx.stroke();
+    ctx.fillStyle = '#7b869c';
+    ctx.fillText(tvFmtAxeX(barres[i].t, pasMs, spanJours), x, h - 8);
+  }
+  ctx.textAlign = 'left';
+
+  // Serie
+  if(style === 'bougies'){
+    const largeur = Math.max(1, Math.min(16, pas * 0.7));
+    barres.forEach((b, i) => {
+      const x = xFor(i);
+      const couleur = b.c >= b.o ? TV_COULEUR_HAUSSE : TV_COULEUR_BAISSE;
+      ctx.strokeStyle = couleur; ctx.fillStyle = couleur; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, yFor(b.h)); ctx.lineTo(x, yFor(b.l)); ctx.stroke();
+      const yHaut = yFor(Math.max(b.o, b.c)), yBas = yFor(Math.min(b.o, b.c));
+      ctx.fillRect(x - largeur / 2, yHaut, largeur, Math.max(1, yBas - yHaut));
+    });
+  } else {
+    if(style === 'aire'){
+      const degrade = ctx.createLinearGradient(0, padT, 0, padT + plotH);
+      degrade.addColorStop(0, 'rgba(91,144,255,0.30)');
+      degrade.addColorStop(1, 'rgba(91,144,255,0)');
+      ctx.fillStyle = degrade;
+      ctx.beginPath();
+      ctx.moveTo(xFor(0), padT + plotH);
+      barres.forEach((b, i) => ctx.lineTo(xFor(i), yFor(b.c)));
+      ctx.lineTo(xFor(n - 1), padT + plotH);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.strokeStyle = TV_COULEUR_LIGNE; ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    barres.forEach((b, i) => { i === 0 ? ctx.moveTo(xFor(i), yFor(b.c)) : ctx.lineTo(xFor(i), yFor(b.c)); });
+    ctx.stroke();
+  }
+
+  // Ligne + etiquette du dernier prix
+  const derniere = barres[n - 1];
+  const couleurDerniere = derniere.c >= derniere.o ? TV_COULEUR_HAUSSE : TV_COULEUR_BAISSE;
+  const yDernier = yFor(derniere.c);
+  ctx.save();
+  ctx.setLineDash([3, 3]);
+  ctx.strokeStyle = couleurDerniere; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(padL, yDernier); ctx.lineTo(padL + plotW, yDernier); ctx.stroke();
+  ctx.restore();
+  ctx.font = '10px IBM Plex Mono';
+  tvEtiquetteY(ctx, fmt(derniere.c), yDernier, padL + plotW + 2, padR - 4, couleurDerniere, '#06140f');
+
+  // Repere de survol (curseur en croix)
+  const actuelleIdx = (hover && hover.idx !== null && hover.idx !== undefined) ? hover.idx : null;
+  if(actuelleIdx !== null){
+    const xh = xFor(actuelleIdx);
+    ctx.save();
+    ctx.setLineDash([2, 3]);
+    ctx.strokeStyle = 'rgba(255,255,255,0.32)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(xh, padT); ctx.lineTo(xh, padT + plotH); ctx.stroke();
+    if(hover.y !== null && hover.y !== undefined){
+      ctx.beginPath(); ctx.moveTo(padL, hover.y); ctx.lineTo(padL + plotW, hover.y); ctx.stroke();
+    }
+    ctx.restore();
+    ctx.font = '10px IBM Plex Mono';
+    if(hover.y !== null && hover.y !== undefined){
+      const prixCurseur = vMin + (vMax - vMin) * (1 - (hover.y - padT) / plotH);
+      tvEtiquetteY(ctx, fmt(prixCurseur), hover.y, padL + plotW + 2, padR - 4, '#2a3242', '#eef1f7');
+    }
+    const texteDate = tvFmtDate(barres[actuelleIdx].t, pasMs);
+    const largeurDate = ctx.measureText(texteDate).width + 12;
+    const xDate = Math.min(Math.max(xh - largeurDate / 2, padL), padL + plotW - largeurDate);
+    ctx.fillStyle = '#2a3242';
+    ctx.fillRect(xDate, padT + plotH + 3, largeurDate, 17);
+    ctx.fillStyle = '#eef1f7';
+    ctx.fillText(texteDate, xDate + 6, padT + plotH + 15);
+  }
+
+  // Legende OHLC (bougie survolee, sinon la derniere) — en haut a gauche
+  const ref = actuelleIdx !== null ? barres[actuelleIdx] : derniere;
+  const couleurRef = ref.c >= ref.o ? TV_COULEUR_HAUSSE : TV_COULEUR_BAISSE;
+  ctx.font = '11px IBM Plex Mono';
+  let x0 = padL + 2;
+  [
+    [tvFmtDate(ref.t, pasMs) + ' UTC', '#8f9bb0'],
+    ['O ' + fmt(ref.o), couleurRef],
+    ['H ' + fmt(ref.h), couleurRef],
+    ['L ' + fmt(ref.l), couleurRef],
+    ['C ' + fmt(ref.c), couleurRef],
+  ].forEach(([texte, couleur]) => {
+    ctx.fillStyle = couleur;
+    ctx.fillText(texte, x0, 16);
+    x0 += ctx.measureText(texte).width + 14;
+  });
+}
+
+function tvAttacherSurvol(canvas){
+  if(!canvas || canvas._tvAttache) return;
+  canvas._tvAttache = true;
+  canvas.style.cursor = 'crosshair';
+  canvas.addEventListener('mousemove', e => {
+    const lay = canvas._tvLayout;
+    if(!lay || !tvBarres.length) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    const idx = Math.max(0, Math.min(lay.n - 1, Math.floor((x - lay.padL) / lay.pas)));
+    const dansLaZone = y >= lay.padT && y <= lay.padT + lay.plotH;
+    dessinerTvGraphique(canvas, tvBarres, tvStyleActif, {idx, y: dansLaZone ? y : null});
+  });
+  canvas.addEventListener('mouseleave', () => {
+    if(tvBarres.length) dessinerTvGraphique(canvas, tvBarres, tvStyleActif, null);
+  });
+}
+
+function renderTvGraphique(){
+  const canvas = document.getElementById('tvCanvas');
+  if(!canvas) return;
+  tvAttacherSurvol(canvas);
+  if(tvErreurLecture){
+    tvBarres = [];
+    dessinerMessageVide(canvas, tvErreurLecture);
+    tvMettreAJourDecompte();
+    return;
+  }
+  tvBarres = tvCalculerBarres();
+  if(tvBarres.length === 0){
+    dessinerMessageVide(canvas, tvHistoriqueCharge()
+      ? 'Aucun historique pour cet actif pour le moment…'
+      : 'Chargement de l\'historique…');
+    tvMettreAJourDecompte();
+    return;
+  }
+  dessinerTvGraphique(canvas, tvBarres, tvStyleActif, null);
+  tvMettreAJourDecompte();
+}
+
+// Regroupe les rafales de snapshots (plusieurs mois charges en parallele)
+// en un seul rendu, et ne dessine jamais un onglet cache (canvas 0x0).
+function tvPlanifierRendu(){
+  if(tvRenduPlanifie) return;
+  tvRenduPlanifie = true;
+  requestAnimationFrame(() => {
+    tvRenduPlanifie = false;
+    if(!tvPageActive()) return;
+    renderTvGraphique();
+    renderTvEntete();
+  });
+}
+
+function renderTradingView(){
+  tvDemarrerEcouteLive();
+  renderTvFiltres();
+  renderTvListe();
+  renderTvEntete();
+  if(tvCleChargee !== tvSlugActif + '|' + tvPeriodeActive){
+    tvChargerHistorique();
+  } else {
+    renderTvGraphique();
+  }
+}
+
+function tvChoisirActif(slug){
+  if(!TV_ACTIF_PAR_SLUG[slug]) return;
+  tvSlugActif = slug;
+  renderTvListe();
+  renderTvEntete();
+  tvChargerHistorique();
+}
+
+function initialiserTradingView(){
+  const zoneCat = document.getElementById('tvFilterCat');
+  const zonePeriodes = document.getElementById('tvPeriodes');
+  const zoneIntervalles = document.getElementById('tvIntervalles');
+  const zoneStyles = document.getElementById('tvStyles');
+  const corpsListe = document.getElementById('tvListBody');
+  const champRecherche = document.getElementById('tvSearchInput');
+  if(!zoneCat || !zonePeriodes || !zoneIntervalles || !zoneStyles || !corpsListe) return;
+
+  zoneCat.addEventListener('click', e => {
+    const btn = e.target.closest('[data-cat]');
+    if(!btn) return;
+    tvCategorieActive = btn.dataset.cat;
+    tvRecherche = '';
+    if(champRecherche) champRecherche.value = '';
+    renderTvFiltres();
+    renderTvListe();
+    const premier = TV_ACTIFS.find(a => a.categorie === tvCategorieActive);
+    if(premier) tvChoisirActif(premier.slug);
+  });
+  zonePeriodes.addEventListener('click', e => {
+    const btn = e.target.closest('[data-periode]');
+    if(!btn || !TV_PERIODES[btn.dataset.periode]) return;
+    tvPeriodeActive = btn.dataset.periode;
+    renderTvFiltres();
+    renderTvEntete();
+    tvChargerHistorique();
+  });
+  zoneIntervalles.addEventListener('click', e => {
+    const btn = e.target.closest('[data-intervalle]');
+    if(!btn || !TV_INTERVALLES[btn.dataset.intervalle]) return;
+    tvIntervalleActif = btn.dataset.intervalle;
+    renderTvFiltres();
+    renderTvEntete();
+    renderTvGraphique(); // simple regroupement des bougies deja chargees : aucune lecture Firestore
+  });
+  zoneStyles.addEventListener('click', e => {
+    const btn = e.target.closest('[data-style]');
+    if(!btn) return;
+    tvStyleActif = btn.dataset.style;
+    renderTvFiltres();
+    renderTvGraphique();
+  });
+  corpsListe.addEventListener('click', e => {
+    const ligne = e.target.closest('[data-slug]');
+    if(ligne) tvChoisirActif(ligne.dataset.slug);
+  });
+  if(champRecherche){
+    champRecherche.addEventListener('input', () => {
+      tvRecherche = champRecherche.value;
+      renderTvFiltres();
+      renderTvListe();
+    });
+  }
+  window.addEventListener('resize', () => { if(tvPageActive()) tvPlanifierRendu(); });
+  // Le decompte ne redessine PAS le graphique : il ne met a jour que 2 lignes de texte.
+  setInterval(() => { tvMettreAJourDecompte(); tvMettreAJourAgePrix(); }, 1000);
+}
+
 function demarrerEcouteTempsReel(){
   ecouterCollectionTempsReel('ff_news', itemDepuisDocFF, items => { liveFF = items; });
   ecouterCollectionTempsReel('cb_articles', itemDepuisDocCB, items => { liveCB = items; });
@@ -2116,6 +3211,11 @@ function demarrerEcouteTempsReel(){
   // Sources COT ecoutees a part (voir note sur SOURCES_PIPELINE plus haut) :
   // meme fonction ecouterStatutPipeline, juste hors de la boucle globale.
   SOURCES_COT.forEach(ecouterStatutPipeline);
+  // Statut du script actifs (pastille) : ecoute globale, comme les autres sources.
+  // Les PRIX (asset_latest/all + .../live) ne sont ecoutes que pendant que l'onglet
+  // TRADINGVIEW est ouvert (tvDemarrerEcouteLive, appele depuis renderTradingView) :
+  // voir la note dans tv_block.js sur le cout en lectures Firestore.
+  SOURCES_ACTIFS.forEach(ecouterStatutPipeline);
 }
 </script>
 <script>
@@ -2153,6 +3253,7 @@ function mettreAJourHorlogeInfo(){
     mettreAJourPastillesSources();
     mettreAJourPastilleDataEco();
     mettreAJourPastilleCot();
+    mettreAJourPastilleActifs();
     return;
   }
 
@@ -2191,6 +3292,7 @@ function mettreAJourHorlogeInfo(){
   mettreAJourPastillesSources();
   mettreAJourPastilleDataEco();
   mettreAJourPastilleCot();
+  mettreAJourPastilleActifs();
 }
 
 // ===== PASTILLES DE STATUT PAR COLONNE (page News) =====
@@ -4850,6 +5952,9 @@ function initialiserCsPeriodTabs(){
 document.getElementById('mainNav').addEventListener('click', e=>{
   const btn = e.target.closest('.nav-btn');
   if(!btn) return;
+  const ancienNavBtn = document.querySelector('.nav-btn.active');
+  const ancienneePage = ancienNavBtn ? ancienNavBtn.dataset.page : null;
+  if(ancienneePage === 'tradingview' && btn.dataset.page !== 'tradingview') tvArreterEcouteLive();
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -4863,6 +5968,7 @@ document.getElementById('mainNav').addEventListener('click', e=>{
     case 'technique': renderForceDevises(); break;
     case 'fx': renderFxTable(); renderFxPerfChart(); renderFxEvolution(); break;
     case 'cot': renderCot(); break;
+    case 'tradingview': renderTradingView(); break;
   }
 });
 
@@ -4874,6 +5980,7 @@ initialiserOngletsFxPerf();
 initialiserControlesFxEvolution();
 initialiserCsPeriodTabs();
 initialiserCotFiltres();
+initialiserTradingView();
 renderFxEvolution();
 renderForceDevises();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
