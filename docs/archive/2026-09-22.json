@@ -2,6 +2,16 @@
   "date": "2026-09-22",
   "ff_news": [
     {
+      "source": "prnewswire.com",
+      "ignore": false,
+      "date_publication": "2026-09-22T12:17:27.341199+00:00",
+      "impact": "low",
+      "date_recuperation": "2026-09-22T12:18:27.341199+00:00",
+      "url": "https://www.forexfactory.com/news/1419566-us-adp-national-employment-report-preliminary-estimate-for",
+      "extrait": "For the four weeks ending September 5, 2026, U.S. private employers added an average of 20,000 jobs per week, according to the NER Pulse, a weekly update of the monthly ADP National Employment Report (NER). Hiring accelerated for the third week. These numbers are preliminary and could change as new data is added.tableThe NER Pulse is an estimate of the ...",
+      "titre": "US ADP National Employment Report Preliminary Estimate for September 5, 2026"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1419563-kremlin-putin-and-saudi-crown-prince-discussed-yemen",
       "date_publication": "2026-09-22T12:14:23.179938+00:00",
       "impact": "low",
