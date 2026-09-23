@@ -3,13 +3,13 @@
   "ff_news": [
     {
       "impact": "low",
-      "source": "breakingthenews.net",
-      "url": "https://www.forexfactory.com/news/1427837-eia-us-crude-inventories-up-by-3m-barrels",
       "extrait": "Commercial crude oil inventories in the United States, excluding those in the Strategic Petroleum Reserve (SPR), rose by 2.96 million barrels to 426.4 million barrels in the week ending September 18, the Energy Information Administration (EIA) stated on Wednesday. Crude oil imports decreased by 1.2 million barrels per day to 5.9 million barrels per day. ...",
       "titre": "EIA: US crude inventories up by 3M barrels",
-      "date_recuperation": "2026-09-23T14:44:24.563745+00:00",
+      "date_publication": "2026-09-23T14:43:24.563745+00:00",
+      "url": "https://www.forexfactory.com/news/1427837-eia-us-crude-inventories-up-by-3m-barrels",
       "ignore": false,
-      "date_publication": "2026-09-23T14:43:24.563745+00:00"
+      "date_recuperation": "2026-09-23T14:44:24.563745+00:00",
+      "source": "breakingthenews.net"
     },
     {
       "extrait": "Commercial crude oil inventories in the United States, excluding those in the Strategic Petroleum Reserve (SPR), rose by 2.96 million barrels to 426.4 million barrels in the week ending September 18, the Energy Information Administration (EIA) stated on Wednesday. Crude oil imports decreased by 1.2 million barrels per day to 5.9 million barrels per day. ...",
