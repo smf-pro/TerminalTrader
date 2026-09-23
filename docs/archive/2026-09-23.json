@@ -2,6 +2,16 @@
   "date": "2026-09-23",
   "ff_news": [
     {
+      "date_publication": "2026-09-23T09:06:23.304097+00:00",
+      "titre": "ECB's Makhlouf: Not Seeing Second-Round Effects Yet - RTE Radio",
+      "extrait": "ECB's Makhlouf: Not Seeing Second-Round Effects Yet - RTE Radio - If Energy Costs Feed Through, ECB Will Have To Act - Uncomfortable With ECB Outlook For Inflation Over 3%",
+      "url": "https://www.forexfactory.com/news/1426309-ecbs-makhlouf-not-seeing-second-round-effects-yet",
+      "ignore": false,
+      "date_recuperation": "2026-09-23T09:07:23.304097+00:00",
+      "impact": "low",
+      "source": "@LiveSquawk"
+    },
+    {
       "extrait": "September data highlighted an upturn in UK private sector business activity for the third consecutive month, but the pace of expansion eased to the weakest seen over this period. This reflected a loss of momentum in both the manufacturing and service sectors. Meanwhile, the rate of input price inflation accelerated for the second month running to its ...",
       "source": "pmi.spglobal.com",
       "titre": "UK output growth softens in September, while inflationary pressures intensify",
