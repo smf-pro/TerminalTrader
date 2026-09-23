@@ -1,11 +1,21 @@
 {
   "date": "2026-09-23",
   "curseurs": {
-    "ff_news": "2026-09-23T14:06:27.170260+00:00",
+    "ff_news": "2026-09-23T14:43:00.391615+00:00",
     "cb_articles": "2026-09-23T14:07:56.690828+00:00",
-    "il_articles": "2026-09-23T13:51:27.866164+00:00"
+    "il_articles": "2026-09-23T14:35:49.400671+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "Commercial crude oil inventories in the United States, excluding those in the Strategic Petroleum Reserve (SPR), rose by 2.96 million barrels to 426.4 million barrels in the week ending September 18, the Energy Information Administration (EIA) stated on Wednesday. Crude oil imports decreased by 1.2 million barrels per day to 5.9 million barrels per day. ...",
+      "url": "https://www.forexfactory.com/news/1427837-eia-us-crude-inventories-up-by-3m-barrels",
+      "ignore": false,
+      "date_recuperation": "2026-09-23T14:44:00.391615+00:00",
+      "source": "breakingthenews.net",
+      "date_publication": "2026-09-23T14:43:00.391615+00:00",
+      "titre": "EIA: US crude inventories up by 3M barrels",
+      "impact": "low"
+    },
     {
       "date_publication": "2026-09-23T14:06:27.170260+00:00",
       "extrait": "Thank you for the opportunity to speak to you.1 My interest in access to affordable housing spans several decades. During my career, I have worked on housing and mortgage market reform and promoted access to credit for low- and moderate- income (LMI) households. I've seen firsthand what public–private partnerships in low-income communities can mean for improving affordable housing, from the South Bronx, to the South Side of Chicago, to the Mississippi Delta, to South Central L.A., and places in between. Now at the Federal Reserve Board, I oversee our Division of Consumer and Community Affairs and participate in rate-setting decisions that affect the economy. By pursuing maximum employment and stable prices, the Federal Reserve seeks to create the stable macroeconomic environment necessary for households to maintain purchasing power, earn reliable incomes, access housing, and, ultimately, build capital through homeownership and other forms of investment. The Economic Outlook Before I turn to my thoughts about housing, I want to spend a few moments sharing my views on the broader economy and monetary policy. As you know, the Federal Reserve has what we call a dual mandate, which is to achieve maximum employment and stable prices. Our economy has experienced a series of shocks over the past year and half: the imposition of tariffs, the conflict in the Middle East and continued disruptions from Russia's war on Ukraine, and, more recently, a surge in investment demand to support the artificial intelligence (AI) buildout. These shocks have contributed to upward price pressures.Fed's Barr: Further rate hikes are likely needed to ensure timely return to 2% inflation.Fed's Barr: Risks to achieving 2% inflation have increased, risks to the labor market have receded.Fed's Barr: Going into the recent policy meeting, the Fed needed to recalibrate monetary policy to reflect risks.Fed's Barr: The Fed was out of position, we made an adjustment in the right direction.",
@@ -137,6 +147,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "The EIA Weekly Petroleum Status Report figures in the supplied release table, for the week ending September 18:\n\nCrude oil stocks:+2.969 million barrelsvs−0.641 millionexpected. Prior−0.640 million.\n\nCushing crude stocks:+2.266 million barrels. Prior−0.342 million.\n\nGasoline stocks:−1.686 million barrelsvs+0.093 millionexpected. Prior+0.794 million.\n\nDistillate stocks:−0.428 million barrelsvs−0.633 millionexpected. Prior+1.585 million.\n\nThe headline is the crude build. Traders were looking for a modest draw, but stocks instead rose by nearly3 million barrels—a swing of about3.6 million barrelsfrom expectations. Stocks at Cushing, Oklahoma, also increased sharply.\n\nThe gasoline draw tells a different story. Gasoline inventories fell when a small build was expected. Distillates declined too, although their draw was slightly smaller than forecast. The four figures make this a mixed report, with the crude and Cushing builds the clearest bearish surprises for oil.\n\nQuick analysis:The crude build could weigh on oil prices, while the larger-than-expected gasoline draw may offer some offset. Cushing matters because it is the delivery hub for West Texas Intermediate crude futures. The figures alone do not establish what caused the inventory changes or how oil prices reacted.\n\nWhat this report measures:TheU.S. Energy Information Administration’s Weekly Petroleum Status Reporttracks weekly changes in U.S. crude oil and petroleum-product inventories. Traders watch the changes against expectations for clues about the balance between supply and demand; weekly figures can be volatile.",
+      "categorie": "commodities",
+      "date_recuperation": "2026-09-23T14:40:24.423495+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/commodities/us-crude-inventories-rise-2-969-million-barrels-vs-641-000-barrel-draw-expected/",
+      "date_publication": "2026-09-23T14:35:49.400671+00:00",
+      "titre": "US crude inventories rise 2.969 million barrels vs 641,000-barrel draw expected",
+      "tags": [
+        "Oil"
+      ]
+    },
     {
       "date_publication": "2026-09-23T13:51:27.866164+00:00",
       "categorie": "news",
