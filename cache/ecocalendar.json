@@ -949,7 +949,7 @@
   },
   "0fe135a7c5e6738c46fdf06670a360706942b832c65460046d5188d30bfbaaaf": {
     "date_evenement": "2026-09-23T21:30:00-04:00",
-    "forecast": "22.5K",
+    "forecast": "21.5K",
     "previous": "-15.8K",
     "actual": null
   },
@@ -1185,6 +1185,12 @@
     "date_evenement": "2026-09-25T09:20:00-04:00",
     "forecast": null,
     "previous": null,
+    "actual": null
+  },
+  "0190c008b1a7648c0b746b47cffb73defdedda6f61146443fa8d72f69a8babfe": {
+    "date_evenement": "2026-09-23T05:35:00-04:00",
+    "forecast": null,
+    "previous": "3.90|2.4",
     "actual": null
   }
 }
