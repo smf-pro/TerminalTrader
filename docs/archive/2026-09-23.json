@@ -3,6 +3,16 @@
   "ff_news": [
     {
       "source": "pmi.spglobal.com",
+      "titre": "Euro area output growth hits near three-and-a-half year high in September",
+      "impact": "low",
+      "ignore": false,
+      "date_publication": "2026-09-23T08:02:05.025665+00:00",
+      "url": "https://www.forexfactory.com/news/1426286-euro-area-output-growth-hits-near-three-and-a-half-year",
+      "extrait": "Provisional PMI® survey data from S&P Global signalled strengthening growth in the eurozone private sector during September. Output rose at the fastest pace since April 2023 amid solid expansions in both the services and manufacturing sectors. Rising business activity often reflected higher new orders. Meanwhile, the rate of job creation remained muted as ...",
+      "date_recuperation": "2026-09-23T08:03:05.025665+00:00"
+    },
+    {
+      "source": "pmi.spglobal.com",
       "url": "https://www.forexfactory.com/news/1419819-growth-in-german-private-sector-output-accelerates-in",
       "impact": "low",
       "date_publication": "2026-09-23T07:31:26.521021+00:00",
