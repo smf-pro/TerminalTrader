@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-23T07:16:25.866507+00:00",
     "cb_articles": "2026-09-23T01:15:54.660560+00:00",
-    "il_articles": "2026-09-23T07:19:33.619097+00:00"
+    "il_articles": "2026-09-23T07:30:16.536853+00:00"
   },
   "ff_news": [
     {
@@ -56,6 +56,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Latest data released by HCOB - 23 September 2026\n\nPrior 54.3\n\nServices PMI xx vs 50.0 expected\n\nPrior 49.7\n\nComposite PMI xx vs 51.8 expected\n\nPrior 51.8",
+      "tags": [
+        "EUR"
+      ],
+      "ignore": false,
+      "categorie": "news",
+      "date_recuperation": "2026-09-23T07:30:29.750417+00:00",
+      "url": "https://investinglive.com/news/germany-september-flash-manufacturing-pmi-xx-vs-54-0-expected/",
+      "titre": "Germany September flash manufacturing PMI 53.8 vs 54.0 expected",
+      "date_publication": "2026-09-23T07:30:16.536853+00:00"
+    },
     {
       "ignore": false,
       "url": "https://investinglive.com/forex/eur-usd-approaches-the-key-1-1400-support-with-flash-pmis-and-us-iran-talks-in-focus/",
