@@ -839,6 +839,7 @@
       <button class="nav-btn" data-page="fx">FX<span class="src-status-dot" id="dot-fxforex" title=""></span></button>
       <button class="nav-btn" data-page="cot">COT<span class="src-status-dot" id="dot-cot" title=""></span></button>
       <button class="nav-btn" data-page="tradingview">TRADINGVIEW<span class="src-status-dot" id="dot-actifs" title=""></span></button>
+      <button class="nav-btn" data-page="projections">PROJECTIONS<span class="src-status-dot" id="dot-projections" title=""></span></button>
     </nav>
     <div class="search">
       <span style="color:var(--text-low); font-family:var(--mono); font-size:12px;">⌕</span>
@@ -1032,6 +1033,24 @@
           Mouvement implicite propre à <b>chaque réunion</b> (calculé par différence entre réunions successives), pas le cumulé depuis aujourd'hui.
         </div>
         <div class="panel-body" id="probBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PROJECTIONS ÉCONOMIQUES (SEP — FOMC) ===================== -->
+  <div class="page" id="page-projections">
+    <div class="taux-layout" style="grid-template-columns:1fr; margin:18px 22px 22px;">
+      <div class="taux-col">
+        <div class="panel-head">
+          <span>PROJECTIONS ÉCONOMIQUES</span>
+        </div>
+        <div class="taux-chart-toggle" id="fedsepSourceTabs">
+          <button class="taux-toggle-btn active" data-source="fed">FED<span class="src-status-dot" id="dot-fedsep-page" title=""></span></button>
+          <button class="taux-toggle-btn" data-source="ecb">BCE<span class="src-status-dot" id="dot-ecbproj-page" title=""></span></button>
+        </div>
+        <div class="taux-chart-toggle" id="fedsepVarTabs"></div>
+        <div class="taux-chart-toggle" id="fedsepYearTabs"></div>
+        <div class="taux-chart-area"><canvas id="fedsepEvolCanvas"></canvas></div>
       </div>
     </div>
   </div>
@@ -1812,6 +1831,59 @@ function ecouterFxTempsReel(){
       renderTape();
     }, erreur => {
       console.error('Erreur écoute temps réel fx_rates :', erreur);
+    });
+}
+
+// ===== PROJECTIONS ÉCONOMIQUES FOMC (SEP), alimenté par fedsep_cloud.py =====
+// Contrairement a ff_news/cb_articles/il_articles, un document = une
+// reunion FOMC (pas d'article), sans champ 'ignore' : simple tri sur
+// 'date' (croissant), aucun index composite necessaire. Volume minuscule
+// (~15 documents depuis 2023, +4/an) -> lecture complete a chaque
+// connexion, pas d'archive/pagination necessaire (voir cadrage).
+let liveFedSep = []; // [{date, date_iso, url, variables, prior_projection_label, prior_variables}, ...]
+
+// Les documents Firestore (surtout ecb_projections, 18 variables) sont
+// parfois livrés en PLUSIEURS paquets successifs pendant leur toute
+// premiere synchronisation apres l'ouverture de la page (comportement
+// normal du SDK Firestore) : sans precaution, chaque paquet declenche un
+// redessin complet du graphique, donnant un effet de clignotement/
+// disparition le temps que tout arrive. On amorti (debounce) l'appel a
+// renderFedSep() : un seul redessin, apres 150ms sans nouveau paquet.
+let _fedsepRenderTimer = null;
+function _fedsepRenderDebounce(){
+  const pageActive = document.querySelector('.nav-btn.active');
+  if(!pageActive || pageActive.dataset.page !== 'projections') return;
+  clearTimeout(_fedsepRenderTimer);
+  _fedsepRenderTimer = setTimeout(renderFedSep, 150);
+}
+
+function ecouterFedSepTempsReel(){
+  dbFirestore.collection('fed_sep')
+    .orderBy('date', 'asc')
+    .onSnapshot(snapshot => {
+      liveFedSep = snapshot.docs.map(doc => doc.data());
+      // Redessine seulement si la page est déjà ouverte (données déjà
+      // affichées à l'écran) - sinon renderFedSep() est appelée au clic
+      // sur l'onglet nav, comme renderTaux()/renderCot().
+      _fedsepRenderDebounce();
+    }, erreur => {
+      console.error('Erreur écoute temps réel fed_sep :', erreur);
+    });
+}
+
+// ===== PROJECTIONS MACROÉCONOMIQUES BCE, alimenté par ecbproj_cloud.py =====
+// Meme principe que fed_sep : 1 document = 1 round (mensuel, "AAAA-MM"),
+// pas de champ 'ignore', tri simple sur 'date', aucun index composite.
+let liveEcbProj = []; // [{date, staff_type, url, table2_gdp_labour, table3_prices_costs}, ...]
+
+function ecouterEcbProjTempsReel(){
+  dbFirestore.collection('ecb_projections')
+    .orderBy('date', 'asc')
+    .onSnapshot(snapshot => {
+      liveEcbProj = snapshot.docs.map(doc => doc.data());
+      _fedsepRenderDebounce();
+    }, erreur => {
+      console.error('Erreur écoute temps réel ecb_projections :', erreur);
     });
 }
 
@@ -2700,6 +2772,73 @@ function mettreAJourPastilleActifs(){
   if(tempsEl) tempsEl.textContent = formaterDateCarte(info.derniereExecution) + ' ' + heure;
 }
 
+// Pastilles dediees pour fedsep ET ecbproj (meme raison que
+// mettreAJourPastilleCot / mettreAJourPastilleActifs) : cron QUOTIDIEN
+// pour les 2, tres eloigne des 5 min supposes par SEUIL_ALERTE_MINUTES
+// -> exclues de SOURCES_PIPELINE, seuil de silence propre (72h = marge
+// x3 sur la cadence quotidienne). Depuis que la page PROJECTIONS
+// couvre 2 sources (FED + BCE), chacune a sa propre pastille (affichee
+// dans son bouton d'onglet), et la nav affiche un statut COMBINE (pire
+// des deux) plutot que le statut d'une seule des deux sources.
+const SEUIL_SILENCE_FEDSEP_MINUTES = 72 * 60;
+const SEUIL_SILENCE_ECBPROJ_MINUTES = 72 * 60;
+
+function _etatSourceProjections(nomSource, seuilMinutes){
+  const info = statutPipeline[nomSource];
+  if(!info || !info.derniereExecution) return null; // aucune donnee encore recue
+  const minutesEcoulees = (Date.now() - info.derniereExecution.getTime()) / 60000;
+  const silencieux = minutesEcoulees > seuilMinutes;
+  if(info.statut === 'erreur' || silencieux) return 'erreur';
+  if(info.statut === 'ok_partiel') return 'ok_partiel';
+  return 'ok';
+}
+
+function _appliquerPastilleProjections(dot, nomSource, seuilMinutes){
+  if(!dot) return;
+  dot.classList.remove('ok', 'ok_partiel', 'erreur');
+  const info = statutPipeline[nomSource];
+  if(!info || !info.derniereExecution){
+    dot.title = `Aucune donnée reçue pour le moment (${nomSource})`;
+    return;
+  }
+  const etat = _etatSourceProjections(nomSource, seuilMinutes);
+  dot.classList.add(etat);
+  const heure = info.derniereExecution.toLocaleTimeString('fr-FR', {hour12:false});
+  const jour = formaterDateCarte(info.derniereExecution);
+  let titre = `${nomSource} : ${jour} ${heure} (${info.statut}, ${info.articlesNouveaux} nouveau(x) / ${info.liensVus} vu(s))`;
+  if(info.erreur) titre += ' — ' + info.erreur;
+  const minutesEcoulees = (Date.now() - info.derniereExecution.getTime()) / 60000;
+  if(minutesEcoulees > seuilMinutes) titre += '\nAucun cycle depuis plus de ' + Math.round(seuilMinutes / 60) + ' h';
+  dot.title = titre;
+}
+
+function mettreAJourPastilleProjectionsNav(){
+  const dotNav = document.getElementById('dot-projections');
+  if(!dotNav) return;
+  dotNav.classList.remove('ok', 'ok_partiel', 'erreur');
+  const etatFed = _etatSourceProjections('fedsep', SEUIL_SILENCE_FEDSEP_MINUTES);
+  const etatEcb = _etatSourceProjections('ecbproj', SEUIL_SILENCE_ECBPROJ_MINUTES);
+  const etats = [etatFed, etatEcb].filter(Boolean);
+  if(!etats.length){
+    dotNav.title = 'Aucune donnée reçue pour le moment (projections)';
+    return;
+  }
+  const classe = etats.includes('erreur') ? 'erreur' : (etats.includes('ok_partiel') ? 'ok_partiel' : 'ok');
+  dotNav.classList.add(classe);
+  dotNav.title = 'FED : ' + (etatFed || 'aucune donnée pour le moment')
+    + '\nBCE : ' + (etatEcb || 'aucune donnée pour le moment');
+}
+
+function mettreAJourPastilleFedsep(){
+  _appliquerPastilleProjections(document.getElementById('dot-fedsep-page'), 'fedsep', SEUIL_SILENCE_FEDSEP_MINUTES);
+  mettreAJourPastilleProjectionsNav();
+}
+
+function mettreAJourPastilleEcbProj(){
+  _appliquerPastilleProjections(document.getElementById('dot-ecbproj-page'), 'ecbproj', SEUIL_SILENCE_ECBPROJ_MINUTES);
+  mettreAJourPastilleProjectionsNav();
+}
+
 // ----- decompte de la bougie + fraicheur des donnees -----
 // "Derniere mise a jour" = derniere ECRITURE de cet actif par le script (champ
 // derniere_maj du document mensuel le plus recent). Le script n'ecrit qu'une
@@ -3216,6 +3355,12 @@ function demarrerEcouteTempsReel(){
   // TRADINGVIEW est ouvert (tvDemarrerEcouteLive, appele depuis renderTradingView) :
   // voir la note dans tv_block.js sur le cout en lectures Firestore.
   SOURCES_ACTIFS.forEach(ecouterStatutPipeline);
+  // Projections FOMC (SEP) : cadence quotidienne, statut ecoute a part
+  // (meme raison que COT/actifs, voir mettreAJourPastilleFedsep).
+  ecouterFedSepTempsReel();
+  ecouterStatutPipeline('fedsep');
+  ecouterEcbProjTempsReel();
+  ecouterStatutPipeline('ecbproj');
 }
 </script>
 <script>
@@ -3254,6 +3399,8 @@ function mettreAJourHorlogeInfo(){
     mettreAJourPastilleDataEco();
     mettreAJourPastilleCot();
     mettreAJourPastilleActifs();
+    mettreAJourPastilleFedsep();
+    mettreAJourPastilleEcbProj();
     return;
   }
 
@@ -3293,6 +3440,8 @@ function mettreAJourHorlogeInfo(){
   mettreAJourPastilleDataEco();
   mettreAJourPastilleCot();
   mettreAJourPastilleActifs();
+  mettreAJourPastilleFedsep();
+  mettreAJourPastilleEcbProj();
 }
 
 // ===== PASTILLES DE STATUT PAR COLONNE (page News) =====
@@ -5810,6 +5959,258 @@ function baselineBpsPrecedent(banque, meetingDate){
   document.getElementById('probBody').innerHTML = headerHtml + rowsHtml;
 }
 
+// ===== PROJECTIONS ÉCONOMIQUES (SEP) =====
+// Un point par réunion FOMC (axe X = date de la réunion), pour UNE
+// variable et UNE année de projection choisies via les 2 rangées
+// d'onglets (réutilise le style .taux-toggle-btn existant). Les années
+// disponibles sont recalculées à chaque rendu à partir des données
+// réellement présentes (une année sort de l'horizon 3 ans avec le temps,
+// une nouvelle apparaît à chaque réunion de décembre).
+const FEDSEP_VARS = [
+  {key:'fed_funds_rate', label:'Taux directeur (médiane)'},
+  {key:'pce_inflation', label:'Inflation PCE'},
+  {key:'unemployment_rate', label:'Taux de chômage'},
+  {key:'gdp_growth', label:'Croissance du PIB'},
+  {key:'core_pce_inflation', label:'Inflation PCE core'},
+];
+// La BCE ne projette pas de taux directeur (contrairement au "dot plot"
+// de la Fed) : 4 variables phares reprises de SUMMARY_VARIABLES dans le
+// script de collecte. table indique dans quel document Firestore
+// (table2_gdp_labour ou table3_prices_costs) se trouve la variable.
+const ECBPROJ_VARS = [
+  {key:'real_gdp', label:'PIB réel', table:'table2_gdp_labour'},
+  {key:'hicp', label:'Inflation HICP', table:'table3_prices_costs'},
+  {key:'hicpx', label:'Inflation HICP sous-jacente', table:'table3_prices_costs'},
+  {key:'unemployment_rate', label:'Taux de chômage', table:'table2_gdp_labour'},
+];
+
+let fedsepSourceActive = 'fed'; // 'fed' | 'ecb'
+let fedsepVarActive = FEDSEP_VARS[0].key;
+let fedsepYearActive = null; // choisie automatiquement (année la plus proche dispo) au premier rendu
+
+function fedsepVarsActives(){
+  return fedsepSourceActive === 'fed' ? FEDSEP_VARS : ECBPROJ_VARS;
+}
+
+// Echelle Y dédiée à ce graphique : contrairement à niceAxisRange()
+// (réutilisée par les autres graphiques du site), qui force lo=0 dès que
+// toutes les valeurs sont positives - pertinent pour des % ou des pb,
+// mais pas ici, où les valeurs (ex: 5.10 à 5.40) sont resserrées et un
+// axe 0-6 les écrase visuellement. On resserre plutôt l'échelle autour
+// du min/max réellement affichés, avec une marge de respiration. Marche
+// aussi pour la BCE, dont certaines variables (PIB, exports nets...)
+// peuvent être négatives : pas de cas particulier de signe ici,
+// contrairement à niceAxisRange.
+function fedsepAxisRange(values){
+  let dataMin = Math.min(...values);
+  let dataMax = Math.max(...values);
+  if(dataMin === dataMax){ dataMin -= 0.5; dataMax += 0.5; }
+  const span = dataMax - dataMin;
+  const pad = Math.max(span * 0.25, 0.1);
+  const lo = dataMin - pad;
+  const hi = dataMax + pad;
+
+  const rawStep = (hi - lo) / 4;
+  const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm = rawStep / mag;
+  let niceNorm;
+  if(norm <= 1) niceNorm = 1;
+  else if(norm <= 2) niceNorm = 2;
+  else if(norm <= 2.5) niceNorm = 2.5;
+  else if(norm <= 5) niceNorm = 5;
+  else niceNorm = 10;
+  const step = niceNorm * mag;
+
+  return { lo, hi, step };
+}
+
+// Retourne, pour UNE réunion/round et la variable active, {dateIso, valeur}
+// ou null si absent. Isole la seule vraie différence entre les 2 sources :
+// la forme des documents Firestore (FED: variables.X.median.annee — BCE:
+// tableX.Y.current.annee, X étant table2_gdp_labour ou table3_prices_costs
+// selon la variable, voir ECBPROJ_VARS).
+function fedsepValeurPourAnnee(doc, annee){
+  if(fedsepSourceActive === 'fed'){
+    const v = (doc.variables || {})[fedsepVarActive];
+    const brut = v && v.median ? v.median[annee] : undefined;
+    return { dateIso: doc.date_iso, brut };
+  }
+  const varDef = ECBPROJ_VARS.find(v => v.key === fedsepVarActive);
+  const table = varDef ? varDef.table : 'table2_gdp_labour';
+  const v = (doc[table] || {})[fedsepVarActive];
+  const brut = v && v.current ? v.current[annee] : undefined;
+  return { dateIso: doc.date, brut };
+}
+
+function fedsepDocumentsSource(){
+  return fedsepSourceActive === 'fed' ? liveFedSep : liveEcbProj;
+}
+
+function fedsepAnneesDisponibles(){
+  const annees = new Set();
+  fedsepDocumentsSource().forEach(doc => {
+    let sourceDict;
+    if(fedsepSourceActive === 'fed'){
+      const v = (doc.variables || {})[fedsepVarActive];
+      sourceDict = v && v.median;
+    } else {
+      const varDef = ECBPROJ_VARS.find(v => v.key === fedsepVarActive);
+      const table = varDef ? varDef.table : 'table2_gdp_labour';
+      const v = (doc[table] || {})[fedsepVarActive];
+      sourceDict = v && v.current;
+    }
+    if(sourceDict) Object.keys(sourceDict).forEach(a => annees.add(a));
+  });
+  const numeriques = [...annees].filter(a => a !== 'Longer run').sort((a,b)=>Number(a)-Number(b));
+  return annees.has('Longer run') ? numeriques.concat(['Longer run']) : numeriques;
+}
+
+function fedsepLibelleAnnee(a){
+  return a === 'Longer run' ? 'Long terme' : a;
+}
+
+// Format "AAAA-MM-JJ" (FED) comme "AAAA-MM" (BCE) : ne lit que les 2
+// premiers segments, le jour (s'il existe) est ignoré, donc réutilisable
+// tel quel pour les 2 sources.
+const MOIS_ABREGES_FEDSEP = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function fedsepLibelleReunion(dateIso){
+  const [aa, mm] = (dateIso || '').split('-');
+  if(!aa || !mm) return '';
+  return MOIS_ABREGES_FEDSEP[Number(mm)-1] + ' ' + aa.slice(2);
+}
+
+function renderFedSepTabs(annees){
+  const varTabsEl = document.getElementById('fedsepVarTabs');
+  if(varTabsEl){
+    varTabsEl.innerHTML = fedsepVarsActives().map(v =>
+      `<button class="taux-toggle-btn${v.key===fedsepVarActive?' active':''}" data-var="${v.key}">${v.label}</button>`
+    ).join('');
+  }
+  const yearTabsEl = document.getElementById('fedsepYearTabs');
+  if(yearTabsEl){
+    yearTabsEl.innerHTML = annees.map(a =>
+      `<button class="taux-toggle-btn${a===fedsepYearActive?' active':''}" data-year="${a}">${fedsepLibelleAnnee(a)}</button>`
+    ).join('');
+  }
+}
+
+function renderFedSep(){
+  const annees = fedsepAnneesDisponibles();
+  if(!fedsepYearActive || !annees.includes(fedsepYearActive)){
+    // Par défaut, l'année la plus proche disponible (comme sur la maquette).
+    fedsepYearActive = annees.length ? annees[0] : null;
+  }
+  renderFedSepTabs(annees);
+
+  if(!fedsepYearActive){
+    drawFedSepEvolution([]);
+    return;
+  }
+
+  const points = fedsepDocumentsSource()
+    .map(doc => {
+      const { dateIso, brut } = fedsepValeurPourAnnee(doc, fedsepYearActive);
+      const valeur = brut !== undefined ? parseFloat(brut) : NaN;
+      if(!dateIso || isNaN(valeur)) return null;
+      return { dateIso, valeur };
+    })
+    .filter(Boolean);
+
+  drawFedSepEvolution(points);
+}
+
+function drawFedSepEvolution(points, hoverIndex){
+  const canvas = document.getElementById('fedsepEvolCanvas');
+  if(!canvas) return;
+  const rect = mesurerZoneCanvas(canvas);
+  canvas.width = rect.width*devicePixelRatio; canvas.height = rect.height*devicePixelRatio;
+  canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const w = rect.width, h = rect.height;
+  ctx.clearRect(0,0,w,h);
+
+  if(!points.length){
+    ctx.fillStyle = '#576079'; ctx.font = '11px IBM Plex Mono';
+    ctx.fillText('Aucune donnée disponible pour cette combinaison.', 12, h/2);
+    return;
+  }
+
+  const padL=44, padB=22, padT=16, padR=14;
+  const plotW = w-padL-padR, plotH = h-padB-padT;
+  const n = points.length;
+  const { lo, hi, step } = fedsepAxisRange(points.map(p=>p.valeur));
+  const xFor = i => n===1 ? padL+plotW/2 : padL + (i/(n-1))*plotW;
+  const yFor = v => padT + plotH*(1-(v-lo)/(hi-lo));
+
+  ctx.strokeStyle = '#1c212c'; ctx.fillStyle = '#576079'; ctx.font = '10px IBM Plex Mono'; ctx.lineWidth = 1;
+  for(let v=Math.ceil(lo/step)*step; v<=hi+1e-9; v+=step){
+    const y = yFor(v);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
+    ctx.fillText(v.toFixed(2), 2, y+3);
+  }
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  points.forEach((p,i)=>{
+    const x = xFor(i);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.fillStyle = '#7b869c';
+    ctx.fillText(fedsepLibelleReunion(p.dateIso), x-14, h-4);
+  });
+
+  points.forEach((p,i)=>{
+    const x = xFor(i), y = yFor(p.valeur);
+    ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI*2);
+    ctx.fillStyle = '#eef1f7'; ctx.fill();
+  });
+
+  if(hoverIndex != null && points[hoverIndex]){
+    const x = xFor(hoverIndex), y = yFor(points[hoverIndex].valeur);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.fillStyle = '#c9a15a'; ctx.arc(x, y, 4.5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#0a0c11'; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.restore();
+  }
+
+  attacherSurvolCourbe(canvas, {
+    obtenirPoints: () => points,
+    xDuPoint: (p,i) => xFor(i),
+    redessiner: idx => drawFedSepEvolution(points, idx),
+    formatInfobulle: p => ({
+      date: fedsepLibelleReunion(p.dateIso),
+      raw: p.valeur.toFixed(2),
+    }),
+  });
+}
+
+function initialiserFedSepTabs(){
+  document.getElementById('fedsepSourceTabs').addEventListener('click', e=>{
+    const btn = e.target.closest('[data-source]');
+    if(!btn) return;
+    fedsepSourceActive = btn.dataset.source;
+    document.querySelectorAll('#fedsepSourceTabs .taux-toggle-btn').forEach(b=>b.classList.toggle('active', b===btn));
+    fedsepVarActive = fedsepVarsActives()[0].key; // 1ere variable de la nouvelle source (cles differentes entre FED et BCE)
+    fedsepYearActive = null; // laisse renderFedSep choisir l'année dispo la plus proche pour cette source
+    renderFedSep();
+  });
+  document.getElementById('fedsepVarTabs').addEventListener('click', e=>{
+    const btn = e.target.closest('[data-var]');
+    if(!btn) return;
+    fedsepVarActive = btn.dataset.var;
+    fedsepYearActive = null; // laisse renderFedSep choisir l'année dispo la plus proche pour cette variable
+    renderFedSep();
+  });
+  document.getElementById('fedsepYearTabs').addEventListener('click', e=>{
+    const btn = e.target.closest('[data-year]');
+    if(!btn) return;
+    fedsepYearActive = btn.dataset.year;
+    renderFedSep();
+  });
+}
+
 // Bascule entre les 3 vues du graphique central.
 document.getElementById('tauxChartToggle').addEventListener('click', e=>{
   const btn = e.target.closest('[data-mode]');
@@ -5969,6 +6370,7 @@ document.getElementById('mainNav').addEventListener('click', e=>{
     case 'fx': renderFxTable(); renderFxPerfChart(); renderFxEvolution(); break;
     case 'cot': renderCot(); break;
     case 'tradingview': renderTradingView(); break;
+    case 'projections': renderFedSep(); break;
   }
 });
 
@@ -5981,6 +6383,7 @@ initialiserControlesFxEvolution();
 initialiserCsPeriodTabs();
 initialiserCotFiltres();
 initialiserTradingView();
+initialiserFedSepTabs();
 renderFxEvolution();
 renderForceDevises();
 // Écoute Firestore en temps réel (ForexFactory + Banques Centrales + InvestingLive)
