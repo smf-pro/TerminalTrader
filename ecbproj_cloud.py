@@ -72,27 +72,27 @@ REPORT_LINK_RE = re.compile(
 )
 
 TABLE2_ROW_PATTERNS = [
-    ("real_gdp", re.compile(r"^real gdp$", re.I)),
-    ("private_consumption", re.compile(r"^private consumption$", re.I)),
-    ("government_consumption", re.compile(r"^government consumption$", re.I)),
-    ("investment", re.compile(r"^investment$", re.I)),
+    ("real_gdp", re.compile(r"^real gdp[\s\d\),]*$", re.I)),
+    ("private_consumption", re.compile(r"^private consumption[\s\d\),]*$", re.I)),
+    ("government_consumption", re.compile(r"^government consumption[\s\d\),]*$", re.I)),
+    ("investment", re.compile(r"^investment[\s\d\),]*$", re.I)),
     ("exports", re.compile(r"^exports", re.I)),
     ("imports", re.compile(r"^imports", re.I)),
-    ("domestic_demand", re.compile(r"^domestic demand$", re.I)),
-    ("net_exports", re.compile(r"^net exports$", re.I)),
+    ("domestic_demand", re.compile(r"^domestic demand[\s\d\),]*$", re.I)),
+    ("net_exports", re.compile(r"^net exports[\s\d\),]*$", re.I)),
     ("employment", re.compile(r"^employment", re.I)),
-    ("unemployment_rate", re.compile(r"^unemployment rate$", re.I)),
+    ("unemployment_rate", re.compile(r"^unemployment rate[\s\d\),]*$", re.I)),
 ]
 
 TABLE3_ROW_PATTERNS = [
-    ("hicp", re.compile(r"^hicp$", re.I)),
-    ("hicpx", re.compile(r"^hicp excluding energy and food$", re.I)),
-    ("hicp_excl_energy", re.compile(r"^hicp excluding energy$", re.I)),
-    ("hicp_energy", re.compile(r"^hicp energy$", re.I)),
-    ("hicp_food", re.compile(r"^hicp food$", re.I)),
-    ("gdp_deflator", re.compile(r"^gdp deflator$", re.I)),
-    ("compensation_per_employee", re.compile(r"^compensation per employee$", re.I)),
-    ("unit_labour_costs", re.compile(r"^unit labour costs$", re.I)),
+    ("hicp", re.compile(r"^hicp[\s\d\),]*$", re.I)),
+    ("hicpx", re.compile(r"^hicp excluding energy and food[\s\d\),]*$", re.I)),
+    ("hicp_excl_energy", re.compile(r"^hicp excluding energy[\s\d\),]*$", re.I)),
+    ("hicp_energy", re.compile(r"^hicp energy[\s\d\),]*$", re.I)),
+    ("hicp_food", re.compile(r"^hicp food[\s\d\),]*$", re.I)),
+    ("gdp_deflator", re.compile(r"^gdp deflator[\s\d\),]*$", re.I)),
+    ("compensation_per_employee", re.compile(r"^compensation per employee[\s\d\),]*$", re.I)),
+    ("unit_labour_costs", re.compile(r"^unit labour costs[\s\d\),]*$", re.I)),
 ]
 
 
@@ -178,9 +178,19 @@ def _expand_row(row):
 
 def _parse_table(table, patterns):
     """Parse une table a 2 lignes d'en-tete : bloc 'valeurs actuelles'
-    (annees) puis bloc 'revisions vs round precedent' (memes annees).
-    On ne garde ici que 'current' (voir decision de cadrage en tete de
-    fichier - la revision n'est pas stockee)."""
+    (annees) puis bloc 'revisions vs round precedent' (memes annees, PAS
+    forcement en meme nombre - ex: bloc valeurs 2025-2028 [4 ans] vs bloc
+    revisions 2026-2028 [3 ans seulement] sur le tableau BCE reel, verifie
+    par test). On ne garde ici que 'current' (voir decision de cadrage en
+    tete de fichier - la revision n'est pas stockee).
+
+    Comme le nombre d'annees des 2 blocs peut differer, on NE PEUT PAS se
+    contenter de couper la liste des annees trouvees en 2 moitiees egales
+    (bug initial : quand les 2 blocs partagent une annee, ca lisait la
+    valeur de REVISION a la place de la vraie valeur, silencieusement).
+    A la place, on garde toujours le PREMIER passage sur une annee donnee
+    (celui du bloc valeurs, qui apparait toujours en premier dans la
+    ligne, avant le bloc revisions) et on ignore les doublons suivants."""
     rows = table.find_all("tr")
     if len(rows) < 3:
         return {}
@@ -211,7 +221,7 @@ def _parse_table(table, patterns):
         data_cells = texts[1:]
         current = {}
         for i, year in enumerate(current_years):
-            if i < len(data_cells) and data_cells[i]:
+            if i < len(data_cells) and data_cells[i] and year not in current:
                 current[year] = data_cells[i]
 
         result[matched_key] = {"label": label, "current": current}
