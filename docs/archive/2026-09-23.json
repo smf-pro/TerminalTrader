@@ -2,6 +2,16 @@
   "date": "2026-09-23",
   "ff_news": [
     {
+      "source": "@financialjuice",
+      "titre": "Senior Iranian official: Tehran is reviewing US response to its proposal to end hostilities",
+      "ignore": false,
+      "date_publication": "2026-09-23T14:54:26.287025+00:00",
+      "url": "https://www.forexfactory.com/news/1427842-senior-iranian-official-tehran-is-reviewing-us-response",
+      "impact": "high",
+      "date_recuperation": "2026-09-23T14:55:26.287025+00:00",
+      "extrait": "Senior Iranian official: Tehran is reviewing US response to its proposal to end hostilitiesSenior Iranian Official: During indirect talks with the US on Tuesday, reopening the Hormuz Strait and lifting the US blockade were discussed."
+    },
+    {
       "impact": "low",
       "extrait": "Commercial crude oil inventories in the United States, excluding those in the Strategic Petroleum Reserve (SPR), rose by 2.96 million barrels to 426.4 million barrels in the week ending September 18, the Energy Information Administration (EIA) stated on Wednesday. Crude oil imports decreased by 1.2 million barrels per day to 5.9 million barrels per day. ...",
       "titre": "EIA: US crude inventories up by 3M barrels",
@@ -152,6 +162,18 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Summary\n\nMasoud Pezeshkian’s remarks offer a response to President Trump’s warnings about Iran at the UN yesterday.\n\nIt is Iran's turn at the UN with Iran Pres. Pezeshkian taking the stage today. Note that US officials walked out of the UNGA hall ahead of his speech.\n\nIn summary, Iranian President Masoud Pezeshkian said Iran needs nuclear energy, not a nuclear bomb, and argued that the nuclear issue cannot be settled on the battlefield. He said Iran has shown a commitment to negotiations, but will not surrender to military pressure. He described Iran’s military posture as defensive and said the country must be strong enough to respond to attacks.\n\nOn the Strait of Hormuz, Pezeshkian said Iran cannot allow others to use the waterway to move weapons that would be used against it. He also spoke about the attack on the Minab girls’ school, saying innocent children were killed, and said Iran had not targeted civilian populations. Those are the president’s claims; the supplied remarks do not independently establish responsibility for the attack or the conduct of either side.\n\nAt the UN General Assembly yesterday, President Trump defended the U.S.-Iran conflict and said he was considering whether to \"annihilate\" Iran. He framed this as a major decision, with the alternative being a deal that would let Iran rebuild. He predicted that deal wouldn't come until after the November midterms, arguing that Tehran is waiting to see how he does in them without realizing he isn't personally on the ballot. He insisted the two countries would resolve things one way or another.\n\nDiplomacy was also going on in the background. Later that day, Trump said Jared Kushner and special envoy Steve Witkoff had a very good meeting with Iranian officials on the sidelines, and Witkoff described lengthy talks held through mediators.\n\nAnalysis:Both presidents left room for a deal, but each paired that opening with a warning. For traders, the immediate question is whether the contacts Trump described produce another meeting and any practical agreement on shipping through Hormuz. Until there is something concrete on that front, the Strait remains a source of uncertainty for oil.\n\nMeanwhile in other geopolicical news, U.S. Secretary of State Marco Rubio said Russia and Ukraine have both expressed interest in alimited ceasefire involving grain and energy. He also said both sides view energy as a strategic objective in the war. That suggests there may be room to negotiate over specific targets and shipments, but interest in a ceasefire is still a step short of an agreement.\n\nRubio said the U.S. would be open to playing a constructive role. He also discussed the Russia–Ukraine war and the broader U.S.–Russia relationship with Russian Foreign Minister Sergey Lavrov. The question now is whether the two sides can agree on what a limited ceasefire would cover and put it into effect.\n\nFinally, Chinese President Xi Jinping is due to arrive in Washington on Wednesday, with talks with President Donald Trump scheduled for Thursday. The main market question is whether they extend the U.S.–China tariff truce before it expires onNovember 10. Traders will also watch for progress on rare-earth shipments, U.S. technology export controls, agricultural purchases and Boeing orders. Taiwan and the Iran war are expected to be part of the wider discussion.\n\nFor markets, an extension of the truce and concrete trade commitments would reduce uncertainty for companies tied to global supply chains. The key word isconcrete: expectations for a broad breakthrough are low, so traders will need to distinguish a specific agreement from a statement that talks were productive.",
+      "categorie": "news",
+      "titre": "Iranian president says Iran is open to diplomacy but will defend its interests in Hormuz",
+      "url": "https://investinglive.com/news/iranian-president-says-iran-is-open-to-diplomacy-but-will-defend-its-interests-in-hormuz/",
+      "date_publication": "2026-09-23T14:53:16.423560+00:00",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "date_recuperation": "2026-09-23T14:55:26.747991+00:00"
+    },
     {
       "contenu": "The EIA Weekly Petroleum Status Report figures in the supplied release table, for the week ending September 18:\n\nCrude oil stocks:+2.969 million barrelsvs−0.641 millionexpected. Prior−0.640 million.\n\nCushing crude stocks:+2.266 million barrels. Prior−0.342 million.\n\nGasoline stocks:−1.686 million barrelsvs+0.093 millionexpected. Prior+0.794 million.\n\nDistillate stocks:−0.428 million barrelsvs−0.633 millionexpected. Prior+1.585 million.\n\nThe headline is the crude build. Traders were looking for a modest draw, but stocks instead rose by nearly3 million barrels—a swing of about3.6 million barrelsfrom expectations. Stocks at Cushing, Oklahoma, also increased sharply.\n\nThe gasoline draw tells a different story. Gasoline inventories fell when a small build was expected. Distillates declined too, although their draw was slightly smaller than forecast. The four figures make this a mixed report, with the crude and Cushing builds the clearest bearish surprises for oil.\n\nQuick analysis:The crude build could weigh on oil prices, while the larger-than-expected gasoline draw may offer some offset. Cushing matters because it is the delivery hub for West Texas Intermediate crude futures. The figures alone do not establish what caused the inventory changes or how oil prices reacted.\n\nWhat this report measures:TheU.S. Energy Information Administration’s Weekly Petroleum Status Reporttracks weekly changes in U.S. crude oil and petroleum-product inventories. Traders watch the changes against expectations for clues about the balance between supply and demand; weekly figures can be volatile.",
       "categorie": "commodities",
