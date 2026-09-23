@@ -18,6 +18,16 @@
     },
     {
       "source": "pmi.spglobal.com",
+      "date_publication": "2026-09-23T08:31:29.454388+00:00",
+      "url": "https://www.forexfactory.com/news/1426303-uk-output-growth-softens-in-september-while-inflationary",
+      "impact": "low",
+      "extrait": "September data highlighted an upturn in UK private sector business activity for the third consecutive month, but the pace of expansion eased to the weakest seen over this period. This reflected a loss of momentum in both the manufacturing and service sectors. Meanwhile, the rate of input price inflation accelerated for the second month running to its ...",
+      "date_recuperation": "2026-09-23T08:32:29.454388+00:00",
+      "ignore": false,
+      "titre": "UK output growth softens in September, while inflationary pressures intensify"
+    },
+    {
+      "source": "pmi.spglobal.com",
       "titre": "Euro area output growth hits near three-and-a-half year high in September",
       "impact": "low",
       "ignore": false,
