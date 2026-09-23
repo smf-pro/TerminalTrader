@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-23T17:43:41.982639+00:00",
     "cb_articles": "2026-09-23T14:07:56.690828+00:00",
-    "il_articles": "2026-09-23T17:53:52.402618+00:00"
+    "il_articles": "2026-09-23T18:49:53.418168+00:00"
   },
   "ff_news": [
     {
@@ -207,6 +207,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-23T18:49:53.418168+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/forex/big-breakout-us-10-year-yields-up-16-basis-points-to-the-highest-since-2007/",
+      "contenu": "Summary\n\nThe market is sensing strength in the economy, persistent inflation and ever-growing debt\n\nThe bond market has a big problem.\n\nUS borrowing costs are racing higher and are now at the most-costly levels since 2007. That's a heavy price to pay for the $40 trillion  Those costs feed indirectly into mortgage rates, corporate borrowing costs and the discount rate for equities.\n\nWhat frightens me today is how sudden and global the move has been. It feels like a dam is breaking and that isn't good for risk assets or confidence in policymakers. Technically, the long-term monthly chart highlights 5.33% as the financial crisis high and then there isn't much stopping a run to 6%.\n\nThis is the kind of thing that will make Trump explode but there isn't much anyone can do about it. The Treasury bought another $6 billion in long-dated bonds with bills today but it's a drop in the bucket and has lost its shock value. Ending the war in Iran and getting oil prices down would be a big help but it's going to take time to get anything flowing and the market is suddenly skeptical of yesterday's pronoucements with oil up $2.11 to $92.67.\n\nThe trigger for today's moves was theUS S&P Global PMIas it hit the highest in five years. The composite reading was the highest since 2015 excluding the post-pandemic period.\n\nThe thinking is that the US economy is accelerating on the combination of tax cuts, heavy US government spending, deregulation and the AI capex boom. Meanwhile, the feared layoffs from AI haven't yet materialized. It's only one data point but it could snowball as confidence in the growth outlook improves.",
+      "categorie": "forex",
+      "tags": [
+        "Bonds"
+      ],
+      "titre": "Big breakout: US 10-year yields up 16 basis points to the highest since 2007",
+      "date_recuperation": "2026-09-23T18:50:27.326731+00:00"
+    },
     {
       "tags": [
         "Oil"
