@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "source": "pmi.spglobal.com",
-      "extrait": "Businesses in Germany recorded a solid and accelerated increase in output of goods and services at the end of the third quarter, according to the latest PMI® survey data. This was despite firms facing increased inflationary pressures, which they linked in large part to the rising price of fuel. Employment meanwhile rose for the second month in a row as a ...",
       "url": "https://www.forexfactory.com/news/1419819-growth-in-german-private-sector-output-accelerates-in",
-      "date_recuperation": "2026-09-23T07:32:26.521021+00:00",
-      "titre": "Growth in German private sector output accelerates in September despite increased inflationary pressures",
-      "ignore": false,
+      "extrait": "Businesses in Germany recorded a solid and accelerated increase in output of goods and services at the end of the third quarter, according to the latest PMI® survey data. This was despite firms facing increased inflationary pressures, which they linked in large part to the rising price of fuel. Employment meanwhile rose for the second month in a row as a ...",
+      "source": "pmi.spglobal.com",
+      "impact": "low",
       "date_publication": "2026-09-23T07:31:26.521021+00:00",
-      "impact": "low"
+      "date_recuperation": "2026-09-23T07:32:26.521021+00:00",
+      "ignore": false,
+      "titre": "Growth in German private sector output accelerates in September despite increased inflationary pressures"
     },
     {
       "ignore": false,
