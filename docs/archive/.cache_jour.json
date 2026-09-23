@@ -1,11 +1,21 @@
 {
   "date": "2026-09-23",
   "curseurs": {
-    "ff_news": "2026-09-23T13:46:32.622341+00:00",
+    "ff_news": "2026-09-23T14:06:27.170260+00:00",
     "cb_articles": "2026-09-23T01:15:54.660560+00:00",
     "il_articles": "2026-09-23T08:40:07.832323+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1427823-barr-a-long-term-view-on-the-costs-of",
+      "titre": "Barr: A Long-Term View on the Costs of Shelter",
+      "date_publication": "2026-09-23T14:06:27.170260+00:00",
+      "date_recuperation": "2026-09-23T14:08:27.170260+00:00",
+      "source": "federalreserve.gov",
+      "extrait": "Thank you for the opportunity to speak to you.1 My interest in access to affordable housing spans several decades. During my career, I have worked on housing and mortgage market reform and promoted access to credit for low- and moderate- income (LMI) households. I've seen firsthand what public–private partnerships in low-income communities can mean for improving affordable housing, from the South Bronx, to the South Side of Chicago, to the Mississippi Delta, to South Central L.A., and places in between. Now at the Federal Reserve Board, I oversee our Division of Consumer and Community Affairs and participate in rate-setting decisions that affect the economy. By pursuing maximum employment and stable prices, the Federal Reserve seeks to create the stable macroeconomic environment necessary for households to maintain purchasing power, earn reliable incomes, access housing, and, ultimately, build capital through homeownership and other forms of investment. The Economic Outlook Before I turn to my thoughts about housing, I want to spend a few moments sharing my views on the broader economy and monetary policy. As you know, the Federal Reserve has what we call a dual mandate, which is to achieve maximum employment and stable prices. Our economy has experienced a series of shocks over the past year and half: the imposition of tariffs, the conflict in the Middle East and continued disruptions from Russia's war on Ukraine, and, more recently, a surge in investment demand to support the artificial intelligence (AI) buildout. These shocks have contributed to upward price pressures.Fed's Barr: Further rate hikes are likely needed to ensure timely return to 2% inflation.Fed's Barr: Risks to achieving 2% inflation have increased, risks to the labor market have receded.Fed's Barr: Going into the recent policy meeting, the Fed needed to recalibrate monetary policy to reflect risks.Fed's Barr: The Fed was out of position, we made an adjustment in the right direction."
+    },
     {
       "ignore": false,
       "extrait": "US business activity growth accelerated for a fourth successive month in September to reach the fastest rate for over five years. A further surge in service sector business activity was accompanied by a renewed improvement in manufacturing output growth. Employment also rose sharply, with jobs added at a pace not seen for over four years, as firms sought to ...",
