@@ -78,17 +78,17 @@
   "il_articles": [
     {
       "contenu": "Latest data released by S&P Global - 23 September 2026\n\nEurozone September flash services PMI 53.0 vs 51.5 expected\n\nPrior 51.6\n\nEurozone September flash manufacturing PMI 52.7 vs 52.6 expected\n\nPrior 52.7\n\nEurozone September flash composite PMI 53.1 vs 51.7 expected\n\nPrior 52.0\n\nMore to follow...",
-      "titre": "Eurozone September flash services PMI 53.0 vs 51.5 expected",
-      "date_recuperation": "2026-09-23T08:05:27.683452+00:00",
-      "date_publication": "2026-09-23T08:01:00.854411+00:00",
+      "ignore": false,
       "url": "https://investinglive.com/news/eurozone-september-flash-services-pmi-53-0-vs-51-5-expected/",
       "tags": [
         "EUR",
         "europe",
         "pmi"
       ],
-      "ignore": false,
-      "categorie": "news"
+      "categorie": "news",
+      "date_publication": "2026-09-23T08:01:00.854411+00:00",
+      "date_recuperation": "2026-09-23T08:05:27.683452+00:00",
+      "titre": "Eurozone September flash services PMI 53.0 vs 51.5 expected"
     },
     {
       "contenu": "Latest data released by HCOB - 23 September 2026\n\nPrior 54.3\n\nServices PMI xx vs 50.0 expected\n\nPrior 49.7\n\nComposite PMI xx vs 51.8 expected\n\nPrior 51.8",
