@@ -27,8 +27,10 @@ Différences volontaires avec le patron centralbanks_cloud.py / ff_cloud.py
   jour retention_jours a été faite spécifiquement pour ce cas).
 
 Le reste de la mécanique (init Firestore, enregistrer_statut_pipeline,
-generer_json(db) protégé par ResourceExhausted, cycle() single-pass) est
-calqué à l'identique sur centralbanks_cloud.py.
+cycle() single-pass, ResourceExhausted protégeant les écritures) est
+calqué à l'identique sur centralbanks_cloud.py. Seul point volontairement
+différent : PAS d'appel à generer_json(db) en fin de cycle (fed_sep n'est
+pas concerné par l'archive JSON du site, voir plus bas).
 """
 
 import os
@@ -44,7 +46,6 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from google.api_core.exceptions import ResourceExhausted
 
-from site_generator import generer_json
 from cache_dedup import charger_cache, sauvegarder_cache, marquer_traite
 
 # ---------- CONFIGURATION ----------
@@ -318,20 +319,13 @@ def cycle():
 
     print(f"\nTermine. {reunions_ecrites} nouvelle(s) reunion(s) ecrite(s) dans Firestore.")
 
-    # On regenere docs/archive/ avec les donnees a jour des collections,
-    # lu ensuite par le site (throttle de 4 min deja gere dans
-    # site_generator.generer_json, commun a tous les scripts).
-    try:
-        generer_json(db)
-    except ResourceExhausted as e:
-        print(f"Quota Firestore depasse pendant generer_json() : {e}")
-        enregistrer_statut_pipeline(
-            db, statut="erreur",
-            liens_vus=len(dates),
-            articles_nouveaux=reunions_ecrites,
-            erreur="Quota Firestore depasse pendant la generation du JSON",
-        )
-        return
+    # Pas d'appel a generer_json(db) ici : fed_sep n'est pas concerne par
+    # l'archive JSON (voir etape 2 du projet, decision documentee dans
+    # site_generator.py) - cet appel ne ferait rien d'utile pour cette
+    # source, tout en l'exposant inutilement a des erreurs de quota
+    # Firestore causees par les 3 AUTRES scripts (ff_cloud.py,
+    # centralbanks_cloud.py, investinglive_cloud.py, cron 5 min), qui
+    # n'ont rien a voir avec le bon deroulement de CE cycle.
 
     # Battement de coeur : "ok_partiel" si au moins une reunion a echoue
     # (page introuvable ou parsing), "ok" sinon - meme si
