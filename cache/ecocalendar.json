@@ -1,16 +1,4 @@
 {
-  "063e68d548cc166d1caf958c3f4d14c90215dbc46f98bbbf1416a5731d0ba714": {
-    "date_evenement": "2026-09-13T18:30:00-04:00",
-    "forecast": null,
-    "previous": "50.6",
-    "actual": null
-  },
-  "1e93bf52ecef933759869645c4124b5f85246715558c46240408b30f4e86951c": {
-    "date_evenement": "2026-09-13T18:45:00-04:00",
-    "forecast": null,
-    "previous": "-0.1%",
-    "actual": null
-  },
   "15c19ceb41477ebfde2a6065d9c42321b1882525e6331130e64da6e8f2b9ac98": {
     "date_evenement": "2026-09-13T22:30:00-04:00",
     "forecast": null,
