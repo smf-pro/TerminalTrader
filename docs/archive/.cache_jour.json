@@ -1,11 +1,21 @@
 {
   "date": "2026-09-23",
   "curseurs": {
-    "ff_news": "2026-09-23T09:06:23.304097+00:00",
+    "ff_news": "2026-09-23T13:46:32.622341+00:00",
     "cb_articles": "2026-09-23T01:15:54.660560+00:00",
     "il_articles": "2026-09-23T08:40:07.832323+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "extrait": "US business activity growth accelerated for a fourth successive month in September to reach the fastest rate for over five years. A further surge in service sector business activity was accompanied by a renewed improvement in manufacturing output growth. Employment also rose sharply, with jobs added at a pace not seen for over four years, as firms sought to ...",
+      "date_publication": "2026-09-23T13:46:32.622341+00:00",
+      "impact": "high",
+      "titre": "US business growth surges to fastest for over five years and job gains accelerate, but price pressures also intensify amid spike in costs",
+      "source": "pmi.spglobal.com",
+      "date_recuperation": "2026-09-23T13:48:32.622341+00:00",
+      "url": "https://www.forexfactory.com/news/1427815-us-business-growth-surges-to-fastest-for-over"
+    },
     {
       "date_publication": "2026-09-23T09:06:23.304097+00:00",
       "titre": "ECB's Makhlouf: Not Seeing Second-Round Effects Yet - RTE Radio",
