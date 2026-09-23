@@ -1,30 +1,20 @@
 {
   "date": "2026-09-23",
   "curseurs": {
-    "ff_news": "2026-09-23T08:31:29.454388+00:00",
+    "ff_news": "2026-09-23T08:31:23.944635+00:00",
     "cb_articles": "2026-09-23T01:15:54.660560+00:00",
     "il_articles": "2026-09-23T08:30:11.874784+00:00"
   },
   "ff_news": [
     {
-      "ignore": false,
       "extrait": "September data highlighted an upturn in UK private sector business activity for the third consecutive month, but the pace of expansion eased to the weakest seen over this period. This reflected a loss of momentum in both the manufacturing and service sectors. Meanwhile, the rate of input price inflation accelerated for the second month running to its ...",
-      "titre": "UK output growth softens in September, while inflationary pressures intensify",
-      "date_recuperation": "2026-09-23T08:32:29.454388+00:00",
-      "impact": "low",
-      "url": "https://www.forexfactory.com/news/1426303-uk-output-growth-softens-in-september-while-inflationary",
-      "date_publication": "2026-09-23T08:31:29.454388+00:00",
-      "source": "pmi.spglobal.com"
-    },
-    {
       "source": "pmi.spglobal.com",
-      "date_publication": "2026-09-23T08:31:29.454388+00:00",
+      "titre": "UK output growth softens in September, while inflationary pressures intensify",
       "url": "https://www.forexfactory.com/news/1426303-uk-output-growth-softens-in-september-while-inflationary",
-      "impact": "low",
-      "extrait": "September data highlighted an upturn in UK private sector business activity for the third consecutive month, but the pace of expansion eased to the weakest seen over this period. This reflected a loss of momentum in both the manufacturing and service sectors. Meanwhile, the rate of input price inflation accelerated for the second month running to its ...",
-      "date_recuperation": "2026-09-23T08:32:29.454388+00:00",
       "ignore": false,
-      "titre": "UK output growth softens in September, while inflationary pressures intensify"
+      "date_recuperation": "2026-09-23T08:33:23.944635+00:00",
+      "date_publication": "2026-09-23T08:31:23.944635+00:00",
+      "impact": "low"
     },
     {
       "source": "pmi.spglobal.com",
@@ -97,16 +87,16 @@
   ],
   "il_articles": [
     {
-      "ignore": false,
-      "titre": "UK September flash services PMI 51.7 vs 52.0 expected",
-      "date_recuperation": "2026-09-23T08:30:33.534252+00:00",
       "tags": [
         "GBP"
       ],
-      "categorie": "news",
+      "contenu": "Latest data released by S&P Global - 23 September 2026\n\nPrior 52.5\n\nManufacturing PMI 52.0 vs 51.5 expected\n\nPrior 51.7\n\nComposite PMI 51.7 vs 52.0 expected\n\nPrior 52.5",
+      "titre": "UK September flash services PMI 51.7 vs 52.0 expected",
       "url": "https://investinglive.com/news/uk-september-flash-services-pmi-xx-vs-52-0-expected/",
+      "ignore": false,
+      "date_recuperation": "2026-09-23T08:30:33.534252+00:00",
       "date_publication": "2026-09-23T08:30:11.874784+00:00",
-      "contenu": "Latest data released by S&P Global - 23 September 2026\n\nPrior 52.5\n\nManufacturing PMI 52.0 vs 51.5 expected\n\nPrior 51.7\n\nComposite PMI 51.7 vs 52.0 expected\n\nPrior 52.5"
+      "categorie": "news"
     },
     {
       "url": "https://investinglive.com/news/eurozone-september-flash-services-pmi-53-0-vs-51-5-expected/",
