@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T08:28:27.187175+00:00",
+    "ff_news": "2026-09-24T08:37:00.082486+00:00",
     "cb_articles": "2026-09-24T07:31:15.885120+00:00",
     "il_articles": "2026-09-24T08:01:37.487108+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-24T08:37:00.082486+00:00",
+      "impact": "medium",
+      "ignore": false,
+      "source": "@FirstSquawk",
+      "extrait": "Iran Official Says Conflict With Us Could Expand Further - FarsIran's Safavi Says Next Phase Could Reach Indian Ocean - Fars",
+      "url": "https://www.forexfactory.com/news/1428060-iran-official-says-conflict-with-us-could-expand",
+      "titre": "Iran Official Says Conflict With US Could Expand Further - Fars",
+      "date_recuperation": "2026-09-24T08:38:00.082486+00:00"
+    },
     {
       "titre": "German business morale rises more than expected in September, Ifo finds",
       "date_recuperation": "2026-09-24T08:29:27.187175+00:00",
