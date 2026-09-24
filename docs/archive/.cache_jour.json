@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T18:26:29.351252+00:00",
     "cb_articles": "2026-09-24T20:16:28.268107+00:00",
-    "il_articles": "2026-09-24T21:37:51.029336+00:00"
+    "il_articles": "2026-09-24T22:14:42.918691+00:00"
   },
   "ff_news": [
     {
@@ -581,6 +581,21 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/news/china-shuts-for-mid-autumn-festival-holiday-today-a-preview-of-the-week-long-national-day-gap-to-come/",
+      "titre": "China shuts for Mid-Autumn Festival holiday today, a preview of the week-long National Day gap to come",
+      "date_recuperation": "2026-09-24T22:15:25.821869+00:00",
+      "contenu": "Summary\n\nMainland China markets are closed Friday for the Mid-Autumn Festival and shut again October 1 to 7 for National Day, leaving thinner Asian liquidity as oil, Treasury yields and the RBA keep headline risk high. Japan stays open for cash Treasuries.\n\nAUD is the most exposed of the major currencies. It usually trades partly as a proxy for China, and with onshore markets shut it loses that anchor and has to lean more on oil, Treasury yields and the RBA. With Dalian iron ore futures closed, iron ore price discovery shifts to the Singapore contract, which is thinner.\n\nGold also loses one of its biggest sources of Asia-time demand. With the Shanghai Gold Exchange shut, Chinese physical and speculative buying steps aside, leaving prices more exposed to Treasury yields and the US dollar until mainland buyers return.\n\nAsian equity desks may see lighter volumes and wider spreads, so moves on single headlines can overshoot. Traders sometimes position ahead of long Chinese breaks by cutting exposure, which can add to price swings in the three sessions before National Day. After the holiday, the first sessions back can see catch-up moves as mainland markets react to a week of global news at once.\n\nChina takes a long weekend now and a full week off in October, and each break leaves a bigger gap in the Asian session. Thin trading and a crowded news calendar can be a volatile mix.\n\nMainland Chinese markets are closed from Friday, September 25 to Sunday, September 27 for the Mid-Autumn Festival\n\nTrading resumes Monday for three sessions before the National Day holiday, October 1 to 7\n\nChina's growing weight in global markets means its absence can leave the Asian session noticeably thinner\n\nWith the onshore yuan and Chinese commodity futures offline, offshore markets carry price discovery with less depth\n\nJapan remains open, so cash Treasuries keep trading through Tokyo hours\n\nThe closures coincide with swings in oil, 17-year highs in Treasury yields and an expected RBA hike\n\nMainland Chinese markets are shut on Friday for the Mid-Autumn Festival, with the break running through the weekend and trading resuming on Monday. Consider it a dress rehearsal. After just three sessions next week, China closes again for the week-long National Day holiday, from Thursday, October 1 to Wednesday, October 7.\n\nHoliday closures in China are a regular fixture on the calendar, but the gap they leave in the Asian trading day has grown along with the country's weight in global markets. As the world's second-largest economy, China generates a large share of the region's market flow. That ranges from corporate hedging and trade-related currency demand to portfolio investment and a sizeable pool of speculative activity. When that flow switches off, the Asian session can feel noticeably thinner.\n\nThe effects show up across asset classes. With the onshore yuan market closed, offshore yuan trading carries price discovery on its own, usually with less depth. Commodity markets lose Chinese futures activity, which matters for iron ore in particular, given its close link to the Australian dollar. Regional equity markets lose a major source of cues, and cross-border flows through the Stock Connect links slow or pause.\n\nThe vacuum is not always a problem. Plenty of holiday sessions pass quietly, with markets simply marking time until Beijing and Shanghai return. But thinner liquidity cuts both ways. When a headline does land, prices can move further and faster than they would in a full session, and that risk is higher when the news backdrop is as busy as it is now.\n\nThis time the event and news flow is anything but quiet. Oil is swinging on Middle East headlines, US Treasury yields are at their highest since 2007, and the Reserve Bank of Australia is widely expected to hike on Tuesday. Japan remains open, so cash US Treasuries will keep trading through Tokyo hours, and the yen and Japanese government bond markets will provide some anchor for the region.\n\nFriday offers a useful preview of what traders can expect from the longer break. China will be absent for a full week just as the RBA decision, US data and Middle East diplomacy compete for attention. That could make early October one of the more headline-sensitive stretches of the year for the Asian session.",
+      "tags": [
+        "China",
+        "China Stock Market",
+        "AUD",
+        "Gold"
+      ],
+      "categorie": "news",
+      "ignore": false,
+      "date_publication": "2026-09-24T22:14:42.918691+00:00"
+    },
     {
       "date_recuperation": "2026-09-24T21:40:27.636796+00:00",
       "titre": "Iran's Pezeshkian seeks US ceasefire deal before midterms, signals nuclear openness",
