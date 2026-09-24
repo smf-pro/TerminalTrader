@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T18:26:24.391659+00:00",
+    "ff_news": "2026-09-24T18:26:29.351252+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
     "il_articles": "2026-09-24T17:50:42.447634+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "Just In: Us Asks Major Refiners To Reduce Diesel Exports Voluntarily. ...",
+      "date_publication": "2026-09-24T18:26:29.351252+00:00",
+      "date_recuperation": "2026-09-24T18:28:29.351252+00:00",
+      "url": "https://www.forexfactory.com/news/1428272-us-asks-major-refiners-to-reduce-diesel-exports",
+      "ignore": false,
+      "titre": "US Asks Major Refiners To Reduce Diesel Exports Voluntarily",
+      "source": "@NodeWire",
+      "impact": "low"
+    },
     {
       "titre": "US Asks Major Refiners To Reduce Diesel Exports Voluntarily",
       "ignore": false,
