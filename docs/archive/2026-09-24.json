@@ -2,6 +2,26 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "date_publication": "2026-09-24T08:04:28.502377+00:00",
+      "titre": "BOE's Lombardelli: The outlook for inflation",
+      "extrait": "It is an honour and a pleasure to be invited to speak to you today at the Sixth Biennial Conference on Macroeconomic Policy. Policymakers often say we are dealing with an unusually uncertain time. And I will not disappoint you. The economy faces large and complex uncertainties: geopolitical tensions, global structural shifts and the rapid march of ...",
+      "source": "bankofengland.co.uk",
+      "date_recuperation": "2026-09-24T08:05:28.502377+00:00",
+      "impact": "low",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428055-boes-lombardelli-the-outlook-for-inflation"
+    },
+    {
+      "date_publication": "2026-09-24T08:01:24.749543+00:00",
+      "titre": "ECB economic, financial and monetary developments",
+      "date_recuperation": "2026-09-24T08:03:24.749543+00:00",
+      "source": "ecb.europa.eu",
+      "impact": "low",
+      "extrait": "At its meeting on 10 September 2026, the Governing Council decided to raise the three key ECB interest rates by 25 basis points. The conflict in the Middle East continues to generate inflation pressures, and inflation is set to remain well above target for an extended period. The decision to raise interest rates underscores the Governing Council’s ...",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428054-ecb-economic-financial-and-monetary-developments"
+    },
+    {
       "date_recuperation": "2026-09-24T08:02:24.550519+00:00",
       "url": "https://www.forexfactory.com/news/1428054-ecb-economic-financial-and-monetary-developments",
       "extrait": "At its meeting on 10 September 2026, the Governing Council decided to raise the three key ECB interest rates by 25 basis points. The conflict in the Middle East continues to generate inflation pressures, and inflation is set to remain well above target for an extended period. The decision to raise interest rates underscores the Governing Council’s ...",
@@ -137,6 +157,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Germany September Ifo business climate index 89.9 vs 89.1 expected",
+      "date_publication": "2026-09-24T08:01:37.487108+00:00",
+      "date_recuperation": "2026-09-24T08:05:27.199659+00:00",
+      "categorie": "news",
+      "tags": [
+        "EUR"
+      ],
+      "ignore": false,
+      "url": "https://investinglive.com/news/germany-september-ifo-business-climate-index-89-9-vs-89-1-expected/",
+      "contenu": "Summary\n\nLatest data released by Ifo - 24 September 2026\n\nGermany September Ifo business climate index 89.9 vs 89.1 expected\n\nPrior 88.8\n\nGermany September Ifo business expectations 90.4 vs 89.3 expected\n\nPrior 89.1; revised to 89.0\n\nGermany September Ifo current assessment index 89.5 vs 89.0 expected\n\nPrior 88.5\n\nMore to follow..."
+    },
     {
       "titre": "SNB leaves policy rate unchanged at 0% in September meeting, as widely expected",
       "ignore": false,
