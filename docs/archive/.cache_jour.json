@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T11:28:28.693526+00:00",
     "cb_articles": "2026-09-24T08:54:21.833989+00:00",
-    "il_articles": "2026-09-24T09:50:55.996689+00:00"
+    "il_articles": "2026-09-24T12:18:45.396298+00:00"
   },
   "ff_news": [
     {
@@ -274,6 +274,18 @@
     }
   ],
   "il_articles": [
+    {
+      "categorie": "technical-analysis",
+      "tags": [
+        "USD"
+      ],
+      "date_recuperation": "2026-09-24T12:20:24.478097+00:00",
+      "url": "https://investinglive.com/technical-analysis/morning-kickstart-dollar-rises-as-global-bond-yields-pressure-stocks-ahead-of-trump-xi-talks/",
+      "ignore": false,
+      "contenu": "Summary\n\nSeptember 24, 2026 — The U.S. 10-year yield holds above 5%, oil rebounds, and traders await jobless claims and the Trump–Xi summit\n\nThe bond market remains a central story for traders this morning. The U.S. 10-year yield is at5.1226%, near its highest level since 2007, while the 30-year yield has moved higher as well. Yesterday’s strong U.S. business activity data added to concerns that the Fed may need to do more to contain inflation. Oil is also rebounding, keeping the potential effect of energy costs on inflation in view.\n\nThat combination is weighing on stocks ahead of the U.S. opening. At7:35 a.m. ET, futures were indicating:\n\nDow industrial average:−178 points\n\nS&P 500:−38 points\n\nNasdaq:−274 points\n\nThe dollar is higher againstall seven major currenciesin the supplied FX snapshot. The largest move is against the Japanese yen, with USDJPY up0.28% to 158.74. The dollar is up0.23% against the Swiss francand0.09% against the Canadian dollar. EURUSD is down0.04% to 1.1375, the smallest dollar move in the group. GBPUSD is down0.07% to 1.3228, AUDUSD is down0.11% to 0.7028, and NZDUSD is down0.07% to 0.5669.\n\nFor traders, the currency map is straightforward: the dollar has the stronger hand across the board, but the moves are uneven. USDJPY has shown more momentum than EURUSD. That distinction matters when we turn to the charts: a broad dollar bid does not mean every pair has broken a technical level or has the same room to extend.\n\nYields and other markets\n\nThe Treasury curve is giving a mixed signal this morning. Shorter yields in the snapshot are lower on the day, while the 10- and 30-year yields are higher:\n\n2-year:4.8661%,−2.89 basis points\n\n5-year:4.9928%,−1.22 basis points\n\n10-year:5.1226%,+0.86 basis points\n\n30-year:5.4318%,+2.98 basis points\n\nThe rise in longer yields reaches well beyond the U.S. Japan’s 10-year yield is around3.08%, its highest since 1996. Germany’s is near3.57%, its highest since 2009, while UK and French yields are near multi-year highs. For stocks, higher long-term yields raise the discount rate applied to future earnings and can make borrowing more expensive.\n\nGermany’s DAX:−0.30%\n\nFrance’s CAC 40:−0.25%\n\nUK’s FTSE 100:+0.08%\n\nSpain’s IBEX 35:+0.33%\n\nItaly’s FTSE MIB:−0.34%\n\nWTI crude is up1.26% to $93.32in the commodity snapshot. Gold is lower by about$24 to $4,263, silver is down1.34% to $63.58, and Bitcoin is down1.08% to $83,472. The simultaneous rise in oil and longer yields, alongside lower stocks and precious metals, is worth watching as the North American session develops.\n\nNews and the North American calendar\n\nTheSwiss National Bank left its policy rate unchanged at 0%this morning. It said higher energy prices have lifted near-term inflation, but that medium-term inflation pressure has increased only slightly. The bank also maintained its willingness to be active in the foreign exchange market if necessary.\n\nPresidentsDonald Trump and Xi Jinpingare due to meet today. The extension of the U.S.–China trade truce and any comments on trade or the Middle East could move markets, but traders will need to judge the actual announcements rather than assume a breakthrough ahead of the meeting.\n\n8:00 a.m.:Richmond Fed PresidentThomas Barkinspeaks.\n\n8:30 a.m.:Initial jobless claims are expected at201,000, versus196,000previously. Continuing claims are expected at1.750 million, versus1.730 millionpreviously.\n\n8:30 a.m.:The second-quarter current-account deficit is expected at$255 billion, versus$226.8 billionpreviously.\n\n8:50 a.m.:Cleveland Fed PresidentBeth Hammackspeaks.\n\n10:00 a.m.:August new-home sales are expected at an annualized620,000, versus607,000previously.\n\n10:10 a.m.:Philadelphia Fed PresidentAnna Paulsonspeaks.\n\n1:00 p.m.:The Treasury auctions 7-year notes.\n\nJobless claims will be the first scheduled test of the morning’s rate story. A weaker labor reading could challenge the recent move in yields; another firm reading could reinforce the view that the Fed has room to remain restrictive. The reaction in yields, the dollar and stocks will tell us how traders interpret the number.\n\nIn the morning video above, I take a look at the three major currency pairs—EURUSD, USDJPY and GBPUSD—from a technical perspective. For each pair, I outline the bias, the risk-defining levels and the targets that would give either the buyers or sellers more control",
+      "titre": "Morning Kickstart: Dollar rises as global bond yields pressure stocks ahead of Trump–Xi talks",
+      "date_publication": "2026-09-24T12:18:45.396298+00:00"
+    },
     {
       "tags": [
         "Oil",
