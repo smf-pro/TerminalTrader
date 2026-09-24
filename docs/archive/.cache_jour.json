@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T16:16:29.993667+00:00",
+    "ff_news": "2026-09-24T16:16:32.462855+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
     "il_articles": "2026-09-24T14:38:30.667019+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "*us,iran Explore Phased Deal To Reopen Hormuz, End Blockade:rtrsU.S. AND IRAN EXPLORE PHASED HORMUZ DEAL U.S. and Iranian negotiators are discussing a phased agreement to end the conflict, Reuters reports. The potential first step would see Iran reopen the Strait of Hormuz in exchange for Washington lifting its economic blockade, potentially alongside access to frozen Iranian assets. The main obstacle remains sequencing: neither side wants to surrender its leverage first, leaving negotiations fragile.",
+      "impact": "high",
+      "date_recuperation": "2026-09-24T16:22:32.462855+00:00",
+      "url": "https://www.forexfactory.com/news/1428182-us-iran-explore-phased-deal-to-reopen-hormuz",
+      "ignore": false,
+      "source": "@NourHammoury",
+      "titre": "US, Iran Explore Phased Deal To Reopen Hormuz, End Blockade: RTRS",
+      "date_publication": "2026-09-24T16:16:32.462855+00:00"
+    },
     {
       "date_recuperation": "2026-09-24T16:17:29.993667+00:00",
       "titre": "US and Iran discuss phased deal to reopen Hormuz and end US blockade, sources say",
