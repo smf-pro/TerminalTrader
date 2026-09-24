@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "date_publication": "2026-09-24T09:36:29.413978+00:00",
+      "extrait": "Pboc Says Maintain Yuan Rate At Reasonable And Balanced Level",
+      "titre": "PBOC Says Maintain Yuan Rate At Reasonable And Balanced Level",
+      "ignore": false,
+      "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1428062-pboc-says-maintain-yuan-rate-at-reasonable-and",
+      "impact": "low",
+      "date_recuperation": "2026-09-24T09:37:29.413978+00:00"
+    },
+    {
       "ignore": false,
       "titre": "Iran Official Says Conflict With US Could Expand Further - Fars",
       "url": "https://www.forexfactory.com/news/1428060-iran-official-says-conflict-with-us-could-expand",
