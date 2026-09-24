@@ -2,7 +2,7 @@
   "date": "2026-09-24",
   "curseurs": {
     "ff_news": "2026-09-24T14:11:31.367131+00:00",
-    "cb_articles": "2026-09-24T13:56:04.327193+00:00",
+    "cb_articles": "2026-09-24T14:20:29.360609+00:00",
     "il_articles": "2026-09-24T14:01:24.721531+00:00"
   },
   "ff_news": [
@@ -368,6 +368,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "tags": [
+        "Fed"
+      ],
+      "date_publication": "2026-09-24T14:20:29.360609+00:00",
+      "url": "https://investinglive.com/central-banks/fed-s-anna-paulson-says-another-rate-hike-may-be-needed-to-lower-inflation/",
+      "ignore": false,
+      "titre": "Fed’s Anna Paulson says another rate hike may be needed to lower inflation",
+      "contenu": "Summary\n\nThe Philadelphia Fed president sees a resilient economy and inflation that remains stubbornly high.\n\nUS central bank may need to raise interest rates again to lower inflation.\n\nSeptember rate hike helped move policy to better inflation-fighting posture.\n\nSays she will support doing what’s needed to get inflation back to 2%.\n\nBest you can say about inflation is that it has not gotten worse.\n\nInflation balance of risks shifted ahead of September policy meeting.\n\nAI buildout helping drive inflation pressures.\n\nUnderlying inflation “remains stubbornly high.”\n\nEconomy resilient and showing signs of increased momentum.\n\nThe labor market is stable.\n\nAnalysis:Paulson’s message is hawkish. She sees little evidence that inflation is heading back toward 2%, while a stable labor market and resilient economy give the Fed room to keep the pressure on. Her wording leaves another hike on the table; it does not say the next move is decided. For traders, the question is whether incoming inflation data begin to show the progress she says is missing.\n\nOther Fed officials have delivered a similar message.Cleveland Fed PresidentBeth Hammacksaid earlier today that growth is solid and the labor market remains close to maximum employment, while inflation is still elevated and risks are tilted to the upside. She warned that the longer high inflation persists, the harder and more costly it may be to bring down. Richmond Fed PresidentTom Barkinsaid inflation risks outweigh employment risks and left open the possibility of additional hikes. Fed GovernorMichael Barrsaid further policy adjustments are likely needed in his base case. For traders, Paulson’s comments add to a growing argument for another hike, though the officials have not committed to one.\n\nIn addition to the above, over the last few days the number of more hawkish Fed officials include:\n\nWilliams\n\nBarr\n\nMusalem\n\nCollins\n\nPaulson\n\nHammack\n\nSchmid\n\nThis could irk the President and in turn, add pressure to the new Fed Chair Warsh who has been hawkish, but still needs to speak regularly to the President who has a different agenda - especially going into the November election.\n\nThe next Fed meeting is at the end of October (October 28). That just before the November 4 midterm elections. Pres. Trump criticized former Fed chair Powell for raising rates ahead of the election, calling a politically motivated.",
+      "date_recuperation": "2026-09-24T14:21:25.684634+00:00"
+    },
     {
       "date_recuperation": "2026-09-24T13:57:28.757101+00:00",
       "tags": [
