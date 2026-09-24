@@ -190,6 +190,27 @@ def _to_decimal(token):
     return f"{sign}{token}"
 
 
+def _diagnostic_page(html, plain):
+    """Construit une ligne de diagnostic courte pour comprendre, sans avoir
+    a re-uploader le HTML, POURQUOI le texte attendu n'a pas ete trouve :
+    page vide/bloquee (taille), contenu jamais charge en JS (nb de <table>
+    et de <script> dans le HTML BRUT), ou texte present mais sous une
+    forme differente de celle attendue (recherche large, sans le format
+    'Table X.Y:' exact)."""
+    nb_table_html = len(re.findall(r"<table", html, re.I))
+    nb_script_html = len(re.findall(r"<script", html, re.I))
+    a_forecast_summary = "forecast summary" in plain.lower()
+    a_summary_scenarios = "summary of scenarios" in plain.lower()
+    a_bank_rate = "bank rate" in plain.lower()
+    return (
+        f"[diag] html={len(html)} chars, plain={len(plain)} chars, "
+        f"<table> bruts={nb_table_html}, <script> bruts={nb_script_html}, "
+        f"'forecast summary' present={a_forecast_summary}, "
+        f"'summary of scenarios' present={a_summary_scenarios}, "
+        f"'bank rate' present={a_bank_rate}"
+    )
+
+
 def parse_forecast_summary(html):
     """Extrait la table 'Forecast summary' du texte brut de la page (pas
     de <table> HTML standard sur ce site pour ce tableau, verifie contre
@@ -200,7 +221,7 @@ def parse_forecast_summary(html):
 
     start_match = re.search(r"Table\s+\d+\.[A-Z]\s*:\s*Forecast summary", plain)
     if start_match is None:
-        raise ValueError("Table 'Forecast summary' introuvable sur la page.")
+        raise ValueError("Table 'Forecast summary' introuvable sur la page. " + _diagnostic_page(html, plain))
     start = start_match.start()
 
     next_table_match = re.search(r"Table\s+\d+\.[A-Z]\s*:", plain[start_match.end():])
@@ -299,7 +320,7 @@ def parse_scenarios(html):
         r"Table\s+\d+\.[A-Z]\s*:\s*Summary of[^.]{0,80}?scenarios", plain, re.I
     )
     if start_match is None:
-        raise ValueError("Table 'Summary of scenarios' introuvable sur la page.")
+        raise ValueError("Table 'Summary of scenarios' introuvable sur la page. " + _diagnostic_page(html, plain))
 
     end = plain.find("Footnotes", start_match.end())
     section = plain[start_match.end():end if end != -1 else start_match.end() + 4000]
