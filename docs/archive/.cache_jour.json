@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T16:16:32.462855+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
-    "il_articles": "2026-09-24T17:05:43.282575+00:00"
+    "il_articles": "2026-09-24T17:50:42.447634+00:00"
   },
   "ff_news": [
     {
@@ -549,6 +549,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-24T17:50:42.447634+00:00",
+      "contenu": "Summary\n\nIs the high in place for the USDCAD?  After testing the high of a swing area and stalling, it may just be.\n\nIn this post yesterday, I showed a chart and outlined a key target.\n\nUSDCAD held support at1.4080yesterday and moved higher. The momentum continued today, taking the price into the next swing area between1.41297 and 1.41488. The high reached1.41490, barely above the top of that area, before the price turned lower (see the chart currently below) .\n\nThat raises the question:Is the high in place?The stall gives sellers a reason to act, but they still need to prove they can push the price lower.\n\nWhat would give sellers more control?\n\nA move back below1.41297, followed by the price staying below it, would put the upward-sloping trend line near1.4100in focus. A break below that line would shift attention to the100-hour moving average at 1.4057.\n\nWhat would keep buyers in control?\n\nIf USDCAD moves back above1.41488and stays above it, today’s stall would lose significance. The upward trend would remain intact, with the prior consolidation area extending toward1.42474back in play.\n\nThe trading lesson: let price confirm the turn\n\nOne of the lessons inAttacking Currency Trendsis that trends can be fast, directional and go farther than traders expect. Reaching a target does not, by itself, mean the trend is over.\n\nWhat the swing area does provide is a place todefine risk. Sellers can lean against the high and know where their bearish view is wrong. Buyers can watch for a move back above it to show that the trend still has strength. For now, the1.41297–1.41488 area is the barometer. Stay below and a corrective move can begin.",
+      "tags": [
+        "CAD"
+      ],
+      "categorie": "technical-analysis",
+      "date_recuperation": "2026-09-24T17:55:26.055007+00:00",
+      "titre": "USDCAD moves up to topside swing area resistance and finds willing sellers",
+      "url": "https://investinglive.com/technical-analysis/usdcad-moves-up-to-topside-swing-area-resistance-and-finds-willing-sellers/",
+      "ignore": false
+    },
     {
       "titre": "US treasury sells $44 billion of 70 or notes at a high yield of 5.085%",
       "ignore": false,
