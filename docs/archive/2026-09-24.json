@@ -3,6 +3,16 @@
   "ff_news": [
     {
       "impact": "low",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428347-uk-gfk-consumer-confidence-sept-13-est-16",
+      "date_recuperation": "2026-09-24T23:05:28.883455+00:00",
+      "source": "@LiveSquawk",
+      "titre": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)",
+      "date_publication": "2026-09-24T23:03:28.883455+00:00",
+      "extrait": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)"
+    },
+    {
+      "impact": "low",
       "source": "@zerohedge",
       "date_publication": "2026-09-24T22:31:24.222612+00:00",
       "url": "https://www.forexfactory.com/news/1428346-pezeshkian-we-have-economic-issues-but-will-endure",
