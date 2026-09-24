@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T08:04:28.502377+00:00",
+    "ff_news": "2026-09-24T08:10:32.925014+00:00",
     "cb_articles": "2026-09-24T07:31:15.885120+00:00",
     "il_articles": "2026-09-24T08:01:37.487108+00:00"
   },
   "ff_news": [
+    {
+      "source": "snb.ch",
+      "date_publication": "2026-09-24T08:10:32.925014+00:00",
+      "ignore": false,
+      "impact": "low",
+      "date_recuperation": "2026-09-24T08:11:32.925014+00:00",
+      "titre": "SNB's Schlegel: Introductory remarks, news conference",
+      "extrait": "Ladies and gentlemen On behalf of the Governing Board, it is my pleasure as Chairman to welcome you to the SNB's news conference. After our introductory remarks, we will as usual be pleased to take any questions you may have. Monetary policy decision I will begin with our monetary policy decision. We have decided to leave the SNB policy rate unchanged at ...",
+      "url": "https://www.forexfactory.com/news/1428056-snbs-schlegel-introductory-remarks-news-conference"
+    },
     {
       "date_publication": "2026-09-24T08:04:28.502377+00:00",
       "titre": "BOE's Lombardelli: The outlook for inflation",
