@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-24T08:02:24.550519+00:00",
+      "url": "https://www.forexfactory.com/news/1428054-ecb-economic-financial-and-monetary-developments",
+      "extrait": "At its meeting on 10 September 2026, the Governing Council decided to raise the three key ECB interest rates by 25 basis points. The conflict in the Middle East continues to generate inflation pressures, and inflation is set to remain well above target for an extended period. The decision to raise interest rates underscores the Governing Council’s ...",
+      "impact": "low",
+      "titre": "ECB economic, financial and monetary developments",
+      "date_publication": "2026-09-24T08:01:24.550519+00:00",
+      "source": "ecb.europa.eu",
+      "ignore": false
+    },
+    {
       "titre": "ECB's Schnabel: ECB underestimated how persistent the energy shock would be",
       "ignore": false,
       "impact": "low",
