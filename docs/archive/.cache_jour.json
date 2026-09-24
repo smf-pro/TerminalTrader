@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T16:16:32.462855+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
-    "il_articles": "2026-09-24T14:38:30.667019+00:00"
+    "il_articles": "2026-09-24T16:27:27.073530+00:00"
   },
   "ff_news": [
     {
@@ -549,6 +549,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-24T16:27:27.073530+00:00",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "titre": "US/Iran discussed face a deal to reopen Hormuz and end the US blockade",
+      "categorie": "news",
+      "url": "https://investinglive.com/news/us-iran-discussed-face-a-deal-to-reopen-hormuz-and-end-the-us-blockade/",
+      "contenu": "Summary\n\nThe proposed sequence could ease the shipping disruption, but control of the strait remains a sticking point.  Crude oil prices move lower. US dollar moves lower, yields dip.\n\nReuters, citing sources, reports on discussions over a phased arrangement between Washington and Tehran:\n\nGulf states reject Iranian control of the strait.\n\nIran signals flexibility on fees, not on the Strait of Hormuz.\n\nNeither side wants to surrender leverage driving diplomacy.\n\nA senior Iranian official said the most plausible way to end the impasse would be a phased arrangement, with Iran allowing navigation through Hormuz in return for the US lifting its economic blockade and Tehran potentially gaining access to frozen assets.\n\nAnalysis:The key word isphased. Iran wants relief as ships regain passage; the US wants passage restored. Neither side appears willing to give up its leverage first. That makes the order of any steps just as important as the terms themselves.\n\nFor traders, the report offers a possible path toward more reliable energy shipments, but it is still a proposal, not an agreement. The question is whether the sides can settle how passage would work without giving Iran the control Gulf states reject. Until that is clear, headlines about progress may move oil, but shipping arrangements will matter more.\n\nCrude oil has moved sharply to the downside with the price trading at $94.55. It was trading near $96.70 before the announcement.\n\nThe 10 year yield has also come off of its high level currently trading at 5.139%. The 2 year yield is trading at 4.88%. Stocks have come off their low levels as well with the S&P now down -0.08% and the NASDAQ index is down -0.24%.",
+      "date_recuperation": "2026-09-24T16:30:36.356722+00:00"
+    },
     {
       "date_recuperation": "2026-09-24T14:40:35.201907+00:00",
       "categorie": "news",
