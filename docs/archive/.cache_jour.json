@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T12:36:29.210038+00:00",
+    "ff_news": "2026-09-24T12:47:24.451065+00:00",
     "cb_articles": "2026-09-24T12:42:29.955939+00:00",
     "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-24T12:47:24.451065+00:00",
+      "impact": "low",
+      "date_recuperation": "2026-09-24T12:48:24.451065+00:00",
+      "source": "@financialjuice",
+      "titre": "ECB's Radev: Rate hike doesn't put us on predetermined path",
+      "extrait": "ECB's Radev: Rate hike doesn't put us on predetermined path.ECB's Radev: ECB should give previous decisions time to workECB's Radev: ECB task is to judge is shock will broaden from energy.ECB's Radev: Risks to inflation tilted to upside, growth to downside",
+      "url": "https://www.forexfactory.com/news/1428133-ecbs-radev-rate-hike-doesnt-put-us-on",
+      "ignore": false
+    },
     {
       "ignore": false,
       "titre": "ECB's Schnabel to step down early to join IMF, announcement imminent - Sources",
