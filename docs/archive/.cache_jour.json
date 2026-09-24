@@ -1,11 +1,41 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T12:47:24.451065+00:00",
+    "ff_news": "2026-09-24T12:54:30.896896+00:00",
     "cb_articles": "2026-09-24T12:42:29.955939+00:00",
     "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T12:54:30.896896+00:00",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-24T12:56:30.896896+00:00",
+      "impact": "low",
+      "titre": "Fed's Hammack: Inflation remains elevated amid solid output demand",
+      "extrait": "Fed's Hammack: Inflation remains elevated amid solid output demand.",
+      "url": "https://www.forexfactory.com/news/1428135-feds-hammack-inflation-remains-elevated-amid-solid-output"
+    },
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T12:54:26.271678+00:00",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-24T12:55:26.271678+00:00",
+      "impact": "low",
+      "titre": "Fed's Hammack Says Price Stability Is Responsibility Of Central Banks",
+      "extrait": "Fed's Hammack Says Price Stability Is Responsibility Of Central Banks",
+      "url": "https://www.forexfactory.com/news/1428135-feds-hammack-says-price-stability-is-responsibility-of"
+    },
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T12:51:25.075777+00:00",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-24T12:52:25.075777+00:00",
+      "impact": "low",
+      "titre": "Fed's Barkin Says Inflation's Persistence Clearer This Summer",
+      "extrait": "Fed's Barkin Says Inflation's Persistence Clearer This Summer",
+      "url": "https://www.forexfactory.com/news/1428134-feds-barkin-says-inflations-persistence-clearer-this-summer"
+    },
     {
       "extrait": "ECB's Radev: Rate hike doesn't put us on predetermined path.ECB's Radev: ECB should give previous decisions time to workECB's Radev: ECB task is to judge is shock will broaden from energy.ECB's Radev: Risks to inflation tilted to upside, growth to downside",
       "titre": "ECB's Radev: Rate hike doesn't put us on predetermined path",
