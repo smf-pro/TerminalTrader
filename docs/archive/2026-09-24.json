@@ -2,6 +2,26 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428135-feds-hammack-says-price-stability-is-responsibility-of",
+      "impact": "low",
+      "titre": "Fed's Hammack Says Price Stability Is Responsibility Of Central Banks",
+      "date_publication": "2026-09-24T12:54:26.271678+00:00",
+      "extrait": "Fed's Hammack Says Price Stability Is Responsibility Of Central Banks",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-24T12:55:26.271678+00:00",
+      "ignore": false
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1428134-feds-barkin-says-inflations-persistence-clearer-this-summer",
+      "impact": "low",
+      "titre": "Fed's Barkin Says Inflation's Persistence Clearer This Summer",
+      "extrait": "Fed's Barkin Says Inflation's Persistence Clearer This Summer",
+      "date_publication": "2026-09-24T12:51:25.075777+00:00",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-24T12:52:25.075777+00:00",
+      "ignore": false
+    },
+    {
       "extrait": "ECB's Radev: Rate hike doesn't put us on predetermined path.ECB's Radev: ECB should give previous decisions time to workECB's Radev: ECB task is to judge is shock will broaden from energy.ECB's Radev: Risks to inflation tilted to upside, growth to downside",
       "titre": "ECB's Radev: Rate hike doesn't put us on predetermined path",
       "date_recuperation": "2026-09-24T12:48:24.451065+00:00",
