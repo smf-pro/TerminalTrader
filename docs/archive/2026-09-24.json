@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "ignore": false,
+      "date_recuperation": "2026-09-24T14:36:22.360388+00:00",
+      "date_publication": "2026-09-24T14:35:22.360388+00:00",
+      "titre": "EIA: US gas inventories by 53 billion cubic feet",
+      "url": "https://www.forexfactory.com/news/1428162-eia-us-gas-inventories-by-53-billion-cubic",
+      "extrait": "Working gas in storage across the United States reached 3,351 billion cubic feet in the week ending September 18, the Energy Information Administration (EIA) shared in a report on Thursday. The figure represents a net increase of 53 billion cubic feet compared to the previous week. Compared to the same period one year ago, gas stocks declined by 146 billion ...",
+      "source": "breakingthenews.net",
+      "impact": "low"
+    },
+    {
       "impact": "low",
       "date_publication": "2026-09-24T14:25:31.088812+00:00",
       "url": "https://www.forexfactory.com/news/1428160-trump-relationship-with-xi-is-built-on-mutual",
