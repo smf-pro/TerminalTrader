@@ -2,14 +2,14 @@
   "date": "2026-09-24",
   "ff_news": [
     {
-      "extrait": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)",
+      "date_publication": "2026-09-24T23:03:28.883455+00:00",
       "impact": "low",
-      "titre": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)",
-      "url": "https://www.forexfactory.com/news/1428347-uk-gfk-consumer-confidence-sept-13-est-16",
+      "extrait": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)",
       "date_recuperation": "2026-09-24T23:05:28.883455+00:00",
-      "source": "@LiveSquawk",
       "ignore": false,
-      "date_publication": "2026-09-24T23:03:28.883455+00:00"
+      "source": "@LiveSquawk",
+      "titre": "UK GfK Consumer Confidence Sept: -13 (est -16; prev -14)",
+      "url": "https://www.forexfactory.com/news/1428347-uk-gfk-consumer-confidence-sept-13-est-16"
     },
     {
       "impact": "low",
