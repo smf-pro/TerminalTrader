@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428081-uk-retail-conditions-deteriorate-further-in-september-2026",
+      "date_recuperation": "2026-09-24T10:24:26.030981+00:00",
+      "extrait": "Retail sales volumes fell more rapidly in the year to September, while online retail sales declined at the fastest pace in nearly three years. Additionally, retailers reported cutting back on order volumes at the quickest rate on survey record (since 1983). Next month, retailers expect annual sales volumes to decline at a strong, albeit slower, pace. Online ...",
+      "titre": "UK retail conditions deteriorate further in September 2026 - CBI Distributive Trades Survey",
+      "date_publication": "2026-09-24T10:23:26.030981+00:00",
+      "ignore": false,
+      "source": "cbi.org.uk",
+      "impact": "low"
+    },
+    {
       "url": "https://www.forexfactory.com/news/1428075-boes-dhingra-financial-conditions-have-done-a-lot",
       "date_recuperation": "2026-09-24T09:57:26.728444+00:00",
       "date_publication": "2026-09-24T09:56:26.728444+00:00",
