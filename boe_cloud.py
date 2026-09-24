@@ -219,7 +219,7 @@ def parse_forecast_summary(html):
     plain = re.sub(r"<[^>]+>", "", html)
     plain = html_module.unescape(plain)
 
-    start_match = re.search(r"Table\s+\d+\.[A-Z]\s*:\s*Forecast summary", plain)
+    start_match = re.search(r"Table\s+\d+\.[A-Z]\s*:\s*(?:Baseline\s+)?Forecast summary", plain, re.I)
     if start_match is None:
         raise ValueError("Table 'Forecast summary' introuvable sur la page. " + _diagnostic_page(html, plain))
     start = start_match.start()
