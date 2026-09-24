@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T14:42:27.422972+00:00",
+    "ff_news": "2026-09-24T16:16:29.993667+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
     "il_articles": "2026-09-24T14:38:30.667019+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-24T16:17:29.993667+00:00",
+      "titre": "US and Iran discuss phased deal to reopen Hormuz and end US blockade, sources say",
+      "url": "https://www.forexfactory.com/news/1428182-us-and-iran-discuss-phased-deal-to-reopen",
+      "date_publication": "2026-09-24T16:16:29.993667+00:00",
+      "extrait": "US and Iran discuss phased deal to reopen Hormuz and end US blockade, sources say",
+      "ignore": false,
+      "impact": "high",
+      "source": "@DeItaone"
+    },
     {
       "source": "@financialjuice",
       "ignore": false,
