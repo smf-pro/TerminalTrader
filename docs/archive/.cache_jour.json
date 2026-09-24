@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T18:26:29.351252+00:00",
+    "ff_news": "2026-09-24T22:31:24.222612+00:00",
     "cb_articles": "2026-09-24T20:16:28.268107+00:00",
     "il_articles": "2026-09-24T22:14:42.918691+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T22:31:24.222612+00:00",
+      "impact": "low",
+      "source": "@zerohedge",
+      "url": "https://www.forexfactory.com/news/1428346-pezeshkian-we-have-economic-issues-but-will-endure",
+      "extrait": "*pezeshkian: We Have Economic Issues But Will Endure HardshipsIranian President Masoud Pezeshkian in an interview with Fox News: \"We reached an agreement with your president that was signed, and we are still ready to move forward based on those same principles. It wasn't us who closed the Strait of Hormuz - it was open\"",
+      "date_recuperation": "2026-09-24T22:32:24.222612+00:00",
+      "titre": "Pezeshkian: We have economic issues but will endure hardships"
+    },
     {
       "extrait": "Just In: Us Asks Major Refiners To Reduce Diesel Exports Voluntarily. ...",
       "date_publication": "2026-09-24T18:26:29.351252+00:00",
