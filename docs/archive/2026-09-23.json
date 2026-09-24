@@ -142,6 +142,7 @@
       "extrait": "The September flash PMI® report for France revealed a strengthening of the eurozone's second-biggest economy at the end of the third quarter as activity growth returned. Moreover, the expansion was the quickest in just over two years. Demand improved, reflecting rising sales activity in the service sector, although employment continued to decline and ..."
     },
     {
+      "ignore": false,
       "titre": "Half Of Damaged South Pars Gas Capacity Resumes Production, Iran Says - Fars News",
       "impact": "low",
       "source": "@NodeWire",
@@ -425,7 +426,10 @@
       "date_recuperation": "2026-09-23T08:30:33.534252+00:00",
       "ignore": false,
       "date_publication": "2026-09-23T08:30:11.874784+00:00",
-      "categorie": "news"
+      "contenu": "Latest data released by S&P Global - 23 September 2026\n\nPrior 52.5\n\nManufacturing PMI 52.0 vs 51.5 expected\n\nPrior 51.7\n\nComposite PMI 51.7 vs 52.0 expected\n\nPrior 52.5",
+      "categorie": "news",
+      "url": "https://investinglive.com/news/uk-september-flash-services-pmi-xx-vs-52-0-expected/",
+      "date_recuperation": "2026-09-23T08:30:33.534252+00:00"
     },
     {
       "contenu": "Eurozone business activity accelerated sharply in September while firmer price pressures keep another ECB rate hike firmly in focus\n\nEurozone September flash services PMI 53.0 vs 51.5 expected\n\nPrior 51.6\n\nEurozone September flash manufacturing PMI 52.7 vs 52.6 expected\n\nPrior 52.7\n\nEurozone September flash composite PMI 53.1 vs 51.7 expected\n\nPrior 52.0\n\nFollowing the stronger showings in bothFranceandGermanyearlier, the more robust business activity in the overall euro area here was very much expected.\n\nThe latest reading signalled a third consecutive\nmonthly expansion in business activity in the region, with it being the fastest in almost three-and-a-half years.\n\nSolid growth was registered across both the manufacturing\nand services categories, with the latter in particular being a key driver of the improvement in September.\n\nThe latest rise in output was also broad based across the\ndifferent geographies covered by the data. Germany posted\nan expansion for the third month running, with the rate of\ngrowth the fastest in just under a year. Meanwhile, France also saw activity increase for the first time in 10 months.\n\nIn looking at the details, price pressures remain a key component in tying the data to the ECB outlook. Inflationary pressures intensified in September, with both\ninput costs and output prices increasing at the sharpest\nrates in four months.\n\nThe latest rise in input costs was faster than the average for\nthe year-to-date, but remained softer than the recent peak\nseen in May. Similarly,\noutput prices increased at sharper rates in both monitored\nsectors, as well as across Germany, France and the rest of\nthe Eurozone as a whole.\n\nThe more resilient economic growth and rising prices will likely strengthen the case for the ECB to raise interest rates again sooner rather than later. And if anything else, it puts a rate hike in October very much on the table.\n\nThe market pricing now shows the probability of a 25 bps rate hike in October to be at around 48%, up from roughly 45% before the PMI data before today.",
