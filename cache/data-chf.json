@@ -4,49 +4,49 @@
     "forecast": "0.00%",
     "previous": "0.00%",
     "previous_revise": false,
-    "position": 0
+    "position": 1
   },
   "eccbe244315cc1a110e9c28ec672670d4d242a24643419730995ca4b5c18d3c8": {
     "actual": "0.00%",
     "forecast": "0.00%",
     "previous": "0.00%",
     "previous_revise": false,
-    "position": 1
+    "position": 2
   },
   "76b0353b9a1a457f59d522bb1a48af8da5f97e1925ff01b8b622dc34bcb6cdc7": {
     "actual": "0.00%",
     "forecast": "0.00%",
     "previous": "0.00%",
     "previous_revise": false,
-    "position": 2
+    "position": 3
   },
   "8aff5e3dadaa78caa5ea2952df4aa14f09d747251de116cba0bf4cb6fba97025": {
     "actual": "0.00%",
     "forecast": "0.00%",
     "previous": "0.00%",
     "previous_revise": false,
-    "position": 3
+    "position": 4
   },
   "12acf60f6a7709fd0be1bb555826e0909217bb049ab532e04c05b48491e732ce": {
     "actual": "0.00%",
     "forecast": "0.00%",
     "previous": "0.25%",
     "previous_revise": false,
-    "position": 4
+    "position": 5
   },
   "eb9ccc612633c34253ea6b5b6dba5b0fa6e8aacf70d85b86047ad88448eb4f4a": {
     "actual": "0.25%",
     "forecast": "0.25%",
     "previous": "0.50%",
     "previous_revise": false,
-    "position": 5
+    "position": 6
   },
   "0e363a100b6ee0ae868a05831a121b5efcfe9cc72e3dfe56f2688ee4318a54bb": {
     "actual": "0.50%",
     "forecast": "0.75%",
     "previous": "1.00%",
     "previous_revise": false,
-    "position": 6
+    "position": 7
   },
   "2b108b72803136dab9559da7795c0a4b30e28becbb5aab569eb3805137ea14b3": {
     "actual": "1.00%",
@@ -390,5 +390,12 @@
     "previous": "103.6",
     "previous_revise": true,
     "position": 7
+  },
+  "899011449c89064928dbb5b888347f482a10a69c6de7122c0796bbd9d5604e21": {
+    "actual": "0.00%",
+    "forecast": "0.00%",
+    "previous": "0.00%",
+    "previous_revise": false,
+    "position": 0
   }
 }
