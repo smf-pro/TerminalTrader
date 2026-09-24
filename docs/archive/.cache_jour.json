@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T12:32:33.431892+00:00",
+    "ff_news": "2026-09-24T12:36:29.210038+00:00",
     "cb_articles": "2026-09-24T08:54:21.833989+00:00",
     "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1428126-ecbs-schnabel-to-step-down-early-to-join",
+      "date_recuperation": "2026-09-24T12:37:29.210038+00:00",
+      "ignore": false,
+      "titre": "ECB's Schnabel to step down early to join IMF, announcement imminent - Sources",
+      "extrait": "ECB's Schnabel to step down early to join IMF, announcement imminent - Sources",
+      "source": "@financialjuice",
+      "date_publication": "2026-09-24T12:36:29.210038+00:00",
+      "impact": "low"
+    },
     {
       "source": "bea.gov",
       "date_publication": "2026-09-24T12:32:33.431892+00:00",
