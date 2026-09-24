@@ -382,16 +382,10 @@ def cycle():
     rapports_ecrits = 0
     echecs = 0
 
-    # DIAGNOSTIC TEMPORAIRE (a retirer une fois 2026-04/2026-07 verifies) :
-    # ces 2 dates utilisent le format scenarios, jamais verifie ligne par
-    # ligne contre le vrai site. On force leur re-traitement meme si elles
-    # sont deja en cache, juste pour afficher ce qui a ete extrait.
-    DATES_A_REVERIFIER = {"2026-04", "2026-07"}
-
     for date, url in entries:
         doc_id = date  # "AAAA-MM", deja unique (1 rapport max par mois)
 
-        if doc_id in cache and doc_id not in DATES_A_REVERIFIER:
+        if doc_id in cache:
             continue
 
         try:
@@ -416,13 +410,6 @@ def cycle():
                       f"(standard: {e_standard} / scenarios: {e_scenario})")
                 echecs += 1
                 continue
-
-        if date in DATES_A_REVERIFIER:
-            print(f"  [diag-scenarios] {date} : forecast_summary vide={not forecast_summary}, "
-                  f"scenarios trouves={list(scenarios.keys())}")
-            for nom_scenario, valeurs in scenarios.items():
-                print(f"      - {nom_scenario!r} -> {valeurs}")
-            print(f"      titres: {scenario_titles}")
 
         try:
             doc_ref = db.collection(COLLECTION).document(doc_id)
