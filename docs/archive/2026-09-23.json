@@ -56,8 +56,8 @@
       "source": "@financialjuice",
       "ignore": false,
       "impact": "high",
-      "extrait": "Senior Iranian official: Tehran is reviewing US response to its proposal to end hostilitiesSenior Iranian Official: During indirect talks with the US on Tuesday, reopening the Hormuz Strait and lifting the US blockade were discussed.",
       "url": "https://www.forexfactory.com/news/1427842-senior-iranian-official-tehran-is-reviewing-us-response",
+      "source": "@financialjuice",
       "date_recuperation": "2026-09-23T14:55:26.287025+00:00",
       "titre": "Senior Iranian official: Tehran is reviewing US response to its proposal to end hostilities",
       "url": "https://www.forexfactory.com/news/1427842-senior-iranian-official-tehran-is-reviewing-us-response",
@@ -70,9 +70,8 @@
       "ignore": false,
       "titre": "EIA: US crude inventories up by 3M barrels",
       "impact": "low",
-      "date_publication": "2026-09-23T14:43:24.563745+00:00",
-      "extrait": "Commercial crude oil inventories in the United States, excluding those in the Strategic Petroleum Reserve (SPR), rose by 2.96 million barrels to 426.4 million barrels in the week ending September 18, the Energy Information Administration (EIA) stated on Wednesday. Crude oil imports decreased by 1.2 million barrels per day to 5.9 million barrels per day. ...",
       "url": "https://www.forexfactory.com/news/1427837-eia-us-crude-inventories-up-by-3m-barrels",
+      "source": "breakingthenews.net",
       "date_recuperation": "2026-09-23T14:44:24.563745+00:00",
       "date_publication": "2026-09-23T14:43:24.563745+00:00",
       "url": "https://www.forexfactory.com/news/1427837-eia-us-crude-inventories-up-by-3m-barrels",
@@ -267,6 +266,7 @@
     },
     {
       "titre": "AUD is the biggest mover vs the USD at -1.02%.  What next technically?",
+      "url": "https://investinglive.com/technical-analysis/aud-is-the-biggest-mover-vs-the-usd-at-1-02-what-next-technically/",
       "tags": [
         "AUD"
       ],
@@ -441,6 +441,7 @@
     },
     {
       "titre": "Eurozone PMI jumps as services surge, price pressures keep ECB October rate hike in play",
+      "url": "https://investinglive.com/news/eurozone-pmi-jumps-as-services-surge-price-pressures-keep-ecb-october-rate-hike-in-play/",
       "tags": [
         "EUR",
         "europe",
@@ -468,21 +469,21 @@
       "titre": "Eurozone September flash services PMI 53.0 vs 51.5 expected"
     },
     {
-      "ignore": false,
+      "contenu": "Latest data released by S&P Global - 23 September 2026\n\nEurozone September flash services PMI 53.0 vs 51.5 expected\n\nPrior 51.6\n\nEurozone September flash manufacturing PMI 52.7 vs 52.6 expected\n\nPrior 52.7\n\nEurozone September flash composite PMI 53.1 vs 51.7 expected\n\nPrior 52.0\n\nMore to follow...",
       "titre": "Eurozone September flash services PMI 53.0 vs 51.5 expected",
       "tags": [
         "EUR",
         "europe",
         "pmi"
       ],
-      "date_publication": "2026-09-23T08:01:00.854411+00:00",
-      "contenu": "Latest data released by S&P Global - 23 September 2026\n\nEurozone September flash services PMI 53.0 vs 51.5 expected\n\nPrior 51.6\n\nEurozone September flash manufacturing PMI 52.7 vs 52.6 expected\n\nPrior 52.7\n\nEurozone September flash composite PMI 53.1 vs 51.7 expected\n\nPrior 52.0\n\nMore to follow...",
-      "categorie": "news",
       "url": "https://investinglive.com/news/eurozone-september-flash-services-pmi-53-0-vs-51-5-expected/",
-      "date_recuperation": "2026-09-23T08:05:27.683452+00:00"
+      "date_recuperation": "2026-09-23T08:05:27.683452+00:00",
+      "ignore": false,
+      "date_publication": "2026-09-23T08:01:00.854411+00:00",
+      "categorie": "news"
     },
     {
-      "ignore": false,
+      "contenu": "Latest data released by HCOB - 23 September 2026\n\nPrior 54.3\n\nServices PMI xx vs 50.0 expected\n\nPrior 49.7\n\nComposite PMI xx vs 51.8 expected\n\nPrior 51.8",
       "titre": "Germany September flash manufacturing PMI 53.8 vs 54.0 expected",
       "tags": [
         "EUR"
@@ -551,6 +552,7 @@
     },
     {
       "titre": "What are the main events for today?",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-48/",
       "tags": [
         "market overview"
       ],
