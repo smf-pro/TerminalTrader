@@ -2,13 +2,13 @@
   "date": "2026-09-24",
   "ff_news": [
     {
-      "impact": "low",
-      "ignore": false,
+      "date_publication": "2026-09-24T14:42:27.422972+00:00",
       "titre": "Chinas President Xi: I am willing to work with Trump to steer the ship of China-US ties",
       "date_recuperation": "2026-09-24T14:43:27.422972+00:00",
-      "extrait": "Chinas President Xi: I am willing to work with Trump to steer the ship of China-US ties.China's Xi: China's Door Is Open, Welcomes Us Firms To Invest In China Xi: China, Us Capable To Manage Ai Xi: We Have Responsibility To Manage Ai Xi: We Can Enhance Direct FlightsChinas President Xi: Competition should be positive, not winning or losing.",
-      "date_publication": "2026-09-24T14:42:27.422972+00:00",
       "source": "@financialjuice",
+      "ignore": false,
+      "extrait": "Chinas President Xi: I am willing to work with Trump to steer the ship of China-US ties.China's Xi: China's Door Is Open, Welcomes Us Firms To Invest In China Xi: China, Us Capable To Manage Ai Xi: We Have Responsibility To Manage Ai Xi: We Can Enhance Direct FlightsChinas President Xi: Competition should be positive, not winning or losing.",
+      "impact": "low",
       "url": "https://www.forexfactory.com/news/1428163-chinas-president-xi-i-am-willing-to-work"
     },
     {
