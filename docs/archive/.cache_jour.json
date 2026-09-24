@@ -7,13 +7,13 @@
   },
   "ff_news": [
     {
-      "url": "https://www.forexfactory.com/news/1428053-ecbs-schnabel-ecb-underestimated-how-persistent-the-energy",
-      "source": "@MarketsCapApp",
       "titre": "ECB's Schnabel: ECB underestimated how persistent the energy shock would be",
-      "date_publication": "2026-09-24T07:37:28.328480+00:00",
-      "date_recuperation": "2026-09-24T07:39:28.328480+00:00",
       "ignore": false,
       "impact": "low",
+      "source": "@MarketsCapApp",
+      "date_publication": "2026-09-24T07:37:28.328480+00:00",
+      "date_recuperation": "2026-09-24T07:39:28.328480+00:00",
+      "url": "https://www.forexfactory.com/news/1428053-ecbs-schnabel-ecb-underestimated-how-persistent-the-energy",
       "extrait": "Schnabel says ECB underestimated how persistent the energy shock would be"
     },
     {
@@ -79,16 +79,16 @@
   ],
   "cb_articles": [
     {
+      "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nStatement details and updated forecasts to follow...",
+      "date_publication": "2026-09-24T07:31:15.885120+00:00",
+      "date_recuperation": "2026-09-24T07:37:31.411645+00:00",
       "tags": [
         "SNB",
         "CHF",
         "interest rates"
       ],
       "url": "https://investinglive.com/central-banks/snb-leaves-policy-rate-unchanged-at-0-in-september-meeting-as-widely-expected/",
-      "date_publication": "2026-09-24T07:31:15.885120+00:00",
-      "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nStatement details and updated forecasts to follow...",
       "titre": "SNB leaves policy rate unchanged at 0% in September meeting, as widely expected",
-      "date_recuperation": "2026-09-24T07:37:31.411645+00:00",
       "ignore": false
     },
     {
@@ -133,18 +133,18 @@
   ],
   "il_articles": [
     {
-      "url": "https://investinglive.com/central-banks/snb-leaves-policy-rate-unchanged-at-0-in-september-meeting-as-widely-expected/",
-      "date_publication": "2026-09-24T07:31:15.796090+00:00",
       "titre": "SNB leaves policy rate unchanged at 0% in September meeting, as widely expected",
-      "categorie": "central-banks",
-      "date_recuperation": "2026-09-24T07:40:23.655049+00:00",
       "ignore": false,
-      "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nReady to intervene in the FX market as needed\n\nSNB sees 2026 inflation at 0.7% (previously 0.6%)\n\nSNB sees 2027 inflation at 0.8% (previously 0.6%)\n\nSNB sees 2028 inflation at 0.8% (previously 0.7%)\n\nSNB sees 2026 growth at 1.5% to 2% (previously 1%)\n\nThe big change here is that previously in June, the SNB said that they had an \"increased willingness\" to intervene in the foreign exchange market if necessary. That particular wording has been dropped now in the September meeting statement.\n\nMore to follow..",
+      "date_publication": "2026-09-24T07:31:15.796090+00:00",
+      "date_recuperation": "2026-09-24T07:40:23.655049+00:00",
       "tags": [
         "SNB",
         "CHF",
         "interest rates"
-      ]
+      ],
+      "url": "https://investinglive.com/central-banks/snb-leaves-policy-rate-unchanged-at-0-in-september-meeting-as-widely-expected/",
+      "categorie": "central-banks",
+      "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nReady to intervene in the FX market as needed\n\nSNB sees 2026 inflation at 0.7% (previously 0.6%)\n\nSNB sees 2027 inflation at 0.8% (previously 0.6%)\n\nSNB sees 2028 inflation at 0.8% (previously 0.7%)\n\nSNB sees 2026 growth at 1.5% to 2% (previously 1%)\n\nThe big change here is that previously in June, the SNB said that they had an \"increased willingness\" to intervene in the foreign exchange market if necessary. That particular wording has been dropped now in the September meeting statement.\n\nMore to follow.."
     },
     {
       "contenu": "Summary\n\nLatest data released by INSEE - 24 September 2026\n\nFrance September consumer confidence 86 vs 85 expected\n\nPrior 86\n\nFrance September business confidence 101 vs 102 expected\n\nPrior 103\n\nMore to follow...",
