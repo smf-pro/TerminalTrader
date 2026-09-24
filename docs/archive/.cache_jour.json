@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T14:00:26.735757+00:00",
     "cb_articles": "2026-09-24T13:56:04.327193+00:00",
-    "il_articles": "2026-09-24T13:56:04.327193+00:00"
+    "il_articles": "2026-09-24T14:01:24.721531+00:00"
   },
   "ff_news": [
     {
@@ -458,6 +458,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-24T14:05:29.505175+00:00",
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "titre": "US new-home sales for the month of August 0.684 million versus 0.615 million estimate",
+      "date_publication": "2026-09-24T14:01:24.721531+00:00",
+      "ignore": false,
+      "contenu": "Summary\n\nUS new-home sales for the month of August 2026\n\nPrior month 0.643 million revised from 0.607 million\n\nAugust new home sales beat expectations, according to figures released jointly by the U.S. Census Bureau and the Department of Housing and Urban Development. The July revision also changes the picture: the6.4%August gain is measured from643,000, rather than the607,000initially reported for July.\n\nHomes for sale:483,000 vs 483,000last month.\n\nMonths’ supply:8.5 months vs 9.0 monthslast month.\n\nMedian sales price:$393,700 vs $392,200last month.\n\nAverage sales price:$478,700 vs $526,400last month.\n\nInventory was unchanged, while the faster sales pace reduced months’ supply. The median price was little changed, but the average price fell9.1%. That difference suggests the mix of homes sold matters when reading the price figures; it does not, by itself, show that the price of a comparable home fell that much.\n\nQuick analysis:Buyers had more activity in August than economists expected, a sign of resilience in a housing market facing high borrowing costs. That could normally lend support to Treasury yields and the dollar, though this report alone is unlikely to settle the Fed’s policy outlook. The Census Bureau’s reported6.4%monthly change carries a±19.5 percentage pointmargin of error, so traders should be careful about treating one month’s gain as a firm new trend.\n\nWhat this report measures:New home sales estimate sales of newly built single-family houses. The sales rate is seasonally adjusted and annualized: it shows what a full year’s sales would look like if that month’s pace continued. Traders follow it for evidence of housing demand and the effect of borrowing costs; early estimates can be revised.",
+      "url": "https://investinglive.com/news/us-new-home-sales-for-the-month-of-august-0-684-million-versus-0-615-million-estimate/"
+    },
     {
       "date_publication": "2026-09-24T13:56:04.327193+00:00",
       "date_recuperation": "2026-09-24T13:57:13.981856+00:00",
