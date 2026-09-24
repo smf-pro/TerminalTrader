@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "source": "breakingthenews.net",
+      "titre": "EIA: US gas inventories by 53 billion cubic feet",
+      "date_recuperation": "2026-09-24T14:37:26.858916+00:00",
+      "impact": "low",
+      "ignore": false,
+      "date_publication": "2026-09-24T14:35:26.858916+00:00",
+      "extrait": "Working gas in storage across the United States reached 3,351 billion cubic feet in the week ending September 18, the Energy Information Administration (EIA) shared in a report on Thursday. The figure represents a net increase of 53 billion cubic feet compared to the previous week. Compared to the same period one year ago, gas stocks declined by 146 billion ...",
+      "url": "https://www.forexfactory.com/news/1428162-eia-us-gas-inventories-by-53-billion-cubic"
+    },
+    {
       "ignore": false,
       "date_recuperation": "2026-09-24T14:36:22.360388+00:00",
       "date_publication": "2026-09-24T14:35:22.360388+00:00",
@@ -504,6 +514,18 @@
     }
   ],
   "il_articles": [
+    {
+      "titre": "Trump and Xi meet at the White House: What traders should watch",
+      "date_recuperation": "2026-09-24T14:40:35.201907+00:00",
+      "categorie": "news",
+      "ignore": false,
+      "date_publication": "2026-09-24T14:38:30.667019+00:00",
+      "url": "https://investinglive.com/news/trump-and-xi-meet-at-the-white-house-what-traders-should-watch/",
+      "tags": [
+        "USD"
+      ],
+      "contenu": "Summary\n\nThe trade truce has already been extended. Attention now turns to rare earths, AI (err SI), Taiwan and Iran for the next market-moving headline.\n\nPresident Donald Trump is hosting Chinese President Xi Jinping at the White House during Xi’s three-day U.S. state visit. The leaders are expected to discuss trade, technology, Taiwan and the war with Iran. No outcome from today’s talks should be assumed yet.\n\nTrade starts from a better position than it did a day ago.Treasury Secretary Scott Bessent said Wednesday that the U.S. and China had agreed to extend their existing “Busan agreement” throughJanuary 10. That reduces the immediate risk of renewed tariff escalation. The question for the summit is whether Trump and Xi can add anything substantive: more reliable access to Chinese rare earths, progress on agricultural purchases, or a broader trade deal.\n\nTechnology is the next pressure point.Artificial intelligence and U.S. restrictions on advanced technology are expected to feature in the talks. Investors will listen for any agreement on SI (Super Intelligence - his new word for AI)) cooperation, but also for changes to export controls that could affect chipmakers and other technology companies.\n\nTaiwan is the most sensitive issue.Xi is expected to press Trump over U.S. arms sales to Taiwan. Reuters reports that a further U.S. arms package has been held up, making any comment about its future especially consequential. Iran is another possible area of negotiation: China has economic ties with Tehran, and any credible help in easing the conflict or pressure on oil supplies would matter to markets. Those are possibilities going into the meeting, not agreements.\n\nFor traders,the trade truce extension is already known. The market-moving headlines would be a concrete change on tariffs or rare earths, a shift on technology restrictions, a signal on Taiwan arms sales, or meaningful progress on Iran. A cordial meeting without those details may steady sentiment, but it would leave the larger U.S.–China disputes unresolved.\n\nHe and Xiwill continue working together for a better future\n\nWill to work with Trump to steer the ship of CHina - US ties.\n\nUS and China interest must be aligned\n\nWe should strengthen communication we encourage exchanges on diplomacy, trade, economy, and law enforcement\n\nChina's the door is open, welcomes US firms to invest in China.\n\nChina, US are both AI powers\n\nWilling to step up counter narcotics, law enforcement cooperation\n\nWithout cooperation it would be hard to solve many of the world's problems\n\nWe hope that China companies are treated fairly here within the United States.\n\nWe need to coexist peacefully.\n\nThe US stocks are trading down today with the Dow currently down -0.39%, the S&P down -0.24% and the Nasdaq down 0.48%."
+    },
     {
       "ignore": false,
       "tags": [
