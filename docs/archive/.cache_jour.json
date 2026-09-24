@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T13:47:23.597258+00:00",
+    "ff_news": "2026-09-24T14:00:26.735757+00:00",
     "cb_articles": "2026-09-24T13:56:04.327193+00:00",
-    "il_articles": "2026-09-24T13:43:06.494984+00:00"
+    "il_articles": "2026-09-24T13:56:04.327193+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-24T14:01:26.735757+00:00",
+      "source": "census.gov",
+      "extrait": "The U.S. Census Bureau and the U.S. Department of Housing and Urban Development jointly announced the following new residential sales statistics for August 2026. Sales of new single-family houses in August 2026 were at a seasonally-adjusted annual rate of 684,000, according to estimates released jointly today by the U.S. Census Bureau and the Department of ...",
+      "url": "https://www.forexfactory.com/news/1428151-us-monthly-new-residential-sales-august-2026",
+      "date_publication": "2026-09-24T14:00:26.735757+00:00",
+      "titre": "US Monthly New Residential Sales, August 2026",
+      "ignore": false,
+      "impact": "low"
+    },
     {
       "titre": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices",
       "date_recuperation": "2026-09-24T13:48:23.597258+00:00",
@@ -448,6 +458,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-24T13:57:13.981856+00:00",
+      "tags": [
+        "GBP"
+      ],
+      "contenu": "Summary\n\nThe Bank of England deputy governor says a longer energy shock could require a policy response.\n\nComments from Bank of England Deputy Governor Breeden on energy prices and inflation cross the wires:\n\nNot at all obvious that there is a path to lower energy prices.\n\nIndirect pass through of energy price rises limited so far, suggests slack in economy.\n\nThe larger and longer the energy shock, the more likely policy will need to respond.\n\nBalance of risk has shifted; risks crystallise increasingly likely BOE will need to respond.\n\nYou can’t wait too long for conclusive evidence of 2nd round effects.\n\nI like to focus on what firms say about how they’re approaching pricing decisions.\n\nDMP survey, PMI, Agents' survey are important for me.\n\nAnalysis:Breeden’s message leans hawkish, but it is conditional. She is concerned that energy prices may stay high long enough to affect what firms charge for other goods and services. That is why she is watching their pricing plans and warning against waiting for conclusive evidence of those knock-on effects before responding.\n\nThere is a counterpoint in her remarks: the indirect impact of higher energy priceshas been limited so far, which she says suggests some slack in the economy. For traders, the question is whether that restraint holds or whether firms start passing more of their costs on to customers.\n\nTechnically, the GBPUSD is trading at its lowest level going back to the end of June, and in the process is testing a modest swing area at 1.3212 – 1.3219. The low price today has reached 1.3215 within that swing area (see chart below) a break below it would than have traders targeting a another swing area between 1.3171 1.3181. The June 2026 low price came in at 1.31393 which represented the lowest price for the year, and the lowest price going back to November 2025.\n\nA conservative risk level for traders is now at 1.32729. That level was near swing highs and swing lows going back to June 2026 and into July and August 2026 (see chart below)",
+      "url": "https://investinglive.com/central-banks/boe-s-breeden-not-at-all-obvious-there-is-a-path-to-lower-energy-prices/",
+      "categorie": "central-banks",
+      "ignore": false,
+      "date_publication": "2026-09-24T13:56:04.327193+00:00",
+      "titre": "BOE’s Breeden: Not at all obvious there is a path to lower energy prices"
+    },
     {
       "titre": "BOE’s Breeden: Not at all obvious there is a path to lower energy prices",
       "ignore": false,
