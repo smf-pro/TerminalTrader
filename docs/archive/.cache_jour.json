@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428075-boes-dhingra-financial-conditions-have-done-a-lot",
+      "date_recuperation": "2026-09-24T09:57:26.728444+00:00",
       "date_publication": "2026-09-24T09:56:26.728444+00:00",
       "extrait": "BoE's Dhingra: Financial conditions have done a lot of tightening work already in the UKBoE's Dhingra: I am encouraged by what we're seeing on pricingBoE's Dhingra: We are not seeing broad-based price rises like those that happened in 2022BoE's Dhingra: Labour market looks pretty weakBoE's Dhingra: Winter energy prices will be critical for second-round effects",
       "ignore": false,
-      "source": "@financialjuice",
-      "url": "https://www.forexfactory.com/news/1428075-boes-dhingra-financial-conditions-have-done-a-lot",
-      "titre": "BoE's Dhingra: Financial conditions have done a lot of tightening work already in the UK",
       "impact": "low",
-      "date_recuperation": "2026-09-24T09:57:26.728444+00:00"
+      "titre": "BoE's Dhingra: Financial conditions have done a lot of tightening work already in the UK",
+      "source": "@financialjuice"
     },
     {
       "date_publication": "2026-09-24T09:36:29.413978+00:00",
