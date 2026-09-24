@@ -2,14 +2,14 @@
   "date": "2026-09-24",
   "ff_news": [
     {
-      "titre": "ECB's Radev: Rate hike doesn't put us on predetermined path",
-      "date_recuperation": "2026-09-24T12:48:24.451065+00:00",
-      "ignore": false,
-      "url": "https://www.forexfactory.com/news/1428133-ecbs-radev-rate-hike-doesnt-put-us-on",
-      "extrait": "ECB's Radev: Rate hike doesn't put us on predetermined path.ECB's Radev: ECB should give previous decisions time to workECB's Radev: ECB task is to judge is shock will broaden from energy.ECB's Radev: Risks to inflation tilted to upside, growth to downside",
-      "source": "@financialjuice",
+      "date_publication": "2026-09-24T12:47:24.451065+00:00",
       "impact": "low",
-      "date_publication": "2026-09-24T12:47:24.451065+00:00"
+      "date_recuperation": "2026-09-24T12:48:24.451065+00:00",
+      "source": "@financialjuice",
+      "titre": "ECB's Radev: Rate hike doesn't put us on predetermined path",
+      "extrait": "ECB's Radev: Rate hike doesn't put us on predetermined path.ECB's Radev: ECB should give previous decisions time to workECB's Radev: ECB task is to judge is shock will broaden from energy.ECB's Radev: Risks to inflation tilted to upside, growth to downside",
+      "url": "https://www.forexfactory.com/news/1428133-ecbs-radev-rate-hike-doesnt-put-us-on",
+      "ignore": false
     },
     {
       "ignore": false,
