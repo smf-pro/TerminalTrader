@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T16:16:32.462855+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
-    "il_articles": "2026-09-24T16:27:27.073530+00:00"
+    "il_articles": "2026-09-24T17:05:43.282575+00:00"
   },
   "ff_news": [
     {
@@ -549,6 +549,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "titre": "US treasury sells $44 billion of 70 or notes at a high yield of 5.085%",
+      "date_recuperation": "2026-09-24T17:05:48.751775+00:00",
+      "categorie": "news",
+      "tags": [
+        "Bonds"
+      ],
+      "date_publication": "2026-09-24T17:05:43.282575+00:00",
+      "contenu": "Summary\n\nWI level at the time of the auction was 5.078%\n\nWI level at the time of the auction: 5.078%\n\nHigh yield: 5.085%\n\nTail: 0.7 basis points vs the average of 0.2 basis points\n\nBid to cover: 2.42X vs the average of 2.49X\n\nDirects: 30.27% vs the average of 23.3%\n\nIndirects: 57.2% vs the average of 64.6%\n\nDealers: 12.53% vs the average of 12.1%\n\nAuction grade: C−\n\nThe auction was a little softer than average. The 0.7-basis-point tail was wider than the 0.2-basis-point average, meaning buyers required a slightly higher yield than the WI level going into the sale. The bid to cover was also below average. Direct demand was strong, but indirect demand fell well short of its average, while dealers took a slightly larger share. Those results tilt the grade below theCthat represents an average auction, though the differences in the tail and dealer share were modest.",
+      "url": "https://investinglive.com/news/us-treasury-sells-44-billion-of-70-or-notes-at-a-high-yield-of-5-085/"
+    },
     {
       "contenu": "Summary\n\nThe proposed sequence could ease the shipping disruption, but control of the strait remains a sticking point.  Crude oil prices move lower. US dollar moves lower, yields dip.\n\nReuters, citing sources, reports on discussions over a phased arrangement between Washington and Tehran:\n\nGulf states reject Iranian control of the strait.\n\nIran signals flexibility on fees, not on the Strait of Hormuz.\n\nNeither side wants to surrender leverage driving diplomacy.\n\nA senior Iranian official said the most plausible way to end the impasse would be a phased arrangement, with Iran allowing navigation through Hormuz in return for the US lifting its economic blockade and Tehran potentially gaining access to frozen assets.\n\nAnalysis:The key word isphased. Iran wants relief as ships regain passage; the US wants passage restored. Neither side appears willing to give up its leverage first. That makes the order of any steps just as important as the terms themselves.\n\nFor traders, the report offers a possible path toward more reliable energy shipments, but it is still a proposal, not an agreement. The question is whether the sides can settle how passage would work without giving Iran the control Gulf states reject. Until that is clear, headlines about progress may move oil, but shipping arrangements will matter more.\n\nCrude oil has moved sharply to the downside with the price trading at $94.55. It was trading near $96.70 before the announcement.\n\nThe 10 year yield has also come off of its high level currently trading at 5.139%. The 2 year yield is trading at 4.88%. Stocks have come off their low levels as well with the S&P now down -0.08% and the NASDAQ index is down -0.24%.",
       "date_publication": "2026-09-24T16:27:27.073530+00:00",
