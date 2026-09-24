@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "date_publication": "2026-09-24T13:47:23.597258+00:00",
-      "impact": "low",
-      "source": "@financialjuice",
-      "url": "https://www.forexfactory.com/news/1428152-boe-breeden-it-is-not-at-all-obvious",
       "titre": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices",
-      "extrait": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices.BoE Breeden: Indirect pass-through of energy price rises are limited so far, which suggests slack in the economy.BoE Breeden: The larger and longer the energy shock, the more likely policy will need to respond.",
+      "date_recuperation": "2026-09-24T13:48:23.597258+00:00",
+      "date_publication": "2026-09-24T13:47:23.597258+00:00",
       "ignore": false,
-      "date_recuperation": "2026-09-24T13:48:23.597258+00:00"
+      "extrait": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices.BoE Breeden: Indirect pass-through of energy price rises are limited so far, which suggests slack in the economy.BoE Breeden: The larger and longer the energy shock, the more likely policy will need to respond.",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1428152-boe-breeden-it-is-not-at-all-obvious",
+      "source": "@financialjuice"
     },
     {
       "extrait": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices.BoE Breeden: Indirect pass-through of energy price rises are limited so far, which suggests slack in the economy.BoE Breeden: The larger and longer the energy shock, the more likely policy will need to respond.",
