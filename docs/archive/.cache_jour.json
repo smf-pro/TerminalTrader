@@ -8,23 +8,23 @@
   "ff_news": [
     {
       "titre": "Slight boost in Belgium business confidence in September",
-      "url": "https://www.forexfactory.com/news/1428136-slight-boost-in-belgium-business-confidence-in-september",
-      "impact": "low",
-      "source": "nbb.be",
-      "ignore": false,
-      "date_recuperation": "2026-09-24T13:02:29.220892+00:00",
       "extrait": "In the manufacturing industry, all components of the business confidence indicator gained ground. Business leaders have more optimistic expectations concerning both employment and demand. Their assessments of total order books and current stock levels are also more positive. In the building industry, business confidence declined for the third consecutive ...",
-      "date_publication": "2026-09-24T13:01:29.220892+00:00"
+      "ignore": false,
+      "impact": "low",
+      "date_recuperation": "2026-09-24T13:02:29.220892+00:00",
+      "date_publication": "2026-09-24T13:01:29.220892+00:00",
+      "url": "https://www.forexfactory.com/news/1428136-slight-boost-in-belgium-business-confidence-in-september",
+      "source": "nbb.be"
     },
     {
       "titre": "The Conference Board Leading Economic Index (LEI) for China Decreased in August",
-      "url": "https://www.forexfactory.com/news/1428137-the-conference-board-leading-economic-index-lei-for",
-      "impact": "low",
-      "source": "conference-board.org",
-      "ignore": false,
-      "date_recuperation": "2026-09-24T13:02:29.220892+00:00",
       "extrait": "The Conference Board Leading Economic Index® (LEI) for China decreased by 0.2% in August 2026 to 148.2 (2016=100), after also declining by 0.2% in July. As a result, the LEI contracted by 1.7% over the six-month period from February to August 2026, a larger rate of decline compared to the 1.0% decrease over the previous six-month period between August 2025 ...",
-      "date_publication": "2026-09-24T13:01:29.220892+00:00"
+      "ignore": false,
+      "impact": "low",
+      "date_recuperation": "2026-09-24T13:02:29.220892+00:00",
+      "date_publication": "2026-09-24T13:01:29.220892+00:00",
+      "url": "https://www.forexfactory.com/news/1428137-the-conference-board-leading-economic-index-lei-for",
+      "source": "conference-board.org"
     },
     {
       "ignore": false,
