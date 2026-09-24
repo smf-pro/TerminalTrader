@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "impact": "low",
+      "date_recuperation": "2026-09-24T08:21:42.643326+00:00",
+      "titre": "Inflation is the main hurdle, Fed's Williams says",
+      "date_publication": "2026-09-24T08:20:42.643326+00:00",
+      "source": "@MarketsCapApp",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428058-inflation-is-the-main-hurdle-feds-williams-says",
+      "extrait": "Inflation is the main hurdle, Fed's Williams saysWilliams says downside risks to achieving maximum employment have easedWilliams says demand looks fairly robust across all sectorsWilliams says Fed aims to return inflation to target promptly"
+    },
+    {
       "extrait": "At its meeting on 23 September, Norges Bank’s Monetary Policy and Financial Stability Committee judged that a somewhat tighter monetary policy stance is needed to return inflation to target within a reasonable time horizon. The Committee decided to raise the policy rate from 4.25% to 4.50%. “Inflation has been above target for several years. By raising the ...",
       "ignore": false,
       "impact": "low",
