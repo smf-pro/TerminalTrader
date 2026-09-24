@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "extrait": "Just In: Us Asks Major Refiners To Reduce Diesel Exports Voluntarily. ...",
+      "date_publication": "2026-09-24T18:26:29.351252+00:00",
+      "date_recuperation": "2026-09-24T18:28:29.351252+00:00",
+      "url": "https://www.forexfactory.com/news/1428272-us-asks-major-refiners-to-reduce-diesel-exports",
+      "ignore": false,
+      "titre": "US Asks Major Refiners To Reduce Diesel Exports Voluntarily",
+      "source": "@NodeWire",
+      "impact": "low"
+    },
+    {
       "titre": "US Asks Major Refiners To Reduce Diesel Exports Voluntarily",
       "ignore": false,
       "source": "@NodeWire",
