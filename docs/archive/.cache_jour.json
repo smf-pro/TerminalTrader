@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T14:11:31.367131+00:00",
+    "ff_news": "2026-09-24T14:25:31.088812+00:00",
     "cb_articles": "2026-09-24T14:20:29.360609+00:00",
     "il_articles": "2026-09-24T14:01:24.721531+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "date_publication": "2026-09-24T14:25:31.088812+00:00",
+      "url": "https://www.forexfactory.com/news/1428160-trump-relationship-with-xi-is-built-on-mutual",
+      "titre": "Trump: Relationship With Xi Is Built On Mutual Respect",
+      "extrait": "Trump: Relationship With Xi Is Built On Mutual Respect",
+      "source": "@FirstSquawk",
+      "date_recuperation": "2026-09-24T14:26:31.088812+00:00",
+      "ignore": false
+    },
     {
       "date_publication": "2026-09-24T14:11:31.367131+00:00",
       "date_recuperation": "2026-09-24T14:13:31.367131+00:00",
