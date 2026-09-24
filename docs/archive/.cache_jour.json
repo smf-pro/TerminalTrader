@@ -82,6 +82,22 @@
       "url": "https://investinglive.com/central-banks/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7184-reuters-estimate/",
       "tags": [
         "pboc",
+        "CNH",
+        "CNY"
+      ],
+      "date_publication": "2026-09-24T01:15:29.680634+00:00",
+      "titre": "PBOC sets USD/ CNY reference rate for today at 6.7489 vs. estimate at 6.7184)",
+      "date_recuperation": "2026-09-24T01:18:26.493368+00:00",
+      "url": "https://investinglive.com/central-banks/pboc-sets-usd-cny-reference-rate-for-today-at-6-7489-vs-estimate-at-6-7184/",
+      "contenu": "Summary\n\nPBOC CNY reference rate setting for the trading session ahead.\n\nThe PBOC allows the yuan to fluctuate within a +/- 2% range, around this reference rate.More here on this.\n\nmore to come",
+      "ignore": false
+    },
+    {
+      "date_recuperation": "2026-09-24T00:18:31.541117+00:00",
+      "date_publication": "2026-09-24T00:17:21.589693+00:00",
+      "titre": "PBOC is expected to set the USD/CNY reference rate at 6.7184 – Reuters estimate",
+      "tags": [
+        "pboc",
         "CNY",
         "CNH"
       ],
