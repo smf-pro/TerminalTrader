@@ -1,11 +1,31 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T05:49:28.040037+00:00",
+    "ff_news": "2026-09-24T07:34:26.010774+00:00",
     "cb_articles": "2026-09-24T06:04:32.066183+00:00",
     "il_articles": "2026-09-24T06:45:23.627366+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T07:34:26.010774+00:00",
+      "extrait": "The Executive Board has decided to leave the policy rate unchanged at 1.75 per cent. But economic activity is stronger and the supply shocks are continuing. The Executive Board therefore assesses that the policy rate should be raised more going forward than projected in the June forecast, for inflation to stabilise around 2 per cent. If the outlook for inflation and economic activity remains unchanged, it is expected that the increases to the policy rate will begin this year. The supply shocks from the war in the Middle East remain and global cost pressures are still elevated. But the global economy has to some extent been able to adapt to the situation so far. Swedish inflation in August was in line with the Riksbank's forecast in June. The measured rate of inflation is low, largely due to the direct effects of temporary fiscal policy measures. Adjusted for these, inflation is relatively close to 2 per cent. Indicators point to inflationary pressures still being above normal, and inflation is expected to rise in the near term. GDP grew faster than expected during the second quarter, but this is to some extent assessed to have been due to temporary factors. At the same time, the economicSwedish Central Bank Says Assesses That Policy Rate Should Be Raised More Going Forward Than Projected In June Forecast, For Inflation To Stabilise Around 2 Per Cent",
+      "titre": "Sweden: Policy rate unchanged at 1.75%",
+      "date_recuperation": "2026-09-24T07:35:26.010774+00:00",
+      "url": "https://www.forexfactory.com/news/1428052-sweden-policy-rate-unchanged-at-175",
+      "impact": "low",
+      "source": "riksbank.se"
+    },
+    {
+      "ignore": false,
+      "date_publication": "2026-09-24T07:31:28.721324+00:00",
+      "extrait": "The Swiss National Bank is leaving the SNB policy rate unchanged at 0%. Banks' sight deposits held at the SNB will be remunerated at the SNB policy rate up to a certain threshold. The discount for sight deposits above this threshold is unchanged at 0.25 percentage points. The SNB is also willing to be active in the foreign exchange market as necessary to ...",
+      "titre": "Swiss National Bank leaves SNB policy rate unchanged at 0%",
+      "date_recuperation": "2026-09-24T07:33:28.721324+00:00",
+      "url": "https://www.forexfactory.com/news/1428051-swiss-national-bank-leaves-snb-policy-rate-unchanged",
+      "impact": "high",
+      "source": "snb.ch"
+    },
     {
       "date_publication": "2026-09-24T05:49:28.040037+00:00",
       "source": "@financialjuice",
