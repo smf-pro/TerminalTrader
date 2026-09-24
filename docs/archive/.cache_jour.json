@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-24T11:28:28.693526+00:00",
     "cb_articles": "2026-09-24T08:54:21.833989+00:00",
-    "il_articles": "2026-09-24T12:18:45.396298+00:00"
+    "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
     {
@@ -274,6 +274,30 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-24T12:30:29.912579+00:00",
+      "titre": "Canada retail sales for the month of July -0.7% vs -0.8% estimate",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "date_publication": "2026-09-24T12:30:14.290966+00:00",
+      "url": "https://investinglive.com/news/canada-retail-sales-for-the-month-of-july-0-7-vs-0-8-estimate/",
+      "contenu": "Summary\n\nCanada retail sales for the month of July 2026 along with the estimate for the month of August.\n\nThe advanced August reading comes in at"
+    },
+    {
+      "date_recuperation": "2026-09-24T12:30:29.912579+00:00",
+      "titre": "US initial jobless claims 197K vs 201K expected",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "date_publication": "2026-09-24T12:29:41.938098+00:00",
+      "url": "https://investinglive.com/news/us-initial-jobless-claims-197k-vs-201k-expected/",
+      "contenu": "Summary\n\nThe weekly US initial jobless claims and continuing claims data - 24 September 2026\n\nPrior was 196K\n\nContinuing claims 1719K vs 1745K expected\n\nPrior was 1730K"
+    },
     {
       "titre": "Morning Kickstart: Dollar rises as global bond yields pressure stocks ahead of Trump–Xi talks",
       "tags": [
