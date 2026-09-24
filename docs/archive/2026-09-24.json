@@ -2,6 +2,16 @@
   "date": "2026-09-24",
   "ff_news": [
     {
+      "titre": "German business morale rises more than expected in September, Ifo finds",
+      "date_recuperation": "2026-09-24T08:29:27.187175+00:00",
+      "source": "aol.com",
+      "url": "https://www.forexfactory.com/news/1428059-german-business-morale-rises-more-than-expected-in",
+      "impact": "low",
+      "ignore": false,
+      "extrait": "German business morale rose more than expected in September, a survey showed on Thursday, signalling that Europe's largest economy is weathering an energy price shock that has pushed fuel costs to record highs. The Ifo institute said its business climate index rose to 89.9 in September from 88.8 in August. Analysts polled by Reuters had forecast an increase ...",
+      "date_publication": "2026-09-24T08:28:27.187175+00:00"
+    },
+    {
       "titre": "Inflation is the main hurdle, Fed's Williams says",
       "source": "@MarketsCapApp",
       "ignore": false,
