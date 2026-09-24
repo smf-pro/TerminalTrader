@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T13:01:29.220892+00:00",
+    "ff_news": "2026-09-24T13:47:03.089930+00:00",
     "cb_articles": "2026-09-24T12:58:55.894104+00:00",
-    "il_articles": "2026-09-24T12:30:14.290966+00:00"
+    "il_articles": "2026-09-24T13:43:06.494984+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices.BoE Breeden: Indirect pass-through of energy price rises are limited so far, which suggests slack in the economy.BoE Breeden: The larger and longer the energy shock, the more likely policy will need to respond.",
+      "ignore": false,
+      "date_publication": "2026-09-24T13:47:03.089930+00:00",
+      "url": "https://www.forexfactory.com/news/1428152-boe-breeden-it-is-not-at-all-obvious",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-24T13:48:03.089930+00:00",
+      "titre": "BoE Breeden: It is not at all obvious that there is a path to lower energy prices",
+      "impact": "low"
+    },
     {
       "titre": "Slight boost in Belgium business confidence in September",
       "extrait": "In the manufacturing industry, all components of the business confidence indicator gained ground. Business leaders have more optimistic expectations concerning both employment and demand. Their assessments of total order books and current stock levels are also more positive. In the building industry, business confidence declined for the third consecutive ...",
@@ -417,6 +427,18 @@
     }
   ],
   "il_articles": [
+    {
+      "tags": [
+        "CHF"
+      ],
+      "date_publication": "2026-09-24T13:43:06.494984+00:00",
+      "ignore": false,
+      "contenu": "Summary\n\nThe price of the USDCHF is pushing higher. The SNB kept rates unchanged today.\n\nThe Swiss National Bank left its policy rate unchanged at0%, as expected. It raised its inflation forecasts slightly, but still expects inflation to average just0.8% in both 2027 and 2028. Higher energy prices have lifted inflation recently, while the SNB sees only a small increase in medium-term pressure. That gives the bank little reason, for now, to follow the Fed toward tighter policy. (snb.ch)\n\nThere was a change in the SNB’s language on the Swiss franc. It dropped June’s reference to an“increased willingness”to intervene in the foreign exchange market. It now says it is“willing to be active”as necessary. Intervention is still on the table, but the change suggests less urgency about franc strength. The franc weakened after the decision, with EURCHF moving from around 0.9380 to 0.9420.Justin Low has more on the decision here. (snb.ch)\n\nFor USDCHF, the fundamental contrast favors the dollar: the SNB is holding at zero while the Fed has left the door open to further hikes. Higher US yields can make dollar assets more attractive relative to franc assets. That helps explain the move, but it does not tell traders where to enter or where the bullish case begins to fail. For that, we turn to the chart.\n\nBuyers defended a key support area\n\nOn the daily chart, USDCHF dipped on Monday and into Tuesday, but the decline found buyers within a swing area between0.81706 and 0.82148. The38.2% retracementof the decline from the January 2025 high to the January 2026 low, at0.82116, sits inside that area.\n\nWhen several technical levels gather in one area, traders often pay closer attention to it. In this case, buyers had a defined place to lean: if the price held support, they could look for a rebound; if it broke below the area, they would have a reason to reassess.\n\nSupport held. Yesterday’s sharp rise in US yields then helped push USDCHF above the top of the swing area at0.82148. Today, the pair extended above its earlier September highs near0.8265. Each step gave buyers more control.\n\nWhat next for USDCHF?\n\nThe next upside target is the late-May 2025 high near0.8348. A sustained move above that level would put the50% retracementof the decline from the January 2025 high in focus. That would be another test of whether buyers can maintain momentum.\n\nOn the downside, a move back below0.82116would be an initial warning that the breakout is losing strength. A fall below the swing area low at0.81706would be a more consequential shift: buyers who leaned against that support would no longer have the same technical footing. Those levels give traders a way to measure risk rather than relying on the central-bank story alone.\n\nIn the video above, I walk through these levels on the chart and explain what a move through each one would mean for buyers and sellers.",
+      "url": "https://investinglive.com/technical-analysis/usdchf-runs-to-the-highest-level-since-may-2025/",
+      "date_recuperation": "2026-09-24T13:45:27.764348+00:00",
+      "titre": "USDCHF runs to the highest level since May 2025",
+      "categorie": "technical-analysis"
+    },
     {
       "date_recuperation": "2026-09-24T12:30:29.912579+00:00",
       "titre": "Canada retail sales for the month of July -0.7% vs -0.8% estimate",
