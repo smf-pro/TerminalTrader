@@ -2,7 +2,7 @@
   "date": "2026-09-24",
   "curseurs": {
     "ff_news": "2026-09-24T12:54:30.896896+00:00",
-    "cb_articles": "2026-09-24T12:42:29.955939+00:00",
+    "cb_articles": "2026-09-24T12:58:55.894104+00:00",
     "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
@@ -298,6 +298,17 @@
     }
   ],
   "cb_articles": [
+    {
+      "date_publication": "2026-09-24T12:58:55.894104+00:00",
+      "date_recuperation": "2026-09-24T12:59:38.723174+00:00",
+      "url": "https://investinglive.com/central-banks/fed-s-hammack-says-inflation-risks-are-tilted-to-the-upside/",
+      "contenu": "Summary\n\nHammack is a hawk. She points to solid demand and supply shocks as challenges for Fed policy.\n\nPrice stability is responsibility of central banks\n\nInflation remains elevated amid solid output demand\n\nInflation risk tilted toward upside\n\nSupply shocks a notable challenge for Fed policy right now\n\nThe longer inflation remains high, the harder it is to bring it back to target\n\nAnalysis:Hammack is a hawk, and these comments show why. She sees inflation risks pointing higher even as demand remains solid. Supply shocks add to the challenge: the Fed cannot directly fix a supply disruption, but it still has to keep the resulting price pressure from becoming persistent.\n\nFor traders, the message is that Hammack is focused on the risk of leaving inflation elevated for too long. These remarks support a cautious approach to policy, though she does not explicitly call for another rate hike in the headlines provided.\n\nThe expectations for a Fed hike in the month of October is around 66%. Yesterday the number 1 up to around 74% (from my vantage point). It was down here 50% earlier this week.",
+      "tags": [
+        "Fed"
+      ],
+      "ignore": false,
+      "titre": "Fed’s Hammack says inflation risks are tilted to the upside"
+    },
     {
       "titre": "ECBs Schnabel expected to announce she will be stepping down to join IMF in a senior position",
       "ignore": false,
