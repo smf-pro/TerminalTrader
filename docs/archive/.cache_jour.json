@@ -2,7 +2,7 @@
   "date": "2026-09-24",
   "curseurs": {
     "ff_news": "2026-09-24T08:36:25.676493+00:00",
-    "cb_articles": "2026-09-24T07:31:15.885120+00:00",
+    "cb_articles": "2026-09-24T08:54:21.833989+00:00",
     "il_articles": "2026-09-24T08:01:37.487108+00:00"
   },
   "ff_news": [
@@ -158,6 +158,18 @@
     }
   ],
   "cb_articles": [
+    {
+      "contenu": "Summary\n\nNew York Fed president Williams says that labour market risks have eased, leaving inflation and another Fed rate hike firmly in focus\n\nWilliams is offering up a fairly straightforward assessment of the US economy and the policy outlook today. His key comments:\n\nThe US economy has shown remarkable resilience\n\nThe downside risks to achieve maximum employment have diminished\n\nThe biggest obstacle now is inflation\n\nThe Fed's aim is to return inflation to target promptly\n\nIt seems \"reasonable\" to implement another rate hike by the end of the year\n\nThe era of explicit and direct forward guidance  is over\n\nWe do not know if higher yields will continue to persist\n\nThe key takeaway for me is how Williams is framing the balance of risks. The Fed had already raised interest rates by 25 bps last week to 3.75% to 4.00%, reinforcing a \"timelier\" return towards returning inflation to the 2% target in its statement. And Williams' remarks mainly reinforce that sentiment.\n\nThe signal here is that if policymakers are less worried about employment deteriorating, there is simply more room to keep leaning against inflation.\n\nThat said, he's still not explicitly framing this as a promise of another rate hike. His point that the era of explicit forward guidance is over reinforces the notion that the Fed wants to be able to retain flexibility and optionality.\n\nHigher Treasury yields can do some of the work for the Fed in terms of tightening financial conditions. But at some point, policymakers still have to act themselves - as we saw with last week's decision.\n\nFor now, his comments do fit somewhat with how markets are repricing the Fed outlook. The odds of another 25 bps rate hike in October have climbed to around 77%, while December pricing is starting to entertain something more aggressive still.",
+      "titre": "Fed policymaker Williams says another rate hike this year is \"reasonable\" as inflation is the main obstacle",
+      "date_recuperation": "2026-09-24T08:54:26.414850+00:00",
+      "ignore": false,
+      "url": "https://investinglive.com/central-banks/fed-williams/",
+      "tags": [
+        "Fed",
+        "USD"
+      ],
+      "date_publication": "2026-09-24T08:54:21.833989+00:00"
+    },
     {
       "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nStatement details and updated forecasts to follow...",
       "date_publication": "2026-09-24T07:31:15.885120+00:00",
