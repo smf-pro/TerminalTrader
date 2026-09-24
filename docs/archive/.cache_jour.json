@@ -1,11 +1,21 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T10:23:26.030981+00:00",
+    "ff_news": "2026-09-24T11:28:28.693526+00:00",
     "cb_articles": "2026-09-24T08:54:21.833989+00:00",
     "il_articles": "2026-09-24T09:50:55.996689+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1428098-trump-super-intelligence-si-will-be-a-big",
+      "titre": "Trump: Super Intelligence (SI) will be a big topic of discussion, but I want to leave it exactly where it is. That is China's position also",
+      "ignore": false,
+      "source": "@realDonaldTrump",
+      "impact": "low",
+      "date_recuperation": "2026-09-24T11:39:28.693526+00:00",
+      "extrait": "A big day with President Xi of China. Super Intelligence (SI) will be a big topic of discussion, but I want to leave it exactly where it is. That is China’s position also. Our guardrail is the DOJ! President DJT",
+      "date_publication": "2026-09-24T11:28:28.693526+00:00"
+    },
     {
       "impact": "low",
       "ignore": false,
