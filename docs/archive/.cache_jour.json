@@ -1,11 +1,51 @@
 {
   "date": "2026-09-24",
   "curseurs": {
-    "ff_news": "2026-09-24T11:28:28.693526+00:00",
+    "ff_news": "2026-09-24T12:32:33.431892+00:00",
     "cb_articles": "2026-09-24T08:54:21.833989+00:00",
     "il_articles": "2026-09-24T12:30:14.290966+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "date_publication": "2026-09-24T12:32:33.431892+00:00",
+      "extrait": "The U.S. current-account deficit resulting from international economic transactions widened by $33.4 billion, or 15.7 percent, to $246.0 billion in the second quarter of 2026, according to statistics released today by the U.S. Bureau of Economic Analysis. The revised first-quarter deficit was $212.6 billion. The second-quarter deficit was 3.0 percent of ...",
+      "titre": "U.S. International Transactions, 2nd Quarter 2026",
+      "date_recuperation": "2026-09-24T12:33:33.431892+00:00",
+      "ignore": false,
+      "source": "bea.gov",
+      "url": "https://www.forexfactory.com/news/1428119-us-international-transactions-2nd-quarter-2026"
+    },
+    {
+      "impact": "low",
+      "date_publication": "2026-09-24T12:32:22.648126+00:00",
+      "extrait": "The U.S. current-account deficit resulting from international economic transactions widened by $33.4 billion, or 15.7 percent, to $246.0 billion in the second quarter of 2026, according to statistics released today by the U.S. Bureau of Economic Analysis. The revised first-quarter deficit was $212.6 billion. The second-quarter deficit was 3.0 percent of ...",
+      "titre": "U.S. International Transactions and Investment Position, 2nd Quarter 2026",
+      "date_recuperation": "2026-09-24T12:35:22.648126+00:00",
+      "ignore": false,
+      "source": "bea.gov",
+      "url": "https://www.forexfactory.com/news/1428119-us-international-transactions-and-investment-position-2nd-quarter"
+    },
+    {
+      "impact": "low",
+      "date_recuperation": "2026-09-24T12:32:26.115719+00:00",
+      "extrait": "Retail sales decreased 0.7% to $73.7 billion in July. Sales were down in eight of nine subsectors, led by declines at general merchandise retailers. Core retail sales, which exclude gasoline stations and fuel vendors and motor vehicle and parts dealers, were down 0.7% in July. In volume terms, retail sales decreased 1.1% in July. Following an increase of ...",
+      "date_publication": "2026-09-24T12:31:26.115719+00:00",
+      "titre": "Canada retail trade, July 2026",
+      "ignore": false,
+      "source": "statcan.gc.ca",
+      "url": "https://www.forexfactory.com/news/1428117-canada-retail-trade-july-2026"
+    },
+    {
+      "impact": "medium",
+      "date_recuperation": "2026-09-24T12:32:26.115719+00:00",
+      "extrait": "In the week ending September 19, the advance figure for seasonally adjusted initial claims was 197,000, a decrease of 1,000 from the previous week's revised level. The previous week's level was revised up by 2,000 from 196,000 to 198,000. The 4-week moving average was 202,250, a decrease of 1,750 from the previous week's revised average. The previous week's ...",
+      "date_publication": "2026-09-24T12:31:26.115719+00:00",
+      "titre": "US Unemployment Insurance Weekly Claims",
+      "ignore": false,
+      "source": "dol.gov",
+      "url": "https://www.forexfactory.com/news/1428120-us-unemployment-insurance-weekly-claims"
+    },
     {
       "url": "https://www.forexfactory.com/news/1428098-trump-super-intelligence-si-will-be-a-big",
       "titre": "Trump: Super Intelligence (SI) will be a big topic of discussion, but I want to leave it exactly where it is. That is China's position also",
