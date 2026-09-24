@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "titre": "Paulson: Opening Remarks",
       "date_publication": "2026-09-24T14:11:31.367131+00:00",
       "date_recuperation": "2026-09-24T14:13:31.367131+00:00",
+      "titre": "Paulson: Opening Remarks",
       "extrait": "Thank you, Julapa, and good morning, everyone.1 Welcome to the 10th Annual Fintech Conference! Whether you’re attending in person or online, we are glad you are here. Many thanks to our partners at the Wharton School of the University of Pennsylvania, the School of International and Public Affairs at Columbia University, the University of Cambridge, and the Brookings Institution for your support of this conference. Twenty-twenty-six has been a year of milestone events — including the 250th anniversary of the Declaration of Independence, signed just two blocks from where I’m standing. Now, a 10-year anniversary isn’t quite as momentous as two-and-a-half centuries, but it still speaks to something we take seriously. Over the past 10 years, this gathering has grown into one of the field's most valuable forums — bringing together regulators, academics, established financial institutions, and the innovators pushing the industry forward. The conference has consistently produced insights that shape how we think about fintech and the broader financial system. I’d like to thank the organizing committee for putting together another dynamic agenda.Fed's Paulson: The US central bank may need to raise interest rates again to lower inflation.Fed's Paulson: September rate hike helped move policy to better inflation-fighting posture.Fed's Paulson: I will support doing what's needed to get inflation back to 2%.Fed's Paulson: The inflation balance of risks shifted ahead of the September policy meeting.",
-      "source": "philadelphiafed.org",
       "impact": "low",
+      "url": "https://www.forexfactory.com/news/1428156-paulson-opening-remarks",
       "ignore": false,
-      "url": "https://www.forexfactory.com/news/1428156-paulson-opening-remarks"
+      "source": "philadelphiafed.org"
     },
     {
       "date_publication": "2026-09-24T14:11:29.298624+00:00",
