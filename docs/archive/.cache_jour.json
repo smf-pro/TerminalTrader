@@ -64,15 +64,15 @@
   "il_articles": [
     {
       "contenu": "Summary\n\nLatest data released by INE - 25 September 2026\n\nSpain Q2 final GDP +0.7% vs +0.7% q/q expected\n\nPrior +0.6%\n\nThe breakdownMore to follow...\n\nWhat does the data measure?GDP measures the total value of goods and services produced in Spain. The quarterly reading offers the clearest broad measure of how quickly the economy is expanding or contracting.\n\nWhy does it matter to markets?Spain has continued to outperform much of the euro area, so the figures provide another gauge of whether that growth advantage is being maintained.\n\nHow does this fit the broader economic picture?The preliminary numbers pointed to relatively broad-based growth. Industry expanded 1.0% q/q, services 0.8%, construction 0.6% and agriculture 0.2%. Employment also remained supportive, with full-time equivalent employment rising 2.3% from a year earlier.\n\nWhat is the potential market impact?A meaningful revision away from the 0.7% q/q preliminary estimate could generate a minor reaction in Spanish government bonds and the euro. But all else being equal, a near unchanged final reading would largely confirm information markets already have.\n\nCurrent relevance to markets?Slight. Spain's growth resilience is useful for assessing the broader euro area economy, but a final GDP reading that simply confirms the preliminary estimate is unlikely to materially change ECB expectations or generate any sustained market move.",
-      "tags": [
-        "EUR"
-      ],
-      "date_publication": "2026-09-25T07:00:15.212619+00:00",
+      "titre": "Spain Q2 final GDP +0.7% vs +0.7% q/q prelim",
       "url": "https://investinglive.com/news/spain-q2-final-gdp-0-7-vs-0-7-q-q-prelim/",
       "categorie": "news",
-      "titre": "Spain Q2 final GDP +0.7% vs +0.7% q/q prelim",
+      "date_recuperation": "2026-09-25T07:00:38.422529+00:00",
+      "date_publication": "2026-09-25T07:00:15.212619+00:00",
       "ignore": false,
-      "date_recuperation": "2026-09-25T07:00:38.422529+00:00"
+      "tags": [
+        "EUR"
+      ]
     },
     {
       "titre": "What are the main events for today?",
