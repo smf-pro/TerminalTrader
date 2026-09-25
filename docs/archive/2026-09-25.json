@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428391-trump-chinas-xi-and-i-have-forged-a",
+      "date_publication": "2026-09-25T07:17:28.954683+00:00",
+      "titre": "Trump: China's Xi and I have forged a truly great friendship",
+      "extrait": "Trump: China's Xi and I have forged a truly great friendship",
+      "date_recuperation": "2026-09-25T07:18:28.954683+00:00",
+      "impact": "low",
+      "source": "@financialjuice"
+    },
+    {
       "date_recuperation": "2026-09-25T06:15:24.874366+00:00",
       "url": "https://www.forexfactory.com/news/1428387-eu-urges-uk-to-raise-tariffs-on-chinese",
       "source": "@FirstSquawk",
