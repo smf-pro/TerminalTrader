@@ -8,13 +8,13 @@
   "ff_news": [
     {
       "ignore": false,
-      "titre": "US consumer confidence down in September",
-      "source": "breakingthenews.net",
-      "date_publication": "2026-09-25T14:04:30.223172+00:00",
       "impact": "medium",
-      "extrait": "The Consumer Sentiment Index in the United States tumbled 7% in September compared to the month prior, landing at 48.1, a final report posted by the University of Michigan showed on Friday. The figure sank 12.7% on an annual level. The Current Economic Conditions Index was down 1.9% in the reported period compared to August and lost 15.7% compared to ...",
+      "date_publication": "2026-09-25T14:04:30.223172+00:00",
+      "source": "breakingthenews.net",
+      "titre": "US consumer confidence down in September",
+      "url": "https://www.forexfactory.com/news/1428509-us-consumer-confidence-down-in-september",
       "date_recuperation": "2026-09-25T14:05:30.223172+00:00",
-      "url": "https://www.forexfactory.com/news/1428509-us-consumer-confidence-down-in-september"
+      "extrait": "The Consumer Sentiment Index in the United States tumbled 7% in September compared to the month prior, landing at 48.1, a final report posted by the University of Michigan showed on Friday. The figure sank 12.7% on an annual level. The Current Economic Conditions Index was down 1.9% in the reported period compared to August and lost 15.7% compared to ..."
     },
     {
       "date_publication": "2026-09-25T13:20:29.430532+00:00",
