@@ -1,11 +1,31 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T09:48:28.198613+00:00",
+    "ff_news": "2026-09-25T10:01:25.040760+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
     "il_articles": "2026-09-25T09:48:13.730044+00:00"
   },
   "ff_news": [
+    {
+      "impact": "high",
+      "titre": "Japan's Fin. Min. Katayama: Won't hesitate to take bold action on the yen",
+      "source": "@finsquawk_",
+      "date_recuperation": "2026-09-25T10:04:25.040760+00:00",
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428422-japans-fin-min-katayama-wont-hesitate-to-take",
+      "date_publication": "2026-09-25T10:01:25.040760+00:00",
+      "extrait": "Katayama: Takaichi Very Much Respects Independence Of Boj || Katayama: Won't Hesitate To Take Bold Action On Yen Katayama: Defense Spending At 2% Of Gdp Is 'not Enough' || Katayama: Our Defense Policy Not Determined By Us Pressure"
+    },
+    {
+      "impact": "high",
+      "titre": "Katayama: Takaichi Very Much Respects Independence Of BOJ",
+      "date_recuperation": "2026-09-25T10:02:24.837985+00:00",
+      "url": "https://www.forexfactory.com/news/1428422-katayama-takaichi-very-much-respects-independence-of-boj",
+      "ignore": false,
+      "source": "@finsquawk_",
+      "date_publication": "2026-09-25T10:01:24.837985+00:00",
+      "extrait": "Katayama: Takaichi Very Much Respects Independence Of Boj || Katayama: Won't Hesitate To Take Bold Action On Yen Katayama: Defense Spending At 2% Of Gdp Is 'not Enough' || Katayama: Our Defense Policy Not Determined By Us Pressure"
+    },
     {
       "titre": "Fed's Williams: Can't ignore persistent supply shocks",
       "impact": "low",
