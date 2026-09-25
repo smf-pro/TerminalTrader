@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T17:45:37.198890+00:00",
+    "ff_news": "2026-09-25T18:07:47.836362+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
     "il_articles": "2026-09-25T17:44:13.130168+00:00"
   },
   "ff_news": [
+    {
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1428592-feds-hammack-the-biggest-risk-with-inflation-is",
+      "extrait": "Fed's Hammack: The biggest risk with inflation is the formation of an inflationary mindsetCLEVE FED'S HAMMACK Q&A: 'AN INFLATIONARY MIINDSET COULD START TO SET IN' AFTER MORE THAN 5 YRS ABOVE TARGET; BEEN SERIES OF INFLATIONARY SHOCKS #Hammack #FederalReserve #economy",
+      "ignore": false,
+      "date_publication": "2026-09-25T18:07:47.836362+00:00",
+      "source": "@financialjuice",
+      "titre": "Fed's Hammack: The biggest risk with inflation is the formation of an inflationary mindset",
+      "date_recuperation": "2026-09-25T18:08:47.836362+00:00"
+    },
     {
       "source": "@AlArabiya_Brk",
       "extrait": "A high-ranking source told Al Arabiya: Contacts are underway to provide guarantees and coordinate steps between America and Iran. #AlArabiya_BreakingA high-ranking source told Al Arabiya: The arrangements being discussed between America and Iran will be phased. #AlArabiya_BreakingA high-ranking source told Al Arabiya: Indirect contacts are underway between the US and Iran through intermediaries, and Washington's response is awaited. #AlArabiya_Breaking",
