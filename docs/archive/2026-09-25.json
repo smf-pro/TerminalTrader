@@ -2,14 +2,22 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428477-japanese-us-finance-chiefs-discuss-yen-depreciation-kyodo",
+      "titre": "Japanese, US Finance Chiefs Discuss Yen Depreciation: Kyodo",
+      "ignore": false,
+      "date_recuperation": "2026-09-25T12:57:28.136796+00:00",
+      "impact": "low",
+      "source": "@zerohedge",
+      "date_publication": "2026-09-25T12:56:28.136796+00:00",
+      "extrait": "*japanese, Us Finance Chiefs Discuss Yen Depreciation: Kyodo"
+    },
+    {
       "date_publication": "2026-09-25T12:47:28.939162+00:00",
       "ignore": false,
       "extrait": "Ustr Greer: We Have Reached Agreements With China On Subset Of Goods We Can TradeUs, China Reached Agreement On Number Of Trade Areas - GreerUstr Greer: Conversations With China About Export Controls, National Security Are Off The Table In These Talks -cnbc*china, Us In A Managed Trade Situation, Had Progress : Greer *greer: Will Release Details On China Trade Talks On Monday",
       "date_recuperation": "2026-09-25T12:49:28.939162+00:00",
-      "ignore": false,
       "url": "https://www.forexfactory.com/news/1428476-ustr-greer-we-have-reached-agreements-with-china",
       "source": "@DeItaone",
-      "extrait": "Ustr Greer: We Have Reached Agreements With China On Subset Of Goods We Can TradeUs, China Reached Agreement On Number Of Trade Areas - GreerUstr Greer: Conversations With China About Export Controls, National Security Are Off The Table In These Talks -cnbc*china, Us In A Managed Trade Situation, Had Progress : Greer *greer: Will Release Details On China Trade Talks On Monday",
       "titre": "USTR Greer: We Have Reached Agreements With China On Subset Of Goods We Can Trade",
       "impact": "low"
     },
