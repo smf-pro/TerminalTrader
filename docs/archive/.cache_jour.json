@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T17:21:25.139402+00:00",
+    "ff_news": "2026-09-25T17:45:37.198890+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
-    "il_articles": "2026-09-25T17:09:52.191680+00:00"
+    "il_articles": "2026-09-25T17:44:13.130168+00:00"
   },
   "ff_news": [
+    {
+      "source": "@AlArabiya_Brk",
+      "extrait": "A high-ranking source told Al Arabiya: Contacts are underway to provide guarantees and coordinate steps between America and Iran. #AlArabiya_BreakingA high-ranking source told Al Arabiya: The arrangements being discussed between America and Iran will be phased. #AlArabiya_BreakingA high-ranking source told Al Arabiya: Indirect contacts are underway between the US and Iran through intermediaries, and Washington's response is awaited. #AlArabiya_Breaking",
+      "impact": "low",
+      "titre": "Contacts are underway to provide guarantees and coordinate steps between America and Iran, a high-ranking source told Al Arabiya",
+      "ignore": false,
+      "date_recuperation": "2026-09-25T17:46:37.198890+00:00",
+      "date_publication": "2026-09-25T17:45:37.198890+00:00",
+      "url": "https://www.forexfactory.com/news/1428590-contacts-are-underway-to-provide-guarantees-and-coordinate"
+    },
     {
       "impact": "low",
       "date_recuperation": "2026-09-25T17:22:25.139402+00:00",
@@ -307,6 +317,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-25T17:44:13.130168+00:00",
+      "contenu": "Summary\n\nMore positive comments from Trump\n\nTrump says he will meet with Xi again in November and then again at the G20 in DDecember in Miami. Trump said the meeting was one of friendship, strength and success for both the USA and China.",
+      "titre": "Trump will meet with Xi again in November",
+      "categorie": "news",
+      "date_recuperation": "2026-09-25T17:45:30.724184+00:00",
+      "ignore": false,
+      "tags": [
+        "USD"
+      ],
+      "url": "https://investinglive.com/news/trump-will-meet-with-xi-again-in-november/"
+    },
     {
       "date_recuperation": "2026-09-25T17:10:29.519874+00:00",
       "tags": [
