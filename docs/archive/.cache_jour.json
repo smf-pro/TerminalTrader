@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T14:06:30.765261+00:00",
+    "ff_news": "2026-09-25T14:57:28.436378+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
     "il_articles": "2026-09-25T14:20:43.390103+00:00"
   },
   "ff_news": [
+    {
+      "impact": "medium",
+      "date_recuperation": "2026-09-25T14:59:28.436378+00:00",
+      "url": "https://www.forexfactory.com/news/1428555-bessent-had-productive-call-with-japanese-finmin-katayama",
+      "titre": "Bessent: Had productive call with Japanese FinMin Katayama; We discussed the desirability of a strong yen",
+      "ignore": false,
+      "extrait": "Today, I had a productive call with Japanese Finance Minister Satsuki Katayama. Our conversation built on President Trumps discussion with Prime Minister Sanae Takaichi earlier this week and reflected the strength of the U.S.Japan partnership. We discussed the desirability of a strong yen that reflects Japans strong economic fundamentals, and the importance of staying in close communication on currency markets.",
+      "date_publication": "2026-09-25T14:57:28.436378+00:00",
+      "source": "@SecScottBessent"
+    },
     {
       "url": "https://www.forexfactory.com/news/1428510-kc-feds-schmid-question-is-where-labor-is",
       "ignore": false,
