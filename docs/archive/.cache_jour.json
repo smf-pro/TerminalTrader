@@ -7,24 +7,24 @@
   },
   "ff_news": [
     {
-      "impact": "low",
-      "date_publication": "2026-09-25T02:05:34.672739+00:00",
       "ignore": false,
-      "date_recuperation": "2026-09-25T02:07:34.672739+00:00",
-      "url": "https://www.forexfactory.com/news/1428370-japan-finmin-katayama-deciding-on-specific-monetary-policy",
-      "source": "@financialjuice",
       "extrait": "Japan finmin katayama: deciding on specific monetary policy tools is up to BoJKatayama: BoJs recent rate reduction was intended to achieve inflation targetJapan finance minister katayama: expect BoJ to implement suitable monetary policy while cooperating with government",
-      "titre": "Japan FinMin Katayama: Deciding on specific monetary policy tools is up to BoJ"
+      "url": "https://www.forexfactory.com/news/1428370-japan-finmin-katayama-deciding-on-specific-monetary-policy",
+      "impact": "low",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-25T02:07:34.672739+00:00",
+      "titre": "Japan FinMin Katayama: Deciding on specific monetary policy tools is up to BoJ",
+      "date_publication": "2026-09-25T02:05:34.672739+00:00"
     },
     {
-      "impact": "high",
-      "date_publication": "2026-09-25T02:05:28.109459+00:00",
       "ignore": false,
-      "url": "https://www.forexfactory.com/news/1428370-japan-finmin-katayama-trump-voiced-worries-over-weak",
-      "date_recuperation": "2026-09-25T02:09:28.109459+00:00",
-      "source": "@financialjuice",
       "extrait": "Japan finance minister katayama: trump voiced worries over weak yen during summitKatayama: BoJs recent rate reduction was intended to achieve inflation targetJapan finance minister katayama: expect BoJ to implement suitable monetary policy while cooperating with governmentJapan Finance Minister Katayama: Wont Discuss Particular Forex Levels, Rate Interventions",
-      "titre": "Japan FinMin Katayama: Trump voiced worries over weak yen during summit"
+      "url": "https://www.forexfactory.com/news/1428370-japan-finmin-katayama-trump-voiced-worries-over-weak",
+      "impact": "high",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-25T02:09:28.109459+00:00",
+      "titre": "Japan FinMin Katayama: Trump voiced worries over weak yen during summit",
+      "date_publication": "2026-09-25T02:05:28.109459+00:00"
     },
     {
       "titre": "China's President Xi: Reached broad agreement on numerous issues",
