@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-25T09:50:08.904253+00:00",
+      "extrait": "Fed's Williams: Can't ignore persistent supply shocks",
+      "ignore": false,
+      "source": "@financialjuice",
+      "url": "https://www.forexfactory.com/news/1428417-feds-williams-cant-ignore-persistent-supply-shocks",
+      "date_publication": "2026-09-25T09:48:08.904253+00:00",
+      "impact": "low",
+      "titre": "Fed's Williams: Can't ignore persistent supply shocks"
+    },
+    {
       "impact": "low",
       "extrait": "SNB's Chairman Schlegel: Moderate Swiss growth expected in coming quartersSNB's Chairman Schlegel: Rise in Swiss inflation mainly due to petrol products",
       "date_publication": "2026-09-25T09:38:24.883060+00:00",
