@@ -223,6 +223,18 @@
   ],
   "il_articles": [
     {
+      "url": "https://investinglive.com/news/september-final-umich-consumer-sentiment-48-1-vs-47-6-expected/",
+      "ignore": false,
+      "contenu": "Summary\n\nThis is the second reading on September US consumer sentiment\n\nPrelim was 47.8\n\nPrior was 51.7\n\nCurrent conditions vs 50.9 prelim (51.9 prior)\n\nExpectations vs 45.8 prelim (51.5 prior)\n\nOne-year inflation expectations vs 4.6% prelim\n\nFive-year inflation expectations vs 3.4% prelim",
+      "titre": "September final UMich consumer sentiment 48.1 vs 47.6 expected",
+      "date_publication": "2026-09-25T14:00:09.191094+00:00",
+      "tags": [
+        "USD"
+      ],
+      "categorie": "news",
+      "date_recuperation": "2026-09-25T14:00:29.365652+00:00"
+    },
+    {
       "tags": [
         "AUD"
       ],
