@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T12:56:28.136796+00:00",
+    "ff_news": "2026-09-25T13:20:29.430532+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
     "il_articles": "2026-09-25T12:47:20.335757+00:00"
   },
   "ff_news": [
+    {
+      "date_publication": "2026-09-25T13:20:29.430532+00:00",
+      "extrait": "Japan's Fin. Min. Katayama: Excessive Yen selling may be corrected - KyodoJapan's Fin. Min. Katayama: Markets are 'misunderstanding' weak yen - Kyodo",
+      "titre": "Japan's Fin. Min. Katayama: Excessive Yen selling may be corrected - Kyodo",
+      "date_recuperation": "2026-09-25T13:22:29.430532+00:00",
+      "url": "https://www.forexfactory.com/news/1428492-japans-fin-min-katayama-excessive-yen-selling-may",
+      "source": "@financialjuice",
+      "impact": "medium",
+      "ignore": false
+    },
     {
       "source": "@zerohedge",
       "date_recuperation": "2026-09-25T12:57:28.136796+00:00",
