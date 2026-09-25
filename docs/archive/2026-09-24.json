@@ -307,9 +307,6 @@
     {
       "extrait": "Iran Official Says Conflict With Us Could Expand Further - FarsIran's Safavi Says Next Phase Could Reach Indian Ocean - Fars",
       "source": "@FirstSquawk",
-      "titre": "Iran Official Says Conflict With US Could Expand Further - Fars",
-      "date_recuperation": "2026-09-24T08:38:25.676493+00:00",
-      "date_publication": "2026-09-24T08:36:25.676493+00:00",
       "impact": "medium",
       "titre": "Iran Official Says Conflict With US Could Expand Further - Fars",
       "date_recuperation": "2026-09-24T08:38:25.676493+00:00",
@@ -573,7 +570,6 @@
       "titre_fr": "Le décideur de la Fed Williams dit qu'une autre hausse des taux cette année est « raisonnable » car l'inflation est le principal obstacle"
     },
     {
-      "url": "https://investinglive.com/central-banks/snb-leaves-policy-rate-unchanged-at-0-in-september-meeting-as-widely-expected/",
       "contenu_fr": "Résumé\n\nLa banque centrale suisse continue de maintenir les taux d'intérêt à zéro, car les pressions inflationnistes ne sont pas trop pressantes en Suisse\n\nTaux directeur 0 %, comme prévu\n\nDétails du relevé et mises à jour des prévisions à suivre...",
       "contenu": "Summary\n\nThe Swiss central bank continues to hold interest rates at zero, as inflation pressures aren't too pressing in Switzerland\n\nKey policy rate 0%, as expected\n\nStatement details and updated forecasts to follow...",
       "date_publication": "2026-09-24T07:31:15.885120+00:00",
@@ -1094,7 +1090,7 @@
     },
     {
       "categorie": "news",
-      "url": "https://investinglive.com/news/aud-little-changed-australia-jobless-rate-hits-4-6-highest-since-2021-participation-outpaces-jobs-beat/",
+      "date_publication": "2026-09-24T01:53:44.897960+00:00",
       "contenu": "Summary\n\nAustralian employment rose 39,500 in August, double forecasts, but unemployment climbed to 4.6%, the highest since late 2021, as participation jumped to 67.1%.\n\nFull-time jobs fell 6,300.\n\nAUD/USD was little changed, with an RBA hike still in view.\n\nThe muted reaction in AUD/USD reflects a report that offers something for both sides: headline hiring was strong, but a higher jobless rate and a fall in full-time roles temper the hawkish read. Rates markets are likely to treat the unemployment rise as a supply-side story, driven by participation, which keeps the focus on inflation and next week's RBA decision. The ASX 200's partial recovery suggests equity investors took some comfort that the labour market is not deteriorating outright. The ABS caution around seasonal adjustment may lead traders to lean more on trend data, limiting the report's staying power as a market driver.\n\nAustralia's labour market added jobs at twice the expected pace and still saw unemployment rise, because even more people came looking for work, a quirk that does little to shift the RBA's focus on inflation.\n\nEmployment rose 39,500 in August against expectations of 20,000, after a 15,800 fall in July\n\nFull-time employment fell 6,300, while part-time jobs rose 45,800\n\nThe unemployment rate rose to 4.6% from 4.5%, above expectations and the highest since late 2021\n\nThe participation rate climbed to 67.1% from 66.9%, above the 66.9% forecast\n\nHours worked rose 0.7%, underemployment eased to 6.2%, and employment has averaged 34,000 a month over three months\n\nThe ABS flagged a survey methodology change and advised caution with seasonally adjusted August data, recommending trend figures\n\nAustralian employment grew far more strongly than expected in August, reversing July's unexpected fall, but the jobless rate still rose to its highest level since late 2021 as a surge in people joining the workforce outpaced hiring, Australian Bureau of Statistics data showed on Thursday.\n\nEmployment increased by 39,500 in August, roughly double the 20,000 gain markets had forecast, after a decline of 15,800 in July. The detail was less robust, with full-time jobs down 6,300 and part-time positions accounting for all of the gain, up 45,800. Over the past three months, employment has risen by an average of 34,000 a month.\n\nThe unemployment rate climbed to 4.6% from 4.5%, where economists had expected it to hold. The increase reflected a jump in the participation rate to 67.1% from 66.9%, as a larger share of Australians entered the labour force in search of work. The unrounded jobless rate sat at around 4.65%, close to rounding up to 4.7%. Hours worked rose by 0.7% in the month, while underemployment eased to 6.2%, suggesting the labour market retains some underlying strength despite the higher headline rate.\n\nThe outcome ran against the more upbeat previews. National Australia Bank had leaned towards the unemployment rate slipping to 4.4%, arguing the call was a close one given July's rate had sat just below 4.5% before rounding.\n\nThe ABS also flagged a methodology change affecting the release. The bureau has introduced a new collection model for its supplementary survey, designed to remove a distortion that previously showed up in February and August labour force figures. It noted that this distortion may have unintentionally captured some seasonal patterns, but said testing indicated any effect on monthly changes should be smaller than normal sampling noise and that the August figures are fit for purpose. The ABS advised users to keep the potential effect in mind when working with August's seasonally adjusted data and reiterated that trend figures remain the best gauge of underlying labour market conditions.\n\nMarket reaction was contained. The Australian dollar was little changed against the US dollar after the release, while the ASX 200 trimmed its losses but remained lower on the day. With employment growth solid and the rise in unemployment driven by participation rather than job losses, analysts see the data as unlikely to alter the Reserve Bank of Australia's near-term thinking, with the case for a rate increase at next week's meeting still in place.",
       "date_publication": "2026-09-24T01:53:44.897960+00:00",
       "titre": "AUD little changed: Australia jobless rate hits 4.6%, highest since 2021, participation outpaces jobs beat",
@@ -1108,7 +1104,7 @@
     },
     {
       "url": "https://investinglive.com/news/australian-jobs-data-for-august-2026-unemployment-rate-4-6-expected-4-5-prior-4-5/",
-      "categorie": "news",
+      "date_publication": "2026-09-24T01:30:10.794478+00:00",
       "contenu": "Summary\n\nJust the data on this post with details to follow separately.\n\nmore to come",
       "date_publication": "2026-09-24T01:30:10.794478+00:00",
       "titre": "Australian jobs data for August 2026. Unemployment rate 4.6% (expected 4.5%, prior 4.5%)",
