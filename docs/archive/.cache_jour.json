@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-25T02:05:34.672739+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
-    "il_articles": "2026-09-25T02:25:04.543725+00:00"
+    "il_articles": "2026-09-25T02:42:15.808138+00:00"
   },
   "ff_news": [
     {
@@ -52,6 +52,20 @@
     }
   ],
   "il_articles": [
+    {
+      "contenu": "Summary\n\nJapan's Finance Minister Katayama said Trump raised concerns about the weak yen in his summit with PM Takaichi, who said an undervalued yen is a problem. Tokyo will coordinate closely with the US on FX. USD/JPY slipped to near 158.40 on the remarks.\n\nConcern about the yen from a US president changes how traders should think about intervention risk. Joint or US-backed action is easier to justify when Washington has openly flagged the weak yen. That makes chasing USD/JPY above 159 and towards 160 riskier, even though the rate gap still favours the dollar. The modest 30-pip dip suggests traders want action, not words, before committing to yen longs. Katayama's refusal to rule out rate checks leaves that risk hanging over the market. For AUD/JPY and other yen crosses, carry positions look more exposed to a sudden reversal if Tokyo moves.\n\nThe weak yen now has critics in both Tokyo and Washington. Katayama's account of the Trump-Takaichi summit, and her refusal to discuss rate checks, keeps intervention risk firmly on the table as USD/JPY hovers below 160.\n\nKatayama said Trump expressed concern about yen weakness during his summit with Prime Minister Takaichi\n\nTakaichi told Trump that, as a general principle, an undervalued yen is problematic\n\nTokyo will coordinate closely with Washington on currency matters\n\nKatayama declined to comment on specific FX levels or rate checks\n\nShe said the BOJ's latest rate hike was aimed at achieving its inflation target and that policy tools are for the BOJ to decide\n\nUSD/JPY eased from around 158.70 to near 158.40 on the remarks\n\nUS President Donald Trump raised concerns about the weakness of the yen during his summit with Japanese Prime Minister Sanae Takaichi, Finance Minister Satsuki Katayama said on Friday. Her comments add fresh political weight to the pressure on the currency. USD/JPY eased on the remarks, slipping from around 158.70 to near 158.40.\n\nKatayama said she had checked with the prime minister's office before describing the exchange. According to her account, Takaichi responded by telling Trump that, as a general principle, an undervalued yen is a problem. Katayama added that the prime minister had expressed concern about yen weakness in general terms, and said Tokyo would coordinate closely with Washington on currency matters.\n\nShe declined to comment on specific exchange-rate levels, or on whether authorities had carried out rate checks: calls to dealers that markets often read as a warning shot before intervention.\n\nKatayama also addressed the Bank of Japan's latest rate increase, saying the hike was carried out to achieve the central bank's inflation target. She said the specific tools of monetary policy are for the BOJ to decide, but that she expects the bank to conduct appropriate policy in coordination with the government.\n\nThe comments matter because they suggest the weak yen is now a shared concern at the highest levels in both Tokyo and Washington. That shifts the backdrop for currency traders, who have long weighed the risk of Japanese intervention against the pull of wide interest rate differentials. The US Treasury has already bought yen this year as part of its efforts to contain rising borrowing costs. A US president voicing unease about the currency's weakness lowers the political barrier to further joint action.\n\nThe remarks also land against a changing policy picture in Japan. The BOJ raised its policy rate to 1.25% this month and signalled a new phase focused on keeping inflation anchored at 2%.Goldman Sachs this week cut its USD/JPY forecasts, citing faster BOJ tightening and the threat of intervention among its reasons.\n\nEven so, the market reaction was modest. WithUS 10-year yields above 5.2%, the interest rate gap continues to favour the dollar. Katayama's refusal to discuss levels or rate checks also leaves traders guessing about how close Tokyo is to acting. The key question now is whether words from Washington and Tokyo will be followed by action if USD/JPY pushes back towards 160.",
+      "date_publication": "2026-09-25T02:42:15.808138+00:00",
+      "tags": [
+        "JPY",
+        "Politics",
+        "BOJ"
+      ],
+      "ignore": false,
+      "categorie": "forex",
+      "date_recuperation": "2026-09-25T02:45:25.278480+00:00",
+      "titre": "Katayama says Trump raised weak yen concerns with Takaichi, USD/JPY eases below 158.50",
+      "url": "https://investinglive.com/forex/katayama-says-trump-raised-weak-yen-concerns-with-takaichi-usd-jpy-eases-below-158-50/"
+    },
     {
       "categorie": "news",
       "titre": "Recession signal flashes on Oxford Economics' US indicator, but spending shows no sign of cracking",
