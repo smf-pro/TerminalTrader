@@ -7,14 +7,14 @@
   },
   "ff_news": [
     {
-      "date_recuperation": "2026-09-25T14:08:30.765261+00:00",
-      "titre": "KC Fed's Schmid: Question is where labor is going to come from as population reaches peak before shrinking",
-      "impact": "low",
-      "extrait": "KC FED;S SCHMID Q&A: QUESTION IS WHERE LABOR GOING TO COME FROM AS POPULATION REACHES PEAK BEFORE SHRINKING #Schmid #FederalReserve #economy",
       "url": "https://www.forexfactory.com/news/1428510-kc-feds-schmid-question-is-where-labor-is",
-      "date_publication": "2026-09-25T14:06:30.765261+00:00",
       "ignore": false,
-      "source": "@MaceNewsMacro"
+      "titre": "KC Fed's Schmid: Question is where labor is going to come from as population reaches peak before shrinking",
+      "date_publication": "2026-09-25T14:06:30.765261+00:00",
+      "impact": "low",
+      "source": "@MaceNewsMacro",
+      "date_recuperation": "2026-09-25T14:08:30.765261+00:00",
+      "extrait": "KC FED;S SCHMID Q&A: QUESTION IS WHERE LABOR GOING TO COME FROM AS POPULATION REACHES PEAK BEFORE SHRINKING #Schmid #FederalReserve #economy"
     },
     {
       "ignore": false,
