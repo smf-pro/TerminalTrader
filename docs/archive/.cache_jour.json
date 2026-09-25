@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T07:17:28.954683+00:00",
+    "ff_news": "2026-09-25T08:01:25.919062+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
     "il_articles": "2026-09-25T07:57:19.294353+00:00"
   },
   "ff_news": [
+    {
+      "source": "ecb.europa.eu",
+      "titre": "Monetary developments in the euro area: August 2026",
+      "impact": "low",
+      "date_recuperation": "2026-09-25T08:02:25.919062+00:00",
+      "date_publication": "2026-09-25T08:01:25.919062+00:00",
+      "ignore": false,
+      "extrait": "Annual growth rate of broad monetary aggregate M3 stood at 3.5% in August 2026, after 3.4% in July 2026 Annual growth rate of narrower monetary aggregate M1, comprising currency in circulation and overnight deposits, decreased to 2.9% in August from 3.1% in July Annual growth rate of adjusted loans to households stood at 3.1% in August, unchanged from ...",
+      "url": "https://www.forexfactory.com/news/1428394-monetary-developments-in-the-euro-area-august-2026"
+    },
     {
       "titre": "Trump: China's Xi and I have forged a truly great friendship",
       "source": "@financialjuice",
@@ -73,18 +83,18 @@
   ],
   "il_articles": [
     {
-      "titre": "USD/JPY falls back toward 158.00 as yen intervention risk threatens bullish breakout",
       "tags": [
         "JPY",
         "USD",
         "Technical analysis"
       ],
-      "url": "https://investinglive.com/forex/usd-jpy-falls-back-toward-158-00-as-yen-intervention-risk-threatens-bullish-breakout/",
       "categorie": "forex",
+      "titre": "USD/JPY falls back toward 158.00 as yen intervention risk threatens bullish breakout",
       "date_recuperation": "2026-09-25T08:00:29.685799+00:00",
+      "contenu": "Summary\n\nUS-Japan concern over yen weakness puts yesterday’s breakout at risk despite elevated Treasury yields\n\nUSD/JPY is back under pressure today, falling towards the 158.00 level and putting yesterday’s technical break in danger of becoming a false one.\n\nIt's important to note here that the dollar backdrop has not suddenly turned bearish. Treasury yields remain elevated, with 10-year yields sitting at 5.17% after having touched a high of 5.22% overnight. The selloff in the bond market has accelerated this week amid a backdrop ofstronger US economic dataandpoor bond auction demand. That just adds to the more hawkish Fed outlook in pushing markets further towards a higher-for-longer rates view.\n\nIn turn, that was what drove USD/JPY to push through key resistance from the 200-day moving average (blue line) and the descending trendline from July. But today, we are seeing that move get called back. So, what gives?\n\nThe only notable change perhaps comes from the yen side of the equation.\n\nJapan finance minister Katayama said that US president Trump had raised concerns about yen weakness in his meeting with Japan prime minister Takaichi. Meanwhile, Tokyo also continues to stress coordination with Washington on FX matters, after Katayama said that the principles behind July’s joint intervention remain in place.\n\nThat seems to be enough to keep traders on their toes about chasing a move in USD/JPY towards 160.00. And from a technical perspective, the timing is quite crucial.\n\nThe breakout yesterday only really counts if buyers can defend it. With price now falling back towards the 158.00 level, a daily close below the 200-day moving average of 158.44 would put the bullish break firmly into question. And even more so if the close falls below the descending trendline near the 158.00 level currently.\n\nTo the downside, the 61.8 Fib retracement level of the swing lower in early September remains the first meaningful support at around 157.52. That being said, the 100-hour moving average at around 157.87 currently wil also be a key near-term level to watch. A break of the latter will invalidate the more bullish near-term bias, removing the momentum that buyers had been building up over the past two weeks.\n\nAs for buyers, they need to reclaim the 200-day moving average to start with before the 100-day moving average (red line) around 159.54 comes back into view. In the big picture though, 160.00 is still the bigger psychological test.\n\nThat very much leaves USD/JPY caught between two opposing forces at the moment. Surging Treasury yields sitting on one side and an increasingly uncomfortable scrutiny of yen weakness by Tokyo on the other side.\n\nFor now, the risks of a failed breakout will grow quickly if buyers cannot retake the 200-day moving average at 158.44. But if they can, then the more bullish structure will stay firmly intact.",
       "date_publication": "2026-09-25T07:57:19.294353+00:00",
       "ignore": false,
-      "contenu": "Summary\n\nUS-Japan concern over yen weakness puts yesterday’s breakout at risk despite elevated Treasury yields\n\nUSD/JPY is back under pressure today, falling towards the 158.00 level and putting yesterday’s technical break in danger of becoming a false one.\n\nIt's important to note here that the dollar backdrop has not suddenly turned bearish. Treasury yields remain elevated, with 10-year yields sitting at 5.17% after having touched a high of 5.22% overnight. The selloff in the bond market has accelerated this week amid a backdrop ofstronger US economic dataandpoor bond auction demand. That just adds to the more hawkish Fed outlook in pushing markets further towards a higher-for-longer rates view.\n\nIn turn, that was what drove USD/JPY to push through key resistance from the 200-day moving average (blue line) and the descending trendline from July. But today, we are seeing that move get called back. So, what gives?\n\nThe only notable change perhaps comes from the yen side of the equation.\n\nJapan finance minister Katayama said that US president Trump had raised concerns about yen weakness in his meeting with Japan prime minister Takaichi. Meanwhile, Tokyo also continues to stress coordination with Washington on FX matters, after Katayama said that the principles behind July’s joint intervention remain in place.\n\nThat seems to be enough to keep traders on their toes about chasing a move in USD/JPY towards 160.00. And from a technical perspective, the timing is quite crucial.\n\nThe breakout yesterday only really counts if buyers can defend it. With price now falling back towards the 158.00 level, a daily close below the 200-day moving average of 158.44 would put the bullish break firmly into question. And even more so if the close falls below the descending trendline near the 158.00 level currently.\n\nTo the downside, the 61.8 Fib retracement level of the swing lower in early September remains the first meaningful support at around 157.52. That being said, the 100-hour moving average at around 157.87 currently wil also be a key near-term level to watch. A break of the latter will invalidate the more bullish near-term bias, removing the momentum that buyers had been building up over the past two weeks.\n\nAs for buyers, they need to reclaim the 200-day moving average to start with before the 100-day moving average (red line) around 159.54 comes back into view. In the big picture though, 160.00 is still the bigger psychological test.\n\nThat very much leaves USD/JPY caught between two opposing forces at the moment. Surging Treasury yields sitting on one side and an increasingly uncomfortable scrutiny of yen weakness by Tokyo on the other side.\n\nFor now, the risks of a failed breakout will grow quickly if buyers cannot retake the 200-day moving average at 158.44. But if they can, then the more bullish structure will stay firmly intact."
+      "url": "https://investinglive.com/forex/usd-jpy-falls-back-toward-158-00-as-yen-intervention-risk-threatens-bullish-breakout/"
     },
     {
       "categorie": "technical-analysis",
