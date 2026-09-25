@@ -2,6 +2,28 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428469-us-ambassador-to-china-us-thinks-there-was",
+      "titre": "US Ambassador to China: US thinks there was China indirect support for Iran",
+      "date_recuperation": "2026-09-25T12:18:23.726431+00:00",
+      "date_publication": "2026-09-25T12:16:23.726431+00:00",
+      "ignore": false,
+      "source": "@financialjuice",
+      "impact": "low",
+      "extrait": "US Ambassador to China: US thinks there was China indirect support for Iran.Trump made clear any help China gives Iran is totally unacceptable, US Ambassador to China says - CNBCUs Ambassador To China: Trump, Xi Had Very Candid, Open Conversation - Cnbc Us Ambassador To China: Trump And Xi Are Beginning To Develop A Relationship Of Some Trust"
+    },
+    {
+      "url": "https://www.forexfactory.com/news/1428468-us-and-china-agree-that-iran-should-not",
+      "extrait_fr": "Les États-Unis et la Chine conviennent que l'Iran ne devrait pas avoir d'armes nucléaires - Perdue",
+      "titre": "US and China agree that Iran should not have nuclear weapons - Perdue",
+      "date_recuperation": "2026-09-25T12:15:26.611058+00:00",
+      "date_publication": "2026-09-25T12:14:26.611058+00:00",
+      "ignore": false,
+      "titre_fr": "Les États-Unis et la Chine conviennent que l'Iran ne devrait pas avoir d'armes nucléaires - Perdue",
+      "source": "@financialjuice",
+      "impact": "low",
+      "extrait": "US and China agree that Iran should not have nuclear weapons - Perdue"
+    },
+    {
       "impact": "high",
       "extrait": "Katayama: Takaichi Very Much Respects Independence Of Boj || Katayama: Won't Hesitate To Take Bold Action On Yen Katayama: Defense Spending At 2% Of Gdp Is 'not Enough' || Katayama: Our Defense Policy Not Determined By Us Pressure",
       "source": "@finsquawk_",
