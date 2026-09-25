@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T06:14:24.874366+00:00",
+    "ff_news": "2026-09-25T07:17:28.954683+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
     "il_articles": "2026-09-25T07:00:15.212619+00:00"
   },
   "ff_news": [
+    {
+      "ignore": false,
+      "url": "https://www.forexfactory.com/news/1428391-trump-chinas-xi-and-i-have-forged-a",
+      "date_publication": "2026-09-25T07:17:28.954683+00:00",
+      "titre": "Trump: China's Xi and I have forged a truly great friendship",
+      "extrait": "Trump: China's Xi and I have forged a truly great friendship",
+      "date_recuperation": "2026-09-25T07:18:28.954683+00:00",
+      "impact": "low",
+      "source": "@financialjuice"
+    },
     {
       "date_recuperation": "2026-09-25T06:15:24.874366+00:00",
       "url": "https://www.forexfactory.com/news/1428387-eu-urges-uk-to-raise-tariffs-on-chinese",
