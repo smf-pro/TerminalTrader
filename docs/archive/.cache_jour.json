@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T17:14:26.571466+00:00",
+    "ff_news": "2026-09-25T17:21:25.139402+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
     "il_articles": "2026-09-25T17:09:52.191680+00:00"
   },
   "ff_news": [
+    {
+      "titre": "Trump on China meeting: Much has been, and will be, accomplished. I look forward to our next meeting!",
+      "ignore": false,
+      "date_publication": "2026-09-25T17:21:25.139402+00:00",
+      "impact": "low",
+      "url": "https://www.forexfactory.com/news/1428580-trump-on-china-meeting-much-has-been-and",
+      "source": "@realDonaldTrump",
+      "date_recuperation": "2026-09-25T17:22:25.139402+00:00",
+      "extrait": "President Xi and Madam Peng have just left D.C., heading for China. The meeting was one of Friendship, Strength, and Success, for both China and the U.S.A. We will be meeting again in November, in China, and then at the G20 in December, in Miami, Florida. Much has been, and will be, accomplished. I look forward to our next meeting! President DONALD J. TRUMP"
+    },
     {
       "date_recuperation": "2026-09-25T17:15:26.571466+00:00",
       "source": "@FirstSquawk",
