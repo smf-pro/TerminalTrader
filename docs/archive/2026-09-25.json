@@ -2,6 +2,26 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "impact": "low",
+      "date_publication": "2026-09-25T09:34:28.526686+00:00",
+      "ignore": false,
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-25T09:35:28.526686+00:00",
+      "titre": "BoE Gov. Bailey: AI could be a positive shock in an era of negative supply shocks",
+      "extrait": "BoE Gov. Bailey: AI could be a positive shock in an era of negative supply shocks",
+      "url": "https://www.forexfactory.com/news/1428404-boe-gov-bailey-ai-could-be-a-positive"
+    },
+    {
+      "impact": "high",
+      "date_publication": "2026-09-25T09:33:24.662369+00:00",
+      "ignore": false,
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-25T09:34:24.662369+00:00",
+      "extrait": "Japan's PM Takaichi: Trump said in the summit meeting that the weak Yen is pressuring US trade",
+      "titre": "Japan's PM Takaichi: Trump said in the summit meeting that the weak Yen is pressuring US trade",
+      "url": "https://www.forexfactory.com/news/1428403-japans-pm-takaichi-trump-said-in-the-summit"
+    },
+    {
       "source": "ecb.europa.eu",
       "titre": "Monetary developments in the euro area: August 2026",
       "impact": "low",
