@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-25T06:14:24.874366+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
-    "il_articles": "2026-09-25T06:04:54.411637+00:00"
+    "il_articles": "2026-09-25T06:28:41.348051+00:00"
   },
   "ff_news": [
     {
@@ -62,6 +62,18 @@
     }
   ],
   "il_articles": [
+    {
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-50/",
+      "contenu": "Summary\n\nWe don't have much on the agenda today as the focus remains on US-Iran headlines\n\nEUROPEAN SESSION\n\nIn the European session, we have the final Spain's Q2 GDP which is expected to confirm a 0.7% quarterly growth vs 0.7% in the preliminary reading. The data won't change anything for the ECB, though, so the market reaction will likely be muted.\n\nThe markets are currently focused on renewed hopes for quick de-escalation and the reopening of the Strait of Hormuz following yesterday's news that Iran has put a fast-track offer  on the table, promising to reopen the Strait of Hormuz within seven days if the US meets its terms.\n\nIran's Foreign Minister Araghchi is staying in New York over the weekend to await a US response. This has, of course, reversed the negative sentiment and risk assets started to get bid ahead of the weekend.\n\nAMERICAN SESSION\n\nIn the American session, we don't have much on the agenda other than a couple a low-tier releases like the US durable goods orders and the final UMich consumer sentiment report. None of the data is going to change anything for the Fed, so the market reaction will likely be muted. Again, the focus will remain solely on US-Iran developments as pretty much everything has been driven by oil prices in the past months.\n\nCENTRAL BANK SPEAKERS\n\n09:15 GMT/05:15 ET - Fed's Williams (neutral - voter)\n\n18:00 GMT/14:00 ET - Fed's Hammack (hawk - voter)\n\n18:00 GMT/14:00 ET - ECB's Vujcic (neutral - voter)",
+      "categorie": "news",
+      "tags": [
+        "market overview"
+      ],
+      "ignore": false,
+      "date_publication": "2026-09-25T06:28:41.348051+00:00",
+      "titre": "What are the main events for today?",
+      "date_recuperation": "2026-09-25T06:30:28.427623+00:00"
+    },
     {
       "titre": "iFX Hack Hong Kong 2026 Brings AI and Fintech Innovation to The University of Hong Kong",
       "date_recuperation": "2026-09-25T06:10:22.991054+00:00",
