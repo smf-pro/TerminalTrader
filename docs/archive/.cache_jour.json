@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-25T00:07:25.879832+00:00",
     "cb_articles": "2026-09-25T00:14:05.187838+00:00",
-    "il_articles": "2026-09-25T00:46:07.355417+00:00"
+    "il_articles": "2026-09-25T01:14:22.164846+00:00"
   },
   "ff_news": [
     {
@@ -32,6 +32,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-25T01:15:28.239215+00:00",
+      "contenu": "Summary\n\nGoldman Sachs cut its USD/JPY forecasts to 158, 155 and 150 over three, six and 12 months from 162, 163 and 165, citing faster BOJ hikes, possible Japanese capital repatriation and the risk of intervention. It favours selling EUR/JPY for now.\n\nA 15-yen cut to a 12-month target from one of the most influential  desks carries weight. It gives yen bulls cover just as USD/JPY pushes towards 160. The bigger risk for the market is to carry trades: if Japanese investors really do start moving money home, positions that borrow in yen to buy higher-yielding assets could unwind quickly. Goldman choosing to sell EUR/JPY rather than USD/JPY suggests it still respects the support that high US yields give the dollar in the near term.\n\nFor Australian traders, AUD/JPY faces a double headwind, from a stronger yen and from the BOJ narrowing the rate gap with theRBA. Any fresh intervention from Tokyo would be the fastest route towards Goldman's lower targets.\n\nIn July, Goldman said only a more aggressive BOJ would stop the yen's slide. Now the BOJ is getting more aggressive, and Goldman has cut its USD/JPY targets and recast the yen as a hedge against recession.\n\nGoldman Sachs cut its USD/JPY forecasts to 158 (three months), 155 (six months) and 150 (12 months), from 162, 163 and 165\n\nFaster BOJ tightening is seen offsetting the inflationary effect of Japan's expansionary fiscal policy\n\nGoldman sees rising odds of Japanese investors shifting money back home, although that remains largely speculative\n\nIt sees long yen positions as especially useful as a hedge against recession risk\n\nThe threat of further intervention is expected to cap the dollar's gains against the yen\n\nTactically, Goldman favours selling the euro against the yen\n\nGoldman Sachs has cut its USD/JPY forecasts across the board, Sina Finance reported. The bank argues that an improving policy backdrop in Japan and the prospect of Japanese money returning home have strengthened the case for owning the yen. Strategist Karen Reichgott Fishman now sees the pair at 158 in three months, 155 in six months and 150 in 12 months, down from previous targets of 162, 163 and 165.\n\nThe revision is a marked reversal. As recently as July, Goldman had raised those same forecasts and stood among the most bearish voices on the yen. It cited persistently high US yields, low US recession risk, Japanese fiscal concerns and only gradual tightening from the Bank of Japan. At the time, the bank said the dollar's climb against the yen was unlikely to stop without a US growth shock or a more aggressive BOJ.\n\nThe second of those conditions has moved into view. The BOJ raised its policy rate to 1.25% this month, and Governor Kazuo Ueda declared a shift in the policy phase, with the focus now on keeping inflation stable at 2% rather than pushing it higher. Fishman argues that faster BOJ hikes help offset the inflationary pull of expansionary fiscal policy. They also make it more likely that Japanese investors will move their portfolios back into domestic assets.\n\nGoldman acknowledges that this repatriation story remains largely speculative, but it sees the odds rising, which adds to the downside risks for USD/JPY. Fishman wrote that, taken together, these developments have made long yen positions more appealing, and particularly well suited as a hedge against the risk of a recession.\n\nThe bank also expects the threat of further intervention by Japanese authorities to limit how far the dollar can climb against the yen. Tokyo has already stepped into the market this year, and the US Treasury has itself bought yen as Washington tries to contain rising borrowing costs.\n\nIn the near term, however, Goldman is keeping a cautious tactical stance. Rather than betting directly against the dollar, its preferred trade is to sell the euro against the yen. That position benefits from yen strength without relying on a turn in US yields.\n\nThe new forecasts run against a market that has been moving the other way. USD/JPY has been climbing towards 160, supported by US 10-year yields above 5.2%. Even Goldman's three-month target implies only a modest pullback from there. The bigger shift comes at the six and 12-month horizons, when Goldman expects the effects of BOJ tightening and capital flows to build.",
+      "tags": [
+        "JPY"
+      ],
+      "url": "https://investinglive.com/forex/goldman-cuts-usd-jpy-forecasts-sees-150-in-a-year-as-boj-tightening-boosts-yen-case/",
+      "titre": "Goldman cuts USD/JPY forecasts, sees 150 in a year as BOJ tightening boosts yen case",
+      "categorie": "forex",
+      "date_publication": "2026-09-25T01:14:22.164846+00:00",
+      "ignore": false
+    },
     {
       "date_publication": "2026-09-25T00:46:07.355417+00:00",
       "tags": [
