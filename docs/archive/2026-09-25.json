@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "date_publication": "2026-09-25T09:48:28.198613+00:00",
+      "extrait": "Fed's Williams: Can't ignore persistent supply shocks",
+      "titre": "Fed's Williams: Can't ignore persistent supply shocks",
+      "url": "https://www.forexfactory.com/news/1428417-feds-williams-cant-ignore-persistent-supply-shocks",
+      "impact": "low",
+      "date_recuperation": "2026-09-25T09:50:28.198613+00:00",
+      "source": "@financialjuice",
+      "ignore": false
+    },
+    {
       "impact": "low",
       "extrait": "SNB's Chairman Schlegel: Moderate Swiss growth expected in coming quartersSNB's Chairman Schlegel: Rise in Swiss inflation mainly due to petrol products",
       "date_publication": "2026-09-25T09:38:24.883060+00:00",
@@ -107,6 +117,20 @@
     }
   ],
   "il_articles": [
+    {
+      "date_publication": "2026-09-25T09:48:13.730210+00:00",
+      "titre": "USD/JPY falls below 158.00 as Takaichi says Trump flagged weak yen pressure",
+      "tags": [
+        "JPY",
+        "USD",
+        "Policy intervention"
+      ],
+      "url": "https://investinglive.com/forex/usd-jpy-falls-below-158-00-as-takaichi-says-trump-flagged-weak-yen-pressure/",
+      "categorie": "forex",
+      "date_recuperation": "2026-09-25T09:49:50.069252+00:00",
+      "contenu": "Summary\n\nFresh comments from Japan prime minister Takaichi add political weight to intervention risks as USD/JPY’s bullish breakout starts to unravel\n\nUSD/JPY is extending its drop today, now down around 0.6% to 157.90 as Japan prime minister Takaichi adds more colour to her summit meeting with US president Trump.\n\nTakaichi says Trump had told her that a weaker yen is putting pressure on US trade. And that adds to the concerns flagged by Japan finance minister Katayama earlier in the day. Katayama had previously revealed that Trump raised the issue of yen weakness during the meeting, with Tokyo also reaffirming close coordination with Washington on currency matters.\n\nBesides that, Takaichi also says there was no discussion on financial or fiscal policy between the two leaders.\n\nThat's important to note as it doesn't necessarily hint that Washington is leaning on Tokyo over the BOJ or the government's broader policy setting. However, it it does reinforce the fact that the yen itself is increasingly becoming a political and trade issue for both sides.\n\nCircling back to USD/JPY, the pair was alreadythreatening to invalidate yesterday's technical breakoutearlier in the session. The 200-day moving average sits around 158.44 while the descending trendline comes in closer to 158.00, so buyers are now losing both levels amid the latest decline.\n\nThat now puts the 100-hour moving average (red line) at around 157.89 in play. A firm break below there would weaken the near-term bullish structure further, with the 200-hour moving average (blue line) offering another layer of near-term support but only closer to 156.91.\n\nThat being said, higher Treasury yields are still keeping the broader dollar backdrop supported. But for USD/JPY specifically, traders now have to also deal with a more uncomfortable political risk sitting on the other side of that trade.",
+      "ignore": false
+    },
     {
       "tags": [
         "JPY",
