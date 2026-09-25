@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T12:35:26.638284+00:00",
+    "ff_news": "2026-09-25T12:47:28.939162+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
-    "il_articles": "2026-09-25T12:30:12.811146+00:00"
+    "il_articles": "2026-09-25T12:47:20.335757+00:00"
   },
   "ff_news": [
+    {
+      "url": "https://www.forexfactory.com/news/1428476-ustr-greer-we-have-reached-agreements-with-china",
+      "source": "@DeItaone",
+      "date_publication": "2026-09-25T12:47:28.939162+00:00",
+      "date_recuperation": "2026-09-25T12:49:28.939162+00:00",
+      "titre": "USTR Greer: We Have Reached Agreements With China On Subset Of Goods We Can Trade",
+      "impact": "low",
+      "extrait": "Ustr Greer: We Have Reached Agreements With China On Subset Of Goods We Can TradeUs, China Reached Agreement On Number Of Trade Areas - GreerUstr Greer: Conversations With China About Export Controls, National Security Are Off The Table In These Talks -cnbc*china, Us In A Managed Trade Situation, Had Progress : Greer *greer: Will Release Details On China Trade Talks On Monday",
+      "ignore": false
+    },
     {
       "source": "breakingthenews.net",
       "extrait": "More to come...",
@@ -197,6 +207,18 @@
     }
   ],
   "il_articles": [
+    {
+      "categorie": "news",
+      "url": "https://investinglive.com/news/ustr-s-greer-we-have-reached-agreements-with-china-on-a-sub-set-of-goods-we-can-trade/",
+      "contenu": "Summary\n\nComments from Greer\n\nSpeaking on CNBC, Greer said the US will release on Monday the details of negotiations between China and the US.\n\nI wouldn't expect to be overwhelmed but at least it's all on the rails.\n\nMeanwhile Trump is tweeting. It seems we're at the stage of his Presidency, where he's all about re-naming things.\n\nI think people will continue to call it whatever they want.",
+      "date_publication": "2026-09-25T12:47:20.335757+00:00",
+      "date_recuperation": "2026-09-25T12:50:23.731975+00:00",
+      "tags": [
+        "USD"
+      ],
+      "titre": "USTR's Greer: We have reached agreements with China on a sub-set of goods we can trade",
+      "ignore": false
+    },
     {
       "date_publication": "2026-09-25T12:30:12.811146+00:00",
       "date_recuperation": "2026-09-25T12:30:28.301277+00:00",
