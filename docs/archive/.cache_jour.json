@@ -3,7 +3,7 @@
   "curseurs": {
     "ff_news": "2026-09-25T12:16:23.726431+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
-    "il_articles": "2026-09-25T11:10:37.786809+00:00"
+    "il_articles": "2026-09-25T12:16:53.513683+00:00"
   },
   "ff_news": [
     {
@@ -187,6 +187,18 @@
     }
   ],
   "il_articles": [
+    {
+      "ignore": false,
+      "categorie": "technical-analysis",
+      "titre": "Morning Kickstart: Yen jumps as USDJPY breaks 158.00 and oil slides",
+      "tags": [
+        "USD"
+      ],
+      "date_publication": "2026-09-25T12:16:53.513683+00:00",
+      "contenu": "Summary\n\nSeptember 25, 2026 — The dollar is mostly lower, stock futures rise, and traders watch for progress in U.S.–Iran talks\n\nThe yen is the standout currency this morning. The U.S. dollar is down0.77% against the JPY, with USDJPY trading near157.61. Japan’s Finance Minister Satsuki Katayama said President Trump raised concerns about yen weakness during his meeting with Prime Minister Sanae Takaichi. Katayama said Takaichi replied that an undervalued yen was problematic as a general principle.\n\nUSDJPY has also fallen back below its200-hour moving average and 50% retracement near 158.45, followed by the swing area around158.00. Sellers have more control while the price stays below those levels. Buyers need to reclaim 158.00 first, then 158.45, to start repairing the short-term technical picture.\n\nThe dollar is mixed but mostly lower. It is down against theEUR, JPY, GBP, AUD and NZD, while gaining against theCHF and CAD. The yen has made the strongest move against the dollar.\n\nU.S. stock-index futures are higher, helped by lower oil prices and hopes for steadier China–U.S. relations (7:40 AM ET):\n\nDow futures:up 160 points\n\nS&P 500 futures:up 28.12 points\n\nNasdaq futures:up 200 points\n\nCostco is a notable exception to the firmer equity tone. Its shares are lower despite fiscal fourth-quarter results that beat expectations. Earnings were$6.75 per share versus $6.54 expected, while revenue came in at$95.72 billion versus $94.97 billion expected. It is a reminder that beating estimates does not, by itself, guarantee a higher stock price: traders also weigh what was already priced in and what they expect next.\n\n2-year:4.8869%, down 0.81 basis point\n\n5-year:5.0232%, down 0.38 basis point\n\n10-year:5.1688%, up 0.68 basis point\n\n30-year:5.4671%, up 0.51 basis point\n\nCrude oil is down2.40% at $92.43as traders weigh the possibility of progress between the U.S. and Iran. Iranian President Masoud Pezeshkian said Tehran wants to restore a ceasefire understanding before the November midterm elections and is open to inspections of its nuclear facilities. A phased deal under discussion would involve reopening the Strait of Hormuz and lifting the U.S. blockade. Those comments offer a possible path forward, but oil traders will be looking for concrete steps from both sides.Read more on Pezeshkian’s comments.\n\nGold is higher with the dollar mostly lower, while Bitcoin is up modestly.\n\nOn the North American calendar,August durable goods ordersare due at8:30 a.m. ET, followed by thefinal September University of Michigan consumer sentiment readingat10:00 a.m. ET. Durable goods orders are expected to fall0.4%after July’s1.1% rise. The preliminary sentiment reading was47.8 and it is expected at 47.6; traders will also watch for changes in inflation expectations which came in at 4.6% for 1 year and 3.4% for the 5 year in the preliminary report.  .\n\nIn the morning video above, I take a look atEURUSD, USDJPY and GBPUSDfrom a technical perspective. For each pair, I outline the bias, the risk-defining levels and the targets that would give either buyers or sellers more control.",
+      "url": "https://investinglive.com/technical-analysis/morning-kickstart-yen-jumps-as-usdjpy-breaks-158-00-and-oil-slides/",
+      "date_recuperation": "2026-09-25T12:20:24.666276+00:00"
+    },
     {
       "date_recuperation": "2026-09-25T11:15:25.213970+00:00",
       "categorie": "central-banks",
