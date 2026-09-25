@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "extrait": "Japan's PM Takaichi: Trump said in the summit meeting that the weak Yen is pressuring US trade",
+      "titre": "Japan's PM Takaichi: Trump said in the summit meeting that the weak Yen is pressuring US trade",
+      "url": "https://www.forexfactory.com/news/1428403-japans-pm-takaichi-trump-said-in-the-summit",
+      "ignore": false,
+      "impact": "high",
+      "date_publication": "2026-09-25T09:33:24.662369+00:00",
+      "source": "@financialjuice",
+      "date_recuperation": "2026-09-25T09:34:24.662369+00:00"
+    },
+    {
       "source": "ecb.europa.eu",
       "titre": "Monetary developments in the euro area: August 2026",
       "impact": "low",
