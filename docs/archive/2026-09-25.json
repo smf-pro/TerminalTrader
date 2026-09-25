@@ -184,14 +184,14 @@
   "il_articles": [
     {
       "date_publication": "2026-09-25T12:30:12.811146+00:00",
+      "date_recuperation": "2026-09-25T12:30:28.301277+00:00",
+      "contenu": "Summary\n\nUS durable goods orders for August 2026\n\nPrior was +1.1%\n\nEx-transport vs +0.6% expected\n\nPrior ex-transport +0.4%\n\nEx-defense vs +1.3% prior\n\nNon-defense capital goods orders ex-air vs +0.5% expected\n\nPrior +0.2%",
+      "ignore": false,
+      "categorie": "news",
       "tags": [
         "USD"
       ],
-      "contenu": "Summary\n\nUS durable goods orders for August 2026\n\nPrior was +1.1%\n\nEx-transport vs +0.6% expected\n\nPrior ex-transport +0.4%\n\nEx-defense vs +1.3% prior\n\nNon-defense capital goods orders ex-air vs +0.5% expected\n\nPrior +0.2%",
-      "ignore": false,
-      "date_recuperation": "2026-09-25T12:30:28.301277+00:00",
       "titre": "US August durable goods orders 0.0% vs -0.4% expected",
-      "categorie": "news",
       "url": "https://investinglive.com/news/us-august-durable-goods-orders-0-0-vs-0-4-expected/"
     },
     {
