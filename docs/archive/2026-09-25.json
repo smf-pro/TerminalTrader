@@ -2,14 +2,14 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "source": "@zerohedge",
+      "date_recuperation": "2026-09-25T12:57:28.136796+00:00",
+      "extrait": "*japanese, Us Finance Chiefs Discuss Yen Depreciation: Kyodo",
+      "date_publication": "2026-09-25T12:56:28.136796+00:00",
       "url": "https://www.forexfactory.com/news/1428477-japanese-us-finance-chiefs-discuss-yen-depreciation-kyodo",
       "titre": "Japanese, US Finance Chiefs Discuss Yen Depreciation: Kyodo",
       "ignore": false,
-      "date_recuperation": "2026-09-25T12:57:28.136796+00:00",
-      "impact": "low",
-      "source": "@zerohedge",
-      "date_publication": "2026-09-25T12:56:28.136796+00:00",
-      "extrait": "*japanese, Us Finance Chiefs Discuss Yen Depreciation: Kyodo"
+      "impact": "low"
     },
     {
       "date_publication": "2026-09-25T12:47:28.939162+00:00",
