@@ -1,11 +1,21 @@
 {
   "date": "2026-09-25",
   "curseurs": {
-    "ff_news": "2026-09-25T16:35:26.048261+00:00",
+    "ff_news": "2026-09-25T17:14:26.571466+00:00",
     "cb_articles": "2026-09-25T11:10:37.786809+00:00",
-    "il_articles": "2026-09-25T16:02:41.979952+00:00"
+    "il_articles": "2026-09-25T17:09:52.191680+00:00"
   },
   "ff_news": [
+    {
+      "date_recuperation": "2026-09-25T17:15:26.571466+00:00",
+      "source": "@FirstSquawk",
+      "url": "https://www.forexfactory.com/news/1428579-us-official-us-is-in-a-strong-position",
+      "extrait": "Us Official: Washington Is In A Strong Position And Controls Hormuz Strait, Therefore We Are Not In A Hurry To Reach An Agreement With IranBreaking | US official to Al Jazeera: Washington is in a strong position and controls the Strait of Hormuz, therefore we are not in a hurry to reach an agreement with #Iran",
+      "impact": "low",
+      "titre": "Us Official: US Is In A Strong Position And Controls Hormuz Strait, Not In A Hurry To Reach An Agreement With Iran",
+      "date_publication": "2026-09-25T17:14:26.571466+00:00",
+      "ignore": false
+    },
     {
       "titre": "Senior Iranian Official: Iran will make no concessions on its nuclear program",
       "date_publication": "2026-09-25T16:35:26.048261+00:00",
@@ -287,6 +297,18 @@
     }
   ],
   "il_articles": [
+    {
+      "date_recuperation": "2026-09-25T17:10:29.519874+00:00",
+      "tags": [
+        "USD"
+      ],
+      "contenu": "Summary\n\nAs the week comes to a close, the major currencies are mostly lower vs the USD with the USDJPY the biggest mover.  In the video, I take a look at the technicals driving the EURUSD, USDJPY, GBPUSD, USDCHF and USDCAD going into the new trading week. .\n\nThe US dollar has moved higher against all the major currencies this week. Today, however, the greenback is lower against most of them as some traders take profits and oil prices ease. That pullback has given the other currencies some breathing room, but it has not, by itself, changed the technical bias. For most of the pairs I follow, the charts still favor the dollar.\n\nSo what should traders watch as this week ends and a new one begins?\n\nEURUSD\n\nUSDJPY\n\nGBPUSD\n\nUSDCHF\n\nUSDCAD\n\nFor each pair, I identify the current bias, the levels that would begin to turn that bias the other way, and the next targets if the prevailing move continues. Those levels give traders a way to judge whether today’s dollar weakness is a temporary correction or the start of something more meaningful.\n\nThere is an important lesson in that preparation. Trading does not begin when the price reaches a level. The work starts beforehand, when you decide what you will look forifit gets there.\n\nThe best traders are able to anticipate because they have prepared for more than one outcome. They know where buyers or sellers have previously stepped in. They know which levels need to hold for the current bias to remain intact. And they know what would make them change their view. When price reaches one of those levels, they can assess the reaction instead of making a rushed decision in the moment.\n\nThat does not mean predicting where each pair will trade next week. It means having a plan:If this level holds, what is the next target? If it breaks, where does the bias shift?The market will make the decision. Our job is to be ready to respond when it does.\n\nIn the video, I lay out those levels across all five pairs so traders can finish this week with a clearer picture of the risks and prepare for the opportunities ahead.",
+      "url": "https://investinglive.com/forex/kickstart-your-new-trading-week-ahead-in-the-forex-with-a-technical-look-at-some-of-the-major-pairs/",
+      "date_publication": "2026-09-25T17:09:52.191680+00:00",
+      "titre": "Kickstart your new trading week ahead in the forex with a technical look at some of the major pairs",
+      "categorie": "forex",
+      "ignore": false
+    },
     {
       "url": "https://investinglive.com/news/tehran-describes-talks-atmosphere-as-increasingly-positive-report/",
       "titre": "Tehran describes talks atmosphere as increasingly positive - report",
