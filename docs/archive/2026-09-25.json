@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "source": "breakingthenews.net",
+      "extrait": "More to come...",
+      "ignore": false,
+      "date_publication": "2026-09-25T12:35:26.638284+00:00",
+      "date_recuperation": "2026-09-25T12:37:26.638284+00:00",
+      "titre": "US durable goods orders virtually unchanged in August",
+      "url": "https://www.forexfactory.com/news/1428473-us-durable-goods-orders-virtually-unchanged-in-august",
+      "impact": "low"
+    },
+    {
       "date_recuperation": "2026-09-25T12:18:23.726431+00:00",
       "url": "https://www.forexfactory.com/news/1428469-us-ambassador-to-china-us-thinks-there-was",
       "impact": "low",
