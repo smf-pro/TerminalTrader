@@ -2,6 +2,16 @@
   "date": "2026-09-25",
   "ff_news": [
     {
+      "date_recuperation": "2026-09-25T06:15:24.874366+00:00",
+      "url": "https://www.forexfactory.com/news/1428387-eu-urges-uk-to-raise-tariffs-on-chinese",
+      "source": "@FirstSquawk",
+      "extrait": "EU urges UK to raise tariffs on Chinese cars to avoid Made in Europe barriers, FT reportsEU pushes Trump to preserve free flow of diesel, FT reports",
+      "titre": "EU urges UK to raise tariffs on Chinese cars to avoid Made in Europe barriers, FT reports",
+      "ignore": false,
+      "impact": "low",
+      "date_publication": "2026-09-25T06:14:24.874366+00:00"
+    },
+    {
       "impact": "low",
       "extrait": "Japan finmin katayama: deciding on specific monetary policy tools is up to BoJKatayama: BoJs recent rate reduction was intended to achieve inflation targetJapan finance minister katayama: expect BoJ to implement suitable monetary policy while cooperating with government",
       "titre": "Japan FinMin Katayama: Deciding on specific monetary policy tools is up to BoJ",
