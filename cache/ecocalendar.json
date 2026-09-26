@@ -1,34 +1,4 @@
 {
-  "211ce7c5aeeb22b8cb8ad5d10184284f0c6b63177c19604f0dddab2d53a64838": {
-    "date_evenement": "2026-09-16T02:00:00-04:00",
-    "forecast": "3.1%",
-    "previous": "2.9%",
-    "actual": null
-  },
-  "c2c2484c6ce4913b3bcc9a10299b7a99bde6ee4bec096440818c444c39768bbf": {
-    "date_evenement": "2026-09-16T02:00:00-04:00",
-    "forecast": "2.6%",
-    "previous": "2.6%",
-    "actual": null
-  },
-  "d5fbaf1b729bc05820e429a84989efc448857f0852d48f93ec4582cc1949f040": {
-    "date_evenement": "2026-09-16T02:00:00-04:00",
-    "forecast": "0.6%",
-    "previous": "-1.7%",
-    "actual": null
-  },
-  "2b539b065fadec5dd7b38f93419c972957215f5539bae9a60b5db25bfdc99d79": {
-    "date_evenement": "2026-09-16T02:00:00-04:00",
-    "forecast": "0.5%",
-    "previous": "0.2%",
-    "actual": null
-  },
-  "2d0f79c2f04692d81dd111d8dfcf84048392f156cf717a485e8b5314edddc86c": {
-    "date_evenement": "2026-09-16T02:00:00-04:00",
-    "forecast": "3.5%",
-    "previous": "3.2%",
-    "actual": null
-  },
   "32f15ca7a4b78ebedf7a41e43573f4330d339be3728ac6412c4d852248a44d05": {
     "date_evenement": "2026-09-16T04:30:00-04:00",
     "forecast": "2.1%",
