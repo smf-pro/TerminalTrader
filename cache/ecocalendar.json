@@ -1,10 +1,4 @@
 {
-  "e62040e3840d21f0cfef8e114b5cc730a69ef240842990ba193d8bb8aabe0963": {
-    "date_evenement": "2026-09-16T16:00:00-04:00",
-    "forecast": "146.3B",
-    "previous": "172.7B",
-    "actual": null
-  },
   "5511c3f5d0d2f2e1e16547671e2a120b018b107d3bcb2de74b0694884154f232": {
     "date_evenement": "2026-09-16T18:45:00-04:00",
     "forecast": "0.1%",
