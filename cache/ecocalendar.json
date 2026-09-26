@@ -1,34 +1,4 @@
 {
-  "ad52c802283c014457c63bb23c7626b63b810e3fee316c484ac8fe2820525981": {
-    "date_evenement": "2026-09-16T13:30:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
-  "8a178a891a632d35f77255615348d8659837559df4deb4cb2ae5b9265ae9bb02": {
-    "date_evenement": "2026-09-16T14:00:00-04:00",
-    "forecast": "4.00%",
-    "previous": "3.75%",
-    "actual": null
-  },
-  "3a99b11c3b758c926b91cda73a41fcd594a8f13ebb46147b746ea3ed55a1fc8b": {
-    "date_evenement": "2026-09-16T14:00:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
-  "4308a563751441987f5b652e62a14554b68893ada1c62c15e90ac0f703b6ec4d": {
-    "date_evenement": "2026-09-16T14:00:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
-  "8524304c0573dab9c142195c98fa936a483875cb493efd56645f6ea05ae75357": {
-    "date_evenement": "2026-09-16T14:30:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
   "e62040e3840d21f0cfef8e114b5cc730a69ef240842990ba193d8bb8aabe0963": {
     "date_evenement": "2026-09-16T16:00:00-04:00",
     "forecast": "146.3B",
@@ -259,12 +229,6 @@
   },
   "850d8434be30ee8e10e97a57f48674a6dc73aa173ba3752e6e63348871c123fc": {
     "date_evenement": "2026-09-18T11:45:00-04:00",
-    "forecast": null,
-    "previous": null,
-    "actual": null
-  },
-  "57f96055979dfb7235ee5fbb69982daf0b71f1b7b3195204e569d694d9ada071": {
-    "date_evenement": "2026-09-16T12:00:00-04:00",
     "forecast": null,
     "previous": null,
     "actual": null
