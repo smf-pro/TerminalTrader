@@ -8,3 +8,4 @@ websocket-client
 selenium
 deep-translator
 curl_cffi
+pdfplumber
