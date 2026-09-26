@@ -2,6 +2,26 @@
   "date": "2026-09-26",
   "ff_news": [
     {
+      "url": "https://www.forexfactory.com/news/1428651-trump-says-he-has-rejected-irans-proposal",
+      "source": "@NodeWire",
+      "date_publication": "2026-09-26T14:36:27.588413+00:00",
+      "extrait": "Trump Says He Has Rejected Irans Proposal ...Trump: We want Americans to have access to CubaTrump: Chinas Xi Understands My Stance On Taiwan ...",
+      "impact": "low",
+      "titre": "Trump: Says he has rejected Iran's proposal",
+      "date_recuperation": "2026-09-26T14:37:27.588413+00:00",
+      "ignore": false
+    },
+    {
+      "date_recuperation": "2026-09-26T14:26:24.905271+00:00",
+      "source": "@realDonaldTrump",
+      "date_publication": "2026-09-26T14:25:24.905271+00:00",
+      "extrait": "IRAN CAN NOT HAVE A NUCLEAR WEAPON!!! President DJT",
+      "impact": "low",
+      "titre": "Iran can not have a nuclear weapon!!!",
+      "url": "https://www.forexfactory.com/news/1428650-iran-can-not-have-a-nuclear-weapon",
+      "ignore": false
+    },
+    {
       "url": "https://www.forexfactory.com/news/1428641-fact-sheet-president-donald-j-trump-advances-a",
       "titre": "Fact Sheet: President Donald J. Trump Advances a Fair and Reciprocal Relationship with China While Hosting Historic State Visit",
       "impact": "low",
