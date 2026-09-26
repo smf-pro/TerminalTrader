@@ -337,7 +337,7 @@ select:focus,.inp:focus{border-color:var(--amber)}
 .pipe div{background:var(--panel);padding:9px 14px;display:flex;align-items:center;gap:9px;font-size:12px}
 .pipe small{margin-left:auto;font:11px var(--mono);color:var(--dim)}
 .ib{display:inline-block;padding:1px 8px;border-radius:5px;font:500 11px var(--font);border:1px solid var(--line2);color:var(--mut)}
-.ib.high{color:var(--dn);border-color:rgba(255,94,122,.5)} .ib.med{color:#FFA94D;border-color:rgba(255,169,77,.5)} .ib.holiday{color:var(--dim)}
+.ib.high{color:var(--dn);border-color:rgba(255,94,122,.5)} .ib.med{color:var(--tx)} .ib.holiday{color:var(--dim)}
 .evs td.tt{max-width:340px;white-space:normal}
 .mrow{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;transition:background .15s}
 .mrow:hover,.mrow.on{background:var(--panel2)}
@@ -399,11 +399,7 @@ select:focus,.inp:focus{border-color:var(--amber)}
 .nc.new{animation:nin .9s}
 .nc .m{display:flex;gap:10px;align-items:center;margin-bottom:5px;font:11.5px var(--mono);color:var(--dim)}
 .nc .hd2{cursor:pointer;font-weight:500;font-size:13px}.nc .hd2:hover{color:#fff}
-.nc .sn{max-height:0;opacity:0;overflow:hidden;margin-top:0;color:var(--mut);font-size:12.5px;line-height:1.55;transition:max-height .35s ease,opacity .3s ease,margin-top .35s ease}
-.nc.open .sn{max-height:6000px;opacity:1;margin-top:8px;overflow:visible}
-.nc .sn p{margin:0 0 10px}.nc .sn p:last-of-type{margin-bottom:0}.nc .sn a.src{display:inline-block;margin-top:10px;color:var(--tx);text-decoration:underline;text-underline-offset:3px}
-.tagp.hot{color:var(--dn);border-color:rgba(255,94,122,.5)}
-.tagp.blue{color:#6E71FF;border-color:#0005ff}
+.nc .sn{display:none;margin-top:6px;color:var(--mut);font-size:12.5px;line-height:1.55}.nc.open .sn{display:block}
 .tagp{padding:1px 8px;border-radius:5px;border:1px solid var(--line2);font:500 11px var(--font);color:var(--mut)}
 .mkl{display:flex;align-items:center;gap:8px}
 @media (max-width:1180px){.cesi-card{grid-column:span 6}.csgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -1033,11 +1029,11 @@ select:focus,.inp:focus{border-color:var(--amber)}
       </div>
     </section>
 
-    <div class="foot">S-M-F Terminal est une démonstration. Seuls les actifs marqués d'un point (crypto, forex, actions US avec clé) viennent de sources publiques. Tout le reste (indices, matières, taux, calendrier, actualités, CESI, taux implicites, COT) est simulé. Ne pas utiliser pour prendre des décisions d'investissement.</div>
+    <div class="foot">S-M-F Terminal est une démonstration. Les actifs marqués d'un point (crypto, forex, actions US avec clé) viennent de sources publiques ; dans l'onglet TradingView, les indices, métaux, énergie et taux US viennent aussi de données réelles (Firebase). Le reste (calendrier, actualités, CESI, taux implicites, COT, et ces mêmes instruments en dehors de l'onglet TradingView) est simulé. Ne pas utiliser pour prendre des décisions d'investissement.</div>
   </main>
 </div>
 
-<footer class="statusbar"><span><i class="dot" style="display:inline-block;margin-right:7px"></i>Flux en direct</span><span title="Dernier cycle des scripts du pipeline">Flux <b id="lat">--</b></span><span class="hidem">Fin de mois dans <b id="eom">--</b></span><span class="grow"></span><button class="sbtn hidem" id="dataBtn" title="Sources de données"><i class="sdot" id="dataDot"></i><span id="dataTxt">Données simulées</span></button></footer>
+<footer class="statusbar"><span><i class="dot" style="display:inline-block;margin-right:7px"></i>Flux en direct</span><span>Latence <b id="lat">14 ms</b></span><span class="hidem">Fin de mois dans <b id="eom">--</b></span><span class="grow"></span><button class="sbtn hidem" id="dataBtn" title="Sources de données"><i class="sdot" id="dataDot"></i><span id="dataTxt">Données simulées</span></button></footer>
 
 <div class="modal" id="dataModal" hidden><div class="mbox" role="dialog" aria-label="Sources de données">
   <div class="mh"><b>Sources de données</b><button class="xs" id="dmClose" aria-label="Fermer">✕</button></div>
@@ -1048,6 +1044,10 @@ select:focus,.inp:focus{border-color:var(--amber)}
 </div></div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
+<!-- Firebase : lecture temps réel des indices, métaux, énergie et taux US
+     (même base "terminal-data-base" que le site principal, alimentée par le
+     pipeline actifs_cloud.py). Chargé avant le script principal, qui l'utilise
+     pour l'onglet TradingView. -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
@@ -1584,8 +1584,7 @@ function lineChart(cv,series,o){
   const x=cv.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,W,H);
   const mini=!!o.mini,padL=mini?(o.padX?o.padX[0]:6):(o.padL||48),padR=mini?(o.padX?o.padX[1]:6):12,padT=mini?6:10,padB=mini?6:(o.noX?8:22);
   let n=0,mn=Infinity,mx=-Infinity;
-  series.forEach(s=>{n=Math.max(n,s.v.length);s.v.forEach(v=>{if(v!=null&&isFinite(v)){mn=Math.min(mn,v);mx=Math.max(mx,v)}});(s.marks||[]).forEach(v=>{if(v!=null&&isFinite(v)){mn=Math.min(mn,v);mx=Math.max(mx,v)}});(s.revs||[]).forEach(v=>{if(v!=null&&isFinite(v)){mn=Math.min(mn,v);mx=Math.max(mx,v)}})});
-  /* La pastille de révision dépasse un peu au-dessus de la barre : on garde un peu de marge haute pour qu'elle ne soit pas coupée. */
+  series.forEach(s=>{n=Math.max(n,s.v.length);s.v.forEach(v=>{if(v!=null&&isFinite(v)){mn=Math.min(mn,v);mx=Math.max(mx,v)}})});
   x.font='10.5px '+MONO;x.textBaseline='middle';
   if(!isFinite(mn)||n<1){x.fillStyle=COL.dim;x.textAlign='center';x.fillText(o.empty||'Historique en cours de constitution',W/2,H/2);return}
   const tight=!!o.tight&&series.some(q=>q.bars)&&(mn>0||mx<0),allPos=mn>0;
@@ -1602,13 +1601,7 @@ function lineChart(cv,series,o){
   const base=Y(tight?BV:(o.zero||o.bars?0:mn));
   series.forEach(s=>{
     const c=s.c||COL.tx;
-    if(s.bars){const bw=Math.max(2,(W-padL-padR)/n*.62);s.v.forEach((v,i)=>{if(v==null)return;x.fillStyle=s.c||(v>=0?COL.up:COL.dn);const y=Y(v);x.fillRect(X(i)-bw/2,Math.min(y,Y(BV)),bw,Math.max(1,Math.abs(y-Y(BV))))});
-      /* Tiret de prévision : un petit repère orange au-dessus de chaque barre, à la hauteur où le marché attendait le chiffre. */
-      if(s.marks){x.strokeStyle='#FFA94D';x.lineWidth=1.6;s.marks.forEach((mv,i)=>{if(mv==null)return;const y=Y(mv);x.beginPath();x.moveTo(X(i)-bw/2-1,y);x.lineTo(X(i)+bw/2+1,y);x.stroke()})}
-      /* Tiret rouge : publication dont la valeur précédente a été révisée par la source, à la hauteur
-         de cette valeur précédente (même forme que le tiret orange de prévision, pour comparaison directe). */
-      if(s.revs){x.strokeStyle=COL.dn;x.lineWidth=1.6;s.revs.forEach((rv,i)=>{if(rv==null)return;const y=Y(rv);x.beginPath();x.moveTo(X(i)-bw/2-1,y);x.lineTo(X(i)+bw/2+1,y);x.stroke()})}
-      return}
+    if(s.bars){const bw=Math.max(2,(W-padL-padR)/n*.62);s.v.forEach((v,i)=>{if(v==null)return;x.fillStyle=s.c||(v>=0?COL.up:COL.dn);const y=Y(v);x.fillRect(X(i)-bw/2,Math.min(y,Y(BV)),bw,Math.max(1,Math.abs(y-Y(BV))))});return}
     x.strokeStyle=c;x.lineWidth=s.w||1.6;x.setLineDash(s.dash||[]);x.lineJoin='round';
     x.beginPath();
     if(s.smooth&&s.v.length>3&&s.v.every(q=>q!=null)){const L=s.v.length;x.moveTo(X(0),Y(s.v[0]));for(let i=1;i<L-1;i++){x.quadraticCurveTo(X(i),Y(s.v[i]),(X(i)+X(i+1))/2,(Y(s.v[i])+Y(s.v[i+1]))/2)}x.lineTo(X(L-1),Y(s.v[L-1]))}
@@ -1630,19 +1623,10 @@ function lineChart(cv,series,o){
 let rsz=0;window.addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(()=>{CVS.forEach(cv=>{if(!cv.isConnected){CVS.delete(cv);return}lineChart(cv,...cv._a)})},120)});
 
 /* ================= FX : historiques, force des devises ================= */
-let fxTab='pct_24h',csTab='pct_30d',fxMode='live';
+let fxTab='pct_jour',csTab='pct_30d',fxMode='live';
+const FX_HOME_PER=[['pct_jour','Jour'],['pct_semaine','Semaine'],['pct_mois','Mois']];
 const FH={},NP=80;
-/* Pourcentages FX réels : document unique fx_rates/latest, écrit par fxforex_cloud.py (~1/min).
-   Retombe sur le calcul simulé tant que la vraie valeur n'est pas encore arrivée. */
-let FXLIVE={},fxUnsub=null;
-function stopFx(){if(fxUnsub){fxUnsub();fxUnsub=null}}
-function startFx(){
-  stopFx();if(!DB)return;
-  fxUnsub=DB.collection('fx_rates').doc('latest').onSnapshot(doc=>{
-    const d=doc.data();FXLIVE=(d&&d.devises)?d.devises:{};
-  },err=>console.error('Écoute fx_rates :',err));
-}
-const fxPct=(s,k)=>{const live=FXLIVE[s];if(live&&live[k]!=null)return live[k];const o=I[s];return (o.p/o.ref[k]-1)*100};
+const fxPct=(o,k)=>(o.p/o.ref[k]-1)*100;
 function periodStart(k){
   const n=new Date(),d=n.getUTCDay(),ds=Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate());
   return k==='pct_24h'?Date.now()-864e5:k==='pct_7d'?Date.now()-7*864e5:k==='pct_30d'?Date.now()-30*864e5:k==='pct_jour'?ds:k==='pct_semaine'?ds-((d+6)%7)*864e5:k==='pct_annee'?Date.UTC(n.getUTCFullYear(),0,1):Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),1);
@@ -1670,7 +1654,7 @@ function forceOf(h){
 }
 function liveFH(){Object.values(FH).forEach(h=>FXP.forEach(s=>{h[s][NP-1]=I[s].p}))}
 $('#csTabs').innerHTML=PERIODS.map(([k,l])=>`<button data-k="${k}" class="${k===csTab?'on':''}">${l}</button>`).join('');
-$('#fxTabs').innerHTML=PERIODS.map(([k,l])=>`<button data-k="${k}" class="${k===fxTab?'on':''}">${l}</button>`).join('');
+$('#fxTabs').innerHTML=FX_HOME_PER.map(([k,l])=>`<button data-k="${k}" class="${k===fxTab?'on':''}">${l}</button>`).join('');
 $('#csGrid').innerHTML=CCY_STR.map(c=>`<div class="cs"><div class="csh"><b>${c}</b><span class="v" id="csV-${c}">—</span></div><div class="chartbox mini" style="height:130px"><canvas id="csC-${c}" class="cv"></canvas></div></div>`).join('');
 function renderCS(){
   if(!FH[csTab])buildFH(csTab);
@@ -1683,15 +1667,15 @@ function renderCS(){
 }
 $('#csTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;csTab=b.dataset.k;$$('#csTabs button').forEach(x=>x.classList.toggle('on',x===b));renderCS()});
 $('#fxTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;fxTab=b.dataset.k;$$('#fxTabs button').forEach(x=>x.classList.toggle('on',x===b));paintFX();renderFXCmp()});
-$('#fxPerf').innerHTML=FXP.map(s=>`<div class="fxr" id="fxr-${s}"><b>${s}</b><div class="dv"><i></i></div><span class="v"></span></div>`).join('');
+$('#fxPerf').innerHTML=CCY_STR.map(c=>`<div class="fxr" id="fxr-${c}"><b>${c}</b><div class="dv"><i></i></div><span class="v"></span></div>`).join('');
 $('#fxPerf').style.display='flex';
 function paintFX(){
-  $$('[data-fp]').forEach(el=>{const p=el.dataset.fp.split('|'),v=fxPct(p[0],p[1]);el.textContent=signed(v,3,' %');el.classList.toggle('up',v>=0);el.classList.toggle('dn',v<0)});
-  const arr=FXP.map(s=>[s,fxPct(s,fxTab)]).sort((a,b)=>b[1]-a[1]),mx=Math.max(.05,...arr.map(a=>Math.abs(a[1])));
-  arr.forEach(([s,v],i)=>{const r=$('#fxr-'+s);if(!r)return;r.style.order=i;const bar=r.querySelector('i'),w=Math.abs(v)/mx*100;
-    bar.style.width=w+'%';bar.style.left='0';bar.style.background=v>=0?COL.up:COL.dn;
-    const t=r.querySelector('.v');t.textContent=signed(v,3,' %');t.className='v '+(v>=0?'up':'dn')});
-  $$('.fxperf .dv i').length;
+  const r={USD:0};FXP.forEach(q=>{r[q.slice(0,3)]=Math.log(I[q].p/I[q].ref[fxTab])});
+  const m=CCY8.reduce((t,c)=>t+r[c],0)/8,v={};CCY8.forEach(c=>v[c]=(r[c]-m)*100);
+  const mx=Math.max(.05,...CCY8.map(c=>Math.abs(v[c])));
+  CCY_STR.forEach(c=>{const row=$('#fxr-'+c);if(!row)return;const x=v[c],w=Math.abs(x)/mx*100,bar=row.querySelector('i');
+    bar.style.width=w+'%';bar.style.left='0';bar.style.background=x>=0?COL.up:COL.dn;
+    const t=row.querySelector('.v');t.textContent=signed(x,2,' %');t.className='v '+(x>=0?'up':'dn')});
 }
 function renderFXCmp(){
   if(fxMode!=='cmp')return;
@@ -1855,43 +1839,29 @@ const EIND=IND_RAW.map(([ccy,type,slug])=>Object.assign({ccy,type,slug,name:titl
 const IB={};EIND.forEach(i=>IB[i.slug]=i);
 const rnd=(v,d)=>{const k=Math.pow(10,d);return Math.round(v*k)/k};
 const fv=(ind,v)=>v==null?'—':ind.u==='%'?fmt(v,ind.d)+' %':ind.u==='K'?fmt(v,ind.d)+' K':ind.u==='M'?fmt(v,ind.d)+' M':fmt(v,ind.d);
-/* HIST[slug] réel : Firestore ff_indicator_history (93 indicateurs, un listener chacun —
-   même approche que MERIDIAN). position=0 = publication la plus récente (comme dans HIST[0] déjà
-   utilisé partout ci-dessous). Les valeurs sont du texte pré-formaté par le script Python
-   (ex : "0,3 %", "150K") : on les reconvertit en nombre pour les calculs et les mini-graphiques. */
-const HIST={};EIND.forEach(ind=>HIST[ind.slug]=[]);
-let ecoUnsubs=[];
-function stopEco(){ecoUnsubs.forEach(u=>u());ecoUnsubs=[]}
-function startEco(){
-  stopEco();if(!DB)return;
-  EIND.forEach(ind=>{
-    ecoUnsubs.push(DB.collection('ff_indicator_history').where('indicateur_slug','==',ind.slug).orderBy('position','asc').limit(20)
-      .onSnapshot(snap=>{
-        const now=Date.now();
-        HIST[ind.slug]=snap.docs.map(doc=>{
-          const x=doc.data(),act=parseValCal(x.actual),fc=parseValCal(x.forecast),pv=parseValCal(x.previous);
-          let dt=x.date_publication_texte?new Date(x.date_publication_texte):null;
-          if(!dt||isNaN(dt))dt=new Date(now-(x.position||0)*ind.f*864e5);   /* repli : espacement théorique si la date texte n'est pas parsable */
-          return {date:dt,actual:act,forecast:fc,previous:pv,rev:!!x.previous_revise};
-        }).filter(r=>r.actual!=null);
-        cesiDirty=true;ecoDirty=true;
-      },err=>console.error('ff_indicator_history/'+ind.slug+' :',err)));
-  });
+const HIST={};
+function genHist(ind){
+  const N=16,now=Date.now(),acts=[];
+  if(ind.type==='taux'){let cur=ind.b;acts[N-1]=cur;for(let i=N-2;i>=0;i--){if(Math.random()<.14)cur=Math.max(0,cur+(Math.random()<.5?.25:-.25));acts[i]=cur}}
+  else{let a=ind.b;for(let i=0;i<N;i++){a=ind.b+(a-ind.b)*.55+gauss()*ind.v;acts.push(a)}}
+  const rows=[],ago=Math.random()*ind.f*.7+.3;
+  for(let k=0;k<N;k++){
+    const i=N-1-k,act=rnd(acts[i],ind.d),pt=i>0?rnd(acts[i-1],ind.d):rnd(acts[0]-ind.v*.2,ind.d);
+    const rev=ind.type!=='taux'&&Math.random()<.1&&i>0;
+    const ps=rev?rnd(pt+(Math.random()<.5?1:-1)*ind.v*.25,ind.d):pt;
+    const fc=ind.type==='taux'?act:rnd(pt+(ind.b-pt)*.25+gauss()*ind.v*.7,ind.d);
+    rows.push({date:new Date(now-(ago+k*ind.f)*864e5),actual:act,forecast:fc,previous:ps,rev});
+  }
+  HIST[ind.slug]=rows;
 }
+EIND.forEach(genHist);
 
 /* ================= CESI ================= */
 const HALF=45;
 const stdPop=a=>{if(a.length<2)return null;const m=a.reduce((s,v)=>s+v,0)/a.length,v=a.reduce((s,q)=>s+(q-m)**2,0)/a.length;return v>0?Math.sqrt(v):null};
 function cesiPrep(ind){
-  /* Au démarrage (peu de publications réelles connues), l'écart-type empirique n'est pas fiable :
-     avec 2 ou 3 points seulement, il peut être minuscule par hasard et faire exploser le score
-     (vu sur NZD avec la première version de ce correctif). On exige donc au moins 4 publications
-     réelles, et on plafonne l'écart-type par la volatilité typique de l'indicateur (ind.v) au lieu
-     d'une simple fraction de celle-ci. Les deux garde-fous s'effacent d'eux-mêmes une fois
-     l'historique réel suffisamment fourni et varié. */
-  if(ind.w<=0||ind.type==='taux')return null;const h=HIST[ind.slug];if(h.length<4)return null;
-  const pts=h.map(r=>({t:+r.date,s:r.actual-r.forecast}));
-  const sd=Math.max(stdPop(pts.map(p=>p.s))||0,ind.v);
+  if(ind.w<=0||ind.type==='taux')return null;const h=HIST[ind.slug];if(h.length<2)return null;
+  const pts=h.map(r=>({t:+r.date,s:r.actual-r.forecast})),sd=stdPop(pts.map(p=>p.s));if(!sd)return null;
   pts.sort((a,b)=>a.t-b.t);return {sd,pts};
 }
 function cesiAt(ccy,dt,cache){
@@ -1899,14 +1869,7 @@ function cesiAt(ccy,dt,cache){
   EIND.forEach(ind=>{
     if(ind.ccy!==ccy||!cache[ind.slug]||!(ind.type in cat))return;
     const pr=cache[ind.slug],past=pr.pts.filter(p=>p.t<=dt);if(!past.length)return;
-    /* Moyenne PONDÉRÉE des écarts-réduits passés (et non leur somme) : avec un historique réel encore
-       court, une somme s'accumule au lieu de se diluer (c'est la vraie cause du NZD à +136 puis +21 :
-       ce n'était ni le calcul du bruit ni l'écart-type, mais l'empilement de tous les points au lieu
-       d'en faire la moyenne). La moyenne reste bornée par le plafond ±3 quel que soit le nombre de
-       points déjà connus, et se rapproche naturellement du comportement à maturité (plusieurs années
-       d'historique, où la somme brute finit par se diluer d'elle-même). */
-    let c=0,pw2=0;past.forEach(p=>{const z=clamp(p.s/pr.sd*ind.s,-3,3),days=Math.max(0,Math.round((dt-p.t)/864e5)),w2=Math.pow(.5,days/HALF);c+=z*w2;pw2+=w2});
-    if(pw2>0)c/=pw2;
+    let c=0;past.forEach(p=>{const z=p.s/pr.sd*ind.s,days=Math.max(0,Math.round((dt-p.t)/864e5));c+=z*Math.pow(.5,days/HALF)});
     cat[ind.type]+=ind.w*c;pw[ind.type]+=ind.w;n++;
   });
   const cats={};Object.keys(cat).forEach(k=>cats[k]=pw[k]>0?cat[k]/pw[k]*10:0);
@@ -1933,7 +1896,7 @@ function renderCesi(){
     return `<div class="cesi-card"><div class="h"><b>${c} <span class="cc" style="font-size:10.5px;font-weight:600;margin-left:6px">${CTRY[c]}</span></b><span class="${cesiCls(r.g)}">${signed(r.g,1)}</span></div>`+
     ['emploi','inflation','croissance'].map(t=>{const v=r.cats[t],w=Math.min(100,Math.abs(v)/mxa*100);
       return `<div class="sb"><span class="mut">${TYPE_L[t]}</span><div class="dv"><i style="left:0;width:${w}%;background:${v>=0?COL.up:COL.dn}"></i></div><span class="v ${cesiCls(v)}">${signed(v,1)}</span></div>`}).join('')+
-    `<div class="cmeta">${r.n} indicateurs actifs, calculé en direct</div></div>`}).join('');
+    `<div class="cmeta">${r.n} indicateurs actifs, calculé en direct, indice simulé</div></div>`}).join('');
   $('#cesiDet').innerHTML=CCY8.map(c=>`<div class="cdet"><div class="cc2">${c}</div>${['emploi','inflation','croissance'].map(t=>`<div><div class="t">${TYPE_L[t]}</div><div class="mini"><canvas id="cd-${c}-${t}" class="cv"></canvas></div></div>`).join('')}</div>`).join('');
   CCY8.forEach(c=>['emploi','inflation','croissance'].forEach(t=>{const s=CESI[c].sc[t];
     lineChart($(`#cd-${c}-${t}`),[{v:s,c:s[s.length-1]>=0?COL.up:COL.dn,area:true}],{zero:true,padL:34,noX:true,yf:q=>fmt(q,0),xl:cesiXL(60),tt:i=>[fdate(Date.now()-(59-i)*3*864e5),signed(s[i],2)]})}));
@@ -1972,50 +1935,64 @@ function renderCesiDetail(){
 }
 $('#cesiRail').addEventListener('click',e=>{const r=e.target.closest('[data-crow]');if(!r)return;crSel=r.dataset.crow;renderCesiRail()});
 
-/* ================= CALENDRIER (réel : Firestore eco_calendar) ================= */
-/* eco_calendar n'est jamais purgé côté script (voir calendrier_cloud.py) : la collection grossit
-   indéfiniment. La requête se limite à hier minuit -> +200 documents pour ne pas tout recharger. */
-const parseValCal=v=>{
-  if(v===null||v===undefined||v==='')return null;
-  const t=String(v).trim().replace(/,/g,'').replace(/^[<>]\s*/,'');
-  const m=/K$/i.test(t)?1e3:/M$/i.test(t)?1e6:/B$/i.test(t)?1e9:1,n=parseFloat(t.replace(/[%KMB]/gi,''));
-  return Number.isNaN(n)?null:n*m;
-};
-function mapCal(doc){
-  const d=doc.data(),date=d.date?versDate(d.date):null;
-  return {id:doc.id,at:date?date.getTime():0,ccy:d.pays||'',titre:d.titre||'',impact:d.impact||'low',
-    precedent:d.precedent||'',prevision:d.prevision||'',reel:d.reel||''};
-}
-let CAL=[],calUnsub=null;
-function stopCal(){if(calUnsub){calUnsub();calUnsub=null}}
-function startCal(){
-  stopCal();if(!DB)return;
-  const debut=new Date();debut.setHours(0,0,0,0);debut.setDate(debut.getDate()-1);
-  calUnsub=DB.collection('eco_calendar').where('date','>=',debut).orderBy('date','asc').limit(200).onSnapshot(snap=>{
-    const avant=new Map(CAL.map(e=>[e.id,e.reel]));
-    CAL=snap.docs.map(mapCal);
-    renderCal();
-    /* survole en vert/rouge les valeurs qui viennent tout juste d'être publiées */
-    requestAnimationFrame(()=>{
-      $$('#calB td[data-ea]').forEach(td=>{
-        const e=CAL.find(q=>q.id===td.dataset.ea);
-        if(e&&e.reel&&avant.get(e.id)!==e.reel&&avant.has(e.id))flash(td,evCol(e)!=='dn');
-      });
-    });
-  },err=>console.error('Écoute eco_calendar :',err));
-}
+/* ================= CALENDRIER ================= */
+const impactOf=ind=>ind.type==='taux'||ind.w>=8?'high':ind.w>=4?'medium':'low';
+const CAL_DEF=[
+ [-16000,'AUD','au-employment-change'],[-9800,'JPY','jn-household-spending-yy'],[-6400,'CHF','sz-kof-economic-barometer'],[-2700,'GBP','uk-retail-sales-mm'],[-700,'EUR','ez-final-cpi-yy'],
+ [70,'USD','us-philly-fed-manufacturing-index'],[190,'CAD','ca-core-retail-sales-mm'],[420,'USD','us-jolts-job-openings'],
+ [700,'EUR','#ECB President Speaks','high'],[1100,'USD','us-unemployment-claims'],[1700,'GBP','uk-cpi-yy'],[2600,'USD','us-core-cpi-mm'],
+ [3600,'NZD','nz-anz-business-confidence'],[5400,'USD','us-ism-services-pmi'],[7200,'USD','#FOMC Member Speaks','medium'],
+ [9000,'CAD','ca-unemployment-rate'],[12000,'USD','us-non-farm-employment-change'],[12000,'USD','us-unemployment-rate'],
+ [16000,'JPY','jn-tokyo-core-cpi-yy'],[20000,'AUD','au-cpi-yy'],[24000,'USD','#Fed Chair Speaks','high'],[28000,'USD','us-core-pce-price-index-mm'],
+ [40000,'EUR','ez-flash-gdp-qq'],[52000,'NZD','nz-gdp-qq'],[60000,'GBP','#Bank Holiday','holiday']
+];
+const CAL=[];
+CAL_DEF.forEach(([off,ccy,key,imp],i)=>{
+  const at=Date.now()+off*1000,ev={id:i,at,ccy,reel:null,done:off<0,speech:key[0]==='#',news:false};
+  if(ev.speech){ev.titre=key.slice(1);ev.impact=imp}
+  else{const ind=IB[key],h=HIST[key];ev.slug=key;ev.ind=ind;ev.titre=ind.name;ev.impact=impactOf(ind);
+    if(off<0){h[0].date=new Date(at);ev.reel=h[0].actual;ev.forecast=h[0].forecast;ev.previous=h[0].previous}
+    else{ev.previous=h[0].actual;ev.forecast=rnd(h[0].actual+(ind.b-h[0].actual)*.3+gauss()*ind.v*.5,ind.d)}}
+  CAL.push(ev)});
+CAL.sort((a,b)=>a.at-b.at);
+/* ---- semaine complète : lundi à dimanche, ~50 événements en plus du direct ---- */
+const weekStart=()=>{const n=new Date(),dow=(n.getDay()+6)%7;return new Date(n.getFullYear(),n.getMonth(),n.getDate()-dow)};
+(function genWeek(){
+  const mon=weekStart(),used=new Set(CAL.filter(e=>e.slug).map(e=>e.slug)),now=Date.now();
+  const SLOT={AUD:[[0,30],[1,30]],JPY:[[0,50],[23,50]],CHF:[[6,30],[7,0]],EUR:[[7,0],[8,0],[9,0],[10,0]],GBP:[[6,0],[7,0]],CAD:[[12,30],[13,45]],USD:[[12,30],[13,15],[14,0],[15,0]],NZD:[[21,45],[22,45]]};
+  const pick2=a=>a[Math.floor(Math.random()*a.length)];
+  const T=(day,hm)=>Date.UTC(mon.getFullYear(),mon.getMonth(),mon.getDate()+day,hm[0],hm[1]);
+  let nid=1000;
+  const add=ev=>{ev.id=nid++;ev.reel=null;ev.news=false;ev.done=ev.at<now;CAL.push(ev)};
+  EIND.forEach(ind=>{
+    if(ind.type==='taux'||used.has(ind.slug))return;
+    const p=ind.f<=7?1:ind.f<=31?.34:ind.f<=95?.12:.03;if(Math.random()>p)return;
+    const day=ind.f<=7&&/claims/.test(ind.slug)?3:Math.floor(Math.random()*5),at=T(day,pick2(SLOT[ind.ccy]));
+    const h=HIST[ind.slug],ev={at,ccy:ind.ccy,slug:ind.slug,ind,titre:ind.name,impact:impactOf(ind)};
+    if(at<now){h[0].date=new Date(at);ev.reel=h[0].actual;ev.forecast=h[0].forecast;ev.previous=h[0].previous}
+    else{ev.previous=h[0].actual;ev.forecast=rnd(h[0].actual+(ind.b-h[0].actual)*.3+gauss()*ind.v*.5,ind.d)}
+    add(ev);
+  });
+  [['USD','FOMC Meeting Minutes','high',2,[18,0]],['USD','10-y Bond Auction','medium',2,[17,0]],['USD','Crude Oil Inventories','medium',2,[14,30]],['USD','Natural Gas Storage','low',3,[14,30]],
+   ['USD','FOMC Member Speaks','medium',1,[15,0]],['USD','Fed Chair Speaks','high',3,[16,30]],['EUR','ECB Economic Bulletin','medium',3,[8,0]],['EUR','German 10-y Bond Auction','low',2,[10,30]],
+   ['EUR','ECB Member Speaks','medium',4,[9,30]],['GBP','MPC Member Speaks','medium',1,[14,0]],['GBP','BOE Gov Speaks','high',3,[15,30]],['CAD','BOC Gov Speaks','medium',2,[16,0]],
+   ['JPY','BOJ Gov Speaks','medium',3,[2,0]],['AUD','RBA Bulletin','medium',3,[0,30]],['CHF','SNB Chairman Speaks','medium',4,[8,15]],['NZD','RBNZ Gov Speaks','low',1,[2,0]],
+   ['JPY','Bank Holiday','holiday',2,[0,0]],['AUD','Bank Holiday','holiday',4,[0,0]]].forEach(([ccy,titre,impact,day,hm])=>{
+    const ev={at:T(day,hm),ccy,titre,impact,speech:true};if(impact==='holiday')ev.at=T(day,[0,0]);add(ev);
+  });
+  CAL.sort((a,b)=>a.at-b.at);
+})();
 let calF='all',calC='all';
 $('#calF').innerHTML=[['all','Tous'],['medium','Moyen +'],['high','Fort']].map(([k,l])=>`<button class="chip ${k===calF?'on':''}" data-k="${k}">${l}</button>`).join('');
 $('#calC').innerHTML=['all'].concat(CCY8).map(c=>`<button class="chip sm ${c===calC?'on':''}" data-ccy="${c}">${c==='all'?'Toutes':c}</button>`).join('');
 $('#calF').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;calF=b.dataset.k;$$('#calF button').forEach(x=>x.classList.toggle('on',x===b));renderCal()});
 $('#calC').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;calC=b.dataset.ccy;$$('#calC button').forEach(x=>x.classList.toggle('on',x===b));renderCal()});
-const calShow=e=>(calF==='all'||(calF==='medium'&&(e.impact==='high'||e.impact==='medium'))||(calF==='high'&&e.impact==='high'))&&(calC==='all'||e.ccy===calC);
+const calShow=e=>{const w0=weekStart().getTime();return e.at>=w0&&e.at<w0+7*864e5&&(calF==='all'||(calF==='medium'&&(e.impact==='high'||e.impact==='medium'))||(calF==='high'&&e.impact==='high'))&&(calC==='all'||e.ccy===calC)};
 const impHTML=i=>i==='holiday'?'<span class="ib holiday">Férié</span>':`<span class="imp l${i==='high'?3:i==='medium'?2:1}"><i></i><i></i><i></i></span>`;
-const evCol=e=>{const p=parseValCal(e.prevision),r=parseValCal(e.reel);return p==null||r==null?'':r>=p?'up':'dn'};
-const evF=(e,v,dashSiTermine)=>v?v:(dashSiTermine&&e.done?'Terminé':'—');
+const evCol=e=>{if(!e.ind||e.reel==null)return '';const d=(e.reel-e.forecast)*e.ind.s;return d>0?'up':d<0?'dn':''};
+const evF=(e,v)=>v==null?'—':e.ind?fv(e.ind,v):'—';
 function nextEv(){return CAL.find(e=>!e.done&&e.impact!=='holiday'&&e.impact!=='low')||CAL.find(e=>!e.done&&e.impact!=='holiday')}
 function renderCal(){
-  const now=Date.now();CAL.forEach(e=>e.done=e.reel?true:(e.at<now));
   const wrap=$('#calWrap'),top=wrap?wrap.scrollTop:0;
   const list=CAL.filter(calShow),nx=nextEv(),cnt={};
   list.forEach(e=>{const k=new Date(e.at).toDateString();cnt[k]=(cnt[k]||0)+1});
@@ -2023,30 +2000,48 @@ function renderCal(){
   list.forEach(e=>{
     const d=new Date(e.at),k=d.toDateString();
     if(k!==day){day=k;const td=k===new Date().toDateString();html+=`<tr class="dayh${td?' today':''}"><td colspan="8">${d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}${td?' · aujourd\u2019hui':''}<span>${cnt[k]} événements</span></td></tr>`}
-    html+=`<tr class="${e.done?'done':''} ${e===nx?'next':''}"><td class="mono">${ftime(e.at)}</td><td><span class="cc">${e.ccy}</span></td><td class="tt">${e.titre}</td><td>${impHTML(e.impact)}</td><td class="evcd" data-cd="${e.at}"></td><td class="r mut">${evF(e,e.precedent)}</td><td class="r">${evF(e,e.prevision)}</td><td class="r ${e.reel?evCol(e):''}" data-ea="${e.id}">${evF(e,e.reel,true)}</td></tr>`;
+    html+=`<tr class="${e.done?'done':''} ${e===nx?'next':''}"><td class="mono">${ftime(e.at)}</td><td><span class="cc">${e.ccy}</span></td><td class="tt">${e.titre}</td><td>${impHTML(e.impact)}</td><td class="evcd" data-cd="${e.at}"></td><td class="r mut">${evF(e,e.previous)}</td><td class="r">${evF(e,e.forecast)}</td><td class="r ${evCol(e)}" data-ea="${e.id}">${e.reel==null?'—':evF(e,e.reel)}</td></tr>`;
   });
   $('#calB').innerHTML=html||'<tr><td colspan="8" class="empty">Aucun événement pour ce filtre.</td></tr>';
   $('#calN').textContent=CAL.filter(e=>!e.done&&calShow(e)).length+' à venir sur '+list.length;
-  if(list.length){
-    const premier=new Date(list[0].at),dernier=new Date(list[list.length-1].at);
-    $('#calDate').textContent='Du '+premier.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})+' au '+dernier.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+', heure locale';
-  }else $('#calDate').textContent='';
+  const mon=weekStart(),sun=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+6);
+  $('#calDate').textContent='Semaine du '+mon.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})+' au '+sun.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+', heure locale';
   if(wrap)wrap.scrollTop=top;
   renderHomeCal();updCdCells();
 }
 function scrollCalNext(){const w=$('#calWrap'),r=w&&w.querySelector('tr.next');if(r)w.scrollTop=Math.max(0,r.offsetTop-70)}
+function shock(ccy,z){const d=clamp(z,-2.5,2.5)*.03/100;FXP.forEach(s=>{const o=I[s];if(o.real)return;if(ccy==='USD')o.p*=1-d;else if(s.startsWith(ccy))o.p*=1+d})}
+function pubEvent(e){
+  e.done=true;
+  if(e.ind){const ind=e.ind,h=HIST[e.slug];
+    e.previous=h[0].actual;
+    e.reel=ind.type==='taux'?e.forecast:rnd(e.forecast+gauss()*ind.v*.8,ind.d);
+    h.unshift({date:new Date(e.at),actual:e.reel,forecast:e.forecast,previous:e.previous,rev:false});if(h.length>20)h.pop();
+    const z=(e.reel-e.forecast)/(ind.v*.8||1)*ind.s;if(e.impact!=='low')shock(e.ccy,z);
+    cesiDirty=true;ecoDirty=true;
+    const good=z>.15?'au-dessus':z<-.15?'en dessous':'en ligne avec';
+    addNews('impact',{tag:e.impact==='high'?'high':e.impact==='medium'?'med':'low',ccy:e.ccy,text:`${e.ccy} : ${e.titre} ressort à ${fv(ind,e.reel)}, ${good} de la prévision (${fv(ind,e.forecast)}), précédent ${fv(ind,e.previous)}`,
+      snippet:`Écart de ${signed(e.reel-e.forecast,ind.d+1)} par rapport au consensus. ${z>.15?'Surprise favorable pour la devise, les paires liées réagissent à la hausse.':z<-.15?'Surprise défavorable pour la devise, pression vendeuse sur les paires associées.':'Publication conforme, réaction limitée sur le marché des changes.'}`},true);
+    if(e.impact!=='low')toast(`${e.ccy} ${e.titre} : ${fv(ind,e.reel)} (prévu ${fv(ind,e.forecast)})`,z>.15?'ok':z<-.15?'err':'warn');
+  }else{if(e.impact!=='holiday'){toast(`${e.ccy} : ${e.titre} en cours`,'warn');addNews('impact',{tag:e.impact==='high'?'high':'med',ccy:e.ccy,text:`${e.ccy} : ${e.titre}, les opérateurs suivent l'intervention en direct`,snippet:'Les propos sont analysés pour d\'éventuels indices sur la trajectoire des taux.'},true)}}
+}
 function updCdCells(){
   const now=Date.now();
   $$('[data-cd]').forEach(td=>{const s=(+td.dataset.cd-now)/1000;
     if(s<=0){td.textContent='Publié';td.className='evcd mut'}
     else{td.textContent=hms(s);td.className='evcd'+(s<120?' soon':'')}});
 }
-function updCal(){updCdCells()}
+function updCal(){
+  let rel=false;const now=Date.now();
+  CAL.forEach(e=>{if(!e.done&&now>=e.at){pubEvent(e);rel=true}});
+  if(rel){renderCal();$$('#calB td[data-ea]').forEach(td=>{const e=CAL[CAL.findIndex(q=>String(q.id)===td.dataset.ea)];if(e&&now-e.at<4000)flash(td,evCol(e)!=='dn')})}
+  else updCdCells();
+}
 function renderHomeCal(){
   const el=$('#hCal');if(!el)return;
   const td=new Date().toDateString(),l=CAL.filter(e=>(e.impact==='high'||e.impact==='medium')&&new Date(e.at).toDateString()===td),nx=nextEv(),top=el.scrollTop;
   el.innerHTML='<table class="tbl evs hcal"><thead><tr><th>Heure</th><th>Dev.</th><th>Événement</th><th class="r">Prév.</th><th class="r">Réel</th></tr></thead><tbody>'+
-   l.map(e=>`<tr class="${e.done?'done':''} ${e===nx?'next':''}"><td class="mono">${ftime(e.at)}</td><td><span class="cc">${e.ccy}</span></td><td class="tt">${e.titre}</td><td class="r">${evF(e,e.prevision)}</td><td class="r ${e.done?evCol(e):''}">${e.done?evF(e,e.reel,true):`<span class="evcd" data-cd="${e.at}"></span>`}</td></tr>`).join('')+'</tbody></table>';
+   l.map(e=>`<tr class="${e.done?'done':''} ${e===nx?'next':''}"><td class="mono">${ftime(e.at)}</td><td><span class="cc">${e.ccy}</span></td><td class="tt">${e.titre}</td><td class="r">${evF(e,e.forecast)}</td><td class="r ${e.done?evCol(e):''}">${e.done?(e.reel==null?'Publié':evF(e,e.reel)):`<span class="evcd" data-cd="${e.at}"></span>`}</td></tr>`).join('')+'</tbody></table>';
   const n=$('#hcN');if(n)n.textContent=l.filter(e=>!e.done).length+' à venir';
   if(!el._first){el._first=true;const r=el.querySelector('tr.next');if(r)el.scrollTop=Math.max(0,r.offsetTop-96)}else el.scrollTop=top;
   updCdCells();
@@ -2064,7 +2059,7 @@ $('#ecoS').addEventListener('click',e=>{const b=e.target.closest('button');if(!b
 $('#ecoGrid').addEventListener('click',e=>{const b=e.target.closest('[data-hs]');if(!b)return;ecoOpen=ecoOpen===b.dataset.hs?null:b.dataset.hs;renderEco()});
 function renderEco(){
   ecoDirty=false;
-  const l=EIND.filter(i=>(ecoC==='all'||i.ccy===ecoC)&&(ecoT==='all'||i.type===ecoT)&&HIST[i.slug].length>0);
+  const l=EIND.filter(i=>(ecoC==='all'||i.ccy===ecoC)&&(ecoT==='all'||i.type===ecoT));
   $('#ecoN').textContent=l.length+' indicateurs affichés sur '+EIND.length;
   if(!l.length){$('#ecoGrid').innerHTML='<div class="empty" style="background:var(--panel)">Aucun indicateur ne correspond à ces filtres.</div>';return}
   $('#ecoGrid').innerHTML=l.map((ind,k)=>{
@@ -2073,8 +2068,8 @@ function renderEco(){
     <div class="mini"><canvas id="eco-${k}" class="cv"></canvas></div><div class="ft"><button data-hs="${ind.slug}">${open?'Masquer l\u2019historique ▴':'Historique ▾'}</button><small>${CTRY[ind.ccy]} · ${TYPE_L[ind.type]} · ${fdate(d.date)}</small></div>
     <table class="${open?'open':''}"><thead><tr><th>Date</th><th>Réel</th><th>Prévu</th><th>Préc.</th></tr></thead><tbody>${h.map(r=>`<tr><td>${fdate(r.date)}</td><td>${fv(ind,r.actual)}</td><td>${fv(ind,r.forecast)}</td><td>${fv(ind,r.previous)}${r.rev?' <span class="rv">rév.</span>':''}</td></tr>`).join('')}</tbody></table></div>`}).join('');
   l.forEach((ind,k)=>{const h=[...HIST[ind.slug]].reverse();
-    lineChart($('#eco-'+k),[{v:h.map(r=>r.actual),marks:ecoS==='bars'?h.map(r=>r.forecast):null,revs:ecoS==='bars'?h.map(r=>r.rev?r.previous:null):null,c:ecoS==='bars'?null:(h[h.length-1].actual>=h[0].actual?COL.up:COL.dn),area:ecoS==='area',bars:ecoS==='bars'}],
-      {mini:true,tight:true,noDot:false,tt:i=>[fdate(h[i].date),'Réel '+fv(ind,h[i].actual),'Prévu '+fv(ind,h[i].forecast),'Préc. '+fv(ind,h[i].previous)+(h[i].rev?' (révisé)':'')]})});
+    lineChart($('#eco-'+k),[{v:h.map(r=>r.actual),c:ecoS==='bars'?null:(h[h.length-1].actual>=h[0].actual?COL.up:COL.dn),area:ecoS==='area',bars:ecoS==='bars'}],
+      {mini:true,tight:true,noDot:false,tt:i=>[fdate(h[i].date),'Réel '+fv(ind,h[i].actual),'Prévu '+fv(ind,h[i].forecast)]})});
 }
 /* ================= TAUX IMPLICITES ================= */
 const BANKS=[
@@ -2214,56 +2209,6 @@ function jiggleRates(){
     if(Date.now()-b.h[b.h.length-1].t>=5*60000){b.h.push({t:Date.now(),pct:b.prob,d:b.delta,o:b.outlook});if(b.h.length>2400)b.h.shift()}});
 }
 const BLUE12='#4C8DFF';
-/* ================= TAUX IMPLICITES (réel : Firestore rate_probabilities) =================
-   Une seule probabilité par réunion, pas de décomposition hike/cut/hold séparée dans la source :
-   contrairement à la barre de vote plus bas dans le fichier (aucun équivalent réel, reste simulée). */
-function nombreDepuisTexte(txt){
-  if(txt===undefined||txt===null)return null;
-  if(typeof txt==='number')return txt;
-  const m=String(txt).replace(',','.').match(/-?\d+(\.\d+)?/);
-  return m?parseFloat(m[0]):null;
-}
-function sensDepuisDelta(delta){if(delta==null)return 'hold';if(delta>1)return 'hike';if(delta<-1)return 'cut';return 'hold'}
-function appliquerMeetings(b,liste){
-  /* Le site source ne donne que le mouvement CUMULÉ depuis aujourd'hui jusqu'à chaque réunion ; le
-     mouvement propre à chaque réunion se calcule par différence avec le cumulé de la réunion précédente
-     (même méthode que MERIDIAN). Dédoublonne par date, comme la source peut publier deux fois la même. */
-  const parDate=new Map();(liste||[]).forEach(m=>{if(m.meeting&&!parDate.has(m.meeting))parDate.set(m.meeting,m)});
-  const aujourdhui=new Date();aujourdhui.setHours(0,0,0,0);
-  const meet=[...parDate.values()].filter(m=>{const d=new Date(m.meeting);return isNaN(d)||d>=aujourdhui})
-    .sort((x,y)=>new Date(x.meeting)-new Date(y.meeting))
-    .map(m=>({at:(()=>{const t=new Date(m.meeting).getTime();return isNaN(t)?Date.now():t})(),cum:nombreDepuisTexte(m.delta_vs_actuel_bps)}));
-  let prev=0;meet.forEach(m=>{const cum=m.cum!=null?m.cum:prev;m.inc=+(cum-prev).toFixed(1);m.sens=sensDepuisDelta(m.inc);
-    m.prob=Math.min(99,Math.max(1,Math.round(Math.abs(m.inc)/(b.step||25)*100)));m.base=cum;if(m.cum!=null)prev=cum});
-  return meet;
-}
-let rateProbUnsubs=[];
-function stopRateProb(){rateProbUnsubs.forEach(u=>u());rateProbUnsubs=[]}
-function startRateProb(){
-  stopRateProb();if(!DB)return;
-  BANKS.forEach(b=>{
-    rateProbUnsubs.push(DB.collection('rate_probabilities').doc(b.code).onSnapshot(doc=>{
-      if(!doc.exists)return;const d=doc.data();
-      const prob=nombreDepuisTexte(d.probabilite),delta=nombreDepuisTexte(d.delta_vs_actuel_bps),
-            outlook=nombreDepuisTexte(d.outlook_12m_bps),taux=nombreDepuisTexte(d.taux_actuel);
-      if(prob!=null)b.prob=Math.round(prob);
-      if(delta!=null)b.delta=delta;
-      if(outlook!=null)b.outlook=outlook;
-      if(taux!=null)b.rate=taux;
-      if(d.sens_mouvement)b.sens=String(d.sens_mouvement).toLowerCase();
-      if(d.prochaine_decision_date){const t=new Date(d.prochaine_decision_date).getTime();if(!isNaN(t))b.next=t}
-      if(d.tableau_meetings){const m=appliquerMeetings(b,d.tableau_meetings);if(m.length)b.meet=m}
-      renderBps();renderMeet();rtDraw();
-    },err=>console.error('Écoute rate_probabilities/'+b.code+' :',err)));
-    rateProbUnsubs.push(DB.collection('rate_probabilities').doc(b.code).collection('historique').orderBy('date_recuperation','asc').limit(1000)
-      .onSnapshot(snap=>{
-        b.h=snap.docs.map(doc=>{const d=doc.data(),t=versDate(d.date_recuperation);
-          return {t:t?t.getTime():Date.now(),pct:nombreDepuisTexte(d.probabilite),d:nombreDepuisTexte(d.delta_vs_actuel_bps),o:nombreDepuisTexte(d.outlook_12m_bps)}}).filter(p=>p.pct!=null);
-        rtDraw();
-      },err=>console.error('Écoute historique '+b.code+' :',err)));
-  });
-}
-
 function renderBps(){
   const max12=Math.max(1,...BANKS.map(b=>Math.abs(b.outlook)));
   $('#bpsList').innerHTML=BANKS.slice().sort((x,y)=>x.next-y.next).map(b=>{
@@ -2324,51 +2269,26 @@ document.addEventListener('click',e=>{
 });
 function renderHomeMeet(){updHomeBps();updHomeBps12()}
 
-/* ================= COT (réel : CFTC via cot_cloud.py) ================= */
-/* Un seul listener par collection (pas par marché) : le volume est faible (~20 semaines x 12
-   marchés), et regrouper côté client évite tout risque de décalage avec le nom CFTC exact
-   (qui inclut le suffixe de bourse, ex: "EURO FX - CHICAGO MERCANTILE EXCHANGE"). */
-const MARCHES_COT=[['USD','USD INDEX'],['CAD','CANADIAN DOLLAR'],['EUR','EURO FX'],['GBP','BRITISH POUND'],
-  ['CHF','SWISS FRANC'],['JPY','JAPANESE YEN'],['AUD','AUSTRALIAN DOLLAR'],['NZD','NZ DOLLAR'],
-  ['MXN','MEXICAN PESO'],['ZAR','SO AFRICAN RAND'],['BRL','BRAZILIAN REAL'],['RUB','RUSSIAN RUBLE']];
-const CCY_PAR_NOM_COT=Object.fromEntries(MARCHES_COT.map(([c,n])=>[n,c]));
-const COTM=MARCHES_COT.map(([c])=>[c]);
+/* ================= COT ================= */
+const COTM=[['USD',35e3,.35,.15],['CAD',120e3,-.2,.3],['EUR',700e3,.25,.3],['GBP',200e3,.1,.2],['CHF',60e3,-.3,.15],['JPY',200e3,-.25,-.1],['AUD',180e3,-.35,.05],['NZD',70e3,-.4,-.15],['MXN',250e3,.3,.25],['ZAR',45e3,.1,.2],['BRL',60e3,-.1,.15],['RUB',15e3,.05,.1]];
 function lastFri(){const n=new Date(),ds=Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()),d=n.getUTCDay();let f=ds+((5-d+7)%7)*864e5+19.5*36e5;if(f>Date.now())f-=7*864e5;return f}
 const COT={futures_only:{},combined:{}};
-COTM.forEach(([c])=>{COT.futures_only[c]=[];COT.combined[c]=[]});   /* évite tout HIST[c] undefined tant que le premier snapshot n'est pas arrivé */
-function mapCotDoc(d){
-  const ll=d.lev_money_positions_long??null,ls=d.lev_money_positions_short??null,
-        al=d.asset_mgr_positions_long??null,as=d.asset_mgr_positions_short??null;
-  return {date:d.report_date_as_yyyy_mm_dd||'',position:d.position??999,oi:d.open_interest_all??null,
-    ll,ls,ln:d.lev_money_net_position??(ll!=null&&ls!=null?ll-ls:null),
-    al,as,an:d.asset_mgr_net_position??(al!=null&&as!=null?al-as:null)};
-}
-const COLLECTIONS_COT={futures_only:'cot_futures_only_history',combined:'cot_combined_history'};
-let cotUnsubs=[];
-function stopCotListen(){cotUnsubs.forEach(u=>u());cotUnsubs=[]}
-function startCotListen(){
-  stopCotListen();if(!DB)return;
-  Object.entries(COLLECTIONS_COT).forEach(([rep,coll])=>{
-    cotUnsubs.push(DB.collection(coll).orderBy('position','asc').limit(500).onSnapshot(snap=>{
-      const parDevise={};
-      snap.docs.forEach(doc=>{
-        const d=doc.data(),nomBase=(d.market_and_exchange_names||'').split(' - ')[0].trim(),ccy=CCY_PAR_NOM_COT[nomBase];
-        if(!ccy)return;(parDevise[ccy]=parDevise[ccy]||[]).push(mapCotDoc(d));
-      });
-      COTM.forEach(([c])=>{if(!parDevise[c])parDevise[c]=[]});
-      Object.values(parDevise).forEach(l=>l.sort((a,b)=>a.position-b.position));
-      COT[rep]=parDevise;renderCot();
-    },err=>console.error('Écoute '+coll+' :',err)));
+COTM.forEach(([c,sc,b1,b2])=>{
+  ['futures_only','combined'].forEach((rep,ri)=>{
+    const k=ri?1.2:1,rows=[];let ln=sc*b1,an=sc*b2;const arr=[];
+    for(let i=0;i<20;i++){ln=ln*.86+sc*b1*.14+gauss()*sc*.09;an=an*.9+sc*b2*.1+gauss()*sc*.07;arr.push([ln,an])}
+    for(let j=0;j<20;j++){const [l,a]=arr[19-j],oi=sc*rand(3.6,4.4)*k,base=sc*rand(.8,1.1)*k;
+      const ll=Math.round(base+Math.max(l,0)*k),ls=Math.round(base+Math.max(-l,0)*k),al=Math.round(base*.9+Math.max(a,0)*k),as=Math.round(base*.9+Math.max(-a,0)*k);
+      rows.push({date:new Date(lastFri()-3*864e5-j*7*864e5).toISOString().slice(0,10),oi:Math.round(oi),ll,ls,ln:ll-ls,al,as,an:al-as})}
+    COT[rep][c]=rows;
   });
-}
+});
 let cotRep='futures_only',cotCcy='EUR',cotWho='lev';
 $('#cotRep').innerHTML=[['futures_only','Futures seuls'],['combined','Combiné']].map(([k,l])=>`<button class="chip ${k===cotRep?'on':''}" data-rep="${k}">${l}</button>`).join('');
 const nf=v=>v==null?'—':fmt(v,0);
 function renderCot(){
   $$('#cotRep button').forEach(b=>b.classList.toggle('on',b.dataset.rep===cotRep));$$('#cotWho button').forEach(b=>b.classList.toggle('on',b.dataset.w===cotWho));
-  $('#cotB').innerHTML=COTM.map(([c])=>{const r=COT[cotRep][c];
-    if(!r.length)return `<tr class="rowgo" style="${c===cotCcy?'background:var(--panel2)':''}" data-cot="${c}"><td><b>${c}</b></td><td class="mono mut" colspan="4" style="font-size:11.5px">En attente de la première publication…</td></tr>`;
-    const d=r[0],p=r[1]||d,dl=d.ln-p.ln;
+  $('#cotB').innerHTML=COTM.map(([c])=>{const r=COT[cotRep][c],d=r[0],p=r[1],dl=d.ln-p.ln;
     return `<tr class="rowgo" style="${c===cotCcy?'background:var(--panel2)':''}" data-cot="${c}"><td><b>${c}</b></td><td class="mono mut" style="font-size:11.5px">${d.date}</td><td class="r ${d.ln>=0?'up':'dn'}">${nf(d.ln)}</td><td class="r ${d.an>=0?'up':'dn'}">${nf(d.an)}</td><td class="r ${dl>=0?'up':'dn'}">${dl>0?'+':''}${nf(dl)}</td></tr>`}).join('');
   const rows=[...COT[cotRep][cotCcy]].reverse(),k=cotWho==='lev'?['ll','ls','ln']:['al','as','an'];
   $('#cotT').textContent=`${cotCcy} · ${cotRep==='combined'?'Combiné':'Futures seuls'} · ${cotWho==='lev'?'Fonds à effet de levier':'Gestionnaires d\u2019actifs'}`;
@@ -2386,7 +2306,7 @@ function updCotCd(){$('#cotCd').textContent=hms((lastFri()+7*864e5-Date.now())/1
 /* ================= NEWS ================= */
 const NL=[];let newsSrc='impact',newsOldDays=0,nSeq=0;
 const NSRC=[
- {k:'impact',l:'Analyse macro, impact fort',pipe:'impact',f:n=>n.src==='impact'&&n.tag!=='low'},
+ {k:'impact',l:'Analyse macro, impact fort',pipe:'ecocal',f:n=>n.src==='impact'&&n.tag!=='low'},
  {k:'macro',l:'Analyse macro, tout',pipe:'impact',f:n=>n.src==='impact'},
  {k:'cb',l:'Banques centrales',pipe:'cb',f:n=>n.src==='cb'},
  {k:'live',l:'Flux marchés live',pipe:'live',f:n=>n.src==='live'}
@@ -2404,19 +2324,24 @@ function genNews(src,t){
   if(r<.45){const s=pick(FXP.concat(['BTC','XAUUSD','SPX','WTI'])),o=I[s];return {src,t,tag:'med',tags:['Flash',o.cls],text:`${o.name} : ${fmt(o.p,o.dec)}, ${pct(chgP(o))} sur la séance`,snippet:pick(SNIP)}}
   const q=pick(LIVE_POOL);return {src,t,tag:'med',tags:[q[0]],text:q[1],snippet:pick(SNIP)};
 }
-/* Neutralisé : les news viennent désormais uniquement de Firestore (le calendrier simulé l'appelait encore, sera retiré à l'étape 3). */
-function addNews(){}
-/* Un tag qui contient une banque centrale ou une devise majeure (mot entier) passe en rouge, comme « Fort » */
-const TAG_ROUGE=/\b(fed|ecb|boe|rbnz|snb|chf|gbp|boc|cad|eur|boj|jpy|rba|aud|nzd)\b|polit/i;   /* « polit » : politique, politics, political… */
-const TAG_BLEU=/market overview|aper[cç]u du march[eé]/i;
-const tagHTML=n=>n.tags?n.tags.map(t=>`<span class="tagp${TAG_BLEU.test(t)?' blue':TAG_ROUGE.test(t)?' hot':''}">${esc(t)}</span>`).join(''):`<span class="ib ${n.tag}">${n.tag==='high'?'Fort':n.tag==='med'?'Moyen':'Faible'}</span>`;
+function addNews(src,over,fresh){
+  const n=Object.assign(genNews(src,new Date()),over||{});n.id=nSeq++;n.fresh=!!fresh;NL.unshift(n);if(NL.length>400)NL.pop();
+  if(fresh){renderHomeNews(true);renderNewsSrc();renderNewsFeed(true)}
+}
+for(let i=0;i<70;i++){const src=Math.random()<.4?'impact':Math.random()<.5?'cb':'live';const n=genNews(src,new Date(Date.now()-i*rand(8,30)*6e4));n.id=nSeq++;NL.push(n)}
+NL.sort((a,b)=>b.t-a.t);
+CAL.filter(e=>e.done&&e.ind&&e.impact!=='low').forEach(e=>{const ind=e.ind,z=(e.reel-e.forecast)/(ind.v*.8||1)*ind.s;NL.unshift({id:nSeq++,src:'impact',t:new Date(e.at),ccy:e.ccy,tag:e.impact==='high'?'high':'med',text:`${e.ccy} : ${e.titre} ressort à ${fv(ind,e.reel)}, ${z>.15?'au-dessus':z<-.15?'en dessous':'en ligne avec'} de la prévision (${fv(ind,e.forecast)})`,snippet:pick(SNIP)})});
+NL.sort((a,b)=>b.t-a.t);
+const tagHTML=n=>n.tags?`<span class="tagp">${n.tags.join(', ')}</span>`:`<span class="ib ${n.tag}">${n.tag==='high'?'Fort':n.tag==='med'?'Moyen':'Faible'}</span>`;
 const NCOLS=[
- {k:'high',l:'Impact fort',pipe:'impact',f:n=>n.src==='impact'&&n.tag!=='low',gen:t=>{const n=genNews('impact',t);n.tag='high';return n}},
- {k:'macro',l:'Analyse macro',pipe:'impact',f:n=>n.src==='impact',gen:t=>{const n=genNews('impact',t);if(n.tag==='high')n.tag='med';return n}},
+ {k:'high',l:'Impact fort',pipe:'ecocal',f:n=>n.src==='impact'&&n.tag==='high',gen:t=>{const n=genNews('impact',t);n.tag='high';return n}},
+ {k:'macro',l:'Analyse macro',pipe:'impact',f:n=>n.src==='impact'&&n.tag!=='high',gen:t=>{const n=genNews('impact',t);if(n.tag==='high')n.tag='med';return n}},
  {k:'cb',l:'Banques centrales',pipe:'cb',f:n=>n.src==='cb',gen:t=>genNews('cb',t)},
  {k:'live',l:'Flux marchés live',pipe:'live',f:n=>n.src==='live',gen:t=>genNews('live',t)}
 ];
-const colLim={high:60,macro:60,cb:60,live:60};
+const colLim={high:40,macro:40,cb:40,live:40};
+for(let i=0;i<8;i++){const n=genNews('impact',new Date(Date.now()-rand(1,30)*36e5));n.tag='high';n.id=nSeq++;NL.push(n)}
+NL.sort((a,b)=>b.t-a.t);
 $('#ncols').innerHTML=NCOLS.map(c=>`<div class="panel ncol"><div class="ph"><h3><i class="sdot" id="nd-${c.k}"></i>${c.l}</h3><span class="sub mono" id="nn-${c.k}">0</span></div><div class="news ncl" id="nl-${c.k}"></div><button class="btn ghost nold" data-old="${c.k}">Charger plus anciens</button></div>`).join('');
 const nTime=d=>{const t=new Date(d),same=t.toDateString()===new Date().toDateString();return (same?'':fdate(t)+' ')+pad(t.getHours())+':'+pad(t.getMinutes())+(same?':'+pad(t.getSeconds()):'')};
 function renderNewsSrc(){
@@ -2425,112 +2350,29 @@ function renderNewsSrc(){
 function renderNewsFeed(fresh){
   NCOLS.forEach(c=>{
     const el=$('#nl-'+c.k);if(!el)return;const top=el.scrollTop,l=NL.filter(c.f).slice(0,colLim[c.k]);
-    el.innerHTML=l.map(n=>`<div class="nc ${fresh&&n.fresh?'new':''} ${n.open?'open':''}" data-nid="${n.id}"><div class="m">${tagHTML(n)}${n.ccy?`<span class="cc">${esc(n.ccy)}</span>`:''}<span>${nTime(n.t)}</span></div><div class="hd2">${esc(n.text)}</div><div class="sn">${paras(n.snippet)}${lienSource(n)}</div></div>`).join('')||'<div class="empty">Aucun article pour le moment.</div>';
+    el.innerHTML=l.map(n=>`<div class="nc ${fresh&&n.fresh?'new':''} ${n.open?'open':''}" data-nid="${n.id}"><div class="m">${tagHTML(n)}${n.ccy?`<span class="cc">${n.ccy}</span>`:''}<span>${nTime(n.t)}</span></div><div class="hd2">${n.text}</div><div class="sn">${n.snippet}</div></div>`).join('')||'<div class="empty">Aucun article pour le moment.</div>';
     el.scrollTop=top;
   });
   NL.forEach(n=>n.fresh=false);renderNewsSrc();
 }
 $('#ncols').addEventListener('click',e=>{
   const h=e.target.closest('.hd2');
-  if(h){const c=h.parentElement,n=NL.find(q=>String(q.id)===c.dataset.nid);if(n){toggleOpen(n);c.classList.toggle('open',!!n.open)}else c.classList.toggle('open');return}
+  if(h){const c=h.parentElement,n=NL.find(q=>String(q.id)===c.dataset.nid);if(n)n.open=!n.open;c.classList.toggle('open');return}
   const o=e.target.closest('[data-old]');
-  if(o){chargerArchive();return}
+  if(o){const c=NCOLS.find(q=>q.k===o.dataset.old),l=NL.filter(c.f),base=(l.length?l[l.length-1].t:new Date()).getTime();
+    for(let i=1;i<=8;i++){const n=c.gen(new Date(base-i*rand(20,60)*6e4));n.id=nSeq++;NL.push(n)}
+    NL.sort((a,b)=>b.t-a.t);colLim[c.k]+=8;renderNewsFeed();toast('8 articles plus anciens chargés : '+c.l,'ok')}
 });
 let hnF='all';
 const HNF=[['all','Tous'],['high','Fort'],['macro','Macro'],['cb','Banques'],['live','Live']];
 $('#hnF').innerHTML=HNF.map(([k,l])=>`<button class="chip sm ${k===hnF?'on':''}" data-k="${k}">${l}</button>`).join('');
 $('#hnF').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;hnF=b.dataset.k;$$('#hnF button').forEach(x=>x.classList.toggle('on',x===b));renderHomeNews()});
-$('#hNews').addEventListener('click',e=>{const h=e.target.closest('.hd2');if(!h)return;const c=h.parentElement,n=NL.find(q=>String(q.id)===c.dataset.hnid);if(n){toggleOpen(n);c.classList.toggle('open',!!n.open)}else c.classList.toggle('open')});
+$('#hNews').addEventListener('click',e=>{const h=e.target.closest('.hd2');if(!h)return;const c=h.parentElement,n=NL.find(q=>String(q.id)===c.dataset.hnid);if(n)n.open=!n.open;c.classList.toggle('open')});
 function renderHomeNews(fresh){
   const el=$('#hNews');if(!el)return;
   const f=hnF==='all'?(()=>true):NCOLS.find(c=>c.k===hnF).f,top=el.scrollTop;
-  el.innerHTML=NL.filter(f).slice(0,200).map(n=>`<div class="nc ${fresh&&n.fresh?'new':''} ${n.open?'open':''}" data-hnid="${n.id}"><div class="m">${tagHTML(n)}${n.ccy?`<span class="cc">${esc(n.ccy)}</span>`:''}<span>${nTime(n.t)}</span></div><div class="hd2">${esc(n.text)}</div><div class="sn">${paras(n.snippet)}${lienSource(n)}</div></div>`).join('');
+  el.innerHTML=NL.filter(f).slice(0,50).map(n=>`<div class="nc ${fresh&&n.fresh?'new':''} ${n.open?'open':''}" data-hnid="${n.id}"><div class="m">${tagHTML(n)}${n.ccy?`<span class="cc">${n.ccy}</span>`:''}<span>${nTime(n.t)}</span></div><div class="hd2">${n.text}</div><div class="sn">${n.snippet}</div></div>`).join('');
   el.scrollTop=top;
-}
-
-
-/* ================= NEWS RÉELLES (Firestore : ff_news, cb_articles, il_articles) ================= */
-const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const paras=t=>String(t||'').split(/\n+/).map(x=>x.trim()).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
-const lienSource=n=>n.url&&/^https?:\/\//i.test(n.url)?`<div><a class="src" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">Lire l’article ↗</a></div>`:'';
-const NEWS={ff:[],cb:[],il:[],arch:[]};          /* ff = ForexFactory, cb = banques centrales, il = InvestingLive */
-const newsKeys=new Map(),newsOpen=new Set(),newsReady={ff:false,cb:false,il:false};
-let newsSeq=0,newsUnsubs=[];
-const newsInit=()=>newsReady.ff&&newsReady.cb&&newsReady.il;
-const newsTimers=new Map(),DELAI_FERMETURE_NEWS=15000;   /* ms : durée avant refermeture automatique */
-function fermerNews(id){
-  clearTimeout(newsTimers.get(id));newsTimers.delete(id);newsOpen.delete(id);
-  const n=NL.find(q=>q.id===id);if(n)n.open=false;
-  $$('.nc[data-nid="'+id+'"],.nc[data-hnid="'+id+'"]').forEach(c=>c.classList.remove('open'));
-}
-function toggleOpen(n){
-  if(n.open){fermerNews(n.id);return}
-  n.open=true;newsOpen.add(n.id);clearTimeout(newsTimers.get(n.id));
-  newsTimers.set(n.id,setTimeout(()=>fermerNews(n.id),DELAI_FERMETURE_NEWS));
-}
-function sortieCarteNews(e){
-  const c=e.target.closest('.nc.open');if(!c||c.contains(e.relatedTarget))return;
-  fermerNews(+(c.dataset.nid!==undefined?c.dataset.nid:c.dataset.hnid));
-}
-$('#ncols').addEventListener('mouseout',sortieCarteNews);$('#hNews').addEventListener('mouseout',sortieCarteNews);
-const cut=(s,n)=>{s=String(s||'');return s.length>n?s.slice(0,n).trimEnd()+'…':s};
-const IMPACT_FS={high:'high',medium:'med',low:'low'};
-/* Langue d'origine en priorité, repli sur *_fr (même règle que MERIDIAN) */
-function mapFF(d,live=true){const t=versDate(d.date_publication);if(!t||isNaN(t))return null;
-  return {src:'impact',t,tag:IMPACT_FS[d.impact]||'med',text:d.titre||d.titre_fr||'',snippet:cut(d.extrait||d.extrait_fr,6000),url:d.url,live}}
-function mapCB(d,live=true){const t=versDate(d.date_publication);if(!t||isNaN(t))return null;
-  const tg=Array.isArray(d.tags)?d.tags.filter(Boolean).slice(0,3):[];
-  return {src:'cb',t,tag:'med',tags:tg.length?tg:['Banque centrale'],text:d.titre||d.titre_fr||'',snippet:cut(d.contenu||d.contenu_fr,6000),url:d.url,live}}
-function mapIL(d,live=true){const t=versDate(d.date_publication);if(!t||isNaN(t))return null;
-  let tg=Array.isArray(d.tags)?d.tags.filter(Boolean).slice(0,3):[];if(!tg.length)tg=[d.categorie||'Live'];
-  return {src:'live',t,tag:'med',tags:tg,text:d.titre||d.titre_fr||'',snippet:cut(d.contenu||d.contenu_fr,6000),url:d.url,live}}
-
-/* Fusionne les 3 flux + l'archive, dédoublonne par URL, garde les ids stables (état « ouvert » conservé) */
-function recalcNews(){
-  const vus=new Set(),out=[],init=newsInit();
-  [...NEWS.ff,...NEWS.cb,...NEWS.il,...NEWS.arch].forEach(n=>{
-    const k=n.url||(n.src+'|'+n.t.getTime()+'|'+n.text);
-    if(vus.has(k))return;vus.add(k);
-    let id=newsKeys.get(k);const nouveau=id===undefined;
-    if(nouveau){id=newsSeq++;newsKeys.set(k,id)}
-    n.id=id;n.open=newsOpen.has(id);n.fresh=nouveau&&init&&n.live;
-    out.push(n)});
-  out.sort((a,b)=>b.t-a.t);
-  NL.length=0;out.forEach(n=>NL.push(n));
-  const fr=NL.some(n=>n.fresh);
-  renderHomeNews(fr);renderNewsFeed(fr);
-}
-function stopNews(){newsUnsubs.forEach(u=>u());newsUnsubs=[]}
-function ecouterNews(coll,cle,mapper){
-  newsUnsubs.push(DB.collection(coll).where('ignore','==',false).orderBy('date_publication','desc').limit(50).onSnapshot(snap=>{
-    NEWS[cle]=snap.docs.map(d=>mapper(d.data())).filter(Boolean);newsReady[cle]=true;recalcNews();
-  },err=>{console.error('Écoute '+coll+' :',err);newsReady[cle]=true}));
-}
-function startNews(){
-  stopNews();if(!DB)return;
-  ecouterNews('ff_news','ff',mapFF);ecouterNews('cb_articles','cb',mapCB);ecouterNews('il_articles','il',mapIL);
-}
-
-/* « Charger plus anciens » : archive statique docs/archive/AAAA-MM-JJ.json, un jour à la fois (comme MERIDIAN).
-   Si le jour chargé n'apporte rien de nouveau (doublon avec le temps réel), on passe au suivant, 4 essais max. */
-let archDates=null,archIdx=0,archBusy=false,archDone=false;
-async function chargerArchive(){
-  if(archBusy||archDone)return;archBusy=true;
-  $$('.nold').forEach(b=>{b.disabled=true;b.textContent='Chargement…'});
-  Object.keys(colLim).forEach(k=>colLim[k]+=40);
-  try{
-    if(archDates===null){const r=await fetch('archive/index.json');if(!r.ok)throw new Error('HTTP '+r.status);archDates=await r.json()}
-    let ajoutes=0;
-    for(let essai=0;essai<4&&!ajoutes&&archIdx<archDates.length;essai++){
-      const ds=archDates[archIdx++],r=await fetch('archive/'+ds+'.json');
-      if(!r.ok)throw new Error('HTTP '+r.status+' ('+ds+')');
-      const j=await r.json(),avant=NL.length;
-      NEWS.arch=NEWS.arch.concat((j.ff_news||[]).map(d=>mapFF(d,false)),(j.cb_articles||[]).map(d=>mapCB(d,false)),(j.il_articles||[]).map(d=>mapIL(d,false))).filter(Boolean);
-      recalcNews();ajoutes=NL.length-avant;
-    }
-  }catch(e){console.error('Archive :',e);toast('Archive indisponible','err')}
-  archBusy=false;archDone=archDates!==null&&archIdx>=archDates.length;
-  $$('.nold').forEach(b=>{b.disabled=archDone;b.textContent=archDone?'Tout l’historique est chargé':'Charger plus anciens'});
 }
 
 /* ================= ACCUEIL : FX, CESI, variation des taux ================= */
@@ -2599,91 +2441,22 @@ document.addEventListener('click',e=>{
   const r=e.target.closest('[data-hbk]');if(r){rtBank=r.dataset.hbk;rtMode=r.dataset.hbm||'bps_next';renderBps();renderMeet();rtDraw();go('implicite')}
 });
 
-/* ================= ETAT DES FLUX (réel : Firestore pipeline_status) ================= */
-/* Connexion Firestore en LECTURE SEULE (règles : lecture publique, écriture bloquée).
-   Même projet que MERIDIAN : terminal-data-base. */
-let DB=null;
-try{
-  firebase.initializeApp({
-    apiKey:"AIzaSyCYB-ooEdyk3eXJkxgVph9bL992LR83MHQ",
-    authDomain:"terminal-data-base.firebaseapp.com",
-    projectId:"terminal-data-base",
-    storageBucket:"terminal-data-base.firebasestorage.app",
-    messagingSenderId:"912690761326",
-    appId:"1:912690761326:web:d305fb66124c8fbbc3e07f"
-  });
-  DB=firebase.firestore();
-}catch(e){console.error('Firebase indisponible :',e)}
-/* Firestore renvoie des Timestamp : .toDate() obligatoire */
-const versDate=v=>v&&typeof v.toDate==='function'?v.toDate():(v?new Date(v):null);
-
-/* id v41 (garde les ids existants pour ne rien casser) -> document pipeline_status réel.
-   seuil = minutes de silence au-delà desquelles le flux passe en rouge (mêmes valeurs que MERIDIAN). */
-const PIPES=[
-  ['impact','Analyse macro','forexfactory',15],
-  ['cb','Banques centrales','centralbanks',15],
-  ['live','Flux marchés','investinglive',15],
-  ['ecocal','Calendrier éco','ecocalendar',15]
-].concat(CCY8.map(c=>['data-'+c.toLowerCase(),'Data '+c,'data-'+c.toLowerCase(),15]),[
-  ['fxforex','FX temps réel','fxforex',15],
-  ['cot-fut','COT futures','cot-futures',8*24*60],
-  ['cot-comb','COT combiné','cot-combined',8*24*60],
-  ['actifs','Actifs (TradingView)','actifs',180],
-  ['fedsep','Projections Fed','fedsep',72*60],
-  ['ecbproj','Projections BCE','ecbproj',72*60]
-]).map(([id,label,doc,seuil])=>({id,label,doc,seuil,last:null,st:null,news:0,raw:null,
-  get status(){return pipeStatus(this)}}));
-function pipeStatus(p){
-  if(!p.last)return 'off';                       /* aucune donnée reçue (gris) */
-  const silencieux=(Date.now()-p.last.getTime())/60000>p.seuil;
-  if(p.st==='erreur'||silencieux)return 'erreur';
-  return p.st==='ok_partiel'?'ok_partiel':'ok';
+/* ================= ETAT DES FLUX ================= */
+const PIPES=[['impact','Analyse macro',60],['cb','Banques centrales',90],['live','Flux marchés',45],['ecocal','Calendrier éco',120]].concat(CCY8.map(c=>['data-'+c.toLowerCase(),'Data '+c,rand(80,140)|0]),[['fxforex','FX temps réel',20],['cot-fut','COT futures',0],['cot-comb','COT combiné',0]])
+ .map(([id,label,every])=>({id,label,every,last:every?Date.now()-rand(2,every*.9)*1e3:lastFri(),status:'ok',news:0,due:every?every*1000*rand(.8,1.3):0}));
+function runPipes(){
+  const now=Date.now();
+  PIPES.forEach(p=>{if(!p.every)return;if(now-p.last>=p.due){const r=Math.random();p.status=r<.025?'erreur':r<.09?'ok_partiel':'ok';p.last=now;p.due=p.every*1000*rand(.8,1.3);p.news=p.status==='erreur'?0:Math.floor(rand(0,4))}});
 }
 const ago=t=>{const s=Math.floor((Date.now()-t)/1000);return s<90?s+' s':s<5400?Math.floor(s/60)+' min':s<172800?Math.floor(s/3600)+' h':Math.floor(s/86400)+' j'};
-
-/* Quota Firestore (50 000 lectures/jour) : écoute coupée quand l'onglet est caché, reprise au retour. */
-let pipeUnsubs=[],pipeHold=0;
-function stopPipes(){pipeUnsubs.forEach(u=>u());pipeUnsubs=[]}
-function startPipes(){
-  stopPipes();if(!DB)return;
-  PIPES.forEach(p=>{
-    pipeUnsubs.push(DB.collection('pipeline_status').doc(p.doc).onSnapshot(doc=>{
-      const d=doc.exists?doc.data():null;
-      p.raw=d;p.last=d?versDate(d.derniere_execution):null;
-      p.st=d?(d.statut||'inconnu'):null;p.news=d?(d.articles_nouveaux||0):0;
-      renderPipes();
-    },err=>console.error('pipeline_status/'+p.doc+' :',err)));
-  });
-}
-let idleT=0,enPause=false;
-document.addEventListener('visibilitychange',()=>{
-  if(document.hidden){idleT=setTimeout(()=>{stopPipes();stopNews();stopCal();stopEco();stopFx();stopCotListen();stopActifs();stopRateProb();enPause=true},120000)}   /* coupe après 2 min d'onglet caché */
-  else{clearTimeout(idleT);if(enPause){enPause=false;pipeHold=Date.now()+4000;startPipes();startNews();startCal();startEco();startFx();startCotListen();startActifs();startRateProb()}}  /* 4 s de grâce : le temps de recevoir les snapshots */
-});
-function pipeTip(p){
-  if(!p.last)return p.doc+' : aucune donnée reçue';
-  let t=p.doc+' : '+p.last.toLocaleString('fr-FR',{hour12:false})+' ('+p.st+', '+p.news+' nouveau(x)';
-  if(p.raw&&p.raw.liens_vus!=null)t+=' / '+p.raw.liens_vus+' vu(s)';
-  t+=')';
-  if(p.raw&&p.raw.derniere_erreur&&p.st!=='ok')t+=' — '+p.raw.derniere_erreur;
-  return t;
-}
 function renderPipes(){
-  if(Date.now()<pipeHold)return;
-  const pipeEl=$('#pipe');if(pipeEl)pipeEl.innerHTML=PIPES.map(p=>`<div title="${pipeTip(p)}"><i class="sdot ${p.status}"></i>${p.label}<small>${p.last?'il y a '+ago(p.last.getTime()):'—'}</small></div>`).join('');
-  const bad=PIPES.filter(p=>p.status==='erreur').length,part=PIPES.filter(p=>p.status==='ok_partiel').length,off=PIPES.filter(p=>p.status==='off').length;
-  const pipeSum=$('#pipeSum');if(pipeSum)pipeSum.textContent=bad?bad+' en erreur':part?part+' partiel(s)':off?off+' sans donnée':'Tous les flux sont opérationnels';
-  const worst=(ids)=>{const l=PIPES.filter(p=>ids.includes(p.id));return l.some(p=>p.status==='erreur')?'erreur':l.some(p=>p.status==='ok_partiel')?'ok_partiel':l.every(p=>p.status==='off')?'off':'ok'};
+  const pipeEl=$('#pipe');if(pipeEl)pipeEl.innerHTML=PIPES.map(p=>`<div title="${p.label} : ${p.status}"><i class="sdot ${p.status}"></i>${p.label}<small>${p.every?'il y a '+ago(p.last):'hebdo'}</small></div>`).join('');
+  const bad=PIPES.filter(p=>p.status==='erreur').length,part=PIPES.filter(p=>p.status==='ok_partiel').length;
+  const pipeSum=$('#pipeSum');if(pipeSum)pipeSum.textContent=bad?bad+' en erreur':part?part+' partiel(s)':'Tous les flux sont opérationnels';
+  const worst=(ids)=>{const l=PIPES.filter(p=>ids.includes(p.id));return l.some(p=>p.status==='erreur')?'erreur':l.some(p=>p.status==='ok_partiel')?'ok_partiel':'ok'};
   const set=(id,st)=>{const e=$('#'+id);if(e)e.className='sd '+st};
   set('sdFx',worst(['fxforex']));set('sdCot',worst(['cot-fut','cot-comb']));
-  /* Pied de page : fraîcheur du flux le plus en retard parmi les scripts à cadence rapide (remplace l'ancienne « latence » fictive) */
-  const rapides=PIPES.filter(p=>p.seuil===15&&p.last).sort((x,y)=>x.last-y.last),lat=$('#lat');
-  if(lat){
-    if(!rapides.length){lat.textContent='--';lat.style.color='';lat.title='En attente de pipeline_status…'}
-    else{const o=rapides[0];lat.textContent='il y a '+ago(o.last.getTime());
-      lat.style.color=bad?COL.dn:part?'#B0B0B0':'';
-      lat.title=PIPES.map(pipeTip).join('\n')}
-  }
+  
 }
 
 /* ================= DONNEES REELLES (crypto, forex, actions US avec clé) ================= */
@@ -2787,58 +2560,6 @@ function startLive(){
   setInterval(()=>{initFX().catch(()=>{})},30*60*1000);
   initStocks();
 }
-/* ================= ACTIFS RÉELS (Firestore : asset_latest/all + asset_latest/live) =================
-   Même source que la page TradingView de MERIDIAN (actifs_cloud.py, cycle horaire, et actifs_live.py,
-   voie rapide ~1/min) : brancher les DEUX ici met aussi à jour, gratuitement, l'accueil, la watchlist,
-   la carte thermique, la fiche technique et le portefeuille, puisqu'ils lisent tous le même objet I/LIST
-   déjà utilisé par applyReal() pour le crypto/forex/actions US. */
-/* v41 cote parfois l'inverse du flux réel (CHFUSD au lieu de USDCHF, etc.) : inv=true => prix = 1/prix_réel,
-   et le sens haut/bas s'inverse aussi (géré par applyReal, qui recalcule hi/lo à partir du seul prix). */
-const ACTIFS_MAP=[
- ['SPX','SPX'],['NDX','NDX'],['DJI','DJI'],['CAC','CAC40'],['DAX','DAX'],['FTSE','FTSE100'],
- ['N225','N225'],['HSI','HSI'],['VIX','VIX'],
- ['AAPL','AAPL'],['MSFT','MSFT'],['NVDA','NVDA'],['AMZN','AMZN'],['GOOGL','GOOGL'],['META','META'],
- ['TSLA','TSLA'],['JPM','JPM'],['MC','MC_PA'],['TTE','TTE_PA'],['SAP','SAP_DE'],
- ['EURUSD','EURUSD'],['GBPUSD','GBPUSD'],['CHFUSD','USDCHF',true],['CADUSD','USDCAD',true],
- ['AUDUSD','AUDUSD'],['NZDUSD','NZDUSD'],['JPYUSD','USDJPY',true],
- ['BTC','BTCUSD'],['ETH','ETHUSD'],['SOL','SOLUSD'],['XRP','XRPUSD'],['BNB','BNBUSD'],
- ['XAUUSD','GOLD'],['XAGUSD','SILVER'],['WTI','WTI'],['BRENT','BRENT'],['NG','NATGAS'],['HG','COPPER'],
- ['US10Y','US10Y']
-];
-/* Sans équivalent dans actifs_cloud.py (donc toujours simulés) : AIR (Airbus), US02Y, DE10Y, FR10Y. */
-let tvAll={},tvLive={},actifsUnsubs=[],dayOpenRef={},dayOpenJour=null;
-let LIVE_ACTIFS='off';
-function stopActifs(){actifsUnsubs.forEach(u=>u());actifsUnsubs=[]}
-function fusionActif(slug){
-  const a=tvAll[slug],l=tvLive[slug];
-  if(a&&l)return (l.ts||0)>=(a.ts||0)?l:a;   /* le plus récent des deux cycles, comme MERIDIAN */
-  return l||a||null;
-}
-function appliquerActifsReels(){
-  const jourUTC=new Date().toISOString().slice(0,10);
-  if(dayOpenJour!==jourUTC){dayOpenJour=jourUTC;dayOpenRef={}}   /* nouvelle séance UTC : on réancre l'« ouverture » */
-  let n=0;
-  ACTIFS_MAP.forEach(([sym,slug,inv])=>{
-    const f=fusionActif(slug);if(!f||!(f.prix>0))return;
-    n++;const p=inv?1/f.prix:f.prix;
-    /* Pas d'« ouverture de séance » dans asset_latest (seulement le prix courant) : on approxime avec le
-       premier prix réel reçu depuis minuit UTC. La variation du jour n'est donc pas calée sur l'heure
-       d'ouverture exacte du marché tant que l'historique horaire (asset_history) n'est pas branché. */
-    if(dayOpenRef[sym]==null)dayOpenRef[sym]=p;
-    applyReal(sym,{p,open:dayOpenRef[sym]},'live');
-  });
-  LIVE_ACTIFS=n?'live':'off';
-}
-function startActifs(){
-  stopActifs();if(!DB)return;
-  actifsUnsubs.push(DB.collection('asset_latest').doc('all').onSnapshot(doc=>{
-    const d=doc.data();console.log('[diagnostic] asset_latest/all — existe:',doc.exists,'contenu:',d);tvAll=(d&&d.actifs)?d.actifs:{};appliquerActifsReels();
-  },err=>console.error('Écoute asset_latest/all :',err)));
-  actifsUnsubs.push(DB.collection('asset_latest').doc('live').onSnapshot(doc=>{
-    const d=doc.data();console.log('[diagnostic] asset_latest/live — existe:',doc.exists,'contenu:',d);tvLive=(d&&d.actifs)?d.actifs:{};appliquerActifsReels();
-  },err=>console.error('Écoute asset_latest/live :',err)));
-}
-
 /* --- affichage : pastilles et fenêtre des sources --- */
 function paintReal(){
   $$('.tk[data-t]').forEach(el=>{const r=I[el.dataset.t].real;el.classList.toggle('lv',r==='live');el.classList.toggle('dl',r==='delayed');el.classList.toggle('sim',!r)});
@@ -2849,9 +2570,9 @@ function paintReal(){
 }
 const PILL={live:['ok','Temps réel'],delayed:['no','Différé ou quotidien'],error:['no','Indisponible, simulé'],off:['no','Connexion'],pending:['no','Connexion'],nokey:['no','Clé requise']};
 function renderDataModal(){
-  const rows=[['Crypto : BTC, ETH, SOL, XRP, BNB','Binance (WebSocket), repli CoinGecko',LIVE.crypto],['Forex : 7 paires contre USD','Taux de référence BCE via Frankfurter, un point par jour ouvré',LIVE.fx],['Actions US : 8 valeurs','Finnhub, clé gratuite requise',LIVE.stocks],['Indices, matières premières, taux US 10 ans, 11 actions','Firestore : asset_latest (actifs_cloud.py + actifs_live.py)',LIVE_ACTIFS],['Airbus, taux US 2 ans, Bund allemand, OAT française','Pas de source connectée pour ces 4 actifs — simulés',null]];
+  const rows=[['Crypto : BTC, ETH, SOL, XRP, BNB','Binance (WebSocket), repli CoinGecko',LIVE.crypto],['Forex : 7 paires contre USD','Taux de référence BCE via Frankfurter, un point par jour ouvré',LIVE.fx],['Actions US : 8 valeurs','Finnhub, clé gratuite requise',LIVE.stocks],['Indices, métaux, énergie, taux US (onglet TradingView)',(dbTV?(tvRealErr?'Base Firebase injoignable':'Firebase (base "terminal-data-base"), alimentée par le pipeline actifs_cloud.py'):'Firebase indisponible'),dbTV&&!tvRealErr?'live':'error']];
   $('#dmList').innerHTML=rows.map(([a,b,st])=>{const p=PILL[st]||PILL.off;return `<div class="dmr"><div><b>${a}</b><small>${b}</small></div><span class="pill ${p[0]}">${p[1]}</span></div>`}).join('')+
-   '<div class="dmr"><div><b>Indices, matières, taux, actions hors US</b><small>Pas de source gratuite utilisable directement depuis un navigateur : simulés</small></div><span class="pill no">Simulé</span></div>';
+   '<div class="dmr"><div><b>Actions hors US, et ces mêmes instruments en dehors de l\'onglet TradingView</b><small>Pas de source gratuite utilisable directement depuis un navigateur : simulés</small></div><span class="pill no">Simulé</span></div>';
   $('#dmKey').value=getKey();
 }
 $('#dataBtn').addEventListener('click',()=>{renderDataModal();$('#dataModal').hidden=false});
@@ -2861,10 +2582,109 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#dataModal').hidd
 $('#dmSave').addEventListener('click',()=>{const v=$('#dmKey').value.trim();if(!v){toast('Collez d\u2019abord une clé','err');return}setKey(v);initStocks();renderDataModal();toast('Clé enregistrée, connexion à Finnhub','ok')});
 $('#dmClear').addEventListener('click',()=>{setKey('');clearInterval(stockTimer);LIVE.stocks='nokey';renderDataModal();toast('Clé effacée','warn')});
 
+/* ================= DONNÉES RÉELLES (Firebase) : indices, métaux, énergie, taux US =================
+   Ces familles d'actifs n'ont pas de source gratuite accessible directement
+   depuis un navigateur (CORS / clé privée). Le site principal S-M-F contourne
+   ça avec un script (actifs_cloud.py, cron GitHub Actions) qui récupère les
+   cours via yfinance et les écrit dans Firestore. On lit ici cette même base :
+   aucune donnée n'est générée, tout vient du pipeline réel. */
+const firebaseConfig={
+  apiKey:"AIzaSyCYB-ooEdyk3eXJkxgVph9bL992LR83MHQ",
+  authDomain:"terminal-data-base.firebaseapp.com",
+  projectId:"terminal-data-base",
+  storageBucket:"terminal-data-base.firebasestorage.app",
+  messagingSenderId:"912690761326",
+  appId:"1:912690761326:web:d305fb66124c8fbbc3e07f",
+  measurementId:"G-J9FY2T651T"
+};
+let dbTV=null;
+try{firebase.initializeApp(firebaseConfig);dbTV=firebase.firestore()}catch(e){console.error('Firebase indisponible :',e)}
+const tvRealHist={};        // slug Firestore -> bougies 1h [{t,o,h,l,c}], triées
+const tvRealLive={};        // slug -> {prix, ts} (voie rapide asset_latest/live)
+const tvRealAll={};         // slug -> {prix, ts} (cycle horaire asset_latest/all)
+const tvRealHistUnsubs={};  // slug -> fonction de désabonnement
+let tvRealLiveUnsubs=[];
+let tvRealErr=false;
+function tvRealPrix(slug){
+  const valide=x=>x&&x.prix!=null&&x.ts;
+  const l=tvRealLive[slug],h=tvRealAll[slug];
+  if(valide(l)&&(!valide(h)||l.ts>=h.ts))return{prix:l.prix,ts:l.ts};
+  if(valide(h))return{prix:h.prix,ts:h.ts};
+  return null;
+}
+function tvRealLastClose(slug){const h=tvRealHist[slug];return h&&h.length?h[h.length-1].c:0}
+function tvRealMoisRequis(){
+  // Fenêtre large (environ 15 mois) : couvre tous les pas d'agrégation proposés (jusqu'à 1S)
+  const mois=[],mnt=new Date();let a=mnt.getUTCFullYear(),m=mnt.getUTCMonth()-14;
+  while(m<0){m+=12;a--}
+  for(let i=0;i<15;i++){mois.push(a+'-'+pad(m+1));m++;if(m>11){m=0;a++}}
+  return mois;
+}
+function tvRealChargerHistorique(slug){
+  if(!dbTV||tvRealHistUnsubs[slug])return;
+  const docs={};
+  tvRealHistUnsubs[slug]=tvRealMoisRequis().map(mo=>dbTV.collection('asset_history').doc(slug+'_'+mo).onSnapshot(doc=>{
+    docs[mo]=doc.exists?(doc.data().points||{}):{};
+    const bruts=[];
+    Object.values(docs).forEach(pts=>Object.keys(pts||{}).forEach(k=>{
+      const v=pts[k],ts=parseInt(String(k).slice(1),10);
+      if(!v||Number.isNaN(ts)||v.c==null)return;
+      bruts.push({t:ts*1000,o:v.o??v.c,h:v.h??v.c,l:v.l??v.c,c:v.c});
+    }));
+    bruts.sort((x,y)=>x.t-y.t);
+    tvRealHist[slug]=bruts;
+    MOS.forEach(C=>{if(C.fsSlug===slug){mosRealRebuild(C);mosDraw(C)}});
+  },err=>{console.error('Erreur lecture asset_history :',err);tvRealErr=true}));
+}
+function tvRealDemarrerLive(){
+  if(!dbTV||tvRealLiveUnsubs.length)return;
+  const tvRealRafraichir=()=>MOS.forEach(C=>{if(C.fsSlug){mosRealRebuild(C);mosDraw(C)}});
+  tvRealLiveUnsubs.push(dbTV.collection('asset_latest').doc('all').onSnapshot(doc=>{
+    Object.assign(tvRealAll,(doc.exists&&doc.data().actifs)||{});
+    tvRealRafraichir();
+  },err=>{console.error('Erreur lecture asset_latest/all :',err);tvRealErr=true}));
+  tvRealLiveUnsubs.push(dbTV.collection('asset_latest').doc('live').onSnapshot(doc=>{
+    Object.assign(tvRealLive,(doc.exists&&doc.data().actifs)||{});
+    tvRealRafraichir();
+  },err=>{console.error('Erreur lecture asset_latest/live :',err);tvRealErr=true}));
+}
+function tvRealArreterLive(){tvRealLiveUnsubs.forEach(f=>{try{f()}catch(e){}});tvRealLiveUnsubs=[]}
+function tvRealArreterHistorique(){Object.values(tvRealHistUnsubs).forEach(arr=>arr.forEach(f=>{try{f()}catch(e){}}));for(const k in tvRealHistUnsubs)delete tvRealHistUnsubs[k]}
+function mosRealAgreger(bruts,pasMs){
+  const decalage=pasMs===7*86400e3?4*86400e3:0,out=[];let cur=null;
+  bruts.forEach(p=>{
+    const debut=Math.floor((p.t-decalage)/pasMs)*pasMs+decalage;
+    if(!cur||cur.t!==debut){cur={t:debut,o:p.o,h:p.h,l:p.l,c:p.c};out.push(cur)}
+    else{if(p.h>cur.h)cur.h=p.h;if(p.l<cur.l)cur.l=p.l;cur.c=p.c}
+  });
+  return out;
+}
+function mosRealFusionnerLive(bruts,slug){
+  const live=tvRealPrix(slug);if(!live||!bruts.length)return;
+  const tMs=live.ts*1000,prix=live.prix,pas=3600e3,der=bruts[bruts.length-1];
+  if(tMs<der.t)return;
+  if(tMs<der.t+pas){der.c=prix;if(prix>der.h)der.h=prix;if(prix<der.l)der.l=prix;return}
+  const k=Math.floor((tMs-der.t)/pas);
+  bruts.push({t:der.t+k*pas,o:k===1?der.c:prix,h:prix,l:prix,c:prix});
+}
+function mosRealRebuild(C){
+  const slug=C.fsSlug,bruts=(tvRealHist[slug]||[]).slice();
+  if(!bruts.length){C.candles=[];return}
+  mosRealFusionnerLive(bruts,slug);
+  const pasMs=Math.max(C.tf,60)*60000;
+  C.candles=mosRealAgreger(bruts,pasMs).slice(-400).map(c=>({o:c.o,h:c.h,l:c.l,c:c.c}));
+}
+function mosGenReal(C){
+  tvRealChargerHistorique(C.fsSlug);
+  mosRealRebuild(C);
+}
+
 /* ================= TRADINGVIEW : mosaïque de 8 graphiques ================= */
 /* Catégories d'actifs de la mosaïque : chaque bouton affiche ses propres graphiques.
    px = prix courant (fonction), dec = décimales, sg = volatilité du générateur de bougies */
 const tvSp=(sym,title,sg)=>({title,px:()=>I[sym].p,dec:I[sym].dec,sg:sg||I[sym].sg,hist:I[sym].hpath?()=>I[sym].hpath:undefined});
+/* Actif réel via Firestore (pipeline actifs_cloud.py) : slug = identifiant côté base de données */
+const tvRl=(sym,title,slug,dec,sg)=>({title,fsSlug:slug,dec,sg:sg||.01,px:()=>{const r=tvRealPrix(slug);return r?r.prix:tvRealLastClose(slug)}});
 const tvInv=(sym,title,dec)=>({title,px:()=>1/I[sym].p,dec,sg:I[sym].sg,hist:I[sym].hpath?()=>I[sym].hpath.map(v=>1/v):undefined}); /* paire inversée : USD/xxx */
 /* Indices de devises : moyenne géométrique de chaque devise contre les 7 autres, base 100 au début de la période */
 const FXK=['USD','EUR','GBP','JPY','CHF','CAD','AUD','NZD'];
@@ -2879,11 +2699,12 @@ const TV_CATS={
   forex:{label:'Forex',list:[tvSp('EURUSD','Euro / Dollar US'),tvSp('GBPUSD','Livre sterling / Dollar US'),tvInv('JPYUSD','Dollar US / Yen japonais',3),tvInv('CHFUSD','Dollar US / Franc suisse',4),
     tvInv('CADUSD','Dollar US / Dollar canadien',4),tvSp('AUDUSD','Dollar australien / Dollar US'),tvSp('NZDUSD','Dollar néo-zélandais / Dollar US'),
     {title:'Euro / Yen japonais',px:()=>I.EURUSD.p/I.JPYUSD.p,dec:3,sg:.010,hist:()=>I.EURUSD.hpath.map((v,i)=>v/I.JPYUSD.hpath[i])}]},
-  metaux:{label:'Métaux',list:[tvSp('XAUUSD','Or / Dollar US'),tvSp('XAGUSD','Argent / Dollar US'),tvSp('HG','Cuivre')]},
+  metaux:{label:'Métaux',list:[tvRl('XAUUSD','Or / Dollar US','GOLD',2,.012),tvRl('XAGUSD','Argent / Dollar US','SILVER',3,.02),tvRl('HG','Cuivre','COPPER',4,.015)]},
   crypto:{label:'Crypto',list:[tvSp('BTC','Bitcoin / Dollar'),tvSp('ETH','Ethereum / Dollar'),tvSp('SOL','Solana / Dollar'),tvSp('XRP','XRP / Dollar'),tvSp('BNB','BNB / Dollar')]},
-  indices:{label:'Indices',list:[tvSp('SPX','S&P 500'),tvSp('NDX','Nasdaq 100'),tvSp('DJI','Dow Jones'),tvSp('CAC','CAC 40'),tvSp('DAX','DAX 40'),tvSp('FTSE','FTSE 100'),tvSp('N225','Nikkei 225'),tvSp('HSI','Hang Seng')]},
-  yields:{label:'Bond Yields',list:[tvSp('US10Y','Treasury 10 ans (États-Unis)',.02),tvSp('US02Y','Treasury 2 ans (États-Unis)',.02),tvSp('DE10Y','Bund 10 ans (Allemagne)',.02),tvSp('FR10Y','OAT 10 ans (France)',.02)]},
-  autres:{label:'Autres',list:[tvSp('WTI','Pétrole WTI'),tvSp('BRENT','Pétrole Brent'),tvSp('NG','Gaz naturel'),tvSp('VIX','VIX (volatilité)',.06),tvSp('AAPL','Apple'),tvSp('MSFT','Microsoft'),tvSp('NVDA','Nvidia'),tvSp('TSLA','Tesla')]}
+  indices:{label:'Indices',list:[tvRl('SPX','S&P 500','SPX',2,.011),tvRl('NDX','Nasdaq 100','NDX',2,.013),tvRl('DJI','Dow Jones','DJI',1,.01),tvRl('CAC','CAC 40','CAC40',2,.011),tvRl('DAX','DAX 40','DAX',2,.011),tvRl('FTSE','FTSE 100','FTSE100',2,.009),tvRl('N225','Nikkei 225','N225',1,.012),tvRl('HSI','Hang Seng','HSI',1,.016)]},
+  /* US02Y, DE10Y et FR10Y ne sont pas dans le pipeline (taux US seulement) : remplacés par les 3 autres échéances US disponibles */
+  yields:{label:'Bond Yields',list:[tvRl('US10Y','Treasury 10 ans (États-Unis)','US10Y',3,.02),tvRl('US5Y','Treasury 5 ans (États-Unis)','US5Y',3,.02),tvRl('US30Y','Treasury 30 ans (États-Unis)','US30Y',3,.02),tvRl('US13W','Treasury 13 semaines (États-Unis)','US13W',3,.02)]},
+  autres:{label:'Autres',list:[tvRl('WTI','Pétrole WTI','WTI',2,.022),tvRl('BRENT','Pétrole Brent','BRENT',2,.022),tvRl('NG','Gaz naturel','NATGAS',3,.035),tvRl('VIX','VIX (volatilité)','VIX',2,.06),tvSp('AAPL','Apple'),tvSp('MSFT','Microsoft'),tvSp('NVDA','Nvidia'),tvSp('TSLA','Tesla')]}
 };
 const TV_IV=[['1m','1'],['5m','5'],['15m','15'],['1h','60'],['4h','240'],['1J','D'],['1S','W']];
 let tvIv='60',tvCols=4,tvBuilt=false,tvCat='fxindex',tvBigIdx=-1,tvMAOn=false,tvMAPer=20;
@@ -3049,8 +2870,9 @@ function mosBuild(){
     const ivRow=document.createElement('div');ivRow.className='tvbi';renderIv(ivRow);card.appendChild(ivRow);
     tvAddBtn(card);g.appendChild(card);
     if(idx===tvBigIdx){card.classList.add('tvbig');const b=card.querySelector('.tvx');if(b){b.textContent='✕';b.title='Réduire';b.setAttribute('aria-label','Réduire')}}
-    const C={card,cv,px:S.px,dec:S.dec,sg:S.sg,hist:S.hist,tf:TF_MIN[tvIv]||60,vis:80,off:0,yz:1,yShift:0,n:0,mx:null,my:null,drag:null};
-    mosGen(C);mosBind(C);MOS.push(C);
+    const C={card,cv,px:S.px,dec:S.dec,sg:S.sg,hist:S.hist,fsSlug:S.fsSlug,tf:TF_MIN[tvIv]||60,vis:80,off:0,yz:1,yShift:0,n:0,mx:null,my:null,drag:null};
+    if(C.fsSlug)mosGenReal(C);else mosGen(C);
+    mosBind(C);MOS.push(C);
   });
   tvSizeCards();
   MOS.forEach(mosDraw);
@@ -3095,18 +2917,21 @@ renderCal();renderCesi();renderEco();renderBps();renderMeet();rtDraw();renderCS(
 renderNewsSrc();renderNewsFeed();renderHomeNews();renderHomeMeet();updHomeFx();renderPipes();
 renderOrders();renderPF();tkUpd();
 for(let i=0;i<8;i++)addTrade();
-paint();clocks();draw();renderBook();startLive();startPipes();startNews();startCal();startEco();startFx();startCotListen();startActifs();startRateProb();
+paint();clocks();draw();renderBook();startLive();
 setInterval(tick1,1000);
 setInterval(clocks,1000);
 setInterval(renderBook,700);
 setInterval(()=>{if(Math.random()<.85)addTrade()},650);
 setInterval(()=>{renderMovers();updSectors();},3000);
 setInterval(()=>{updSent();Y1.forEach((v,i)=>Y1[i]=clamp(v+gauss()*.004,3.2,5));renderYC();$('#yc .ln1').style.animation='none';$('#yc .ln1').style.strokeDashoffset='0'},4500);
+setInterval(()=>{$('#lat').textContent=Math.round(rand(9,24))+' ms'},2000);
 setInterval(tech,3000);
 setInterval(()=>{renderCS();renderFXCmp()},2000);
-setInterval(()=>{renderBps();renderMeet();rtDraw();renderHomeMeet()},6000);   /* jiggleRates() retiré : il ajoutait du bruit simulé par-dessus les vraies données rate_probabilities, et plantait quand b.h était vide (historique réel pas encore reçu) */
+setInterval(()=>{jiggleRates();renderBps();renderMeet();rtDraw();renderHomeMeet()},6000);
+setInterval(()=>{runPipes()},1000);
 setInterval(()=>{renderPipes();renderNewsSrc()},2000);
 setInterval(()=>{renderHomeCal()},5000);
+setInterval(()=>{addNews(pick(['impact','impact','cb','live','live','live']),null,true)},9000);
 /* ============ PAGES ET NAVIGATION ============ */
 const PAGES={accueil:['apercu'],news:['news'],calendrier:['calendrier'],dataeco:['dataeco'],cesi:['cesi'],implicite:['implicite'],force:['force'],fx:['fx'],cot:['cot'],banks:['banks'],tradingview:['tradingview'],rapports:['rapports'],watchlist:['watchlist','cartes'],analyse:['technique','sentiment','taux'],portefeuille:['portefeuille']};
 const BANK_ORDER=['fed','boc','ecb','boe','snb','boj','rba','rbnz'];
@@ -3203,7 +3028,8 @@ function showPage(p){
   const m=$('main');m.classList.remove('pgin');void m.offsetWidth;m.classList.add('pgin');
   window.scrollTo(0,0);
   if(p==='calendrier')scrollCalNext();
-  if(p==='tradingview'&&!tvBuilt){tvBuilt=true;tvRender()}
+  if(p==='tradingview'){tvRealDemarrerLive();if(!tvBuilt){tvBuilt=true;tvRender()}}
+  else{tvRealArreterLive();tvRealArreterHistorique()}
   $('main').classList.toggle('onhome',p==='accueil');const ft=$('.foot');if(ft)ft.style.display=p==='accueil'?'none':'';
   requestAnimationFrame(redrawAll);setTimeout(redrawAll,350);
 }
