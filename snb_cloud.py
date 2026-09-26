@@ -207,6 +207,17 @@ def _normalize_percent(value):
     return re.sub(r"\s+", "", value).replace(",", ".").replace("–", "-")
 
 
+def _diagnostic_declencheur(flat_text, trigger_re, nom):
+    """Aide au diagnostic : montre OU le declencheur a ete trouve (et un
+    apercu du texte autour), ou confirme qu'il est absent du tout."""
+    m = trigger_re.search(flat_text)
+    if not m:
+        return f"[diag-{nom}] declencheur INTROUVABLE dans tout le texte"
+    debut = max(0, m.start() - 30)
+    apercu = flat_text[debut:m.start() + 200]
+    return f"[diag-{nom}] declencheur trouve a la position {m.start()}, apercu: ...{apercu}..."
+
+
 def parse_bulletin(text, bulletin_year):
     flat = re.sub(r"\s+", " ", text)
 
@@ -215,6 +226,11 @@ def parse_bulletin(text, bulletin_year):
 
     inflation_projection = _extract_percent_year_pairs(flat, INFLATION_TRIGGER_RE, bulletin_year)
     gdp_growth = _extract_percent_year_pairs(flat, GDP_TRIGGER_RE, bulletin_year)
+
+    if not gdp_growth:
+        print("  " + _diagnostic_declencheur(flat, GDP_TRIGGER_RE, "PIB"))
+    if policy_rate is None:
+        print("  " + _diagnostic_declencheur(flat, POLICY_RATE_RE, "taux"))
 
     if policy_rate is None and not inflation_projection and not gdp_growth:
         raise ValueError("Aucune des 3 donnees (taux, PIB, inflation) n'a ete trouvee.")
@@ -243,10 +259,14 @@ def cycle():
     bulletins_ecrits = 0
     echecs = 0
 
+    # DIAGNOSTIC TEMPORAIRE (a retirer une fois le probleme PIB/taux
+    # identifie) : force le re-traitement de 2 bulletins deja en cache.
+    DATES_A_REVERIFIER = {"2026-Q2", "2023-Q1"}
+
     for year, quarter in entries:
         doc_id = f"{year}-Q{quarter}"
 
-        if doc_id in cache:
+        if doc_id in cache and doc_id not in DATES_A_REVERIFIER:
             continue
 
         page_url = build_html_url(year, quarter)
