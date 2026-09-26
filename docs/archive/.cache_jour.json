@@ -1,11 +1,21 @@
 {
   "date": "2026-09-26",
   "curseurs": {
-    "ff_news": "2026-09-26T14:36:27.588413+00:00",
+    "ff_news": "2026-09-26T21:27:26.150026+00:00",
     "cb_articles": "2026-09-26T00:00:00+00:00",
     "il_articles": "2026-09-26T00:00:00+00:00"
   },
   "ff_news": [
+    {
+      "extrait": "BIG DAY FOR AMERICAN AUTO WORKERS AND CAR BUYERS! I have just approved new Fuel Economy Standards that TERMINATE Sleepy Joe Biden and Pete Boot-EDGE-EDGE's ridiculous EV Mandate. The Dumocrats cost our Great Auto Manufacturers $Billions, forced Americans into cars they never wanted, and wasted Billions on Chargers that were never built. These new Standards will take the waste out of building cars in America. That means LOWER PRICES, saving families thousands on a new, beautiful, and safe car — Far better than the Environmental Monsters that we were building heretofore. Every Manufacturer, from General Motors to Ford to Stellantis, has called me wanting to build here, and now they can! Under my Administration, over 100 $Billion is being invested in American Autos, and that's just the beginning. The Plants are coming back, and Jobs are returning, to Michigan, Ohio, Indiana, South Carolina, and all over our Country. Thank you to our Great Secretaries of Transportation and Commerce, Sean Duffy and Howard Lutnick. AMERICA IS BACK. MAKE AMERICA GREAT AGAIN!!! President DONALD J. TRUMP",
+      "source": "@realDonaldTrump",
+      "date_publication": "2026-09-26T21:27:26.150026+00:00",
+      "ignore": false,
+      "titre": "Trump: Under my administration, over $100 billion is being invested in American autos, and that's just the beginning",
+      "url": "https://www.forexfactory.com/news/1428675-trump-under-my-administration-over-100-billion-is",
+      "date_recuperation": "2026-09-26T21:28:26.150026+00:00",
+      "impact": "low"
+    },
     {
       "url": "https://www.forexfactory.com/news/1428651-trump-says-he-has-rejected-irans-proposal",
       "source": "@NodeWire",
